@@ -95,12 +95,12 @@ const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
     const before = clean(d.querySelector('#content') && d.querySelector('#content').textContent);
     el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true, view: w }));
     await wait(40);
-    if (process.env.SMOKE_SLOW) await wait(200);
+    if (process.env.SMOKE_SLOW) await wait(120);
     // если движок отрисовал новый экран не сразу — даём ему время
     await waitFor(
       () => clean(d.querySelector('#content') && d.querySelector('#content').textContent) !== before,
-      1500,
-      50
+      400,
+      40
     );
   };
 
@@ -110,7 +110,9 @@ const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
     const content = d.querySelector('#content');
     if (!content) return null;
 
-    const choices = [...content.querySelectorAll('ul.choices a')].filter((a) => clean(a.textContent));
+    // подпись может быть неразрывным пробелом (карточки-«пустышки»), поэтому
+    // варианты не фильтруем по тексту — иначе такие карточки «зависают»
+    const choices = [...content.querySelectorAll('ul.choices a')];
     if (choices.length) {
       const cont = choices.find((a) => /^(Продолжить…?|Продолжить\.\.\.)$/.test(clean(a.textContent)));
       if (cont) return { el: cont, text: clean(cont.textContent), kind: 'продолжить' };
@@ -122,7 +124,7 @@ const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
       const back = choices.find((a) => /^Назад$/.test(clean(a.textContent)));
       if (back) return { el: back, text: clean(back.textContent), kind: 'меню' };
       const pick = pickRandom(choices);
-      return { el: pick, text: clean(pick.textContent), kind: 'выбор' };
+      return { el: pick, text: clean(pick.textContent) || '(вариант без подписи)', kind: 'выбор' };
     }
 
     // рука: сначала разыгрываем карточку
