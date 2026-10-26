@@ -6,6 +6,10 @@ on:
   push:
     branches: ["main"]
 
+  # проверка сборки в pull request (без публикации)
+  pull_request:
+    branches: ["main"]
+
   # и вручную из вкладки Actions
   workflow_dispatch:
 
@@ -58,6 +62,8 @@ jobs:
         run: cp out/game.json out/html/game.json
 
       - name: Upload artifact
+        # артефакт нужен только для публикации
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'out/html'
@@ -65,6 +71,8 @@ jobs:
   deploy:
     name: Публикация
     needs: build
+    # из pull request только собираем, но не публикуем
+    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
