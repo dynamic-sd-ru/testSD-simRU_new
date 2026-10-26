@@ -61,6 +61,14 @@ jobs:
       - name: Copy game.json next to the HTML
         run: cp out/game.json out/html/game.json
 
+      # сквозной смок-тест: партия от главного меню до концовки в jsdom.
+      # Ловит блокирующие дефекты вроде неработающей кнопки «Продолжить».
+      - name: Smoke test (playthrough to the ending)
+        run: |
+          python3 -m http.server 8099 --directory out/html --bind 127.0.0.1 &
+          sleep 2
+          node tools/smoke_play.js http://127.0.0.1:8099/index.html 2500 3
+
       - name: Upload artifact
         # артефакт нужен только для публикации
         if: github.event_name != 'pull_request'

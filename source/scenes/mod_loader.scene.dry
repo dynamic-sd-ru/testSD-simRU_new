@@ -66,6 +66,6 @@ submit.onclick = function() {
 
 Введите URL модификации:
 
-{!<input type="text" size="25" id="mod_url" name="mod_url"/> <button id="submit">Submit</button>!}
+{!<input type="text" size="25" id="mod_url" name="mod_url"/> <button id="submit">Загрузить</button>!}
 
 - @backSpecialScene: Назад

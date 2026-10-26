@@ -5250,14 +5250,15 @@ if ((!dynamicMode && !historicalMode && Q.difficulty != 1) || (Q.year == 1934 &&
 }
 
 Q.has_event = 0;
-// check if there are any cards in #event, and then go to main if not.
+// Единственный вариант «Продолжить…» движок добавляет сам, когда карточек нет.
+// Раньше здесь сравнивалось только с вариантами с многоточием, а движок
+// выдавал «Продолжить» без него — из-за этого has_event всегда был 1 и игра
+// уходила в пустую сцену events_choice, где кнопка «Продолжить» ничего не
+// делала. Теперь принимаются все варианты написания.
+var continue_titles = ["Продолжить", "Продолжить…", "Продолжить...", "Continue", "Continue...", "Continue…"];
 var scene = this.game.scenes['post_event.events_choice'];
 var choices = this._compileChoices(scene);
-if (choices && choices[0] && 
-    choices[0].title !== "Продолжить…" && 
-    choices[0].title !== "Продолжить..." && 
-    choices[0].title !== "Continue..." && 
-    choices[0].title !== "Continue…") {
+if (choices && choices[0] && continue_titles.indexOf(String(choices[0].title).trim()) < 0) {
     Q.has_event = 1;
 } else {
     Q.has_event = 0;
@@ -5273,15 +5274,11 @@ if (this.ui && this.ui.show_portraits) {
     }
 }
 
-Q.has_tutorial_even = 0;
+if (typeof Q.has_tutorial_event === "undefined") Q.has_tutorial_event = 0;
 // check if there are any cards in #tutorial_event, and then go to main if not.
 var scene = this.game.scenes['post_event.tutorial_events_choice'];
 var choices = this._compileChoices(scene);
-if (choices && choices[0] && 
-    choices[0].title !== "Продолжить…" && 
-    choices[0].title !== "Продолжить..." && 
-    choices[0].title !== "Continue..." && 
-    choices[0].title !== "Continue…") {
+if (choices && choices[0] && continue_titles.indexOf(String(choices[0].title).trim()) < 0) {
     Q.has_tutorial_event = 1;
 } else {
     Q.has_tutorial_event = 0;
