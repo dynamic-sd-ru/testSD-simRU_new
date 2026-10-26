@@ -40,6 +40,12 @@
   106 портретов и 118 иконок достижений) плюс 10 файлов новых ассетов из
   upstream; вернулись `d3.v7.min.js`, `d3-parliament.js`, `d3-linegraph.js`,
   `favicon.ico`; исправлены битые ссылки на портреты Тревирануса и Вельса.
+* **Проверено в CI GitHub:** PR #2 собран на чистом раннере
+  (`npm ci` → `npm run build` → `npm run make-html`, шаги зелёные), после
+  влития отработала публикация на Pages
+  (`https://dynamic-sd-ru.github.io/testSD-simRU_new/`). В workflow добавлен
+  триггер `pull_request` — сборка проверяется до влития, публикация только из
+  `main`.
 * **Строки движка:** `scripts/localize-engine.js` (запускается из `postinstall`)
   заменяет «Continue…» на «Продолжить».
 
