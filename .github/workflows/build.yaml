@@ -1,49 +1,83 @@
-# Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+# Сборка игры и публикация на GitHub Pages
+name: Build and deploy to Pages
 
 on:
-  # Runs on pushes targeting the default branch
+  # сборка на каждый пуш в основную ветку
   push:
     branches: ["main"]
 
-  # Allows you to run this workflow manually from the Actions tab
+  # проверка сборки в pull request (без публикации)
+  pull_request:
+    branches: ["main"]
+
+  # и вручную из вкладки Actions
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+# права токена: чтение репозитория + публикация Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow one concurrent deployment
+# одновременно выполняется только одна публикация
 concurrency:
   group: "pages"
   cancel-in-progress: true
 
+env:
+  NODE_VERSION: "20"
+  # core.js собирается браузерифаем и на больших сценах требует памяти
+  NODE_OPTIONS: "--max-old-space-size=4096"
+
 jobs:
-  # Single deploy job since we're just deploying
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  build:
+    name: Сборка
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: setup node
+
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 16
-      - name: Install
-        run: npm install
-      - name: Build game
-        run: npm run dendrynexus make-html -- --pretty
-      - name: Copy game.json to output
-        run: cp out/game.json out/html/
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+
+      # dendrynexus подключается как git-зависимость; в package-lock.json
+      # записаны только https-ссылки, поэтому ssh-ключи не нужны
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
+
+      # compile проверяет сцены; скрипт также патчит строки движка
+      # («Продолжить», «Игра окончена») и проверяет html-обвязку
+      - name: Compile game
+        run: npm run build
+
+      # make-html не перезаписывает переведённый out/html/index.html:
+      # в шаблоне движка он помечен префиксом «+» (копируется только если файла нет)
+      - name: Build playable HTML
+        run: npm run make-html
+
+      - name: Copy game.json next to the HTML
+        run: cp out/game.json out/html/game.json
+
       - name: Upload artifact
+        # артефакт нужен только для публикации
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'out/html'
+
+  deploy:
+    name: Публикация
+    needs: build
+    # из pull request только собираем, но не публикуем
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
