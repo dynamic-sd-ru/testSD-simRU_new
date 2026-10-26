@@ -1,0 +1,1696 @@
+[
+ {
+  "file": "scenes/advisors/hirschfeld.scene.dry",
+  "line": 10,
+  "kind": "tag-close",
+  "before": "</span>в",
+  "after": "</span> в"
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 74,
+  "kind": "cond-close",
+  "before": "?]е",
+  "after": "?] е"
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 117,
+  "kind": "prep-tag",
+  "before": "не",
+  "after": "не "
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 179,
+  "kind": "period",
+  "before": "ю.Н",
+  "after": "ю. Н"
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 188,
+  "kind": "prep-tag",
+  "before": "от",
+  "after": "от "
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 188,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 190,
+  "kind": "prep-tag",
+  "before": "от",
+  "after": "от "
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 222,
+  "kind": "cond-close",
+  "before": "?]Э",
+  "after": "?] Э"
+ },
+ {
+  "file": "scenes/ending_slides.scene.dry",
+  "line": 302,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/bruning_joever.scene.dry",
+  "line": 24,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/events/bruning_joever.scene.dry",
+  "line": 54,
+  "kind": "cond-close",
+  "before": "?]л",
+  "after": "?] л"
+ },
+ {
+  "file": "scenes/events/bruning_no_majority.scene.dry",
+  "line": 73,
+  "kind": "cond-close",
+  "before": "?]о",
+  "after": "?] о"
+ },
+ {
+  "file": "scenes/events/bruning_public_works_real.scene.dry",
+  "line": 24,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/events/bruning_second_cabinet.scene.dry",
+  "line": 28,
+  "kind": "cond-close",
+  "before": "?]Й",
+  "after": "?] Й"
+ },
+ {
+  "file": "scenes/events/bruning_second_cabinet_alt.scene.dry",
+  "line": 23,
+  "kind": "cond-close",
+  "before": "?]Й",
+  "after": "?] Й"
+ },
+ {
+  "file": "scenes/events/bruning_vonc_hergt.scene.dry",
+  "line": 13,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/cabinet_reshuffled.scene.dry",
+  "line": 46,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/cabinet_reshuffled.scene.dry",
+  "line": 154,
+  "kind": "cond-close",
+  "before": "?]к",
+  "after": "?] к"
+ },
+ {
+  "file": "scenes/events/center_party_conference.scene.dry",
+  "line": 26,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/events/center_party_conference_joos.scene.dry",
+  "line": 47,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/events/center_party_conference_joos.scene.dry",
+  "line": 49,
+  "kind": "cond-close",
+  "before": "?]т",
+  "after": "?] т"
+ },
+ {
+  "file": "scenes/events/center_party_conference_kaas.scene.dry",
+  "line": 27,
+  "kind": "tag-close",
+  "before": "</span>к",
+  "after": "</span> к"
+ },
+ {
+  "file": "scenes/events/center_party_conference_kaas.scene.dry",
+  "line": 43,
+  "kind": "cond-close",
+  "before": "?]ч",
+  "after": "?] ч"
+ },
+ {
+  "file": "scenes/events/center_party_conference_kaas.scene.dry",
+  "line": 67,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/center_right_coalition_collapse.scene.dry",
+  "line": 11,
+  "kind": "cond-close",
+  "before": "?]ц",
+  "after": "?] ц"
+ },
+ {
+  "file": "scenes/events/cvp_party_congress_president.scene.dry",
+  "line": 324,
+  "kind": "prep-tag",
+  "before": "не",
+  "after": "не "
+ },
+ {
+  "file": "scenes/events/cvp_party_congress_president.scene.dry",
+  "line": 353,
+  "kind": "tag-close",
+  "before": "</span>к",
+  "after": "</span> к"
+ },
+ {
+  "file": "scenes/events/cvp_party_congress_president.scene.dry",
+  "line": 365,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/ddp_party_congress.scene.dry",
+  "line": 141,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president.scene.dry",
+  "line": 181,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president.scene.dry",
+  "line": 189,
+  "kind": "prep-tag",
+  "before": "от",
+  "after": "от "
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president.scene.dry",
+  "line": 340,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president.scene.dry",
+  "line": 403,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president.scene.dry",
+  "line": 413,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president.scene.dry",
+  "line": 814,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president.scene.dry",
+  "line": 852,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
+  "line": 186,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
+  "line": 278,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
+  "line": 374,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/dnf_collapse_right_coalition.scene.dry",
+  "line": 64,
+  "kind": "prep-tag",
+  "before": "от",
+  "after": "от "
+ },
+ {
+  "file": "scenes/events/dnvp_dvp_merger_new.scene.dry",
+  "line": 23,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/dnvp_dvp_merger_new.scene.dry",
+  "line": 25,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/dnvp_dvp_merger_new.scene.dry",
+  "line": 195,
+  "kind": "tag-close",
+  "before": "</span>е",
+  "after": "</span> е"
+ },
+ {
+  "file": "scenes/events/dnvp_dvp_merger_new.scene.dry",
+  "line": 219,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/dnvp_dvp_merger_new.scene.dry",
+  "line": 228,
+  "kind": "tag-close",
+  "before": "</span>н",
+  "after": "</span> н"
+ },
+ {
+  "file": "scenes/events/dnvp_party_congress_2_triumvirate.scene.dry",
+  "line": 36,
+  "kind": "cond-close",
+  "before": "?]а",
+  "after": "?] а"
+ },
+ {
+  "file": "scenes/events/dnvp_party_congress_3_lambach.scene.dry",
+  "line": 92,
+  "kind": "cond-close",
+  "before": "?]А",
+  "after": "?] А"
+ },
+ {
+  "file": "scenes/events/dvp_scholz_resign.scene.dry",
+  "line": 36,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 1934,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2090,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2150,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2192,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2222,
+  "kind": "cond-close",
+  "before": "?]р",
+  "after": "?] р"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2381,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2442,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2497,
+  "kind": "cond-close",
+  "before": "?]к",
+  "after": "?] к"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2516,
+  "kind": "cond-close",
+  "before": "?]к",
+  "after": "?] к"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2525,
+  "kind": "cond-close",
+  "before": "?]к",
+  "after": "?] к"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 2545,
+  "kind": "cond-close",
+  "before": "?]к",
+  "after": "?] к"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 3453,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 3505,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 3505,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 3552,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 3559,
+  "kind": "cond-close",
+  "before": "?]д",
+  "after": "?] д"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 3736,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/election_1928.scene.dry",
+  "line": 3759,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/emergency_act_bruning.scene.dry",
+  "line": 14,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/emergency_act_bruning_alt.scene.dry",
+  "line": 14,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/emergency_cuts.scene.dry",
+  "line": 52,
+  "kind": "cond-close",
+  "before": "?]о",
+  "after": "?] о"
+ },
+ {
+  "file": "scenes/events/goerdeler_cabinet_2_alt.scene.dry",
+  "line": 26,
+  "kind": "cond-close",
+  "before": "?]т",
+  "after": "?] т"
+ },
+ {
+  "file": "scenes/events/groko_prussia_collapse.scene.dry",
+  "line": 19,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/groko_prussia_collapse.scene.dry",
+  "line": 19,
+  "kind": "cond-close",
+  "before": "?]Н",
+  "after": "?] Н"
+ },
+ {
+  "file": "scenes/events/high_inflation.scene.dry",
+  "line": 38,
+  "kind": "cond-close",
+  "before": "?]ч",
+  "after": "?] ч"
+ },
+ {
+  "file": "scenes/events/hindenburg_explode_president.scene.dry",
+  "line": 161,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/events/hindenburg_explode_president.scene.dry",
+  "line": 177,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/hindenburg_explode_president.scene.dry",
+  "line": 424,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/hitler_cabinet_dead.scene.dry",
+  "line": 93,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/events/labor_unrest.scene.dry",
+  "line": 23,
+  "kind": "tag-close",
+  "before": "</span>н",
+  "after": "</span> н"
+ },
+ {
+  "file": "scenes/events/landtag_referendum_campaign.scene.dry",
+  "line": 23,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/landtag_referendum_petition.scene.dry",
+  "line": 23,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/local_election_1932.scene.dry",
+  "line": 1089,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/local_election_1932.scene.dry",
+  "line": 1160,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/local_election_saxony.scene.dry",
+  "line": 695,
+  "kind": "cond-close",
+  "before": "?]о",
+  "after": "?] о"
+ },
+ {
+  "file": "scenes/events/lvp_party_congress_1928_0.scene.dry",
+  "line": 56,
+  "kind": "tag-close",
+  "before": "</span>к",
+  "after": "</span> к"
+ },
+ {
+  "file": "scenes/events/lvp_party_congress_1928_2_luther.scene.dry",
+  "line": 167,
+  "kind": "tag-close",
+  "before": "</span>д",
+  "after": "</span> д"
+ },
+ {
+  "file": "scenes/events/lvp_party_congress_dingeldey.scene.dry",
+  "line": 256,
+  "kind": "tag-close",
+  "before": "</span>д",
+  "after": "</span> д"
+ },
+ {
+  "file": "scenes/events/march_on_berlin.scene.dry",
+  "line": 135,
+  "kind": "cond-close",
+  "before": "?]В",
+  "after": "?] В"
+ },
+ {
+  "file": "scenes/events/military_angry.scene.dry",
+  "line": 12,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/nazi_14.scene.dry",
+  "line": 37,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/events/nazi_15.scene.dry",
+  "line": 47,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/events/nazi_16.scene.dry",
+  "line": 66,
+  "kind": "cond-close",
+  "before": "?]а",
+  "after": "?] а"
+ },
+ {
+  "file": "scenes/events/nazi_18.scene.dry",
+  "line": 25,
+  "kind": "cond-close",
+  "before": "?]Л",
+  "after": "?] Л"
+ },
+ {
+  "file": "scenes/events/papen_cabinet_5.scene.dry",
+  "line": 23,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/papen_cabinet_5.scene.dry",
+  "line": 45,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/papen_cabinet_5.scene.dry",
+  "line": 45,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/papen_civil_war.scene.dry",
+  "line": 180,
+  "kind": "prep-tag",
+  "before": "про",
+  "after": "про "
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_campaign.scene.dry",
+  "line": 557,
+  "kind": "prep-tag",
+  "before": "про",
+  "after": "про "
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_campaign.scene.dry",
+  "line": 826,
+  "kind": "prep-tag",
+  "before": "про",
+  "after": "про "
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_candidate.scene.dry",
+  "line": 1002,
+  "kind": "cond-close",
+  "before": "?]у",
+  "after": "?] у"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_candidate.scene.dry",
+  "line": 1095,
+  "kind": "cond-close",
+  "before": "?]у",
+  "after": "?] у"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_candidate.scene.dry",
+  "line": 1251,
+  "kind": "cond-close",
+  "before": "?]у",
+  "after": "?] у"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_candidate.scene.dry",
+  "line": 1251,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_candidate.scene.dry",
+  "line": 1251,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_candidate.scene.dry",
+  "line": 1272,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_candidate.scene.dry",
+  "line": 1272,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 694,
+  "kind": "cond-close",
+  "before": "?]а",
+  "after": "?] а"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 698,
+  "kind": "cond-close",
+  "before": "?]ч",
+  "after": "?] ч"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 700,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 789,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 789,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 810,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 810,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 915,
+  "kind": "cond-close",
+  "before": "?]П",
+  "after": "?] П"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 915,
+  "kind": "cond-close",
+  "before": "?]у",
+  "after": "?] у"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 935,
+  "kind": "cond-close",
+  "before": "?]у",
+  "after": "?] у"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 990,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 1068,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/presidential_election_1932_round_1.scene.dry",
+  "line": 1304,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/prussia_election_1928.scene.dry",
+  "line": 996,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/prussia_election_1928.scene.dry",
+  "line": 1042,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/prussia_election_1928.scene.dry",
+  "line": 1067,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/prussia_election_1928.scene.dry",
+  "line": 1086,
+  "kind": "cond-close",
+  "before": "?]а",
+  "after": "?] а"
+ },
+ {
+  "file": "scenes/events/prussia_election_1928.scene.dry",
+  "line": 1189,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/prussia_election_1928.scene.dry",
+  "line": 1200,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/prussia_election_1928.scene.dry",
+  "line": 1200,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 123,
+  "kind": "tag-close",
+  "before": "</span>к",
+  "after": "</span> к"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 123,
+  "kind": "tag-close",
+  "before": "</span>к",
+  "after": "</span> к"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 125,
+  "kind": "tag-close",
+  "before": "</span>к",
+  "after": "</span> к"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 140,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 162,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 173,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 186,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 196,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 230,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 265,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 311,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/prussian_coalition_formation.scene.dry",
+  "line": 311,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/events/prussian_coup.scene.dry",
+  "line": 27,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/reichsbanner_cvp.scene.dry",
+  "line": 46,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/reichsbanner_massive.scene.dry",
+  "line": 24,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/events/reichsbanner_zentrum.scene.dry",
+  "line": 21,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/sa_ban_pre.scene.dry",
+  "line": 133,
+  "kind": "cond-close",
+  "before": "?]л",
+  "after": "?] л"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_11.scene.dry",
+  "line": 82,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_11.scene.dry",
+  "line": 93,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_12.scene.dry",
+  "line": 95,
+  "kind": "cond-close",
+  "before": "?]Ш",
+  "after": "?] Ш"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_12_alt.scene.dry",
+  "line": 92,
+  "kind": "cond-close",
+  "before": "?]л",
+  "after": "?] л"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_12_alt.scene.dry",
+  "line": 582,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_15.scene.dry",
+  "line": 25,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_4.scene.dry",
+  "line": 37,
+  "kind": "tag-close",
+  "before": "</span>ц",
+  "after": "</span> ц"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_4.scene.dry",
+  "line": 37,
+  "kind": "cond-close",
+  "before": "?]Ч",
+  "after": "?] Ч"
+ },
+ {
+  "file": "scenes/events/schleicher_cabinet_8.scene.dry",
+  "line": 74,
+  "kind": "cond-close",
+  "before": "?]К",
+  "after": "?] К"
+ },
+ {
+  "file": "scenes/events/schleicher_reichstag_3.scene.dry",
+  "line": 109,
+  "kind": "cond-close",
+  "before": "?]З",
+  "after": "?] З"
+ },
+ {
+  "file": "scenes/events/socchrist_prussia_collapse.scene.dry",
+  "line": 22,
+  "kind": "cond-close",
+  "before": "?]д",
+  "after": "?] д"
+ },
+ {
+  "file": "scenes/events/socchrist_prussia_collapse.scene.dry",
+  "line": 91,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/socchrist_prussia_collapse.scene.dry",
+  "line": 139,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/soclib_prussia_collapse.scene.dry",
+  "line": 22,
+  "kind": "cond-close",
+  "before": "?]д",
+  "after": "?] д"
+ },
+ {
+  "file": "scenes/events/soclib_prussia_collapse.scene.dry",
+  "line": 61,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/soclib_prussia_collapse.scene.dry",
+  "line": 91,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/stegerwald_formation_2.scene.dry",
+  "line": 12,
+  "kind": "cond-close",
+  "before": "?]А",
+  "after": "?] А"
+ },
+ {
+  "file": "scenes/events/unemployment_insurance_0.scene.dry",
+  "line": 59,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/events/unemployment_insurance_1.scene.dry",
+  "line": 81,
+  "kind": "cond-close",
+  "before": "?]Е",
+  "after": "?] Е"
+ },
+ {
+  "file": "scenes/events/unemployment_insurance_1_lvp.scene.dry",
+  "line": 81,
+  "kind": "cond-close",
+  "before": "?]Е",
+  "after": "?] Е"
+ },
+ {
+  "file": "scenes/events/unemployment_insurance_weimar.scene.dry",
+  "line": 37,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/events/vote_of_no_confidence.scene.dry",
+  "line": 41,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/weimar_prussia_collapse.scene.dry",
+  "line": 20,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/events/weimar_prussia_collapse.scene.dry",
+  "line": 62,
+  "kind": "cond-close",
+  "before": "?]д",
+  "after": "?] д"
+ },
+ {
+  "file": "scenes/events/weimar_prussia_collapse.scene.dry",
+  "line": 78,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/events/weimar_prussia_collapse.scene.dry",
+  "line": 92,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/game_over.scene.dry",
+  "line": 883,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/government_affairs/constitutional_reform.scene.dry",
+  "line": 89,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/government_affairs/dealing_with_toleration_cvp.scene.dry",
+  "line": 52,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/government_affairs/dealing_with_toleration_right.scene.dry",
+  "line": 54,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/government_affairs/economic_democracy.scene.dry",
+  "line": 15,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/government_affairs/economic_democracy.scene.dry",
+  "line": 43,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/government_affairs/education_science.scene.dry",
+  "line": 29,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/government_affairs/labor_rights.scene.dry",
+  "line": 77,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/library.scene.dry",
+  "line": 529,
+  "kind": "cond-close",
+  "before": "?]О",
+  "after": "?] О"
+ },
+ {
+  "file": "scenes/library.scene.dry",
+  "line": 563,
+  "kind": "cond-close",
+  "before": "?]И",
+  "after": "?] И"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 624,
+  "kind": "cond-close",
+  "before": "?]А",
+  "after": "?] А"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 628,
+  "kind": "cond-close",
+  "before": "?]Т",
+  "after": "?] Т"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 640,
+  "kind": "cond-close",
+  "before": "?]к",
+  "after": "?] к"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 668,
+  "kind": "cond-close",
+  "before": "?]о",
+  "after": "?] о"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 698,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 712,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 736,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 738,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 750,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 782,
+  "kind": "cond-close",
+  "before": "?]н",
+  "after": "?] н"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 872,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 948,
+  "kind": "cond-close",
+  "before": "?]ч",
+  "after": "?] ч"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 962,
+  "kind": "cond-close",
+  "before": "?]и",
+  "after": "?] и"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 976,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 978,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 996,
+  "kind": "cond-close",
+  "before": "?]Э",
+  "after": "?] Э"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1028,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1036,
+  "kind": "tag-close",
+  "before": "</span>п",
+  "after": "</span> п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1040,
+  "kind": "tag-close",
+  "before": "</span>п",
+  "after": "</span> п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1046,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1114,
+  "kind": "cond-close",
+  "before": "?]И",
+  "after": "?] И"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1128,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1130,
+  "kind": "cond-close",
+  "before": "?]в",
+  "after": "?] в"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1134,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1915,
+  "kind": "cond-close",
+  "before": "?]А",
+  "after": "?] А"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 1989,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2007,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2029,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2041,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2163,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2239,
+  "kind": "cond-close",
+  "before": "?]ч",
+  "after": "?] ч"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2277,
+  "kind": "cond-close",
+  "before": "?]п",
+  "after": "?] п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2295,
+  "kind": "tag-close",
+  "before": "</span>п",
+  "after": "</span> п"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2295,
+  "kind": "cond-close",
+  "before": "?]Э",
+  "after": "?] Э"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2327,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2331,
+  "kind": "tag-close",
+  "before": "</span>ф",
+  "after": "</span> ф"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2333,
+  "kind": "cond-close",
+  "before": "?]м",
+  "after": "?] м"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2413,
+  "kind": "cond-close",
+  "before": "?]И",
+  "after": "?] И"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2473,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2487,
+  "kind": "prep-tag",
+  "before": "не",
+  "after": "не "
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2515,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/main.scene.dry",
+  "line": 2517,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/party_affairs/inter_party_relationships.scene.dry",
+  "line": 12,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/party_affairs/inter_party_relationships.scene.dry",
+  "line": 147,
+  "kind": "cond-close",
+  "before": "?]а",
+  "after": "?] а"
+ },
+ {
+  "file": "scenes/party_affairs/inter_party_relationships.scene.dry",
+  "line": 154,
+  "kind": "cond-close",
+  "before": "?]о",
+  "after": "?] о"
+ },
+ {
+  "file": "scenes/party_affairs/inter_party_relationships.scene.dry",
+  "line": 176,
+  "kind": "cond-close",
+  "before": "?]а",
+  "after": "?] а"
+ },
+ {
+  "file": "scenes/party_affairs/weimar_rally.scene.dry",
+  "line": 11,
+  "kind": "tag-close",
+  "before": "</span>с",
+  "after": "</span> с"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 35,
+  "kind": "cond-close",
+  "before": "?]Б",
+  "after": "?] Б"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 120,
+  "kind": "cond-close",
+  "before": "?]М",
+  "after": "?] М"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 134,
+  "kind": "cond-close",
+  "before": "?]Р",
+  "after": "?] Р"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 147,
+  "kind": "cond-close",
+  "before": "?]Ф",
+  "after": "?] Ф"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 283,
+  "kind": "cond-close",
+  "before": "?]с",
+  "after": "?] с"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 373,
+  "kind": "cond-close",
+  "before": "?]С",
+  "after": "?] С"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 373,
+  "kind": "cond-close",
+  "before": "?]Н",
+  "after": "?] Н"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 375,
+  "kind": "cond-close",
+  "before": "?]С",
+  "after": "?] С"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 375,
+  "kind": "cond-close",
+  "before": "?]Н",
+  "after": "?] Н"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 377,
+  "kind": "cond-close",
+  "before": "?]С",
+  "after": "?] С"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 377,
+  "kind": "cond-close",
+  "before": "?]Н",
+  "after": "?] Н"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 379,
+  "kind": "cond-close",
+  "before": "?]С",
+  "after": "?] С"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 379,
+  "kind": "cond-close",
+  "before": "?]Н",
+  "after": "?] Н"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 381,
+  "kind": "cond-close",
+  "before": "?]С",
+  "after": "?] С"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 381,
+  "kind": "cond-close",
+  "before": "?]Н",
+  "after": "?] Н"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 383,
+  "kind": "cond-close",
+  "before": "?]С",
+  "after": "?] С"
+ },
+ {
+  "file": "scenes/status.scene.dry",
+  "line": 383,
+  "kind": "cond-close",
+  "before": "?]Н",
+  "after": "?] Н"
+ }
+]

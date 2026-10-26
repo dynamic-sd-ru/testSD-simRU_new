@@ -1,0 +1,416 @@
+[
+ [
+  "scenes/events/cvp_party_congress.scene.dry",
+  "title",
+  "that's me! the modman!",
+  "это я! создатель мода!"
+ ],
+ [
+  "scenes/events/cvp_party_congress.scene.dry",
+  "title",
+  "that's me! the modman!",
+  "это я! создатель мода!"
+ ],
+ [
+  "scenes/events/cvp_party_congress.scene.dry",
+  "title",
+  "that's me! the modman!",
+  "это я! создатель мода!"
+ ],
+ [
+  "scenes/events/cvp_party_congress_president.scene.dry",
+  "title",
+  "that's me! the modman!",
+  "это я! создатель мода!"
+ ],
+ [
+  "scenes/events/cvp_party_congress_president.scene.dry",
+  "title",
+  "that's me! the modman!",
+  "это я! создатель мода!"
+ ],
+ [
+  "scenes/events/local_election_saxony.scene.dry",
+  "title",
+  "that's me! the modman!",
+  "это я! создатель мода!"
+ ],
+ [
+  "scenes/events/lvp_party_congress_dietrich.scene.dry",
+  "title",
+  "good mod",
+  "отличный мод"
+ ],
+ [
+  "scenes/events/papen_cabinet_5.scene.dry",
+  "title",
+  "good mod",
+  "отличный мод"
+ ],
+ [
+  "scenes/events/seldte_takes_power.scene.dry",
+  "title",
+  "good mod",
+  "отличный мод"
+ ],
+ [
+  "scenes/events/stegerwald_formation_2.scene.dry",
+  "title",
+  "good mod",
+  "отличный мод"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Notwendigkeit Icon",
+  "Notwendigkeit Иконка"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Ein Interessantes Experiment Icon",
+  "Значок «Ein Interessantes Experiment»"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Soziale Marktwirtschaft Icon",
+  "Значок Soziale Marktwirtschaft"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Brüning Uber Alles Icon",
+  "Иконка BrÃ¼ning Uber Alles"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Der Aufstieg Skywalkers Icon",
+  "Иконка Der Aufstieg Skywalkers"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Sohn seiner Klasse Icon",
+  "Sohn seiner Klasse Иконка"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Soziale Marktwirtschaft Icon",
+  "Значок Soziale Marktwirtschaft"
+ ],
+ [
+  "scenes/game_over.scene.dry",
+  "alt",
+  "Der Aufstieg Skywalkers Icon",
+  "Иконка Der Aufstieg Skywalkers"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Communist Party of Germany",
+  "Коммунистическая партия Германии"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "German National Unity Front",
+  "Фронт Национального Единства Германии"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Social Democratic Party of Germany",
+  "Социал-демократическая партия Германии"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Socialist Workers' Party of Germany",
+  "Социалистическая Рабочая Партия Германии"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Center Party + Bavarian People's Party",
+  "Партия Центра + Баварская народная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Christian People's Party + Bavarian People's Party",
+  "Христианская народная Партия + Баварская народная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Communist Party of Germany",
+  "Коммунистическая партия Германии"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Liberal People's Party",
+  "Либеральная народная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "German State Party",
+  "Немецкая государственная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "German People's Party",
+  "Немецкая народная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Conservative People's Party",
+  "Консервативная народная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Free Conserative Party",
+  "Свободно-консервативная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "German National People's Party",
+  "Немецкая национальная народная партия"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "German National Front",
+  "Национальный Фронт Германии"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "German Social Union",
+  "Немецкий социальный союз"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "National-Socialist German Worker's Party (Nazis)",
+  "Национал-социалистическая немецкая рабочая партия (нацисты)"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "National-Socialist German Worker's Party (Nazis)",
+  "Национал-социалистическая немецкая рабочая партия (нацисты)"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "National People's Front",
+  "Национальный Народный фронт"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Communist Party of Germany",
+  "Коммунистическая партия Германии"
+ ],
+ [
+  "scenes/library.scene.dry",
+  "title",
+  "Communist Party of Germany",
+  "Коммунистическая партия Германии"
+ ],
+ [
+  "scenes/main.scene.dry",
+  "title",
+  "good mod",
+  "отличный мод"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "German National Unity Front",
+  "Фронт Национального Единства Германии"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Social Democratic Party of Germany",
+  "Социал-демократическая партия Германии"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Socialist Workers' Party of Germany",
+  "Социалистическая Рабочая Партия Германии"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Center Party + Bavarian People's Party",
+  "Партия Центра + Баварская народная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Christian People's Party + Bavarian People's Party",
+  "Христианская народная Партия + Баварская народная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Center Party + Bavarian People's Party",
+  "Партия Центра + Баварская народная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Communist Party of Germany",
+  "Коммунистическая партия Германии"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Liberal People's Party",
+  "Либеральная народная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "German State Party",
+  "Немецкая государственная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "German People's Party",
+  "Немецкая народная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Conservative People's Party",
+  "Консервативная народная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Free Conserative Party",
+  "Свободно-консервативная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "German National People's Party",
+  "Немецкая национальная народная партия"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "German National Front",
+  "Национальный Фронт Германии"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "German Social Union",
+  "Немецкий социальный союз"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "National-Socialist German Worker's Party (Nazis)",
+  "Национал-социалистическая немецкая рабочая партия (нацисты)"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "National-Socialist German Worker's Party (Nazis)",
+  "Национал-социалистическая немецкая рабочая партия (нацисты)"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "National People's Front",
+  "Национальный Народный фронт"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "alt",
+  "Kurt von Schleicher",
+  "Курт фон Шлейхер"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "alt",
+  "Kurt von Schleicher",
+  "Курт фон Шлейхер"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "alt",
+  "Ferdinand von Bredow",
+  "Фердинанд фон Бредов"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "alt",
+  "Gottfried Reinhold Treviranus",
+  "Gottfried Reinhold Тревиранус"
+ ],
+ [
+  "scenes/status.scene.dry",
+  "title",
+  "Liberal People's Party",
+  "Либеральная народная партия"
+ ],
+ [
+  "scenes/status_right.scene.dry",
+  "alt",
+  "Kurt von Schleicher",
+  "Курт фон Шлейхер"
+ ],
+ [
+  "scenes/status_right.scene.dry",
+  "alt",
+  "Erwin Bumke",
+  "Эрвин Бумке"
+ ],
+ [
+  "scenes/status_right.scene.dry",
+  "alt",
+  "Kurt von Hammerstein-Equord",
+  "Курт фон Хаммерштейн-Экворд"
+ ],
+ [
+  "scenes/status_right.scene.dry",
+  "alt",
+  "Hans von Seeckt",
+  "Ханс фон Зект"
+ ],
+ [
+  "scenes/status_right.scene.dry",
+  "alt",
+  "Kurt von Schleicher",
+  "Курт фон Шлейхер"
+ ],
+ [
+  "scenes/status_right.scene.dry",
+  "alt",
+  "Ferdinand von Bredow",
+  "Фердинанд фон Бредов"
+ ],
+ [
+  "scenes/status_right.scene.dry",
+  "alt",
+  "Gottfried Reinhold Treviranus",
+  "Gottfried Reinhold Тревиранус"
+ ]
+]

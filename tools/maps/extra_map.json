@@ -1,0 +1,77 @@
+{
+ "per_var": {
+  "major_curriculum": {
+   "humanist": "гуманитарная",
+   "democratic": "демократическая",
+   "scientific": "научная",
+   "vocational": "профессиональная",
+   "traditional": "традиционная"
+  },
+  "minor_curriculum": {
+   "humanist": "гуманитарная",
+   "democratic": "демократическая",
+   "scientific": "научная",
+   "vocational": "профессиональная",
+   "traditional": "традиционная"
+  },
+  "reactionary_candidate_1932_ideology": {
+   "Liberal": "Либерал",
+   "Conservative": "Консерватор",
+   "Centrist": "Центрист"
+  },
+  "secondary_reactionary_candidate_1932_ideology": {
+   "Liberal": "Либерал",
+   "Conservative": "Консерватор",
+   "Centrist": "Центрист"
+  }
+ },
+ "global": {
+  "Adolf Hitler": "Адольф Гитлер",
+  "Hermann Göring": "Герман Геринг",
+  "Wilhelm Frick": "Вильгельм Фрик",
+  "Alfred Hugenberg": "Альфред Гугенберг",
+  "Theodor Duesterberg": "Теодор Дюстерберг",
+  "Ernst Thälmann": "Эрнст Тельман",
+  "Otto Braun": "Отто Браун",
+  "Kurt Rosenfeld": "Курт Розенфельд",
+  "Hugo Eckener": "Гуго Эккенер",
+  "Konrad Adenauer": "Конрад Аденауэр",
+  "Otto Gessler": "Отто Гесслер",
+  "Julius Curtius": "Юлиус Курциус",
+  "Hermann Dietrich": "Герман Дитрих",
+  "Eduard Dingeldey": "Эдуард Дингельдей",
+  "Paul von Lettow-Vorbeck": "Пауль фон Леттов-Форбек",
+  "Karl Jarres": "Карл Яррес",
+  "Hans Luther": "Ганс Лютер",
+  "Adam Stegerwald": "Адам Штегервальд",
+  "Kuno von Westarp": "Куно фон Вестарп",
+  "German Democratic Party": "Немецкая демократическая партия",
+  "Bredow": "Бредов",
+  "Hohenzollern": "Гогенцоллерн",
+  "Noske": "Носке",
+  "Bolz": "Больц",
+  "Mahraun": "Мараун",
+  "Hellpach": "Хельпах",
+  "Baumer": "Боймер",
+  "Jarres": "Яррес",
+  "Thalmann": "Тельман",
+  "Munzenberg": "Мюнценберг",
+  "Bruning": "Брюнинг",
+  "Löbe": "Лёбе",
+  "Eßer": "Эссер",
+  "Lautenbach": "Лаутенбах",
+  "Empty": "Пусто",
+  "Become acquainted with the new chancellor": "Познакомиться с новым канцлером",
+  "Convince Hindenburg to continue supporting Papen": "Убедить Гинденбурга продолжать поддерживать Папена",
+  "Be buddies with Schleicher": "Дружить со Шлейхером",
+  "Scheme against Schleicher": "Плести интриги против Шлейхера",
+  "Support the new chancellor": "Поддерживать нового канцлера",
+  "Cry over spilt milk": "Сокрушаться о потерянном",
+  "Nazi backing for his cabinet": "Заручиться поддержкой нацистов для своего кабинета",
+  "Rule in a presidential government": "Править в президентском правительстве",
+  "Consolidate power": "Укрепить власть",
+  "Control Papen from the sidelines": "Контролировать Папена со стороны",
+  "Regain public confidence": "Вернуть доверие общества",
+  "Scavenge for parliamentary backing": "Искать поддержку в рейхстаге"
+ }
+}

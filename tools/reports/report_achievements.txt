@@ -1,0 +1,18 @@
+translated rows: 366
+
+New upstream achievements (left in English):
+achievement_bruning_der_rotfrontkampfer
+achievement_die_rote_justiz
+achievement_lindner_moribund
+achievement_merz_und_scholz
+achievement_tausendjahrige_libreich
+game_achievement_bruning_der_rotfrontkampfer
+game_achievement_die_rote_justiz
+game_achievement_lindner_moribund
+game_achievement_merz_und_scholz
+game_achievement_tausendjahrige_libreich
+not achievement_bruning_der_rotfrontkampfer
+not achievement_die_rote_justiz
+not achievement_lindner_moribund
+not achievement_merz_und_scholz
+not achievement_tausendjahrige_libreich
