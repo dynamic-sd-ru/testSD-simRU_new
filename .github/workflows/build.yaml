@@ -64,9 +64,12 @@ jobs:
       # сквозной смок-тест: партия от главного меню до концовки в jsdom.
       # Ловит блокирующие дефекты вроде неработающей кнопки «Продолжить».
       - name: Smoke test (playthrough to the ending)
+        env:
+          # на раннере анимации и перерисовка идут медленнее
+          SMOKE_SLOW: "1"
         run: |
           python3 -m http.server 8099 --directory out/html --bind 127.0.0.1 &
-          sleep 2
+          sleep 3
           node tools/smoke_play.js http://127.0.0.1:8099/index.html 2500 3
 
       - name: Upload artifact

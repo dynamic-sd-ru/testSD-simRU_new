@@ -20,6 +20,21 @@ vc.on('jsdomError', (e) => {
 });
 const wait = (ms) => new Promise((r) => setTimeout(r, ms));
 
+// на медленных раннерах страница и 12 МБ core.js поднимаются дольше, чем
+// фиксированные 2.5 с, поэтому ждём по условию
+async function waitFor(fn, timeout = 60000, step = 100) {
+  const deadline = Date.now() + timeout;
+  while (Date.now() < deadline) {
+    try {
+      if (fn()) return true;
+    } catch (e) {
+      /* ещё не готово */
+    }
+    await wait(step);
+  }
+  return false;
+}
+
 // детерминированный ГПСЧ, чтобы прохождение повторялось
 let seed = SEED >>> 0;
 function rnd() {
@@ -39,7 +54,17 @@ const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
   });
   const w = dom.window;
   const d = w.document;
-  await wait(2500);
+
+  const ready = await waitFor(
+    () => w.dendryUI && w.dendryUI.dendryEngine && d.querySelector('#content ul.choices a'),
+    90000
+  );
+  if (!ready) {
+    console.error('игра не загрузилась за 90 с');
+    console.error(errors.slice(0, 5));
+    process.exit(1);
+  }
+  await wait(300);
 
   const engine = () => w.dendryUI && w.dendryUI.dendryEngine;
   const sceneId = () => {
@@ -56,8 +81,16 @@ const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
   };
 
   const fire = async (el) => {
+    const before = clean(d.querySelector('#content') && d.querySelector('#content').textContent);
     el.dispatchEvent(new w.MouseEvent('click', { bubbles: true, cancelable: true, view: w }));
     await wait(40);
+    if (process.env.SMOKE_SLOW) await wait(200);
+    // если движок отрисовал новый экран не сразу — даём ему время
+    await waitFor(
+      () => clean(d.querySelector('#content') && d.querySelector('#content').textContent) !== before,
+      1500,
+      50
+    );
   };
 
   // -------- выбор действия на текущем экране --------
