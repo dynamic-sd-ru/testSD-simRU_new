@@ -123,6 +123,9 @@ const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
       if (skipTutorial) return { el: skipTutorial, text: clean(skipTutorial.textContent), kind: 'меню' };
       const back = choices.find((a) => /^Назад$/.test(clean(a.textContent)));
       if (back) return { el: back, text: clean(back.textContent), kind: 'меню' };
+      // в главном меню среди режимов есть «Пройти обучение» — берём обычный старт
+      const normalStart = choices.find((a) => /^Начать \(/.test(clean(a.textContent)));
+      if (normalStart) return { el: normalStart, text: clean(normalStart.textContent), kind: 'меню' };
       const pick = pickRandom(choices);
       return { el: pick, text: clean(pick.textContent) || '(вариант без подписи)', kind: 'выбор' };
     }
@@ -140,6 +143,14 @@ const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
     if (decks.length) {
       const deck = decks[deckCursor++ % decks.length].querySelector('a') || decks[deckCursor % decks.length];
       return { el: deck, text: 'колода: ' + clean(deck.getAttribute('title') || deck.textContent), kind: 'колода' };
+    }
+
+    // закреплённые карточки советников — в самом конце: в обычном месяце они
+    // не двигают время, а в обучении остаются единственным доступным действием
+    const pinned = [...content.querySelectorAll('ul.pinned-cards li a, ul.pinned-cards li')];
+    if (pinned.length) {
+      const card = pinned[0].querySelector('a') || pinned[0];
+      return { el: card, text: 'советник: ' + (clean(card.textContent) || 'портрет'), kind: 'советник' };
     }
 
     // модальные окна / прочие кнопки
