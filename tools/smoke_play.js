@@ -3,9 +3,20 @@
 // Запуск:  node tools/smoke_play.js [url] [макс_шагов] [seed]
 // Печатает каждый шаг (сцена, год/месяц, что нажали) и итоговый отчёт.
 // Код возврата 1, если игра не дошла до концовки или были ошибки JS.
-const { JSDOM, VirtualConsole } = require('jsdom');
+const { JSDOM, VirtualConsole, ResourceLoader } = require('jsdom');
 
-const URL = process.argv[2] || 'http://127.0.0.1:8099/index.html';
+const GAME_URL = process.argv[2] || 'http://127.0.0.1:8099/index.html';
+const ORIGIN = new URL(GAME_URL).origin;
+
+// Грузим только файлы самой игры. Внешние страницы (в концовках есть iframe
+// на Википедию) в jsdom тянут чужие скрипты — они падают и роняют тест,
+// хотя к игре отношения не имеют.
+class LocalOnlyLoader extends ResourceLoader {
+  fetch(url, options) {
+    if (url.startsWith(ORIGIN)) return super.fetch(url, options);
+    return null;
+  }
+}
 const MAX_STEPS = Number(process.argv[3] || 4000);
 const SEED = Number(process.argv[4] || 1);
 
@@ -46,9 +57,9 @@ const pickRandom = (arr) => arr[Math.floor(rnd() * arr.length)];
 const clean = (s) => String(s || '').replace(/\s+/g, ' ').trim();
 
 (async () => {
-  const dom = await JSDOM.fromURL(URL, {
+  const dom = await JSDOM.fromURL(GAME_URL, {
     runScripts: 'dangerously',
-    resources: 'usable',
+    resources: new LocalOnlyLoader(),
     pretendToBeVisual: true,
     virtualConsole: vc,
   });
