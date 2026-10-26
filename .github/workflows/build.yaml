@@ -68,10 +68,21 @@ jobs:
           # на раннере анимации и перерисовка идут медленнее
           SMOKE_SLOW: "1"
         run: |
-          set -o pipefail
           python3 -m http.server 8099 --directory out/html --bind 127.0.0.1 &
+          SERVER=$!
           sleep 3
-          node tools/smoke_play.js http://127.0.0.1:8099/index.html 2500 3 2>&1 | tee smoke.log
+          set +e
+          node tools/smoke_play.js http://127.0.0.1:8099/index.html 2500 3 > smoke.log 2>&1
+          code=$?
+          set -e
+          kill $SERVER 2>/dev/null || true
+          cat smoke.log
+          if [ "$code" -ne 0 ]; then
+            # одна строка в аннотациях, чтобы причина была видна без скачивания лога
+            reason=$(tr '\n' ' ' < smoke.log | tr -s ' ' | tail -c 3000)
+            echo "::error title=Смок-тест не дошёл до концовки::$reason"
+            exit "$code"
+          fi
 
       # отчёт смок-теста сохраняем всегда — по нему видно, на каком шаге и
       # почему партия не дошла до концовки
