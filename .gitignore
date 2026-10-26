@@ -1,6 +1,15 @@
-node_modules/
-out/
-build/
-*.log
+# зависимости и служебный мусор
+/node_modules
 __pycache__/
 *.pyc
+*.log
+build/
+
+# генерируется сборкой (`npm run build` / `npm run make-html`)
+out/game.json
+out/html/game.json
+out/html/core.js
+out/html/jquery-1.11.1.min.js
+
+# остальное в out/html лежит в репозитории и не перезаписывается сборкой:
+# index.html (переведённый), game.css, game.js, d3-библиотеки, favicon.ico, img/

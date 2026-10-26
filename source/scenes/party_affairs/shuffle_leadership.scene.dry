@@ -405,7 +405,7 @@ go-to: advisor_menu
 title: Отто Вельс
 subtitle: Отто Вельс — давний партийный организатор и председатель партии, служивший ещё под началом Фридриха Эберта. {!<br><br>!}[? if difficulty < 0 : Действия: очистить повестку, партийная дисциплина, экстренный сбор средств. ?]
 is-card: true
-card-image: img/portraits/WelsRudolf.jpg
+card-image: img/portraits/WelsOtto.jpg
 tags: center_advisor
 view-if: wels_advisor = 0 and n_advisors < 3 and centrists_resign = 0
 on-arrival: wels_advisor = 1; n_advisors += 1; center_dissent -= 7; center_strength += 5

@@ -1,28 +1,37 @@
 {
   "name": "social_democracy_alternate_history",
   "version": "0.11.1",
-  "description": "Building the game:",
+  "description": "Social Democracy: An Alternate History — русский перевод (сборка игры)",
   "main": "out/html/index.html",
+  "private": true,
   "scripts": {
     "dendrynexus": "dendrynexus",
     "localize": "node scripts/localize-engine.js",
+    "check-html": "node scripts/check-html-assets.js",
     "postinstall": "node scripts/localize-engine.js",
-    "build": "npm run localize && dendrynexus compile && npm run localize",
-    "make-html": "npm run localize && dendrynexus make-html --pretty"
+    "build": "npm run localize && dendrynexus compile && npm run localize && npm run check-html",
+    "make-html": "npm run localize && dendrynexus make-html --pretty && npm run check-html"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/socdemtestmode/testSD-simRU.git"
+    "url": "git+https://github.com/dynamic-sd-ru/testSD-simRU_new.git"
   },
-  "keywords": [],
+  "keywords": [
+    "dendry",
+    "translation",
+    "russian"
+  ],
   "author": "Autumn Chen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/socdemtestmode/testSD-simRU/issues"
+    "url": "https://github.com/dynamic-sd-ru/testSD-simRU_new/issues"
   },
-  "homepage": "https://github.com/socdemtestmode/testSD-simRU",
+  "homepage": "https://dynamic-sd-ru.github.io/testSD-simRU_new/",
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
-    "dendrynexus": "github:originn0/dendrynexus",
+    "dendrynexus": "github:originn0/dendrynexus#142d0d8586512387d9ee8c0da8bf05a25476f3d8",
     "parliament-svg": "^3.0.0"
   }
 }
