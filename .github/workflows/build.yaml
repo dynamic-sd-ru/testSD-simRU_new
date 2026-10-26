@@ -68,9 +68,20 @@ jobs:
           # на раннере анимации и перерисовка идут медленнее
           SMOKE_SLOW: "1"
         run: |
+          set -o pipefail
           python3 -m http.server 8099 --directory out/html --bind 127.0.0.1 &
           sleep 3
-          node tools/smoke_play.js http://127.0.0.1:8099/index.html 2500 3
+          node tools/smoke_play.js http://127.0.0.1:8099/index.html 2500 3 2>&1 | tee smoke.log
+
+      # отчёт смок-теста сохраняем всегда — по нему видно, на каком шаге и
+      # почему партия не дошла до концовки
+      - name: Upload smoke log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-log
+          path: smoke.log
+          if-no-files-found: ignore
 
       - name: Upload artifact
         # артефакт нужен только для публикации
