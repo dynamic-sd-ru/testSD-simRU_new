@@ -7,52 +7,10 @@
    "[? if spd_in_government: The [+ foreign_minister_party +] foreign minister has a proposal for a customs union with Austria. We can either accept or reject this agreement. ?]"
   ],
   [
-   "scenes/events/banking_crisis.scene.dry",
-   52,
-   "prose",
-   "[? if budget <= 0: As we are firmly in opposition to the current cabinet, we have free rein to rally against these austerity measures. ?]"
-  ],
-  [
-   "scenes/events/banking_crisis.scene.dry",
-   65,
-   "prose",
-   "[? if budget <= 0: As we are firmly in opposition to the current cabinet, we have free rein to rally against these austerity measures. ?]"
-  ],
-  [
-   "scenes/events/banking_crisis.scene.dry",
-   72,
-   "prose",
-   "[? if budget <= 0: As we are firmly in opposition to the current cabinet, we have free rein to rally against these austerity measures. ?]"
-  ],
-  [
    "scenes/events/cabinet_reshuffled.scene.dry",
    24,
    "option @majority_vonc",
    "Call a constructive motion of no confidence!"
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   10,
-   "prose",
-   "Due to the formation of the <span style=\"color: #000000;\">**[+ z_party_name +]**</span>, our coalition is no more! [? if not constructive_vonc: They have also called for a vote of no confidence against us. ?]It's joever..."
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   14,
-   "option @social_liberal_coalition",
-   "Can we form a <span style=\"color: #c00000;\">Social</span>-[? if not lvp_formed: <span style=\"color: #D3C24D;\">Liberal</span>?][? if lvp_formed: <span style=\"color: #FFCC00;\">Liberal</span>?] Coalition?"
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   15,
-   "option @support_kpd",
-   "Could we get the <span style=\"color: #700000;\">**KPD**</span> to abstain?"
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   16,
-   "option @let_it_happen",
-   "Let the vote happen."
   ],
   [
    "scenes/events/cvp_coalition_joever.scene.dry",
@@ -77,36 +35,6 @@
    20,
    "option @no_vonc",
    "They cannot call a vote of no confidence due to the constitutional reforms, but they can obstruct our government at every opportunity."
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   39,
-   "option @support_kpd_2",
-   "Persuade the <span style=\"color: #700000;\">**KPD**</span> to \"tolerate\" us?"
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   40,
-   "option @let_it_happen",
-   "Never mind. Let the vote happen."
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   52,
-   "option @election_1928.popular_front_coalition",
-   "Form a \"Popular Front\" coalition?"
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   54,
-   "option @let_it_happen",
-   "Never mind. Let the vote happen."
-  ],
-  [
-   "scenes/events/cvp_coalition_joever.scene.dry",
-   60,
-   "option @let_it_happen",
-   "Never mind. Let the vote happen."
   ],
   [
    "scenes/events/cvp_party_congress.scene.dry",
@@ -200,24 +128,6 @@
   ],
   [
    "scenes/events/death_of_hindenburg_president.scene.dry",
-   140,
-   "prose",
-   "This might be the <span style=\"color: #7A3C00;\">Nazis</span>' last hurrah; the party's internal contradictions are heightening, and it is in desperate shortage of funds."
-  ],
-  [
-   "scenes/events/death_of_hindenburg_president.scene.dry",
-   147,
-   "prose",
-   "[? if kpd_leader != \"Conciliators\" : This will be Ernst Thälmann's third run for president as leader of the <span style=\"color: #700000;\">**KPD**</span>. Despite his previous electoral defeats, he retains the loyalty of the party as well as <span style=\"color: #8B0000;\">Stalin</span>'s <span style=\"color: #750e0e;\">Soviet Union</span>. ?]"
-  ],
-  [
-   "scenes/events/death_of_hindenburg_president.scene.dry",
-   154,
-   "prose",
-   "[? if braun_campaign : Otto Braun is tired. He ran and failed in the previous two presidential elections, and no longer wishes to run. His wife is ill enough that he wishes to stay by her side. ?][? if braun_campaign = 0 and not spd_prussia: Otto Braun is tired. After being deposed in Prussia, he has largely retired from politics, and is devoting his time to caring for his dying wife. ?][? if braun_campaign = 0 and spd_prussia : Otto Braun is tired. He does not wish to run, but he is willing to be convinced that he is needed at this moment. His wife is terminally ill, and he does not want more responsibilities. ?]"
-  ],
-  [
-   "scenes/events/death_of_hindenburg_president.scene.dry",
    155,
    "prose",
    "Kurt Schumacher is an ambitious rising star in the party, and would be all too willing to run. He was a hero in the Great War, but his relatively young age might be relevant."
@@ -278,12 +188,6 @@
   ],
   [
    "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-   233,
-   "prose",
-   "<span style=\"color: #FFCC00;\">**LVP**</span>?]. Perhaps we can form a <span style=\"color: #000000;\">We</span><span style=\"color: #DD0000;\">im</span><span style=\"color: #FFCC00;\">ar</span> Bloc against Schleicher."
-  ],
-  [
-   "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
    341,
    "prose",
    "[? if ddp_candidate = spd_candidate: The <span style=\"color: #D3C24D;\">**[+ ddp_name +]**</span> is easily persuaded to support [+ spd_candidate +]! This is largely because [+ spd_candidate +] is the candidate of the <span style=\"color: #000000;\">Center Party</span>, not of the <span style=\"color: #c00000;\">**SPD**</span>. ?]"
@@ -341,12 +245,6 @@
    1692,
    "prose",
    "[? if dnef_formed: Reichstag mandates for the other parties in the <span style=\"color: #BFC8CC;\">German National Unity Front</span> organization are counted toward the party itself for simplicity's sake. ?]"
-  ],
-  [
-   "scenes/events/election_1928.scene.dry",
-   2978,
-   "prose",
-   "[? if president != \"Braun\": Otto Braun has become chancellor of the <span style=\"color: #c00000;\">**SPD**</span> majority. ?]"
   ],
   [
    "scenes/events/election_1928.scene.dry",
@@ -421,12 +319,6 @@
    "[? if lvp_candidate = spd_candidate: The <span style=\"color: #FFCC00;\">**LVP**</span> is easily persuaded to support [+ spd_candidate +]! ?]"
   ],
   [
-   "scenes/events/hindenburg_explode_president.scene.dry",
-   378,
-   "prose",
-   "[? if adenauer_drops_out : The [? if z_party_name != \"CVP\": <span style=\"color: #000000;\">Center Party</span>?][? if z_party_name == \"CVP\": <span style=\"color: #000000;\">**CVP**</span>?] candidate Konrad Adenauer has dropped out in favor of Otto Gessler. This consolidates the votes of the moderate bürgerblock. ?]"
-  ],
-  [
    "scenes/events/kpd_vote_of_no_confidence.scene.dry",
    23,
    "option @rosenfeld",
@@ -437,12 +329,6 @@
    611,
    "prose",
    "United Left Coalition (<span style=\"color: #c00000;\">**SPD**</span> + <span style=\"color: #700000;\">**KPD**</span>[? if sapd_formed:  + <span style=\"color: #9B0000;\">**SAPD**</span>?]): [+ left_coalition_bavaria +]%"
-  ],
-  [
-   "scenes/events/local_election_1932.scene.dry",
-   703,
-   "prose",
-   "The legacy of the Bavarian Worker’s Republic has been avenged, but at what cost?"
   ],
   [
    "scenes/events/local_election_1932.scene.dry",
@@ -518,12 +404,6 @@
   ],
   [
    "scenes/events/london_economic_conference.scene.dry",
-   19,
-   "prose",
-   "[? if not wtb_adopted and budget > 0: Germany has largely recovered from the crisis, without having to resort to budget deficits or devaluing the currency. ?]"
-  ],
-  [
-   "scenes/events/london_economic_conference.scene.dry",
    45,
    "prose",
    "[? if unemployed >= 15 : Nevertheless, the world economy is slowly improving due in part to the economic stimulus and more liberal trade policies of the Roosevelt administration. ?]"
@@ -557,18 +437,6 @@
    22,
    "prose",
    "[? if not rb_exit: The [? if z_party_name != \"CVP\": <span style=\"color: #000000;\">Center</span>?][? if z_party_name == \"CVP\": <span style=\"color: #000000;\">**CVP**</span>?] [? if not lvp_formed:and <span style=\"color: #D3C24D;\">**[+ ddp_name +]**</span>&nbsp;?][? if not lvp_leave_reichsbanner and lvp_formed:and <span style=\"color: #FFCC00;\">**LVP**</span>&nbsp;?]have threatened drastic consequences if the Reichsbanner isn't disarmed.?]"
-  ],
-  [
-   "scenes/events/schleicher_10.scene.dry",
-   12,
-   "prose",
-   "[? if dvp_leader == \"Glatzel\": Frank Glatzel, leader of the <span style=\"color: #C0A054;\">**DVP**</span>, shares much ideological ground with Schleicher's new party—nationalism, corporatism, and the goal of a <i>Volksgemeinschaft</i>. A merger with the <span style=\"color: #BFC8CC;\">German National Unity Front</span> has thus become inevitable. ?]"
-  ],
-  [
-   "scenes/events/schleicher_10.scene.dry",
-   15,
-   "prose",
-   "[? if dvp_leader == \"Glatzel\": Glatzel's vision of a \"new nationalism\" will carry a sizable following into his new political home, along with his affiliated white-collar union, the DHV, which he is bringing into the <span style=\"color: #BFC8CC;\">**DNEF**</span> as well. ?]"
   ],
   [
    "scenes/events/schleicher_15.scene.dry",
@@ -607,10 +475,10 @@
    "The Western powers and all countries that feel threatened by German militarism are pleased that we have turned a chapter in our history."
   ],
   [
-   "scenes/events/young_plan_right_coalition.scene.dry",
-   13,
-   "prose",
-   "<span style=\"color: #003755;\">**DNF**</span> and the <span style=\"color: #700000;\">**KPD**</span>, and for a referendum on the Young Plan."
+   "scenes/events/z_right_party_congress.scene.dry",
+   34,
+   "unavailable-subtitle",
+   "[? if not (in_weimar_coalition or in_grand_coalition or in_popular_front or (spd_prussia and not in_left_front_prussia and not sapd_toleration_prussia and not in_spd_majority_prussia)): We are not in any government with the [? if z_party_name != \"CVP\": <span style=\"color: #000000;\">Center Party</span>?][? if z_party_name == \"CVP\": <span style=\"color: #000000;\">**CVP**</span>?], leaving them free to do what they want. ?] [? if z_relation < 40 : Our relations are too low for them to care about what we think. ?]"
   ],
   [
    "scenes/government_affairs/economic_policy.scene.dry",
@@ -685,12 +553,6 @@
    "[? if investigate_far_right == 2 : We have discovered illegal arms smuggling by the <span style=\"color: #7A3C00;\">**SA**</span>, the <span style=\"color: #7A3C00;\">Nazi</span> paramilitary. ?]"
   ],
   [
-   "scenes/government_affairs/police.scene.dry",
-   53,
-   "prose",
-   "[? if investigate_far_right > 3 : Of course the <span style=\"color: #7A3C00;\">Nazis</span> are doing crimes; everyone knows that. Now, we finally have proof. ?]"
-  ],
-  [
    "scenes/government_affairs/prussian_affairs.scene.dry",
    19,
    "option @ban_sa_preussenschlag",
@@ -707,12 +569,6 @@
    14,
    "option @kpd_ultimata",
    "Conditions for <span class=\"tooltip-text\" title=\"Communist Party of Germany\" style=\"color: #700000;\">**KPD**</span>'s continuous toleration of our governments"
-  ],
-  [
-   "scenes/library.scene.dry",
-   82,
-   "prose",
-   "[? if z_party_name != \"CVP\": <span class=\"tooltip-text\" title=\"Center Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?][? if z_party_name == \"CVP\": <span class=\"tooltip-text\" title=\"Christian People's Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?]: [+ z_r +]%"
   ],
   [
    "scenes/library.scene.dry",
@@ -913,18 +769,6 @@
    "[? if left_dissent > 30: Leftists are making noises about another party split. ?]"
   ],
   [
-   "scenes/party_affairs/rally.scene.dry",
-   97,
-   "prose",
-   "[? if democratization >= 3 : Since we have consistently made democratization a theme of our campaign, the workers are enthusiastic about our message. ?]"
-  ],
-  [
-   "scenes/party_affairs/rally.scene.dry",
-   105,
-   "prose",
-   "[? if pacifism >= 3 : Since we have consistently made pacifism a theme of our campaign, the workers are enthusiastic about our message. ?]"
-  ],
-  [
    "scenes/party_affairs/streetfighting.scene.dry",
    20,
    "option @afa-truce",
@@ -953,12 +797,6 @@
    42,
    "prose",
    "[? if spd_in_government and sapd_toleration: <span style=\"color: #9B0000;\">**SAPD**</span> toleration dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]"
-  ],
-  [
-   "scenes/status.scene.dry",
-   62,
-   "prose",
-   "[? if started: [? if z_party_name != \"CVP\": <span class=\"tooltip-text\" title=\"Center Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?][? if z_party_name == \"CVP\": <span class=\"tooltip-text\" title=\"Christian People's Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?]?][? if not started: <span class=\"tooltip-text\" title=\"Center Party + Bavarian People's Party\"><span style=\"color: #000000;\">**Z**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span> ?]: [+ z_r +]%"
   ],
   [
    "scenes/status.scene.dry",
@@ -1028,12 +866,6 @@
   ],
   [
    "scenes/status.scene.dry",
-   134,
-   "prose",
-   "Next election: [? if not marburg_trigger: [+ next_election_month : month +] [+ next_election_year +], Week [+ next_election_week +] ?][? if marburg_trigger: postponed indefinitely ?]<br>"
-  ],
-  [
-   "scenes/status.scene.dry",
    135,
    "prose",
    "Next Prussian election: [? if prussia_leader != \"Papen\" and prussia_leader != \"Schleicher\": [+ next_election_month_prussia : month +] [+ next_election_year_prussia +], Week [+ next_election_week_prussia +] ?][? if prussia_leader == \"Papen\" or prussia_leader == \"Schleicher\": postponed indefinitely ?]"
@@ -1082,12 +914,6 @@
   ],
   [
    "scenes/status.scene.dry",
-   152,
-   "prose",
-   "Economic growth: [+ economic_growth_2 +]%"
-  ],
-  [
-   "scenes/status.scene.dry",
    366,
    "prose",
    "Support for <span style=\"color: #9B0000;\">**Socialism**</span>: [+ socialism_disp +]%"
@@ -1127,12 +953,6 @@
    38,
    "prose",
    "[? if not dnef_existed: <p style=\"font-weight: bold; margin-bottom: 0px;\">Oskar von Hindenburg</p> ?]"
-  ],
-  [
-   "scenes/status_right.scene.dry",
-   48,
-   "prose",
-   "[? if dnef_existed and chancellor == \"Schleicher\": <div style=\"text-align: right; flex: 1;\">Kurt von Schleicher</div> ?]"
   ],
   [
    "scenes/status_right.scene.dry",
@@ -1181,18 +1001,6 @@
    81,
    "prose",
    "[? if dnef_existed: <p style=\"margin-bottom: 2px;\">Opinion of [+ chancellor +]: [+ industrialists_schleicher : schleicher_spd_4 +]</p> ?]"
-  ],
-  [
-   "scenes/status_right.scene.dry",
-   95,
-   "prose",
-   "[? if dnef_existed: <p style=\"margin-bottom: 2px;\">Opinion of [+ chancellor +]: [+ republicans_schleicher : schleicher_spd_4 +]</p> ?]"
-  ],
-  [
-   "scenes/status_right.scene.dry",
-   101,
-   "prose",
-   "[? if dnef_existed: <p style=\"margin-bottom: 2px;\">Opinion of [+ chancellor +]: [+ nationalists_schleicher : schleicher_spd_4 +]</p> ?]"
   ]
  ],
  "stale": [
@@ -1205,6 +1013,16 @@
    "scenes/advisors/sender.scene.dry",
    72,
    "directive unavailable-subtitle"
+  ],
+  [
+   "scenes/events/cvp_coalition_joever.scene.dry",
+   0,
+   "directive title"
+  ],
+  [
+   "scenes/events/cvp_coalition_joever.scene.dry",
+   1,
+   "directive subtitle"
   ],
   [
    "scenes/events/cvp_party_congress.scene.dry",
@@ -1312,14 +1130,155 @@
    "directive subtitle"
   ],
   [
-   "scenes/events/z_right_party_congress.scene.dry",
-   34,
-   "directive unavailable-subtitle"
-  ],
-  [
    "scenes/government_affairs/prussian_affairs.scene.dry",
    53,
    "directive unavailable-subtitle"
+  ]
+ ],
+ "merged_lines": [
+  [
+   "scenes/events/banking_crisis.scene.dry",
+   52,
+   "prose",
+   "[? if budget <= 0: As we are firmly in opposition to the current cabinet, we have free rein to rally against these austerity measures. ?]"
+  ],
+  [
+   "scenes/events/banking_crisis.scene.dry",
+   65,
+   "prose",
+   "[? if budget <= 0: As we are firmly in opposition to the current cabinet, we have free rein to rally against these austerity measures. ?]"
+  ],
+  [
+   "scenes/events/banking_crisis.scene.dry",
+   72,
+   "prose",
+   "[? if budget <= 0: As we are firmly in opposition to the current cabinet, we have free rein to rally against these austerity measures. ?]"
+  ],
+  [
+   "scenes/events/death_of_hindenburg_president.scene.dry",
+   140,
+   "prose",
+   "This might be the <span style=\"color: #7A3C00;\">Nazis</span>' last hurrah; the party's internal contradictions are heightening, and it is in desperate shortage of funds."
+  ],
+  [
+   "scenes/events/death_of_hindenburg_president.scene.dry",
+   147,
+   "prose",
+   "[? if kpd_leader != \"Conciliators\" : This will be Ernst Thälmann's third run for president as leader of the <span style=\"color: #700000;\">**KPD**</span>. Despite his previous electoral defeats, he retains the loyalty of the party as well as <span style=\"color: #8B0000;\">Stalin</span>'s <span style=\"color: #750e0e;\">Soviet Union</span>. ?]"
+  ],
+  [
+   "scenes/events/death_of_hindenburg_president.scene.dry",
+   154,
+   "prose",
+   "[? if braun_campaign : Otto Braun is tired. He ran and failed in the previous two presidential elections, and no longer wishes to run. His wife is ill enough that he wishes to stay by her side. ?][? if braun_campaign = 0 and not spd_prussia: Otto Braun is tired. After being deposed in Prussia, he has largely retired from politics, and is devoting his time to caring for his dying wife. ?][? if braun_campaign = 0 and spd_prussia : Otto Braun is tired. He does not wish to run, but he is willing to be convinced that he is needed at this moment. His wife is terminally ill, and he does not want more responsibilities. ?]"
+  ],
+  [
+   "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
+   233,
+   "prose",
+   "<span style=\"color: #FFCC00;\">**LVP**</span>?]. Perhaps we can form a <span style=\"color: #000000;\">We</span><span style=\"color: #DD0000;\">im</span><span style=\"color: #FFCC00;\">ar</span> Bloc against Schleicher."
+  ],
+  [
+   "scenes/events/election_1928.scene.dry",
+   2978,
+   "prose",
+   "[? if president != \"Braun\": Otto Braun has become chancellor of the <span style=\"color: #c00000;\">**SPD**</span> majority. ?]"
+  ],
+  [
+   "scenes/events/hindenburg_explode_president.scene.dry",
+   378,
+   "prose",
+   "[? if adenauer_drops_out : The [? if z_party_name != \"CVP\": <span style=\"color: #000000;\">Center Party</span>?][? if z_party_name == \"CVP\": <span style=\"color: #000000;\">**CVP**</span>?] candidate Konrad Adenauer has dropped out in favor of Otto Gessler. This consolidates the votes of the moderate bürgerblock. ?]"
+  ],
+  [
+   "scenes/events/local_election_1932.scene.dry",
+   703,
+   "prose",
+   "The legacy of the Bavarian Worker’s Republic has been avenged, but at what cost?"
+  ],
+  [
+   "scenes/events/london_economic_conference.scene.dry",
+   19,
+   "prose",
+   "[? if not wtb_adopted and budget > 0: Germany has largely recovered from the crisis, without having to resort to budget deficits or devaluing the currency. ?]"
+  ],
+  [
+   "scenes/events/schleicher_10.scene.dry",
+   12,
+   "prose",
+   "[? if dvp_leader == \"Glatzel\": Frank Glatzel, leader of the <span style=\"color: #C0A054;\">**DVP**</span>, shares much ideological ground with Schleicher's new party—nationalism, corporatism, and the goal of a <i>Volksgemeinschaft</i>. A merger with the <span style=\"color: #BFC8CC;\">German National Unity Front</span> has thus become inevitable. ?]"
+  ],
+  [
+   "scenes/events/schleicher_10.scene.dry",
+   15,
+   "prose",
+   "[? if dvp_leader == \"Glatzel\": Glatzel's vision of a \"new nationalism\" will carry a sizable following into his new political home, along with his affiliated white-collar union, the DHV, which he is bringing into the <span style=\"color: #BFC8CC;\">**DNEF**</span> as well. ?]"
+  ],
+  [
+   "scenes/events/young_plan_right_coalition.scene.dry",
+   13,
+   "prose",
+   "<span style=\"color: #003755;\">**DNF**</span> and the <span style=\"color: #700000;\">**KPD**</span>, and for a referendum on the Young Plan."
+  ],
+  [
+   "scenes/government_affairs/police.scene.dry",
+   53,
+   "prose",
+   "[? if investigate_far_right > 3 : Of course the <span style=\"color: #7A3C00;\">Nazis</span> are doing crimes; everyone knows that. Now, we finally have proof. ?]"
+  ],
+  [
+   "scenes/library.scene.dry",
+   82,
+   "prose",
+   "[? if z_party_name != \"CVP\": <span class=\"tooltip-text\" title=\"Center Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?][? if z_party_name == \"CVP\": <span class=\"tooltip-text\" title=\"Christian People's Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?]: [+ z_r +]%"
+  ],
+  [
+   "scenes/party_affairs/rally.scene.dry",
+   97,
+   "prose",
+   "[? if democratization >= 3 : Since we have consistently made democratization a theme of our campaign, the workers are enthusiastic about our message. ?]"
+  ],
+  [
+   "scenes/party_affairs/rally.scene.dry",
+   105,
+   "prose",
+   "[? if pacifism >= 3 : Since we have consistently made pacifism a theme of our campaign, the workers are enthusiastic about our message. ?]"
+  ],
+  [
+   "scenes/status.scene.dry",
+   62,
+   "prose",
+   "[? if started: [? if z_party_name != \"CVP\": <span class=\"tooltip-text\" title=\"Center Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?][? if z_party_name == \"CVP\": <span class=\"tooltip-text\" title=\"Christian People's Party + Bavarian People's Party\"><span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span>?]?][? if not started: <span class=\"tooltip-text\" title=\"Center Party + Bavarian People's Party\"><span style=\"color: #000000;\">**Z**</span> + <span style=\"color: #A2D8E0;\">**BVP**</span></span> ?]: [+ z_r +]%"
+  ],
+  [
+   "scenes/status.scene.dry",
+   134,
+   "prose",
+   "Next election: [? if not marburg_trigger: [+ next_election_month : month +] [+ next_election_year +], Week [+ next_election_week +] ?][? if marburg_trigger: postponed indefinitely ?]<br>"
+  ],
+  [
+   "scenes/status.scene.dry",
+   152,
+   "prose",
+   "Economic growth: [+ economic_growth_2 +]%"
+  ],
+  [
+   "scenes/status_right.scene.dry",
+   48,
+   "prose",
+   "[? if dnef_existed and chancellor == \"Schleicher\": <div style=\"text-align: right; flex: 1;\">Kurt von Schleicher</div> ?]"
+  ],
+  [
+   "scenes/status_right.scene.dry",
+   95,
+   "prose",
+   "[? if dnef_existed: <p style=\"margin-bottom: 2px;\">Opinion of [+ chancellor +]: [+ republicans_schleicher : schleicher_spd_4 +]</p> ?]"
+  ],
+  [
+   "scenes/status_right.scene.dry",
+   101,
+   "prose",
+   "[? if dnef_existed: <p style=\"margin-bottom: 2px;\">Opinion of [+ chancellor +]: [+ nationalists_schleicher : schleicher_spd_4 +]</p> ?]"
   ]
  ],
  "scene_matched_by_options": [

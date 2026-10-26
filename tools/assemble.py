@@ -73,6 +73,14 @@ def without_rows(scene, skip):
     return {'id': scene['id'],
             'chunks': [c for c in scene['chunks'] if c[-1] not in skip]}
 
+# files renamed between the translation and current upstream (BASE path)
+FILE_ALIASES = {
+    'scenes/events/cvp_coalition_joever.scene.dry':
+        'scenes/events/vote_of_no_confidence_joever.scene.dry',
+    'scenes/government_affairs/blank_4_alt.scene.dry':
+        'scenes/government_affairs/blank_4.scene_alt.dry',
+}
+
 # scene ids renamed between the translation and current upstream
 SCENE_ALIASES = {
     ('scenes/events/death_of_hindenburg_president.scene.dry',
@@ -399,6 +407,8 @@ def merge_file(base_path, new_path, tr_path, out_path, report):
         direct.update(second_chance(sc, tr_sc, direct))
 
         dir_counter = {}
+        used_tr_text = []          # translated prose already placed in this scene
+        translated_lines = set()   # new-file prose lines that got a translation
         for ch in sc['chunks']:
             line = ch[-1]
             if ch[0] == 'code':
@@ -448,11 +458,26 @@ def merge_file(base_path, new_path, tr_path, out_path, report):
             else:  # prose
                 if t_ch is not None and t_ch[0] == 'prose':
                     put(line, t_ch[1])
+                    used_tr_text.append(re.sub(r'\s+', '', t_ch[1]))
+                    translated_lines.add(line)
                     if b_ch is not None and b_ch[0] == 'prose' and b_ch[1] != ch[1]:
                         r = text_score(b_ch[1], ch[1])
                         if r < 0.5:
                             report['stale'].append([report['file'], line, 'prose %.2f' % r])
                 elif translatable_text(ch[1]):
+                    # upstream split a sentence the translation keeps on one line:
+                    # the words are already there, drop the leftover fragment
+                    flat = re.sub(r'\s+', '', ch[1])
+                    if len(flat) > 12 and any(flat in t for t in used_tr_text):
+                        put(line, '')
+                        continue
+                    # the sentence continues on the previous line, which the
+                    # translation already covers as a whole
+                    if (line - 1) in translated_lines:
+                        put(line, '')
+                        report['merged_lines'].append(
+                            [report['file'], line, 'prose', ch[1]])
+                        continue
                     report['untranslated'].append([report['file'], line, 'prose', ch[1]])
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
@@ -469,7 +494,8 @@ def main():
         if a == '--only':
             only = sys.argv[i + 1]
     load_value_maps(['work/value_map.json', 'work/extra_map.json'])
-    report = {'untranslated': [], 'stale': [], 'scene_matched_by_options': [],
+    report = {'untranslated': [], 'stale': [], 'merged_lines': [],
+              'scene_matched_by_options': [],
               'new_scene_text': [], 'files_new': [], 'file': ''}
     n = 0
     for p in sorted(glob.glob(new_dir + '/**/*', recursive=True)):
@@ -479,6 +505,8 @@ def main():
         if only and only not in rel:
             continue
         base_p = os.path.join(base_dir, rel)
+        if not os.path.exists(base_p) and rel in FILE_ALIASES:
+            base_p = os.path.join(base_dir, FILE_ALIASES[rel])
         tr_p = os.path.join(tr_dir, rel)
         out_p = os.path.join(dest, rel)
         report['file'] = rel

@@ -239,35 +239,35 @@
  },
  {
   "file": "scenes/events/death_of_hindenburg_president.scene.dry",
-  "line": 814,
+  "line": 816,
   "kind": "cond-close",
   "before": "?]с",
   "after": "?] с"
  },
  {
   "file": "scenes/events/death_of_hindenburg_president.scene.dry",
-  "line": 852,
+  "line": 854,
   "kind": "tag-close",
   "before": "</span>с",
   "after": "</span> с"
  },
  {
   "file": "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  "line": 186,
+  "line": 188,
   "kind": "tag-close",
   "before": "</span>с",
   "after": "</span> с"
  },
  {
   "file": "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  "line": 278,
+  "line": 280,
   "kind": "tag-close",
   "before": "</span>с",
   "after": "</span> с"
  },
  {
   "file": "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  "line": 374,
+  "line": 376,
   "kind": "tag-close",
   "before": "</span>с",
   "after": "</span> с"
@@ -526,7 +526,7 @@
  },
  {
   "file": "scenes/events/hindenburg_explode_president.scene.dry",
-  "line": 424,
+  "line": 426,
   "kind": "tag-close",
   "before": "</span>с",
   "after": "</span> с"

@@ -15,101 +15,52 @@
  ],
  [
   "scenes/events/death_of_hindenburg_president.scene.dry",
-  432,
-  "fragment",
-  "[? if lvp_candidate = spd_candidate: The <span style=\"color: #FFCC00;\">**LVP**</",
-  "[? if lvp_candidate = spd_candidate: <span style=\"color: #FFCC00;\">**ЛНП**</span"
- ],
- [
-  "scenes/events/death_of_hindenburg_president.scene.dry",
-  443,
-  "fragment",
-  "[? if lvp_candidate = spd_candidate: The <span style=\"color: #FFCC00;\">**LVP**</",
-  "[? if lvp_candidate = spd_candidate: <span style=\"color: #FFCC00;\">**ЛНП**</span"
- ],
- [
-  "scenes/events/death_of_hindenburg_president.scene.dry",
-  669,
+  671,
   "fragment",
   "[? if Hitler_running : <span style=\"color: #7A3C00;\">**Hitler**</span> - [+ Hitl",
   "[? if Hitler_running : <span style=\"color: #7A3C00;\">**Гитлер**</span> -[+ Hitle"
  ],
  [
   "scenes/events/death_of_hindenburg_president.scene.dry",
-  670,
+  672,
   "fragment",
   "[? if Goring_running : <span style=\"color: #7A3C00;\">**Göring**</span> - [+ Gori",
   " [? if Goring_running : <span style=\"color: #7A3C00;\">**Геринг**</span> -[+ Gori"
  ],
  [
   "scenes/events/death_of_hindenburg_president.scene.dry",
-  677,
+  679,
   "fragment",
   "[? if Thalmann_running : <span style=\"color: #700000;\">**Thälmann**</span> - [+ ",
   "[? if Thalmann_running : <span style=\"color: #700000;\">**Тельман**</span> -[+ Th"
  ],
  [
   "scenes/events/death_of_hindenburg_president.scene.dry",
-  688,
+  690,
   "fragment",
   "[? if Einstein_running : <span style=\"color: #CFC88F;\">**Einstein**</span> - [+ ",
   " [? if Einstein_running : <span style=\"color: #CFC88F;\">**Эйнштейн**</span> -[+ "
  ],
  [
   "scenes/events/death_of_hindenburg_president.scene.dry",
-  689,
+  691,
   "fragment",
   "[? if Ossietzky_running : <span style=\"color: #E0A0A0;\">**Ossietzky**</span> - [",
   " [? if Ossietzky_running : <span style=\"color: #E0A0A0;\">**Осецкий**</span> -[+ "
  ],
  [
   "scenes/events/death_of_hindenburg_president.scene.dry",
-  690,
+  692,
   "fragment",
   "[? if Mann_running : <span style=\"color: #E0A0A0;\">**Mann**</span> - [+ Mann_vot",
   " [? if Mann_running : <span style=\"color: #E0A0A0;\">**Манн**</span> -[+ Mann_vot"
  ],
  [
-  "scenes/events/death_of_hindenburg_president.scene.dry",
-  768,
-  "fragment",
-  "[? if nsdap_candidate = reactionary_candidate_1934 : The <span style=\"color: #3E",
-  " [? if nsdap_candidate = reactionary_candidate_1934 : <span style=\"color: #3E88B"
- ],
- [
   "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  233,
-  "fragment",
-  "<span style=\"color: #FFCC00;\">**LVP**</span>?]. Perhaps we can form a <span styl",
-  " <span style=\"color: #FFCC00;\">**ЛНП**</span> ?]. Возможно, мы сможем сформирова"
- ],
- [
-  "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  341,
+  354,
   "fragment",
   "[? if ddp_candidate = spd_candidate: The <span style=\"color: #D3C24D;\">**[+ ddp_",
   "[? if ddp_candidate = spd_candidate: <span style=\"color: #D3C24D;\">**[+ ddp_name"
- ],
- [
-  "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  352,
-  "fragment",
-  "[? if ddp_candidate = spd_candidate: The <span style=\"color: #D3C24D;\">**[+ ddp_",
-  "[? if ddp_candidate = spd_candidate: <span style=\"color: #D3C24D;\">**[+ ddp_name"
- ],
- [
-  "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  362,
-  "fragment",
-  "[? if lvp_candidate = spd_candidate: The <span style=\"color: #FFCC00;\">**LVP**</",
-  "[? if lvp_candidate = spd_candidate: <span style=\"color: #FFCC00;\">**ЛНП**</span"
- ],
- [
-  "scenes/events/death_of_hindenburg_president_rubicon.scene.dry",
-  372,
-  "fragment",
-  "[? if lvp_candidate = spd_candidate:  The <span style=\"color: #FFCC00;\">**LVP**<",
-  "[? if lvp_candidate = spd_candidate: <span style=\"color: #FFCC00;\">**ЛНП**</span"
  ],
  [
   "scenes/events/election_1928.scene.dry",
@@ -120,31 +71,10 @@
  ],
  [
   "scenes/events/election_1928.scene.dry",
-  1787,
-  "fragment",
-  "{!<td><span style=\"color: #BFC8CC;\">!}**DNEF**{!</span></td>!}",
-  "!}             {!{!<td>!}<span style=\"color: #BFC8CC;\">!}**ФНЕГ**{!</span>{!</td"
- ],
- [
-  "scenes/events/election_1928.scene.dry",
   1796,
   "fragment",
   "{!<td><span style=\"color: #c00000;\"><b>SPD</b></span></td>!}",
   "!}             {!<td>!}<span style=\"color: #c00000;\"><b>СДПГ</b>{!</span>{!</td>"
- ],
- [
-  "scenes/events/election_1928.scene.dry",
-  1805,
-  "fragment",
-  "{!<td><span style=\"color: #9B0000;\">!}**SAPD**{!</span></td>!}",
-  "!}             {!<td>!}<span style=\"color: #9B0000;\">**СРПГ**{!</span>{!</td>!}!"
- ],
- [
-  "scenes/events/election_1928.scene.dry",
-  1814,
-  "fragment",
-  "{!<td>!}<span style=\"color: #000000;\">**[+ z_party_name +]**</span> + <span styl",
-  "!}             {!<td>!}<span style=\"color: #000000;\">**[+ z_party_name +]**</spa"
  ],
  [
   "scenes/events/election_1928.scene.dry",
@@ -155,24 +85,10 @@
  ],
  [
   "scenes/events/election_1928.scene.dry",
-  1841,
-  "fragment",
-  "{!<td>!}<span style=\"color: #FFCC00;\">**LVP**</span>{!</td>!}",
-  "!}             {!<td>!}<span style=\"color: #FFCC00;\">**ЛНП**{!</span>{!</td>!}!}"
- ],
- [
-  "scenes/events/election_1928.scene.dry",
   1850,
   "fragment",
   "{!<td><span style=\"color: #C0A054;\"><b>DVP</b></span></td>!}",
   "!}             {!<td>!}<span style=\"color: #C0A054;\"><b>ННП</b>{!</span>{!</td>!"
- ],
- [
-  "scenes/events/election_1928.scene.dry",
-  1859,
-  "fragment",
-  "{!<td><span style=\"color: #0087DC;\">!}**KVP**{!</span></td>!}",
-  "!}             {!<td>!}<span style=\"color: #0087DC;\">**КНП**{!</span>{!</td>!}!}"
  ],
  [
   "scenes/events/election_1928.scene.dry",
@@ -187,13 +103,6 @@
   "fragment",
   "{!<td><span style=\"color: #3E88B3;\"><b>DNVP</b></span></td>!}",
   "!}             {!<td>!}<span style=\"color: #3E88B3;\"><b>НННП</b>{!</span>{!</td>"
- ],
- [
-  "scenes/events/election_1928.scene.dry",
-  1886,
-  "fragment",
-  "{!<td><span style=\"color: #003755;\">!}**DNF**{!</span></td>!}",
-  "!}             {!<td>!}<span style=\"color: #003755;\">**НФГ**{!</span>{!</td>!}!}"
  ],
  [
   "scenes/events/election_1928.scene.dry",
@@ -225,21 +134,7 @@
  ],
  [
   "scenes/events/hindenburg_explode_president.scene.dry",
-  209,
-  "fragment",
-  "[? if lvp_candidate = spd_candidate: The <span style=\"color: #FFCC00;\">**LVP**</",
-  "[? if lvp_candidate = spd_candidate: <span style=\"color: #FFCC00;\">**ЛНП**</span"
- ],
- [
-  "scenes/events/hindenburg_explode_president.scene.dry",
-  220,
-  "fragment",
-  "[? if lvp_candidate = spd_candidate: The <span style=\"color: #FFCC00;\">**LVP**</",
-  "[? if lvp_candidate = spd_candidate: <span style=\"color: #FFCC00;\">**ЛНП**</span"
- ],
- [
-  "scenes/events/hindenburg_explode_president.scene.dry",
-  344,
+  346,
   "fragment",
   "[? if Wels_running : <span style=\"color: #c00000;\">**Wels**</span> - [+ Wels_vot",
   " [? if Wels_running : <span style=\"color: #c00000;\">**Вельс**</span> -[+ Wels_vo"
@@ -267,13 +162,6 @@
  ],
  [
   "scenes/events/local_election_1932.scene.dry",
-  611,
-  "fragment",
-  "United Left Coalition (<span style=\"color: #c00000;\">**SPD**</span> + <span styl",
-  " Объединенная Левая Коалиция (<span style=\"color: #c00000;\">**СДПГ**</span> + <s"
- ],
- [
-  "scenes/events/local_election_1932.scene.dry",
   1056,
   "fragment",
   "{!<tr><td>Party</td><td>Vote share</td><td>Landtag Seats</td></tr>!}",
@@ -285,13 +173,6 @@
   "fragment",
   "{!<tr><td><div class=\"box\" style='background-color:#7A3C00'> </div> !} NSDAP: {!",
   "{!<tr><td><div class=\"box\" style='background-color:#7A3C00'> </div> !}НСДАП:{!</"
- ],
- [
-  "scenes/events/local_election_1932.scene.dry",
-  1086,
-  "fragment",
-  "United Left Coalition (<span style=\"color: #c00000;\">**SPD**</span> + <span styl",
-  " Объединенная Левая коалиция (<span style=\"color: #c00000;\">**СДПГ**</span> + <s"
  ],
  [
   "scenes/events/local_election_lippe.scene.dry",
@@ -315,13 +196,6 @@
   "!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></"
  ],
  [
-  "scenes/events/local_election_saxony.scene.dry",
-  507,
-  "fragment",
-  "Saxony is currently governed by the <span style=\"color: #fe9e00;\">Old Social Dem",
-  " В настоящее время Саксонией управляет <span style=\"color: #fe9e00;\">Старая соци"
- ],
- [
   "scenes/events/local_election_saxony_1930.scene.dry",
   604,
   "fragment",
@@ -334,13 +208,6 @@
   "fragment",
   "{!<tr><td><div class=\"box\" style='background-color:#7A3C00'> </div> !} NSDAP: {!",
   "{!<tr><td><div class=\"box\" style='background-color:#7A3C00'> </div> !}НСДАП:{!</"
- ],
- [
-  "scenes/events/local_election_saxony_1930.scene.dry",
-  646,
-  "fragment",
-  "United Left Coalition (<span style=\"color: #c00000;\">**SPD**</span> + <span styl",
-  " Объединенная левая коалиция (<span style=\"color: #c00000;\">**СДПГ**</span> + <s"
  ],
  [
   "scenes/events/local_election_saxony_1933.scene.dry",
@@ -369,13 +236,6 @@
   "fragment",
   "{!<tr><td><div class=\"box\" style='background-color:#7A3C00'> </div> !} NSDAP: {!",
   "{!<tr><td><div class=\"box\" style='background-color:#7A3C00'> </div> !}НСДАП:{!</"
- ],
- [
-  "scenes/events/london_economic_conference.scene.dry",
-  19,
-  "fragment",
-  "[? if not wtb_adopted and budget > 0: Germany has largely recovered from the cri",
-  " [? if not wtb_adopted and budget > 0: Германия в целом оправилась от кризиса, н"
  ],
  [
   "scenes/events/prussia_election_1928.scene.dry",
@@ -462,13 +322,6 @@
   " [? if investigate_far_right == 2 : Мы вскрыли факты контрабанды оружия со сторо"
  ],
  [
-  "scenes/government_affairs/police.scene.dry",
-  53,
-  "fragment",
-  "[? if investigate_far_right > 3 : Of course the <span style=\"color: #7A3C00;\">Na",
-  " [? if investigate_far_right > 3 : Конечно, <span style=\"color: #7A3C00;\">нацист"
- ],
- [
   "scenes/government_affairs/shuffle_cabinet.scene.dry",
   12,
   "label",
@@ -533,13 +386,6 @@
  ],
  [
   "scenes/library.scene.dry",
-  103,
-  "fragment",
-  "<span style=\"color: #c00000;\">**SPD**</span> position: [? if spd_toleration : to",
-  "<span style=\"color: #c00000;\">**СДПГ**</span>: [? if spd_toleration : воздержива"
- ],
- [
-  "scenes/library.scene.dry",
   127,
   "label",
   "Labor:",
@@ -596,13 +442,6 @@
  ],
  [
   "scenes/library.scene.dry",
-  358,
-  "fragment",
-  "[? if nvf_exist: <span style=\"color: #142e20;\">**NVF**</span>: [+ nvf_votes +]% ",
-  "[? if nvf_exist: <span style=\"color: #142e20;\">**ННФ**</span>: [+ nvf_votes +]% "
- ],
- [
-  "scenes/library.scene.dry",
   360,
   "fragment",
   "**Others**: [+ other_votes +]%",
@@ -649,20 +488,6 @@
   "fragment",
   "[? if left_dissent > 30: Leftists are making noises about another party split. ?",
   " [? if left_dissent > 30: Левые поговаривают об отколе от партии. ?] "
- ],
- [
-  "scenes/party_affairs/rally.scene.dry",
-  105,
-  "fragment",
-  "[? if pacifism >= 3 : Since we have consistently made pacifism a theme of our ca",
-  " [? if pacifism >= 3 : Поскольку мы последовательно строили свою кампанию на пац"
- ],
- [
-  "scenes/status.scene.dry",
-  22,
-  "fragment",
-  "<span style=\"color: #c00000;\">**SPD**</span> position: [? if spd_toleration : to",
-  "<span style=\"color: #c00000;\">**СДПГ**</span>: [? if spd_toleration : воздержива"
  ],
  [
   "scenes/status.scene.dry",
@@ -820,23 +645,9 @@
  ],
  [
   "scenes/status_right.scene.dry",
-  95,
-  "fragment",
-  "[? if dnef_existed: <p style=\"margin-bottom: 2px;\">Opinion of [+ chancellor +]: ",
-  " [? if dnef_existed: <p style=\"margin-bottom: 2px;\">Отношение к [+ chancellor +]"
- ],
- [
-  "scenes/status_right.scene.dry",
   99,
   "fragment",
   "[? if dnef_existed: <p style=\"font-weight: bold; margin-bottom: 0px;\">Nationalis",
   " [? if dnef_existed: <p style=\"font-weight: bold; margin-bottom: 0px;\">национали"
- ],
- [
-  "scenes/status_right.scene.dry",
-  101,
-  "fragment",
-  "[? if dnef_existed: <p style=\"margin-bottom: 2px;\">Opinion of [+ chancellor +]: ",
-  " [? if dnef_existed: <p style=\"margin-bottom: 2px;\">Отношение к [+ chancellor +]"
  ]
 ]
