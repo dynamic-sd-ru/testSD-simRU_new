@@ -52,7 +52,6 @@ new-page: true
 - @dvp_success: Партия голосует…
 - @dvp_fail: Партия голосует…
 
-
 @dvp_success
 view-if: lvp_formation_points >= 4
 on-arrival: dvp_relation += 2; dvp_left += 2
@@ -63,7 +62,6 @@ face-image: img/weimar_coalition_3.jpg
 Несмотря на эту победу, многие без особого энтузиазма поддерживают либеральное единство, рассматривая его лишь как вынужденный союз, что может вызвать определённые проблемы в будущей объединённой партии.
 
 - @lvp_merger_1930_2
-
 
 @dvp_fail
 view-if: lvp_formation_points < 4

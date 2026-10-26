@@ -16,7 +16,6 @@ new-page: true
 - @dnvp_split: Давно пора.
 
 
-
 @dnvp_split
 on-arrival: other_r += dnvp_r*0.3 if not kvp_formed; kvp_r += dnvp_r*0.3 if kvp_formed; dnvp_r = dnvp_r*0.7; rural_dnvp -= 4; new_middle_dnvp -= 4; old_middle_dnvp -= 4; rural_other += 4 if not kvp_formed; new_middle_other += 4 if not kvp_formed; old_middle_other += 4 if not kvp_formed; rural_kvp += 4 if kvp_formed; new_middle_kvp += 4 if kvp_formed; old_middle_kvp += 4 if kvp_formed; dnvp_split_2 = 1; dnvp_split_2_timer = 1 if not kvp_formed
 face-image: img/portraits/Kuno_von_Westarp.jpg

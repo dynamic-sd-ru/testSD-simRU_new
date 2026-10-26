@@ -15,7 +15,6 @@ face-image: img/Reichswehr.jpg
 - @defend
 - @surrender
 
-
 @defend
 title: Дать отпор попытке переворота!
 subtitle: Рабочих призовут к всеобщей забастовке. Рейхсбаннер и Союз красных фронтовиков (СКФ) будут мобилизованы для сопротивления рейхсверу.
@@ -25,18 +24,15 @@ subtitle: Рабочих призовут к всеобщей забастовк
 - @defend_2: Мы будем защищать правительство Саксонии вместе с коммунистами.
 - @surrender
 
-
 @defend_2
-on-arrival: resist_coup = 1; saxony_joever = 0; reformist_dissent += 10; defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += rfb_strength*rfb_militancy; defense_strength += workers_spd_normalized*(1 - dissent)*(2 - unemployed/100); defense_strength += workers_kpd_normalized*(2 - unemployed/100); defense_strength *= 0.8; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; enemy_strength += reichswehr_strength*reichswehr_militancy*(1-reichswehr_loyalty)
+on-arrival: resist_coup = 1; saxony_joever = 0; reformist_dissent += 10; defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += rfb_strength*rfb_militancy; defense_strength += workers_spd_normalized*(1 - dissent)*(2 - effective_unemployed/100); defense_strength += workers_kpd_normalized*(2 - effective_unemployed/100); defense_strength *= 0.8; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; enemy_strength += reichswehr_strength*reichswehr_militancy*(1-reichswehr_loyalty)
 go-to: defend_2_civil_war if defense_strength < enemy_strength; defend_2_victory if defense_strength >= enemy_strength
-
 
 @defend_2_civil_war
 
 Когда рейхсвер и реакционные военизированные отряды входят в Саксонию, между ними и левыми силами саксонского правительства вспыхивают вооруженные столкновения. Гинденбург отказывается отменить Reichsexekution (имперскую экзекуцию) и направляет в Саксонию дополнительные войска рейхсвера. Если бы антифашисты тотально контролировали улицы, то он бы дрогнул. Но уже слишком поздно.
 
 - @civil_war: Это гражданская война. Гинденбург уверен: правые на улицах достаточно сильны, чтобы сломить нас при поддержке Рейхсвера.
-
 
 @defend_2_victory
 on-arrival: sa_strength *= 0.8; sh_strength *= 0.8; left_dissent -= 15; reformist_dissent -= 10; reichsexekution_defeated = 1; pro_republic += 5; workers_spd += 5; unemployed_spd += 5; workers_kpd += 3; unemployed_kpd += 3; workers_nsdap -= 6; unemployed_nsdap -= 6; hindenburg_angry -= 50; hindenburg_angry_bruning += 40; coup_victory = 1; kpd_relation += 15; rfb_strength += 150; rfb_militancy += 0.1; rb_strength += 200
@@ -46,12 +42,11 @@ achievement: drei_pfeile
 
 Эта демонстрация силы оживила поддержку как <span style="color: #c00000;">**СДПГ**</span>, так и <span style="color: #700000;">**КПГ**</span>, а также ослабила фашистов и реакционеров. Гинденбург умерил свой гнев. Пока что. Он будет искать новой возможности, чтобы насолить нам. [+ president +] пока что сменил гнев на милость по отношению к нам.
 
-
 @surrender
 title: Сложить полномочия и сдать Саксонию, чтобы избежать кровопролития.
 subtitle: Гинденбург назначит правого <i>Рейхскомиссара</i>.
-on-arrival: red_saxony = 0; workers_spd -= 5; workers_kpd -= 5; unemployed_kpd -= 5; unemployed_spd -= 5; left_dissent += 15; labor_dissent += 5; rb_militancy = rb_militancy*0.7; rb_strength -= 250; rfb_banned = 1; rfb_strength -= 150; rfb_militancy -= 0.1; kpd_relation -= 20; communist_coalition -= 1
+on-arrival: red_saxony = 0; workers_spd -= 5; workers_kpd -= 5; unemployed_kpd -= 5; unemployed_spd -= 5; left_dissent += 15; labor_dissent += 5; rb_militancy = rb_militancy*0.7; rb_strength -= 250; rfb_banned = 1; rfb_strength -= 150; rfb_militancy -= 0.1; kpd_relation -= 20; communist_coalition -= 1; kpd_nazi_urgency -= 1;
 
 Выступления <span style="color: #700000;">коммунистов</span> на улицах жестоко подавлены. Рейхсвер патрулирует улицы, ограничивает политические собрания и закрывает глаза преследования <span style="color: #7A3C00;">нацистских</span> <span style="color: #7A3C00;">**СА**</span> против местных левых.
 
-Гинденбург назначает члена назначает [+ president +] <span style="color: #FFCC00;">**ЛНП**</span> [? if not lvp_formed: Вильгельма Бюнгера в качестве <i>рейхскомиссара</i> для управления Саксонией. Он поручил ему свернуть наши реформы и жестоко подавить <span style="color: #700000;"> Вильгельма Бюнгера в качестве <i>рейхскомиссара</i> для управления Саксонией, которому поручено свернуть наши реформы и жестоко подавить <span style="color: #700000;"></span>.</span>.
+[+ president +] назначает [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span>?] члена Вильгельма Бюнгера в качестве <i>рейхскомиссара</i> для управления Саксонией, которому поручено свернуть наши реформы и жестоко подавить <span style="color: #700000;">**РФБ**</span>.

@@ -19,12 +19,10 @@ face-image: img/portraits/schleicher.jpg
 - @schleicher_1: Чепуха!
 - @schleicher_2: В их словах может быть доля правды…
 
-
 @schleicher_1
-on-arrival: schleicher_spd_support -= 2; schleicher_spd_influence += 1; pro_republic -= 5; adjustmentFactors_votes_dnef += 0.08
+on-arrival: schleicher_spd_support -= 2; schleicher_spd_influence += 1; pro_republic -= 5; adjustmentFactors_votes_dnef += 0.08; kpd_nazi_urgency -= 1;
 
 И впрямь вздор.
-
 
 @schleicher_2
 choose-if: schleicher_spd_influence < 6

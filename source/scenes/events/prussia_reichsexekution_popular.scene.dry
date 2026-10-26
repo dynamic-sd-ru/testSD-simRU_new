@@ -17,7 +17,6 @@ face-image: img/Reichswehr.jpg
 - @surrender
 
 
-
 @defend
 title: Дать отпор попытке переворота!
 subtitle: Профсоюзы объявят всеобщую забастовку. Рейхсбаннер и лояльные части прусской полиции окажут сопротивление путчу. <span style="color: #700000;">**КПГ**</span> неизменно оказывает свою поддержку.
@@ -27,11 +26,9 @@ subtitle: Профсоюзы объявят всеобщую забастовк�
 - @defend_2: Мы будем сражаться, даже если это приведёт к гражданской войне.
 - @surrender
 
-
 @defend_2
-on-arrival: resist_coup = 1; defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; enemy_strength += reichswehr_strength*reichswehr_militancy*(1-reichswehr_loyalty); defense_strength += workers_spd_normalized*(2 - dissent)*(2 - unemployed/100); defense_strength += rfb_strength*rfb_militancy*(kpd_relation/100)
+on-arrival: resist_coup = 1; defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; enemy_strength += reichswehr_strength*reichswehr_militancy*(1-reichswehr_loyalty); defense_strength += workers_spd_normalized*(2 - dissent)*(2 - effective_unemployed/100); defense_strength += rfb_strength*rfb_militancy*(kpd_relation/100)
 go-to: defend_2_civil_war if defense_strength < enemy_strength; defend_2_victory if defense_strength >= enemy_strength
-
 
 @defend_2_victory
 on-arrival: sa_strength *= 0.8; sh_strength *= 0.8; pro_republic += 6; workers_spd += 4; unemployed_spd += 4; workers_kpd += 2; unemployed_kpd += 2; workers_nsdap -= 6; unemployed_nsdap -= 6; coup_victory = 1; ddp_cohesion += 2; ddp_left += 2; ddp_relation += 3; lvp_relation += 3; lvp_left += 1; z_relation += 3; kpd_relation += 10; rfb_strength += 200; rfb_militancy += 0.1
@@ -42,10 +39,8 @@ go-to: defend_2_victory_2
 
 Эта демонстрация силы укрепила поддержку <span style="color: #c00000;">**СДПГ**</span>, так и <span style="color: #700000;">**КПГ**</span>, и ослабила <span style="color: #7A3C00;">фашистов</span>.
 
-
 @defend_2_victory_2
 achievement: drei_pfeile
-
 
 
 @defend_2_civil_war
@@ -57,11 +52,10 @@ achievement: drei_pfeile
 
 
 
-
 @surrender
 title: Отказаться от прусского правительства.
 subtitle: <span style="color: #700000;">**СКФ**</span> будет сражаться в одиночку.
-on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; prussia_leader = "Гёрделер"; workers_spd -= 5; workers_kpd -= 5; unemployed_kpd -= 5; unemployed_spd -= 5; left_dissent += 10; labor_dissent += 10; rb_militancy = rb_militancy/2; rb_strength -= 1000; rfb_banned = 1; rfb_strength -= 200; rfb_militancy -= 0.25; kpd_relation -= 30; communist_coalition -= 3; next_election_time_prussia = time + 48; next_election_year_prussia = year + 4
+on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; prussia_leader = "Гёрделер"; workers_spd -= 5; workers_kpd -= 5; unemployed_kpd -= 5; unemployed_spd -= 5; left_dissent += 10; labor_dissent += 10; rb_militancy = rb_militancy/2; rb_strength -= 1000; rfb_banned = 1; rfb_strength -= 200; rfb_militancy -= 0.25; kpd_relation -= 30; communist_coalition -= 3; next_election_time_prussia = time + 48; next_election_year_prussia = year + 4; kpd_nazi_urgency -= 1;
 
 Оказавшие сопротивление <span style="color: #700000;">коммунисты</span> жестоко подавлены, и без поддержки Рейхсбаннера мы вынуждены сдать прусское правительство <span style="color: #808080;">реакционерам</span>. На <span style="color: #c00000;">социал-демократию</span> опускается покров безнадёжности и отчаяния. Мы проиграли. <span style="color: #700000;">**КПГ**</span> никогда нам не доверится снова. Многие члены Рейхсбаннера, деморализованные отсутствием призыва к действию, просто покинули его ряды.
 

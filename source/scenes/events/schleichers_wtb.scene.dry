@@ -1,6 +1,6 @@
 title: Предложение Шлейхера
 subtitle: Генерал Курт фон Шлейхер связывается с нашей партией…
-view-if: year >= 1930 and president = "Гинденбург" and spd_in_government and not in_left_front and not in_popular_front and not presidential_powers and wtb_adopted and not unions_independent and reformist_strength + labor_strength >= left_strength + center_strength and reichswehr_loyalty >= 0.2 and (not panzerkreuzer_no or panzerkreuser_seen) and not rearmament_exposed and reparations_negotiation >= 3 and not weltbuhne_dropped and kpd_relation < 35 and reichswehr_minister_party != "СДПГ" and pacifism < 5 and nationalization_progress < 5 and not works_program
+view-if: year >= 1930 and president = "Гинденбург" and spd_in_government and not in_left_front and not sapd_toleration and not in_popular_front and not presidential_powers and wtb_adopted and not unions_independent and reformist_strength + labor_strength >= left_strength + center_strength and reichswehr_loyalty >= 0.2 and (not panzerkreuzer_no or panzerkreuser_seen) and not rearmament_exposed and reparations_negotiation >= 3 and not weltbuhne_dropped and kpd_relation < 35 and reichswehr_minister_party != "СДПГ" and pacifism < 5 and nationalization_progress < 5 and not works_program
 on-arrival: schleicher_wtb_proposal_seen = 1
 new-page: true
 max-visits: 1
@@ -16,7 +16,6 @@ face-image: img/portraits/SchleicherKurt.jpg
 - @schleicher_yay
 - @schleicher_nay
 
-
 @schleicher_yay
 title: Отчаянные времена требуют отчаянных мер.
 subtitle: Выслушаем его и посмотрим, что он предложит.
@@ -30,16 +29,14 @@ subtitle: Выслушаем его и посмотрим, что он пред�
 - @schleicher_yay_2
 - @schleicher_nay
 
-
 @schleicher_yay_2
 title: Мы беззащитны — беззащитны и обесчещены.
 subtitle: Это точка невозврата.
-on-arrival: schleicher_spd = 1; hindenburg_angry = 0; hindenburg_angry_pause_time = time + 12; nationalism += 20; pacifism -= 5; democratization -= 5; pro_republic -= spd_votes / 2; left_dissent += 50; center_dissent += 30; reformist_dissent += 10; nsdap_radicalization += 5; nsdap_strasser_time = time + 6; data_miner_detected = 1; kpd_relation -= 100; communist_coalition -= 5; reichswehr_loyalty += 0.05
+on-arrival: schleicher_spd = 1; hindenburg_angry = 0; hindenburg_angry_pause_time = time + 12; nationalism += 20; pacifism -= 5; democratization -= 5; pro_republic -= spd_votes / 2; left_dissent += 50; center_dissent += 30; reformist_dissent += 10; nsdap_radicalization += 5; nsdap_strasser_time = time + 6; data_miner_detected = 1; kpd_relation -= 100; communist_coalition -= 5; reichswehr_loyalty += 0.05; kpd_nazi_urgency -= 1;
 
 Нам дали год на реализацию плана ВТБ, и Шлейхер — некогда активный интриган, призывавший Гинденбурга отправить в отставку правительство [+ chancellor +]а — теперь пытается помешать Гинденбургу отправить в отставку уже нас. К сожалению, Шлейхеру не удалось убедить Гинденбурга предоставить нам чрезвычайные полномочия.
 
 Общественность этого не заметила — по крайней мере, пока. Мы должны немедленно приступить к реализации плана ВТБ.
-
 
 @schleicher_nay
 title: Словам Шлейхера нельзя доверять, он в любой момент вонзит нам нож в спину.

@@ -25,10 +25,9 @@ on-display: {!
 
 - @z_in_gov
 
-
 @z_in_gov
 title: Шлейхер нашёл новую марионетку в лице Кааса.
-on-arrival: kaas_puppet = 1; z_in_gov = 1; z_relation -= 20; pro_republic -= 5; schleicher_approval += 1; hindenburg_schleicher_r += 1
+on-arrival: kaas_puppet = 1; z_in_gov = 1; z_relation -= 20; pro_republic -= 5; schleicher_approval += 1; hindenburg_schleicher_r += 1; kpd_nazi_urgency += 1;
 
 <span style="color: #000000;">Партия Центра</span> получает свои министерские портфели: Адам Штегервальд закрепляет за собой министерство труда, а другие члены партии — министерства транспорта и юстиции. <span style="color: #000000;">Партия Центра</span> также привлекает к сотрудничеству <span style="color: #A2D8E0;">**БНП**</span>, которой достаётся министерство почт.
 

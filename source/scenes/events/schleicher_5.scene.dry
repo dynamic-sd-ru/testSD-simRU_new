@@ -28,17 +28,15 @@ on-display: {!
 - @yay
 - @nay
 
-
 @yay
 title: Пусть профсоюзы поговорят.
 unavailable-subtitle: Партия слишком не доверяет Шлейхеру, чтобы пойти на это.
 choose-if: schleicher_spd_support >= 6 and labor_strength >= (center_strength*2) + left_strength
-on-arrival: schleicher_spd_support += 2; schleicher_spd_r += 1 if schleicher_spd_r < 5; workers_spd -= 4; unemployed_spd -= 4; center_dissent += 10; neorevisionist_dissent += 10; schleicher_spd_adopted = 1; schleicher_approval += 1
+on-arrival: schleicher_spd_support += 2; schleicher_spd_r += 1 if schleicher_spd_r < 5; workers_spd -= 4; unemployed_spd -= 4; center_dissent += 10; neorevisionist_dissent += 10; schleicher_spd_adopted = 1; schleicher_approval += 1; kpd_nazi_urgency -= 1;
 
 В публичном заявлении АДГБ воздержалось от прямого опровержения слухов о политическом перемирии, вместо этого заявив: канцлеру следует дать несколько месяцев без парламентского вмешательства для реализации его программы общественных работ. Этот шаг оправдывали перед <span style="color: #c00000;">**СДПГ**</span> так: это оттянет избирателей от <span style="color: #700000;">**коммунистов **</span> и <span style="color: #7A3C00;">нацистов</span>, принося при этом пользу рабочим, которых мы представляем.
 
 Само собой разумеется, профсоюз, представляющий тех самых рабочих, что пострадали при его предшественнике, потерял в их глазах всякое доверие.
-
 
 @nay
 title: Это чистая дезинформация, мы никогда не обсуждали «политическое перемирие».

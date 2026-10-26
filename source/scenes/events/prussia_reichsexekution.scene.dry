@@ -15,11 +15,10 @@ face-image: img/Reichswehr.jpg
 
 - @surrender
 
-
 @surrender
 title: Мы ничего не можем поделать.
 subtitle: За это не стоит умирать.
-on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; prussia_leader = "Гёрделер"; workers_spd -= 3; workers_kpd -= 3; unemployed_kpd -= 3; unemployed_spd -= 3; left_dissent += 5; labor_dissent += 5; rb_militancy = rb_militancy/1.5; rb_strength -= 300; rfb_banned = 1; rfb_strength -= 100; rfb_militancy -= 0.1; prussian_reichsexekution_timer = 12; next_election_time_prussia = time + 48; next_election_year_prussia = year + 4
+on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; prussia_leader = "Гёрделер"; workers_spd -= 3; workers_kpd -= 3; unemployed_kpd -= 3; unemployed_spd -= 3; left_dissent += 5; labor_dissent += 5; rb_militancy = rb_militancy/1.5; rb_strength -= 300; rfb_banned = 1; rfb_strength -= 100; rfb_militancy -= 0.1; prussian_reichsexekution_timer = 12; next_election_time_prussia = time + 48; next_election_year_prussia = year + 4
 
 Гинденбург назначает ныне беспартийного <span style="color: #3E88B3;">националиста</span> Карла Фридриха Гёрделера управлять Пруссией в качестве <i>Рейхскомиссара</i>, поручив ему демонтировать демократические институты, которые мы с таким трудом создавали.
 

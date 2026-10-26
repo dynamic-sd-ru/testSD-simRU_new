@@ -6,7 +6,6 @@ set-jump: post_election
 - @1930: Исторический сценарий 1930 года
 - @1932: Исторический сценарий июля 1932 года
 
-
 @1928
 on-arrival: {!
 Q.workers = 46; // industry and trade
@@ -79,7 +78,6 @@ Q.catholics_other = 10;
 !}
 go-to: election_algorithm
 set-jump: post_election
-
 
 @1930
 on-arrival: {!
@@ -163,7 +161,6 @@ Q.other_r = 5;
 go-to: election_algorithm
 set-jump: post_election
 
-
 @1932
 on-arrival: {!
 Q.workers = 46; // industry and trade
@@ -246,7 +243,6 @@ Q.other_r = 5;
 go-to: election_algorithm
 set-jump: post_election
 
-
 @post_election
 on-arrival: {!
 // set congress proportion to votes
@@ -259,7 +255,7 @@ Q.dnvp_r = Q.dnvp_votes;
 Q.nsdap_r = Q.nsdap_votes;
 Q.other_r = Q.other_votes;
 
-// The largest party can only be the NSDAP or the <span style="color: #c00000;">**SPD**</span>.
+// The largest party can only be the NSDAP or the <span style="color: #c00000;">**СДПГ**</span>.
 Q.largest_party = 'СДПГ';
 if (Q.nsdap_r >= Q.spd_r && Q.nsdap_r >= Q.kpd_r) {
     Q.largest_party = 'НСДАП';
@@ -276,6 +272,7 @@ Q.center_right_coalition = Q.z_r + Q.ddp_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.right_coalition = Q.z_r + Q.dvp_r + Q.other_r + Q.dnvp_r;
 Q.far_right_coalition = Q.dnvp_r + Q.nsdap_r;
 Q.left_coalition = Q.spd_r + Q.kpd_r;
+Q.socialist_front = Q.spd_r + Q.sadp_r;
 // this is an absurd concept lol
 Q.united_front_coalition = Q.spd_r + Q.kpd_r + Q.z_r + Q.ddp_r - 3;
 Q.anti_democratic_coalition = Q.kpd_r + Q.nsdap_r;
@@ -290,7 +287,7 @@ Q.neo_weimar_coalition = Q.spd_r + Q.ddp_r + Q.z_r + Q.dvp_r + Q.other_r;
 # 1928: 30, 1930: 25, 1932: 22
 СДПГ:[+ spd_r +]
 
-# 1928: 15, 1930: 15, 1932: 
+# 1928: 15, 1930: 15, 1932:
 Партия Центра + БНП:[+ z_r +]
 
 # 1928: 10, 1930: 13

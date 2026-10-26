@@ -12,7 +12,6 @@ max-visits: 1
 
 - @damn: Дела буржуазных партий нас не касаются.
 
-
 @damn
 on-arrival: bourgeois_parliament = 0; bourgeois_parliament_no_liberals = 0; bourgeois_parliament_ddp = 0; bourgeois_parliament_kvp = 0; bourgeois_list = 0; bourgeois_list_ddp = 0; bourgeois_list_kvp = 0
 

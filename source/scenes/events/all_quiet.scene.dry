@@ -18,12 +18,10 @@ face-image: img/All_Quiet.jpg
 - @allow_protect: Разрешить показ фильма и задействовать прусскую полицию для предотвращения беспорядков со стороны <span style="color: #7A3C00;">нацистов</span>.
 - @everyone: На самом деле, уроки этого фильма должен усвоить каждый. Раздайте бесплатные билеты студентам и госслужащим.
 
-
 @ban
 on-arrival: old_middle_nsdap += 5; new_middle_nsdap += 3; workers_nsdap += 2; unemployed_nsdap += 2; sa_strength += 50; nationalism += 6; pro_republic -= 5
 
 Когда мы запрещаем фильм к показу, <span style="color: #7A3C00;">нацисты</span> немедленно празднуют это как крупную победу; они заявляют, что даже красные марксисты с ними согласны! Это серьёзно поднимает их боевой дух.
-
 
 
 @allow
@@ -32,14 +30,12 @@ on-arrival: nationalism += 3; old_middle_nsdap += 5; new_middle_nsdap += 3; work
 Хотя мы и разрешаем фильм к показу, сеансы сопровождаются насилием. В конце концов его показ прекращается, и <span style="color: #7A3C00;">нацисты</span> заявляют о своей победе.
 
 
-
 @allow_protect
 choose-if: prussian_police_loyalty >= 0.65 and ((prussia_leader = "Браун" or prussia_leader = "Розенфельд") or z_relation >= 65)
 unavailable-subtitle: [? if prussian_police_loyalty < 0.65: Полиция не желает охранять фильм. ?] [? if not prussia_leader = "Браун" and not prussia_leader = "Розенфельд" and z_relation < 65: Наши партнёры по коалиции не позволяют нам прибегнуть к полицейским мерам. ?]
 on-arrival: nationalism -= 4; pro_republic += 4*(1-dissent); strife += 1
 
 Под охраной полиции люди могут спокойно посмотреть фильм. Беспорядки со стороны <span style="color: #7A3C00;">нацистов</span> сведены к минимуму.
-
 
 @everyone
 choose-if: prussian_police_loyalty >= 0.75 and prussia_leader = "Браун" or prussia_leader = "Розенфельд"

@@ -24,7 +24,6 @@ max-visits: 6
 
 #- Orient reichsbanner towards anti-fascism (only available if we have prioritized anti fascism)
 
-
 @militant
 choose-if: resources >= rb_militarization_cost
 unavailable-subtitle: Недостаточно ресурсов ([+ rb_militarization_cost +] требуется).
@@ -36,13 +35,11 @@ on-arrival: resources -= rb_militarization_cost; rb_investment += 1; rb_strength
 [? if not cvp_leave_reichsbanner and not rb_exit: [? if strife < 5: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] осуждает милитаризацию Рейхсбаннера, и её члены покидают <span style="color: #000000;">рес</span><span style="color: #DD0000;">пуб</span><span style="color: #FFCC00;">ликанскую</span> организацию.  ?][? if strife >= 5: Видя беспорядки, что заполонили улицы Германии, [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] похоже, убеждены в необходимости милитаризации Рейхсбаннер. Они смягчают свою критику.  ?] ?]
 
 
-
 @militant_2
 view-if: funded_reichsbanner >= 1
 on-arrival: rb_militancy += 0.02; funded_reichsbanner -= 1
 
 Поскольку мы уже выделили средства на Рейхсбаннер, мы можем вложить их в повышение его боевитости.
-
 
 
 @same
@@ -52,13 +49,11 @@ on-arrival: rb_militancy += 0.02; funded_reichsbanner -= 1
 - @return: Продолжить…
 
 
-
 @cut_rb
 subtitle: +1 ресурс
 on-arrival: resources += 1; rb_strength -= 100; rb_militancy -= 0.05; left_strength -= 2; left_dissent -= 2; spd_militancy -= 0.05; workers_kpd += 2; unemployed_kpd += 2
 
 Сокращение финансирования Рейхсбаннера приводит к сокращению его численности и побуждает некоторых членов партии переходить к <span style="color: #700000;">коммунистам</span>.
-
 
 
 @women_rb
@@ -74,7 +69,6 @@ achievement: women_reichsbanner
 Предложение разрешить женщинам вступать в Рейхсбаннер высмеивается большинством, за исключением Тони Зендер. Но сейчас исключительное время, и нам нужен каждый, кто готов к нам присоединиться. Поэтому мы создаём специализированные подразделения для женщин, [? if homosexual_rights > 0: и даже несколько тайных отрядов для <span style="color: deepskyblue;">транс</span><span style="color: linen;">сек</span><span style="color: lightpink;">суалов</span> и <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">се</span><span style="color: green;">кс</span><span style="color: blue;">уа</span><span style="color: purple;">лов</span> ?].
 
 После того как женщинам разрешили вступать в организацию, число покинувших нас товарищей с лихвой компенсируется числом вступивших в наши ряды радикально настроенных женщин и других новобранцев. Однако многие из ушедших — ветераны, а у многих новобранцев нет опыта военной подготовки.
-
 
 @homosexual
 achievement: anders_als_die_andern

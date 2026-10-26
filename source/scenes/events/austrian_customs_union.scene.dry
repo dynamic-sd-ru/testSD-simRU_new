@@ -9,7 +9,8 @@ max-visits: 1
 
 = Таможенный союз с Австрией
 
-[? if spd_in_government: МИД контролирует другая партия: [+ foreign_minister_party +]. Её член — министр иностранных дел в правительстве — выдвинул предложение о создании таможенного союза с Австрией. Мы можем либо принять, либо отклонить это предложение.  ?] [? if not spd_in_government: Правительство канцлера [+ chancellor +]а предлагает создать таможенный союз с Австрией. Скорее всего, это произойдёт вне зависимости от нашего решения.  ?]
+[? if spd_in_government: МИД контролирует другая партия: [+ foreign_minister_party +]. Её член — министр иностранных дел в правительстве — выдвинул предложение о создании таможенного союза с Австрией. Мы можем либо принять, либо отклонить это предложение.  ?]
+[? if not spd_in_government: Правительство канцлера [+ chancellor +]а предлагает создать таможенный союз с Австрией. Скорее всего, это произойдёт вне зависимости от нашего решения.  ?]
 
 
 Правые националисты давно стремились к сближению с Австрией, конечная цель которого — объединение двух немецкоязычных стран. Таможенный союз с Австрией — это первый шаг к достижению этой цели. Кроме того, многие считают, что союз с Австрией улучшит наше текущее экономическое положение.
@@ -20,12 +21,10 @@ max-visits: 1
 - @end_coalition: Мы потопим это соглашение!
 - @end_toleration: Мы постараемся потопим это соглашение!
 
-
 @let_it_happen
 on-arrival: banking_crisis_timer = 4; curtius_banking_crisis = 1 if not in_weimar_coalition; curtius_explosion_timer = time + 7 if ((dvp_leader == "Курциус" and not in_weimar_coalition) or lvp_leader == "Курциус") and not in_popular_front and not in_left_front; customs_union = 1; west_relation -= 2; east_relation -= 2
 
 Таможенный союз создан. Незамедлительно <span style="color: #002654;">Франция</span> и другие соседние страны заявляют протест. Какой будет долгосрочная реакция — ещё предстоит увидеть.
-
 
 @end_coalition
 view-if: spd_in_government = 1
@@ -33,12 +32,10 @@ on-arrival: coalition_dissent += 1; dvp_relation -= 5; z_relation -= 4; z_relati
 
 Мы пытаемся донести до наших партнёров по коалиции всю серьёзность возможной реакции союзников. Предложение провалилось, хотя [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] и [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] — недовольны.
 
-
 @end_toleration
 view-if: spd_toleration = 1
 subtitle: Это будет непросто: все правоцентристские партии поддерживают эту политику.
 go-to: end_toleration_success if spd_r + kpd_r >= 50; end_toleration_fail if spd_r + kpd_r < 50
-
 
 @end_toleration_success
 on-arrival: time_to_election = 3; spd_in_government = 0; in_grand_coalition = 0; spd_toleration = 0; spd_toleration_right = 0; left_dissent -= 5; dvp_relation -= 3; ddp_relation -= 3; z_relation -= 3; lvp_relation -= 3; ddp_right += 2; dvp_right += 3;
@@ -49,9 +46,8 @@ go-to: new_prussia_election if in_social_catholic_coalition_prussia or in_weimar
 
 Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @new_prussia_election
-on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
+on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
 call: set_next_election_time_prussia
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] инициировал ответное голосование в Пруссии, добившись роспуска ландтага и назначения новых выборов.
@@ -60,14 +56,12 @@ call: set_next_election_time_prussia
 
 Двойной роспуск пошатнул веру народа в демократию, а <span style="color: #7A3C00;">нацисты</span> воспользовались нестабильностью, чтобы заявить о нежизнеспособности демократии и о том, что Германии нужен сильный лидер.
 
-
 @center_right_coalition_prussia
-on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
+on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] объявила ответный вотум недоверия в Пруссии, заменив наше правительство правоцентристской коалицией, состоящей из всех партий правее нас, за исключением <span style="color: #003755;">**НФГ**</span> и <span style="color: #7A3C00;">**НСДАП**</span>. Хотя это и неудача, это не худший из возможных исходов, поскольку новые выборы могли бы привести к значительному усилению экстремистских партий.
 
 [? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?] из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран министром-президентом Пруссии.
-
 
 @end_toleration_fail
 on-arrival: banking_crisis_timer = 4; customs_union = 1; west_relation -= 2; east_relation -= 2

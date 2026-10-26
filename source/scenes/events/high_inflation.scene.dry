@@ -17,30 +17,25 @@ tags: event
 - @bank: Уж на этот раз у Рейхсбанка наверняка есть план?
 - @nothing: По правде говоря, мы ничего не можем сделать.
 
-
 @taxes
 on-arrival: upper_tax_rates += 1; lower_tax_rates += 1; budget += 2; unemployed += 1.5; capital_strike_progress -= 1; inflation -= 1; new_middle_spd -= 3; old_middle_spd -= 3; workers_spd -= 3; rural_spd -= 3; kpd_coalition_dissent += 1; kpd_relation -= 5; left_dissent += 5; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_relation -= 4; dvp_right += 1; ddp_right += 1; lvp_right += 1; economic_growth -= 0.4
 
 Повышение налогов не пользуется популярностью, но, возможно, это необходимо, чтобы удержать инфляцию под контролем.
-
 
 @welfare
 on-arrival: welfare -= 1; budget += 1; capital_strike_progress -= 2; unemployed += 1.5; new_middle_spd += 4*(1-dissent); old_middle_spd += 4*(1-dissent); workers_spd -= 5; unemployed_spd -= 5; inflation -= 1; left_dissent += 5; labor_dissent += 5; center_dissent += 5; kpd_coalition_dissent += 1; economic_growth -= 0.4
 
 Согласно классической экономической теории, сокращение государственных расходов должно снизить уровень инфляции. Но это больно ударит по самым обездоленным слоям населения.
 
-
 @price_controls
 on-arrival: capital_strike_progress += 3; inflation -= 3; coalition_dissent += 1; unemployed += 1; old_middle_spd -= 4; new_middle_spd -= 3; rural_spd -= 5; workers_spd -= 2; unemployed_spd += 3; labor_dissent += 6; dvp_relation -= 6; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 6; dvp_right += 3; ddp_right += 2; ddp_cohesion -= 1; lvp_right += 3; economic_growth -= 0.4
 
 Контроль над ценами крайне непопулярен среди буржуазии и её представителей, а также сельских производителей, тогда как контроль над зарплатами наносит ущерб организованным рабочим. Однако эта политика всё же помогает сдержать инфляцию, по крайней мере отчасти.
 
-
 @bank
 on-arrival: capital_strike_progress += 2
 
-К сожалению, хотя и вполне ожидаемо, Рейхсбанк отказывается помогать правительству, утверждая, что вина целиком и полностью лежит на нашей <span style="color: #c00000;">социалистической</span> политике. Президент Рейхсбанка [? if not luther_reichsbank: Фридрих Драйзе ?][? if luther_reichsbank: Ганс Лютер ?]чуть ли не призывает к падению правительства.
-
+К сожалению, хотя и вполне ожидаемо, Рейхсбанк отказывается помогать правительству, утверждая, что вина целиком и полностью лежит на нашей <span style="color: #c00000;">социалистической</span> политике. Президент Рейхсбанка [? if not luther_reichsbank: Фридрих Драйзе ?][? if luther_reichsbank: Ганс Лютер ?] чуть ли не призывает к падению правительства.
 
 @nothing
 on-arrival: capital_strike_progress += 1

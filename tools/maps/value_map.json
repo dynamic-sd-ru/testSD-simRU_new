@@ -1,0 +1,627 @@
+{
+ "per_var": {
+  "agriculture_minister_party": {
+   "SPD": "СДПГ",
+   "LVP": "ЛНП",
+   "Z": "Центр"
+  },
+  "president": {
+   "Braun": "Браун",
+   "Göring": "Геринг",
+   "Hammerstein": "Хаммерштейн",
+   "Hergt": "Гергт",
+   "Rosenfeld": "Розенфельд",
+   "Thälmann": "Тельман",
+   "Münzenberg": "Мюнценберг",
+   "Ossietzky": "Осецкий",
+   "Mann": "Манн",
+   "Hitler": "Гитлер",
+   "Seldte": "Зельдте",
+   "Hindenburg": "Гинденбург",
+   "Adenauer": "Аденауэр",
+   "Stegerwald": "Штегервальд",
+   "Westarp": "Вестарп",
+   "Lettow-Vorbeck": "Леттов_Форбек",
+   "Bumke (acting)": "Бумке (и.о.)",
+   "Großmann (acting)": "Гроссман (и.о.)",
+   "Schumacher": "Шумахер",
+   "Wels": "Вельс",
+   "Grzesinski": "Гржезинский",
+   "Juchacz": "Юхач",
+   "Frick": "Фрик",
+   "Heuss": "Хойс",
+   "Einstein": "Эйнштейн"
+  },
+  "prussia_leader": {
+   "Braun": "Браун",
+   "Rosenfeld": "Розенфельд",
+   "Brüning": "Брюнинг",
+   "Stegerwald": "Штегервальд",
+   "Papen": "Папен",
+   "Goring": "Геринг",
+   "Luther": "Лютер",
+   "Schleicher": "Шлейхер",
+   "Goerdeler": "Гёрделер",
+   "Strasser": "Штрассер"
+  },
+  "foreign_minister_party": {
+   "SPD": "СДПГ",
+   "KPD": "КПГ",
+   "DVP": "ННП",
+   "LVP": "ЛНП",
+   "Z": "Центр"
+  },
+  "chancellor": {
+   "Breitscheid": "Брайтшайд",
+   "Müller": "Мюллер",
+   "Papen": "Папен",
+   "Brüning": "Брюнинг",
+   "Goerdeler": "Гёрделер",
+   "Hitler": "Гитлер",
+   "Wirth": "Вирт",
+   "Wels": "Вельс",
+   "Schleicher": "Шлейхер",
+   "Adenauer": "Аденауэр",
+   "Marx": "Маркс",
+   "Strasser": "Штрассер",
+   "Braun": "Браун",
+   "Treviranus": "Тревиранус",
+   "Seldte": "Зельдте",
+   "Goebbels": "Геббельс"
+  },
+  "finance_minister_party": {
+   "SPD": "СДПГ",
+   "DVP": "ННП",
+   "LVP": "ЛНП",
+   "Z": "Центр",
+   "DNVP": "НННП",
+   "KPD": "КПГ"
+  },
+  "reichswehr_minister_party": {
+   "SPD": "СДПГ"
+  },
+  "justice_minister_party": {
+   "SPD": "СДПГ",
+   "LVP": "ЛНП",
+   "Z": "Центр"
+  },
+  "dnvp_ideology": {
+   "Radical": "Радикалы",
+   "Moderate": "Умеренные"
+  },
+  "interior_minister_party": {
+   "SPD": "СДПГ",
+   "Z": "Центр",
+   "LVP": "ЛНП",
+   "KPD": "КПГ"
+  },
+  "chancellor_party": {
+   "SPD": "СДПГ",
+   "KPD": "КПГ",
+   "Z": "Центр",
+   "NSDAP": "НСДАП",
+   "DNEF": "ФНЕГ"
+  },
+  "editorial_line": {
+   "Left": "Левые",
+   "Center": "Центр",
+   "Labor": "Труд",
+   "Reformists": "Реформисты",
+   "Neorevisionists": "Неоревизионисты"
+  },
+  "labor_minister_party": {
+   "SPD": "СДПГ",
+   "Z": "Центр",
+   "LVP": "ЛНП",
+   "KPD": "КПГ"
+  },
+  "kpd_leader": {
+   "Conciliators": "Примиренцы",
+   "Thälmann": "Тельман"
+  },
+  "z_ideology": {
+   "Right": "Правые",
+   "Left": "Левые"
+  },
+  "economic_minister_party": {
+   "SPD": "СДПГ",
+   "DVP": "ННП",
+   "LVP": "ЛНП",
+   "Z": "Центр",
+   "DNVP": "НННП",
+   "KPD": "КПГ"
+  },
+  "public_works_name": {
+   "Dietrich": "Дитрих"
+  },
+  "dvp_leader": {
+   "Dingeldey": "Дингельдей",
+   "Scholz": "Шольц",
+   "Hugo": "Хуго",
+   "Glatzel": "Глацель",
+   "Curtius": "Курциус",
+   "Luther": "Лютер",
+   "Thiel": "Тиль",
+   "Kardorff": "Кардорф",
+   "zu Dohna-Schlodien": "цу Дона-Шлодин",
+   "Stresemann": "Штреземан"
+  },
+  "dnvp_leader": {
+   "Hergt": "Гергт",
+   "Treviranus": "Тревиранус",
+   "Lambach": "Ламбах",
+   "Schiele": "Шиле",
+   "Westarp": "Вестарп",
+   "Triumvirate": "Триумвират",
+   "Hugenberg": "Гугенберг",
+   "Lejeune-Jung": "Лежён-Юнг",
+   "Keudell": "Койдель"
+  },
+  "z_leader": {
+   "Marx": "Маркс",
+   "Kaas": "Каас",
+   "Joos": "Йоос",
+   "Brüning": "Брюнинг",
+   "Guérard": "Герар",
+   "Stegerwald": "Штегервальд",
+   "Adenauer": "Аденауэр",
+   "Bracht": "Брахт",
+   "Kaiser": "Кайзер"
+  },
+  "dvp_ideology": {
+   "Right": "Правые",
+   "Left": "Левые",
+   "Moderate": "Умеренные"
+  },
+  "z_party_name": {
+   "CVP": "ХНП"
+  },
+  "cvp_ideology": {
+   "Moderate": "Умеренные",
+   "Right": "Правые",
+   "Left": "Левые"
+  },
+  "cvp_leader": {
+   "Stegerwald": "Штегервальд",
+   "Lambach": "Ламбах",
+   "Adenauer": "Аденауэр",
+   "Gereke": "Гереке",
+   "Treviranus": "Тревиранус",
+   "Lejeune-Jung": "Лежён-Юнг",
+   "Goerdeler": "Гёрделер",
+   "Westarp": "Вестарп",
+   "Lettow-Vorbeck": "Леттов_Форбек"
+  },
+  "ddp_ideology": {
+   "Left": "Левые",
+   "Moderate": "Умеренные",
+   "Right": "Правые"
+  },
+  "ddp_leader": {
+   "Lemmer": "Леммер",
+   "Dietrich": "Дитрих",
+   "Heuss": "Хойс",
+   "Maier": "Майер",
+   "Stolper": "Штольпер",
+   "Lüders": "Людерс",
+   "Hitler": "Гитлер"
+  },
+  "ddp_name": {
+   "NPD": "НДП",
+   "DStP": "НГП",
+   "DDP": "НДП"
+  },
+  "reactionary_candidate_1934": {
+   "Seldte": "Зельдте",
+   "Lettow_Vorbeck": "Леттов_Форбек",
+   "Hergt": "Гергт",
+   "Lettow-Vorbeck": "Леттов_Форбек"
+  },
+  "reactionary_candidate_1934_disp": {
+   "Franz Seldte": "Франц Зельдте",
+   "Paul von Lettow_Vorbeck": "Пауль фон Леттов_Форбек",
+   "Oskar Hergt": "Оскар Гергт"
+  },
+  "lib_candidate_1934": {
+   "Gessler": "Гесслер",
+   "Heuss": "Хойс"
+  },
+  "center_candidate_1934": {
+   "Adenauer": "Аденауэр",
+   "Brüning": "Брюнинг"
+  },
+  "spd_candidate": {
+   "Eckener": "Эккенер",
+   "Schumacher": "Шумахер",
+   "Heuss": "Хойс",
+   "Adenauer": "Аденауэр",
+   "Gessler": "Гесслер",
+   "Grzesinski": "Гржезинский",
+   "Wels": "Вельс"
+  },
+  "kpd_candidate": {
+   "Thälmann": "Тельман",
+   "Münzenberg": "Мюнценберг",
+   "Boycott": "Бойкот"
+  },
+  "nsdap_candidate": {
+   "Hitler": "Гитлер",
+   "Göring": "Геринг"
+  },
+  "lvp_ideology": {
+   "Right": "Правые",
+   "Left": "Левые",
+   "Moderate": "Умеренные"
+  },
+  "lvp_leader": {
+   "Heuss": "Хойс",
+   "Luther": "Лютер",
+   "Dieckmann": "Дикман",
+   "Glatzel": "Глацель",
+   "Dingeldey": "Дингельдей",
+   "Stolper": "Штольпер",
+   "Dietrich": "Дитрих",
+   "Maier": "Майер",
+   "Curtius": "Курциус",
+   "Kardorff": "Кардорф",
+   "Bäumer": "Боймер"
+  },
+  "lib_candidate_1934_disp": {
+   "Theodor Heuss": "Теодор Хойс"
+  },
+  "dnf_candidate": {
+   "Hugenberg": "Гугенберг"
+  },
+  "center_candidate_1934_disp": {
+   "Heinrich Brüning": "Генрих Брюнинг"
+  },
+  "dnef_candidate": {
+   "Hammerstein": "Хаммерштейн"
+  },
+  "z_candidate": {
+   "Adenauer": "Аденауэр"
+  },
+  "ddp_candidate": {
+   "Heuss": "Хойс"
+  },
+  "lvp_candidate": {
+   "Heuss": "Хойс"
+  },
+  "dvp_candidate": {
+   "Heuss": "Хойс",
+   "Seeckt": "Зект"
+  },
+  "nsdap_hitler_candidate": {
+   "Göring": "Геринг"
+  },
+  "dsu_leader": {
+   "Otto Strasser": "Отто Штрассер",
+   "Strasser": "Штрассер",
+   "Triumvirate": "Триумвират"
+  },
+  "dsu_candidate": {
+   "Frick": "Фрик",
+   "Strasser": "Штрассер"
+  },
+  "nvf_candidate": {
+   "Boycott": "Бойкот",
+   "Hammerstein": "Хаммерштейн"
+  },
+  "dnvp_candidate": {
+   "Hammerstein": "Хаммерштейн"
+  },
+  "other_candidate": {
+   "Hammerstein": "Хаммерштейн"
+  },
+  "foreign_minister": {
+   "Stresemann": "Штреземан",
+   "Curtius": "Курциус",
+   "Wirth": "Вирт",
+   "Prittwitz": "Притвиц",
+   "Brüning": "Брюнинг"
+  },
+  "dnef_ideology": {
+   "Moderate": "Умеренные",
+   "Right": "Правые",
+   "Left": "Левые"
+  },
+  "dnef_leader": {
+   "Schleicher": "Шлейхер",
+   "Goerdeler": "Гёрделер"
+  },
+  "winner_fkp": {
+   "Glatzel": "Глацель",
+   "Raumer": "Раумер",
+   "Treviranus": "Тревиранус",
+   "Hergt": "Гергт",
+   "Westarp": "Вестарп"
+  },
+  "fkp_leader": {
+   "Glatzel": "Глацель",
+   "von-Raumer": "фон Раумер",
+   "Treviranus": "Тревиранус",
+   "Hergt": "Гергт",
+   "Westarp": "Вестарп"
+  },
+  "fkp_ideology": {
+   "Paternalistic Conservatism": "Патерналистский консерватизм",
+   "Liberal Conservatism": "Либеральный консерватизм",
+   "National Conservatism": "Национал-консерватизм"
+  },
+  "president_ideology": {
+   "Left": "Левые",
+   "Moderate": "Умеренные",
+   "Right": "Правые"
+  },
+  "reichswehr_minister": {
+   "Leber": "Лебер",
+   "Groener": "Грёнер",
+   "Oster": "Остер"
+  },
+  "labor_minister": {
+   "Stegerwald": "Штегервальд",
+   "Lemmer": "Леммер"
+  },
+  "interior_minister": {
+   "Wirth": "Вирт",
+   "Külz": "Кюльц"
+  },
+  "finance_minister": {
+   "Moldenhauer": "Мольденхауэр",
+   "Köhler": "Кёлер",
+   "Reinhold": "Райнхольд",
+   "Hilferding": "Гильфердинг"
+  },
+  "economic_minister": {
+   "Curtius": "Курциус",
+   "Dietrich": "Дитрих",
+   "Brüning": "Брюнинг",
+   "Trendelenburg": "Тренделенбург"
+  },
+  "justice_minister": {
+   "Koch-Weser": "Кох-Везер",
+   "Guérard": "Герар"
+  },
+  "agriculture_minister": {
+   "Dietrich": "Дитрих",
+   "Hermes": "Гермес"
+  },
+  "vice_chancellor": {
+   "Papen": "Папен",
+   "Strasser": "Штрассер",
+   "Stegerwald": "Штегервальд"
+  },
+  "largest_party": {
+   "NSDAP": "НСДАП"
+  },
+  "saxony_leader": {
+   "Heldt": "Хельдт",
+   "Bünger": "Бюнгер"
+  },
+  "luther_endorsed_candidate": {
+   "Theodor Heuss": "Теодор Хойс"
+  },
+  "oskar_goal": {
+   "Advocate for a Papen chancellorship": "Выступать за назначение Папена канцлером",
+   "Push for Papen's reappointment": "Добиваться переназначения Папена",
+   "Advocate for a Hitler chancellorship": "Выступать за назначение Гитлера канцлером"
+  },
+  "papen_goal": {
+   "Push for his own reappointment": "Добиваться собственного переназначения",
+   "Maintain public order": "Поддерживать общественный порядок",
+   "Postpone elections indefinitely": "Отложить выборы на неопределенный срок"
+  },
+  "meissner_goal": {
+   "Reconcile Schleicher and Hindenburg": "Примирить Шлейхера и Гинденбурга"
+  },
+  "nsdap_leader": {
+   "Hitler": "Гитлер",
+   "Goebbels": "Геббельс"
+  },
+  "nsdap_chancellor": {
+   "Göring": "Геринг"
+  },
+  "schleicher_goal": {
+   "Pray that Strasser does something": "Молиться, чтобы Штрассер что-нибудь предпринял",
+   "Concede defeat": "Признать поражение"
+  },
+  "nsdap_candidate_1932": {
+   "Hitler": "Гитлер",
+   "Göring": "Геринг"
+  },
+  "spd_candidate_1932": {
+   "Braun": "Браун"
+  },
+  "reactionary_candidate_1932": {
+   "Hindenburg": "Гинденбург"
+  },
+  "communist_candidate_1932": {
+   "Thälmann": "Тельман"
+  },
+  "reactionary_candidate_1932_disp": {
+   "Paul von Hindenburg": "Пауль фон Гинденбург"
+  },
+  "dnvp_candidate_1932": {
+   "Duesterberg": "Дюстерберг"
+  },
+  "liberal_reactionary_candidate_1932_name": {
+   "Gessler": "Гесслер"
+  },
+  "kvp_leader": {
+   "Treviranus": "Тревиранус",
+   "Westarp": "Вестарп"
+  },
+  "treviranus_party": {
+   "DNEF": "ФНЕГ",
+   "DNVP": "НННП"
+  },
+  "reichstag_president": {
+   "Göring": "Геринг"
+  },
+  "presid_calcent": {
+   "Thälmann": "Тельман"
+  },
+  "enemies": {
+   "anti-democratic parties": "антидемократические партии",
+   "far right": "крайне правых",
+   "NSDAP": "НСДАП",
+   "KPD": "КПГ",
+   "bourgeois parties": "буржуазные партии"
+  },
+  "ideology": {
+   "left": "левую",
+   "centrist": "центристскую",
+   "labor": "тред-юнионистскую"
+  },
+  "dvp_ideology_9": {
+   "Right": "Правые"
+  },
+  "lvp_ideology_9": {
+   "Right": "Правые"
+  }
+ },
+ "global": {
+  "SPD": "СДПГ",
+  "Braun": "Браун",
+  "Breitscheid": "Брайтшайд",
+  "Müller": "Мюллер",
+  "Rosenfeld": "Розенфельд",
+  "Radical": "Радикалы",
+  "Brüning": "Брюнинг",
+  "Left": "Левые",
+  "Center": "Центр",
+  "Labor": "Труд",
+  "Reformists": "Реформисты",
+  "Neorevisionists": "Неоревизионисты",
+  "Göring": "Геринг",
+  "Hammerstein": "Хаммерштейн",
+  "Hergt": "Гергт",
+  "Thälmann": "Тельман",
+  "Münzenberg": "Мюнценберг",
+  "Ossietzky": "Осецкий",
+  "Mann": "Манн",
+  "Conciliators": "Примиренцы",
+  "Hitler": "Гитлер",
+  "Right": "Правые",
+  "Seldte": "Зельдте",
+  "Hindenburg": "Гинденбург",
+  "Papen": "Папен",
+  "KPD": "КПГ",
+  "Goerdeler": "Гёрделер",
+  "Wirth": "Вирт",
+  "Moderate": "Умеренные",
+  "Dietrich": "Дитрих",
+  "Dingeldey": "Дингельдей",
+  "Treviranus": "Тревиранус",
+  "Lambach": "Ламбах",
+  "Schiele": "Шиле",
+  "Westarp": "Вестарп",
+  "DVP": "ННП",
+  "Wels": "Вельс",
+  "Z": "Центр",
+  "Marx": "Маркс",
+  "Stegerwald": "Штегервальд",
+  "Kaas": "Каас",
+  "Joos": "Йоос",
+  "Guérard": "Герар",
+  "CVP": "ХНП",
+  "Scholz": "Шольц",
+  "DNVP": "НННП",
+  "Adenauer": "Аденауэр",
+  "Gereke": "Гереке",
+  "Lejeune-Jung": "Лежён-Юнг",
+  "Lettow-Vorbeck": "Леттов_Форбек",
+  "Lemmer": "Леммер",
+  "Heuss": "Хойс",
+  "Maier": "Майер",
+  "Stolper": "Штольпер",
+  "Lüders": "Людерс",
+  "NPD": "НДП",
+  "DStP": "НГП",
+  "DDP": "НДП",
+  "Bumke (acting)": "Бумке (и.о.)",
+  "Großmann (acting)": "Гроссман (и.о.)",
+  "Franz Seldte": "Франц Зельдте",
+  "Gessler": "Гесслер",
+  "Eckener": "Эккенер",
+  "Theodor Heuss": "Теодор Хойс",
+  "Lettow_Vorbeck": "Леттов_Форбек",
+  "Paul von Lettow_Vorbeck": "Пауль фон Леттов_Форбек",
+  "Hugenberg": "Гугенберг",
+  "Oskar Hergt": "Оскар Гергт",
+  "Heinrich Brüning": "Генрих Брюнинг",
+  "Schumacher": "Шумахер",
+  "Bracht": "Брахт",
+  "Otto Strasser": "Отто Штрассер",
+  "Frick": "Фрик",
+  "Strasser": "Штрассер",
+  "Boycott": "Бойкот",
+  "Stresemann": "Штреземан",
+  "Curtius": "Курциус",
+  "Schleicher": "Шлейхер",
+  "Glatzel": "Глацель",
+  "Raumer": "Раумер",
+  "Hugo": "Хуго",
+  "Paternalistic Conservatism": "Патерналистский консерватизм",
+  "von-Raumer": "фон Раумер",
+  "Liberal Conservatism": "Либеральный консерватизм",
+  "National Conservatism": "Национал-консерватизм",
+  "Triumvirate": "Триумвират",
+  "Keudell": "Койдель",
+  "Luther": "Лютер",
+  "Thiel": "Тиль",
+  "Kardorff": "Кардорф",
+  "zu Dohna-Schlodien": "цу Дона-Шлодин",
+  "LVP": "ЛНП",
+  "DNEF": "ФНЕГ",
+  "DSU": "НСС",
+  "NSDAP": "НСДАП",
+  "Leber": "Лебер",
+  "Wissell": "Виссель",
+  "Severing": "Зеверинг",
+  "Külz": "Кюльц",
+  "Hilferding": "Гильфердинг",
+  "Moldenhauer": "Мольденхауэр",
+  "Köhler": "Кёлер",
+  "Reinhold": "Райнхольд",
+  "Schmidt": "Шмидт",
+  "Trendelenburg": "Тренделенбург",
+  "Radbruch": "Радбрух",
+  "Koch-Weser": "Кох-Везер",
+  "Prittwitz": "Притвиц",
+  "Baade": "Бааде",
+  "Hermes": "Гермес",
+  "Groener": "Грёнер",
+  "Grzesinski": "Гржезинский",
+  "Juchacz": "Юхач",
+  "Goring": "Геринг",
+  "Kaiser": "Кайзер",
+  "Seeckt": "Зект",
+  "Heldt": "Хельдт",
+  "Bünger": "Бюнгер",
+  "Dieckmann": "Дикман",
+  "Bäumer": "Боймер",
+  "Oster": "Остер",
+  "Advocate for a Papen chancellorship": "Выступать за назначение Папена канцлером",
+  "Push for his own reappointment": "Добиваться собственного переназначения",
+  "Reconcile Schleicher and Hindenburg": "Примирить Шлейхера и Гинденбурга",
+  "Push for Papen's reappointment": "Добиваться переназначения Папена",
+  "Advocate for a Hitler chancellorship": "Выступать за назначение Гитлера канцлером",
+  "Goebbels": "Геббельс",
+  "Pray that Strasser does something": "Молиться, чтобы Штрассер что-нибудь предпринял",
+  "Maintain public order": "Поддерживать общественный порядок",
+  "Postpone elections indefinitely": "Отложить выборы на неопределенный срок",
+  "Paul von Hindenburg": "Пауль фон Гинденбург",
+  "Duesterberg": "Дюстерберг",
+  "Concede defeat": "Признать поражение",
+  "Einstein": "Эйнштейн",
+  "anti-democratic parties": "антидемократические партии",
+  "far right": "крайне правых",
+  "bourgeois parties": "буржуазные партии",
+  "left": "левую",
+  "centrist": "центристскую",
+  "labor": "тред-юнионистскую",
+  "undefined": "Продолжить…"
+ },
+ "pairs": 2249
+}

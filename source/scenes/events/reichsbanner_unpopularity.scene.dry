@@ -1,6 +1,6 @@
 title: Членство в Рейхсбаннере падает
 subtitle: Наша непопулярность отрицательно сказалась на способности Рейхсбаннера вербовать новичков в свои ряды.
-view-if: rb_militancy >= 0.1 and workers_spd_normalized + unemployed_spd_normalized < (workers_kpd_normalized + workers_nsdap_normalized + workers_dnvp_normalized + (rb_militancy*100)) and time >= reichsbanner_unpopularity_time
+view-if: rb_militancy >= 0.1 and workers_spd_normalized + unemployed_spd_normalized < (workers_kpd_normalized + workers_nsdap_normalized + workers_dnvp_normalized + (rb_militancy*100*(effective_unemployed/unemployed))) and time >= reichsbanner_unpopularity_time
 new-page: true
 tags: event
 on-display: {!  
@@ -22,7 +22,6 @@ on-arrival: reichsbanner_unpopularity_time = time + 6
 К сожалению, на эффективности Рейхсбаннера пагубно сказывается непопулярность <span style="color: #c00000;">**СДПГ**</span>, так как рабочие не горят желанием вступать в его ряды. [? if left_strength >= 40: Однако более радикально настроенные члены нашего левого крыла в основном остались. ?] [? if spd_votes >= 29: Кроме того, нам не удаётся привлечь значительное число сторонников из нерабочих слоёв населения. ?]
 
 - @reichsbanner_joever: Досадно.
-
 
 @reichsbanner_joever
 on-arrival: rb_strength *= 0.9; rb_militancy *= 0.8 if left_strength < 40; rb_militancy *= 0.9 if left_strength >= 40

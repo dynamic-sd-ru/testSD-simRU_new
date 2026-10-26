@@ -17,43 +17,51 @@ new-page: true
 - @vote_no: Голосовать «против» строительства военного корабля.
 - @abstain: Воздержаться от голосования.
 
-
 @vote_yes
-on-arrival: left_dissent += 10; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5; neorevisionist_dissent += 5; panzerkreuzer_funded = 1; kpd_coalition_dissent += 1; kpd_relation -= 6; workers_spd -= 2; workers_spd -= 4 if panzerkreuzer_campaign; unemployed_spd -= 2 if panzerkreuzer_campaign; dvp_left += 1; ddp_right += 1; ddp_cohesion -= 1; lvp_left += 1; goal_spd_cancel += 1; hindenburg_angry -= 5
+on-arrival: left_dissent += 10; labor_dissent += 5; center_dissent += 5; reformist_dissent += 5; neorevisionist_dissent += 5; panzerkreuzer_funded = 1; kpd_coalition_dissent += 1; kpd_relation -= 6; workers_spd -= 2; workers_spd -= 4 if panzerkreuzer_campaign; unemployed_spd -= 2 if panzerkreuzer_campaign; dvp_left += 1; ddp_right += 1; ddp_cohesion -= 1; lvp_left += 1; goal_spd_cancel += 1; hindenburg_angry -= 5;
 
 Активисты партии шокированы нашей непреклонностью! Многие партийные ячейки агитируют против кабинета, а наши депутаты рейхстага даже планируют провести полноценное голосование по этому предложению, вопреки решению правительства. [? if panzerkreuzer_campaign: Наши сторонники из рабочего класса чувствуют себя преданными: мы ведь обещали заблокировать строительство корабля и вместо этого направить средства на еду детям. ?]
 
 Кампания против строительства военного корабля провалилась, против проголосовали только несогласные депутаты <span style="color: #c00000;">**СДПГ**</span>, так и <span style="color: #700000;">**КПГ**</span>. Корабль будет построен.
 
-
 @vote_no
 on-arrival: dvp_relation -= 8; lvp_relation -= 5; z_relation -= 5; pacifism += 1; nationalism -= 2*(1-dissent); coalition_dissent += 1; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 1; lvp_right += 1; hindenburg_angry += 5; panzerkreuzer_no = 1;
 go-to: vote_no_chancellor if chancellor_party = "СДПГ"; vote_no_pass if chancellor_party != "СДПГ"
 
-
 @vote_no_chancellor
-go-to: braun if chancellor = "Браун"; muller if chancellor = "Мюллер"
-
+go-to: braun if chancellor = "Браун"; built if (spd_r + kpd_r + sapd_r < 50) and chancellor = "Мюллер"; not_built if (spd_r + kpd_r + sapd_r >= 50) and chancellor = "Мюллер"
 
 @braun
-on-arrival: panzerkreuzer_funded = 0; nationalism -= 6*(1-dissent); reichswehr_loyalty -= 0.05; left_dissent -= 10; labor_dissent -= 10; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5; panzerkreuzer_failed = 1; workers_spd += 5*(1-dissent); ddp_left += 1; ddp_cohesion += 1; pacifism += 1; kpd_relation += 5; reichswehr_goal_spd += 1; hindenburg_angry += 5; coup_progress += 1
+on-arrival: panzerkreuzer_funded = 0; nationalism -= 6*(1-dissent); reichswehr_loyalty -= 0.05; left_dissent -= 10; labor_dissent -= 10; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5; panzerkreuzer_failed = 1; workers_spd += 5*(1-dissent); ddp_left += 1; ddp_cohesion += 1; pacifism += 1; kpd_relation += 5; reichswehr_goal_spd += 1; hindenburg_angry += 5; coup_progress += 1;
 
 Партнёры по коалиции шокированы нашей непреклонностью! Однако канцлер Браун убеждает министров отказаться от вынесения на голосование вопрос о корабле. Корабль не будет построен! Пацифизм начинает находить поддержку в [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?].
 
-
-@muller
-on-arrival: panzerkreuzer_funded = 1
-
-Наши партнёры по коалиции потрясены нашей непреклонностью! Несмотря на то что канцлер Мюллер отклонил предложение, другие партии вынесли вопрос на голосование в рейхстаг, где он легко прошёл; лишь <span style="color: #c00000;">**СДПГ**</span> и <span style="color: #700000;">**КПГ**</span> проголосовали против. Корабль будет построен.
-
-
 @vote_no_pass
-on-arrival: panzerkreuzer_funded = 1
+go-to: built_bruning if (spd_r + kpd_r + sapd_r < 50); not_built_bruning if (spd_r + kpd_r + sapd_r >= 50)
 
 Партнёры по коалиции шокированы нашей непреклонностью! Канцлер [+ chancellor +] выносит этот вопрос на голосование в рейхстаге, где его одобряют все партии, за исключением <span style="color: #c00000;">**СДПГ**</span>, так и <span style="color: #700000;">**КПГ**</span>. Корабль будет построен.
-
 
 @abstain
 on-arrival: dvp_relation -= 5; lvp_relation -= 3; z_relation -= 3; workers_spd -= 4 if panzerkreuzer_campaign; unemployed_spd -= 2 if panzerkreuzer_campaign; left_dissent += 5; labor_dissent += 5; panzerkreuzer_funded = 1; kpd_relation -= 3; ddp_right += 1; ddp_cohesion -= 1
 
 Партнёры по коалиции шокированы нашей непреклонностью![? if panzerkreuzer_campaign: Наши сторонники из рабочего класса чувствуют себя преданными — мы ведь обещали заблокировать строительство корабля, а вместо этого направить средства на еду детям.  ?] Несмотря на наше воздержание, решение в Рейхстаге принято: все партии проголосовали «за», за исключением <span style="color: #c00000;">**СДПГ**</span>, так и <span style="color: #700000;">**КПГ**</span>. Корабль будет построен.
+
+@built
+on-arrival:  panzerkreuzer_funded = 1;
+
+Наши партнёры по коалиции шокированы нашей неуступчивостью! Несмотря на отказ канцлера Мюллера от предложения, другие партии выносят вопрос на голосование в Рейхстаге, и оно с лёгкостью проходит: против голосуют только <span style="color: #c00000;">**СДПГ**</span> и <span style="color: #700000;">**КПГ**</span>. Корабль будет построен.
+
+@not_built
+on-arrival:  panzerkreuzer_funded = 0; nationalism -= 6*(1-dissent); reichswehr_loyalty -= 0.05; left_dissent -= 10; labor_dissent -= 10; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5; panzerkreuzer_failed = 1; workers_spd += 5*(1-dissent); ddp_left += 1; ddp_cohesion += 1; pacifism += 1; kpd_relation += 5; reichswehr_goal_spd += 1; hindenburg_angry += 5; coup_progress += 1;
+
+Наши партнёры по коалиции шокированы нашей неуступчивостью! Несмотря на отказ канцлера Мюллера от предложения, другие партии выносят вопрос на голосование в Рейхстаге, но благодаря поддержке <span style="color: #700000;">**КПГ**</span> наше голосование против линейного крейсера проходит. Корабль не будет построен!
+
+@built_bruning
+on-arrival:  panzerkreuzer_funded = 1;
+
+Our coalition partners are shocked by our intransigence! Chancellor [+ chancellor +] brings the matter to a Reichstag vote, which passes with all parties in favor except the <span style="color: #c00000;">**СДПГ**</span> and <span style="color: #700000;">**КПГ**</span>. The ship will be built.
+
+@not_built_bruning
+on-arrival:  panzerkreuzer_funded = 0; nationalism -= 6*(1-dissent); reichswehr_loyalty -= 0.05; left_dissent -= 10; labor_dissent -= 10; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5; panzerkreuzer_failed = 1; workers_spd += 5*(1-dissent); ddp_left += 1; ddp_cohesion += 1; pacifism += 1; kpd_relation += 5; reichswehr_goal_spd += 1; hindenburg_angry += 5; coup_progress += 1;
+
+Наши партнёры по коалиции шокированы нашей неуступчивостью! Канцлер [+ chancellor +] выносит вопрос на голосование в Рейхстаге, но благодаря поддержке <span style="color: #700000;">**КПГ**</span> наше голосование против линейного крейсера проходит. Корабль не будет построен!

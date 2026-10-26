@@ -1,6 +1,6 @@
 title: Марш <span style="color: #7A3C00;">нацистов</span> в Альтоне
 new-page: true
-subtitle: Организованная <span style="color: #7A3C00;">**Демонстрация <span style="color: #7A3C00;">СА**</span> может перерасти в насилие.
+subtitle: <span style="color: #7A3C00;">**Демонстрация СА**</span>, которая может обернуться насилием.
 tags: event
 view-if: papen_time == 7 and spd_prussia == 1 and chancellor == "Папен" and not altona_seen
 on-arrival: altona_seen = 1
@@ -16,7 +16,6 @@ max-visits: 1
 - @allow_police: Разрешить марш под усиленной охраной полиции.
 - @allow_no_police: Разрешить марш без охраны полиции.
 
-
 @ban_march
 choose-if: judicial_reform >= 2
 unavailable-subtitle: Консервативные суды не позволили бы нам запретить акцию протеста, ссылаясь на свободу слова.
@@ -24,10 +23,8 @@ on-arrival: sa_strength -= 10; altona_good = 1
 
 Мы запретили запланированную акцию протеста. <span style="color: #7A3C00;">Нацисты</span> обжалуют этот запрет в суде во имя свободы слова. К счастью, судебные органы соглашаются с нами в том, что довод <span style="color: #7A3C00;">нацистов</span> несостоятелен. Суд видит в этом марше провокацию, нацеленную на подстрекательство насилия.
 
-
 @allow_police
 go-to: allow_police_violence if prussian_police_loyalty <= 0.75; allow_police_no_violence if prussian_police_loyalty > 0.75 
-
 
 @allow_police_violence
 on-arrival: strife += 1; sa_strength += 50; kpd_relation -= 8; communist_coalition -= 1
@@ -36,12 +33,10 @@ on-arrival: strife += 1; sa_strength += 50; kpd_relation -= 8; communist_coaliti
 
 В прессе этот инцидент назвали «Альтонским кровавым воскресеньем». <span style="color: #700000;">**Коммунисты**</span> обрушиваются с критикой на некомпетентность полиции, которая предположительно находится в нашем подчинении.
 
-
 @allow_police_no_violence
 on-arrival: altona_good = 1; sa_strength += 10
 
 Когда марш прибывает в Альтону, его тут же встречает разъяренная толпа <span style="color: #700000;">коммунистов</span> и <span style="color: #c00000;">социалистов</span>, которые забрасывают <span style="color: #7A3C00;">нацистов</span> различными предметами. Полиция пытается разделить две группы, но безуспешно. Слышны выстрелы, как сообщается, от снайперов на крышах. Полиции удается сохранить хладнокровие, выстрелы прекращаются, и марш расходится без дальнейшего насилия.
-
 
 @allow_no_police
 on-arrival: sa_strength += 80; rfb_strength += 50; strife += 1; kpd_relation -= 8; communist_coalition -= 1

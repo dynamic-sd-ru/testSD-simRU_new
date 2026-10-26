@@ -18,7 +18,6 @@ tags: event
 - @nothing
 - @secret
 
-
 @publicize
 title: Мы предадим этот скандал огласке, чтобы нанести ущерб <span style="color: #700000;">**КПГ**</span> и Тельману.
 on-arrival: kpd_relation -= 10; workers_kpd -= 4; unemployed_kpd -= 4
@@ -27,13 +26,11 @@ on-arrival: kpd_relation -= 10; workers_kpd -= 4; unemployed_kpd -= 4
 
 В конце концов, давление <span style="color: #8B0000;">Сталина</span> помогает Тельману избежать серьёзных последствий.
 
-
 @nothing
 title: Ничего не делать с этой информацией.
 on-arrival: workers_kpd -= 2; unemployed_kpd -= 2
 
 Информация распространяется без нашей помощи, из-за чего <span style="color: #700000;">**КПГ**</span> теряет часть поддержки среди рабочих.
-
 
 
 @secret

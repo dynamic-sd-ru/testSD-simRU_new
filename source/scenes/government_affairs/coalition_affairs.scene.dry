@@ -21,17 +21,15 @@ card-image: img/muller_cabinet.jpg
 - @easy_discard
 
 
-
 @dvp_prussia_2
 view-if: year <= 1929 and in_grand_coalition_prussia = 0 and (in_weimar_coalition_prussia or in_minority_weimar_coalition_prussia) and in_grand_coalition = 1 and dvp_was_in_prussia == 0 and not lvp_formed
 choose-if: z_leader != "Каас"
 unavailable-subtitle: [? if z_leader = "Каас": Каас и [? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] решительно против. ?]
-on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 1; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; dvp_relation += 10; z_relation -= 5; ddp_relation += 3; coalition_dissent -= 1; left_dissent += 5; in_grand_coalition_prussia = 1; in_weimar_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; dvp_left += 3; new_middle_dvp += 3;
+on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 1; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; dvp_relation += 10; z_relation -= 5; ddp_relation += 3; coalition_dissent -= 1; left_dissent += 5; in_grand_coalition_prussia = 1; in_weimar_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; dvp_left += 3; new_middle_dvp += 3;
 
 Допустить <span style="color: #C0A054;">**ННП**</span> в прусское правительство — это предложение, от которого они не смогут отказаться, вне зависимости от их руководства.
 
 Однако это негативно сказалось на той свободе действий, которой мы обладали в <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ской</span> коалиции.
-
 
 @give_up_prussia
 subtitle: Брауну придётся уйти в отставку.
@@ -42,12 +40,10 @@ on-arrival: coalition_dissent = 1; prussia_leader = "Штегервальд"; pr
 
 Пост министра-президента передаётся[? if z_party_name != "ХНП": <span style="color: #000000;">партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 
-
 @promise_cuts
 on-arrival: workers_spd -= 5; unemployed_spd -= 6; workers_kpd += 5; unemployed_kpd += 3; unemployed_nsdap += 3; left_dissent += 10; labor_dissent += 5; welfare -= 1; budget += 1; coalition_dissent = 0; dvp_left += 1; ddp_cohesion -= 1; ddp_right += 1; lvp_left += 1; goal_spd_cancel += 1; social_welfare_timer = 10
 
 Хорошо. Сократив социальные выплаты, мы уменьшили разногласия внутри коалиции.
-
 
 @resources
 subtitle: -2 ресурса
@@ -58,11 +54,9 @@ on-arrival: resources -= 2; coalition_dissent -= 1
 
 Передав часть средств на избирательную кампанию нашим партнёрам по коалиции, мы можем сделать нашу политику более приемлемой для них. Кто-то назовёт это коррупцией, но, возможно, это необходимо для спасения демократии.
 
-
 @no_change
 
 Нет. Мы этого делать не будем.
-
 
 @bring_down
 subtitle: Отправьте это правительство в отставку, прежде чем это сделают наши противники.
@@ -73,7 +67,6 @@ go-to: elections if bruning_event_seen or year < 1930
 Мы инициировали вотум недоверия самим себе и отправили правительство в отставку. [+ chancellor +] сейчас правит в качестве исполняющего обязанности канцлера.
 
 [? if not bruning_event_seen and year >= 1930: Новые выборы ещё не назначены, но, вероятно, они скоро состоятся, учитывая, что Брюнинг, скорее всего, не пользуется поддержкой большинства в рейхстаге. ?]
-
 
 @elections
 call: set_next_election_time

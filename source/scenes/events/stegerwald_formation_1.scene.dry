@@ -17,7 +17,6 @@ face-image: img/campaign.jpg
 - @fightback_other: Чтобы это компенсировать, мы усилим агитацию среди других слоёв населения.
 - @nothing: Прискорбно.
 
-
 @fightback_working
 subtitle: -2 ресурса.
 choose-if: resources >= 2
@@ -26,7 +25,6 @@ on-arrival: resources -= 2; workers_spd += 8; unemployed_spd += 5; workers_kpd +
 
 Протесты рабочих против политики Штегервальда не повлияли на курс партии, но позволили нам сохранить влияние на профсоюзы
 
-
 @fightback_other
 choose-if: resources >= 1
 subtitle: -1 ресурс.
@@ -34,7 +32,6 @@ unavailable-subtitle: [? if resources < 1 : У нас недостаточно �
 on-arrival: resources -= 1; workers_kpd += 5; new_middle_spd += 6; old_middle_spd += 4; rural_spd += 4; catholics_spd += 4; labor_dissent += 15; left_dissent += 10; zentrum_disintegration += 1; peoples_party_support += 1; liberal_cooperation += 2
 
 Раз буржуазия хочет привлечь рабочих на свою сторону, мы просто найдём поддержку в другом месте. <span style="color: #700000;">**КПГ**</span> пользуется нашим бездействием. Левое крыло <span style="color: #c00000;">**СДПГ**</span> выступает против этого пути, считая, что мы размываем классовый характер партии. Реформисты же видят в подобной политике будущее партии.
-
 
 @nothing
 on-arrival: zentrum_disintegration += 1; 

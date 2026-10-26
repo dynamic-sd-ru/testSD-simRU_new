@@ -3,7 +3,7 @@ subtitle: Промышленность Германии простаивает�
 view-if: (capital_strike_progress >= 10 or budget <= -5) and spd_in_government
 new-page: true
 max-visits: 1
-on-arrival: unemployed += 5; workers_spd*= 0.7; new_middle_spd -= 15; old_middle_spd -= 15; unemployed_spd*=0.7; rural_spd -= 15; pro_republic -= 15; capital_strike_seen = 1; z_relation -= 10; dvp_relation -= 10; ddp_relation -= 8; lvp_relation -= 8; workers_nsdap += 8; unemployed_nsdap += 10; new_middle_nsdap += 15; old_middle_nsdap += 15; rural_nsdap += 15; dvp_right += 5; ddp_right += 3; ddp_cohesion -= 1; lvp_right += 4; coalition_dissent += 1; hindenburg_angry += 100; economic_growth -= 4;
+on-arrival: unemployed += 5; workers_spd*= 0.7; new_middle_spd -= 15 if new_middle_conscious == 0; new_middle_spd -= 10 if new_middle_conscious == 1; old_middle_spd -= 15; unemployed_spd*=0.7; rural_spd -= 15 if rural_conscious == 0; rural_spd -= 10 if rural_conscious == 1; pro_republic -= 15; capital_strike_seen = 1; z_relation -= 10; dvp_relation -= 10; ddp_relation -= 8; lvp_relation -= 8; workers_nsdap += 8; unemployed_nsdap += 10; new_middle_nsdap += 15; old_middle_nsdap += 15; rural_nsdap += 15; dvp_right += 5; ddp_right += 3; ddp_cohesion -= 1; lvp_right += 4; coalition_dissent += 1; hindenburg_angry += 100; economic_growth -= 4;
 tags: event
 
 = Бегство капитала
@@ -17,15 +17,13 @@ tags: event
 - @propaganda
 - @nothing
 
-
 @seize
 title: Помочь рабочим захватить заводы!
 unavailable-subtitle: [? if left_strength <= reformist_strength + neorevisionist_strength : Большинство партии не поддерживает эту радикальную меру. ?] [? if judicial_reform < 3 : Консервативные суды выступят против этого. ?] [? if rb_militancy < 0.25 : Если бы мы увеличили численность наших военизированных формирований (Рейхсбаннер), возможно, мы бы смогли это сделать.  ?] [? if works_councils < 1 : Сначала нам нужна поддержка производственных советов. ?]
 choose-if: left_strength > reformist_strength + neorevisionist_strength and (judicial_reform >= 3 or rb_militancy >= 0.25) and works_councils >= 1
-on-arrival: nationalization_progress += 1; coup_progress += 6; unemployed -= 2; unemployed -= 1 if works_councils >= 3; works_program += 1; workers_spd += 10*(1-dissent); unemployed_spd += 10*(1-dissent); coalition_dissent += 2; dvp_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; workers_nsdap -= 8*(1-dissent); unemployed_nsdap -= 8*(1-dissent); left_strength += 15; reformist_dissent += 10; left_dissent -= 10; factory_takeovers += 1; dvp_right += 5; ddp_right += 3; lvp_right += 4; economic_growth += 2;
+on-arrival: nationalization_progress += 1; coup_progress += 6; unemployed -= 2; unemployed -= 1 if works_councils >= 3; works_program += 1; workers_spd += 10*(1-dissent); unemployed_spd += 10*(1-dissent); new_middle_spd += 8*(1-dissent) if new_middle_conscious == 1; coalition_dissent += 2; dvp_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; workers_nsdap -= 8*(1-dissent); unemployed_nsdap -= 8*(1-dissent); left_strength += 15; reformist_dissent += 10; left_dissent -= 10; factory_takeovers += 1; dvp_right += 5; ddp_right += 3; lvp_right += 4; economic_growth += 2;
 
 Если капиталисты собираются на нас напасть, мы должны нанести ответный удар. Мы помогли рабочим захватить и взять под полный контроль заводы, работу которых капиталисты остановили. <span style="color: #7A3C00;">фашисты</span>, разумеется, называют нас ворами и грабителями.
-
 
 
 @capital_controls
@@ -38,7 +36,6 @@ on-arrival: unemployed -= 1.5; workers_spd += 6*(1-dissent); unemployed_spd += 6
 
 
 
-
 @propaganda
 title: Начать пропагандистскую кампанию, обвиняющую капиталистов в кризисе.
 subtitle: -1 ресурс
@@ -47,7 +44,6 @@ unavailable-subtitle: [? if radio < 2 and commercialized_media < 3 : Наши С
 on-arrival: workers_spd += 7*(1-dissent); new_middle_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); pro_republic += 5*(1-dissent); resources -= 1
 
 Мы начинаем контрпропагандистскую кампанию с целью возложить вину за экономический кризис на капиталистов, используя для этого все наши медиаканалы. Благодаря существующей медийной инфраструктуре эта кампания имеет умеренный успех, направляя народную критику на капиталистов и отводя её от нас.
-
 
 
 @nothing

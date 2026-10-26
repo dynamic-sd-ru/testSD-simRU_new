@@ -26,7 +26,6 @@ on-display: {!
 - @schleicher_2
 - @schleicher_4: Пока что Шлейхер остаётся исполняющим обязанности канцлера.
 
-
 @schleicher_2
 title: Путч!
 subtitle: Необоснованный слух: Шлейхер якобы попытается удержать власть любой ценой.
@@ -39,10 +38,8 @@ on-arrival: schleicher_coup = 1; schleicher_approval -= 1
 
 - @schleicher_3: Неудачное стечение обстоятельств.
 
-
 @schleicher_3
 go-to: nazi_16.nazi_3
-
 
 
 

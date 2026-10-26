@@ -1,0 +1,112 @@
+title: Правые выносят вотум недоверия действующему правительству!
+subtitle: Мы слишком разозлили наших партнёров по коалиции…
+new-page: true
+on-arrival: tried_supporting_kpd = 0; z_relation -= 5; dvp_relation -= 5; ddp_relation -= 5; lvp_relation -= 5
+view-if: chancellor_party == "СДПГ" and spd_in_government = 1 and federal_coalition_trigger == time and last_election_time != time
+tags: event
+go-to: vonc_menu
+
+= Вотум недоверия
+
+Из-за формирования <span style="color: #000000;">**[+ z_party_name +]**</span> наша коалиция распалась! Всё кончено…
+
+@vonc_menu
+
+- @social_liberal_coalition: Сможем ли мы сформировать <span style="color: #c00000;">социал</span>-[? if not lvp_formed: <span style="color: #D3C24D;">-либеральную</span> ?][? if lvp_formed: <span style="color: #FFCC00;">-либеральную</span> ?] коалицию?
+- @support_kpd: Можем ли мы убедить <span style="color: #700000;">**КПГ**</span> воздержаться?
+- @let_it_happen: Пусть голосование состоится.
+- @bruning_vonc:<span style="color: #000000;">**[+ z_party_name +]**</span> вносит против нас конструктивный вотум недоверия!
+- @support_kpd_left: Could we form a United Left coalition with the <span style="color: #700000;">**КПГ**</span>?
+- @spd_majority:У нас есть большинство и без них.
+- @no_vonc:Из-за конституционных реформ они не могут вынести вотум недоверия, но будут мешать нашему правительству при любой возможности.
+
+@social_liberal_coalition
+title: Мы можем сформировать <span style="color: #c00000;">социал-</span>[? if not lvp_formed: <span style="color: #D3C24D;">либерально-</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральную</span> ?]коалицию.
+subtitle: <span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]([+ social_liberal_coalition +]%)
+view-if: social_liberal_coalition >= 50 and liberal_parliament == 0 and bourgeois_parliament_ddp == 0 and cvp_formed
+unavailable-subtitle: <span style="color: #c00000;">СДПГ</span> + [? if not lvp_formed: <span style="color: #D3C24D;">[+ ddp_name +]</span> ?][? if lvp_formed: <span style="color: #FFCC00;">ЛНП</span> ?]([+ social_liberal_coalition +]%)[? if not ((ddp_relation >= 65 and ddp_ideology == "Правые") or (ddp_relation >= 55 and ddp_ideology == "Умеренные") or (ddp_relation >= 45 and ddp_ideology == "Левые")) and not lvp_formed: - У нас нет надлежащих отношений с <span style="color: #D3C24D;">[+ ddp_name +]</span>. ?] [? if not ((lvp_relation >= 75 and lvp_ideology == "Правые") or (lvp_relation >= 65 and lvp_ideology == "Умеренные") or (lvp_relation >= 55 and lvp_ideology == "Левые")) and lvp_formed: - У нас нет надлежащих отношений с <span style="color: #FFCC00;">**ЛНП**</span> ?]
+choose-if: ((((ddp_relation >= 65 and ddp_ideology == "Правые") or (ddp_relation >= 55 and ddp_ideology == "Умеренные") or (ddp_relation >= 45 and ddp_ideology == "Левые")) and not lvp_formed) or (((lvp_relation >= 75 and lvp_ideology == "Правые") or (lvp_relation >= 65 and lvp_ideology == "Умеренные") or (lvp_relation >= 55 and lvp_ideology == "Левые")) and lvp_formed))
+on-arrival: leverage = spd_r
+go-to: election_1928.social_liberal_coalition_cvp
+
+@support_kpd
+choose-if: (in_grand_coalition and communist_coalition >= 3 and kpd_relation >= 50 and popular_front_coalition >= 50) or (in_weimar_coalition and kpd_relation >= 50 and left_coalition >= 50 and communist_coalition >= 3)
+view-if: tried_supporting_kpd = 0 and not constructive_vonc
+on-arrival: tried_supporting_kpd = 1
+unavailable-subtitle: [? if communist_coalition < 3 : <span style="color: #700000;">КПГ</span> не станет участвовать в парламентском правительстве.  ?] [? if kpd_relation < 50 : <span style="color: #700000;">КПГ</span> недостаточно дружелюбно к нам настроена.  ?] [? if (left_coalition < 50 and in_weimar_coalition) or (popular_front_coalition < 50 and in_grand_coalition): <span style="color: #700000;">КПГ</span> не обладает достаточным числом голосов.  ?] [? if in_popular_front : Мы уже состоим в Народном фронте с <span style="color: #700000;">КПГ</span>. ?]
+
+Если <span style="color: #700000;">**коммунисты**</span> воздержатся, то мы, по сути, сможем сохранить правительство меньшинства[? if president=="Гинденбург": , хотя проводить политику без поддержки президента Гинденбурга, которой у нас нет, будет очень сложно  ?]. Если это произойдёт, то мы окажемся в огромном долгу перед <span style="color: #700000;">**КПГ**</span>. Это может привести к более широкому сотрудничеству в будущем, к лучшему или к худшему.
+
+- @support_kpd_2: Убедить <span style="color: #700000;">**КПГ**</span> «воздержаться от вотума недоверия»?
+- @let_it_happen: Неважно. Пусть голосование состоится.
+
+@support_kpd_2
+on-arrival: communist_coalition += 1; workers_kpd += 3; kpd_relation += 5; kpd_nazi_urgency += 0 if kpd_nazi_urgency < 0;
+go-to: support_kpd_weimar if in_weimar_coalition; support_kpd_grand if in_grand_coalition
+
+
+<span style="color: #700000;">**КПГ**</span> не заинтересована в соглашении о «воздержании от вотума недоверия»; они поддержат нас, только если смогут войти в правительство в составе коалиции. А если это соглашение состоится, правые партии уже не будут склонны нас поддерживать.
+
+@support_kpd_grand
+on-arrival: support_kpd_grand = 1
+
+- @election_1928.popular_front_coalition: Сформировать коалицию «Народного фронта»?
+- @election_1928.left_coalition
+- @let_it_happen: Неважно. Пусть голосование состоится.
+
+@support_kpd_weimar
+on-arrival: support_kpd_weimar = 1
+
+- @election_1928.left_coalition
+- @let_it_happen: Неважно. Пусть голосование состоится.
+
+
+@let_it_happen
+view-if: not constructive_vonc and spd_r < 50
+on-arrival: time_to_election = 3; spd_in_government = 0; grand_coalition_collapsed = 1 if in_grand_coalition; in_grand_coalition = 0; in_weimar_coalition = 0; in_popular_front = 0; spd_toleration = 0; spd_toleration_right = 0; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = "Центр"; justice_minister_party = "б/п"; labor_minister_party = "Центр"; reichswehr_minister_party = "б/п"; economic_minister_party = ddp_name; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "ННП"; finance_minister_party = "ЛНП" if lvp_formed; agriculture_minister_party = "Центр"; labor_minister = "Штегервальд"; interior_minister = "Вирт"; finance_minister = "Мольденхауэр"; economic_minister = "Курциус"; justice_minister = "Кох-Везер"; foreign_minister = "Штреземан" if not stresemann_dead; foreign_minister = "Курциус" if stresemann_dead; agriculture_minister = "Дитрих"; reichswehr_minister = "Грёнер"; coalition_dissent = 0; pro_republic -= 4; old_middle_spd -= 3; new_middle_spd -= 2; workers_spd -= 3 if pro_republic < 50; workers_spd -= 4 if pro_republic < 40; old_middle_nsdap += 4 if pro_republic < 50; new_middle_nsdap += 3 if pro_republic < 50
+go-to: let_it_happen_hindenburg if president_ideology != "Левые"; let_it_happen_braun if president_ideology == "Левые"
+
+@let_it_happen_hindenburg
+on-arrival: chancellor = "Брюнинг"; chancellor_party = "Центр"; welfare -= 2; bruning_event_timer = 6 if not bruning_event_seen and year >= 1930
+go-to: elections if bruning_event_seen or year < 1930
+
+Голосование успешно: наше правительство ушло в отставку. Канцлер Брюнинг назначен главой нового кабинета, состоящего исключительно из буржуазных партий. Он немедленно приступил к существенному сокращению социальных расходов.
+
+[? if not bruning_event_seen and year >= 1930: Новые выборы ещё не назначены, но, вероятно, это скоро произойдёт, поскольку Брюнинг едва ли сможет заручиться поддержкой большинства в рейхстаге. ?]
+
+@elections
+call: set_next_election_time
+
+Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
+
+@let_it_happen_braun
+on-arrival: spd_caretaker = 1
+call: set_next_election_time
+
+Вотум недоверия принят: наше правительство ушло в отставку. Канцлер [+ chancellor +] остаётся исполняющим обязанности, но больше не имеет полномочий проводить новую политику.
+
+Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
+
+@bruning_vonc
+view-if: constructive_vonc and center_right_coalition >= 50
+on-arrival: center_dissent += 5; reformist_dissent += 5; spd_in_government = 0; grand_coalition_collapsed = 1 if in_grand_coalition; in_grand_coalition = 0; in_weimar_coalition = 0; coalition_dissent = 0
+go-to: election_1928.right_coalition_2 if right_coalition >= 50; election_1928.center_right_coalition_2 if right_coalition < 50
+
+@support_kpd_left
+subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #700000;">**КПГ**</span> [? if sapd_formed: + <span style="color: #9B0000;">**СРПГ**</span> ?] ([+ left_coalition +]%)
+unavailable-subtitle: <span style="color: #c00000;">СДПГ</span> + <span style="color: #700000;">КПГ</span> [? if sapd_formed: + <span style="color: #9B0000;">СРПГ</span> ?] ([+ left_coalition +]%). [? if kpd_relation < 50 : У нас недостаточно хорошие отношения с <span style="color: #700000;">КПГ</span>. ?][? if communist_coalition < 3 : <span style="color: #700000;">Коммунисты</span> слишком привержены своим радикальным взглядам, чтобы войти в правительство. ?] [? if rubicon: - И с какой стати Гинденбург допустил бы это? ?] [? if president_ideology != "Right" and president != "Hindenburg": - Президент [+ president +] яростно противится <span style="color: #9B0000;">социалистическому</span> правлению. ?]
+view-if: constructive_vonc
+choose-if: left_coalition >= 50 and (kpd_relation >= 50 or (kpd_leader == "Примиренцы" and kpd_relation >= 40)) and communist_coalition >= 3 and not rubicon and president_ideology == "Левые" or president == "Гинденбург"
+go-to: election_1928.left_coalition_success
+
+@spd_majority
+view-if: spd_r >= 50
+on-arrival: in_popular_front = 0; in_weimar_coalition = 0; in_social_catholic_coalition = 0; in_grand_coalition = 0; foreign_minister_party = "СДПГ"; foreign_minister = "Брайтшайд"; interior_minister_party = "СДПГ"; interior_minister = "Зеверинг"; justice_minister_party = "СДПГ"; justice_minister = "Радбрух"; labor_minister_party = "СДПГ"; labor_minister = "Виссель"; reichswehr_minister_party = "СДПГ"; reichswehr_minister = "Лебер"; economic_minister_party = "СДПГ"; economic_minister = "Шмидт"; finance_minister_party = "СДПГ"; finance_minister = "Гильфердинг"; agriculture_minister_party = "СДПГ"; agriculture_minister = "Бааде"; in_spd_majority = 1
+
+А мы были так любезны.
+
+@no_vonc
+view-if: constructive_vonc and spd_r < 50 and center_right_coalition < 50
+on-arrival: in_popular_front = 0; in_weimar_coalition = 0; in_social_catholic_coalition = 0; in_grand_coalition = 0; in_minority_government = 1; foreign_minister_party = "СДПГ"; foreign_minister = "Брайтшайд"; interior_minister_party = "СДПГ"; interior_minister = "Зеверинг"; justice_minister_party = "СДПГ"; justice_minister = "Радбрух"; labor_minister_party = "СДПГ"; labor_minister = "Виссель"; reichswehr_minister_party = "СДПГ"; reichswehr_minister = "Лебер"; economic_minister_party = "СДПГ"; economic_minister = "Шмидт"; finance_minister_party = "СДПГ"; finance_minister = "Гильфердинг"; agriculture_minister_party = "СДПГ"; agriculture_minister = "Бааде"
+
+Фактически нас превратили в правительство меньшинства, и <span style="color: #000000;">**[+ z_party_name +]**</span> намерена мешать нашим попыткам проводить политику.

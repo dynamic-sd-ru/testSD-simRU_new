@@ -15,7 +15,6 @@ view-if: breitscheid_advisor = 1
 - @snap_election
 - @root: Вернуться к основному
 
-
 @breitscheid_international
 title: Международные партийные связи
 subtitle: Брейтшейд — одно из наших связующих звеньев с международным социалистическим движением.
@@ -23,7 +22,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 choose-if: advisor_action_timer == 0
 on-arrival: advisor_action_timer = 6; international_relations_timer -= 12; last_advisor_action = 1
 go-to: international_relations
-
 
 @breitscheid_foreign
 title: Внешняя политика
@@ -34,7 +32,6 @@ on-arrival: advisor_action_timer = 6; foreign_policy_timer -= 8; last_advisor_ac
 go-to: foreign_policy
 
 
-
 @party_discipline
 title: Партийная дисциплина
 subtitle: Уменьшить разногласия в партии.
@@ -43,7 +40,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
 
 Мы укрепили партийную дисциплину, чтобы уменьшить недовольство во всех фракциях.
-
 
 
 @snap_election

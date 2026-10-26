@@ -12,7 +12,6 @@ new-page: true
 
 - @ddp_alliance_yay: Партия голосует…
 
-
 @ddp_alliance_yay
 on-arrival: ddp_alliance = 1; ddp_alliance_glaze = 1 if ddp_ideology == "Левые" and ddp_leader == "Леммер"; liberal_cooperation -= 8; bourgeois_cooperation -= 3; ddp_relation += 5; pro_republic += ddp_votes; ddp_left += 3; ddp_cohesion -= 2; rural_ddp *= 0.7; old_middle_ddp *= 0.8; new_middle_ddp *= 0.95; workers_ddp += 3 if ddp_alliance_glaze; new_middle_ddp += 2 if ddp_alliance_glaze; old_middle_ddp -= 1 if ddp_alliance_glaze; rural_ddp -= 1 if ddp_alliance_glaze; pro_republic += 3 if ddp_alliance_glaze
 

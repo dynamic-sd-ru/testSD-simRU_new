@@ -12,7 +12,6 @@ face-image: img/prussia_flag_old.png
 
 - @elections
 
-
 @elections
 title: Мы ждём решения.
 call: set_next_election_time_prussia

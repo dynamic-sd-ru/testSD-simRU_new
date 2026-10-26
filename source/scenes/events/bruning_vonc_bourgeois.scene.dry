@@ -16,14 +16,12 @@ max-visits: 1
 - @secret_mode
 - @no
 
-
 @secret_mode
 title: Включить секретный режим
 subtitle: Это необратимо.
 on-arrival: secret_mode = 1
 
 Хорошо.
-
 
 @no
 title: Позвольте мне продолжить игру.

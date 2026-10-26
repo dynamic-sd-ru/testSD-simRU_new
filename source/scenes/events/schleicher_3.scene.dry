@@ -14,10 +14,9 @@ face-image: img/portraits/schleicher.jpg
 
 - @schleicher
 
-
 @schleicher
 title: Выслушаем: что скажет генерал?
-on-arrival: schleicher_spd_support += 2; schleicher_spd_r += 1
+on-arrival: schleicher_spd_support += 2; schleicher_spd_r += 1; kpd_nazi_urgency -= 1;
 
 Лидеры АДГБ Теодор Лейпарт и Вильгельм Эггерт встретились с назначенным канцлером Шлейхером, который пообещал отменить самые вопиющие чрезвычайные указы Папена о заработной плате, запустить программу общественных работ и отказаться от планов бывшего канцлера по введению «Нового государства» путем президентских указов.
 

@@ -2,34 +2,29 @@ title: Корневая сцена
 new-page: true
 go-to: post_event if started = 1; start_menu if started = 0
 
-
 @start_menu
 new-page: true
 go-to: start_menu_2
 
 = Социал-демократия: альтернативная история
 
-
 @start_menu_2
 
 - @start_1: Начать игру
-- @modinfo: Информация о моде - последнее обновление 2026/01/25
+- @modinfo: Информация о моде - последнее обновление 2026/08/04
 - @credits: Авторы
 - @game_over.achievements
-
 
 @start_1
 on-arrival: player_beg = 1 if not achievement_game_completed
 go-to: start if achievement_game_completed; pls_player if not achievement_game_completed
 
 
-
 @pls_player
 
 Пожалуйста, прочитайте
 
-- @modinfo.infotext: Информация о моде - Последнее обновление 2026/01/25
-
+- @modinfo.infotext: Информация о моде - Последнее обновление 2026/08/04
 
 
 @start
@@ -92,10 +87,16 @@ Q.neorevisionism = 0;
 
 Q.social_patriot = 0;
 
+// class consciousness - have the new middle class become conscious? have the peasants and rural workers become conscious?
+Q.new_middle_conscious = 0;
+Q.rural_conscious = 0;
+
 // crisis_urgency indicates how seriously the SPD is taking the economic crisis - scale from 0 to 10.
 Q.crisis_urgency = 0;
 // nazi_urgency indicates how seriously the SPD takes the nazis - scale from 0 to 10.
 Q.nazi_urgency = 0;
+// kpd_nazi_urgency indicates how seriously the KPD takes the nazis - scale from 0 to 10.
+Q.kpd_nazi_urgency = 0;
 // radicalization indicates how radical the SPD's rhetoric is - scale from 0 to 10.
 Q.radicalization = 0;
 // Support for the WTB plan and proto-Keynesian works creation plans in general
@@ -229,6 +230,10 @@ Q.rural = 25; // agriculture and forestry employment... but many of those are pr
 // source: https://surface.syr.edu/cgi/viewcontent.cgi?filename=3&article=1016&context=books&type=additional page 43, table 3.3
 Q.unemployed = 8.6;
 Q.catholics = 30;
+// the amount of unemployment each point of workers_aid can absorb
+Q.workers_aid_support = 1;
+Q.workers_aid = 1;
+Q.effective_unemployed = 7.6;
 
 // unemployment: 1929 - 13.3, 1930 - 22.7, 1931 - 34.3, 1932 - 43.8 (same source as above)
 
@@ -554,6 +559,8 @@ Q.in_grand_coalition = 0;
 Q.in_popular_front = 0;
 // left coalition = SPD + KPD + left-splinters
 Q.in_left_front = 0;
+// high school reuinion = SPD + SAPD
+Q.sapd_toleration = 0;
 // emergency government containing the SPD: only president Braun can do this.
 Q.in_emergency_government = 0;
 Q.in_spd_majority = 0;
@@ -570,6 +577,7 @@ Q.in_weimar_coalition_prussia = 1;
 Q.in_grand_coalition_prussia = 0;
 Q.in_popular_front_prussia = 0;
 Q.in_left_front_prussia = 0;
+Q.sapd_toleration_prussia = 0;
 Q.in_spd_majority_prussia = 0;
 Q.in_center_right_coalition_prussia = 0;
 Q.in_minority_weimar_coalition_prussia = 0;
@@ -621,7 +629,7 @@ Q.minority_government = 0;
 // ministries - which parties control the ministries?
 // starting with the 4th Marx cabinet https://en.wikipedia.org/wiki/Fourth_Marx_cabinet
 // is the agricultural ministry useful at all?
-Q.foreign_minister = 'Stresemann';
+Q.foreign_minister = 'Штреземан';
 Q.foreign_minister_party = 'ННП';
 Q.interior_minister = 'von Keudell';
 Q.interior_minister_party = 'НННП';
@@ -844,7 +852,7 @@ Q.dstp_formed = 0;
 Q.ddp_left = 0;
 Q.ddp_right = 0;
 Q.ddp_name = "НДП";
-Q.ddp_full_name = "German Democratic Party";
+Q.ddp_full_name = "Немецкая демократическая партия";
 Q.ddp_leader = "Кох-Везер";
 Q.ddp_ideology = "Умеренные"
 Q.ddp_cohesion = 15;
@@ -926,6 +934,7 @@ Q.bruning_coalition_dissent = 0;
 Q.dnvp_angry = 0;
 Q.dvp_exist = 1;
 Q.reichsbanner_unpopularity_time = 0;
+Q.workers_aid_unpopularity_time = 0;
 Q.wtb_points = 0;
 Q.hindenburg_grr_time = 0;
 Q.hindenburg_angry_pause_time = 0;
@@ -935,7 +944,7 @@ Q.international_socialist_support = 0;
 Q.banking_crisis_fallout_time = 0;
 Q.reformist_plan_time = 0;
 Q.cvp_economy_accepted_time = 0;
-Q.public_works_name = "Lautenbach";
+Q.public_works_name = "Лаутенбах";
 Q.hitler_right_coalition_time = 0;
 Q.papen_post = 0;
 Q.papen_post_2 = 0;
@@ -997,10 +1006,10 @@ Q.papen_strength = 1;
 Q.meissner_strength = 2;
 Q.oskar_strength = 2;
 
-Q.papen_goal = "Nazi backing for his cabinet";
-Q.schleicher_goal = "Control Papen from the sidelines";
-Q.meissner_goal = "Become acquainted with the new chancellor";
-Q.oskar_goal = "Support the new chancellor";
+Q.papen_goal = "Заручиться поддержкой нацистов для своего кабинета";
+Q.schleicher_goal = "Контролировать Папена со стороны";
+Q.meissner_goal = "Познакомиться с новым канцлером";
+Q.oskar_goal = "Поддерживать нового канцлера";
 
 Q.industrial_z_backing = 0;
 Q.industrial_ddp_backing = 1;
@@ -1191,7 +1200,12 @@ const achievements = [
   "achievement_mr_breitscheid",
   "achievement_alt_aber_gold",
   "achievement_kleber_der_partei",
-  "achievement_grosse_sauberung"
+  "achievement_grosse_sauberung",
+  "achievement_die_rote_justiz",
+  "achievement_bruning_der_rotfrontkampfer",
+  "achievement_merz_und_scholz",
+  "achievement_lindner_moribund",
+  "achievement_tausendjahrige_libreich"
 ];
 
 Q.unlockedCount = achievements.filter(key => Q[key] === 1).length;
@@ -1233,20 +1247,13 @@ new-page: true
 - @1928_historical: Начать (<span style="color: #611813;">исторический</span> режим)
 - @1928_challenge: Пользовательские режимы
 
-@1928_tutorial
-on-arrival: year = 1927; difficulty = -1; resources = 4; dues = 5; base_dues = 5; rb_strength = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; ddp_relation = 65; budget = 5;
-go-to: start_tutorial
-
-
 @1928_easy
 on-arrival: difficulty = -1; resources = 4; dues = 5; base_dues = 5; rb_strength = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; ddp_relation = 65; budget = 5;
 go-to: 1928_main
 
-
 @1928_hard
 on-arrival: difficulty = 1; resources = 0; dues = 3; base_dues = 3; rb_strength = 1000; reformist_dissent = 25; left_dissent = 30; labor_dissent = 25; center_dissent = 25; z_relation = 41; kpd_relation = 16; dvp_relation = 31; ddp_relation = 50; budget = 3
 go-to: 1928_main
-
 
 @1928_historical
 subtitle: Сохранение, загрузка и опросы будут отключены. [? if not achievement_game_completed: Не рекомендуется для первого прохождения. ?]
@@ -1270,7 +1277,6 @@ this.state.disableSaves = true;
 !}
 go-to: 1928_main
 
-
 @1928_mod_mode
 subtitle: Запланированная сложность прохождения мода (не рекомендуется для новичков, если вы не готовы ощутить всю боль и агонию умирающей республики).
 on-arrival: {!
@@ -1288,7 +1294,6 @@ Q.budget = 2;
 !}
 go-to: 1928_main
 
-
 @1928_mod_mode_lite
 subtitle: Рекомендуемый способ прохождения этого мода.
 on-arrival: {!
@@ -1305,7 +1310,6 @@ Q.budget = 2;
 !}
 go-to: 1928_main
 
-
 @1928_challenge
 view-if: achievement_holy
 
@@ -1315,7 +1319,6 @@ view-if: achievement_holy
 - @hitler_mode
 - @unemployed_mode
 - @start: Вернуться назад.
-
 
 
 @joever_mode
@@ -1363,18 +1366,18 @@ for (var party of Q.parties) {
 
         if (Q.dsu_exist && !Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (!Q.dsu_exist && Q.nvf_exist) {
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
             Q.nvf_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (Q.dsu_exist && Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
 
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
         } else {
             Q.nsdap_hitler_support += Q.workers_nsdap*Q.workers;
@@ -1397,7 +1400,6 @@ for (var party of Q.parties) {
 }
 !}
 go-to: 1928_mod_mode_lite
-
 
 @hitler_mode
 title: Демократия в осаде
@@ -1446,18 +1448,18 @@ for (var party of Q.parties) {
 
         if (Q.dsu_exist && !Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (!Q.dsu_exist && Q.nvf_exist) {
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
             Q.nvf_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (Q.dsu_exist && Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
 
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
         } else {
             Q.nsdap_hitler_support += Q.workers_nsdap*Q.workers;
@@ -1480,7 +1482,6 @@ for (var party of Q.parties) {
 }
 !}
 go-to: 1928_mod_mode_lite
-
 
 @unemployed_mode
 title: <div style="text-align: center;"><img src="img/job.png" alt="Jobless Mode"></div>
@@ -1524,18 +1525,18 @@ for (var party of Q.parties) {
 
         if (Q.dsu_exist && !Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (!Q.dsu_exist && Q.nvf_exist) {
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
             Q.nvf_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (Q.dsu_exist && Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
 
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
         } else {
             Q.nsdap_hitler_support += Q.workers_nsdap*Q.workers;
@@ -1559,7 +1560,6 @@ for (var party of Q.parties) {
 !}
 go-to: 1928_mod_mode_lite
 
-
 @wacky_weimar
 title: Режим «Безумный Веймар»
 subtitle: Будут разблокированы различные нереалистичные «пасхалки» и возможности. Баги — часть игрового опыта.
@@ -1571,7 +1571,6 @@ Q.wacky_weimar = 1;
 go-to: 1928_mod_mode_lite
 
 
-
 @1928_main
 audio: shuffle music/1928_1930/FruhlingsliedMendelssohn.mp3 music/1928_1930/AUF_HOHEN_BERGEN_noise_reduced.mp3 music/1928_1930/MarekWeber.mp3 music/1928_1930/BAUERNKAPELLE.mp3 music/1928_1933/DERLINDENBAUM_normalized.mp3 music/1928_1933/ZurSonne_zurFreiheit.mp3 music/1928_1933/arbeiter_marseille.mp3 music/1928_1933/Wann_wir_schreiten_Seit_an_Seit.mp3 music/1930_1933/Internationale-de_normalized.ogg music/1928_1930/LiedDerPompadour.mp3 music/1928_1933/SozialistenMarsch.mp3
 new-page: true
@@ -1579,3 +1578,7 @@ go-to: main if difficulty >= 0; main.main_easy if difficulty < 0
 
 
 = 1928
+
+@1928_tutorial
+on-arrival: year = 1927; difficulty = -1; resources = 4; dues = 5; base_dues = 5; rb_strength = 2500; kpd_relation = 29; z_relation = 54; dvp_relation = 49; ddp_relation = 65; budget = 5;
+go-to: start_tutorial

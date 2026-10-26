@@ -25,15 +25,14 @@ face-image: img/beauty_of_labor.jpg
 
 - @schleicher_2: А как же АДГБ?
 
-
 @schleicher_2
 go-to: schleicher_adgb_influence if schleicher_spd_influence >= 8; schleicher_adgb_choice if schleicher_spd_influence < 6 and schleicher_spd_r >= 5; schleicher_adgb_joever if schleicher_spd_influence < 6 and schleicher_spd_r < 5
-
 
 @schleicher_adgb_influence
 on-arrival: {!
 Q.unions_independent = 1;
 Q.unions_independent_schleicher = 1;
+Q.kpd_nazi_urgency += 1;
 
 Q.rb_strength -= 400;
 Q.workers_spd -= 15;
@@ -57,7 +56,6 @@ Q.schleicher_spd_support -= 5;
 
 Падение АДГБ знаменует собой начало конца. Если даже профсоюзы больше не с нами, то какая сила у нас в действительности осталась?
 
-
 @schleicher_adgb_choice
 
 У Шлейхера не хватает рычагов, чтобы поставить АДГБ перед свершившимся фактом — по крайней мере, пока. Но мы загнаны в угол, и хороших вариантов у нас почти не осталось. Значительное меньшинство, а возможно, и относительное большинство членов профсоюзов уже подпали под его влияние. И его угроза ясна: ополчение рейхсвера готово действовать, если до назначенного срока не будет принято решение.
@@ -68,7 +66,6 @@ Q.schleicher_spd_support -= 5;
 
 - @schleicher_adgb_choice_1
 - @schleicher_adgb_choice_2
-
 
 @schleicher_adgb_choice_1
 title: Одобрить вступление АДГБ в DAF.
@@ -98,7 +95,6 @@ Q.schleicher_spd_support -= 4;
 
 Падение АДГБ знаменует собой начало конца. Если даже профсоюзы нас бросили — какая сила у нас осталась?
 
-
 @schleicher_adgb_choice_2
 title: Мы откажемся.
 
@@ -106,7 +102,6 @@ title: Мы откажемся.
 
 - @schleicher_adgb_choice_1
 - @schleicher_adgb_choice_2_pro
-
 
 @schleicher_adgb_choice_2_pro
 title: Мы уверены.
@@ -125,7 +120,7 @@ if (Q.kpd_relation >= 40) {
 } else if (Q.kpd_relation < 40) {
     Q.normalized_workers_total += Q.workers_kpd_normalized*0.5;
 }
-Q.spd_points += ((1 - Q.labor_dissent/100)*Q.normalized_workers_total*(1 - Q.unemployed/100)*2.5) / 5;
+Q.spd_points += ((1 - Q.labor_dissent/100)*Q.normalized_workers_total*(1 - Q.effective_unemployed/100)*2.5) / 5;
 
 Q.rb_power = Q.rb_strength*Q.rb_militancy;
 if (Q.dissent > 0.15) {
@@ -177,7 +172,6 @@ Q.schleicher_fight = 1;
 - @spd_med
 - @spd_lose
 
-
 @spd_med
 title: Шлейхер пытается провести с нами переговоры.
 on-arrival: {!
@@ -223,12 +217,10 @@ view-if: spd_med
 
 - @schleicher_cabinet_13_pre
 
-
 @schleicher_cabinet_13_pre
 title: Ход Шлейхера
 subtitle: Устоит ли генерал?
 go-to: schleicher_cabinet_13
-
 
 @spd_lose
 title: Наши протесты неэффективны.
@@ -242,7 +234,6 @@ on-arrival: hammerstein_win = 1
 Германия обречена.
 
 - @game_over
-
 
 @schleicher_adgb_joever
 on-arrival: {!

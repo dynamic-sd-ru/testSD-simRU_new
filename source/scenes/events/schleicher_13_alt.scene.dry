@@ -16,7 +16,6 @@ max-visits: 1
 
 - @schleicher_2: <span style="color: #BFC8CC;">Фронт Национального Единства Германии</span> приветствует нового члена.
 
-
 @schleicher_2
 on-arrival: {!
 Q.lvp_dnef = 1
@@ -27,6 +26,7 @@ Q.lvp_relation = (Q.dnef_relation - 5);
 
 Q.dnef_r += Q.lvp_r;
 Q.lvp_r = 0;
+Q.kpd_nazi_urgency += 1;
 !}
 
 Немецкие центристы в основном сплотились вокруг режима Шлейхера. Однако небольшая группа убеждённых <span style="color: #000000;">респу</span><span style="color: #DD0000;">бли</span><span style="color: #FFCC00;">канцев</span> из левого крыла <span style="color: #FFCC00;">**ЛНП**</span> откололась от партии в знак протеста, сформировав <span style="color: #E0B0FF;">Радикально-демократическую партию</span> (<span style="color: #E0B0FF;">**РДП**</span>). Не имея собственной значительной электоральной базы, они теперь просят выделить им место в нашем избирательном списке.
@@ -56,7 +56,6 @@ Q.lvp_r = 0;
 - @rdp_list
 - @rdp_decline
 
-
 @rdp_list
 title: Создать общий список с <span style="color: #E0B0FF;">**РДП**</span>.
 on-arrival: {!
@@ -80,7 +79,6 @@ Q.lvp_right += 2;
 !}
 
 Кто станет преемником Гинденбурга?
-
 
 @rdp_decline
 title: Нам не нужны сделки с буржуазией.

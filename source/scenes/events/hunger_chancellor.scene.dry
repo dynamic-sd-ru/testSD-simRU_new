@@ -1,8 +1,8 @@
 title: Канцлер голода
 subtitle: Народное недовольство канцлером [+ chancellor +]ом растёт.
 new-page: true
-view-if: year >= 1931 and month >= 2 and unemployed >= 18 and welfare < 0 and works_program == 0
-on-arrival: workers_spd *= 0.9 if chancellor_party == "СДПГ"; workers_spd *= 0.9 if spd_in_government == 1; workers_nsdap += 5 if spd_in_government; workers_kpd += 4 if spd_in_government; unemployed_nsdap += 5 if spd_in_government; hindenburg_angry += 10; hindenburg_angry_bruning += 10
+view-if: year >= 1931 and month >= 2 and effective_unemployed >= 18 and welfare < 0 and works_program == 0
+on-arrival: workers_spd *= 0.9*(effective_unemployed/unemployed) if chancellor_party == "СДПГ"; workers_spd *= 0.9*(effective_unemployed/unemployed) if spd_in_government == 1; workers_nsdap += 5*(effective_unemployed/unemployed) if spd_in_government; workers_kpd += 4*(effective_unemployed/unemployed) if spd_in_government; unemployed_nsdap += 5*(effective_unemployed/unemployed) if spd_in_government; hindenburg_angry += 10; hindenburg_angry_bruning += 10
 tags: event
 max-visits: 1
 face-image: img/Kollwitz_Hospital.jpg
@@ -16,14 +16,12 @@ face-image: img/Kollwitz_Hospital.jpg
 - @maintain_toleration: Сохранить текущее правительственное соглашение.
 - @break_toleration: Прекратить политику терпимости; проголосовать против этого правительства.
 
-
 @maintain_toleration
 subtitle: Необходимо сохранить демократию.
 view-if: spd_toleration == 1
-on-arrival: workers_nsdap += 2; workers_kpd += 2; unemployed_nsdap += 2; workers_spd -= 2; pro_republic -= 2; kpd_relation -= 2; ddp_left += 0.5
+on-arrival: workers_nsdap += 2*(effective_unemployed/unemployed); workers_kpd += 2*(effective_unemployed/unemployed); unemployed_nsdap += 2*(effective_unemployed/unemployed); workers_spd -= 2*(effective_unemployed/unemployed); pro_republic -= 2; kpd_relation -= 2; ddp_left += 0.5
 
 Наше воздержание от вотума недоверия продолжается.
-
 
 
 @break_toleration

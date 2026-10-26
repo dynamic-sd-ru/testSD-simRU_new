@@ -18,12 +18,11 @@ on-display: {!
 
 = Исход из Рейхсбаннера
 
-В последнее время Рейхсбаннер всё больше милитаризируется: у него появляется всё больше оружия, проводится полувоенная подготовка, а в его ряды вливается поток <span style="color: #9B0000;">радикально настроенных</span> <span style="color: #c00000;"> членов **СДПГ**</span>. В ответ на это члены других <span style="color: #000000;">ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ских партий: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] [? if not lvp_formed: и <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed and not lvp_leave_reichsbanner: и <span style="color: #FFCC00;">**ЛНП**</span> ?], угрожают уйти навсегда. Они вступали в массовое движение в защиту республики, а не в <span style="color: #c00000;">социалистическое</span> ополчение.
+В последнее время Рейхсбаннер всё больше милитаризируется: у него появляется всё больше оружия, проводится полувоенная подготовка, а в его ряды вливается поток <span style="color: #9B0000;">радикально настроенных</span> <span style="color: #c00000;"> членов **СДПГ**</span>. В ответ на это члены других <span style="color: #000000;">ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ских партий: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] [? if not lvp_formed: и <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed and not lvp_leave_reichsbanner: и <span style="color: #FFCC00;">**ЛНП**</span> ?], угрожают уйти навсегда. Они вступали в массовое движение в защиту республики, а не в <span style="color: #c00000;">социалистическое</span> ополчение.
 
 - @let_go: Пусть <span style="color: #000000;">центристы</span> [? if not lvp_formed: и <span style="color: #D3C24D;">либералы</span> ?][? if lvp_formed and not lvp_leave_reichsbanner: и <span style="color: #FFCC00;">либералы</span> ?] уходят.
 - @lower_militancy: Мы должны снизить воинственность Рейхсбаннера.
 - @keep_them: Сможем ли мы убедить их, что воинственный Рейхсбаннер необходим для защиты Республики?
-
 
 @let_go
 on-arrival: rb_strength *= 0.9; z_relation -= 5; ddp_relation -= 5; lvp_relation -= 5; rb_exit = 1; left_strength += 5*(1-dissent); ddp_right += 3; lvp_right += 3
@@ -33,12 +32,10 @@ on-arrival: rb_strength *= 0.9; z_relation -= 5; ddp_relation -= 5; lvp_relation
 # TODO: this should make it harder to form Weimar coalitions
 
 
-
 @lower_militancy
 on-arrival: rb_militancy *= 0.5
 
 Уступив требованиям других партий, мы сокращаем военную подготовку в «Рейхсбаннере», тем самым побуждая их остаться.
-
 
 
 @keep_them

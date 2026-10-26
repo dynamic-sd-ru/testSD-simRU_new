@@ -18,7 +18,7 @@ if ((100 - Q.pro_republic) + Q.nationalism >= 100) {
     Q.dstp_collapse_points -= 1;
     Q.ddp_right += 1;
 }
-if (Q.major_curriculum == "humanist") {
+if (Q.major_curriculum == "гуманитарная") {
     Q.dstp_collapse_points -= 1;
 }
 if (Q.pro_republic >= 65) {
@@ -49,7 +49,6 @@ new-page: true
 - @dstp_maintained: <span style="color: #D3C24D;">**НГП**</span> выстояла!
 - @dstp_collapse: <span style="color: #D3C24D;">**НГП**</span> распалась!
 
-
 @dstp_maintained
 view-if: dstp_collapse_points < 4
 on-arrival: dstp_maintained = 1; liberal_cooperation -= 1; bourgeois_cooperation -= 1; nationalism += 3; new_middle_ddp -= 2; new_middle_spd += 2; old_middle_ddp += 2; old_middle_nsdap -= 2; unemployed_ddp += 2; ddp_right += 1; ddp_relation -= 5; pro_republic -= ddp_votes
@@ -60,7 +59,6 @@ go-to: recalculate
 Удивительно, но это средоточие противоречий — <span style="color: #D3C24D;">**НГП**</span> — живёт и здравствует. После напряжённых переговоров между <span style="color: #D3C24D;">демократами</span>-сторонниками слияния во главе с Кох-Везером, и несогласными <span style="color: #D3C24D;">демократами</span> старой закалки решено назначить Кох-Везера председателем фракции в рейхстаге. Однако контроль Марауна над общенациональной организацией оказался куда более сложной проблемой, так как Орден Марауна непреклонен и не шёл на компромиссы. Тупик разрешился, когда Мараун согласился передать часть полномочий «Рейхсфюрера» партии её исполнительному комитету. В обмен на это на скором партийном съезде от <span style="color: #D3D3A9;">**ННОР**ННОР</span> будет больше делегатов.
 
 Похоже, этот эксперимент продолжится: <span style="color: #D3C24D;">**НГП**</span> примет более националистический и этатистский облик по сравнению со старой <span style="color: #D3C24D;">**НДП**</span>. Лишь время покажет, как партия проявит себя на фоне усиления <span style="color: #7A3C00;">**НСДАП**</span>.
-
 
 @dstp_collapse
 view-if: dstp_collapse_points >= 4
@@ -73,7 +71,6 @@ go-to: recalculate
 [? if dstp_election: Уход связанных с <span style="color: #D3D3A9;">**ННОР**</span> депутатов серьёзно ослабил парламентское влияние партии.[? if ddp_r < 3.6: Теперь депутатский корпус <span style="color: #D3C24D;">**НГП**</span> слишком мал, чтобы сформировать парламентскую фракцию. Они вынуждены вести переговоры с другой партией, что весьма непросто: все запомнили их фиаско с Младогерманским Орденом. ?] ?] В <span style="color: #D3C24D;">**НГП**</span> воцарился пессимизм и отчаяние, что тяжело отразилось на Кох-Везере. Глубоко подавленным крахом проекта <span style="color: #D3C24D;">**Государственной партии**</span>, он решил полностью уйти из политики.
 
 Всё его потуги по спасению партии закончились тем, что <span style="color: #D3C24D;">**НГП**</span> превратилась в старую <span style="color: #D3C24D;">**НДП**</span> под новой вывеской, хотя и с формально более националистической и этатистской платформой.
-
 
 
 @recalculate
@@ -109,10 +106,8 @@ if (Q.bourgeois_negotiations_elections_1930_timer == 1 && Q.bourgeois_negotiatio
 !}
 go-to: dstp_maintained_achievement if dstp_maintained; dstp_collapsed_achievement if dstp_collapsed
 
-
 @dstp_maintained_achievement
 achievement: dstp_maintained
-
 
 
 @dstp_collapsed_achievement

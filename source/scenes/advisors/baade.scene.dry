@@ -12,8 +12,8 @@ new-page: true
 - @agriculture
 - @rural_campaign
 - @depression
+- @radicalize_rural
 - @root: Вернуться к основному
-
 
 @agriculture
 title: Аграрная политика
@@ -22,7 +22,6 @@ choose-if: advisor_action_timer <= 0 and spd_in_government and agriculture_minis
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?][? if not spd_in_government : <span style="color: #c00000;">СДПГ</span> не входит в состав правительства.  ?][? if agriculture_minister_party != "СДПГ": <span style="color: #c00000;">СДПГ</span> не контролирует министерство сельского хозяйства. ?]
 on-arrival: advisor_action_timer = 6; agricultural_policy_timer -= 6; last_advisor_action = 1
 go-to: agricultural_policy
-
 
 
 @rural_campaign
@@ -34,7 +33,6 @@ on-arrival: advisor_action_timer = 6; rural_spd += 5*(1-dissent); peoples_party_
 
 Мы усилили агитацию среди фермеров и сельского населения.
 
-
 @depression
 title: Поддержать экономический план профсоюзников
 subtitle: Разработать план по спасению от экономического кризиса.
@@ -43,3 +41,12 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; wtb_support += 2; center_dissent += 10; labor_strength += 5; wtb_points += 15
 
 [? if not wtb_concept: Войтинский, Тарнов и Бааде совместно работали над планом по выводу страны из депрессии. Бааде агитирует за этот план по всей партии.  ?][? if wtb_concept: План ВТБ, названный в честь его главных сторонников — Войтинского, Тарнова и Бааде, — принят профсоюзами как план по выводу страны из депрессии. Бааде агитирует за этот план по всей партии. ?]
+
+@radicalize_rural
+title: Пробудить классовое самосознание крестьянства и сельского рабочего класса.
+subtitle: Как наш эксперт по сельскому хозяйству, Бааде может помочь пробудить классовое самосознание крестьян и сельских рабочих.
+choose-if: socialism >= 51 and rural_spd_normalized >= 15 and rural_policy >= 1 and rural_conscious == 0
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] мес. до следующего действия советника. ?][? if socialism < 51: Нам нужно добиться большей популярности социализма. ?][? if rural_spd_normalized < 15: К сожалению, у нас недостаточно поддержки среди сельских избирателей. ?][? if rural_policy == 0: Мы не приняли ни одной аграрной программы. ?][? if rural_conscious == 1: Мы уже пробудили классовое самосознание крестьянства и сельского рабочего класса. ?]
+max-visits: 1
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1
+go-to: rural_consciousness

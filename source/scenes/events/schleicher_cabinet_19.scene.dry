@@ -19,7 +19,6 @@ tags: event
 - @goerdeler
 - @bredow
 
-
 @goerdeler
 title: Карл Фридрих Гёрделер — <span style="color: #BFC8CC;">**ФНЕГ**</span>
 subtitle: Бывший <span style="color: #3E88B3;">националистический</span> мэр Лейпцига. Убеждённый консерватор.
@@ -44,20 +43,20 @@ Q.schleicher_spd_support -= 6;
 
 Возможно, карточный домик, который так старательно строил Шлейхер, уже начинает шататься.
 
-
 @bredow
 title: Фердинанд фон Бредов — <span style="color: #BFC8CC;">**ФНЕГ**</span>
 subtitle: Заместитель министра обороны. Предположительно, придерживается взглядов, схожих со взглядами Шлейхера.
 face-image: img/portraits/bredow.jpg
 choose-if: bredow_unlock
 on-arrival: {!
-Q.chancellor = "Bredow";
-Q.dnef_leader = "Bredow";
+Q.chancellor = "Бредов";
+Q.dnef_leader = "Бредов";
 Q.schleicher_approval -= 4;
 
 Q.schleicher_spd_r -= 3;
 Q.schleicher_spd_influence -= 4;
 Q.schleicher_spd_support -= 5; 
+Q.kpd_nazi_urgency -= 1;
 !}
 
 Позиционируя себя как преемника Шлейхера и ещё одного беспартийного военного, фон Бредов снискал расположение своего близкого друга. И хотя бывший канцлер Шлейхер официально находится в отставке, он по-прежнему дёргает за ниточки из-за кулис, не в силах отказаться от своих интриг.

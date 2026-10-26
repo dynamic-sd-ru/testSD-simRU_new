@@ -16,7 +16,6 @@ new-page: true
 - @campaigning_peoples_party
 - @root: Вернуться в главное меню
 
-
 @democratic_rally
 title: Митинг в защиту демократии
 subtitle: Сплотить нашу партию и немецкий народ на защиту демократии, свободы и республики.
@@ -26,7 +25,6 @@ on-arrival: advisor_action_timer = 6; pro_republic += 5; democratization += 1; n
 
 Лебер помогает нам сплотить народ на защиту демократии.
 
-
 @military_affairs
 title: Министерство Рейхсвера
 subtitle: Мы можем определять нашу военную политику.
@@ -34,7 +32,6 @@ choose-if: advisor_action_timer == 0 and spd_in_government and reichswehr_minist
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] мес. до следующего действия советника. ?][? if not spd_in_government : <span style="color: #c00000;">СДПГ</span> не входит в правительство.  ?][? if reichswehr_minister_party != "СДПГ": <span style="color: #c00000;">СДПГ</span> не контролирует министерство рейхсвера. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1
 go-to: military_policy
-
 
 @support_peoples_party
 title: Поддержать концепцию Народной партии
@@ -46,7 +43,6 @@ on-arrival: advisor_action_timer = 6; peoples_party_support += 1
 
 Мы наращиваем поддержку идеи Народной Партии.
 
-
 @build_peoples_party
 title: Создание народной партии
 subtitle: Сможем ли мы расширить нашу партию, выйдя за рамки промышленного рабочего класса?
@@ -55,7 +51,6 @@ choose-if: peoples_party_support >= 3 and advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?][? if peoples_party_support < 3: Внутри партии недостаточно поддержки этой политики. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1
 go-to: peoples_party
-
 
 @campaigning_peoples_party
 title: Агитировать как Народная Партия

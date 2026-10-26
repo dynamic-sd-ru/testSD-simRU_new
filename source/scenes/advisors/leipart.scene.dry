@@ -17,7 +17,6 @@ new-page: true
 # leipart was one of the people who argued for union independence
 #- @union_unity
 
-
 @organizing
 title: Организовать рабочих
 subtitle: Укрепить наши позиции среди рабочих.
@@ -26,7 +25,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; workers_spd += 4*(1-dissent); workers_spd += 3*(1-dissent) if wtb_adopted == 1; labor_strength += 2;
 
 Мы усилили организационную работу среди рабочих.
-
 
 @depression
 title: Поддержать реформистский экономический план
@@ -37,7 +35,6 @@ on-arrival: advisor_action_timer = 6; wtb_support += 2; center_dissent += 10; la
 
 [? if not wtb_concept: Войтинский, Тарнов и Бааде совместно работают над проектом плана по выходу страны из депрессии. Лейпарт агитирует за эту политику в рядах партии и профсоюзов.  ?][? if wtb_concept: План ВТБ, названный в честь его главных сторонников — Войтинского, Тарнова и Бааде, — принят профсоюзами как план по выходу из депрессии. Лейпарт агитирует за эту политику в партии и профсоюзах. ?]
 
-
 @schleicher
 title: Переговоры с красным генералом
 subtitle: Лайпарт попытается убедить <span style="color: #c00000;">**СДПГ**</span> поддержать Шлейхера.
@@ -46,7 +43,6 @@ choose-if: advisor_action_timer <= 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?]
 on-arrival: advisor_action_timer = 6; red_general_timer -= 4 if not schleicher_spd_adopted; red_general_timer -= 6 if schleicher_spd_adopted; last_advisor_action = 1
 go-to: red_general
-
 
 
 @union_unity

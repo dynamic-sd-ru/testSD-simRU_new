@@ -19,7 +19,6 @@ tags: govt_affairs
 - @stay_course: Воздержимся от вотума недоверия ради стабильности.
 - @easy_discard
 
-
 @break_toleration
 view-if: not constructive_vonc
 title: Покончить с воздержанием от вотума недоверия!
@@ -29,7 +28,6 @@ title: Покончить с воздержанием от вотума недо
 - @vonc: Да, покончить с этим соглашением!
 - @stay_course: Нет, мы должны придерживаться прежнего курса.
 
-
 @vonc
 on-arrival: spd_in_government = 0; spd_toleration = 0; spd_toleration_right = 0; in_grand_coalition = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; left_strength += 8; pro_republic -= 5; new_middle_spd -= 3; rural_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3; reformist_dissent += 5; left_dissent -= 5; dvp_relation -= 4; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; ddp_right += 1; dvp_right += 2
 go-to: new_prussia_election if in_social_catholic_coalition_prussia or in_weimar_coalition_prussia or in_grand_coalition_prussia or in_popular_front_prussia and ((center_right_coalition_prussia < 50 and dnvp_ideology == "Умеренные") or dnvp_ideology == "Радикалы"); center_right_coalition_prussia if in_social_catholic_coalition_prussia or in_weimar_coalition_prussia or in_grand_coalition_prussia or in_popular_front_prussia and (((center_right_coalition_prussia >= 50 or right_coalition_prussia >= 50) and dnvp_ideology == "Умеренные") or bourgeois_coalition_prussia >= 50)
@@ -38,9 +36,8 @@ go-to: new_prussia_election if in_social_catholic_coalition_prussia or in_weimar
 
 Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @new_prussia_election
-on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
+on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
 call: set_next_election_time_prussia
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] инициировала ответное голосование в Пруссии, что привело к роспуску ландтага и назначению новых выборов.
@@ -49,14 +46,12 @@ call: set_next_election_time_prussia
 
 Двойной роспуск пошатнул веру народа в демократию, а <span style="color: #7A3C00;">нацисты</span>, воспользовавшись нестабильностью, заявляют: демократия нежизнеспособна, Германии нужен сильный лидер.
 
-
 @center_right_coalition_prussia
-on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
+on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] объявила ответный вотум недоверия в Пруссии, сместив наше правительство и заменив его правоцентристской коалицией из всех партий правее нас, за исключением <span style="color: #003755;">**НФГ**</span> и <span style="color: #7A3C00;">**НСДАП**</span>. Хотя это и неудача, но это не худший из возможных исходов, поскольку новые выборы могли бы привести к значительному усилению экстремистских партий.
 
-[? if z_leader != "Штегервальд": Адам Штегервальд  ?][? if z_leader == "Штегервальд": Генрих Брюнинг  ?]из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран министром-президентом Пруссии.
-
+[? if z_leader != "Штегервальд": Адам Штегервальд  ?][? if z_leader == "Штегервальд": Генрих Брюнинг  ?] из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран министром-президентом Пруссии.
 
 @urge_against_austerity
 title: Призвать коалицию отказаться от политики жёсткой экономии и увеличить расходы на социальные нужды.
@@ -65,23 +60,19 @@ choose-if: budget >= 1
 unavailable-subtitle: Это возможно только при профиците бюджета.
 go-to: urge_success if z_relation >= 55 and ((ddp_relation >= 45 and not lvp_formed) or (lvp_relation >= 50 and lvp_formed)); urge_failure if z_relation < 55 or ((ddp_relation < 45 and not lvp_formed) or (lvp_relation < 50 and lvp_formed))
 
-
 @urge_success
 on-arrival: welfare += 1; budget -= 1; workers_spd += 5*(1-dissent); unemployed_spd += 5*(1-dissent); new_middle_ddp += 1; old_middle_ddp += 1; new_middle_dvp += 1.5; old_middle_dvp += 1.5; new_middle_other += 1.5; old_middle_other += 1.5; new_middle_lvp += 3; old_middle_lvp += 3; z_relation -= 3; dvp_relation -= 3; ddp_relation -= 3; lvp_relation -= 3; reformist_dissent -= 5; center_dissent -= 5; labor_dissent -= 5; dvp_right += 1; ddp_right += 0.5; lvp_right += 1; hindenburg_angry_bruning += 10; economic_growth += 0.2; unemployed -= 0.2; dnvp_angry += 1; dnvp_angry += 2 if spd_toleration_right
 
 Нам удалось убедить партии коалиции увеличить расходы на социальное обеспечение! К сожалению, правоцентристы всё чаще видят в нас помеху и могут отказаться от дальнейших переговоров. [? if president == "Гинденбург": Президент Гинденбург также теряет терпение из-за уступок Брюнинга нашим требованиям. ?]
-
 
 @urge_failure
 on-arrival: z_relation -= 3; dvp_relation -= 3; ddp_relation -= 3; lvp_relation -= 3
 
 К сожалению, наши переговоры потерпели неудачу. Правоцентристы всё чаще видят в нас помеху и, возможно, не захотят продолжать переговоры.
 
-
 @urge_against_austerity_limited
 title: Попытаться надавить на Брюнинга, чтобы он смягчил самые тяжёлые последствия своей политики строгой экономии.
 go-to: urge_success_limited if z_relation >= 45; urge_failure if z_relation < 45
-
 
 @urge_success_limited
 on-arrival: bruning_austerity_limited += 1; workers_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); new_middle_spd += 3*(1-dissent) if bruning_austerity_limited >= 3; new_middle_ddp += 1; old_middle_ddp += 1; new_middle_dvp += 1; old_middle_dvp += 1; new_middle_other += 1; old_middle_other += 1; new_middle_nsdap -= 2; old_middle_nsdap -= 2; new_middle_lvp += 2; old_middle_lvp += 2; z_relation -= 3; reformist_dissent -= 3; center_dissent -= 3; labor_dissent -= 3; dvp_right += 1; ddp_right += 0.5; lvp_right += 1; hindenburg_angry_bruning += 5; economic_growth += 0.1; unemployed -= 0.1; dnvp_angry += 1 if spd_toleration_right
@@ -89,7 +80,6 @@ on-arrival: bruning_austerity_limited += 1; workers_spd += 3*(1-dissent); unempl
 Мы успешно заставили Брюнинга смягчить жёсткость политики строгой экономии в его чрезвычайных декретах. К сожалению, правоцентристы всё чаще видят в нас помеху и попытаются вынудить Брюнинга сформировать коалицию большинства с <span style="color: #7A3C00;">крайне</span>-<span style="color: #003755;">правыми</span>. [? if president == "Гинденбург": Президент Гинденбург также теряет терпение, видя, что Брюнинг уступает нашим требованиям. ?]
 
 [? if bruning_austerity_limited == 1: Мы успешно помешали Брюнингу снизить налоги для людей с высоким доходом, облегчив тем самым бремя компенсационного повышения налогов для низших слоёв населения.  ?][? if bruning_austerity_limited == 2: Мы успешно надавили на Брюнинга, и он в попытке пойти нам на уступки восстановил 40-часовую рабочую неделю, однако заработная плата остаётся неудовлетворительной.  ?][? if bruning_austerity_limited >= 3: Мы успешно добились от Брюнинга отмены некоторых сокращений зарплат государственным служащим. ?]
-
 
 @urge_paramilitary
 view-if: political_decree < 2 and not sa_nationwide_ban
@@ -102,7 +92,6 @@ on-arrival: political_decree += 1; prussian_police_loyalty += 0.04; prussian_pol
 
 В результате несколько <span style="color: #7A3C00;">нацистских</span> и <span style="color: #700000;">коммунистических</span> газет запрещены, что спровоцировало ожесточенные столкновения между их сторонниками и полицией. [? if president == "Гинденбург": Президент Гинденбург нехотя подписал указ, но теряет терпение, видя, что Брюнинг уступает нашим требованиям. ?]
 
-
 @improve_relations
 title: Улучшить отношения с партиями коалиции.
 on-arrival: z_relation += 4*(1-dissent); dvp_relation += 3*(1-dissent); ddp_relation += 3*(1-dissent); lvp_relation += 3*(1-dissent); left_dissent += 5; dvp_left += 1; ddp_left += 0.5; ddp_cohesion -= 0.5; lvp_left += 1; dnvp_angry += 1 if spd_toleration_right
@@ -110,7 +99,6 @@ on-arrival: z_relation += 4*(1-dissent); dvp_relation += 3*(1-dissent); ddp_rela
 Мы повысили уровень контактов и дискуссий с партиями коалиции, в первую очередь с [? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] [? if not lvp_formed and dvp_exist: и <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: и <span style="color: #FFCC00;">**ЛНП**</span> ?]. <span style="color: #3E88B3;">**НННП**</span> изо всех сил мешает нашим попыткам наладить конструктивное сотрудничество с Брюнингом.
 
 Наши попытки наладить контакт с правоцентристами вызывают пренебрежение у левых в нашей собственной партии.
-
 
 @stay_course
 

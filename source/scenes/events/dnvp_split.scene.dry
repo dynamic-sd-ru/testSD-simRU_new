@@ -25,7 +25,6 @@ new-page: true
 
 - @goodnews: Посмотрим, как враги республики рвут друг друга на части!
 
-
 @goodnews
 on-arrival: dnf_formed = 1; dnf_decay_timer += 12
 go-to: dnf_formed

@@ -17,29 +17,25 @@ tags: event
 
 [? if started: (Уважаемый игрок, ПОЖАЛУЙСТА, не выходите из игры в ярости. Система поддержки правительства меньшинства всё ещё дает вам шанс выкрутиться.) ?]
 
-
 @bruning_right
-on-arrival: spd_in_government = 0; spd_toleration = 0; spd_toleration_right = 0; grand_coalition_collapsed = 1 if in_grand_coalition; chancellor = "Брюнинг"; in_grand_coalition = 0; in_weimar_coalition = 0; coalition_dissent = 0; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = "НННП"; justice_minister_party = "НННП"; labor_minister_party = "Центр"; reichswehr_minister_party = "I"; economic_minister_party = "ННП"; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "Центр"; agriculture_minister_party = "НННП"; in_right_coalition = 1; dvp_right += 2; lvp_right += 2; liberal_cooperation -= 1; liberal_cooperation -= 3 if liberal_parliament > 0; liberal_parliament = 0 if liberal_parliament > 0; bourgeois_cooperation += 1
+on-arrival: spd_in_government = 0; spd_toleration = 0; spd_toleration_right = 0; grand_coalition_collapsed = 1 if in_grand_coalition; chancellor = "Брюнинг"; in_grand_coalition = 0; in_weimar_coalition = 0; coalition_dissent = 0; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = "НННП"; justice_minister_party = "НННП"; labor_minister_party = "Центр"; reichswehr_minister_party = "б/п"; economic_minister_party = "ННП"; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "Центр"; agriculture_minister_party = "НННП"; in_right_coalition = 1; dvp_right += 2; lvp_right += 2; liberal_cooperation -= 1; liberal_cooperation -= 3 if liberal_parliament > 0; liberal_parliament = 0 if liberal_parliament > 0; bourgeois_cooperation += 1
 
 Нас сменяет кабинет, в который входят правые партии, в том числе <span style="color: #3E88B3;">**НННП**</span>[? if dnvp_ideology == "Радикалы": которая неохотно уступает желанию Гинденбурга сформировать правительство. ?][? if dnvp_ideology == "Умеренные": , которая рада участию в такой коалиции, лишь бы не допустить <span style="color: #c00000;">социалистов</span> в правительство. ?] К нашему разочарованию, их коалиция обладает большинством в рейхстаге, а значит, мы вынуждены признать поражение и готовиться к следующим выборам.
 
 [? if liberal_parliament == 1: Либеральная парламентская группа распалась из-за того, что <span style="color: #C0A054;">**ННП**</span> действовала по своему усмотрению. ?]
 
-
 @bruning_center_right
-on-arrival: spd_in_government = 0; spd_toleration = 0; spd_toleration_right = 0; grand_coalition_collapsed = 1 if in_grand_coalition; in_grand_coalition = 0; in_weimar_coalition = 0; coalition_dissent = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = "НННП"; justice_minister_party = ddp_name; justice_minister_party  = "ЛНП" if lvp_formed; justice_minister_party = "ЛНП" if lvp_formed; labor_minister_party = "Центр"; reichswehr_minister_party = "I"; economic_minister_party = "ННП"; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "Центр"; agriculture_minister_party = "НННП"; in_center_right_coalition = 1; dvp_right += 1; liberal_cooperation += 1; ddp_cohesion -= 1; ddp_right += 1; lvp_right += 1; bourgeois_cooperation += 2
+on-arrival: spd_in_government = 0; spd_toleration = 0; spd_toleration_right = 0; grand_coalition_collapsed = 1 if in_grand_coalition; in_grand_coalition = 0; in_weimar_coalition = 0; coalition_dissent = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = "НННП"; justice_minister_party = ddp_name; justice_minister_party = "ЛНП" if lvp_formed; justice_minister_party = "ЛНП" if lvp_formed; labor_minister_party = "Центр"; reichswehr_minister_party = "б/п"; economic_minister_party = "ННП"; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "Центр"; agriculture_minister_party = "НННП"; in_center_right_coalition = 1; dvp_right += 1; liberal_cooperation += 1; ddp_cohesion -= 1; ddp_right += 1; lvp_right += 1; bourgeois_cooperation += 2
 
 Нас сменяет кабинет, в который входят правые партии, в том числе <span style="color: #3E88B3;">**НННП**</span>, которая рада участию в такой коалиции, чтобы не допустить к власти <span style="color: #c00000;">социалистов</span>. К сожалению, их коалиция обладает большинством в Рейхстаге, а значит, мы вынуждены признать поражение и готовиться к следующим выборам.
 
-
 @bruning_chain
-on-arrival: spd_in_government = 0; minority_government = 1; grand_coalition_collapsed = 1 if in_grand_coalition; in_grand_coalition = 0; in_weimar_coalition = 0; coalition_dissent = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = "Центр"; justice_minister_party = "I"; labor_minister_party = "Центр"; reichswehr_minister_party = "I"; economic_minister_party = ddp_name; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "ННП"; finance_minister_party = "ЛНП" if lvp_formed; agriculture_minister_party = "Центр"; bruning_event_timer = 6 if not bruning_event_seen and year >= 1930
+on-arrival: spd_in_government = 0; minority_government = 1; grand_coalition_collapsed = 1 if in_grand_coalition; in_grand_coalition = 0; in_weimar_coalition = 0; coalition_dissent = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = "Центр"; justice_minister_party = "б/п"; labor_minister_party = "Центр"; reichswehr_minister_party = "б/п"; economic_minister_party = ddp_name; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "ННП"; finance_minister_party = "ЛНП" if lvp_formed; agriculture_minister_party = "Центр"; bruning_event_timer = 6 if not bruning_event_seen and year >= 1930
 
 На смену нам пришёл новый кабинет, состоящий исключительно из буржуазных партий. [? if bruning_event_seen or year < 1930: Хотя у них нет большинства в рейхстаге, мы могли бы на следующей сессии воздержаться от вынесения вотума недоверия их правительству, чтобы предотвратить новые выборы, фактически уступив желанию Гинденбурга.  ?][? if not bruning_event_seen and year >= 1930: Новые выборы ещё не назначены, но, вероятно, их скоро объявят, поскольку Брюнинг, скорее всего, не располагает поддержкой большинства в рейхстаге. ?]
 
 - @tolerate
 - @dont_tolerate
-
 
 @tolerate
 title: Выступать против любых вотумов недоверия, голосуя за правительство.
@@ -48,7 +44,6 @@ view-if: bruning_event_seen or year < 1930
 on-arrival: spd_toleration = 1; left_dissent += 10; pro_republic -= 3; workers_kpd += 3; workers_nsdap += 3; workers_spd -= 3; unemployed_kpd += 5; unemployed_nsdap += 3; unemployed_spd -= 5; dvp_right += 2; ddp_right += 1; lvp_right += 2; liberal_cooperation += 1; welfare -= 2
 
 Используя чрезвычайные полномочия, предоставленные президентом, Брюнинг немедленно начинает урезать социальное обеспечение. [+ president +]. Мы пытаемся убедить рабочих, что эта политика необходима для поддержания стабильного парламентского правительства и борьбы с финансовыми последствиями депрессии. И все же эта политика служит отличной почвой для вербовки сторонников <span style="color: #7A3C00;">нацистами</span> и <span style="color: #700000;">**коммунистов**</span>.
-
 
 @dont_tolerate
 title: Поддержать вотум недоверия, проголосовав против правительства.

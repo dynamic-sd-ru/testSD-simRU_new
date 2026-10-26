@@ -14,7 +14,6 @@ new-page: true
 - @curriculum_
 - @root: Вернуться
 
-
 @campaign_pacifism
 title: Митинг за пацифизм.
 subtitle: Кампания за интернационализм и против милитаризма.
@@ -24,14 +23,12 @@ on-arrival: advisor_action_timer = 6;
 go-to: rally.pacifism
 
 
-
 @curriculum_
 title: Изменить учебную программу.
 choose-if: advisor_action_timer = 0 and spd_in_government and chancellor_party = "СДПГ" and (prussia_leader == "Браун" or prussia_leader == "Розенфельд") and curriculum_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?][? if not spd_in_government : <span style="color: #c00000;">СДПГ</span> в настоящее время не у власти.  ?][? if chancellor_party != "СДПГ": <span style="color: #c00000;">СДПГ</span> должна занимать пост рейхсканцлера.  ?][? if prussia_leader != "Браун" and prussia_leader != "Розенфельд": <span style="color: #c00000;">СДПГ</span> должна занимать пост министра-президента Пруссии.  ?][? if curriculum_timer > 0 : Слишком рано снова менять учебную программу. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1
 go-to: education_science.curriculum
-
 
 
 @structure_

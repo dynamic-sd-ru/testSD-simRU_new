@@ -18,34 +18,30 @@ card-image: img/portraits/JuchaczMarie.jpg
 - @easy_discard
 #- @cancel_advisor_action
 
-
 @reduce_spending
 subtitle: Это ударит по нашей пролетарской базе. +1 к бюджету
 unavailable-subtitle: Урезать больше нечего.
 choose-if: welfare >= -5
-on-arrival: budget += 1; workers_spd -= 6; unemployed_spd -= 6; workers_kpd += 3; welfare -= 1; reformist_dissent += 10; left_dissent += 10; labor_dissent += 10; center_dissent += 5; neorevisionist_dissent += 5; dvp_relation += 5; ddp_relation += 2; lvp_relation += 3; z_relation += 3; pro_republic -= 3; coalition_dissent -= 1 if ((in_grand_coalition or (in_weimar_coalition and lvp_formed)) and coalition_dissent > 0); kpd_coalition_dissent += 1; kpd_relation -= 8; inflation -= 0.3; unemployed += 0.4; dvp_left += 1; ddp_right += 1; ddp_cohesion -= 0.5; lvp_left += 0.5; goal_spd_cancel += 1; economic_growth -= 0.2;
+on-arrival: budget += 1; workers_spd -= 6*(effective_unemployed/unemployed); unemployed_spd -= 6*(effective_unemployed/unemployed); new_middle_spd -= 2*(effective_unemployed/unemployed) if new_middle_conscious == 1; rural_spd -= 2*(effective_unemployed/unemployed) if rural_conscious == 1; workers_kpd += 3*(effective_unemployed/unemployed); welfare -= 1; reformist_dissent += 10; left_dissent += 10; labor_dissent += 10; center_dissent += 5; neorevisionist_dissent += 5; dvp_relation += 5; ddp_relation += 2; lvp_relation += 3; z_relation += 3; pro_republic -= 3; coalition_dissent -= 1 if ((in_grand_coalition or (in_weimar_coalition and lvp_formed)) and coalition_dissent > 0); kpd_coalition_dissent += 1; kpd_relation -= 8; inflation -= 0.3; unemployed += 0.4; dvp_left += 1; ddp_right += 1; ddp_cohesion -= 0.5; lvp_left += 0.5; goal_spd_cancel += 1; economic_growth -= 0.2;
 
 Мы сократили расходы на социальное обеспечение. Это означает рост нищеты и страданий рабочего класса. Наши противники утверждают, что мы жертвуем благосостоянием пролетариата ради классового мира с буржуазией. Разве они не правы? Разве рабочие не правы, обращаясь к <span style="color: #700000;">**коммунистам**</span>, учитывая наши решения?
-
 
 
 @increase_spending_pre_depression
 view-if: unemployed <= 15
 choose-if: budget > 0
 subtitle: -1 к бюджету
-on-arrival: budget -= 1; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); welfare += 1; reformist_dissent -= 5; labor_dissent -= 5; center_dissent -= 5; left_dissent -= 5; neorevisionist_dissent -= 5; coalition_dissent += 1 if welfare > 1; welfare_goal_completed += 1; welfare_goal_spd += 1; inflation += 0.3; unemployed -= 0.4; dvp_right += 1 if welfare > 1; lvp_right += 1 if welfare > 1; ddp_right += 1 if welfare > 2; economic_growth += 0.2;
+on-arrival: budget -= 1; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); new_middle_spd += 2*(1-dissent) if new_middle_conscious == 1; rural_spd += 2*(1-dissent) if rural_conscious == 1; welfare += 1; reformist_dissent -= 5; labor_dissent -= 5; center_dissent -= 5; left_dissent -= 5; neorevisionist_dissent -= 5; coalition_dissent += 1 if welfare > 1; welfare_goal_completed += 1; welfare_goal_spd += 1; inflation += 0.3; unemployed -= 0.4; dvp_right += 1 if welfare > 1; lvp_right += 1 if welfare > 1; ddp_right += 1 if welfare > 2; economic_growth += 0.2;
 
 Мы увеличили расходы на социальное обеспечение. Наши сторонники-пролетарии довольны.
-
 
 @increase_spending_post_depression
 view-if: unemployed > 15
 choose-if: budget > 0
-on-arrival: budget -= 1; workers_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); coalition_dissent += 1 if welfare > 0; welfare_goal_completed += 1; welfare_goal_spd += 1; inflation += 0.3; dvp_right += 1; ddp_right += 1 if welfare > 1; lvp_right += 1
+on-arrival: budget -= 1; workers_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); new_middle_spd += 1*(1-dissent) if new_middle_conscious == 1; rural_spd += 1*(1-dissent) if rural_conscious == 1; coalition_dissent += 1 if welfare > 0; welfare_goal_completed += 1; welfare_goal_spd += 1; inflation += 0.3; dvp_right += 1; ddp_right += 1 if welfare > 1; lvp_right += 1
 subtitle: Рост безработицы требует увеличения расходов на пособия, чтобы сохранить прежний уровень выплат. -1 к бюджету
 
 Увеличение расходов на социальное обеспечение необходимо ввиду роста безработицы, так что мы, по сути, топчемся на месте.
-
 
 @spending_same_pre_depression
 view-if: unemployed <= 15
@@ -53,12 +49,13 @@ view-if: unemployed <= 15
 Мы сохранили расходы на социальное обеспечение на прежнем уровне.
 
 
-
 @spending_same_post_depression
 view-if: unemployed > 15
-on-arrival: workers_spd -= 3; unemployed_spd -= 4; welfare -= 1; reformist_dissent += 5; left_dissent += 5; labor_dissent += 5; center_dissent += 5; neorevisionist_dissent += 5; kpd_coalition_dissent += 1; kpd_relation -= 8 if in_popular_front or in_left_front; goal_spd_cancel += 1
+on-arrival: workers_spd -= 3*(effective_unemployed/unemployed); unemployed_spd -= 4*(effective_unemployed/unemployed); new_middle_spd -= 2*(effective_unemployed/unemployed) if new_middle_conscious == 1; rural_spd -= 2*(effective_unemployed/unemployed) if rural_conscious == 1; welfare -= 1; reformist_dissent += 5; left_dissent += 5; labor_dissent += 5; center_dissent += 5; neorevisionist_dissent += 5; kpd_coalition_dissent += 1; kpd_relation -= 8 if in_popular_front or in_left_front; goal_spd_cancel += 1
 subtitle: Рост безработицы требует увеличения расходов на пособия.
 
 В свете роста безработицы необходимо увеличить расходы на социальное обеспечение, но мы, по сути, его урезали. Рабочие справедливо недовольны — мы жертвуем их средствами к существованию, чтобы угодить буржуазным требованиям жёсткой экономии.
 
 [? if in_popular_front or in_left_front: Наша социальная политика настраивает <span style="color: #700000;">**КПГ**</span> против нас. ?]
+
+[? if sapd_toleration: <span style="color: #9B0000;">**СРПГ**</span> ополчается на нас из-за нашей социальной политики. ?]

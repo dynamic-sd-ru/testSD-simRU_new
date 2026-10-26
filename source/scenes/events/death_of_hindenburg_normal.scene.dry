@@ -1,7 +1,7 @@
 title: Смерть Гинденбурга
 subtitle: Герой Великой войны и бывший президент скончался…
 new-page: true
-view-if: year = 1934 and month >= 7 and president != "Гинденбург"
+view-if: year = 1934 and month >= 8 and president != "Гинденбург"
 on-arrival: hindenburg_dead = 1
 max-visits: 1
 tags: event

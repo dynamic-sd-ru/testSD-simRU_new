@@ -9,7 +9,7 @@ card-image: img/weimar_coalition_2.jpg
 
 = Межпартийные отношения
 
-<span style="color: #c00000;">**СДПГ**</span> пока не может править в одиночку. Поскольку у нас нет большинства голосов, нам нужна поддержка других партий. Последние наши правительства состояли из <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции в составе <span style="color: #c00000;">**СДПГ**</span>, <span style="color: #000000;">Партии Центра</span> и [? if ddp_name == "НДП" and not lvp_formed: <span style="color: #D3C24D;">**Демократической партии**</span> ?][? if ddp_name == "НГП" and not lvp_formed: <span style="color: #D3C24D;">**Государственной партии**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**Либеральной Народной партии**</span> ?].[? if cvp_formed: Однако формирование <span style="color: #000000;">**[+ z_party_name +]**</span> по-настоящему сделало возможным сотрудничество лишь с <span style="color: #D3C24D;">либералами</span>.  ?] Мы можем наладить и укрепить связи с этими партиями или же действовать в одиночку.
+<span style="color: #c00000;">**СДПГ**</span> пока не может править в одиночку. Поскольку у нас нет большинства голосов, нам нужна поддержка других партий. Последние наши правительства состояли из <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской коалиции в составе <span style="color: #c00000;">**СДПГ**</span>, <span style="color: #000000;">Партии Центра</span> и [? if ddp_name == "НДП" and not lvp_formed: <span style="color: #D3C24D;">**Демократической партии**</span> ?][? if ddp_name == "НГП" and not lvp_formed: <span style="color: #D3C24D;">**Государственной партии**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**Либеральной Народной партии**</span> ?].[? if cvp_formed: Однако формирование <span style="color: #000000;">**[+ z_party_name +]**</span> по-настоящему сделало возможным сотрудничество лишь с <span style="color: #D3C24D;">либералами</span>.  ?] Мы можем наладить и укрепить связи с этими партиями или же действовать в одиночку.
 
 - @liberals: Укрепить наши связи с леволиберальной [? if ddp_name == "НДП": <span style="color: #D3C24D;">Немецкой демократической партией</span> ?][? if ddp_name == "НГП": <span style="color: #D3C24D;">Немецкой государственной партией</span> ?] и консервативно-либеральной <span style="color: #C0A054;">Немецкой народной партией</span>.
 - @liberals_ddp: Укрепить наши связи с леволиберальной [? if ddp_name == "НДП": <span style="color: #D3C24D;">Немецкой демократической партией</span> ?][? if ddp_name == "НГП": <span style="color: #D3C24D;">Немецкой государственной партией</span> ?].
@@ -17,26 +17,34 @@ card-image: img/weimar_coalition_2.jpg
 - @center: Укрепить наши связи с католической [? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 - @cvp: Примириться с <span style="color: #000000;">Христианско-народной партией</span>.
 - @kpd: Попробовать восстановить отношения с <span style="color: #700000;">Коммунистической партией</span>.
+- @afa:Выделить финансирование <span style="color: #700000;">Antifaschistische</span> <span style="color: #c00000;">Aktion</span> — массовой организации <span style="color: #700000;">КПГ</span> против </span><span style="color: #7A3C00;">фашизма</span>
 - @dnvp: Начать диалог с[? if dnvp_leader != "Ламбах": Тревиранусом и <span style="color: #0087DC;">Народными консерваторами</span> ?][? if dnvp_leader == "Ламбах": Ламбахом и <span style="color: #6D5298;">христиансо-социальным движением</span> ?] из <span style="color: #3E88B3;">**НННП**</span>.
 - @nsdap: Установить контакт со Штрассером и левым крылом <span style="color: #7A3C00;">нацистской партии</span>.
 - @spd_alone: <span style="color: #c00000;">СДПГ</span> пока может действовать в одиночку.
 - @easy_discard
 
+@afa
+view-if: kpd_truce and afa_seen
+subtitle: -1 ресурс
+choose-if: resources > 0 and ((rfb_banned or rfb_banned_prussia) and (left_strength >= reformist_strength + neorevisionist_strength + center_strength)) or (not (rfb_banned or rfb_banned_prussia) and (left_strength >= reformist_strength + neorevisionist_strength))
+unavailable-subtitle: [? if resources < 0: Недостаточно ресурсов. ?][? if not (rfb_banned or rfb_banned_prussia) and left_strength >= reformist_strength + neorevisionist_strength: Большая часть партии не поддерживает финансирование <span style="color: #700000;">коммунистической</span> военизированной организации. ?][? if (rfb_banned or rfb_banned_prussia) and left_strength >= reformist_strength + neorevisionist_strength + center_strength: Большая часть партии не поддерживает финансирование того, что считает фронтовой организацией запрещённой <span style="color: #700000;">коммунистической</span> военизированной структуры. ?]
+on-arrival: rfb_strength += 100; rfb_militancy += 0.1; kpd_relation += 3; ddp_relation -= 2 if not ddp_in_popular_front or ddp_in_popular_front_prussia; z_relation -= 3 if not in_popular_front or in_popular_front_prussia; dvp_relation -= 5; hindenburg_angry += 10; hindenburg_angry_bruning += 10; ddp_relation -= 2 if rfb_banned or rfb_banned_prussia; z_relation -= 3 if rfb_banned or rfb_banned_prussia; dvp_relation -= 5 if rfb_banned or rfb_banned_prussia; hindenburg_angry += 10 if rfb_banned or rfb_banned_prussia; hindenburg_angry_bruning += 10 if rfb_banned or rfb_banned_prussia; reformist_dissent += 2; reformist_dissent += 3 if rfb_banned or rfb_banned_prussia; center_dissent += 3 if rfb_banned or rfb_banned_prussia; new_middle_spd -= 2*(1-dissent) if not new_middle_conscious; old_middle_spd -= 2*(1-dissent); rural_spd -= 2*(1-dissent) if not rural_conscious; catholics_spd -= 2*(1-dissent) if not in_popular_front or in_popular_front_prussia; new_middle_spd -= 2*(1-dissent) if rfb_banned or rfb_banned_prussia; old_middle_spd -= 2*(1-dissent) if rfb_banned or rfb_banned_prussia; rural_spd -= 2*(1-dissent) if rfb_banned or rfb_banned_prussia; catholics_spd -= 2*(1-dissent) if rfb_banned or rfb_banned_prussia;
 
+Мы выделили финансирование <span style="color: #700000;">Antifaschistische</span> <span style="color: #c00000;">Aktion</span> во имя единого фронта против <span style="color: #7A3C00;">фашизма</span>.
+
+<span style="color: #000000;">Буржуазные</span> партии порицают это как материальную поддержку [? if rfb_banned or rfb_banned_prussia: фронтовой организации запрещённой ?][? if not rfb_banned and not rfb_banned_prussia: ?] <span style="color: #700000;">коммунистической</span> военизированной структуры [? if (reformist_strength >= 20 and not (rfb_banned or rfb_banned_prussia)) or (reformist_strength + center_strength >= 20 and (rfb_banned or rfb_banned_prussia)): , и эти настроения разделяют многие в нашей партии ?]
 
 @kpd
 subtitle: -1 ресурс
 choose-if: resources >= 1
 unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: resources -= 1; kpd_inter_party_seen += 1
-go-to: kpd_blutmai if blutmai = 1; kpd_1 if blutmai = 0 and kpd_coalition_success = 0 and (kpd_relation < 40 or kpd_rectifed_history = 1); kpd_rectification_of_history if kpd_relation >= 40 and kpd_rectified_history = 0; kpd_2 if kpd_coalition_success = 1 and kpd_rectified_history = 1
-
+go-to: kpd_blutmai if blutmai = 1; kpd_rectification_of_history if kpd_relation >= 40 and kpd_rectified_history = 0; kpd_2 if kpd_coalition_success = 1 and kpd_rectified_history = 1; kpd_1 if blutmai = 0
 
 @kpd_1
 on-arrival: kpd_relation += 6*(1 - dissent); communist_coalition += 1 if kpd_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 2 if z_ideology == "Правые"; dvp_relation -= 3; ddp_relation -= 2; lvp_relation -= 3
 
 <span style="color: #700000;">Коммунисты</span> с подозрением относятся к нашим попыткам сближения, особенно <span style="color: #8B0000;">сталинистское</span> руководство Тельмана, которое упорно называет нас «<span style="color: #c00000;">социал-</span><span style="color: #7A3C00;">фашистами</span>». Тем не менее, связи налаживаются на низовом и местном уровнях.
-
 
 @kpd_rectification_of_history
 
@@ -47,14 +55,12 @@ on-arrival: kpd_relation += 6*(1 - dissent); communist_coalition += 1 if kpd_int
 - @yes_history: Да, мы должны извиниться за свои прошлые действия.
 - @no_history: Нет, нам не за что извиняться.
 
-
 @yes_history
-on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; kpd_rectified_history = 1; z_relation -= 3; z_relation -= 3 if z_ideology == "Правые"; dvp_relation -= 6; lvp_relation -= 6; ddp_relation -= 4; kpd_relation += 8*(1-dissent); coalition_dissent += 1; dvp_right += 2; ddp_right += 2; lvp_right += 2
+on-arrival: reformist_dissent += 12; reformist_strength -= 2; neorevisionist_dissent += 5; left_dissent -= 6; left_strength += 5; kpd_rectified_history = 1; z_relation -= 3; z_relation -= 3 if z_ideology == "Правые"; dvp_relation -= 6; lvp_relation -= 6; ddp_relation -= 4; kpd_relation += 8*(1-dissent); coalition_dissent += 1; dvp_right += 2; ddp_right += 2; lvp_right += 2; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 В рамках нормализации отношений с <span style="color: #700000;">**КПГ**</span> мы должны признать ошибки прошлого. Мы исключили Носке и провели публичные памятные мероприятия в честь тех, кто погиб от рук солдат во время восстаний.
 
 Это приводит к напряженности в отношениях с умеренными и реформистами внутри нашей партии, а также к критике со стороны <span style="color: #000000;">консервативных</span> и <span style="color: #C0A054;">либеральных</span> партий.
-
 
 @no_history
 on-arrival: kpd_relation -= 3
@@ -62,18 +68,15 @@ on-arrival: kpd_relation -= 3
 Нам незачем извиняться за действия Эберта и Носке; это вина <span style="color: #700000;">коммунистов</span> в том, что они подняли кровавое восстание.
 
 
-
 @kpd_2
 on-arrival: kpd_relation += 8*(1 - dissent); communist_coalition += 1 if kpd_inter_party_seen <= 1; reformist_dissent += 2; z_relation -= 3; dvp_relation -= 3; lvp_relation -= 3; ddp_relation -= 3
 
 После успеха коалиционного правительства с <span style="color: #700000;">**КПГ**</span>, они стали гораздо благосклоннее к нам.
 
-
 @kpd_blutmai
 on-arrival: kpd_relation += 3*(1 - dissent); reformist_dissent += 1
 
 После событий «Кровавого Мая» примирение с <span style="color: #700000;">коммунистами</span> затруднительно, если не невозможно. Тем не менее мы должны попытаться.
-
 
 @center
 subtitle: -1 ресурс
@@ -83,30 +86,25 @@ unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: resources -= 1; z_relation += 2 if z_ideology == "Левые"
 go-to: center_op if not spd_in_government and chancellor != "Брюнинг" and ((chancellor != "Папен" and chancellor != "Шлейхер" and chancellor != "Гёрделер") or (z_in_gov or z_in_gov_mini)); center_op_2 if not spd_in_government and (chancellor == "Папен" or chancellor == "Шлейхер") and not z_in_gov; center_coalition if spd_in_government; center_bruning if chancellor = "Брюнинг" and not spd_in_government
 
-
 @center_op
 on-arrival: z_relation += 5*(1 - dissent)
 
-Мы сейчас находимся в оппозиции к [? if z_party_name != "ХНП": <span style="color: #000000;">Центру</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], возглавляющему правительство. Это снижает эффективность наших попыток углубить сотрудничество. Тем не менее, какой-то прогресс есть. 
-
+Мы сейчас находимся в оппозиции к [? if z_party_name != "ХНП": <span style="color: #000000;">Центру</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], возглавляющему правительство. Это снижает эффективность наших попыток углубить сотрудничество. Тем не менее, какой-то прогресс есть.
 
 @center_op_2
 on-arrival: z_relation += 6*(1 - dissent)
 
 Вместе с <span style="color: #000000;">Центром</span> нас объединяет оппозиция действующему правительству: это облегчает улучшение отношений.
 
-
 @center_coalition
 on-arrival: z_relation += 8*(1 - dissent)
 
 Сейчас мы их партнёры по коалиции, так что улучшение отношений — естественный шаг.
 
-
 @center_bruning
 on-arrival: z_relation += 5*(1 - dissent)
 
 Полу<span style="color: #808080;">автократический</span> режим Брюнинга затрудняет построение дружественных отношений, но не делает это невозможным.
-
 
 @cvp
 subtitle: -1 ресурс
@@ -117,7 +115,6 @@ on-arrival: resources -= 1; z_relation += 6*(1 - dissent); cvp_left += 1
 
 Не так-то просто снова добиться расположения <span style="color: #000000;">христиан</span>, но это и не невозможно. Мы используем наши связи с их фракциями <span style="color: #FF7F00;">христианских левых</span> и рабочими фракциями, чтобы заложить основу для потенциального примирения между нашими двумя партиями.
 
-
 @liberals_ddp
 view-if: not lvp_formed and not dvp_exist
 subtitle: -1 ресурс
@@ -126,7 +123,6 @@ unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: resources -= 1; ddp_relation += 8*(1 - dissent); ddp_left += 1; ddp_cohesion += 0.5
 
 <span style="color: #D3C24D;">**[+ ddp_name +]**</span> — один из наших ближайших союзников на протяжении всей истории республики. Теперь, когда она осталась единственной либеральной партией, укрепление связей с ней должно стать нашим высшим приоритетом.
-
 
 @liberals
 view-if: not lvp_formed and dvp_exist
@@ -138,28 +134,24 @@ go-to: dvp_stresemann if stresemann_dead = 0; dvp_loss if stresemann_dead = 1 an
 
 <span style="color: #D3C24D;">**[+ ddp_name +]**</span> — один из наших ближайших союзников на протяжении всего существования республики. Мы успещно укрепляем связи с ними.[? if year >= 1929:  Хотя общенациональный сдвиг вправо заставляет их усомниться в нашем сотрудничестве. ?]
 
-
 @dvp_stresemann
 on-arrival: dvp_relation += 6*(1 - dissent); dvp_left += 1; dvp_left += 1 if in_grand_coalition_prussia
 
 Густав Штреземан, лидер <span style="color: #C0A054;">**ННП**</span>, — лучший в республике знаток внешней политики. И хотя ранее он и проявлял <span style="color: #808080;">монархические</span> наклонности, к нам он настроен дружелюбно. Его лидерство облегчает налаживание отношений с консервативными либералами.[? if in_grand_coalition_prussia: Их включение в состав прусского правительства способствует налаживанию связей и примирению с нами. ?]
-
 
 @dvp_loss
 on-arrival: dvp_relation += 4*(1 - dissent); dvp_left += 1; dvp_left += 1 if in_grand_coalition_prussia
 
 После смерти Густава Штреземана <span style="color: #C0A054;">**ННП**</span> гораздо менее склонна идти нам навстречу. Кроме того, <span style="color: #D3C24D;">либеральные</span> партии теряют голоса на выборах, так что, возможно, нам стоит направить свои усилия в другое русло.
 
-Однако, учитывая влияние <span style="color: #C0A054;">**ННП**</span> на другие партии <span style="color: #808080;">правого</span> толка [? if president == "Гинденбург" or president_ideology == "Умеренные": и на президента [+ president +]  ?]а, всё же может быть полезно на них повлиять. [? if in_grand_coalition_prussia: Их вхождение в правительство Пруссии также способствовало более примирительному отношению к нам. ?]
-
+Однако, учитывая влияние <span style="color: #C0A054;">**ННП**</span> на другие партии <span style="color: #808080;">правого</span> толка [? if president == "Гинденбург" or president_ideology == "Умеренные": и на президента [+ president +]  ?] а, всё же может быть полезно на них повлиять. [? if in_grand_coalition_prussia: Их вхождение в правительство Пруссии также способствовало более примирительному отношению к нам. ?]
 
 @dvp_moribund
 on-arrival: dvp_relation += 4*(1 - dissent); dvp_left += 1; dvp_left += 1 if in_grand_coalition_prussia
 
 <span style="color: #D3C24D;">Либеральные</span> партии (как <span style="color: #D3C24D;">**[+ ddp_name +]**</span> и <span style="color: #C0A054;">**ННП**</span>) с электоральной точки зрения <span style="color: #ff0000;">обречены</span>, так что, возможно, нам лучше направить свои усилия в другое русло.
 
-Однако, учитывая влияние <span style="color: #C0A054;">**ННП**</span> среди других <span style="color: #808080;">правых</span> партий[? if president == "Гинденбург" or president_ideology == "Умеренные": и с президентом [+ president +]  ?]ом, всё же будет полезно повлиять на них. [? if in_grand_coalition_prussia: Их включение в прусское правительство также способствовало более примирительному отношению к нам. ?]
-
+Однако, учитывая влияние <span style="color: #C0A054;">**ННП**</span> среди других <span style="color: #808080;">правых</span> партий[? if president == "Гинденбург" or president_ideology == "Умеренные": и с президентом [+ president +]  ?] ом, всё же будет полезно повлиять на них. [? if in_grand_coalition_prussia: Их включение в прусское правительство также способствовало более примирительному отношению к нам. ?]
 
 @liberals_lvp
 view-if: lvp_formed
@@ -171,20 +163,17 @@ go-to: lvp_stresemann if stresemann_dead = 0; lvp_loss if stresemann_dead = 1
 
 Две бывшие либеральные партии были нашими ближайшими союзниками на протяжении всего существования Республики.[? if year >= 1929:  Однако общенациональный сдвиг вправо заставляет их поставить под сомнение наше сотрудничество. ?]
 
-
 @lvp_stresemann
 on-arrival: lvp_relation += 6*(1 - dissent); lvp_left += 1
 
 Густав Штреземан, бывший лидер <span style="color: #C0A054;">**ННП**</span>, — один из лучших деятелей республики в области внешней политики. И хотя ранее он выказывал <span style="color: #808080;">монархические</span> взгляды, к нам он настроен дружелюбно. Влияние Штреземана на правое крыло <span style="color: #FFCC00;">**ЛНП**</span> помогает склонить на нашу сторону некоторых из наиболее несговорчивых членов партии.
-
 
 @lvp_loss
 on-arrival: lvp_relation += 4*(1 - dissent); lvp_left += 1
 
 Со смертью Густава Штреземана правое крыло <span style="color: #FFCC00;">**ЛНП**</span> с гораздо меньшей вероятностью пойдёт нам на уступки. Кроме того, <span style="color: #D3C24D;">либералы</span> теряют голоса на выборах, так что, возможно, нам стоит направить свои усилия в другое русло.
 
-Однако, учитывая влияние <span style="color: #FFCC00;">**ЛНП**</span> на другие партии <span style="color: #808080;">правого</span> толка [? if president == "Гинденбург" or president_ideology == "Умеренные": и на президента [+ president +]  ?]а, всё равно стоит попытаться на них повлиять.
-
+Однако, учитывая влияние <span style="color: #FFCC00;">**ЛНП**</span> на другие партии <span style="color: #808080;">правого</span> толка [? if president == "Гинденбург" or president_ideology == "Умеренные": и на президента [+ president +]  ?] а, всё равно стоит попытаться на них повлиять.
 
 @dnvp
 view-if: wacky_weimar
@@ -195,7 +184,6 @@ on-arrival: resources -= 1; dnvp_relation += 10*(1-dissent); pro_republic += 3; 
 Мы обратились к [+ dnvp_leader +], который тепло откликается на наши просьбы. Однако потребуется приложить немало усилий, чтобы убедить зловредную и порочную сторону <span style="color: #3E88B3;">**НННП**</span> поддержать более тесное сотрудничество. Наши левые и центристские фракции выражают недовольство.
 
 - @dnvp_wholesome
-
 
 @dnvp_wholesome
 title: Заключить предвыборный альянс с <span style="color: #3E88B3;">**НННП**</span>.
@@ -423,7 +411,6 @@ if (d3 && window) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
-
 @nsdap
 view-if: wacky_weimar
 choose-if: resources >= 1 and saxony_nsdap
@@ -435,7 +422,6 @@ on-arrival: resources -= 1; nsdap_relation += 10*(1-dissent); pro_republic += 3;
 - @nsdap_wholesome
 - @nsdap_wholesome_2
 
-
 @nsdap_wholesome
 title: Создать антилиберальный фронт.
 unavailable-subtitle: [? if nsdap_relation < 50: Нам нужно улучшить отношения. ?][? if harzburg_front_seen: Гарцбургский фронт уже существует. ?]
@@ -444,7 +430,6 @@ on-arrival: workers_ddp = 0; new_middle_ddp = 0; old_middle_ddp = 0; rural_ddp =
 
 Мы создали антилиберальный фронт с фракцией Штрассера в составе <span style="color: #7A3C00;">**НСДАП**</span>.[? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и <span style="color: #3E88B3;">**НННП**</span> также присоединяются.
 
-
 @nsdap_wholesome_2
 title: Объединить <span style="color: #c00000;">**Железный **</span> <span style="color: #1A1A1A;">**фронт**</span> и Гарцбургский фронт.
 unavailable-subtitle: [? if nsdap_relation < 50: Нам нужно улучшить отношения. ?][? if not harzburg_front_seen: Гарцбургский фронт ещё не создан. ?]
@@ -452,7 +437,6 @@ choose-if: nsdap_relation >= 50 and harzburg_front_seen
 on-arrival: rb_strength += sa_strength; rb_strength += sh_strength; rb_militancy += 0.5; sa_strength = 0; sh_strength = 0
 
 <span style="color: #3E88B3;">**Стальной Шлем**</span> и <span style="color: #7A3C00;">**СА**</span> распущены и присоединились к Рейхсбаннеру!
-
 
 @spd_alone
 

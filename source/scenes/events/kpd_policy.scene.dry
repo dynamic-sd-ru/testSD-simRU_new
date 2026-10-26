@@ -6,9 +6,9 @@ on-arrival: kpd_policy_timer = 5
 #tags: event
 #max-choices: 1
 
-# disable this event for now - the <span style="color: #700000;">**KPD**</span> is abstentionist in government. This position is loosely based on Paul Levi's ideas during the Kapp Putsch. A <span style="color: #700000;">**KPD**</span> that is willing to support an SPD government would necessarily have some different policy ideas from the Thälmann Stalinist line, so I looked to the earlier Paul Levi <span style="color: #700000;">**KPD**</span> as well as the French popular front for ideas.
+# disable this event for now - the <span style="color: #700000;">**КПГ**</span> is abstentionist in government. This position is loosely based on Paul Levi's ideas during the Kapp Putsch. A <span style="color: #700000;">**КПГ**</span> that is willing to support an SPD government would necessarily have some different policy ideas from the Thälmann Stalinist line, so I looked to the earlier Paul Levi <span style="color: #700000;">**КПГ**</span> as well as the French popular front for ideas.
 
-# ironically the hypothetical <span style="color: #700000;">**KPD**</span> position towards the Popular Front is basically analogous to the SPD position towards the Brüning government (i.e. toleration).
+# ironically the hypothetical <span style="color: #700000;">**КПГ**</span> position towards the Popular Front is basically analogous to the SPD position towards the Brüning government (i.e. toleration).
 
 # Sources: Gaido, Daniel. “Paul Levi and the Origins of the United-Front Policy in the Communist International.” Historical Materialism 25, no. 1 (2017): 131–74. https://doi.org/10.1163/1569206x-12341515.
 # LaPorte, Norman H. “The German Communist Party in Saxony, 1924-1933 : Factionalism, Fratricide and Political Failure,” 1998. http://dspace.stir.ac.uk/handle/1893/3259.
@@ -26,7 +26,6 @@ on-arrival: kpd_policy_timer = 5
 - @foreign
 - @interior
 
-
 @labor
 title: Министерство труда
 subtitle: Министерство труда идёт на значительные уступки профсоюзам.
@@ -39,18 +38,15 @@ view-if: labor_minister_party = "КПГ"
 - @labor_support: Конечно, мы поддерживаем рабочих.
 - @labor_oppose: Нет, это слишком радикально.
 
-
 @labor_support
 on-arrival: capital_strike_progress += 2; workers_kpd += 5; workers_spd += 3*(1-dissent); kpd_labor_support += 1; coalition_dissent += 1; z_relation -= 6; unemployment += 2; kpd_influence += 2
 
 Прорабочая политика популярна среди рабочих и приносит <span style="color: #700000;">**КПГ**</span> больше поддержки, но в ответ на это предприятия увольняют всё больше рабочих и сокращают им рабочее время. Это ведёт правительство к конфронтации с капиталистами.
 
-
 @labor_oppose
 on-arrival: kpd_coalition_dissent += 1; workers_spd -= 5; workers_kpd += 5; kpd_relation -= 6
 
 Мы выступаем против политики <span style="color: #700000;">**КПГ**</span>. Мы не дадим этому вступить в силу. <span style="color: #700000;">**КПГ**</span> недовольна, как и рабочие, которые должны были от этого выиграть.
-
 
 @economy
 title: Министерство экономики
@@ -64,18 +60,15 @@ view-if: economic_minister_party = "КПГ"
 - @economy_support: Да, поддержать политику национализации.
 - @economy_oppose: Нет, это нужно остановить.
 
-
 @economy_support
 on-arrival: nationalization_progress += 1; capital_strike_progress += 4; unemployed -= 2.5 if unemployed >= 6; unemployed -= 1.2 if works_councils >= 3; budget -= 3; works_program += 1; workers_spd += 4*(1-dissent); workers_kpd += 8*(1-dissent); unemployed_kpd += 4*(1-dissent); coalition_dissent += 2; dvp_relation -= 6; lvp_relation -= 6; z_relation -= 4; new_middle_spd -= 3; old_middle_spd -= 3; economy_goal_completed += 1; kpd_influence += 2
 
 <span style="color: #700000;">**КПГ**</span> завоевали доверие рабочих за то, что позволили многим сохранить свои рабочие места. Тем временем буржуазные партии и избиратели среднего класса винят <span style="color: #c00000;">**СДПГ**</span> за то, что они допустили национализации.
 
-
 @economy_oppose
 on-arrival: kpd_coalition_dissent += 1; workers_spd -= 5; workers_kpd += 5; kpd_relation -= 6
 
 Выступив против политики национализации, <span style="color: #700000;">**КПГ**</span> начала против нас пропагандистскую кампанию, обвиняя <span style="color: #c00000;">**СДПГ**</span> в очередном вероломстве.
-
 
 @finance
 title: Министерство финансов
@@ -87,12 +80,9 @@ view-if: finance_minister_party = "КПГ"
 - @finance_support: Да, мы поддерживаем повышение налогов для богатых.
 - @finance_oppose: Нет, сейчас не время.
 
-
 @finance_support
 
-
 @finance_oppose
-
 
 @foreign
 title: Министерство иностранных дел
@@ -104,12 +94,9 @@ view-if: foreign_minister_party = "КПГ"
 - @foreign_support: Да, мы поддерживаем помощь <span style="color: #750e0e;">Советскому Союзу</span>.
 - @foreign_oppose: Нет, это необходимо прекратить.
 
-
 @foreign_support
 
-
 @foreign_oppose
-
 
 @interior
 title: Министерство внутренних дел
@@ -119,8 +106,6 @@ view-if: interior_minister_party = "КПГ"
 - @interior_support: Да, мы поддерживаем чистку в службах безопасности.
 - @interior_oppose: Нет, это похоже на предлог для <span style="color: #700000;">**КПГ**</span> захвата власти.
 
-
 @interior_support
-
 
 @interior_oppose

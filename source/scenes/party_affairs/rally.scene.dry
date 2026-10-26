@@ -7,7 +7,6 @@ on-arrival: month_actions += 1; rally_timer = 6 if next_election_time - time > 6
 card-image: img/protest.jpg
 go-to: main_rally; sa_disrupt if sa_force > 25 and not sa_banned and not return_to_normalcy
 
-
 @sa_disrupt
 
 <span style="color: #7A3C00;">Нацистские</span> <span style="color: #7A3C00;">**СА**</span> сорвали наш митинг! Их уличные отряды мешают нам агитировать.
@@ -17,41 +16,34 @@ go-to: main_rally; sa_disrupt if sa_force > 25 and not sa_banned and not return_
 - @both_protect: Полиция и Рейхсбаннер должны действовать сообща, чтобы защитить наш митинг.
 - @cancel: Отменить митинг.
 
-
 @police_protect
 view-if: prussia_leader = "Браун" or prussia_leader = "Розенфельд"
 on-arrival: police_protect_success = prussian_police_loyalty * prussian_police_militancy * prussian_police_strength*2 - sa_militancy*sa_strength;
 go-to: police_protect_win if police_protect_success >= 0; police_protect_lose if police_protect_success < 0
-
 
 @police_protect_win
 go-to: main_rally
 
 Полиция успешно защитила наш митинг, так что он может пройти как обычно.
 
-
 @police_protect_lose
 on-arrival: workers_nsdap += 3; strife += 1
 
 К сожалению, полиция не смогла или не захотела сдержать штурмовиков <span style="color: #7A3C00;">**СА**</span>. <span style="color: #7A3C00;">Нацисты</span> одержали победу в демонстрации силы.
 
-
 @rb_protect
 on-arrival: rb_success = rb_strength*rb_militancy - sa_strength*sa_militancy; strife += 1
 go-to: rb_protect_win if rb_success >= 0; rb_protect_lose if rb_success < 0
-
 
 @rb_protect_win
 go-to: main_rally
 
 Рейхсбаннер успешно защитил наш митинг от <span style="color: #7A3C00;">**СА**</span>! Наше собрание пройдёт как обычно.
 
-
 @rb_protect_lose
 on-arrival: workers_nsdap += 3; rb_strength -= 50
 
 К сожалению, Рейхсбаннер не смог сдержать напор <span style="color: #7A3C00;">**штурмовиков**</span>. <span style="color: #7A3C00;">Нацисты</span> победили в демонстрации силы.
-
 
 @both_protect
 view-if: prussia_leader = "Браун" or prussia_leader = "Розенфельд"
@@ -60,24 +52,20 @@ unavailable-subtitle: Лояльные подразделения полиции
 on-arrival: rb_success = rb_strength*rb_militancy - sa_strength*sa_militancy + prussian_police_loyalty*prussian_police_militancy*prussian_police_strength*2; strife += 1
 go-to: both_protect_win if rb_success >= 0; both_protect_lose if rb_success < 0
 
-
 @both_protect_win
 go-to: main_rally
 
 Полиция и Рейхсбаннер успешно защитили наш митинг от <span style="color: #7A3C00;">**СА**</span>! Наше собрание может пройти, как и планировалось.
-
 
 @both_protect_lose
 on-arrival: workers_nsdap += 3; rb_strength -= 50
 
 К сожалению, полиция и Рейхсбаннер не смогли сдержать орду <span style="color: #7A3C00;">**СА**</span>. <span style="color: #7A3C00;">Нацисты</span> выиграли демонстрацию силы.
 
-
 @cancel
 on-arrival: workers_nsdap += 3;
 
 <span style="color: #7A3C00;">**СА**</span> одержали победу в этой демонстрации силы.
-
 
 @main_rally
 
@@ -91,18 +79,15 @@ on-arrival: workers_nsdap += 3;
 - @local: Смесь различных местных и общенациональных проблем, которые находят наибольший отклик у аудитории.
 - @easy_discard
 
-
 @class_struggle
-on-arrival: workers_spd += 4*(1-dissent); workers_spd += 2*(1-dissent) if nationalization_adopted; unemployed_spd += 2*(1-dissent) if nationalization_adopted; unemployed_spd += 3*(1-dissent) if left_strength > reformist_strength; workers_spd += 4*(1-dissent) if nationalization_progress > 0; unemployed_spd += 3*(1-dissent) if nationalization_progress > 0; left_strength += 5; left_dissent -= 5; old_middle_spd -= 3; new_middle_spd -= 2; dvp_right += 0.5; ddp_right += 0.5; lvp_right += 0.5
+on-arrival: workers_spd += 4*(1-dissent); workers_spd += 2*(1-dissent) if nationalization_adopted; unemployed_spd += 2*(1-dissent) if nationalization_adopted; unemployed_spd += 3*(1-dissent) if left_strength > reformist_strength; workers_spd += 4*(1-dissent) if nationalization_progress > 0; unemployed_spd += 3*(1-dissent) if nationalization_progress > 0; left_strength += 5; left_dissent -= 5; old_middle_spd -= 3; new_middle_spd -= 2 if new_middle_conscious == 0; dvp_right += 0.5; ddp_right += 0.5; lvp_right += 0.5
 
 Наш призыв к классовой борьбе находит отклик у левого крыла рабочего класса, но в то же время рискует оттолкнуть средний класс. [? if nationalization_adopted : Принятие предложенного левыми плана национализации во многом способствовало возрождению энтузиазма рабочих. ?][? if nationalization_progress > 0 : Наши успехи в национализации помогли нашей агитации. ?]
-
 
 @welfare
 on-arrival: workers_spd += 3*(1-dissent); workers_spd += 3*(1-dissent) if welfare > 0; unemployed_spd += 3*(1-dissent) if welfare > 0; unemployed_spd += 4*(1-dissent) if welfare > 1; reformist_strength += 3; labor_strength += 4; reformist_dissent -= 3; labor_dissent -= 3;
 
 Реформистская повестка находит отклик у организованных рабочих, чьи социальные гарантии — достижение <span style="color: #c00000;">социал-демократии</span>. [? if welfare > 1 : Наши успехи в расширении системы социального обеспечения сделали эту повестку ещё более действенной. ?]
-
 
 @democracy
 on-arrival: democratization += 1; pro_republic += 3*(1 - dissent); workers_spd += 2*(1-dissent) if democratization >= 3; unemployed_spd += 1*(1-dissent) if democratization >= 3; new_middle_spd += 2*(1-dissent) if democratization >= 3; ddp_left += 0.5 if pro_republic >= 70; lvp_left += 0.5 if pro_republic >= 70
@@ -129,8 +114,8 @@ on-arrival: workers_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); rural
 План ВТБ стал популярным лозунгом нашей партии. Рабочие жаждут вернуться к работе, и план обещает им именно это. [? if not wtb_implemented: Однако многие считают план лишь пустым лозунгом, который никогда не реализуется. Они будут настроены скептически до тех пор, пока мы не начнём претворять план в жизнь.  ?]
 
 
-
 @local
-on-arrival: workers_spd += 3*(1-dissent); old_middle_spd += 1*(1-dissent); new_middle_spd += 2*(1-dissent); unemployed_spd += 3*(1-dissent);
+on-arrival: workers_spd += 3*(1-dissent); old_middle_spd += 1*(1-dissent); new_middle_spd += 2*(1-dissent) if new_middle_conscious == 0; new_middle_spd += 3*(1-dissent) if new_middle_conscious == 1; unemployed_spd += 3*(1-dissent); rural_spd += 2*(1-dissent) if rural_conscious == 1
+
 
 Наши ораторы уловили настроения в обществе и выступают по вопросам, которые, судя по всему, больше всего волнуют рабочих сейчас.

@@ -15,7 +15,6 @@ new-page: true
 - @lejeune_jung: Пауль Лежен-Юнг избран.
 - @keudell: Вальтер фон Кейдель избран.
 
-
 @lejeune_jung
 choose-if: stegerwald_path or dnvp_votes < 10 or pro_republic < 60
 unavailable-subtitle: В <span style="color: #3E88B3;">НННП</span> уверены: пришло время передать штурвал более молодым.
@@ -23,7 +22,6 @@ on-arrival: dnvp_leader = "Лежён-Юнг"; catholics_dnvp += 6; catholics_z 
 face-image: img/portraits/lejeune_jung.jpg
 
 Лежен-Юнг, как и ожидалось, победил на выборах с благословения Вестарпа и получил уверенное большинство. Ожидается, что он сохранит курс Вестарпа, при этом работая над повышением привлекательности <span style="color: #3E88B3;">**НННП**</span> для консервативных католиков из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">ХНП</span> ?]. Их первым видным перебежчиком стал Франц фон Папен, аграрный аристократ из крайне правого крыла [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">ХНП</span> ?], который привёл с собой группу соратников.
-
 
 @keudell
 choose-if: not (stegerwald_path or dnvp_votes < 10 or pro_republic < 60)

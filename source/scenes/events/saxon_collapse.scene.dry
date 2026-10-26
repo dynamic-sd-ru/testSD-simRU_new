@@ -54,14 +54,13 @@ new-page: true
 - @grand_coalition_saxony: Мы сформируем [? if lvp_formed and stegerwald_path: <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">скую</span>  ?][? if not lvp_formed or not stegerwald_path: Большую  ?]Коалицию!
 - @no_majority_saxony
 
-
 @united_left_saxony
 title: Мы сформируем коалицию Объединённых левых с <span style="color: #700000;">**КПГ**</span>.
 subtitle: История повторится.
 view-if: left_coalition_saxony >= 50
 choose-if: (kpd_relation >= 35 and kpd_leader == "Примиренцы") or (kpd_relation >= 55 and kpd_leader != "Примиренцы")
 unavailable-subtitle: Несмотря на наличие необходимых голосов, нам не хватает необходимых отношений.
-on-arrival: red_saxony = 1; z_relation -= 7; ddp_relation -= 7; dvp_relation -= 7; lvp_relation -= 7; coup_progress += 5; hindenburg_angry += 60; rfb_militancy += 0.08; rfb_strength += 150; sa_strength += 80; sh_strength += 80; strife += 1; workers_spd += 5; workers_kpd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; rural_spd -= 5; communist_coalition += 3; kpd_relation += 15
+on-arrival: red_saxony = 1; z_relation -= 7; ddp_relation -= 7; dvp_relation -= 7; lvp_relation -= 7; coup_progress += 5; hindenburg_angry += 60; rfb_militancy += 0.08; rfb_strength += 150; sa_strength += 80; sh_strength += 80; strife += 1; workers_spd += 5; workers_kpd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; rural_spd -= 5; communist_coalition += 3; kpd_relation += 15; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 on-display: {!  
     var cardEl = document.createElement('div');  
     cardEl.className = "face-figure2";  
@@ -79,7 +78,6 @@ on-display: {!
 
 Будучи одной из самых левых и промышленно развитых земель Германии, мы используем наше влияние для проведения комплексных реформ и превратим Саксонию в оплот <span style="color: #c00000;">социализма</span>. Терпение Гинденбурга на исходе. Действуйте осторожно.
 
-
 @grand_coalition_saxony
 subtitle: Нам как-то удалось примириться с буржуазными партиями, так что они снова готовы править вместе с нами.
 unavailable-subtitle: [? if z_relation < 45 and stegerwald_path: Нам нужно улучшить отношения с [? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]. ?][? if dvp_toleration_threshold_fail_saxony: Нам нужно улучшить отношения с [? if not lvp_formed: <span style="color: #C0A054;">ННП</span> ?][? if lvp_formed: <span style="color: #FFCC00;">ЛНП</span> ?]. ?][? if left_strength >= 30: В нашем саксонском отделении слишком сильна фракция левых, чтобы даже рассматривать такой вариант — ведь в прошлом именно их упрямый отказ привёл к исключению из партии большей части нашей парламентской делегации и последующему созданию <span style="color: #fe9e00;">СДПГ(с)</span>. У них немало друзей в центральном руководстве партии, так что мы не сможем их заставить. ?]
@@ -90,7 +88,6 @@ on-arrival: saxony_spd = 1; workers_nsdap -= 3; unemployed_nsdap -= 3; workers_s
 Каким-то образом буржуазные партии готовы сформировать [? if lvp_formed and stegerwald_path: <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">скую</span> ?][? if not lvp_formed or not stegerwald_path: Большую ?] коалицию с нами, которая заменит кабинет [+ saxony_leader +]а и предотвратит необходимость новых выборов.
 
 <span style="color: #fe9e00;">**СДПГ(с)**</span> (чье саксонское местное отделение заметно более вменяемо) теперь убеждены в нашем реформистском пути — они воссоединились с саксонским отделением <span style="color: #c00000;">**СДПГ**</span>!
-
 
 @no_majority_saxony
 title: Большинство собрать не удалось!

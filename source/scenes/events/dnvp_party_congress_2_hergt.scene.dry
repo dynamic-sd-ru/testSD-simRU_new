@@ -15,10 +15,8 @@ new-page: true
 
 - @resultsdnvp: Разворачивается съезд…
 
-
 @resultsdnvp
-go-to: statusquo if ((young_plan_signatures >= 10 and pro_republic_8 < 70) or (weimar_ref_signatures >= 30 and pro_republic_8 >= 70) or (was_in_center_right_coalition == 1 and pro_republic_8 >= 70 and pro_republic < 70)) and not ((peoples_party == 1 or workers_spd_normalized < 45 or unions_independent == 1 or workers_dnvp_normalized >= 10) and not in_popular_front and not in_left_front); christiansocial if (peoples_party == 1 or workers_spd_normalized < 45 or unions_independent == 1 or workers_dnvp_normalized >= 10) and not in_popular_front and not in_left_front; youngconservative if ((young_plan_signatures < 10 and pro_republic_8 < 70) or (weimar_ref_signatures < 30 and pro_republic_8 >= 70) or (was_in_center_right_coalition == 1 and pro_republic_8 >= 70 and pro_republic >= 70)) and not ((peoples_party == 1 or workers_spd_normalized < 45 or unions_independent == 1) and not in_popular_front and not in_left_front)
-
+go-to: statusquo if ((young_plan_signatures >= 10 and pro_republic_8 < 70) or (weimar_ref_signatures >= 30 and pro_republic_8 >= 70) or (was_in_center_right_coalition == 1 and pro_republic_8 >= 70 and pro_republic < 70)) and not ((peoples_party == 1 or workers_spd_normalized < 45 or unions_independent == 1 or workers_dnvp_normalized >= 10) and not in_popular_front and not in_left_front and not sapd_toleration); christiansocial if (peoples_party == 1 or workers_spd_normalized < 45 or unions_independent == 1 or workers_dnvp_normalized >= 10) and not in_popular_front and not in_left_front and not sapd_toleration; youngconservative if ((young_plan_signatures < 10 and pro_republic_8 < 70) or (weimar_ref_signatures < 30 and pro_republic_8 >= 70) or (was_in_center_right_coalition == 1 and pro_republic_8 >= 70 and pro_republic >= 70)) and not ((peoples_party == 1 or workers_spd_normalized < 45 or unions_independent == 1) and not in_popular_front and not in_left_front and not sapd_toleration)
 
 @statusquo
 on-arrival: hergt_stays = 1; old_middle_dnf -= 2; old_middle_dnvp += 2; new_middle_dnvp += 1; new_middle_dnf -= 1; nationalism += 3; catholics_dnvp += 3 if stegerwald_path; catholics_other -= 3 if stegerwald_path
@@ -28,7 +26,6 @@ face-image: img/portraits/OskarHergt.jpg
 
 [? if stegerwald_path: Поскольку Штегервальд переманил к себе избирателей <span style="color: #3E88B3;">**НННП**</span> из рабочего класса, партия переориентируется на работу с католиками. ?]
 
-
 @christiansocial
 on-arrival: dnvp_leader = "Ламбах"; workers_dnvp += 20; workers_dnvp += 5 if unions_independent; workers_spd -= 5; workers_kpd -= 2; z_workers -= 5 if stegerwald_path; labor_dissent += 10; old_middle_dnvp -= 5; old_middle_dnf += 5; new_middle_dnvp += 2; new_middle_other -= 2; workers_other -= 4; rural_dnvp -= 6; rural_dnf += 4; rural_dvp += 4; old_middle_dvp += 6; new_middle_dvp += 6; rural_lvp += 4; old_middle_lvp += 6; new_middle_lvp += 6; ddp_right += 1; dvp_right += 2; lvp_right += 2
 face-image: img/dnvpposter.jpg
@@ -36,7 +33,6 @@ face-image: img/dnvpposter.jpg
 Отток рабочих из нашей партии значительно укрепил <span style="color: #6D5298;">христианско-социальное движение</span> внутри <span style="color: #3E88B3;">**НННП**</span>, которые стремятся воспользоваться нашим растущим отчуждением от профсоюзов.
 
 Вальтер Ламбах, профсоюзник и центральная фигура на прошлом партийном съезде, избран лидером <span style="color: #3E88B3;">**НННП**</span>. Он заявляет о третьем пути между социализмом и капитализмом и о примирении труда и капитала. Посмотрим, как его руководство повлияет на политический ландшафт.
-
 
 @youngconservative
 on-arrival: dnvp_leader = "Тревиранус"; true_christian_democracy = 1; rural_dnf += 3; old_middle_dnf += 3; rural_other -= 3; old_middle_other -= 3; new_middle_other -= 3; new_middle_dnvp += 3; workers_dnvp += 1; catholics_dnvp += 3; catholics_other -= 3; pro_republic += 5; dvp_left += 2; ddp_left += 1; lvp_left += 2; catholics_dnvp += 3 if stegerwald_path; catholics_other -= 3 if stegerwald_path

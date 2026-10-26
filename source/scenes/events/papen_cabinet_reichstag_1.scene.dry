@@ -21,7 +21,6 @@ go-to: nsdap_lead if largest_party == "НСДАП"; spd_lead if largest_party !=
 
 = Рейхстаг возобновляет работу
 
-
 @nsdap_lead
 
 Рейхстаг собрался на первое заседание после выборов, и теперь в его составе значительно больше представителей <span style="color: #7A3C00;">**НСДАП**</span>. На повестке дня стоит неотложный вопрос: выборы председателя Рейхстага. Хотя эта должность традиционно носила процедурный характер, при президентском правлении Папена она приобрела особую важность, поскольку председатель имеет полномочия влиять на повестку дня и переносить заседания.
@@ -29,7 +28,6 @@ go-to: nsdap_lead if largest_party == "НСДАП"; spd_lead if largest_party !=
 По давней традиции этот пост достаётся крупнейшей парламентской фракции. И теперь эта фракция — <span style="color: #7A3C00;">**НСДАП**</span>. Решающее слово за <span style="color: #000000;">Партией Центра</span>. Поддержат ли они традицию и отдадут ключевой парламентский пост откровенно антиконституционной партии?
 
 - @reichstag_calculations
-
 
 @spd_lead
 
@@ -39,11 +37,9 @@ go-to: nsdap_lead if largest_party == "НСДАП"; spd_lead if largest_party !=
 
 - @reichstag_calculations
 
-
 @reichstag_calculations
 title: Голоса подсчитаны…
 go-to: goring if largest_party == "НСДАП" and z_relation < 55 and hitler_right_coalition >= 50; spd if largest_party != "НСДАП" or z_relation >= 55 or hitler_right_coalition < 50
-
 
 
 @goring
@@ -77,7 +73,6 @@ Q.reichstag_president = "Геринг";
 
 В соответствии с обещанием, данным <span style="color: #000000;">Партии Центра</span>, рейхстаг прервал работу ещё на две недели, чтобы дать возможность провести коалиционные переговоры. Тем не менее в <span style="color: #000000;">Партии Центра</span> растёт беспокойство по поводу возможного канцлерства [+ nsdap_chancellor +]а, и вскоре они могут отказаться от дальнейших переговоров.
 
-
 @spd
 on-arrival: {!
 Q.next_reichstag_time = Q.rubicon_time + 2;
@@ -102,8 +97,8 @@ if (Q.next_reichstag_month > 12) {
 
 Q.pro_republic += 3;
 Q.reichstag_goring = 0;
-Q.reichstag_president = "Löbe";
-if (!(Q.largest_party != "НСДАП" && ((Q.weimar_coalition >= 40) || (Q.popular_front_coalition >= 50 && Q.kpd_relation >= 50)))) Q.reichstag_president = "Eßer";
+Q.reichstag_president = "Лёбе";
+if (!(Q.largest_party != "НСДАП" && ((Q.weimar_coalition >= 40) || (Q.popular_front_coalition >= 50 && Q.kpd_relation >= 50)))) Q.reichstag_president = "Эссер";
 !}
 
 [? if largest_party != "НСДАП": По традиции рейхстага, поскольку <span style="color: #c00000;">**СДПГ**</span> — крупнейшая партия, <span style="color: #000000;">Партия центра</span> считает себя обязанной поддержать нас, независимо от наших с ними отношений.  ?][? if (z_relation >= 55 or hitler_right_coalition < 50) and largest_party == "НСДАП": Однако <span style="color: #000000;">«Партия Центра»</span>, не в силах поддержать избрание <span style="color: #7A3C00;">нациста</span> на пост председателя Рейхстага, нарушает традицию и избирает нашего кандидата.  ?]

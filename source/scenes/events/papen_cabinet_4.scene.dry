@@ -23,7 +23,6 @@ on-display: {!
 
 - @papen
 
-
 @papen
 title: Указ подписан президентом Гинденбургом.
 on-arrival: sa_strength -= 50; sa_militancy -= 0.02; judicial_reform -= 2; workers_kpd += 2; unemployed_kpd += 2; rfb_strength += 25; rfb_militancy += 0.04; papen_goal = "Поддерживать общественный порядок"

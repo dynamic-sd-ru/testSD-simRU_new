@@ -17,12 +17,10 @@ tags: party_affairs
 - @increase: Повысить размер партвзносы.
 - @easy_discard
 
-
 @maintain
 subtitle: Мы получаем [+ dues +] ед. ресурсов в год.
 
 Мы сохраняем текущий размер взносов.
-
 
 @reduce
 subtitle: Мы будем получать [+ dues - 1 +] ресурсов в год. –1 ресурс
@@ -31,7 +29,6 @@ choose-if: dues > 1 and resources >= 1
 on-arrival: dues -= 1; resources -= 1; left_dissent -= 8; center_dissent -= 8; reformist_dissent -= 8; labor_dissent -= 8; resources += 1 if dissent_percent < 5; resources -= 1 if dissent_percent > 30; month_actions += 1
 
 Наши нынешние члены партии это ценят, но никто не вступает в партию из-за низких взносов.
-
 
 @increase
 subtitle: Мы будем получать [+ dues + 1 +] ресурсов в год. +1 ресурс. [? if unemployed >= 15 :  Учитывая нынешнее экономическое положение, это может быть болезненно.  ?][? if dues >= 4 : Взносы и так довольно высоки. Если мы их повысим, численность наших рядов может сократиться. ?]

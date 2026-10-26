@@ -4,12 +4,11 @@ view-if: year == 1932 and month == 4 and not hindenburg_term_extended and spd_pr
 priority: 4
 tags: event
 new-page: true
-on-arrival: nazi_urgency += 1; interior_goal_prussia -= 1
+on-arrival: nazi_urgency += 1; interior_goal_prussia -= 1; kpd_nazi_urgency += 1;
 max-visits: 1
 go-to: sa_ban_braun if president_ideology == "Левые"; sa_ban_normal if president_ideology != "Левые"
 
 = Обнаружен план переворота <span style="color: #7A3C00;">**СА**</span>!
-
 
 @sa_ban_normal
 on-display: {!  
@@ -35,7 +34,6 @@ on-display: {!
 - @sa_ban_pressure: Мы воспользуемся этим разоблачением, чтобы оказать давление на министерство внутренних дел и добиться запрета <span style="color: #7A3C00;">**СА**</span> в масштабах всей страны!
 - @sa_ban_bruning: Мы представим эти неопровержимые улики министру внутренних дел [? if second_bruning_cabinet_seen: Вильгельму Грёнеру ?][? if not second_bruning_cabinet_seen: Йозефу Вирту ?] и будем добиваться общенационального запрета <span style="color: #7A3C00;">**СА**</span>!
 
-
 @sa_ban
 view-if: spd_in_government and interior_minister_party == "СДПГ"
 on-arrival: sa_strength *= 0.65; sa_strength *= 0.7 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_militancy -= 0.1; sa_militancy -= 0.05 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned = 1; sa_nationwide_ban = 1; sa_banned_pro = 1 if (interior_police_loyalty + prussian_police_loyalty) >= 1.4; sa_banned_pro = 0 if (interior_police_loyalty + prussian_police_loyalty) < 1.4; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; sa_ban_timer = 6; sa_coup_progress = coup_progress; coup_progress -= 2 if coup_progress >= 6; interior_goal_prussia -= 1; hindenburg_angry += 25; left_dissent -= 10; labor_dissent -= 5; unemployed_nsdap -= 5; workers_nsdap -= 3; new_middle_nsdap -= 3
@@ -45,7 +43,6 @@ on-arrival: sa_strength *= 0.65; sa_strength *= 0.7 if ((interior_police_loyalty
 Однако запрет оказался не столь эффективным, как ожидалось вначале. Оружия изъято мало, поскольку планы по запрету <span style="color: #7A3C00;">СА</span> слил не кто иной, как генерал Курт фон Шлейхер, который считает: этот шаг мешает его «<span class="tooltip-text" title="Эта стратегия, придуманная консервативными элитами вроде Шлейхера и Папена, нацелена на то, чтобы взять под контроль динамичное нацистское движение и интегрировать его в государственную систему путём введения партии в правительство. По их мнению, это смягчило бы нацистов, превратив их в конструктивную часть государства">стратегии приручения</span>». [? if president == "Гинденбург": Он и рейхсвер подали жалобу президенту Гинденбургу, утверждая, что обвинения, послужившие основанием для <span style="color: #7A3C00;">**СА**</span> запрета, в равной степени применимы и к «Рейхсбаннеру». Представленное Гинденбургу досье состоит в основном из вырезок из правых газет и учебного пособия Рейхсбаннера. Даже Грёнер находит эти обвинения безосновательными, но Шлейхер имеет огромное влияние на стареющего президента, который теперь считает, что запрет необходимо распространить и на Рейхсбаннер.  ?]
 
 [? if sa_banned_pro: Тем не менее <span style="color: #7A3C00;">**СА**</span> значительно ослаблены этим запретом. ?]
-
 
 @sa_ban_pressure
 view-if: spd_in_government and interior_minister_party != "СДПГ"
@@ -57,11 +54,9 @@ on-arrival: sa_strength *= 0.7; sa_strength *= 0.7 if ((interior_police_loyalty 
 
 [? if sa_banned_pro: Тем не менее, <span style="color: #7A3C00;">**СА**</span> значительно ослаблены этим запретом. ?]
 
-
 @sa_ban_bruning
 view-if: bruning_time
 go-to: sa_ban_bruning_groener if second_bruning_cabinet_seen; sa_ban_bruning_wirth if not second_bruning_cabinet_seen
-
 
 @sa_ban_bruning_groener
 on-arrival: sa_strength *= 0.75; sa_strength *= 0.7 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_militancy -= 0.08; sa_militancy -= 0.05 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned = 1; sa_nationwide_ban = 1; sa_banned_pro = 1 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned_pro = 0 if (interior_police_loyalty + prussian_police_loyalty) < 1.4; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; sa_ban_timer = 6; sa_coup_progress = coup_progress; coup_progress -= 2 if coup_progress >= 6; interior_goal_prussia -= 1; hindenburg_angry_bruning += 20; groener_death = 1
@@ -72,7 +67,6 @@ on-arrival: sa_strength *= 0.75; sa_strength *= 0.7 if ((interior_police_loyalty
 
 [? if sa_banned_pro: Тем не менее, <span style="color: #7A3C00;">**СА**</span> значительно ослаблены запретом. ?]
 
-
 @sa_ban_bruning_wirth
 on-arrival: sa_strength *= 0.75; sa_strength *= 0.7 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_militancy -= 0.1; sa_militancy -= 0.05 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned = 1; sa_nationwide_ban = 1; sa_banned_pro = 1 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned_pro = 0 if (interior_police_loyalty + prussian_police_loyalty) < 1.4; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; prussian_police_strength += 20; sa_ban_timer = 6; sa_coup_progress = coup_progress; coup_progress -= 2 if coup_progress >= 6; interior_goal_prussia -= 1; hindenburg_angry_bruning += 20
 
@@ -81,7 +75,6 @@ on-arrival: sa_strength *= 0.75; sa_strength *= 0.7 if ((interior_police_loyalty
 Однако запрет оказался не таким эффективным, как ожидалось. Удалось изъять лишь небольшое количество оружия, так как планы по запрету <span style="color: #7A3C00;">**СА**</span> слиты не кем иным, как генералом Куртом фон Шлейхером, который считает, что этот шаг мешает его <span class="tooltip-text" title="Стратегия, придуманная консервативными элитами вроде Шлейхера и Папена, нацелена на то, чтобы взять под контроль динамичное нацистское движение и интегрировать его в государственную систему путём введения партии в правительство. По их мнению, это смягчило бы позицию нацистов и превратило бы их в конструктивную часть государства.">стратегии «приручения»</span>. [? if president == "Гинденбург": Он и командование рейхсвера подали жалобу президенту Гинденбургу, утверждая, что обвинения, использованные для обоснования запрета <span style="color: #7A3C00;">**СА**</span> запрет в равной степени относится и к «Рейхсбаннеру». Представленное Гинденбургу досье состоит в основном из вырезок из правых газет и учебного пособия Рейхсбаннера. Даже Грёнер считает эти обвинения безосновательными, но Шлейхер имеет огромное влияние на стареющего президента, который теперь считает, что запрет должен распространяться и на Рейхсбаннер.  ?]
 
 [? if sa_banned_pro: Тем не менее <span style="color: #7A3C00;">**СА**</span> значительно ослаблены этим запретом. ?]
-
 
 @sa_ban_braun
 on-display: {!  
@@ -107,7 +100,6 @@ on-display: {!
 - @sa_ban_pressure_braun: Мы воспользуемся этим разоблачением, чтобы оказать давление на министерство внутренних дел с целью запрета <span style="color: #7A3C00;">**СА**</span> по всей стране!
 - @sa_ban_bruning_braun: Мы представим эти неопровержимые улики министру внутренних дел [? if second_bruning_cabinet_seen: Вильгельму Грёнеру ?][? if not second_bruning_cabinet_seen: Йозефу Вирту ?]и с их помощью [+ president +] окажем на него давление, чтобы добиться общенационального запрета <span style="color: #7A3C00;">**СА**</span>.
 
-
 @sa_ban_braun_2
 view-if: spd_in_government and interior_minister_party == "СДПГ"
 on-arrival: sa_strength *= 0.65; sa_strength *= 0.7 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_militancy -= 0.1; sa_militancy -= 0.05 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned = 1; sa_nationwide_ban = 1; sa_banned_pro = 1 if (interior_police_loyalty + prussian_police_loyalty) >= 1.4; sa_banned_pro = 0 if (interior_police_loyalty + prussian_police_loyalty) < 1.4; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; sa_ban_timer = 6; sa_coup_progress = coup_progress; coup_progress -= 2 if coup_progress >= 6; interior_goal_prussia -= 1; hindenburg_angry += 25; left_dissent -= 10; labor_dissent -= 5; unemployed_nsdap -= 5; workers_nsdap -= 3; new_middle_nsdap -= 3
@@ -115,7 +107,6 @@ on-arrival: sa_strength *= 0.65; sa_strength *= 0.7 if ((interior_police_loyalty
 Контролируя министерство внутренних дел, мы воспользовались этими разоблачениями как предлогом, чтобы запретить <span style="color: #7A3C00;">**СА**</span> по всей стране за их антиконституционный заговор с целью свержения правительства. Этот шаг привёл к заметному снижению политического насилия и нанёс значительный удар по <span style="color: #7A3C00;">нацистам</span>, которые активно использовали тактику запугивания для получения голосов.
 
 Однако произошла утечка информации о грядущем запрете, что позволило <span style="color: #7A3C00;">нацистам</span> спрятать большую часть своего оружия от конфискации. [? if sa_banned_pro: Тем не менее <span style="color: #7A3C00;">**СА**</span> значительно ослаблены этим запретом. ?]
-
 
 @sa_ban_pressure_braun
 view-if: spd_in_government and interior_minister_party != "СДПГ"
@@ -125,11 +116,9 @@ on-arrival: sa_strength *= 0.7; sa_strength *= 0.7 if ((interior_police_loyalty 
 
 Однако информация о грядущем запрете просочилась наружу, что позволило <span style="color: #7A3C00;">нацистам</span> спрятать большую часть оружия и уберечь его от конфискации. [? if sa_banned_pro: Тем не менее <span style="color: #7A3C00;">**СА**</span> значительно ослаблена этим запретом. ?]
 
-
 @sa_ban_bruning_braun
 view-if: bruning_time
 go-to: sa_ban_bruning_groener_braun if second_bruning_cabinet_seen; sa_ban_bruning_wirth_braun if not second_bruning_cabinet_seen
-
 
 @sa_ban_bruning_groener_braun
 on-arrival: sa_strength *= 0.75; sa_strength *= 0.7 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_militancy -= 0.08; sa_militancy -= 0.05 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned = 1; sa_nationwide_ban = 1; sa_banned_pro = 1 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned_pro = 0 if (interior_police_loyalty + prussian_police_loyalty) < 1.4; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; sa_ban_timer = 6; sa_coup_progress = coup_progress; coup_progress -= 2 if coup_progress >= 6; interior_goal_prussia -= 1; hindenburg_angry_bruning += 20; groener_death = 1
@@ -138,10 +127,9 @@ on-arrival: sa_strength *= 0.75; sa_strength *= 0.7 if ((interior_police_loyalty
 
 Однако информация о запрете просочилась, что позволило <span style="color: #7A3C00;">нацистам</span> спрятать большую часть своего оружия и избежать его конфискации. [? if sa_banned_pro: Тем не менее, <span style="color: #7A3C00;">**СА**</span> значительно ослаблены этим запретом. ?]
 
-
 @sa_ban_bruning_wirth_braun
 on-arrival: sa_strength *= 0.75; sa_strength *= 0.7 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_militancy -= 0.1; sa_militancy -= 0.05 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned = 1; sa_nationwide_ban = 1; sa_banned_pro = 1 if ((interior_police_loyalty + prussian_police_loyalty) >= 1.4) and not sa_banned; sa_banned_pro = 0 if (interior_police_loyalty + prussian_police_loyalty) < 1.4; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; prussian_police_strength += 20; sa_ban_timer = 6; sa_coup_progress = coup_progress; coup_progress -= 2 if coup_progress >= 6; interior_goal_prussia -= 1; hindenburg_angry_bruning += 20
 
-Министр внутренних дел Йозеф Вирт, ярый противник <span style="color: #7A3C00;">нацистов</span> и член [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]левого крыла, счёл собранные нами доказательства достаточным основанием для немедленного запрета <span style="color: #7A3C00;">**СА**</span>. В результате издан чрезвычайный указ, вводящий общенациональный запрет на деятельность <span style="color: #7A3C00;">**СА**</span>, который обязаны исполнять правительства всех земель. Мы уже отмечаем значительное снижение уровня политического насилия, и этот указ нанёс сокрушительный удар по <span style="color: #7A3C00;">нацистам</span>, которые полагались на запугивание для получения голосов.
+Министр внутренних дел Йозеф Вирт, ярый противник <span style="color: #7A3C00;">нацистов</span> и член [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] левого крыла, счёл собранные нами доказательства достаточным основанием для немедленного запрета <span style="color: #7A3C00;">**СА**</span>. В результате издан чрезвычайный указ, вводящий общенациональный запрет на деятельность <span style="color: #7A3C00;">**СА**</span>, который обязаны исполнять правительства всех земель. Мы уже отмечаем значительное снижение уровня политического насилия, и этот указ нанёс сокрушительный удар по <span style="color: #7A3C00;">нацистам</span>, которые полагались на запугивание для получения голосов.
 
 Однако произошла утечка информации о запрете, что позволило <span style="color: #7A3C00;">нацистам</span> спрятать большую часть своего оружия и уберечь его от конфискации. [? if sa_banned_pro: Тем не менее <span style="color: #7A3C00;">**СА**</span> значительно ослаблены этим запретом. ?]

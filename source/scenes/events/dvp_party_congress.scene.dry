@@ -15,7 +15,6 @@ new-page: true
 
 - @resultsdvp: Партия голосует…
 
-
 @resultsdvp
 on-arrival: {!
 if (Q.dvp_right > (Q.dvp_left*1.5) || (Q.dvp_right > (Q.dvp_left + 4))) {
@@ -28,7 +27,6 @@ if (Q.dvp_right > (Q.dvp_left*1.5) || (Q.dvp_right > (Q.dvp_left + 4))) {
 !}
 go-to: curtius if (economic_minister_party != "ННП" and foreign_minister_party != "ННП" and dvp_ideology = "Левые") or (dvp_ideology == "Умеренные" and (coalition_dissent < 2 and in_grand_coalition)) or (dvp_ideology == "Левые" and not in_grand_coalition); scholz if ((economic_minister_party = "ННП" or foreign_minister_party = "ННП") and (dvp_ideology = "Правые" or (coalition_dissent > 1 and in_grand_coalition))) or ((economic_minister_party != "ННП" and foreign_minister_party != "ННП" and dvp_ideology = "Правые") or (dvp_ideology = "Умеренные" and (coalition_dissent >= 2 and in_grand_coalition)) or (dvp_ideology == "Правые" and not in_grand_coalition) or (dvp_ideology == "Умеренные" and dvp_relation < 45 and not in_grand_coalition)); luther if ((economic_minister_party = "ННП" or foreign_minister_party = "ННП") and dvp_ideology = "Левые") or ((dvp_ideology = "Умеренные" and coalition_dissent < 2 and in_grand_coalition) or (dvp_ideology == "Умеренные" and dvp_relation >= 45 and not in_grand_coalition))
 
-
 @curtius
 on-arrival: dvp_leader = "Курциус"; liberal_cooperation += 3; bourgeois_cooperation += 3; dvp_left += 5; dvp_relation += 5; new_middle_dvp += 3; workers_dvp += 1; pro_republic += 3; ddp_left += 1; ddp_cohesion += 1
 face-image: img/portraits/curtius.jpg
@@ -37,7 +35,6 @@ face-image: img/portraits/curtius.jpg
 
 Это всё равно отличные новости для нас и для наших отношений с <span style="color: #C0A054;">**ННП**</span>.[? if in_grand_coalition:  Мы заметили снижение напряжённости в коалиции. ?]
 
-
 @scholz
 on-arrival: dvp_leader = "Шольц"; dvp_right += 5; dvp_relation -= 5; old_middle_dvp -= 2; new_middle_dvp -= 2; pro_republic -= 3; ddp_right += 1; ddp_cohesion -= 0.5; liberal_cooperation -= 2; bourgeois_cooperation -= 2
 face-image: img/portraits/ernst_scholz.jpg
@@ -45,7 +42,6 @@ face-image: img/portraits/ernst_scholz.jpg
 Эрнст Шольц победил на выборах — он сменит Штреземана на посту председателя. Левое крыло <span style="color: #C0A054;">**ННП**</span> оказывается всё больше изолированным и бессильным партии. Промышленники теперь полностью контролируют бывшую либеральную партию и будут лоббировать свои интересы в правительстве.
 
 Это плохие новости для наших отношений с <span style="color: #C0A054;">**ННП**</span>, что делает формирование совместных правительств практически невозможным[? if in_grand_coalition: , а нынешнее правительство — нежизнеспособным ?].
-
 
 @luther
 on-arrival: dvp_leader = "Лютер"; dvp_left += 3; liberal_cooperation += 5; bourgeois_cooperation += 5; dvp_relation += 3; new_middle_dvp += 3; old_middle_dvp += 3; pro_republic += 3; ddp_left += 1; ddp_cohesion += 1.5

@@ -15,7 +15,6 @@ go-to: rm_main
 
 ###################### removing leaders
 
-
 @rm_main
 title: Сместить советников.
 tags: center_advisor, left_advisor, reformist_advisor, labor_advisor, neorev_advisor, nonfactional_advisor 
@@ -47,12 +46,10 @@ go-to: rm_main_menu
 
 <span class="tooltip-text" title="Реформисты — это прагматики, сторонники участия в правительствах с центристскими буржуазными партиями. Стремятся к расширению социального государства и защите демократии.">Реформисты</span> сила: [+ reformist_strength : strength +], недовольство фракции: [+ reformist_dissent : dissent +]
 
-
 @rm_main_menu
 
 - #remove_advisor
 - @add_advisors: Добавить советников
-
 
 @remove_none
 title: Прекратить менять советников.
@@ -85,7 +82,6 @@ go-to: root
 tags: remove_advisor
 
 
-
 @remove_hilferding
 title: Сместить Гильфердинга
 view-if: hilferding_advisor = 1
@@ -94,7 +90,6 @@ tags: remove_advisor
 go-to: rm_main_menu
 
 Гильфердинг смещён с поста советника. Фракция центристов недовольна.
-
 
 @remove_wels
 title: Сместить Вельса
@@ -105,7 +100,6 @@ go-to: rm_main_menu
 
 Вельс смещён с поста советника. Фракция центристов недовольна.
 
-
 @remove_muller
 title: Сместить Мюллера
 view-if: muller_advisor = 1
@@ -114,7 +108,6 @@ on-arrival: muller_advisor = 0; center_dissent += 10; n_advisors -= 1
 go-to: rm_main_menu
 
 Мюллер смещён с поста советника. Фракция центристов недовольна.
-
 
 
 @remove_breitscheid
@@ -129,7 +122,6 @@ go-to: rm_main_menu
 # reformists
 
 
-
 @remove_severing
 title: Сместить Зеверинга
 view-if: severing_advisor = 1
@@ -138,7 +130,6 @@ on-arrival: severing_advisor = 0; reformist_dissent += 10; n_advisors -= 1
 go-to: rm_main_menu
 
 Зеверинг смещён с поста советника. Реформистская фракция недовольна.
-
 
 @remove_braun
 title: Сместить Брауна
@@ -149,7 +140,6 @@ go-to: rm_main_menu
 
 Браун смещён с поста советника. Реформистская фракция недовольна.
 
-
 @remove_juchacz
 title: Сместить Юхач
 view-if: juchacz_advisor = 1
@@ -158,7 +148,6 @@ on-arrival: juchacz_advisor = 0; reformist_dissent += 10; n_advisors -= 1
 go-to: rm_main_menu
 
 Юхач смещена с поста советника. Реформистская фракция недовольна.
-
 
 @remove_pfulf
 title: Сместить Пфюльф
@@ -172,7 +161,6 @@ go-to: rm_main_menu
 
 # labor
 
-
 @remove_leipart
 title: Сместить Лейпарта
 view-if: leipart_advisor = 1
@@ -181,7 +169,6 @@ on-arrival: leipart_advisor = 0; labor_dissent += 10; n_advisors -= 1
 go-to: rm_main_menu
 
 Лейпарт смещён с поста советника. Фракция профсоюзников недовольна.
-
 
 @remove_aufhauser
 title: Сместить Ауфхойзера
@@ -192,7 +179,6 @@ go-to: rm_main_menu
 
 Ауфхойзер смещён с поста советника. Фракция профсоюзников недовольна.
 
-
 @remove_wissell
 title: Отстранить Висселя
 view-if: wissell_advisor = 1
@@ -201,7 +187,6 @@ on-arrival: wissell_advisor = 0; labor_dissent += 7; n_advisors -= 1
 go-to: rm_main_menu
 
 Виссель отстранён с поста советника. Фракция профсоюзников недовольна.
-
 
 
 @remove_woytinsky
@@ -215,7 +200,6 @@ go-to: rm_main_menu
 
 # left
 
-
 @remove_levi
 title: Сместить Леви
 view-if: levi_advisor = 1
@@ -224,7 +208,6 @@ on-arrival: levi_advisor = 0; left_dissent += 10; n_advisors -= 1
 go-to: rm_main_menu
 
 Леви смещён с поста советника. Фракция левых недовольна.
-
 
 @remove_sender
 title: Сместить Зендер
@@ -235,7 +218,6 @@ go-to: rm_main_menu
 
 Зендер смещёна с поста советника. Фракция левых недовольна.
 
-
 @remove_rosenfeld
 title: Сместить Розенфельда
 view-if: rosenfeld_advisor = 1
@@ -245,7 +227,6 @@ go-to: rm_main_menu
 
 Розенфельд смещён с поста советника. Фракция левых недовольна.
 
-
 @remove_seydewitz
 title: Сместить Зейдевица
 view-if: seydewitz_advisor = 1
@@ -254,7 +235,6 @@ on-arrival: seydewitz_advisor = 0; left_dissent += 7; n_advisors -= 1
 go-to: rm_main_menu
 
 Зейдевиц смещён с поста советника. Фракция левых недовольна.
-
 
 @remove_siemsen
 title: Сместить Зимзен
@@ -270,7 +250,6 @@ go-to: rm_main_menu
 
 # neorevisionists
 
-
 @remove_mierendorff
 title: Сместить Мерендорффа
 view-if: mierendorff_advisor = 1
@@ -279,7 +258,6 @@ on-arrival: mierendorff_advisor = 0; neorevisionist_dissent += 10; n_advisors -=
 go-to: rm_main_menu
 
 Мерендорфф смещён с поста советника. Фракция неоревизионистов недовольна.
-
 
 @remove_leber
 title: Сместить Лебера
@@ -290,7 +268,6 @@ go-to: rm_main_menu
 
 Лебер снят с поста советника. Фракция неоревизионистов недовольна.
 
-
 @remove_schumacher
 title: Сместить Шумахера
 view-if: schumacher_advisor = 1
@@ -299,7 +276,6 @@ on-arrival: schumacher_advisor = 0; neorevisionist_dissent += 7; n_advisors -= 1
 go-to: rm_main_menu
 
 Шумахер смещён с поста советника. Фракция неоревизионистов недовольна.
-
 
 @remove_wirth
 title: Сместить Вирта
@@ -315,7 +291,6 @@ go-to: rm_main_menu
 
 # tbh I'm not sure if Baade should be a reformist or nonfactional. same for stampfer. they were vaguely reformist-aligned but had pretty different ideas from the other reformists here. so they're non-factional.
 
-
 @remove_baade
 title: Сместить Бааде
 view-if: baade_advisor = 1
@@ -328,7 +303,6 @@ go-to: rm_main_menu
 #The Reformist faction disapproves.
 
 
-
 @remove_hirschfeld
 title: Сместить Гиршфельда
 view-if: hirschfeld_advisor = 1
@@ -338,7 +312,6 @@ go-to: rm_main_menu
 
 Гиршфельд смещён с поста советника.
 
-
 @remove_stampfer
 title: Сместить Штампфера
 view-if: stampfer_advisor = 1 and not stampfer_killed
@@ -347,7 +320,6 @@ on-arrival: stampfer_advisor = 0; n_advisors -= 1
 go-to: rm_main_menu
 
 Штампфер отстранён от должности советника.
-
 
 @remove_radbruch
 title: Сместить Радбруха
@@ -364,13 +336,11 @@ go-to: rm_main_menu
 
 ####################### adding advisors
 
-
 @add_advisors
 title: Добавить советников
 choose-if: n_advisors < 3
 unavailable-subtitle: Максимум 3 советника.
 go-to: advisor_menu
-
 
 @advisor_menu
 title: Добавить других советников.
@@ -387,44 +357,37 @@ frequency: 1
 - @rm_main: Вместо этого сместить советников.
 - @remove_none: Прекратить смену советников.
 
-
 @centrist
 subtitle: Связующее звено; «клей», скрепляющий партию. Снижают падение лояльности всех фракций на 30% за каждого советника-центриста.
 view-if: n_advisors < 3
 
 - #center_advisor
 
-
 @reformist
 view-if: n_advisors < 3
 
 - #reformist_advisor
-
 
 @left
 view-if: n_advisors < 3
 
 - #left_advisor
 
-
 @labor
 view-if: n_advisors < 3
 
 - #labor_advisor
-
 
 @neorev
 view-if: neorevisionism > 0 and n_advisors < 3
 
 - #neorev_advisor
 
-
 @nonfactional
 subtitle: Безразличны к внутрипартийной борьбе. Снижают рост недовольства всех фракций на 10% за каждого внефракционного советника.
 view-if: n_advisors < 3
 
 - #nonfactional_advisor
-
 
 @add_hilferding
 title: Рудольф Гильфердинг
@@ -438,7 +401,6 @@ go-to: advisor_menu
 
 Рудольф Гильфердинг назначен советником.
 
-
 @add_wels
 title: Отто Вельс
 subtitle: Отто Вельс — давний партийный организатор и председатель партии, служивший ещё под началом Фридриха Эберта. {!<br><br>!}[? if difficulty < 0 : Действия: очистить повестку, партийная дисциплина, экстренный сбор средств. ?]
@@ -451,7 +413,6 @@ go-to: advisor_menu
 
 Отто Вельс назначен советником.
 
-
 @add_muller
 title: Герман Мюллер
 subtitle: Герман Мюллер — последний канцлер от <span style="color: #c00000;">социал-демократов</span>. {!<br><br>!}[? if difficulty < 0 : Действия — переговоры с коалицией, поддержка тактики воздержания от вотума недоверия ?]
@@ -463,7 +424,6 @@ on-arrival: muller_advisor = 1; n_advisors += 1; center_dissent -= 7; center_str
 go-to: advisor_menu
 
 Герман Мюллер назначен советником.
-
 
 @add_breitscheid
 title: Рудольф Брейтшейд
@@ -480,7 +440,6 @@ tags: center_advisor
 # reformist
 
 
-
 @add_severing
 title: Карл Зеверинг
 subtitle: Карл Зеверинг — бывший министр внутренних дел Пруссии и реформатор полиции.{!<br><br>!}[? if difficulty < 0 : Действия: Прусский оплот, Дела полиции ?]
@@ -492,7 +451,6 @@ on-arrival: severing_advisor = 1; n_advisors += 1; reformist_strength += 5; refo
 go-to: advisor_menu
 
 Карл Зеверинг назначен советником.
-
 
 @add_braun
 title: Отто Браун
@@ -506,7 +464,6 @@ go-to: advisor_menu
 
 Отто Браун назначен советником.
 
-
 @add_juchacz
 title: Мари Юхач
 subtitle: Мари Юхач — основательница «Рабочей благотворительности», организации взаимопомощи. {!<br><br>!}[? if difficulty < 0 : Действия — срочный сбор средств, «Рабочая благотворительность», организация женщин ?]
@@ -518,7 +475,6 @@ go-to: advisor_menu
 tags: reformist_advisor
 
 Мари Юхач назначена советником.
-
 
 @add_pfulf
 title: Антони Пфюльф
@@ -536,7 +492,6 @@ tags: reformist_advisor
 
 # left
 
-
 @add_levi
 title: Пауль Леви
 subtitle: Пауль Леви — бывший председатель <span style="color: #700000;">**КПГ,**</span>, которого исключили из партии за критику путчистской тактики <span style="color: #700000;">**коммунистов**</span>.{!<br><br>!}[? if difficulty < 0 : Действия: усиление фракции левых, сотрудничество с <span style="color: #700000;">**КПГ**</span> ?]
@@ -548,7 +503,6 @@ go-to: advisor_menu
 tags: left_advisor
 
 Теперь Пауль Леви — советник.
-
 
 @add_sender
 title: Тони Зендер
@@ -562,7 +516,6 @@ tags: left_advisor
 
 Тони Зендер назначена советником.
 
-
 @add_rosenfeld
 title: Курт Розенфельд
 subtitle: Курт Розенфельд — юрист, антивоенный активист и депутат рейхстага. {!<br><br>!}[? if difficulty < 0 : Действия: Укрепление фракции левых, Сотрудничество с <span style="color: #700000;">**КПГ**</span>, Против тактики воздержания от вотума недоверия ?]
@@ -575,7 +528,6 @@ tags: left_advisor
 
 Курт Розенфельд теперь ваш советник.
 
-
 @add_seydewitz
 title: Макс Зайдевиц
 subtitle: Макс Зайдевиц — бывший лидер молодёжного крыла, член фракции левых в <span style="color: #c00000;">**СДПГ**</span> и сторонник классовой борьбы.{!<br><br>!}[? if difficulty < 0 : Действия: Митинг за классовую борьбу, Социалистическая молодёжь, Против тактики на воздержание от вотума недоверия ?]
@@ -587,7 +539,6 @@ go-to: advisor_menu
 tags: left_advisor
 
 Макс Зайдевиц назначен советником.
-
 
 @add_siemsen
 title: Анна Зимзен
@@ -605,7 +556,6 @@ tags: left_advisor
 
 # labor
 
-
 @add_leipart
 title: Теодор Лейпарт
 subtitle: Теодор Лейпарт — лидер АДГБ, Всеобщей конфедерации немецких профсоюзов. {!<br><br>!}[? if difficulty < 0 : Действия: организация рабочих, поддержка экономического плана реформистов[? if red_general_unlock and rubicon: , переговоры с красным генералом ?] ?]
@@ -617,7 +567,6 @@ on-arrival: leipart_advisor = 1; n_advisors += 1; labor_strength += 5; labor_dis
 go-to: advisor_menu
 
 Теодор Лейпарт назначен советником.
-
 
 @add_aufhauser
 title: Зигфрид Ауфхойзер
@@ -631,7 +580,6 @@ go-to: advisor_menu
 
 Зигфрид Ауфхойзер назначен советником.
 
-
 @add_wissell
 title: Рудольф Виссель
 subtitle: Рудольф Виссель — экономист, бывший министр труда, защитник интересов трудящихся в правительстве. {!<br><br>!}[? if difficulty < 0 : Действия — координация партии и профсоюзов, защита прав трудящихся ?]
@@ -643,7 +591,6 @@ on-arrival: wissell_advisor = 1; n_advisors += 1; labor_strength += 3; labor_dis
 go-to: advisor_menu
 
 Рудольф Виссель назначен советником.
-
 
 
 @add_woytinsky
@@ -661,7 +608,6 @@ go-to: advisor_menu
 
 # neorevisionist leaders
 
-
 @add_mierendorff
 title: Карло Мерендорфф
 subtitle: Карло Мерендорфф — один из самых молодых депутатов рейхстага и основоположник «неоревизионистского» движения. Он — стратег по борьбе с нацистами.{!<br><br>!}[? if difficulty < 0 : Действия — Создать <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span>, вербовать в Железный фронт, предупредить об угрозе <span style="color: #7A3C00;">нацизма</span> ?]
@@ -674,7 +620,6 @@ tags: neorev_advisor
 
 Карло Мерендорфф назначен советником.
 
-
 @add_schumacher
 title: Курт Шумахер
 subtitle: Курт Шумахер — ветеран Великой войны и пламенный оратор, защитник <span style="color: #c00000;">социал-демократических</span> идей. Он выступает за реформизм. {!<br><br>!}[? if difficulty < 0 : Действия: срочный сбор средств, укрепление Рейхсбаннера, поддержать экономический план реформистов. ?]
@@ -686,7 +631,6 @@ on-arrival: schumacher_advisor = 1; n_advisors += 1; neorevisionist_strength += 
 go-to: advisor_menu
 
 Курт Шумахер назначен советником.
-
 
 @add_leber
 title: Юлиус Лебер
@@ -702,7 +646,6 @@ tags: neorev_advisor
 
 # Nonfactional advisors
 
-
 @add_wirth
 title: Йозеф Вирт
 subtitle: Йозеф Вирт — бывший член левого крыла партии <span style="color: #000000;">«Центр»</span> и бывший канцлер, известный своими ярыми <span style="color: #000000;">респ</span><span style="color: #DD0000;">убл</span><span style="color: #FFCC00;">икан</span>скими убеждениями.
@@ -717,7 +660,6 @@ tags: neorev_advisor
 
 # Nonfactional advisors
 
-
 @add_baade
 title: Фриц Бааде
 subtitle: Фриц Бааде — один из немногих экспертов по сельскому хозяйству в <span style="color: #c00000;">**СДПГ**</span>.{!<br><br>!}[? if difficulty < 0 : Действия: аграрная политика, агитация в сельской местности, поддержать экономический план профсоюзников ?]
@@ -729,7 +671,6 @@ go-to: advisor_menu
 tags: nonfactional_advisor
 
 Фриц Бааде назначен советником.
-
 
 
 @add_hirschfeld
@@ -745,7 +686,6 @@ tags: nonfactional_advisor
 Магнус Хиршфельд назначен советником.
 
 
-
 @add_radbruch
 title: Густав Радбрух
 subtitle: Густав Радбрух — известный правовед и министр юстиции от <span style="color: #c00000;">**СДПГ**</span>.{!<br><br>!}[? if difficulty < 0 : Действия: судебная реформа, конституционная реформа ?]
@@ -757,7 +697,6 @@ go-to: advisor_menu
 tags: nonfactional_advisor
 
 Густав Радбрух назначен советником.
-
 
 
 @add_stampfer

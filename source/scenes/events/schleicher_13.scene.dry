@@ -18,7 +18,6 @@ max-visits: 1
 
 - @schleicher_2: <span style="color: #BFC8CC;">Фронт Национального Единства Германии</span> приветствует нового члена.
 
-
 @schleicher_2
 on-arrival: {!
 Q.dstp_dnef = 1
@@ -31,10 +30,11 @@ Q.dnef_r += Q.ddp_r;
 Q.ddp_r = 0;
 
 if (Q.ddp_ideology == "Левые") Q.ddp_leader = "Леммер";
-if (Q.ddp_ideology != "Левые") Q.ddp_leader = "Hellpach";
+if (Q.ddp_ideology != "Левые") Q.ddp_leader = "Хельпах";
 
 Q.old_ddp_name = Q.ddp_name;
 Q.ddp_name = "НГП";
+Q.kpd_nazi_urgency += 1;
 !}
 
 Шлейхер считает более эффективным сохранить <span style="color: #D3C24D;">**[+ old_ddp_name +]**</span> в качестве отдельной, но тесно связанной <i>Blocpartei</i> для привлечения избирателей, и поэтому пока сохраняет её номинальную независимость[? if not dstp_formed: , хотя и под новым названием, чтобы избавиться от старого и ироничного ярлыка «Демократическая» ?]. [+ ddp_leader +] с тех пор назначен лидером теперь уже связанной с <i>Blocpartei</i> <span style="color: #D3C24D;">[+ ddp_name +]</span>.

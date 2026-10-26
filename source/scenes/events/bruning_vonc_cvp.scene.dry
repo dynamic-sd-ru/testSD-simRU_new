@@ -17,7 +17,6 @@ max-visits: 1
 - @no_matter
 - @center_right
 
-
 @vote_no
 title: Поддержать вотум недоверия, проголосовав против правительства.
 subtitle: Правительство падёт, и будут назначены новые выборы.
@@ -29,7 +28,6 @@ call: set_next_election_time
 
 Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @vote_yes
 title: Выступить против вотума недоверия, поддержав правительство.
 subtitle: Мы, по сути, будем «терпеть» буржуазное правительство.
@@ -37,7 +35,6 @@ view-if: cordon_sanitaire >= 50 and center_right_coalition < 50
 on-arrival: spd_toleration = 1; in_right_coalition = 0; in_center_right_coalition = 0; left_dissent += 10; labor_dissent += 10; workers_spd *= 0.9; unemployed_spd *= 0.9; unemployed_nsdap += 3; unemployed_kpd += 3; workers_nsdap += 3; workers_kpd += 1; workers_spd -= 2 if welfare < 0; unemployed_spd -= 4 if welfare < 0; pro_republic -= 4; kpd_relation -= 8
 
 Мы пытаемся убедить рабочих, что эта политика необходима для поддержания стабильного парламентского правительства и борьбы с финансовыми последствиями депрессии. И все же эта политика служит отличной почвой для вербовки сторонников <span style="color: #7A3C00;">нацистами</span> и <span style="color: #700000;">**коммунистам**</span>.
-
 
 @no_matter
 title: Неважно, что мы сделаем.
@@ -47,7 +44,6 @@ call: set_next_election_time
 on-arrival: time_to_election = 3; spd_in_government = 0; in_right_coalition = 0; in_center_right_coalition = 0; in_grand_coalition = 0; spd_toleration = 0; spd_toleration_right = 0; pro_republic -= 5; bruning_event_timer = 0
 
 Буржуазный кабинет пал. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @center_right
 title: Неважно, что мы сделаем.

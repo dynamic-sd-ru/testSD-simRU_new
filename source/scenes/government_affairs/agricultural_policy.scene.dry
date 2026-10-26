@@ -19,7 +19,6 @@ tags: govt_affairs, cabinet
 - @easy_discard
 - @cancel_advisor_action
 
-
 @land_reform
 title: Земельная реформа
 subtitle: -1 к бюджету — разделить крупные аристократические поместья и передать землю безземельным батракам.
@@ -32,7 +31,6 @@ max-visits: 4
 
 [? if president == "Гинденбург": Эта политика в особенности навлекла на нас гнев президента Гинденбурга и его ближайшего окружения. ?]
 
-
 @agricultural_finance
 title: Финансирование сельского хозяйства
 subtitle: -1 к бюджету — увеличить финансирование сельскохозяйственного кредитования и страхования.
@@ -42,7 +40,6 @@ on-arrival: budget -= 1; agricultural_finance += 1; rural_spd += 5*(1-dissent); 
 Мы увеличили финансовую поддержку мелким фермерам, предоставив им доступ к кредитам и страхованию, что спасло их от лишений. Левое и центристское крыло нашей партии выступает против нашей аграрной политики, видя в ней уступки мелкобуржуазным фермерам.
 
 
-
 @pro_consumer
 title: Закупка продовольствия
 subtitle: -1 к бюджету - Обеспечить рабочих дешёвым продовольствием.
@@ -50,7 +47,6 @@ choose-if: budget >= 1
 on-arrival: budget -= 1; pro_consumer += 1; workers_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent); workers_sol += 4; coalition_dissent += 1 if black_thursday_seen; dvp_right += 1 if black_thursday_seen; lvp_right += 1 if black_thursday_seen; agriculture_goal_spd += 1; economic_growth += 0.2;
 
 Мы увеличили государственные закупки основных продуктов питания для обеспечения городских рабочих и бедноты. Это выгоднее рабочим, чем фермерам, поскольку мы договариваемся о снижении закупочных цен. [? if black_thursday_seen and (in_weimar_coalition or in_grand_coalition) : Наши партнёры по коалиции считают эту политику расточительной подачкой. ?]
-
 
 @state_buyer
 title: Государственный закупщик

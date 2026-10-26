@@ -21,7 +21,6 @@ face-image: img/portraits/SchleicherKurt.jpg
 - @accept
 - @reject
 
-
 @accept
 title: Принять замыслы Шлейхера.
 subtitle: Мы поддержим приостановку деятельности Рейхстага.
@@ -31,11 +30,10 @@ subtitle: Мы поддержим приостановку деятельнос�
 - @accept_2
 - @reject
 
-
 @accept_2
 title: Принять интриги Шлейхера.
 subtitle: Мы поддержим роспуск рейхстага.
-on-arrival: schleicher_support = spd_r; workers_spd -= 3; new_middle_spd -= 3; reformist_dissent += 20; left_dissent += 30; center_dissent += 30; neorevisionist_dissent += 25; pro_republic -= 10; schleicher_support += z_r if z_relation >= 50; schleicher_support += other_r + dvp_r if dvp_relation >= 30; schleicher_support += dnvp_r if kpd_relation <= 10 and left_strength + center_strength < labor_strength; labor_dissent -= 10
+on-arrival: schleicher_support = spd_r; workers_spd -= 3; new_middle_spd -= 3; reformist_dissent += 20; left_dissent += 30; center_dissent += 30; neorevisionist_dissent += 25; pro_republic -= 10; schleicher_support += z_r if z_relation >= 50; schleicher_support += other_r + dvp_r if dvp_relation >= 30; schleicher_support += dnvp_r if kpd_relation <= 10 and left_strength + center_strength < labor_strength; labor_dissent -= 10; kpd_nazi_urgency -= 1;
 go-to: schleicher_success if schleicher_support >= 50; schleicher_failed if schleicher_support < 50
 
 # There isn't enough resolution in this game to create conditions for when the DNVP would support Schleicher. It's possible that SPD support for Schleicher would push Hugenberg to ally with Hitler.
@@ -44,20 +42,17 @@ go-to: schleicher_success if schleicher_support >= 50; schleicher_failed if schl
 
 [? if kpd_relation <= 10 and left_strength + center_strength < labor_strength: Каким-то образом НННП согласилась на предложение Шлейхера, создав временный союз с генералом против нацистов и коммунистов.  ?][? if z_relation >= 50 : Партия Центра также поддерживает план Шлейхера. ?][? if dvp_relation >= 30 : Кроме того, это предложение поддерживают ННП и некоторые другие малые партии.  ?][? if kpd_relation > 10 or left_strength + center_strength >= labor_strength: НННП, несмотря на ухаживания Шлейхера, не заинтересована в присоединении к этому союзу. Председатель НННП Гугенберг, похоже, предпочитает сотрудничество с Гитлером любому союзу, в который входит СДПГ. ?]
 
-
 @schleicher_success
-on-arrival: time_to_election = 13; schleichers_scheme_success = 1; next_election_time = 10000;
+on-arrival: time_to_election = 13; schleichers_scheme_success = 1; next_election_time = 10000; kpd_nazi_urgency -= 1;
 call: set_next_election_time
 
 # hack to set next election time
 
 Замысел удался — большинство в рейхстаге поддерживает Шлейхера. Новые выборы предварительно назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @schleicher_failed
 
 К сожалению, коалиция, поддерживающая роспуск рейхстага, не составляет большинства. Выборы пройдут в назначенный срок.
-
 
 @reject
 title: Отвергнуть интриги Шлейхера.

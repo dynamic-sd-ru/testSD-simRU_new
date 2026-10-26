@@ -20,32 +20,27 @@ tags: party_affairs
 - @bourgeois: Буржуазные партии: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и [? if not lvp_formed and dvp_exist: <span style="color: #C0A054;">**ННП**</span> ?][? if not lvp_formed and not dvp_exist: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?].
 - @easy_discard
 
-
 @anti_dem
 on-arrival: enemies = "антидемократические партии"; center_strength += 5; reformist_strength += 5; left_dissent += 5; workers_kpd -= 1.5; workers_nsdap -= 2; workers_dnvp -= 1 if dnvp_ideology == "Радикалы"; workers_dnf -= 1; unemployed_kpd -= 2; unemployed_nsdap -= 2; kpd_relation -= 10
 
 Атаки на <span style="color: #7A3C00;">ультра</span>-[? if dnvp_ideology == "Радикалы": <span style="color: #3E88B3;">правых</span> ?][? if dnvp_ideology == "Умеренные": <span style="color: #003755;">правых</span> ?] и <span style="color: #700000;">левых</span> популярны среди всех фракций, кроме левого крыла нашей партии, которое предпочло бы бороться с буржуазными партиями. Это также может помешать нашему примирению с <span style="color: #700000;">**КПГ**</span> в будущем.
-
 
 @far_right
 on-arrival: enemies = "крайне правых"; left_strength += 5; left_dissent -= 5; workers_nsdap -= 3; unemployed_nsdap -= 3; workers_dnvp -= 2 if dnvp_ideology == "Радикалы"; workers_dnf -= 2
 
 Нападки на <span style="color: #7A3C00;">ультра</span>-<span style="color: #3E88B3;">правых</span> популярны во всей партии, хотя левые считают буржуазные партии не менее опасными, а правые критикуют наше бездействие в отношении <span style="color: #700000;">**КПГ**</span>. Наши буржуазные партнёры по коалиции также скептически относятся к нашей недостаточной приверженности антикоммунизму.
 
-
 @nsdap
-on-arrival: enemies = "НСДАП"; neorevisionist_strength += 5; nazi_urgency += 1; workers_nsdap -= 4; unemployed_nsdap -= 4; workers_nsdap += 8 if nsdap_votes < 8; unemployed_nsdap += 8 if nsdap_votes < 8
+on-arrival: enemies = "НСДАП"; neorevisionist_strength += 5; nazi_urgency += 1; workers_nsdap -= 4; unemployed_nsdap -= 4; workers_nsdap += 8 if nsdap_votes < 8; unemployed_nsdap += 8 if nsdap_votes < 8; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 [? if nazi_urgency == 0 or nsdap_votes < 10: В настоящий момент <span style="color: #7A3C00;">**НСДАП**</span> — крошечная партия, которая больше лает, чем кусает. Многие в наших рядах ставят под сомнение наш выбор. [? if nsdap_votes < 8: Хуже того, излишнее внимание к ним может лишь сыграть им на руку.  ?]  ?][? if nazi_urgency > 0 and nsdap_votes >= 10 : Борьба с <span style="color: #7A3C00;">нацистами</span> — наша первоочередная задача. ?]
 
-
 @kpd
-on-arrival: enemies = "КПГ"; reformist_strength += 5; left_dissent += 8; reformist_dissent -= 5; kpd_relation -= 15; dvp_relation += 5; ddp_relation += 3; z_relation += 5; lvp_relation += 5; workers_kpd -= 3; unemployed_kpd -= 4; dvp_left += 1; ddp_left += 0.5; ddp_cohesion += 0.5; lvp_left += 1
+on-arrival: enemies = "КПГ"; reformist_strength += 5; left_dissent += 8; reformist_dissent -= 5; kpd_relation -= 15; dvp_relation += 5; ddp_relation += 3; z_relation += 5; lvp_relation += 5; workers_kpd -= 3; unemployed_kpd -= 4; dvp_left += 1; ddp_left += 0.5; ddp_cohesion += 0.5; lvp_left += 1; kpd_nazi_urgency -= 1;
 
 Нападки на <span style="color: #700000;">**КПГ**</span> поддерживаются всеми, кроме самых левых <span style="color: #c00000;">социалистов</span>, и приносят нам определённую поддержку среди буржуазных партий. Однако, если мы собираемся примириться с <span style="color: #700000;">**КПГ**</span>, это, возможно, не лучший выбор.
 
-
 @bourgeois
-on-arrival: enemies = "буржуазные партии"; left_strength += 8; left_dissent -= 5; dvp_relation -= 5; z_relation -= 5; ddp_relation -= 3; lvp_relation -= 3; kpd_relation += 5; reformist_dissent += 8; workers_z -= 3; new_middle_dvp -= 2; workers_dvp -= 1; workers_ddp -= 0.5; workers_ddp -= 0.5 if not dvp_exist; coalition_dissent += 1; dvp_right += 1; ddp_cohesion -= 1; ddp_right += 1; lvp_right += 1
+on-arrival: enemies = "буржуазные партии"; left_strength += 8; left_dissent -= 5; dvp_relation -= 5; z_relation -= 5; ddp_relation -= 3; lvp_relation -= 3; kpd_relation += 5; reformist_dissent += 8; workers_z -= 3; new_middle_dvp -= 2; workers_dvp -= 1; workers_ddp -= 0.5; workers_ddp -= 0.5 if not dvp_exist; coalition_dissent += 1; dvp_right += 1; ddp_cohesion -= 1; ddp_right += 1; lvp_right += 1; kpd_nazi_urgency += 1;
 
 Наша антибуржуазная риторика популярна среди левых, но в будущем она может помешать созданию коалиций, необходимых для формирования правительства.

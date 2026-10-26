@@ -15,7 +15,6 @@ new-page: true
 
 - @dvp_left_split
 
-
 @dvp_left_split
 title: Левое крыло <span style="color: #C0A054;">**ННП**</span> откалывается!
 on-arrival: hugenberg_dvp = 1; old_middle_dvp *= 0.8; new_middle_dvp *= 0.5; catholics_dvp *= 0.8; pro_republic -= 3; liberal_cooperation -= 10; bourgeois_cooperation -= 10; dvp_right += 25; dvp_relation -= 50

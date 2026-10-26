@@ -17,7 +17,6 @@ view-if: panzerkreuzer_b_seen = 0 and year = 1931 and month >= 2 and (spd_in_gov
 - @abstain: Воздержаться от голосования.
 - @ministry: Использовать министерство рейхсвера, чтобы помешать строительству.
 
-
 @vote_yes
 on-arrival: left_dissent += 10; labor_dissent += 10; center_dissent += 5; reformist_dissent += 5; neorevisionist_dissent += 5; panzerkreuzer_b_funded = 1; kpd_coalition_dissent += 1; kpd_relation -= 6; workers_spd -= 6; dvp_left += 2; lvp_left += 1; hindenburg_angry -= 5
 
@@ -25,13 +24,11 @@ on-arrival: left_dissent += 10; labor_dissent += 10; center_dissent += 5; reform
 
 Решение о строительстве броненосца легко проходит, против голосуют только <span style="color: #700000;">**КПГ**</span>. Корабль будет построен.
 
-
 @vote_no
 on-arrival: dvp_relation -= 8; lvp_relation -= 5; z_relation -= 5; pacifism += 1; nationalism -= 5*(1-dissent); coalition_dissent += 1; workers_spd += 4*(1-dissent) if nationalism < 49; dvp_right += 1; hindenburg_angry += 5
 go-to: built if (spd_r + kpd_r + sapd_r < 50); not_built if (spd_r + kpd_r + sapd_r >= 50)
 
 Наше голосование против строительства военного корабля непопулярно среди правых партий[? if in_grand_coalition or in_weimar_coalition: , включая наших партнёров по коалиции  ?][? if spd_toleration: , включая правительство меньшинства, которое мы сейчас поддерживаем  ?].
-
 
 @abstain
 on-arrival: dvp_relation -= 5; lvp_relation -= 3; z_relation -= 3; left_dissent += 8; labor_dissent += 8; panzerkreuzer_b_funded = 1; kpd_relation -= 3; workers_spd -= 2
@@ -40,18 +37,15 @@ on-arrival: dvp_relation -= 5; lvp_relation -= 3; z_relation -= 3; left_dissent 
 
 Наша пассивность вызвала критику в адрес нашей парламентской фракции, поскольку ранее мы уже выступали против строительства первого корабля, предлагая направить средства на бесплатное пропитание для детей.
 
-
 @built
 on-arrival: panzerkreuzer_b_funded = 1
 
 Канцлер [+ chancellor +] ставит вопрос на голосование рейхстага: законопроект принимается голосами всех партий, кроме <span style="color: #c00000;">**СДПГ**</span> и <span style="color: #700000;">**КПГ**</span>. Корабль будет построен.
 
-
 @not_built
 on-arrival: panzerkreuzer_b_funded = 0; budget += 1 if panzerkreuzer_funded = 0; hindenburg_angry += 5; coup_progress += 1
 
 Наше голосование против постройки военного корабля увенчалось успехом при поддержке <span style="color: #700000;">**КПГ**</span>. Корабль не будет построен!
-
 
 @ministry
 on-arrival: panzerkreuzer_b_funded = 0; budget += 1 if panzerkreuzer_funded = 0; hindenburg_angry += 5; coup_progress += 1

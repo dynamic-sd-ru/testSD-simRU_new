@@ -32,7 +32,6 @@ on-display: {!
 - @antisemitism
 - @easy_discard
 
-
 @defense
 subtitle: -[+ rb_militarization_cost +] ресурсы
 choose-if: resources >= rb_militarization_cost
@@ -43,18 +42,15 @@ on-arrival: resources -= rb_militarization_cost; rb_strength += 50; rb_militancy
 
 [? if not cvp_leave_reichsbanner and not rb_exit: [? if strife < 5: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] осуждает милитаризацию Рейхсбаннера, и её члены покидают <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканскую</span> организацию.  ?][? if strife >= 5: Видя беспорядки, заполонившие улицы Германии, [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?], похоже, убеждены: милитаризация Рейхсбаннера необходима. Они прекращают свою критику.  ?] ?]
 
-
 @pacifism
 on-arrival: pacifism += 1; nationalism -= 5 if pacifism >= 3; workers_spd += 5*(1-dissent) if pacifism >= 4; unemployed_spd += 4*(1-dissent) if pacifism >= 4; new_middle_spd += 4*(1-dissent) if pacifism >= 4
 
 <span style="color: #c00000;">**Железный**</span> <span style="color: #1A1A1A;">**фронт**</span> проводит митинги против национализма и войны.
 
-
 @republic
 on-arrival: pro_republic += 3*(1-dissent); democratization += 1; workers_spd += 3*(1-dissent) if democratization >= 4; unemployed_spd += 2*(1-dissent) if democratization >= 4; new_middle_spd += 3*(1-dissent) if democratization >= 4; ddp_left += 0.5 if democratization >= 4; lvp_left += 0.5 if democratization >= 4
 
 <span style="color: #c00000;">**Железный**</span> <span style="color: #1A1A1A;">**фронт**</span> выступает в защиту демократической республики и против <span style="color: #7A3C00;">диктатуры</span>.
-
 
 @wtb
 view-if: wtb_adopted == 1
@@ -63,7 +59,6 @@ unavailable-subtitle: [? if return_to_normalcy == 1: Экономический 
 on-arrival: workers_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent); new_middle_spd += 2*(1-dissent); old_middle_spd += 1*(1-dissent); rural_spd += 1*(1-dissent); workers_spd += 4*(1-dissent) if wtb_implemented; unemployed_spd += 4*(1-dissent) if wtb_implemented; rural_spd += 2*(1-dissent) if wtb_implemented; new_middle_spd += 3*(1-dissent) if wtb_implemented; old_middle_spd += 2*(1-dissent) if wtb_implemented; wtb_rally += 1
 
 План ВТБ — объединяюще начало для всей <span style="color: #c00000;">**СДПГ**</span> и связанных с ней организаций, включая <span style="color: #c00000;">**Железного**</span> <span style="color: #1A1A1A;">**фронта**</span>.[? if not wtb_implemented:  Однако многие по-прежнему считают, что этот план — всего лишь пустой лозунг, и будут сохранять скептицизм, пока мы не претворим его в жизнь. ?]
-
 
 @antisemitism
 title: Митинг против антисемитизма и в защиту <span style="color: #005EB8;">немецких евреев</span>.

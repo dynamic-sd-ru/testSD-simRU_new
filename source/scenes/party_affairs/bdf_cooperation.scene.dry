@@ -1,0 +1,40 @@
+title: Агитация
+new-page: true
+is-card: true
+tags: party_affairs
+view-if: ((womens_work >= 3 and family_law >= 2) and (womens_rights >= 8 or abortion_rights) and nationalism <= 40)
+on-arrival: month_actions += 0
+card-image: img/frauen-freiheit-frieden.jpg
+face-image: img/frauen-freiheit-frieden.jpg
+max-visits: 1
+
+Агитация
+
+Наша партия была яростной защитницей конституционных прав женщин на равное обращение с мужчинами. К этому моменту мы добились немалого — и в вопросе разрыва в оплате труда, и в ослаблении ограничений, которые брак накладывает на работающих и неработающих женщин[? if abortion_rights: , и даже провели закон о легализации абортов вопреки сопротивлению консерваторов ?]. Однако всё это показывает, что этого недостаточно: наш враг — патриархальная культура, столь распространённая в Германии; не затронув эту основу, никакая конституция не преодолеет женоненавистнические настроения, укоренившиеся столь глубоко.
+
+Идёт ли сейчас избирательная кампания или нет, партия всё равно стремится расширить электорат. На ком нам сосредоточить агитацию?
+  
+- @bdf:Мы вместе с феминистским движением.
+- @deny:Это не наша борьба.
+- @return_hand:Вернуть карту в руку.
+- @cancel_advisor_action
+
+@return_hand
+view-if: last_advisor_action = 0
+go-to: easy_discard
+
+@bdf
+subtitle: Нам придётся как следует смазать шестерёнки переговоров. (-2 ресурса)
+choose-if: resources >= 2
+unavailable-subtitle: Недостаточно ресурсов.
+on-arrival: workers_spd += 8*(1-dissent); workers_ddp += 4; workers_lvp += 4; workers_ddp += 4 if ddp_leader = "Людерс"; workers_lvp += 4 if lvp_leader = "Боймер"; new_middle_spd += 8*(1-dissent); new_middle_ddp += 4; new_middle_lvp += 4; new_middle_ddp += 4 if ddp_leader = "Людерс"; new_middle_lvp += 4 if lvp_leader = "Боймер"; unemployed_spd += 8*(1-dissent); old_middle_spd += 4*(1-dissent); rural_spd += 4*(1-dissent); catholics_spd += 1*(1-dissent); ddp_relation += 5*(1-dissent); ddp_relation += 5*(1-dissent) if ddp_leader = "Людерс"; ddp_left += 1; ddp_left += 3 if ddp_leader = "Людерс"; lvp_relation += 5*(1-dissent); lvp_relation += 5*(1-dissent) if lvp_leader = "Боймер"; lvp_left += 1; lvp_left += 3 if lvp_leader = "Боймер"; reformist_dissent -= 5; reformist_strength += 5; left_dissent += 5; left_strength -= 5; center_dissent += 5; center_strength -= 5; labor_dissent -= 5; labor_strength += 5; neorevisionist_dissent -= 10 if neorevisionism; neorevisionist_strength += 10 if neorevisionism; socialism += 2*(1 - dissent); nationalism -= 6*(1 - dissent); bdf_cooperation = 1; resources -= 2
+
+Благодаря работе Мари Юхач в нашем Frauensekretariat мы ведём переговоры с **Bund Deutscher Frauenvereine**, чтобы склонить их примириться с прошлым неприятием левой организации и начать переговоры о дальнейшем сотрудничестве ради масштабных кампаний за права женщин на работе и дома, чтобы дать общую основу и «традиционным», и «новым» женщинам и побудить их участвовать в общественной жизни за пределами имперского <span class="tooltip-text" title="children, kitchen, church">«Kinder, Küche, Kirche»</span>. Мы делаем упор на средствах к существованию вдов и матерей, потерявших семью в Великой войне, тех женщин, что принадлежат к работающей бедноте, и стремимся переложить вину за домашнее насилие в общественном восприятии с влияния алкоголя на существующий дисбаланс власти.
+
+Хотя некоторые видные консервативные активистки, например Аннагрете Леман из [? if dnvp_ideology == "Радикалы": <span style="color: #3E88B3;">**НННП**</span>?][? if dnvp_ideology == "Умеренные": <span style="color: #003755;">**НФГ**</span>?], противятся нашим усилиям из принципа, даже у самых традиционных женщин есть обиды, к которым может воззвать наша риторика.
+
+(Теперь мы можем спонсировать кампании BDF.)
+
+@deny
+
+Мы — партия рабочего класса, и у нас нет обязанности оказывать кому-то предпочтение.

@@ -15,7 +15,6 @@ new-page: true
 
 - @resultsdvp: Партия голосует…
 
-
 @resultsdvp
 on-arrival: {!
 if (Q.dvp_right > (Q.dvp_left*1.5) || (Q.dvp_right > (Q.dvp_left + 4))) {
@@ -28,7 +27,6 @@ if (Q.dvp_right > (Q.dvp_left*1.5) || (Q.dvp_right > (Q.dvp_left + 4))) {
 !}
 go-to: curtius if dvp_ideology == "Левые" or (dvp_ideology == "Умеренные" and (coalition_dissent < 2 and in_grand_coalition)) and in_grand_coalition; scholz if dvp_ideology == "Правые" or (dvp_ideology == "Умеренные" and not in_grand_coalition); luther if (dvp_ideology == "Умеренные" and (coalition_dissent >= 2 and in_grand_coalition)) or (dvp_ideology == "Левые" and not in_grand_coalition)
 
-
 @curtius
 on-arrival: dvp_leader = "Курциус"; liberal_cooperation += 1; bourgeois_cooperation += 1; dvp_left += 3; dvp_relation += 5; new_middle_dvp += 5; rural_dvp += 2; pro_republic += 5; ddp_left += 1; ddp_cohesion += 1
 face-image: img/portraits/curtius.jpg
@@ -37,7 +35,6 @@ face-image: img/portraits/curtius.jpg
 
 Это отличные новости для нас и наших отношений с <span style="color: #C0A054;">**ННП**</span>.[? if in_grand_coalition:  Мы заметили снижение напряжённости в коалиции. ?]
 
-
 @scholz
 on-arrival: dvp_leader = "Шольц"; dvp_right += 2; dvp_relation -= 10; old_middle_dvp -= 4; new_middle_dvp -= 4; rural_dvp -= 2; old_middle_dnvp += 4 if dnvp_ideology == "Умеренные"; new_middle_dnvp += 4 if dnvp_ideology == "Умеренные"; rural_dnvp += 2 if dnvp_ideology == "Умеренные"; old_middle_kvp += 4 if kvp_formed; new_middle_kvp += 4 if kvp_formed; rural_kvp += 4 if kvp_formed; workers_ddp += 1; workers_dvp -= 1; pro_republic -= 3; ddp_right += 1; ddp_cohesion -= 1; liberal_cooperation -= 3; bourgeois_cooperation -= 2
 face-image: img/portraits/ernst_scholz.jpg
@@ -45,7 +42,6 @@ face-image: img/portraits/ernst_scholz.jpg
 Победу на выборах председателя партии неожиданно одержал Эрнст Шольц — он станет преемником Штреземана. Правое крыло <span style="color: #C0A054;">**ННП**</span> хоть и ослабело после прошлого съезда, но сумело вернуть себе власть. Левое крыло партии по-прежнему имеет некоторый контроль над её внутренними делами и может удержать правых от худших эксцессов.
 
 Излишне говорить, но это плохая новость для наших отношений с <span style="color: #C0A054;">**ННП**</span>, что усложняет формирование совместных будущих правительств [? if in_grand_coalition: и делает нынешнее правительство шатким ?].
-
 
 @luther
 on-arrival: dvp_leader = "Лютер"; dvp_left += 3 if in_grand_coalition; liberal_cooperation += 4; bourgeois_cooperation += 4; dvp_relation += 3 if in_grand_coalition; new_middle_dvp += 3; old_middle_dvp += 5; rural_dvp += 3; pro_republic += 5; old_middle_dnvp -= 2 if (dnvp_ideology == "Радикалы" and not kvp_formed); old_middle_dvp += 2 if (dnvp_ideology == "Радикалы" and not kvp_formed); new_middle_dnvp -= 2 if (dnvp_ideology == "Радикалы" and not kvp_formed); new_middle_dvp += 2 if (dnvp_ideology == "Радикалы" and not kvp_formed); rural_dnvp -= 1 if (dnvp_ideology == "Радикалы" and not kvp_formed); rural_dvp += 1 if (dnvp_ideology == "Радикалы" and not kvp_formed); ddp_left += 1; ddp_cohesion += 2

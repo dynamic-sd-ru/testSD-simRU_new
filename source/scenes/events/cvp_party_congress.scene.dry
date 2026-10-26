@@ -246,7 +246,6 @@ new-page: true
 
 - @cvp_factions
 
-
 @cvp_factions
 title: Состоится партийный съезд.
 subtitle: Фракции обеих партий будут реорганизованы в блоки.
@@ -263,17 +262,24 @@ subtitle: Фракции обеих партий будут реорганизо
 
 <span style="color: #385A38;">Аграрии</span> (<span style="color: #3E88B3;">**НННП**</span>) — Гереке —[? if cvp_ideology == "Левые": Незначительная ?][? if cvp_ideology != "Левые" and not presidential_points_lead: Ограниченная ?][? if cvp_ideology != "Левые" and presidential_points_lead: Заметная ?][? if cvp_ideology != "Левые" and agrarian_right_points_lead: Влиятельная ?]
 
-<hr id="read-marker"> <span style="color: #6D5298;">Христианско-социальное движение</span> (<span style="color: #3E88B3;">**НННП**</span>) — Ламбах —[? if cvp_ideology == "Левые" and not labor_points_lead: Незначительная ?][? if ((cvp_ideology != "Левые" and not presidential_points_lead and not labor_points_lead) or (cvp_ideology == "Левые" and labor_points_lead)): Ограниченная ?][? if cvp_ideology != "Левые" and presidential_points_lead and not labor_points_lead: Заметная ?][? if cvp_ideology != "Левые" and labor_points_lead and not labor_right_points_lead: Влиятельная ?][? if cvp_ideology != "Левые" and labor_right_points_lead: Могущественная ?]
+<hr id="read-marker">
+<span style="color: #6D5298;">Христианско-социальное движение</span> (<span style="color: #3E88B3;">**НННП**</span>) — Ламбах —[? if cvp_ideology == "Левые" and not labor_points_lead: Незначительная ?][? if ((cvp_ideology != "Левые" and not presidential_points_lead and not labor_points_lead) or (cvp_ideology == "Левые" and labor_points_lead)): Ограниченная ?][? if cvp_ideology != "Левые" and presidential_points_lead and not labor_points_lead: Заметная ?][? if cvp_ideology != "Левые" and labor_points_lead and not labor_right_points_lead: Влиятельная ?][? if cvp_ideology != "Левые" and labor_right_points_lead: Могущественная ?]
 
 <span style="color: #330000;">Католические рабочие</span> (<span style="color: #000000;">**Центр**</span>) — Штегервальд —[? if cvp_ideology == "Левые" and labor_left_points_lead: Могущественная ?][? if (cvp_ideology == "Левые" and not labor_left_points_lead) or labor_points_lead: Влиятельная ?][? if cvp_ideology != "Левые" and democratic_points_lead and not labor_points_lead: Заметная ?][? if cvp_ideology != "Левые" and not democratic_points_lead and not labor_points_lead: Ограниченная ?] <hr id="read-marker"> <span style="color: #0087DC;">Народные консерваторы</span> (<span style="color: #3E88B3;">**НННП**</span>) — Тревиранус —[? if cvp_ideology == "Левые" and democratic_points_lead: Доминирующая ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Влиятельная ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Заметная ?]
-
+<hr id="read-marker">
 <span style="color: #000099;">Правые католики</span> (<span style="color: #000000;">**Центр**</span>) — Тревиранус —[? if cvp_ideology == "Левые" and democratic_points_lead: Влиятельная ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Заметная ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Ограниченная ?]
+
+<span style="color: #000099;">Catholic Right</span> (<span style="color: #000000;">**Центр**</span>) - Treviranus - [? if cvp_ideology == "Левые" and democratic_points_lead: Influential?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Relevant?][? if cvp_ideology != "Левые" and not democratic_points_lead: Limited?]
 
 [? if cvp_dvp_formed: <span style="color: #D8B868;">Штреземановцы</span> (<span style="color: #C0A054;">**ННП**</span>) — Тревиранус —[? if cvp_ideology == "Левые" and democratic_points_lead: Заметная ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Ограниченная ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Незначительная ?] ?]
 
-[? if cvp_dvp_formed: <span style="color: #8C7A3C;">Промышленники</span> (<span style="color: #C0A054;">**ННП**</span>) — Тревиранус —[? if cvp_ideology != "Левые" and not labor_points_lead: Влиятельная ?][? if not (cvp_ideology != "Левые" and not labor_points_lead): Заметная ?] ?] <hr id="read-marker"> <span style="color: #000000;">Католический Центр</span> (<span style="color: #000000;">**Центр**</span>) — Аденауэр —[? if cvp_ideology == "Левые" and democratic_points_lead: Могущественная ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Влиятельная ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Заметная ?]
+[? if cvp_dvp_formed: <span style="color: #8C7A3C;">Промышленники</span> (<span style="color: #C0A054;">**ННП**</span>) — Тревиранус —[? if cvp_ideology != "Левые" and not labor_points_lead: Влиятельная ?][? if not (cvp_ideology != "Левые" and not labor_points_lead): Заметная ?] ?]
+<hr id="read-marker">
+<span style="color: #000000;">Католический Центр</span> (<span style="color: #000000;">**Центр**</span>) — Аденауэр —[? if cvp_ideology == "Левые" and democratic_points_lead: Могущественная ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Влиятельная ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Заметная ?]
 
-<span style="color: #FF7F00;">Христианские левые</span> (<span style="color: #000000;">**Центр**</span>) — Аденауэр / Штегервальд —[? if cvp_ideology == "Левые" and labor_left_points_lead: Заметная ?][? if cvp_ideology == "Левые" and not labor_left_points_lead: Ограниченная ?][? if cvp_ideology != "Левые": Незначительная ?] <hr id="read-marker"> [? if labor_points_lead: Христианские профсоюзы оказались в выгодном положении перед съездом. ?][? if democratic_points_lead: Про-<span style="color: #000000;">рес</span><span style="color: #DD0000;">пуб</span><span style="color: #FFCC00;">ликанские</span> силы оказались в выгодном положении перед съездом.  ?][? if presidential_points_lead: <span style="color: #3E88B3;">Националистические</span> силы оказались в выгодном положении перед съездом.  ?][? if cvp_deadlock: По-видимому, ни одна из фракций не сможет заручиться значительной поддержкой внутри партии, так что ожидается выдвижение компромиссного кандидата. ?]
+<span style="color: #FF7F00;">Христианские левые</span> (<span style="color: #000000;">**Центр**</span>) — Аденауэр / Штегервальд —[? if cvp_ideology == "Левые" and labor_left_points_lead: Заметная ?][? if cvp_ideology == "Левые" and not labor_left_points_lead: Ограниченная ?][? if cvp_ideology != "Левые": Незначительная ?]
+<hr id="read-marker">
+[? if labor_points_lead: Христианские профсоюзы оказались в выгодном положении перед съездом. ?][? if democratic_points_lead: Про-<span style="color: #000000;">рес</span><span style="color: #DD0000;">пуб</span><span style="color: #FFCC00;">ликанские</span> силы оказались в выгодном положении перед съездом.  ?][? if presidential_points_lead: <span style="color: #3E88B3;">Националистические</span> силы оказались в выгодном положении перед съездом.  ?][? if cvp_deadlock: По-видимому, ни одна из фракций не сможет заручиться значительной поддержкой внутри партии, так что ожидается выдвижение компромиссного кандидата. ?]
 
 Началось голосование по выборам руководства партии.
 
@@ -283,7 +289,6 @@ subtitle: Фракции обеих партий будут реорганизо
 - @gereke
 - @treviranus
 - @compromise
-
 
 @stegerwald
 title: Адам Штегервальд, бывший член <span style="color: #000000;">Центра</span>, избран — и теперь уже не в качестве временного лидера.
@@ -296,7 +301,6 @@ face-image: img/portraits/stegerwald.jpg
 Несколько неожиданно лидер партии <span style="color: #000000;">Центра</span> Адам Штегервальд избран председателем её преемницы. Это во многом объясняется единой поддержкой со стороны различных христианских профсоюзов, а также помощью бывших политиков <span style="color: #000000;">Центра</span> и католических деятелей. Однако против него по-прежнему выступает большинство бывших членов <span style="color: #3E88B3;">**НННП**</span> из-за его готовности конструктивно сотрудничать с <span style="color: #c00000;">**СДПГ**</span>.
 
 Многие ожидали, что после слияния двух партий такие политики, как Штегервальд, сместятся в левое крыло новосозданной партии — что, собственно, и произошло. Его главные сторонники, помимо профсоюзов, — ныне усилившаяся фракция <span style="color: #FF7F00;">христианских левых</span>, которая будет продвигать патерналистскую экономическую политику и более тесное сотрудничество с <span style="color: #c00000;">социалистами</span>. Кроме того, Штегервальд — убеждённый <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканец</span>, и эта позиция заставила некоторых ярых монархистов перейти в стан <span style="color: #003755;">**НФГ**</span>.
-
 
 @lambach
 title: Вальтер Ламбах, бывший член <span style="color: #3E88B3;">НННП</span>, избран их новым лидером.
@@ -313,7 +317,6 @@ achievement: christlicher_sozialismus
 
 Однако для нас это плохие новости. <span style="color: #6D5298;">Христианско-социальная</span> идеология глубоко укоренена в антисемитизме, расизме, национализме и религиозности. Более того, мы заметили ухудшение отношений с <span style="color: #000000;">**[+ z_party_name +]**</span>, поскольку они пытаются представить рабочим не-<span style="color: #9B0000;">марксистскую</span> альтернативу.
 
-
 @adenauer
 title: Конрад Аденауэр, бывший член <span style="color: #000000;">партии Центра</span>, избран их новым лидером.
 subtitle: Аденауэр, давний сторонник «выхода из башни» и обер-бургомистр Кёльна со времён основания республики, — крыло <span style="color: #000000;">католического Центра</span>.
@@ -327,7 +330,6 @@ face-image: img/portraits/adenauer.jpg
 Конрад Аденауэр, многолетний обер-бургомистр Кёльна, возглавил одну из крупнейших партий Германии, создание которой он активно поддерживал. Аденауэр привержен демократическим принципам и принадлежит к правому крылу бывшей <span style="color: #000000;">Партии Центра</span>, не будучи при этом связанным с христианским рабочим движением. Это позволило ему сплотить широкую коалицию партийных лидеров вокруг себя как лидера, олицетворяющего спокойствие и стабильность, в противовес более радикальным политикам в партии.
 
 Под его лозунгом «Никаких экспериментов!» мы не ожидаем каких-либо серьёзных изменений в партийной программе под его руководством, что укрепляет в народе ощущение, что <span style="color: #000000;">**[+ z_party_name +]**</span> — опора стабильности, вокруг которой может сплотиться немецкий народ. Что касается наших отношений с <span style="color: #000000;">христианами</span>, Аденауэр, как бывший член <span style="color: #000000;">Партии Центра</span>, относится к нам более дружелюбно, чем многие другие политики правее него. Мы также можем рассчитывать на давление со стороны <span style="color: #FF7F00;">христианских левых</span>, которые, подобно <span style="color: #D3C24D;">**[+ ddp_name +]**</span> левому крылу в прошлом, не в силах сместить партию влево, но обладают достаточным влиянием, чтобы предотвращать скатывание партии вправо.
-
 
 @gereke
 title: Гюнтер Гереке, бывший член <span style="color: #3E88B3;">НННП</span>, избран их новым лидером.
@@ -343,7 +345,6 @@ face-image: img/portraits/gereke.jpg
 
 Само собой разумеется, это не понравилось <span style="color: #000000;">**[+ z_party_name +]**</span> католическому крылу и сделало невозможным сотрудничество внутри партии на обозримое будущее.
 
-
 @treviranus
 title: Готфрид Тревиранус, бывший член <span style="color: #3E88B3;">НННП</span>, избран их новым лидером.
 subtitle: Лидер движения <span style="color: #0087DC;">Народных консерваторов</span> и сторонник демократических принципов. - Крыло <span style="color: #0087DC;">Народных консерваторов</span> и <span style="color: #000099;">Католических правых</span>
@@ -352,12 +353,11 @@ choose-if: treviranus_unlock
 on-arrival: z_relation = 0 if z_relation < 0; cvp_left += 3 if cvp_ideology == "Правые"; cvp_right += 3 if cvp_ideology == "Левые"; nationalism += 3; pro_republic += 5; new_middle_z += 6; old_middle_z += 4; rural_z -= 4; rural_dnf += 4; new_middle_dvp -= 4; new_middle_lvp -= 4; new_middle_ddp -= 2; old_middle_dvp -= 4; old_middle_lvp -= 4; old_middle_ddp -= 2; new_middle_dnf += 2; old_middle_dnf += 4; catholics_z += 2; cvp_leader = "Тревиранус"; cvp_ideology = "Умеренные"; old_middle_z = 25 if old_middle_z < 25; rural_z = 25 if rural_z < 25
 face-image: img/portraits/Treviranus.jpg
 
-Готфрид Тревиранус[? if dnvp_leader == "Тревиранус": , последний на данный момент лидер <span style="color: #3E88B3;">**НННП**</span> ?], лидер процветающего движения <span style="color: #0087DC;">народных консерваторов</span>, считается идеальным кандидатом на пост первого председателя <span style="color: #000000;">**[+ z_party_name +]**</span>. Его <span style="color: #3E88B3;">националистические</span> <span class="tooltip-text" title="that's me! the modman!">корни</span>, прочные связи с ключевыми фигурами правого крыла, такими как Вестарп, и тщательно выстраиваемые им отношения с <span style="color: #000000;">католиками</span> обеспечили ему широкую поддержку в качестве лидера.
+Готфрид Тревиранус[? if dnvp_leader == "Тревиранус": , последний на данный момент лидер <span style="color: #3E88B3;">**НННП**</span> ?], лидер процветающего движения <span style="color: #0087DC;">народных консерваторов</span>, считается идеальным кандидатом на пост первого председателя <span style="color: #000000;">**[+ z_party_name +]**</span>. Его <span style="color: #3E88B3;">националистические</span> <span class="tooltip-text" title="это я! создатель мода!">корни</span>, прочные связи с ключевыми фигурами правого крыла, такими как Вестарп, и тщательно выстраиваемые им отношения с <span style="color: #000000;">католиками</span> обеспечили ему широкую поддержку в качестве лидера.
 
 Имея под своим контролем колоссальную по размерам <span style="color: #000000;">**[+ z_party_name +]**</span>, Тревиранус наконец смог превратить её в ту <span style="color: #0087DC;">демократическую партию тори</span>, о которой так долго мечтал. Его обширные связи со Шлейхером, германской промышленностью[? if president == "Гинденбург": , президентом Гинденбургом ?], и буржуазной элитой, как ожидается, окажут значительную поддержку его лидерским амбициям.
 
 Несмотря на его демократические взгляды, <span style="color: #000000;">[+ z_party_name +]</span> остаётся ярым противником <span style="color: #9B0000;">марксизма</span>, что фактически исключает любые перспективы коалиции с нами.
-
 
 @compromise
 title: Голосование зашло в тупик!
@@ -433,20 +433,27 @@ if (!Q.goerdeler_unlock && !Q.bolz_unlock && !Q.westarp_unlock && !Q.lejeune_jun
 
 <span style="color: #3E88B3;">Национал-консерваторы</span> (<span style="color: #3E88B3;">**НННП**</span>) — Вестарп / Лежен-Юнг / Гёрделер —[? if cvp_ideology == "Левые": Незначительные ?][? if cvp_ideology != "Левые" and not presidential_points_lead: Ограниченные ?][? if cvp_ideology != "Левые" and presidential_points_lead: Влиятельные ?][? if cvp_ideology != "Левые" and conservative_right_points_lead: Могущественные ?]
 
-<span style="color: #385A38;">Аграрии</span> (<span style="color: #3E88B3;">**НННП**</span>) — Вестарп —[? if cvp_ideology == "Левые": Незначительные ?][? if cvp_ideology != "Левые" and not presidential_points_lead: Ограниченные ?][? if cvp_ideology != "Левые" and presidential_points_lead: Заметные ?][? if cvp_ideology != "Левые" and agrarian_right_points_lead: Влиятельные ?] <hr id="read-marker"> <span style="color: #6D5298;">Христианско-социальное движение</span> (<span style="color: #3E88B3;">**НННП**</span>) — Леттов_Форбек —[? if cvp_ideology == "Левые" and not labor_points_lead: Незначительные ?][? if ((cvp_ideology != "Левые" and not presidential_points_lead) or (cvp_ideology == "Левые" and labor_points_lead)): Ограниченные ?][? if cvp_ideology != "Левые" and presidential_points_lead and not labor_points_lead: Значительное ?][? if cvp_ideology != "Левые" and labor_points_lead: Влиятельное ?][? if cvp_ideology != "Левые" and labor_right_points_lead: Сильное ?]
+<span style="color: #385A38;">Аграрии</span> (<span style="color: #3E88B3;">**НННП**</span>) — Вестарп —[? if cvp_ideology == "Левые": Незначительные ?][? if cvp_ideology != "Левые" and not presidential_points_lead: Ограниченные ?][? if cvp_ideology != "Левые" and presidential_points_lead: Заметные ?][? if cvp_ideology != "Левые" and agrarian_right_points_lead: Влиятельные ?]
+<hr id="read-marker">
+<span style="color: #6D5298;">Христианско-социальное движение</span> (<span style="color: #3E88B3;">**НННП**</span>) — Леттов_Форбек —[? if cvp_ideology == "Левые" and not labor_points_lead: Незначительные ?][? if ((cvp_ideology != "Левые" and not presidential_points_lead) or (cvp_ideology == "Левые" and labor_points_lead)): Ограниченные ?][? if cvp_ideology != "Левые" and presidential_points_lead and not labor_points_lead: Значительное ?][? if cvp_ideology != "Левые" and labor_points_lead: Влиятельное ?][? if cvp_ideology != "Левые" and labor_right_points_lead: Сильное ?]
 
-<span style="color: #330000;">Католическое рабочее движение</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Больц -[? if cvp_ideology == "Левые" and labor_left_points_lead: Сильное ?][? if (cvp_ideology == "Левые" and not labor_left_points_lead) or labor_points_lead: Влиятельное ?][? if cvp_ideology != "Левые" and democratic_points_lead and not labor_points_lead: Значительное ?][? if cvp_ideology != "Левые" and not democratic_points_lead and not labor_points_lead: Ограниченное ?] <hr id="read-marker"> <span style="color: #0087DC;">Народные консерваторы</span> (<span style="color: #3E88B3;">**НННП**</span>) - Гёрделер / Леттов_Форбек -[? if cvp_ideology == "Левые" and democratic_points_lead: Доминирующее ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Влиятельное ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Значительное ?]
+<span style="color: #330000;">Католическое рабочее движение</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Больц -[? if cvp_ideology == "Левые" and labor_left_points_lead: Сильное ?][? if (cvp_ideology == "Левые" and not labor_left_points_lead) or labor_points_lead: Влиятельное ?][? if cvp_ideology != "Левые" and democratic_points_lead and not labor_points_lead: Значительное ?][? if cvp_ideology != "Левые" and not democratic_points_lead and not labor_points_lead: Ограниченное ?]
+<hr id="read-marker">
+<span style="color: #0087DC;">Народные консерваторы</span> (<span style="color: #3E88B3;">**НННП**</span>) - Гёрделер / Леттов_Форбек -[? if cvp_ideology == "Левые" and democratic_points_lead: Доминирующее ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Влиятельное ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Значительное ?]
 
-<span style="color: #000099;">Правые католики</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Лежён-Юнг / Больц -[? if cvp_ideology == "Левые" and democratic_points_lead: Влиятельное ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Значительное ?][? if cvp_ideology == "Правые" and not democratic_points_lead: Ограниченное ?] <hr id="read-marker"> <span style="color: #000000;">Католический центр</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Больц / Лежён-Юнг -[? if cvp_ideology == "Левые" and democratic_points_lead: Сильное ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Влиятельное ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Значительное ?]
+<span style="color: #000099;">Правые католики</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Лежён-Юнг / Больц -[? if cvp_ideology == "Левые" and democratic_points_lead: Влиятельное ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Значительное ?][? if cvp_ideology == "Правые" and not democratic_points_lead: Ограниченное ?]
+<hr id="read-marker">
+<span style="color: #000000;">Католический центр</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Больц / Лежён-Юнг -[? if cvp_ideology == "Левые" and democratic_points_lead: Сильное ?][? if ((cvp_ideology == "Левые" and not democratic_points_lead) or (democratic_points_lead and cvp_ideology != "Левые")): Влиятельное ?][? if cvp_ideology != "Левые" and not democratic_points_lead: Значительное ?]
 
-<span style="color: #FF7F00;">Левые христиане</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Больц -[? if cvp_ideology == "Левые" and labor_left_points_lead: Значительное ?][? if cvp_ideology == "Левые" and not labor_left_points_lead: Ограниченное ?][? if cvp_ideology != "Левые": Незначительное ?] <hr id="read-marker"> Все появившиеся компромиссные кандидатуры в целом приемлемы для большинства партии, но окончательное решение о том, кого избрать, ещё не принято. Герой войны в отставке и член рейхстага Леттов_Форбек предложен в качестве единого кандидата, однако чтобы убедить не желающего занимать этот пост Леттова-Форбека возглавить политическую партию, потребуется нечто большее, чем просто поддержка фракций.
+<span style="color: #FF7F00;">Левые христиане</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) - Больц -[? if cvp_ideology == "Левые" and labor_left_points_lead: Значительное ?][? if cvp_ideology == "Левые" and not labor_left_points_lead: Ограниченное ?][? if cvp_ideology != "Левые": Незначительное ?]
+<hr id="read-marker"> Все появившиеся компромиссные кандидатуры в целом приемлемы для большинства партии, но окончательное решение о том, кого избрать, ещё не принято. Герой войны в отставке и член рейхстага Леттов_Форбек предложен в качестве единого кандидата, однако чтобы убедить не желающего занимать этот пост Леттова-Форбека возглавить политическую партию, потребуется нечто большее, чем просто поддержка фракций.
+Все выдвинутые компромиссные кандидаты в целом приемлемы для большинства партии, но окончательное решение о том, кого избрать, ещё не принято. Отставного героя войны и депутата Рейхстага Леттова-Форбека предложили в качестве кандидата единства, но убедить неохотного Леттова-Форбека возглавить политическую партию потребовало бы куда большего, чем просто поддержка фракций.
 
 - @bolz
 - @lejeune_jung
 - @goerdeler
 - @westarp
 - @vorbeck
-
 
 
 @bolz
@@ -459,10 +466,9 @@ face-image: img/portraits/bolz.jpg
 
 Министр-президент Вюртемберга Ойген Больц избран на пост лидера общенациональной <span style="color: #000000;">**[+ z_party_name +]**</span>. Больц гармонично сотрудничал с уважаемым Вильгельмом Базилем, консервативным лидером умеренной вюртембергской <span style="color: #3E88B3;">**НННП**</span> с 1924 года, что сделало его естественным выбором на роль компромиссной кандидатуры. Это принесло ему почти всеобщую поддержку в партии.
 
-Однако роль Больца как компромиссной фигуры ограничила его способность осуществлять значительные перемены, поскольку он должен действовать крайне осторожно, чтобы не оттолкнуть фракции, которые помогли ему прийти к власти. Больц попытается преодолеть конфессиональные разногласия между консерваторами-католиками и консерваторами-протестантами, ведь партия всё ещё расколота по принципу <span class="tooltip-text" title="that's me! the modman!">изначальной</span> партийной принадлежности её членов.
+Однако роль Больца как компромиссной фигуры ограничила его способность осуществлять значительные перемены, поскольку он должен действовать крайне осторожно, чтобы не оттолкнуть фракции, которые помогли ему прийти к власти. Больц попытается преодолеть конфессиональные разногласия между консерваторами-католиками и консерваторами-протестантами, ведь партия всё ещё расколота по принципу <span class="tooltip-text" title="это я! создатель мода!">изначальной</span> партийной принадлежности её членов.
 
 Учитывая отказ Больца вступить в <span style="color: #000000;">Вейм</span><span style="color: #DD0000;">арс</span><span style="color: #FFCC00;">кую</span> коалицию в Вюртемберге в 1928 году, поскольку он считал <span style="color: #c00000;">**СДПГ**</span> «неспособной к управлению страной», мы не ожидаем значительного улучшения наших отношений в дальнейшем.
-
 
 @lejeune_jung
 title: Пауль Лежён-Юнг, бывший член <span style="color: #3E88B3;">НННП</span>, избран их новым лидером.
@@ -474,10 +480,9 @@ face-image: img/portraits/lejeune_jung.jpg
 
 Пауль Лежен-Юнг, лидер католического крыла <span style="color: #3E88B3;">**НННП**</span> и сторонник сближения с <span style="color: #000000;">партией Центра</span>, избран лидером их объединения. Его католическое вероисповедание сделало его приемлемой фигурой для бывших членов <span style="color: #000000;">партии Центра</span>, а его близость к фракции Вестарпа укрепила поддержку <span style="color: #3E88B3;">националистов</span>.
 
-Однако роль Лежена-Юнга как компромиссной фигуры мешает ему проводить значительные изменения, так как он должен действовать крайне осторожно, чтобы не оттолкнуть фракции, которые привели его к власти. Лежен-Юнг попытается преодолеть конфессиональные разногласия между католическими и протестантскими консерваторами, ведь партия всё ещё разделена по признаку их партийного <span class="tooltip-text" title="that's me! the modman!">происхождения</span>.
+Однако роль Лежена-Юнга как компромиссной фигуры мешает ему проводить значительные изменения, так как он должен действовать крайне осторожно, чтобы не оттолкнуть фракции, которые привели его к власти. Лежен-Юнг попытается преодолеть конфессиональные разногласия между католическими и протестантскими консерваторами, ведь партия всё ещё разделена по признаку их партийного <span class="tooltip-text" title="это я! создатель мода!">происхождения</span>.
 
 Само собой разумеется, это сделает сотрудничество внутри партии невозможным в обозримом будущем.
-
 
 @goerdeler
 title: Карл Гёрделер, бывший член <span style="color: #3E88B3;">НННП</span>, избран их новым лидером.
@@ -493,7 +498,6 @@ face-image: img/portraits/goerdeler.jpg
 
 Само собой разумеется, это сделает сотрудничество внутри партии невозможным в обозримом будущем.
 
-
 @westarp
 title: Куно фон Вестарп, бывший член <span style="color: #3E88B3;">НННП</span>, избран их новым лидером.
 subtitle: Давний приверженец <span style="color: #3E88B3;">НННП</span>, в прошлом предотвративший захват партии Гугенбергом. - <span style="color: #3E88B3;">Национал-консервативное</span> крыло
@@ -507,7 +511,6 @@ face-image: img/portraits/Kuno_von_Westarp.jpg
 Вестарп обладает большим опытом в улаживании внутренних разногласий и старается не оказывать явного предпочтения ни одному из партийных крыльев, чтобы избежать раскола организации. Хотя программа партии в целом осталась без изменений, заметно усилилась антисемитская и промонархическая риторика, поскольку Вестарп стремится сохранить дух ныне несуществующей <span style="color: #3E88B3;">**НННП**</span> в рамках этой новой структуры.
 
 Само собой разумеется, при Вестарпе сотрудничество внутри партии будет невозможным в обозримом будущем.
-
 
 @vorbeck
 title: Герой войны Пауль фон Леттов_Форбек, бывший член <span style="color: #3E88B3;">НННП</span>, избран их новым лидером.

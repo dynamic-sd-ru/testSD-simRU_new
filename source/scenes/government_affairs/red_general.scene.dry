@@ -9,8 +9,7 @@ go-to: schleicher_menu if not schleicher_spd_adopted; schleicher_spd_established
 
 = Отношения с «красным генералом»
 
-Хотя <span style="color: #c00000;">[? if chancellor_party == "СДПГ": СДПГ ?]
-
+[? if chancellor_party == "СДПГ": Пока <span style="color: #c00000;">**СДПГ**</span> полностью контролирует правительство, нам нельзя терять бдительность. У Курта фон Шлейхера наверняка припасено ещё немало трюков — рано списывать со счетов его способность и дальше влиять на обстановку. ?][? if chancellor_party != "СДПГ": Хотя <span style="color: #c00000;">**СДПГ**</span> твёрдо придерживается курса на единый фронт против нынешнего <span style="color: #808080;">реакционного</span> правительства, АДГБ, наш профсоюз, проявил некоторую готовность к соглашению с генералом Куртом фон Шлейхером. Он также выразил интерес к тому, чтобы привлечь профсоюз на свою сторону, поддержав общественные работы. ?]
 
 @schleicher_menu
 
@@ -21,31 +20,28 @@ go-to: schleicher_menu if not schleicher_spd_adopted; schleicher_spd_established
 - @easy_discard
 - @cancel_advisor_action
 
-
 @spd_schleicher_adopted
 subtitle: Профсоюзы твёрдо определились со своей позицией, но убедить партию — это совсем другое дело.
 unavailable-subtitle: Прошлейхеровские фракции недостаточно сильны, чтобы повлиять на политику АДГБ.
 view-if: schleicher_spd_support >= 10
 choose-if: labor_strength + reformist_strength + social_patriot_strength >= (center_strength*1.5) + left_strength
-on-arrival: schleicher_spd_adopted = 1; schleicher_spd_r += 1 if schleicher_spd_r < 5; center_dissent += 5; left_dissent += 10; labor_strength += 10; reformist_strength += 5; schleicher_approval += 2
+on-arrival: schleicher_spd_adopted = 1; schleicher_spd_r += 1 if schleicher_spd_r < 5; center_dissent += 5; left_dissent += 10; labor_strength += 10; reformist_strength += 5; schleicher_approval += 2; kpd_nazi_urgency -= 3;
 max-visits: 1
 
 Руководство АДГБ теперь официально, хоть и негласно, заняло позицию в пользу сотрудничества с «красным генералом». Профсоюз попытается использовать своё влияние на <span style="color: #c00000;">**СДПГ**</span>, чтобы подтолкнуть наше колеблющееся партийное руководство к принятию той же позиции.
 
 В партии постепенно меняются настроения. Отто Браун теперь выступил в поддержку сделки с генералом.
 
-
 @convince_spd_schleicher
 subtitle: [? if chancellor == "Папен": Убедить партию следовать этому курсу почти невозможно, по крайней мере, пока Папен остаётся канцлером.  ?][? if chancellor == "Шлейхер": Сотрудничество с самим генералом не исключено, учитывая его уступки профсоюзам. ?]
 unavailable-subtitle: Прошлейхеровские фракции недостаточно сильны, чтобы повлиять на политику АДГБ.
 view-if: schleicher_spd_support < 10
 choose-if: labor_strength + reformist_strength + social_patriot_strength >= (center_strength*1.5) + left_strength
-on-arrival: schleicher_spd_support += 3; schleicher_spd_support += 1 if wtb_adopted; schleicher_spd_support -= 1 if chancellor == "Папен"; schleicher_spd_support -= 1 if otl_prussian_coup_seen; workers_spd -= 1; unemployed_spd -= 1; workers_kpd += 1; unemployed_kpd += 1; center_dissent += 5; left_dissent += 5
+on-arrival: schleicher_spd_support += 3; schleicher_spd_support += 1 if wtb_adopted; schleicher_spd_support -= 1 if chancellor == "Папен"; schleicher_spd_support -= 1 if otl_prussian_coup_seen; workers_spd -= 1; unemployed_spd -= 1; workers_kpd += 1; unemployed_kpd += 1; center_dissent += 5; left_dissent += 5; kpd_nazi_urgency -= 1;
 
 Медленно, но верно руководство АДГБ начинает склоняться к идее конструктивного сотрудничества с так называемым «красным генералом». Однако предстоит ещё много работы: многие члены профсоюза и подавляющее большинство <span style="color: #c00000;">**СДПГ**</span> по-прежнему твёрдо выступают против сотрудничества с этим человеком, [? if chancellor == "Папен": поддерживающим повсеместно презираемый кабинет Папена. ?][? if chancellor == "Шлейхер": который теперь возглавляет крайне непопулярное правительство. ?]. [? if wtb_adopted:  Принятие нами плана ВТБ — а также публичная поддержка Шлейхером аналогичных инициатив в области общественных работ — несколько повысило готовность партии рассмотреть возможность сотрудничества. ?]
 
 [? if otl_prussian_coup_seen: Более того, его роль в путче против нашего прусского правительства лишь усугубила враждебность как к нему, так и к <span style="color: #c00000;">**СДПГ**</span>. ?] Слухи о нашем сотрудничестве нанесли ущерб нашему положению среди рабочего класса.
-
 
 @united_front
 view-if: chancellor_party != "СДПГ"
@@ -54,14 +50,12 @@ on-arrival: schleicher_spd_support -= 2 if schleicher_spd_support > 0; schleiche
 
 Мы продолжаем выступать за единую оппозицию демократических партий против непопулярного правительства [+ chancellor +]а и завоёвываем этим поддержку народа.
 
-
-@united_front_majority
+@united_front_majority 
 view-if: chancellor_party == "СДПГ"
 subtitle: Учитывая наше абсолютное большинство в правительстве, у нас нет необходимости сотрудничать со Шлейхером — вместо этого мы можем нацелиться на расширение единого фронта против тех, кто желает разрушить Республику.
 on-arrival: schleicher_spd_support -= 2 if schleicher_spd_support > 0; schleicher_spd_r -= 1 if schleicher_spd_r > 0; schleicher_spd_influence -= 1 if schleicher_spd_influence > 0; workers_spd += 2; workers_kpd -= 1; left_dissent -= 5; center_dissent -= 5
 
 Мы продолжаем осуждать антидемократическую оппозицию как губительную для Республики, подчеркивая ту роль, которую канцлер [+ chancellor +] играет в стабилизации ситуации. Это помогает нашей поддержке среди народа.
-
 
 @schleicher_spd_established
 
@@ -70,20 +64,17 @@ on-arrival: schleicher_spd_support -= 2 if schleicher_spd_support > 0; schleiche
 - @concessions: Используя наше влияние, потребовать уступок от правительства.
 - @easy_discard
 
-
 @schleicher_ties
 subtitle: Между двумя группировками будут проводиться более регулярные встречи.
 on-arrival: schleicher_spd_r += 1; schleicher_spd_support += 1; schleicher_spd_influence += 1
 
 Регулярные тайные встречи между ADGB, <span style="color: #c00000;">**СДПГ**</span> и фон Шлейхером проводятся. Это будет способствовать снижению взаимного недоверия между партией и правительством.
 
-
 @schleicher_distance
 subtitle: Мы оттесним его сторонников.
-on-arrival: schleicher_spd_r -= 1; schleicher_spd_support -= 2; schleicher_spd_influence -= 1; labor_dissent += 8; reformist_dissent += 8; social_patriot_dissent += 8; center_dissent -= 5; left_dissent -= 5; neorevisionist_dissent -= 5; reformist_strength -= 4; labor_strength -= 4; social_patriot_strength -= 4
+on-arrival: schleicher_spd_r -= 1; schleicher_spd_support -= 2; schleicher_spd_influence -= 1; labor_dissent += 8; reformist_dissent += 8; social_patriot_dissent += 8; center_dissent -= 5; left_dissent -= 5; neorevisionist_dissent -= 5; reformist_strength -= 4; labor_strength -= 4; social_patriot_strength -= 4; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 За последние месяцы Шлейхер привлёк на свою сторону немало сторонников в реформистской и профсоюзной фракций <span style="color: #c00000;">**СДПГ**</span>. Их отстранение вызовет недоверие Шлейхера и посеет недовольство в затронутых фракциях.
-
 
 @concessions
 view-if: chancellor == "Шлейхер" and schleicher_time >= 8 and schleicher_spd_concession < 2
@@ -101,14 +92,13 @@ subtitle: Есть предел тому, чего мы можем требов�
 - @labor
 - @cabinet_reshuffle
 
-
 @prussia
 title: Потребовать восстановления нашего правительства в Пруссии.
 subtitle: Восстановить контроль над прусской полицией и обеспечить участие в правительстве земли.
 unavailable-subtitle: [? if schleicher_spd_r < 5: Сперва нам нужно улучшить отношения со Шлейхером. ?][? if hindenburg_schleicher_r < 5: Гинденбург крайне неохотно возвращает Пруссию в руки <span style="color: #c00000;">социалистов</span>.  ?][? if not schleicher_post: Шлейхер призывает нас подождать до следующих выборов. ?][? if dsu_in_gov or dsu_was_gov: Шлейхер твёрдо намерен сохранить в правительстве[? if dsu_was_gov: &nbsp;бывших ?] <span style="color: #7A3C00;">нацистов</span>. ?]
 choose-if: schleicher_post and schleicher_spd_r >= 7 and hindenburg_schleicher_r >= 5 and not dsu_in_gov and not dsu_was_gov
 view-if: prussia_leader == "Шлейхер"
-on-arrival: schleicher_spd_concession += 1; schleicher_spd_influence += 4; schleicher_spd_support += 2; schleicher_spd_r -= 2; prussia_returned = 1; prussia_leader = older_prussia_leader; in_weimar_coalition_prussia = 1 if pre_in_weimar_coalition_prussia; in_grand_coalition_prussia = 1 if pre_in_grand_coalition_prussia; in_minority_weimar_coalition_prussia = 1 if in_weimar_coalition_prussia and weimar_coalition_prussia < 50; in_minority_grand_coalition_prussia = 1 if in_grand_coalition_prussia and grand_coalition_prussia < 50; pro_republic += 10; workers_spd += 5; new_middle_spd += 5; unemployed_spd += 3; new_middle_ddp += 3; labor_dissent -= 15; reformist_dissent -= 15; reformist_strength += 15; left_dissent -= 15; prussian_police_loyalty += 0.3; rb_strength *= 1.1; rb_militancy *= 1.1; papen_strength += 1; schleicher_strength -= 1; hindenburg_schleicher_r -= 2; schleicher_approval += 1; nationalists_schleicher_bonus -= 2; industrialists_schleicher_bonus -= 1; republicans_schleicher_bonus += 2
+on-arrival: schleicher_spd_concession += 1; schleicher_spd_influence += 4; schleicher_spd_support += 2; schleicher_spd_r -= 2; prussia_returned = 1; prussia_leader = older_prussia_leader; in_weimar_coalition_prussia = 1 if pre_in_weimar_coalition_prussia; in_grand_coalition_prussia = 1 if pre_in_grand_coalition_prussia; in_minority_weimar_coalition_prussia = 1 if in_weimar_coalition_prussia and weimar_coalition_prussia < 50; in_minority_grand_coalition_prussia = 1 if in_grand_coalition_prussia and grand_coalition_prussia < 50; pro_republic += 10; workers_spd += 5; new_middle_spd += 5; unemployed_spd += 3; new_middle_ddp += 3; labor_dissent -= 15; reformist_dissent -= 15; reformist_strength += 15; left_dissent -= 15; prussian_police_loyalty += 0.3; rb_strength *= 1.1; rb_militancy *= 1.1; papen_strength += 1; schleicher_strength -= 1; hindenburg_schleicher_r -= 2; schleicher_approval += 1; nationalists_schleicher_bonus -= 2; industrialists_schleicher_bonus -= 1; republicans_schleicher_bonus += 2; kpd_nazi_urgency -= 1;
 
 Несмотря на то, что несколько месяцев назад Шлейхер отверг предложение Брауна, он изменил своё решение. С таким популярным государственным деятелем на своей стороне его правление обретёт легитимность в глазах <span style="color: #000000;">респу</span><span style="color: #DD0000;">бли</span><span style="color: #FFCC00;">канцев</span> и общественности. Браун, в свою очередь, будет неустанно продвигать прошлейхеровскую политику внутри партии.
 
@@ -117,26 +107,24 @@ on-arrival: schleicher_spd_concession += 1; schleicher_spd_influence += 4; schle
 - @prussian_affairs
 - @prussian_affairs_dvp
 
-
 @labor
 title: Потребовать больших уступок для профсоюзов и восстановления немецкой системы социального обеспечения.
 subtitle: Добиваться повышения заработной платы, отмены декретов Папена и восстановления восьмичасового рабочего дня.
 unavailable-subtitle: [? if schleicher_spd_r < 5: Сначала мы должны улучшить наши отношения со Шлейхером. ?][? if hindenburg_schleicher_r < 3: Шлейхер настаивает, что Гинденбург заблокирует такой указ, не желая отменять меры Папена. ?]
 choose-if: schleicher_spd_r >= 5 and hindenburg_schleicher_r >= 3
 view-if: not schleicher_labor
-on-arrival: schleicher_spd_concession += 1; schleicher_labor = 1; schleicher_spd_influence += 4; schleicher_spd_support += 2; schleicher_spd_r -= 2; hindenburg_schleicher_r -= 1; unemployed -= 1.8; economic_growth += 0.8; inflation += 1.4; budget -= 1; workers_kpd -= 6; unemployed_kpd -= 6; workers_nsdap -= 2; unemployed_nsdap -= 2; workers_spd += 6; unemployed_spd += 6; workers_z += 2; unemployed_z += 2; workers_dnef += 4; unemployed_dnef += 2; workers_dnef_bonus += 4; unemployed_dnef_bonus += 2; pro_republic += 5; labor_dissent -= 40; labor_strength += 15; social_patriot_strength += 10; schleicher_approval += 2; industrialists_schleicher_bonus -= 1
+on-arrival: schleicher_spd_concession += 1; schleicher_labor = 1; schleicher_spd_influence += 4; schleicher_spd_support += 2; schleicher_spd_r -= 2; hindenburg_schleicher_r -= 1; unemployed -= 1.8; economic_growth += 0.8; inflation += 1.4; budget -= 1; workers_kpd -= 6; unemployed_kpd -= 6; workers_nsdap -= 2; unemployed_nsdap -= 2; workers_spd += 6; unemployed_spd += 6; workers_z += 2; unemployed_z += 2; workers_dnef += 4; unemployed_dnef += 2; workers_dnef_bonus += 4; unemployed_dnef_bonus += 2; pro_republic += 5; labor_dissent -= 40; labor_strength += 15; social_patriot_strength += 10; schleicher_approval += 2; industrialists_schleicher_bonus -= 1; kpd_nazi_urgency -= 1;
 
 <span style="color: #c00000;">Социальный</span> генерал оправдал своё прозвище: проверка нуждаемости для получения пособия по безработице отменена, а в отдельных отраслях восстановлен восьмичасовой рабочий день, чтобы «распределить» работу между большим числом людей. Финансирование министерства труда, урезанное при Папене, восстановлено: уровень благосостояния снова растёт после падения до абсолютного минимума.
 
 Обратная сторона очевидна: теперь у Шлейхера есть значительные рычаги влияния на профсоюзы, и многие рабочие начинают проявлять лояльность канцлеру, а не партии, которая боролась за эти достижения.
-
 
 @cabinet_reshuffle
 title: Потребовать кадровых перестановок в кабинете.
 subtitle: В кабинете Шлейхера по-прежнему доминируют крайне <span style="color: #808080;">реакционные</span> фигуры, оставшиеся со времён «кабинета баронов» Папена.
 unavailable-subtitle: [? if schleicher_spd_r < 7: Сначала нам нужно улучшить отношения со Шлейхером.  ?][? if hindenburg_schleicher_r < 5: Шлейхер настаивает, что Гинденбург заблокирует любую реорганизацию кабинета, направленную против его <span style="color: #808080;">реакционных</span> фаворитов.  ?][? if not schleicher_post: Шлейхер настаивает, что его правительство — лишь временное, и мы должны подождать до следующих выборов.  ?][? if dsu_in_gov or dsu_was_gov: Шлейхер твёрдо намерен оставить в правительстве[? if dsu_was_gov: &nbsp;бывших ?] <span style="color: #7A3C00;">нацистов</span>.  ?][? if z_leader == "Брахт": Теперь уже слишком поздно: Брахт из <span style="color: #000000;">Партии Центра</span> отказывается от любых шагов к более умеренному представительству. ?]
 choose-if: schleicher_post and schleicher_spd_r >= 7 and z_in_gov and not dsu_in_gov and not dsu_was_gov and hindenburg_schleicher_r >= 5 and z_leader != "Брахт"
-on-arrival: schleicher_spd_concession += 1; schleicher_spd_influence += 2; schleicher_spd_support += 2; schleicher_spd_r -= 2; papen_strength += 2; schleicher_strength -= 1; hindenburg_schleicher_r -= 3; schleicher_cabinet_weak = 1; unemployed -= 0.4; economic_growth += 0.2; workers_spd += 2; unemployed_spd += 2; workers_kpd -= 2; unemployed_kpd -= 2; pro_republic += 8; reformist_dissent -= 10; reformist_strength += 5; schleicher_approval += 1
+on-arrival: schleicher_spd_concession += 1; schleicher_spd_influence += 2; schleicher_spd_support += 2; schleicher_spd_r -= 2; papen_strength += 2; schleicher_strength -= 1; hindenburg_schleicher_r -= 3; schleicher_cabinet_weak = 1; unemployed -= 0.4; economic_growth += 0.2; workers_spd += 2; unemployed_spd += 2; workers_kpd -= 2; unemployed_kpd -= 2; pro_republic += 8; reformist_dissent -= 10; reformist_strength += 5; schleicher_approval += 1; kpd_nazi_urgency -= 1;
 
 Хотя многие <span style="color: #808080;">реакционные</span> фигуры в кабинете уже заменены назначенцами от <span style="color: #000000;">Партии Центра</span>, необходимы дальнейшие реформы, чтобы правительство Шлейхера выглядело более демократичным.
 

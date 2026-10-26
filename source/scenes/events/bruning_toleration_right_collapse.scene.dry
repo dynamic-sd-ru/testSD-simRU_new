@@ -18,7 +18,6 @@ face-image: img/dnvp4.jpg
 - @vonc_yes
 - @vonc_no
 
-
 @vonc_yes
 title: Поддержать вотум недоверия, проголосовав против правительства.
 subtitle: Это мы покончим с Брюнингом, к чёрту тебя!
@@ -30,13 +29,11 @@ go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_co
 
 Коалиция <span style="color: #000000;">буржуазных</span> и <span style="color: #3E88B3;">правых</span> партий пала. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @vonc_no
 title: Проголосовать против вотума недоверия, поддержав правительство.
 subtitle: Будем надеяться, что <span style="color: #3E88B3;">**НННП**</span> сумеет навести у себя порядок.
 on-arrival: left_dissent += 5
 go-to: vonc_hergt if dnvp_leader == "Гергт"; vonc_treviranus if dnvp_leader == "Тревиранус"; vonc_lambach if dnvp_leader == "Ламбах"; vonc_moderate if dnvp_leader == "Шиле" or dnvp_leader == "Вестарп"
-
 
 
 @vonc_hergt
@@ -47,7 +44,6 @@ on-arrival: dnvp_leader = "Вестарп"
 История, похоже, повторяется: <span style="color: #3E88B3;">**НННП**</span> вновь глубоко расколота, её прагматичное крыло поддерживает Брюнинга, в то время как её осмелевшее правое крыло примыкает к <span style="color: #7A3C00;">национальной</span> <span style="color: #003755;">оппозиции</span>. Теперь партия стоит перед судьбоносным выбором: либо проглотить горькую пилюлю и работать в рамках системы, либо пойти на риск катастрофических последствий, вплоть до уничтожения самой <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арской</span> республики.
 
 - @results: Созывается Рейхстаг.
-
 
 @results
 on-arrival: {!
@@ -90,7 +86,6 @@ go-to: election_set if anti_bruning_dnvp >= pro_bruning_dnvp
 
 [? if pro_bruning_dnvp >= anti_bruning_dnvp: Делегаты-сторонники Брюнинга сохранили контроль над партией, а новый лидер <span style="color: #3E88B3;">**НННП**</span>, которым по совпадению снова стал Вестарп, обеспечил соблюдение партийной дисциплины, и лишь несколько радикально настроенных членов проголосовали против.  ?][? if anti_bruning_dnvp >= pro_bruning_dnvp: Делегаты, поддерживающие Брюнинга, утратили контроль над партией, и большинство фракции согласилось поддержать вотум недоверия правительству. После отставки Гергта Вестарп по стечению обстоятельств вновь переизбирается на пост председателя. ?]
 
-
 @vonc_treviranus
 on-arrival: {!
 Q.dnf_r += Q.dnvp_r*0.2;
@@ -113,13 +108,11 @@ Q.bruning_coalition = Math.round((Q.bruning_coalition - Q.bruning_coalition_loss
 - @results2: Рейхстаг собирается.
 - @results3: Рейхстаг созван.
 
-
 @results2
 view-if: bruning_coalition >= 50
 on-arrival: new_middle_dnvp -= 2; new_middle_dnf += 2; new_middle_nsdap += 2; old_middle_dnvp -= 4; old_middle_dnf += 2; old_middle_nsdap += 4; rural_dnvp -= 3; rural_nsdap += 3; workers_dnvp -= 2; workers_nsdap += 2; dvp_left += 1; ddp_left += 1; lvp_left += 1
 
 Несмотря на уход некоторых депутатов от <span style="color: #3E88B3;">**НННП**</span> к <span style="color: #003755;">**НФГ**</span>, правительство Брюнинга сохранило поддержку [+ bruning_coalition +]% депутатов рейхстага. Однако, несмотря на эту победу, этот эпизод привёл к резкой радикализации <span style="color: #3E88B3;">**НННП**</span>, заставив многих перейти к более радикальной <span style="color: #003755;">**НФГ**</span> и даже <span style="color: #7A3C00;">**НСДАП**</span>.
-
 
 @results3
 view-if: bruning_coalition < 50
@@ -127,7 +120,6 @@ on-arrival: time_to_election = 3; spd_in_government = 0; in_right_coalition = 0;
 go-to: election_set
 
 Уход части депутатов <span style="color: #3E88B3;">**НННП**</span> к парламентской фракции гугеберговской <span style="color: #003755;"> **НФГ**</span> привели к тому, что Брюнинг проиграл голосование по вотуму недоверия, а это повлекло за собой новые выборы, на которых могут усилиться экстремисты.
-
 
 @vonc_lambach
 on-arrival: {!
@@ -151,7 +143,6 @@ Q.bruning_coalition = Math.round((Q.bruning_coalition - Q.bruning_coalition_loss
 - @results6: Рейхстаг собирается.
 - @results7: Рейхстаг собирается.
 
-
 @results6
 view-if: bruning_coalition >= 50
 on-arrival: new_middle_dnvp -= 6; new_middle_dnf += 4; new_middle_nsdap += 2; old_middle_dnvp *= 0.5; old_middle_dnf += 4; old_middle_nsdap += 2; rural_dnvp *= 0.6; rural_dnf += 4; rural_nsdap += 2; workers_dnvp -= 2; workers_nsdap += 2; dvp_left += 1; ddp_left += 1; lvp_left += 1; lambachover = 1
@@ -159,7 +150,6 @@ on-arrival: new_middle_dnvp -= 6; new_middle_dnf += 4; new_middle_nsdap += 2; ol
 Несмотря на уход значительной части парламентской фракции от <span style="color: #3E88B3;">**НННП**</span> к <span style="color: #003755;">**НФГ**</span>, правительство Брюнинга сохранило поддержку [+ bruning_coalition +]% депутатов рейхстага.
 
 Однако, хотя это и может показаться победой, потеря почти 40% парламентской фракции спровоцировала дальнейший уход избирателей из <span style="color: #3E88B3;">**НННП**</span> к <span style="color: #003755;">**НФГ**</span> — и даже <span style="color: #7A3C00;">**НСДАП**</span>.
-
 
 @results7
 view-if: bruning_coalition < 50
@@ -169,7 +159,6 @@ go-to: election_set
 Уход некоторых депутатов парламентской фракции от <span style="color: #3E88B3;">**НННП**</span> гугенберговской к <span style="color: #003755;">**НФГ**</span> привёл к тому, что Брюнинг проиграл голосование по вотуму недоверия, что повлекло за собой новые выборы, на которых могут усилиться экстремисты.
 
 Потеря почти 40% <span style="color: #3E88B3;">**НННП**</span> её парламентской группы спровоцировал ещё более массовый выход из <span style="color: #3E88B3;">**НННП**</span> из числа не-рабочих в <span style="color: #003755;">**НФГ**</span> — и даже из <span style="color: #7A3C00;">**НСДАП**</span>.
-
 
 @vonc_moderate
 on-arrival: {!
@@ -193,13 +182,11 @@ Q.bruning_coalition = Math.round((Q.bruning_coalition - Q.bruning_coalition_loss
 - @results4: Рейхстаг созывается.
 - @results5: Рейхстаг созывается.
 
-
 @results4
 view-if: bruning_coalition >= 50
 on-arrival: new_middle_dnvp -= 2; new_middle_dnf += 2; new_middle_nsdap += 2; old_middle_dnvp -= 4; old_middle_dnf += 2; old_middle_nsdap += 4; workers_dnvp -= 2; workers_nsdap += 2; dvp_left += 1; ddp_left += 1; lvp_left += 1
 
 Несмотря на уход некоторых депутатов парламентской фракции от <span style="color: #3E88B3;">**НННП**</span> к <span style="color: #003755;">**НФГ**</span>, правительство Брюнинга сохранило поддержку [+ bruning_coalition +]% депутатов рейхстага. Однако, несмотря на эту победу, данный эпизод сильно радикализировал <span style="color: #3E88B3;">**НННП**</span>, заставив многих перейти к более радикальной <span style="color: #003755;">**НФГ**</span> и даже <span style="color: #7A3C00;">**НСДАП**</span>.
-
 
 @results5
 view-if: bruning_coalition < 50
@@ -208,12 +195,10 @@ go-to: election_set
 
 Выход из фракции даже небольшого числа депутатов <span style="color: #3E88B3;">**НННП**</span> к гугенберговской <span style="color: #003755;"> **НФГ**</span> привел к тому, что Брюнинг проиграл вотум недоверия. Это повлекло за собой новые выборы, на которых, скорее всего, усилятся экстремисты.
 
-
 @election_set
 call: set_next_election_time
 
 <span style="color: #000000;">Буржуазно</span>-<span style="color: #3E88B3;">правая</span> коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @new_prussia_election
 on-arrival: prussia_coalition_trigger = 1

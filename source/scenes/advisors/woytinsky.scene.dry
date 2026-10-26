@@ -14,7 +14,6 @@ new-page: true
 - @depression
 - @root: Вернуться на главный экран
 
-
 @plan
 title: Принять план ВТБ!
 subtitle: Убедить остальную часть партии поддержать план ВТБ.
@@ -23,7 +22,6 @@ on-arrival: advisor_action_timer = 6;
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?][? if black_thursday_seen == 0 : Сейчас нет экономического кризиса. ?][? if wtb_adopted > 0 :  Мы уже приняли план ВТБ. ?][? if wtb_points < 160 :  План ВТБ всё ещё дорабатывается. ?][? if (labor_strength < center_strength or labor_strength < left_strength):  Фракция профсоюзников недостаточно сильна. ?]
 go-to: wtb_proposed
 
-
 @carry_out_policy
 title: Реализовать план ВТБ.
 subtitle: Если мы войдём в правительство, то сможем осуществить программу общественных работ в рамках плана ВТБ.
@@ -31,7 +29,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 choose-if: advisor_action_timer <= 0 and wtb_adopted and wtb_implemented <= 1 and economic_minister_party == "СДПГ" or finance_minister_party == "СДПГ" and spd_in_government
 on-arrival: advisor_action_timer = 6; economic_policy_timer -= 12
 go-to: economic_policy
-
 
 
 @depression

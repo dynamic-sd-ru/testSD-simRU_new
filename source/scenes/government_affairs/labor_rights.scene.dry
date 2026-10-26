@@ -17,7 +17,6 @@ go-to: labor_rights_menu
 # develop and enforce safety regulations in mines and industries
 # works councils are part of another card...
 
-
 @labor_rights_menu
 
 - @working_hours: Заставить соблюдать 40-часовую рабочую неделю.
@@ -28,29 +27,25 @@ go-to: labor_rights_menu
 - @easy_discard
 - @cancel_advisor_action
 
-
 @working_hours
 view-if: working_hours < 2
-on-arrival: working_hours += 1; labor_dissent -= 8; left_dissent -= 5; labor_strength += 5; workers_spd += 7*(1-dissent); dvp_relation -= 4; ddp_relation -= 2; lvp_relation -= 3; coalition_dissent += 1; capital_strike_progress += 1 if (dvp_relation <= 30 and not lvp_formed); capital_strike_progress += 1 if (lvp_relation <= 30 and lvp_formed); labor_goal_completed = 1; inflation += 0.1; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 0.5; lvp_right += 1; labor_goal_spd += 1; pro_labor += 1; economic_growth -= 0.1
+on-arrival: working_hours += 1; labor_dissent -= 8; left_dissent -= 5; labor_strength += 5; workers_spd += 7*(1-dissent); new_middle_spd += 7*(1-dissent) if new_middle_conscious == 1; dvp_relation -= 4; ddp_relation -= 2; lvp_relation -= 3; coalition_dissent += 1; capital_strike_progress += 1 if (dvp_relation <= 30 and not lvp_formed); capital_strike_progress += 1 if (lvp_relation <= 30 and lvp_formed); labor_goal_completed = 1; inflation += 0.1; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 0.5; lvp_right += 1; labor_goal_spd += 1; pro_labor += 1; economic_growth -= 0.1
 
 Хотя 40-часовую рабочую неделю и провозгласили во время Ноябрьской революции 1918 года, со временем её соблюдение становилось всё более условным. Капиталистам удалось добавить множество исключений и лазеек, вернув старый режим принудительных сверхурочных для рабочих.
 
 Теперь силами Министерства труда мы наконец-то обеспечиваем соблюдение прав рабочих на личное время. Буржуазия и её политические представители недовольны.
 
-
 @shorten_hours
 view-if: working_hours >= 2 and black_thursday_seen = 1
 subtitle: Сможем ли мы стимулировать наём и сократить безработицу путём сокращения рабочего времени?
-on-arrival: working_hours += 1; labor_dissent -= 8; left_dissent -= 5; labor_strength += 5; workers_spd += 7*(1-dissent); dvp_relation -= 4; ddp_relation -= 3; lvp_relation -= 4; coalition_dissent += 1; capital_strike_progress += 1; labor_goal_completed = 1; unemployed -= 0.3; dvp_right += 2; ddp_right += 1; ddp_cohesion -= 0.5; lvp_right += 2; labor_goal_spd += 1; goal_spd_cancel_peoples += 1; pro_labor += 1; economic_growth -= 0.2;
+on-arrival: working_hours += 1; labor_dissent -= 8; left_dissent -= 5; labor_strength += 5; workers_spd += 7*(1-dissent); new_middle_spd += 7*(1-dissent) if new_middle_conscious == 1; dvp_relation -= 4; ddp_relation -= 3; lvp_relation -= 4; coalition_dissent += 1; capital_strike_progress += 1; labor_goal_completed = 1; unemployed -= 0.3; dvp_right += 2; ddp_right += 1; ddp_cohesion -= 0.5; lvp_right += 2; labor_goal_spd += 1; goal_spd_cancel_peoples += 1; pro_labor += 1; economic_growth -= 0.2;
 
 Некоторые представители рабочего движения утверждают, что сокращение максимального рабочего времени побудит работодателей нанимать больше рабочих, что снизит безработицу. Также утверждается, что эта мера дополнит дефляцию, сохранив покупательную способность рабочих за счёт сокращения часов, а не зарплат. Однако работодатели противятся этой политике, выступая за большую гибкость в вопросах найма и увольнения.
 
-
 @safety
-on-arrival: workers_safety += 1; labor_dissent -= 5; labor_strength += 2; workers_spd += 5*(1-dissent); capital_strike_progress += 1 if workers_safety >= 3; ddp_right += 1 if workers_safety >= 3; dvp_right += 1 if workers_safety >= 3; lvp_right += 1 if workers_safety >= 3; labor_goal_spd += 1
+on-arrival: workers_safety += 1; labor_dissent -= 5; labor_strength += 2; workers_spd += 5*(1-dissent); new_middle_spd += 3*(1-dissent) if new_middle_conscious == 1; capital_strike_progress += 1 if workers_safety >= 3; ddp_right += 1 if workers_safety >= 3; dvp_right += 1 if workers_safety >= 3; lvp_right += 1 if workers_safety >= 3; labor_goal_spd += 1
 
 Министерство труда занимается разработкой и обеспечением соблюдения нормативов безопасности, чтобы гарантировать пролетариату здоровые условия труда. [? if workers_safety >= 3 : Предприниматели начали утверждать, что наше пристальное внимание к безопасности избыточно и неоправданно и мешает экономике. ?]
-
 
 @unemployment_insurance
 view-if: unemployed >= unemployment_insurance_threshold + 4
@@ -63,23 +58,20 @@ subtitle: С ростом безработицы мы должны найти н
 - @balance: Увеличить взносы и работодателей, и работников.
 - @labor_rights_menu: Мы можем пока отложить это решение.
 
-
 @cut_benefits
 subtitle: Рабочие расценят это как предательство.
-on-arrival: workers_spd -= 0.12*workers_spd; unemployed_spd -= 0.2*unemployed_spd; workers_kpd += 5; workers_nsdap += 5; unemployed_kpd += 5; unemployed_nsdap += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; reformist_dissent += 5; welfare -= 2; budget += 1; unemployed += 3; pro_republic -= 4; kpd_relation -= 8; inflation -= 2; unemployment_insurance_threshold = unemployed; unemployment_insurance_timer = 10; dvp_left += 2; ddp_left += 2 if ddp_ideology == "Левые"; workers_ddp += 3 if ddp_ideology == "Левые"; lvp_left += 1; goal_spd_cancel += 1; labor_goal_spd_peoples += 1; economic_growth -= 0.2;
+on-arrival: workers_spd -= 0.12*workers_spd; unemployed_spd -= 0.2*unemployed_spd; new_middle_spd -= 0.12*new_middle_spd if new_middle_conscious == 1; workers_kpd += 5; workers_nsdap += 5; unemployed_kpd += 5; unemployed_nsdap += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; reformist_dissent += 5; welfare -= 2; budget += 1; unemployed += 3; pro_republic -= 4; kpd_relation -= 8; inflation -= 2; unemployment_insurance_threshold = unemployed; unemployment_insurance_timer = 10; dvp_left += 2; ddp_left += 2 if ddp_ideology == "Левые"; workers_ddp += 3 if ddp_ideology == "Левые"; lvp_left += 1; goal_spd_cancel += 1; labor_goal_spd_peoples += 1; economic_growth -= 0.2;
 
 По бюджетным соображениям мы сократили пособия по безработице. К сожалению, наши доводы в пользу бюджетной дисциплины чужды рабочим. Они в ярости из-за нашего предательства, как и члены нашей партии всех фракций. Это на руку <span style="color: #700000 ;">**КПГ**</span>, и даже <span style="color: #7A3C00;">**НСДАП**</span>, этим цепным псам буржуазии, пришлось присоединиться к критике нашей политики строгой экономии.
 
-
 @increase_employers
 subtitle: Работодатели категорически против этого.[? if in_grand_coalition: [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] , скорее всего, выйдет из коалиции.  ?][? if in_weimar_coalition and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span>, скорее всего, выйдет из коалиции. ?]
-on-arrival: capital_strike_progress += 2; coalition_dissent = 2 if in_grand_coalition; coalition_dissent = 2 if (in_weimar_coalition and lvp_formed); coalition_dissent += 1; coalition_dissent += 1 if (lvp_ideology == "Правые" and in_weimar_coalition and lvp_formed); welfare += 1; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); old_middle_spd -= 6*(1-dissent); new_middle_spd -= 2*(1-dissent); unemployment_insurance_threshold = unemployed; unemployment_insurance_timer = 10; dvp_right += 2; ddp_right += 2; ddp_cohesion -= 1; lvp_right += 2; dvp_relation -= 6; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; unemployment_goal_spd += 1; goal_spd_cancel_peoples += 1; economic_growth -= 0.2;
+on-arrival: capital_strike_progress += 2; coalition_dissent = 2 if in_grand_coalition; coalition_dissent = 2 if (in_weimar_coalition and lvp_formed); coalition_dissent += 1; coalition_dissent += 1 if (lvp_ideology == "Правые" and in_weimar_coalition and lvp_formed); welfare += 1; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); old_middle_spd -= 6*(1-dissent); new_middle_spd += 6*(1-dissent) if new_middle_conscious == 1; new_middle_spd -= 2*(1-dissent) if new_middle_conscious == 0; unemployment_insurance_threshold = unemployed; unemployment_insurance_timer = 10; dvp_right += 2; ddp_right += 2; ddp_cohesion -= 1; lvp_right += 2; dvp_relation -= 6; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; unemployment_goal_spd += 1; goal_spd_cancel_peoples += 1; economic_growth -= 0.2;
 
 Мы увеличили взносы работодателей в фонд страхования на случай безработицы, что позволяет продолжать программу, не ущемляя интересов рабочих и безработных. Вполне понятно, что капиталисты и их политические партии в ярости, а наша опора в лице профсоюзов и безработных довольна.
 
-
 @balance
 subtitle: Ни рабочие, ни работодатели не будут полностью удовлетворены или разочарованы. [? if in_grand_coalition and ((dvp_ideology == "Правые") or (dvp_ideology == "Умеренные" and dvp_relation < 40) or (dvp_ideology == "Левые" and dvp_relation < 30)) and not lvp_formed: <span style="color: #C0A054;">**ННП**</span>, скорее всего, сочтёт этот компромисс неприемлемым.  ?][? if in_grand_coalition and ((dvp_ideology == "Левые" and dvp_relation >= 30) or (dvp_ideology == "Умеренные" and dvp_relation >= 40)) and dvp_ideology != "Правые" and not lvp_formed: <span style="color: #C0A054;">**ННП**</span>, возможно, нехотя примет этот компромисс на данный момент.  ?][? if (in_grand_coalition or in_weimar_coalition) and ((lvp_ideology == "Правые") or (lvp_ideology == "Умеренные" and lvp_relation < 40) or (lvp_ideology == "Левые" and lvp_relation < 30)) and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span>, скорее всего, сочтёт этот компромисс неприемлемым.  ?][? if (in_grand_coalition or in_weimar_coalition) and ((lvp_ideology == "Левые" and lvp_relation >= 30) or (lvp_ideology == "Умеренные" and lvp_relation >= 40)) and lvp_ideology != "Правые" and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span>, возможно, нехотя примет этот компромисс на данный момент. ?]
-on-arrival: workers_spd -= 4; unemployed_spd -= 5; workers_kpd += 3; unemployed_kpd += 3; unemployed_nsdap += 3; left_dissent += 10; labor_dissent += 8; center_dissent += 5; welfare -= 1; budget += 1; kpd_relation -= 4; inflation -= 1; unemployment_insurance_threshold = unemployed; unemployment_insurance_timer = 10; coalition_dissent = 2 if in_grand_coalition and ((dvp_ideology == "Правые") or (dvp_ideology == "Умеренные" and dvp_relation < 40) or (dvp_ideology == "Левые" and dvp_relation < 30)); coalition_dissent = 2 if (in_grand_coalition or in_weimar_coalition) and ((lvp_ideology == "Правые") or (lvp_ideology == "Умеренные" and lvp_relation < 40) or (lvp_ideology == "Левые" and lvp_relation < 30)) and lvp_formed; coalition_dissent += 1 if in_grand_coalition; coalition_dissent += 1 if (in_weimar_coalition and lvp_formed); dvp_right += 1; ddp_right += 1; lvp_right += 1; labor_goal_spd_peoples += 1; economic_growth -= 0.1;
+on-arrival: workers_spd -= 4; unemployed_spd -= 5; new_middle_spd -= 4 if new_middle_conscious == 1; workers_kpd += 3; unemployed_kpd += 3; unemployed_nsdap += 3; left_dissent += 10; labor_dissent += 8; center_dissent += 5; welfare -= 1; budget += 1; kpd_relation -= 4; inflation -= 1; unemployment_insurance_threshold = unemployed; unemployment_insurance_timer = 10; coalition_dissent = 2 if in_grand_coalition and ((dvp_ideology == "Правые") or (dvp_ideology == "Умеренные" and dvp_relation < 40) or (dvp_ideology == "Левые" and dvp_relation < 30)); coalition_dissent = 2 if (in_grand_coalition or in_weimar_coalition) and ((lvp_ideology == "Правые") or (lvp_ideology == "Умеренные" and lvp_relation < 40) or (lvp_ideology == "Левые" and lvp_relation < 30)) and lvp_formed; coalition_dissent += 1 if in_grand_coalition; coalition_dissent += 1 if (in_weimar_coalition and lvp_formed); dvp_right += 1; ddp_right += 1; lvp_right += 1; labor_goal_spd_peoples += 1; economic_growth -= 0.1;
 
-Ни одна из сторон не удовлетворена полностью нашим компромиссным решением. Многие рабочие и безработные видят в этом предательство, хотя мы и преподносим это как успешное предотвращение гораздо худшей альтернативы. [? if (in_grand_coalition or (in_weimar_coalition and lvp_formed)): Тем временем[? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]в ужасе от одной лишь перспективы хоть какого-то повышения налогов для бизнеса. ?]
+Ни одна из сторон не удовлетворена полностью нашим компромиссным решением. Многие рабочие и безработные видят в этом предательство, хотя мы и преподносим это как успешное предотвращение гораздо худшей альтернативы. [? if (in_grand_coalition or (in_weimar_coalition and lvp_formed)): Тем временем[? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] в ужасе от одной лишь перспективы хоть какого-то повышения налогов для бизнеса. ?]

@@ -30,7 +30,6 @@ on-display: {!
 - @yay_strike
 - @nay_strike
 
-
 @yay_strike
 title: Агитировать за забастовку и начать пропагандистскую кампанию среди рабочих.
 subtitle: Забастовка пользуется большой поддержкой среди рабочего класса Берлина, несмотря на её политические мотивы.
@@ -42,10 +41,9 @@ on-arrival: z_relation -= 10; ddp_relation -= 10; lvp_relation -= 10; dvp_relati
 
 - @yay_strike_2
 
-
 @yay_strike_2
 title: Забастовка началась.
-on-arrival: workers_spd += 2; workers_kpd += 2; unemployed_spd += 2; unemployed_kpd += 2; pro_republic -= 8
+on-arrival:  workers_spd += 2; workers_kpd += 2; unemployed_spd += 2; unemployed_kpd += 2; pro_republic -= 8
 
 За три дня до выборов забастовка полностью парализует общественный транспорт Берлина, завоёвывая значительные симпатии среди городского рабочего класса. Больше всего выигрывают <span style="color: #700000;">**КПГ**</span> и <span style="color: #7A3C00;">**НСДАП**</span> быстро поддержали бастующих, каждая из них надеясь совершить прорыв среди избирателей из рабочего класса. Однако <span style="color: #c00000;">**СДПГ**</span>, так как большинство бастующих — члены Всеобщего объединения немецких профсоюзов, что возрождает поддержку партии рабочими.
 
@@ -53,20 +51,17 @@ on-arrival: workers_spd += 2; workers_kpd += 2; unemployed_spd += 2; unemployed_
 
 В итоге забастовка сходит на нет всего через несколько дней — во времена массовой безработицы она не могла долго продолжаться.
 
-
 @nay_strike
 title: Провести кампанию против забастовки.
 subtitle: Мы снизили размер урезания зарплаты на 90%! Чего они ещё хотят?
 go-to: nay_strike_2 if workers_spd_normalized + pro_republic < 100; nay_strike_3 if workers_spd_normalized + pro_republic >= 100
 
-
 @nay_strike_2
-on-arrival: z_relation += 3; ddp_relation += 3; lvp_relation += 3; dvp_relation += 3; kpd_relation -= 10; communist_coalition -= 1
+on-arrival: z_relation += 3; ddp_relation += 3; lvp_relation += 3; dvp_relation += 3; kpd_relation -= 10; communist_coalition -= 1; kpd_nazi_urgency -= 1;
 
 В голосовании участвует лишь 84% рабочих, и из них 79% проголосовали за забастовку, так как <span style="color: #700000;">**РПО**</span> в стачечном комитете. Это противоречит стандартной профсоюзной практике, требующей, чтобы «за» проголосовало 3/4 от всех сотрудников, а не только от числа проголосовавших, на что и указал Gesamtverband. Однако удерживать такую позицию в условиях все более радикализирующихся и неорганизованных рабочих становится невозможным: между тремя профсоюзами формируется центральный стачечный комитет, причем <span style="color: #700000;">**РПО**</span> доминирует.
 
 - @strike_yeah
-
 
 @strike_yeah
 title: Забастовка началась.
@@ -78,7 +73,6 @@ on-arrival: pro_republic -= 5; workers_kpd += 2; unemployed_kpd += 2; labor_diss
 
 В итоге забастовка выдохлась всего через несколько дней — во времена массовой безработицы она нежизнеспособна.
 
-
 @nay_strike_3
 on-arrival: {!
 Q.workers_kpd -= 2;
@@ -89,6 +83,7 @@ Q.pro_republic += 3;
 Q.labor_dissent -= 5;
 Q.reformist_dissent -= 5;
 Q.transport_strike_vote = Math.round((100 - Q.pro_republic) * 10) / 10;
+Q.kpd_nazi_urgency -= 1;
 !}
 
 В голосовании принимают участие лишь 76% рабочих, и из них [+ transport_strike_vote +]% голосуют за забастовку — не набрав необходимых трёх четвертей голосов всех работников. Несмотря на это, <span style="color: #700000;">**РПО**</span> и <span style="color: #7A3C00;">**НСБО**</span> формируют собственный несанкционированный стачечный комитет. Их попытка организовать забастовку почти сразу же проваливается, поскольку Gesamtverband в ней не участвует, а на место бастующих быстро нанимают штрейкбрехеров.

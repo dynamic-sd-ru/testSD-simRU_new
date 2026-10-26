@@ -36,7 +36,6 @@ tags: event
 - @fund_schutzbund: Поддержать подпольную деятельность <span style="color: #A50034;">**СДПА**</span>.
 - @nothing: Ничего нельзя сделать.
 
-
 @eu_sanctions
 view-if: eu = 1
 on-arrival: sdapo_strength += 3; sdapo_strength += 1 if customs_union; eu_austria = 1
@@ -44,7 +43,6 @@ on-arrival: sdapo_strength += 3; sdapo_strength += 1 if customs_union; eu_austri
 <span style="color: #001489;">Европейский</span> <span style="color: #FFDD00;">союз</span> — это в новая организация, и с самого начала в её состав входили государства, в лучшем случае квазидемократические. Большинство её членов больше заботят вопросы силы и власти, нежели демократические ценности. Однако Германия как основательница союза имеет особое влияние в <span style="color: #001489;">Е</span><span style="color: #FFDD00;">С</span>, и нам удаётся убедить остальных участников присоединиться к давлению на <span style="color: #7A3C00;">австрофашистов</span>.
 
 Режим Дольфуса не сдаётся, но он ослаблен и изолирован.
-
 
 @diplomatic_pressure
 view-if: foreign_minister_party = "СДПГ"
@@ -54,7 +52,6 @@ on-arrival: sdapo_strength += 1; sdapo_strength += 2 if customs_union
 
 Режим Дольфуса не уступает, но он несколько ослаблен.
 
-
 @fund_schutzbund
 on-arrival: resources -= 1; sdapo_strength += 1; sdapo_strength += 1 if customs_union
 subtitle: -1 ресурс
@@ -63,7 +60,6 @@ choose-if: resources >= 1
 Это в некотором роде нарушение дипломатического протокола для <span style="color: #c00000;">**СДПГ**</span> — так прямо вмешиваться в дела другой страны, поддерживая <span style="color: #A50034;">австрийских социал-демократов</span>.
 
 Режим Дольфуса не уступает, но его противники получают дополнительное преимущество. Этого может оказаться недостаточно в борьбе со всей мощью <span style="color: #7A3C00;">фашистского</span> государства.
-
 
 @nothing
 

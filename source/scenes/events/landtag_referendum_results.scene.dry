@@ -29,11 +29,9 @@ max-visits: 1
 
 - @PLR_results
 
-
 @PLR_results
 title: Голоса подсчитаны.
 go-to: PLR_passed_votes if landtag_ref_votes >= 50; PLR_failed_votes if landtag_ref_votes < 50
-
 
 @PLR_passed_votes
 on-arrival: pro_republic -= 10; workers_spd -= 8; workers_kpd += 3; workers_nsdap += 5; unemployed_spd -= 5; unemployed_nsdap += 5; new_middle_spd -= 5; new_middle_nsdap += 5; old_middle_spd -= 5; old_middle_nsdap += 5; rural_spd -= 5; rural_nsdap += 5; rural_dnvp += 3; old_middle_dnvp += 3; rural_dnf += 3; old_middle_dnf += 3; catholics_spd -= 5; catholics_nsdap += 5; sa_strength += 200; rfb_strength += 100; prussian_police_loyalty -= 0.3
@@ -42,7 +40,6 @@ call: set_next_election_time_prussia
 С немецкой демократией покончено. [+ landtag_ref_votes +]% прусских избирателей проголосовали «за», что привело к роспуску ландтага и назначению новых выборов, на которых экстремисты, как ожидается, добьются колоссальных успехов за наш счёт. [? if landtag_ref_kpd: Мы с пацанами ненавидим <span style="color: #700000;">**КПГ**</span>. ?]
 
 Новые выборы в Пруссии назначены на [+ next_election_month_prussia : month +] [+ next_election_year_prussia +].
-
 
 @PLR_failed_votes
 on-arrival: {!

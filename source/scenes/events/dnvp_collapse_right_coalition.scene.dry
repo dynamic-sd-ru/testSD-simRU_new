@@ -14,22 +14,20 @@ max-visits: 1
 
 - @join_bruning
 - @vonc_yes
-- @vonc_no  
+- @vonc_no
 - @no_matter
-
 
 @join_bruning
 title: Мы войдём в коалицию Брюнинга.
 subtitle: Пост канцлера останется за Брюнингом.
 view-if: grand_coalition >= 50 or neo_weimar_coalition >= 50
-on-arrival: spd_in_government = 1; spd_toleration = 0; spd_toleration_right = 0; in_grand_coalition = 1; in_right_coalition = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = ddp_name; justice_minister_party = ddp_name; justice_minister_party  = "ЛНП" if lvp_formed; labor_minister_party = "Центр"; reichswehr_minister_party = "I"; economic_minister_party = "ННП"; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "Центр"; agriculture_minister_party = "Центр"; leverage = 25 if leverage >= 25; new_middle_dnvp -= 2; old_middle_dnvp -= 2; rural_dnvp -= 2; left_dissent += 8; ddp_left += 1; lvp_left += 0.5; prussia_negotiations_trigger = 1 if (in_center_right_coalition_prussia or in_right_coalition_prussia)
+on-arrival: spd_in_government = 1; spd_toleration = 0; spd_toleration_right = 0; in_grand_coalition = 1; in_right_coalition = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; foreign_minister_party = "ННП"; foreign_minister_party = "ЛНП" if lvp_formed; interior_minister_party = ddp_name; justice_minister_party = ddp_name; justice_minister_party = "ЛНП" if lvp_formed; labor_minister_party = "Центр"; reichswehr_minister_party = "б/п"; economic_minister_party = "ННП"; economic_minister_party = "ЛНП" if lvp_formed; finance_minister_party = "Центр"; agriculture_minister_party = "Центр"; leverage = 25 if leverage >= 25; new_middle_dnvp -= 2; old_middle_dnvp -= 2; rural_dnvp -= 2; left_dissent += 8; ddp_left += 1; lvp_left += 0.5; prussia_negotiations_trigger = 1 if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 [? if in_center_right_coalition_prussia or in_right_coalition_prussia: Прусская коалиция тоже не выстояла: давление Гугенберга и его сторонников заставляет <span style="color: #3E88B3;">**НННП**</span> также выйти из тамошней <span style="color: #000000;">буржуазно</span>-<span style="color: #3E88B3;">правой</span> коалиции.  ?]
 
 Генрих Брюнинг приветствует нас в своём новом кабинете. Теперь мы можем выбрать министерские посты.
 
 - @election_1928.ministries: Теперь мы должны выбрать наши министерства.
-
 
 @vonc_yes
 title: Поддержать вотум недоверия, проголосовав против правительства.
@@ -41,7 +39,6 @@ go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_co
 
 Правая коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @vonc_no
 title: Поддержать уменьшенную правую коалицию во главе с [? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]и проголосовать за утверждение правительства меньшинства.
 subtitle: По сути, мы воздержимся от вотума недоверия буржуазному правительству.
@@ -50,7 +47,6 @@ on-arrival: spd_toleration = 1; in_right_coalition = 0; in_center_right_coalitio
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 Поддержав правительство, мы, по сути, согласились воздерживаться от вотума недоверия [+ chancellor +] правительству. Мы не представлены в правительстве, но несём ответственность за его стабильность. Левое крыло нашей партии выступает против этого плана и предпочло бы провести новые выборы.
-
 
 @no_matter
 title: Неважно, что мы сделаем.
@@ -61,7 +57,6 @@ on-arrival: time_to_election = 3; spd_in_government = 0; in_right_coalition = 0;
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 Правая коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @new_prussia_election
 on-arrival: prussia_coalition_trigger = 1

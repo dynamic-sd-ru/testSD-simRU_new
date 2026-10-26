@@ -1,6 +1,6 @@
 title: Съезд <span style="color: #C0A054;">**ННП**</span>
 subtitle: <span style="color: #C0A054;">**ННП**</span> решает свою судьбу…
-view-if: year = 1928 and month = 12 and dvp_congress_trigger = 1 and dnvp_ideology != "Радикалы" and not lvp_formed and lvp_timer_trigger == 0
+view-if: year = 1928 and month = 12 and dvp_congress_trigger = 1 and not lvp_formed and lvp_timer_trigger == 0
 on-arrival: {!
 if (Q.dvp_relation >= 50) {
     Q.dvp_left += 1;
@@ -42,33 +42,31 @@ new-page: true
 
 Немецкие промышленники не собираются лишаться своего голоса в <span style="color: #C0A054;">**ННП**</span> так просто, и, учитывая ухудшающееся здоровье Штреземана, это, вероятно, его последний шанс сохранить контроль над партией.[? if not in_grand_coalition: Левое крыло <span style="color: #C0A054;">**ННП**</span> также ослабло из-за отсутствия коалиций с социалистами.  ?]
 
-- @resultsdvp: Партия голосует…
-
-
-@resultsdvp
-go-to: left if stresemann_reform_yay; right if stresemann_reform_nay; left_conflict if stresemann_reform_mid
-
+- @left:Стреземан сохраняет контроль над партией!
+- @left_conflict:Штреземан сохраняет контроль над партией.
+- @right:Промышленники голосуют против Штреземана.
 
 @left
-on-arrival: dvp_left += 10; dvp_relation += 10; liberal_cooperation += 3; workers_dvp += 1; workers_other -= 1; new_middle_dvp += 4; new_middle_other -= 4; old_middle_dvp += 4; old_middle_other -= 4; rural_dvp += 2; rural_other -= 2; catholics_other -= 2; catholics_z -= 2; catholics_dvp += 4; coalition_dissent -= 2 if in_grand_coalition; dvp_reform = 1; pro_republic += 5; ddp_left += 1.5; ddp_cohesion += 1.5
+view-if: stresemann_reform_yay
+on-arrival: dvp_left += 10; dvp_relation += 10; liberal_cooperation += 3; workers_dvp += 1; workers_other -= 1; new_middle_dvp += 4; new_middle_other -= 4; old_middle_dvp += 4; old_middle_other -= 4; rural_dvp += 2; rural_other -= 2; catholics_other -= 2; catholics_z -= 2; catholics_dvp += 4; coalition_dissent -= 2 if in_grand_coalition; dvp_reform = 1; pro_republic += 5; ddp_left += 1.5; ddp_cohesion += 1.5; new_middle_dnvp -= 2 if dnvp_ideology == "Радикалы"; old_middle_dnvp -= 2 if dnvp_ideology == "Радикалы"; rural_dnvp -= 2 if dnvp_ideology == "Радикалы"; new_middle_dvp += 4 if dnvp_ideology == "Радикалы"; new_middle_other -= 2 if dnvp_ideology == "Радикалы"; ddp_left += 0.5 if dnvp_ideology == "Радикалы"; ddp_cohesion += 0.5 if dnvp_ideology == "Радикалы"; old_middle_other += 2 if dnvp_ideology == "Радикалы"; rural_dvp += 2 if dnvp_ideology == "Радикалы"
 face-image: img/portraits/Stresemann.jpg
 
 Штреземан сплачивает остатки <span style="color: #C0A054;">**ННП**</span>, ещё не купленные промышленниками, чтобы принять реформу. Это встречает яростное сопротивление половины партии. Промышленники же переключили финансовые потоки на сохранение влияния в <span style="color: #3E88B3;">**НННП**</span>.
 
 Мы заметили улучшение отношений с <span style="color: #C0A054;">**ННП**</span>[? if in_grand_coalition: , и снижение напряжённости в коалиции ?]. <span style="color: #D3C24D;">**[+ ddp_name +]**</span> также выразила одобрение действиям съезда и начала переговоры о дальнейшем сотрудничестве. Это также вызывает цепную реакцию в рядах <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, смещая её влево.
 
-
 @left_conflict
-on-arrival: dvp_left += 5; dvp_relation += 5; liberal_cooperation += 2; workers_dvp += 1; workers_other -= 1; new_middle_dvp += 2; new_middle_other -= 2; old_middle_dvp += 2; old_middle_other -= 2; catholics_other -= 2; catholics_dvp += 2; dvp_reform = 1; coalition_dissent -= 1 if in_grand_coalition; pro_republic += 3; ddp_left += 1; ddp_cohesion += 1
+view-if: stresemann_reform_mid
+on-arrival: dvp_left += 5; dvp_relation += 5; liberal_cooperation += 2; workers_dvp += 1; workers_other -= 1; new_middle_dvp += 2; new_middle_other -= 2; old_middle_dvp += 4; old_middle_other -= 2; catholics_other -= 2; catholics_dvp += 2; dvp_reform = 1; coalition_dissent -= 1 if in_grand_coalition; pro_republic += 3; ddp_left += 1; ddp_cohesion += 1; new_middle_dnvp -= 1 if dnvp_ideology == "Радикалы"; old_middle_dnvp -= 2 if dnvp_ideology == "Радикалы"; rural_dvp += 2 if dnvp_ideology == "Радикалы"; rural_dnvp -= 1 if dnvp_ideology == "Радикалы"; rural_other -= 1 if dnvp_ideology == "Радикалы"; new_middle_dvp += 1 if dnvp_ideology == "Радикалы"
 face-image: img/portraits/Stresemann.jpg
 
 Штреземан и левое крыло <span style="color: #C0A054;">**ННП**</span> с минимальным перевесом продавили реформу, чего удалось добиться лишь из-за угроз Штреземана уйти в отставку в случае её провала. Половина партийной делегации в рейхстаге связана с промышленниками, которые теперь практически лишились влияния в <span style="color: #C0A054;">**ННП**</span>. Теперь промышленники переключились на финансирование <span style="color: #3E88B3;">**НННП**</span>. Депутаты Рейхстага от партии теперь открыто конфликтуют с левым крылом <span style="color: #C0A054;">**ННП**</span>.
 
 Мы заметили небольшое улучшение в отношениях с <span style="color: #C0A054;">**ННП**</span>[? if in_grand_coalition: , а также снижения напряжённости в коалиции ?]. <span style="color: #D3C24D;">**[+ ddp_name +]**</span> также выразила одобрение действиям съезда и начала переговоры о дальнейшем сотрудничестве. Это также вызвало цепную реакцию в <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, сместив её влево.
 
-
 @right
-on-arrival: dvp_right += 5; dvp_relation -= 5; coalition_dissent += 1 if in_grand_coalition; old_middle_dnvp += 2; new_middle_dnvp += 2; dvp_reform = 0; pro_republic -= 3; ddp_right += 1; ddp_cohesion -= 1
+view-if: stresemann_reform_nay
+on-arrival: dvp_right += 5; dvp_relation -= 5; coalition_dissent += 1 if in_grand_coalition; dvp_reform = 0; pro_republic -= 3; ddp_right += 1; ddp_cohesion -= 1; old_middle_dnvp += 2 if dnvp_ideology != "Радикалы"; new_middle_dnvp += 2 if dnvp_ideology != "Радикалы"; old_middle_other += 2 if dnvp_ideology == "Радикалы"; new_middle_other += 2 if dnvp_ideology == "Радикалы"; pro_republic += 1 if dnvp_ideology == "Радикалы"
 face-image: img/portraits/ernst_scholz.jpg
 
 Штреземан потерпел сокрушительное поражение от правых промышленников <span style="color: #C0A054;">**ННП**</span>. Они воспользовались этим поражением, чтобы ограничить полномочия Штреземана как председателя партии в пользу более консервативной фракции в Рейхстаге, возглавляемой Эрнстом Шольцем — ведущей фигурой правого крыла.

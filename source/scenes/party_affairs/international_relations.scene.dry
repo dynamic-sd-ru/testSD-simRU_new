@@ -19,7 +19,6 @@ max-visits: 4
 - @easy_discard
 - @cancel_advisor_action
 
-
 @fr_uk
 subtitle: -1 ресурс
 choose-if: resources >= 1
@@ -27,7 +26,6 @@ unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: resources -= 1; west_relation += 1; reformist_strength += 3; pacifism += 1; moderate_plan_support += 1; international_socialist_support += 1
 
 <span style="color: #f0456a;">Социалисты</span> <span style="color: #002654;">Франции</span> и <span style="color: #C8102E;">Британии</span> могут повлиять на свои правительства, чтобы те стали более дружелюбными к Германии. Наши связи помогут ускорить переговоры по репарациям, если министром иностранных дел будет социал-демократ.
-
 
 @austria
 subtitle: -–1 ресурс[? if austrian_parliament_seen and not austrian_civil_war_seen: - Мы также поможем австрийцам противостоять их диктатуре. ?]
@@ -42,7 +40,6 @@ on-arrival: left_strength += 3; radicalization += 1; rb_militancy += 0.03; resou
 [? if austrian_parliament_seen and not austrian_civil_war_seen: Мы также помогаем австрийской <span style="color: #A50034;">Социал-демократической рабочей партии</span> накапливать ресурсы в рамках подготовки к будущей борьбе — как законными, так и незаконными методами. ?]
 
 
-
 @scandi
 subtitle: -1 ресурс
 choose-if: resources >= 1
@@ -50,7 +47,6 @@ unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: reformist_strength += 3; wtb_support += 1; resources -= 1; moderate_plan_support += 1
 
 Программы скандинавских <span style="color: #D70926;">социалистов</span> предполагают активное вмешательство государства в экономику. Мы можем перенять их экономические стратегии и то, как они вышли за рамки рабочего класса, чтобы привлечь более широкий круг сторонников.
-
 
 @comintern
 subtitle: -1 ресурс
@@ -60,7 +56,6 @@ on-arrival: resources -= 1; kpd_relation += 5*(1-dissent); communist_coalition +
 
 <span style="color: #8B0000;">Сталинисты</span> из <span style="color: #700000;">**КПГ**</span> упорно называют нас «<span style="color: #c00000;">социал</span>-<span style="color: #7A3C00;">фашистами</span>», заявляя, что мы, <span style="color: #c00000;">социал-демократы</span>, ничем не лучше, а то и хуже настоящих <span style="color: #7A3C00;">фашистов</span>. Само собой, это пагубно сказывается на наших отношениях с <span style="color: #700000;">коммунистами</span>. Наблюдая за <span style="color: #D50000;">Коминтерном</span>, мы сможем лучше понять <span style="color: #700000;">**КПГ**</span>, что позволит нам потенциально улучшить отношения или противостоять <span style="color: #700000;">**КПГ**</span>, если до этого дойдёт.
 
-
 @america
 subtitle: -1 ресурс
 choose-if: resources >= 1
@@ -68,7 +63,6 @@ unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: resources -= 1
 
 <span style="color: #940f0f;">Социалистическая партия Америки</span> ничтожно мала и не имеет широкой поддержки. Мы мало чем можем ей помочь, как, впрочем, и она нам.
-
 
 @reduce
 

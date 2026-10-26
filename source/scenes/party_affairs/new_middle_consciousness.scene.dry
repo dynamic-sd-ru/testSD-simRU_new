@@ -1,0 +1,36 @@
+title: Агитация
+new-page: true
+is-card: true
+tags: party_affairs
+view-if: (socialism >= 51 and (radio >= 1 or commercialized_media >= 1) and new_middle_spd_normalized >= 15)
+on-arrival: month_actions += 0
+card-image: img/new-middle-conscious.jpg
+face-image: img/new-middle-conscious.jpg
+max-visits: 1
+
+Агитация
+
+Идёт ли сейчас избирательная кампания или нет, партия всё равно стремится расширить электорат. На ком нам сосредоточить агитацию?
+
+- @awaken:Пробудить их классовое самосознание!
+- @refute:Нет, мы этого не сделаем.
+- @return_hand:Вернуть карту в руку.
+- @cancel_advisor_action
+
+@return_hand
+view-if: last_advisor_action = 0
+go-to: easy_discard
+
+@awaken
+choose-if: aufhauser_advisor or radio >= 2 or commercialized_media >=2
+subtitle: [? if aufhauser_advisor: Ауфхойзер может использовать AfA-bund для этого. ?] [? if radio >= 2 and not aufhauser_advisor: Для этого мы можем использовать нашу нынешнюю радиопрограмму. ?] [? if commercialized_media >= 2 and not aufhauser_advisor: Для этого мы можем использовать наши нынешние газеты. ?]
+unavailable-subtitle: [? if radio < 2 and not aufhauser_advisor: Роль Ауфхойзера как председателя AfA-bund была бы здесь весьма полезна. Как вариант, можно задуматься об инвестициях в радио. ?] [? if commercialized_media < 2 and not aufhauser_advisor: Роль Ауфхойзера как председателя AfA-bund была бы здесь весьма полезна. Как вариант, можно задуматься о коммерциализации наших газет. ?]
+on-arrival: new_middle_spd += 10*(1-dissent); reformist_dissent += 2; labor_dissent += 3; left_strength += 5; reformist_strength += 5; labor_strength += 5; socialism += 4*(1 - dissent); new_middle_conscious = 1
+
+Мы воспользовались ситуацией и пробудили классовое самосознание служащих. Всё больше из них переходят в нашу партию, а [? if aufhauser_advisor: благодаря навыкам Ауфхойзера ?] в AfA-bund вступило больше «белых воротничков».
+
+Пробудив классовое самосознание нового среднего класса, мы сняли с него второстепенные обременения. Политика в интересах труда и радикально левые меры, за исключением повышения налогов, могут завоевать их поддержку. Кроме того, наша медийная агитация и митинги будут сильнее действовать на новый средний класс, раз он самосознателен.
+
+@refute
+
+Мы этого не сделаем.

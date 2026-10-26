@@ -25,7 +25,6 @@ on-display: {!
 
 - @dsu_in_gov
 
-
 @dsu_in_gov
 title: Штрассер входит в кабинет.
 on-arrival: {!
@@ -44,6 +43,7 @@ Q.schleicher_approval = Math.round(Q.schleicher_approval);
 Q.schleicher_spd_support -= 6;
 Q.schleicher_spd_r -= 4;
 Q.schleicher_spd_influence -= 3;
+Q.kpd_nazi_urgency += 1;
 !}
 
 Вильгельм Фрик назначен министром внутренних дел[? if old_prussia_leader == "Шлейхер": — как в правительстве Рейха, так и в Пруссии ?]. Грегор Штрассер получает пост вице-канцлера — должность чисто номинальную.[? if prussia_leader == "Гёрделер": Хотя <span style="color: #6A1E1E;">**НСС**</span> предпочли бы, чтобы Штрассер возглавил Пруссию, но Гёрделер остаётся на своём посту — как верная марионетка Шлейхера и уступка <span style="color: #000000;">Партии Центра</span>.  ?]

@@ -20,7 +20,7 @@ max-visits: 1
 
 = Референдум о роспуске ландтага Пруссии
 
-[? if landtag_ref_kpd: <span style="color: #700000;">**КПГ**</span> изменила свою позицию и теперь поддерживает референдум! Удивительно, но <span style="color: #700000;">**КПГ**</span>, которая клеймит нас <span style="color: #c00000;">социал</span>-<span style="color: #7A3C00;">фашистами</span>, теперь сотрудничает с [+ nsdap_leader +] и Гугенбергом. После выдвижения прусскому правительству неприемлемого ультиматума они переименовали референдум в «красный плебисцит». <span style="color: #700000;">**Коммунисты**</span> развернули столь бурную деятельность, что многие теперь считают, будто они «возглавили» кампанию <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>.  ?][? if not landtag_ref_kpd: К счастью, <span style="color: #700000;">**КПГ**</span>[? if kpd_leader == "Тельман": &nbsp;несмотря на свою <span style="color: #c00000;">социал</span>-<span style="color: #7A3C00;">фашистскую</span> позицию по отношению к нам, ?]воздержалась от выражения своей позиции по референдуму. Относительно небольшое количество подписей — всего [+ landtag_ref_signatures +]% — это хороший знак, что делает победу <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span> крайне маловероятной.  ?]
+[? if landtag_ref_kpd: <span style="color: #700000;">**КПГ**</span> изменила свою позицию и теперь поддерживает референдум! Удивительно, но <span style="color: #700000;">**КПГ**</span>, которая клеймит нас <span style="color: #c00000;">социал</span>-<span style="color: #7A3C00;">фашистами</span>, теперь сотрудничает с [+ nsdap_leader +] и Гугенбергом. После выдвижения прусскому правительству неприемлемого ультиматума они переименовали референдум в «красный плебисцит». <span style="color: #700000;">**Коммунисты**</span> развернули столь бурную деятельность, что многие теперь считают, будто они «возглавили» кампанию <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>.  ?][? if not landtag_ref_kpd: К счастью, <span style="color: #700000;">**КПГ**</span>[? if kpd_leader == "Тельман": &nbsp;несмотря на свою <span style="color: #c00000;">социал</span>-<span style="color: #7A3C00;">фашистскую</span> позицию по отношению к нам, ?] воздержалась от выражения своей позиции по референдуму. Относительно небольшое количество подписей — всего [+ landtag_ref_signatures +]% — это хороший знак, что делает победу <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span> крайне маловероятной.  ?]
 
 [? if landtag_ref_kpd: Неожиданная поддержка референдума <span style="color: #700000;">**КПГ**</span> резко изменила ситуацию, разрушив прежний оптимизм, вызванный низким количеством подписей, собранных на первом этапе. К счастью, многие <span style="color: #700000;">**коммунисты**</span> испытывают отвращение к «<span style="color: #700000;">красно</span>-<span style="color: #7A3C00;">коричневому</span>» плебисциту. Точно так же многие <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правые</span> избиратели не хотят голосовать вместе с <span style="color: #700000;">**коммунистами**</span>. ?][? if not landtag_ref_kpd: Хотя этот референдум и обречён на провал, он всё же даёт немецким правым возможность усугубить политическую поляризацию, о чём свидетельствует антидемократический сдвиг буржуазных партий вправо. ?]
 
@@ -28,7 +28,6 @@ max-visits: 1
 
 - @do_campaign: Давайте рассмотрим наши варианты действий в кампании.
 - @no_campaign: Нам не следует выделять на это ресурсы.
-
 
 @do_campaign
 
@@ -42,7 +41,6 @@ max-visits: 1
 - @hope: Мы уже сделали достаточно.
 - @no_campaign_2: Нам не следует выделять на это ресурсы.
 
-
 @bourgeois
 title: Запросить помощи у наших партнёров по коалиции.
 view-if: spd_prussia and not bourgeois_campaign_landtag
@@ -54,21 +52,19 @@ go-to: do_campaign
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] присоединилась к нашим усилиям, развернув собственную пропагандистскую кампанию. Они убеждают католиков остаться дома.
 
-
 @communist_prussia
 title: Обратиться за помощью к <span style="color: #700000;">**КПГ**</span>.
 subtitle: Буржуазные партии будут недовольны нашим сотрудничеством.
 view-if: spd_prussia and not landtag_ref_kpd and not communist_campaign_landtag
 choose-if: in_popular_front_prussia or in_left_front_prussia
 unavailable-subtitle: <span style="color: #700000;">КПГ</span> не видит причин вмешиваться ради спасения правительства, в котором она не участвует.
-on-arrival: pro_republic += 3; workers_kpd += 2; workers_spd += 2; workers_nsdap -= 2; unemployed_nsdap -= 4; unemployed_kpd += 4; kpd_relation += 10; z_relation -= 5; dvp_relation -= 5; ddp_relation -= 3; ddp_right += 2; ddp_cohesion -= 2; dvp_right += 5; communist_campaign_landtag = 1
+on-arrival: pro_republic += 3; workers_kpd += 2; workers_spd += 2; workers_nsdap -= 2; unemployed_nsdap -= 4; unemployed_kpd += 4; kpd_relation += 10; z_relation -= 5; dvp_relation -= 5; ddp_relation -= 3; ddp_right += 2; ddp_cohesion -= 2; dvp_right += 5; communist_campaign_landtag = 1; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 face-image: img/kpd_march.jpg
 go-to: do_campaign
 
 Отличные новости! <span style="color: #D50000;">Коминтерн</span> одобрил <span style="color: #700000;">**КПГ**</span> — её участие в нашей пропагандистской кампании против <span style="color: #7A3C00;">ультра</span>-<span style="color: #3E88B3;">правых</span>.
 
 Однако эта демонстрация единства левых сил напугала[? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и <span style="color: #D3C24D;">либералов</span>, причём некоторые в знак протеста даже решили поддержать референдум.
-
 
 @media
 title: Использовать «Форвертс» и наши радиостанции для агитации против плебисцита.
@@ -81,7 +77,6 @@ face-image: img/vorwarts_2.jpg
 go-to: do_campaign
 
 Эффект этой кампании зависит от мощи нашей уже созданной медиаимперии.[? if commercialized_media:  Наши коммерческие газеты и радиостанции смогли убедить представителей среднего класса остаться дома. ?][? if radio:  Наша радиостанция сыграла решающую роль в работе с избирателями из среднего класса. ?][? if campaign_media:  Широкое распространение <span style="color: #c00000;">социалистической</span> пропаганды среди рабочего класса помогло склонить некоторых на нашу сторону. ?]
-
 
 @urge_paramilitary
 view-if: not political_decree_landtag_2 and political_decree == 1 and chancellor == "Брюнинг" and spd_toleration
@@ -96,32 +91,28 @@ go-to: do_campaign
 
 Это решение ещё больше накалило и без того нестабильную политическую обстановку, что побудило президента Гинденбурга пообещать пересмотреть указ после резкой негативной реакции со стороны сторонников Гугенберга и Гитлера.
 
-
 @kpd
 title: Мы попытаемся организовать всеобщую забастовку <span style="color: #700000;">**коммунистического**</span> электората.
 subtitle: -1 ресурс
 view-if: landtag_ref_kpd and not kpd_campaign_landtag
 choose-if: resources >= 1
 unavailable-subtitle: Недостаточно ресурсов.
-on-arrival: resources -= 1; workers_kpd -= 2; workers_nsdap -= 1; workers_spd += 3; unemployed_kpd -= 3; unemployed_nsdap -= 1; unemployed_spd += 4; pro_republic += 4; kpd_relation -= 15; dvp_left += 1; ddp_left += 1; ddp_cohesion += 1; kpd_campaign_landtag = 1
+on-arrival: resources -= 1; workers_kpd -= 2; workers_nsdap -= 1; workers_spd += 3; unemployed_kpd -= 3; unemployed_nsdap -= 1; unemployed_spd += 4; pro_republic += 4; kpd_relation -= 15; dvp_left += 1; ddp_left += 1; ddp_cohesion += 1; kpd_campaign_landtag = 1;
 face-image: img/red-brown.jpg
 go-to: do_campaign
 
 Указывать на очевидное никогда не вредно: даже некоторые бойцы <span style="color: #8B0000;">**СКФ**</span> испытывают отвращение к сотрудничеству их собственной партии с <span style="color: #7A3C00;">фашистами</span>.
-
 
 @hope
 view-if: kpd_campaign_landtag or political_decree_landtag_2 or radio_campaign_landtag or communist_campaign_landtag or bourgeois_campaign_landtag
 
 Нам остаётся лишь надеяться на лучшее.
 
-
 @no_campaign_2
 view-if: not kpd_campaign_landtag and not political_decree_landtag_2 and not radio_campaign_landtag and not communist_campaign_landtag and not bourgeois_campaign_landtag
 on-arrival: workers_spd -= 3; old_middle_spd -= 3; new_middle_spd -= 3; workers_nsdap += 3; new_middle_nsdap += 3; old_middle_nsdap += 3; pro_republic -= 5; catholics_spd -= 2; catholics_nsdap += 2; workers_kpd += 3; unemployed_spd -= 5; unemployed_nsdap += 5; unemployed_kpd += 3;
 
 Референдум, скорее всего, провалится, вне зависимости от нашего участия в кампании. Однако антидемократические настроения разгораются, а <span style="color: #7A3C00;">ультра</span>-<span style="color: #3E88B3;">правые</span> используют наше молчание для распространения своей радикальной пропаганды в народе.
-
 
 @no_campaign
 on-arrival: workers_spd -= 3; old_middle_spd -= 3; new_middle_spd -= 3; workers_nsdap += 3; new_middle_nsdap += 3; old_middle_nsdap += 3; pro_republic -= 5; catholics_spd -= 2; catholics_nsdap += 2; workers_kpd += 3; unemployed_spd -= 5; unemployed_nsdap += 5; unemployed_kpd += 3;

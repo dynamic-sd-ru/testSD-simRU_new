@@ -22,22 +22,19 @@ card-image: img/sangerbund.jpg
 - @easy_discard
 - @cancel_advisor_action
 
-
 @commercial
 title: Коммерциализировать наши газеты, расширив их аудиторию за пределы сторонников партии.
 subtitle: Это может расстроить идеологических пуристов, но зато принесёт больше средств и, возможно, познакомит средний класс с <span style="color: #c00000;">социалистическими</span> взглядами.
-on-arrival: resources += 1; commercialized_media += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1-dissent); left_dissent += 10; labor_dissent += 10; pro_republic += 1*(1-dissent); nationalism -= 1*(1 - dissent);
+on-arrival: resources += 1; commercialized_media += 1; new_middle_spd += 4*(1 - dissent); old_middle_spd += 3*(1-dissent); left_dissent += 10; labor_dissent += 10; socialism += 2*(1 - dissent); pro_republic += 1*(1-dissent); nationalism -= 1*(1 - dissent);
 
 Наши коммерциализированные газеты приносят больше средств. Однако левые и профсоюзники выражают недовольство.
-
 
 @campaign
 title: Задача наших СМИ — обеспечить избрание как можно большего числа <span style="color: #c00000;">социал-демократов</span>.
 subtitle: Наши газеты сосредоточатся на предвыборной кампании.
-on-arrival: campaign_media += 1; workers_spd += 4*(1 - dissent); unemployed_spd += 2*(1-dissent);
+on-arrival: campaign_media += 1; workers_spd += 4*(1 - dissent); unemployed_spd += 2*(1-dissent); new_middle_spd += 4*(1-dissent) if new_middle_conscious == 1; rural_spd += 2*(1-dissent) if rural_conscious == 1
 
 Наша агитация в основном доходит до рабочих, которые и так уже пропитаны <span style="color: #c00000;">социалистической</span> пропагандой, но, должно быть, она делает *что-то*, или, по крайней мере, мы на это надеемся.
-
 
 @ideological
 title: На страницах наших газет будут вестись оживлённые идеологические дебаты.
@@ -45,7 +42,6 @@ subtitle: У всех фракций будет возможность выра�
 on-arrival: left_dissent -= 6; labor_dissent -= 6; center_dissent -= 6; reformist_dissent -= 6; neorevisionist_dissent -= 6
 
 Исторически таков наш курс в работе со СМИ, и он успешно сглаживал многочисленные трения в нашей партии.
-
 
 @radio
 title: Почему бы не профинансировать радиостанцию?
@@ -57,7 +53,6 @@ on-arrival: radio += 1; resources -= 2; new_middle_spd += 4*(1 - dissent); old_m
 
 Наша новая радиостанция позволяет нам общаться с людьми в более доверительной обстановке, чем раньше, распространяя идеи <span style="color: #c00000;">социализма</span> наряду с музыкой и другим популярным у масс культурным продуктом. Поскольку большинство пролетариев сейчас не могут позволить себе радиоприёмник, мы завоёвываем аудиторию среди среднего класса — факт, который наши товарищи по рабочему движению с горечью осознают.
 
-
 @radio_2
 title: Мы должны продолжать развивать нашу радиосеть.
 subtitle: -1 ресурс
@@ -68,7 +63,6 @@ on-arrival: radio += 1; resources -= 1; new_middle_spd += 5*(1 - dissent); old_m
 
 Наша новая радиосеть, транслирующая как развлекательные, так и политические передачи, пользуется большим успехом.
 
-
 @radio_3
 title: Мы должны продолжать развивать нашу радиосеть.
 subtitle: Теперь она вышла на самоокупаемость и больше не требует ресурсов.
@@ -76,7 +70,6 @@ view-if: radio > 3 and radio <= 5 and year <= 1931
 on-arrival: radio += 1; new_middle_spd += 5*(1 - dissent); old_middle_spd += 4*(1 - dissent); workers_spd += 4*(1 - dissent); rural_spd += 3*(1 - dissent); unemployed_spd += 2*(1-dissent); socialism += 3*(1 - dissent); nationalism -= 1*(1 - dissent); nationalism -= 2*(1 - dissent)*(pacifism-2) if pacifism > 2; pro_republic += 2*(1-dissent)
 
 Наша радиосеть стала успешным инструментом для распространения наших идей.
-
 
 @radio_4
 title: Нам следует и дальше поддерживать нашу радиосеть.

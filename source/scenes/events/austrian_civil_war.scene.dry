@@ -25,14 +25,12 @@ tags: event
 - @long_war
 - @sdapo_victory
 
-
 @crushed
 title: Мятежный «Шуцбунд» разгромлен.
 on-arrival: austria_defeat = 1
 view-if: sdapo_strength < 4
 
 Восстание продлилось не более нескольких дней, прежде чем его подавили. «Шуцбунд» и <span style="color: #A50034;">**СДПА**</span> слишком слабы и разобщены, чтобы противостоять силам государства.
-
 
 @long_war
 title: Это гражданская война.
@@ -46,7 +44,6 @@ on-arrival: austria_civil_war = 1
 - @force_peace
 - @long_war_2
 
-
 @support_sdapo_party
 title: Как партия, <span style="color: #c00000;">**СДПГ**</span> обеспечит <span style="color: #A50034;">**СДПА**</span> с поддержкой.
 subtitle: -2 ресурса
@@ -56,7 +53,6 @@ go-to: sdapo_victory if sdapo_strength >= 6; long_war_2 if sdapo_strength < 6
 
 <span style="color: #c00000;">**СДПГ**</span> мобилизует свои ресурсы для предоставления оружия и добровольцев для <span style="color: #A50034;">**СДПА**</span>.
 
-
 @support_sdapo_govt
 title: Министерство иностранных дел окажет поддержку демократическим силам Австрии.
 view-if: spd_in_government and foreign_minister_party = "СДПГ"
@@ -64,7 +60,6 @@ on-arrival: sdapo_strength += 1
 go-to: sdapo_victory if sdapo_strength >= 6; long_war_2 if sdapo_strength < 6
 
 Мы оказываем дипломатическую, а также некоторую финансовую и материальную поддержку силам <span style="color: #A50034;">**СДПА**</span>.
-
 
 @force_peace
 title: Сможем ли мы примирить стороны?
@@ -75,13 +70,11 @@ on-arrival: austria_peace = 1; pro_republic += 3; coup_progress -= 1; ddp_left +
 
 Учитывая <span style="color: #A50034;">**СДПА**</span> и их исходные позиции, это расценивается как победа. Теперь начинается долгая работа по восстановлению…
 
-
 @long_war_2
 title: Мы ничего не можем поделать.
 on-arrival: z_relation -= 6; dvp_relation -= 6; ddp_relation -= 3; catholics_spd -= 5; old_middle_spd -= 5; coalition_dissent += 1; economic_growth -= 0.5; ddp_right += 2; dvp_right += 2; lvp_right += 2
 
 Несмотря на все наши усилия, война продолжается. Слишком много жизней обрывается. В Германию начинают стекаться беженцы, а торговля страдает. Многие называют наше вмешательство в дела Австрии ошибкой.
-
 
 
 @sdapo_victory

@@ -33,7 +33,6 @@ new-page: true
 - @westarp: Вестарп восстановлен на прежнем посту.
 - @schiele: Бразды правления переходят к Мартину Шиле и <span style="color: #385A38;">аграриям</span>.
 
-
 @treviranus
 choose-if: treviranus_trigger and not westarp_trigger and not schiele_trigger
 unavailable-subtitle: [? if schiele_trigger: <span style="color: #385A38;">Аграрное</span> крыло <span style="color: #3E88B3;">НННП</span> возражает: пришел их черед возглавить партию.  ?][? if westarp_trigger: Национал-консерваторы возражают: реформы Тревирануса зашли слишком далеко. ?]
@@ -44,7 +43,6 @@ face-image: img/portraits/Treviranus.jpg
 
 Некоторые консерваторы и <span style="color: #808080;">реакционеры</span> и переходят в <span style="color: #003755;">**НФГ**</span> и даже в <span style="color: #7A3C00;">**НСДАП**</span>. Однако партия компенсирует эти потери, привлекая <span style="color: #000000;">респу</span><span style="color: #DD0000;">бли</span><span style="color: #FFCC00;">канцев</span>, которых ранее отталкивал чрезмерный монархизм <span style="color: #3E88B3;">**НННП**</span>. И хотя монархизм остался в партийной программе, он отошёл на второй план перед более насущными вопросами.
 
-
 @westarp
 view-if: true_christian_democracy
 choose-if: westarp_trigger and not treviranus_trigger and not schiele_trigger
@@ -52,10 +50,9 @@ unavailable-subtitle: [? if treviranus_trigger and not schiele_trigger: Трев
 on-arrival: dnvp_leader = "Вестарп"; rural_dnvp += 2; rural_dnf -= 2; new_middle_dnvp -= 3; new_middle_dvp += 2; new_middle_ddp += 1; old_middle_dnvp += 5; old_middle_dnf -= 3; old_middle_nsdap -= 2; workers_dnvp -= 1; workers_nsdap += 1; catholics_dnvp -= 2; catholics_z += 2
 face-image: img/portraits/Kuno_von_Westarp.jpg
 
-Сдвиг <span style="color: #3E88B3;">**НННП**</span> к <span style="color: #0087DC;">Тори-демократии</span> и <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканизму</span> застопорился. Куно фон Вестарпа избрали лидером партии. Имея опыт разрешения внутрипартийных разногласиями, Вестарп избегает радикальных изменений, чтобы предотвратить раскол. Это слегка разочаровывает наиболее <span style="color: #808080;">реакционных</span> спонсоров: они надеялись, что его избрание приведет <span style="color: #3E88B3;">**НННП**</span> к более правому курсу. 
+Сдвиг <span style="color: #3E88B3;">**НННП**</span> к <span style="color: #0087DC;">Тори-демократии</span> и <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканизму</span> застопорился. Куно фон Вестарпа избрали лидером партии. Имея опыт разрешения внутрипартийных разногласиями, Вестарп избегает радикальных изменений, чтобы предотвратить раскол. Это слегка разочаровывает наиболее <span style="color: #808080;">реакционных</span> спонсоров: они надеялись, что его избрание приведет <span style="color: #3E88B3;">**НННП**</span> к более правому курсу.
 
 <span style="color: #000000;">Респу</span><span style="color: #DD0000;">бли</span><span style="color: #FFCC00;">кански</span> настроенные избиратели, которых привлёк Тревиранус, возвращаются к буржуазным партиям. Однако «старое доброе» лидерство национал-консерватора Вестарпа возвращает избирателей, ушедших к Гугенбергу и <span style="color: #003755;">**НФГ**</span>. Кроме того, он по-прежнему сомневается в идее «приручения» <span style="color: #7A3C00;">нацистов</span> и выступает против примирения с раскольниками Гугенберга.
-
 
 @schiele
 choose-if: schiele_trigger

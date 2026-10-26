@@ -27,7 +27,6 @@ on-display: {!
 
 - @reichstag
 
-
 @reichstag
 title: <span style="color: #700000;">**Коммунисты**</span> выносят вотум недоверия.
 on-arrival: pro_republic += 5
@@ -37,7 +36,6 @@ on-arrival: pro_republic += 5
 В любом случае, после принятия нескольких оставшихся законопроектов палата уходит на каникулы на неопределённый срок.
 
 - @reichstag_2
-
 
 @reichstag_2
 title: Декрет Папена о заработной плате отменён!

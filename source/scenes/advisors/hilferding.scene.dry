@@ -16,7 +16,6 @@ new-page: true
 - @economic_democracy_
 - @root: Назад
 
-
 @against_right_and_left
 title: Против правого и левого уклона
 subtitle: Будучи центристом, Гильфердинг стремится лавировать между партийными фракциями.
@@ -25,7 +24,6 @@ choose-if: advisor_action_timer = 0
 on-arrival: advisor_action_timer = 5; advisor_action_time = time; center_strength += 10; left_strength -= 5; labor_strength -= 5; neorevisionist_strength -= 5; center_dissent -= 10
 
 Мы ослабили разногласия между фракциями в партии.
-
 
 @toleration
 title: Поддержать тактику воздержания от вотума недоверия
@@ -36,7 +34,6 @@ on-arrival: advisor_action_timer = 6; left_dissent -= 10; neorevisionist_dissent
 
 Мы уменьшили недовольство фракций, выступающих против воздержания от вотума недоверия.
 
-
 @finance_ministry_
 title: Фискальная политика
 subtitle: Будучи министром финансов, Гильфердинг может проводить налоговую политику.
@@ -44,7 +41,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 choose-if: advisor_action_timer == 0 and spd_in_government == 1 and finance_minister_party == "СДПГ"
 on-arrival: advisor_action_timer = 6; fiscal_policy_timer -= 6; last_advisor_action = 1
 go-to: fiscal_policy
-
 
 @economic_democracy_
 title: Демократия в экономике

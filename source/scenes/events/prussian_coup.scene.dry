@@ -18,21 +18,19 @@ face-image: img/Reichswehr.jpg
 - @defend
 - @surrender
 
-
 @defend
 title: Бороться с попыткой переворота!
 subtitle: Рабочие объявят всеобщую забастовку. Рейхсбаннер и верные правительству силы прусской полиции окажут сопротивление перевороту.
 unavailable-subtitle: У нас нет сил для сопротивления.
 choose-if: democracy_force >= 35
 
-[? if prussia_leader == "Штегервальд" or prussia_leader == "Брюнинг": Потенциальное препятствие для вооружённого сопротивления — нежелание министра-президента [+ prussia_leader +] пойти на это, [? if not rb_stay: в результате чего они отклонили призыв Зеверинга к сопротивлению перевороту и превратили всю ситуацию в хаос. ?][? if rb_stay: однако решение партии <span style="color: #000000;">Центра</span> остаться в составе военизированного Рейхсбаннера сплотило партии <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции на защиту республики, которую они помогли создать.  ?]  ?]
+[? if prussia_leader == "Штегервальд" or prussia_leader == "Брюнинг": Потенциальное препятствие для вооружённого сопротивления — нежелание министра-президента [+ prussia_leader +] пойти на это, [? if not rb_stay: в результате чего они отклонили призыв Зеверинга к сопротивлению перевороту и превратили всю ситуацию в хаос. ?][? if rb_stay: однако решение партии <span style="color: #000000;">Центра</span> остаться в составе военизированного Рейхсбаннера сплотило партии <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской коалиции на защиту республики, которую они помогли создать.  ?]  ?]
 
 Рейхсвер уже на улицах Берлина, стотысячная армия страны находится в состоянии готовности, готовая подавить любое сопротивление. <span style="color: #3E88B3;">**Стальной Шлем**</span> и недавно легализованные <span style="color: #7A3C00;">**СА**</span> готовы их поддержать. Рейхсбаннер просто не может сравниться с небольшим, но хорошо обученным и прекрасно вооружённым Рейхсвером. Если мы окажем сопротивление, нам грозит вполне реальная перспектива гражданской войны. Мы ведь понимаем всю серьёзность положения, не так ли?
 
 - @defend_2: Мы будем сражаться, даже если это приведёт к гражданской войне.
 - @defend_3: Мы будем сражаться, даже если это приведёт к гражданской войне.
 - @surrender
-
 
 @defend_2
 view-if: (nsdap_votes >= 25 or rb_militancy < 0.2) and ((reichswehr_strength*reichswehr_militancy*(1-reichswehr_loyalty)) >= rb_strength*rb_militancy) and (spd_votes < 26 or rb_militancy < 0.2) and rb_militancy < 0.3
@@ -55,7 +53,7 @@ Q.prussia_force_prussia = Math.round((Q.prussia_force_prussia/total_force_prussi
 Q.happy_forces = Q.rb_force*(1-Q.dissent) + Q.prussia_force;
 if (Q.prussia_leader == "Брюнинг" || Q.prussia_leader == "Штегервальд" && !Q.rb_stay) Q.happy_forces -= (Q.prussia_force / 2);
 if (Q.kpd_truce) Q.happy_forces += Q.rfb_force;
-Q.happy_forces += (Q.workers_spd_normalized*(1 - Q.dissent)*(1 - Q.unemployed/100))/5;
+Q.happy_forces += (Q.workers_spd_normalized*(1 - Q.dissent)*(1 - Q.effective_unemployed/100))/5;
 Q.angry_forces = Q.sh_force + Q.sa_force + (Q.army_force_prussia/2);
 
 Q.resist_coup = 1
@@ -63,10 +61,8 @@ Q.resist_coup = 1
 go-to: calculations
 
 
-
 @calculations
 go-to: defend_2_civil_war if happy_forces < angry_forces; defend_2_victory if happy_forces >= angry_forces
-
 
 
 @defend_2_victory
@@ -78,10 +74,8 @@ go-to: defend_2_victory_2
 
 Эта демонстрация силы укрепила поддержку республики и <span style="color: #c00000;">**СДПГ**</span> и ослабила <span style="color: #7A3C00;">фашистов</span>. Ожидается, что канцлер Папен либо уйдёт в отставку, либо будет смещён камарильей за его позорный провал, поскольку доверие Гинденбурга к нему полностью подорвано.
 
-
 @defend_2_victory_2
 achievement: drei_pfeile
-
 
 
 @defend_2_civil_war
@@ -89,7 +83,6 @@ achievement: drei_pfeile
 Наши силы вступают в столкновение с правительственными войсками и их сторонниками на улицах Берлина, и вспыхивают вооружённые бои. <span style="color: #808080;">Реакционеры</span> не отступают со своих позиций. Мы оказались в невыгодном положении.
 
 - @civil_war: Это гражданская война.
-
 
 @defend_3
 view-if: not ((nsdap_votes >= 25 or rb_militancy < 0.2) and ((reichswehr_strength*reichswehr_militancy*(1-reichswehr_loyalty)) >= rb_strength*rb_militancy) and (spd_votes < 26 or rb_militancy < 0.2) and rb_militancy < 0.3)
@@ -100,11 +93,10 @@ achievement: bollwerk_der_demokratie
 
 Пока что мы сохраняем контроль над оплотом демократии.
 
-
 @surrender
 title: Отказаться от борьбы за прусское правительство.
 subtitle: Мы попытаемся бороться с этим законными методами.
-on-arrival: older_prussia_leader = prussia_leader; prussia_coup_lose = 1; pre_in_weimar_coalition_prussia = 1 if ((in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1) or (in_grand_coalition_prussia == 1 and lvp_formed)); pre_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; prussia_leader = "Папен"; workers_spd -= 5; new_middle_spd -= 5; new_middle_ddp -= 3; unemployed_spd -= 3; left_dissent += 10; labor_dissent += 10; neorevisionist_dissent += 20; rb_militancy *= 0.8; rb_strength -= 200; prussian_police_loyalty -= 0.5; next_election_time_prussia = time + 48; next_election_year_prussia = year + 4; papen_strength += 1
+on-arrival: older_prussia_leader = prussia_leader; prussia_coup_lose = 1; pre_in_weimar_coalition_prussia = 1 if ((in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1) or (in_grand_coalition_prussia == 1 and lvp_formed)); pre_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; prussia_leader = "Папен"; workers_spd -= 5; new_middle_spd -= 5; new_middle_ddp -= 3; unemployed_spd -= 3; left_dissent += 10; labor_dissent += 10; neorevisionist_dissent += 20; rb_militancy *= 0.8; rb_strength -= 200; prussian_police_loyalty -= 0.5; next_election_time_prussia = time + 48; next_election_year_prussia = year + 4; papen_strength += 1
 
 Утром в день путча прусскому правительству предъявляют указ. Несмотря на яростные возражения по поводу его неконституционности и клятву Зеверинга уступить только силе, стотысячные войска рейхсвера занимают ключевые правительственные здания в Берлине. Один за другим Зеверинг и начальники полиции позволяют сместить себя без сопротивления.
 

@@ -25,7 +25,6 @@ max-visits: 1
 
 - @let_go: Пусть <span style="color: #000000;">христиане</span> уходят.
 
-
 @let_go
 on-arrival: rb_strength *= 0.85; z_relation -= 5; lvp_relation -= 3; lvp_right += 3; pro_republic -= 5; cvp_right += 3; cvp_leave_reichsbanner = 1
 
@@ -36,7 +35,6 @@ on-arrival: rb_strength *= 0.85; z_relation -= 5; lvp_relation -= 3; lvp_right +
 - @wirth_spd
 - @wirth_retire
 
-
 @wirth_spd
 title: Йозеф Вирт использовал это как предлог, чтобы объявить о своём выходе из <span style="color: #000000;">**[+ z_party_name +]**</span>.
 view-if: reformist_strength >= center_strength + left_strength
@@ -45,8 +43,7 @@ face-image: img/portraits/wirth.jpg
 
 Вирт, близкий друг <span style="color: #c00000;">**СДПГ**</span> — и который, вероятно, давно бы к нам присоединился, если бы не наш <span style="color: #9B0000;">марксистский</span> фундамент — официально перешёл в <span style="color: #c00000;">**СДПГ**</span>! Он уже поступал так раньше в знак временного протеста против правого крыла своей партии, но на этот раз, похоже, он с нами насовсем. Наша реформистская партийная платформа сыграла важную роль в преодолении его прежних колебаний.
 
-К сожалению, похоже, это единичный случай. Фракция <span style="color: #FF7F00;">христианских левых</span> в основном осталась в составе <span style="color: #000000;">**[+ z_party_name +]**</span>, где у неё мало реальной власти и она действует скорее как группа давления, нежели влиятельный блок. [? if neorevisionism: Йозеф Вирт присоединился к неоревизионистской фракции из-за своей горячей поддержки <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской республики. ?]
-
+К сожалению, похоже, это единичный случай. Фракция <span style="color: #FF7F00;">христианских левых</span> в основном осталась в составе <span style="color: #000000;">**[+ z_party_name +]**</span>, где у неё мало реальной власти и она действует скорее как группа давления, нежели влиятельный блок. [? if neorevisionism: Йозеф Вирт присоединился к неоревизионистской фракции из-за своей горячей поддержки <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской республики. ?]
 
 @wirth_retire
 title: Йозеф Вирт использовал это как предлог, чтобы объявить о своём выходе из <span style="color: #000000;">**[+ z_party_name +]**</span>.

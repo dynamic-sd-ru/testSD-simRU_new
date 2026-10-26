@@ -32,25 +32,21 @@ go-to: goals_success if kpd_goals_completed_prussia >= 4; goals_failed if kpd_go
 
 [? if free_kpd_goal_seen_prussia = 1 : - Защитить <span style="color: #700000;">коммунистические</span> демонстрации. - [? if free_kpd_goal_prussia <= 0: Успех ?][? if free_kpd_goal_prussia >= 1: Провал ?] ?]
 
-
 @goals_failed
-on-arrival: kpd_relation -= 8; workers_spd -= 4; unemployed_spd -= 4; workers_kpd += 4; rfb_strength += 100; rfb_militancy += 0.05; in_popular_front_prussia = 0; in_left_front_prussia = 0; prussia_leader = "Браун"; kpd_coalition_dissent += 2
+on-arrival: kpd_relation -= 8; workers_spd -= 4; unemployed_spd -= 4; workers_kpd += 4; rfb_strength += 100; rfb_militancy += 0.05; in_popular_front_prussia = 0; in_left_front_prussia = 0; prussia_leader = "Браун"; kpd_coalition_dissent += 2; kpd_demands_prussia = 0
 
 К сожалению, нам не удалось достичь всех целей, которые поставила <span style="color: #700000;">**КПГ**</span>. Они планируют вынести вотум недоверия нашему правительству и уже начали пропагандистскую кампанию по его делегитимизации в глазах рабочих.
 
 - @new_elections: Будут назначены новые выборы.
 - @skibidi: Сформировать новое правительство на основе[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]и[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist: (и, возможно, <span style="color: #C0A054;">**ННП**</span>) ?] ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]?
 
-
 @goals_success
-on-arrival: workers_spd += 4; unemployed_spd += 4; kpd_relation += 6; workers_kpd += 4; kpd_coalition_success += 1; rfb_strength += 150; rfb_militancy += 0.1; reichsexekution += 1
+on-arrival: workers_spd += 4; unemployed_spd += 4; kpd_relation += 6; workers_kpd += 4; kpd_coalition_success += 1; rfb_strength += 150; rfb_militancy += 0.1; reichsexekution += 1; kpd_demands_prussia = 0; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 Как и ожидалось, мы выполнили цели, поставленные <span style="color: #700000;">**КПГ**</span>.[? if president == "Гинденбург": Однако за последние несколько месяцев опасения президента Гинденбурга по поводу нашего коалиционного правительства возросли… ?]
 
-
 @skibidi
 subtitle: моддеру лень это кодить <i>(так в оригинале - прим. перев)</i>
-
 
 @new_elections
 call: set_next_election_time_prussia

@@ -30,7 +30,6 @@ on-display: {!
 - @reichstag_2
 - @reichstag_3
 
-
 @reichstag_1
 title: Голосовать за предложение <span style="color: #700000;">**коммунистов**</span> о возобновлении заседаний палаты.
 on-arrival: {!
@@ -56,6 +55,10 @@ if (Q.next_reichstag_month > 12) {
   Q.next_reichstag_month -= 12;
   Q.next_reichstag_year += 1;
 }
+
+if (Q.kpd_nazi_urgency < 0) {
+  kpd_nazi_urgency += 1;
+}
 !}
 
 Мы должны как можно скорее добиться отставки кабинета Шлейхера. Но у <span style="color: #c00000;">**СДПГ**</span> и <span style="color: #700000;">**КПГ **</span> не хватает голосов в комитете, чтобы провести это предложение, поскольку <span style="color: #7A3C00;">нацисты</span> голосуют против.
@@ -63,7 +66,6 @@ if (Q.next_reichstag_month > 12) {
 Вместо этого <span style="color: #000000;">Партия Центра</span> предлагает компромисс: рейхстаг возобновит работу в начале недели [+ next_reichstag_week +], [+ next_reichstag_month : month +] [+ next_reichstag_year +], с условием, что комитет повторно рассмотрит этот вопрос за неделю до этого.
 
 Это предложение принимается всеми партиями.
-
 
 @reichstag_2
 title: Проголосовать за предложение <span style="color: #7A3C00;">нацистов</span> о передаче полномочий Герингу.
@@ -100,7 +102,6 @@ if (Q.next_reichstag_month > 12) {
 В итоге <span style="color: #000000;">Партия Центра</span> выступает с компромиссом: рейхстаг соберётся вновь в начале Недели [+ next_reichstag_week +], [+ next_reichstag_month : month +] [+ next_reichstag_year +], при условии, что комитет вновь рассмотрит этот вопрос за неделю до этого.
 
 Все партии принимают это соглашение.
-
 
 @reichstag_3
 title: Продвигать компромиссное предложение (созыв через три недели с возможностью пересмотра).

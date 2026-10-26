@@ -1,0 +1,1147 @@
+[
+ {
+  "i": 0,
+  "en": "Awaken the class consciousness of the New Middle Class",
+  "files": [
+   "scenes/advisors/aufhauser.scene.dry"
+  ]
+ },
+ {
+  "i": 1,
+  "en": "As the Chairman of the AfA-bund, Aufhäuser can help us to awaken the class consciousness of the new middle class.",
+  "files": [
+   "scenes/advisors/aufhauser.scene.dry"
+  ]
+ },
+ {
+  "i": 2,
+  "en": "[? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if socialism < 51: We must seek to make socialism more popular. ?][? if new_middle_spd_normalized < 15: We sadly do not have enough support amongst the new middle class. ?][? if new_middle_conscious == 1: We have already awoken the class consciousness of the new middle class. ?]",
+  "files": [
+   "scenes/advisors/aufhauser.scene.dry"
+  ]
+ },
+ {
+  "i": 3,
+  "en": "Awaken the class consciousness of the peasantry and the rural working class.",
+  "files": [
+   "scenes/advisors/baade.scene.dry"
+  ]
+ },
+ {
+  "i": 4,
+  "en": "As our expert on agriculture, Baade can help awaken the class consciousness of peasants and rural workers.",
+  "files": [
+   "scenes/advisors/baade.scene.dry"
+  ]
+ },
+ {
+  "i": 5,
+  "en": "[? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if socialism < 51: We must seek to make socialism more popular. ?][? if rural_spd_normalized < 15: We sadly do not have enough support amongst rural voters. ?][? if rural_policy == 0: We have not enacted any rural policies. ?][? if rural_conscious == 1: We have already awoken the class consciousness of the peasantry and the rural working class. ?]",
+  "files": [
+   "scenes/advisors/baade.scene.dry"
+  ]
+ },
+ {
+  "i": 6,
+  "en": "Can we bring liberal and leftist women's rights organizations together?",
+  "files": [
+   "scenes/advisors/juchacz.scene.dry"
+  ]
+ },
+ {
+  "i": 7,
+  "en": "[? if nationalism > 40: The environment is too polarized: we must push against <span style=\"color: #3E88B3;\">nationalist</span> propaganda. ?][? if womens_rights <= 7 or abortion_rights = 0: More work needs to be done. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]",
+  "files": [
+   "scenes/advisors/juchacz.scene.dry"
+  ]
+ },
+ {
+  "i": 8,
+  "en": "Communist forces unite against the far-right",
+  "files": [
+   "scenes/events/afa_formed.scene.dry"
+  ]
+ },
+ {
+  "i": 9,
+  "en": "Provide funding to Antifaschistische Aktion</span>",
+  "files": [
+   "scenes/events/afa_formed.scene.dry"
+  ]
+ },
+ {
+  "i": 10,
+  "en": "Reach out to the <span style=\"color: #700000;\">KPD</span> to coordinate our forces in the name of <span style=\"color: #700000;\">Anti</span><span style=\"color: #c00000;\">-</span><span style=\"color: #7A3C00;\">Fascism</span>",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/events/harzburg_front.scene.dry",
+   "scenes/events/harzburg_front.scene.dry",
+   "scenes/events/harzburg_front_dnf.scene.dry",
+   "scenes/events/harzburg_front_dnf.scene.dry",
+   "scenes/party_affairs/streetfighting.scene.dry",
+   "scenes/party_affairs/streetfighting.scene.dry"
+  ]
+ },
+ {
+  "i": 11,
+  "en": "Ban our members from engaging with this blatant front organization",
+  "files": [
+   "scenes/events/afa_formed.scene.dry"
+  ]
+ },
+ {
+  "i": 12,
+  "en": "-1 resources",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/inter_party_relationships.scene.dry"
+  ]
+ },
+ {
+  "i": 13,
+  "en": "[? if resources < 0: Not enough resources. ?][? if not (rfb_banned or rfb_banned_prussia) and left_strength >= reformist_strength + neorevisionist_strength: The bulk of the party does not support funding a <span style=\"color: #700000;\">Communist</span> paramilitary. ?][? if (rfb_banned or rfb_banned_prussia) and left_strength >= reformist_strength + neorevisionist_strength + center_strength: The bulk of the party does not support funding what they view a front organization for an illegal <span style=\"color: #700000;\">Communist</span> paramilitary. ?]",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/inter_party_relationships.scene.dry"
+  ]
+ },
+ {
+  "i": 14,
+  "en": "We have provided funding to <span style=\"color: #700000;\">Antifaschistische</span> <span style=\"color: #c00000;\">Aktion</span> in the name of a united front against <span style=\"color: #7A3C00;\">Fascism</span>.",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/inter_party_relationships.scene.dry"
+  ]
+ },
+ {
+  "i": 15,
+  "en": "The <span style=\"color: #000000;\">bourgeois</span> parties decry it as material support for [? if rfb_banned or rfb_banned_prussia: a front organization for an illegal ?][? if not rfb_banned and not rfb_banned_prussia: a ?] <span style=\"color: #700000;\">Communist</span> paramilitary [? if (reformist_strength >= 20 and not (rfb_banned or rfb_banned_prussia)) or (reformist_strength + center_strength >= 20 and (rfb_banned or rfb_banned_prussia)): , a sentiment echoed by many within our party ?]",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/inter_party_relationships.scene.dry"
+  ]
+ },
+ {
+  "i": 16,
+  "en": "[? if not (rfb_banned or rfb_banned_prussia) and left_strength + neorevisionist_strength < reformist_strength: The bulk of the party does not support working with a <span style=\"color: #700000;\">Communist</span> paramilitary. ?][? if (rfb_banned or rfb_banned_prussia) and left_strength + neorevisionist_strength < reformist_strength + center_strength: The bulk of the party does not support coordinating with what they view a front organization for an illegal <span style=\"color: #700000;\">Communist</span> paramilitary. ?]",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/streetfighting.scene.dry",
+   "scenes/party_affairs/streetfighting.scene.dry"
+  ]
+ },
+ {
+  "i": 17,
+  "en": "<span style=\"color: #700000;\">Antifaschistische</span> <span style=\"color: #c00000;\">Aktion</span> has [? if afa_training == 1: begun ?][? if afa_training >= 1: continued ?] conducting joint training operations with the <span style=\"color: #c00000;\">Iron</span> <span style=\"color: #1A1A1A;\">Front</span>",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/streetfighting.scene.dry"
+  ]
+ },
+ {
+  "i": 18,
+  "en": "The <span style=\"color: #000000;\">bourgeois</span> parties [? if not rfb_banned or rfb_banned_prussia: decry our coordination with a front organization for an illegal ?][? if not rfb_banned or rfb_banned_prussia: grumble at our coordination with a ?] <span style=\"color: #700000;\">Communist</span> paramilitary[? if not rfb_banned or rfb_banned_prussia: , even if it is in the name of <span style=\"color: #700000;\">Anti</span><span style=\"color: #c00000;\">-</span><span style=\"color: #7A3C00;\">Fascism</span> ?][? if (reformist_strength >= 20 and not (rfb_banned or rfb_banned_prussia)) or (reformist_strength + center_strength >= 20 and (rfb_banned or rfb_banned_prussia)): , a sentiment echoed by many within our party ?]",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/streetfighting.scene.dry"
+  ]
+ },
+ {
+  "i": 19,
+  "en": "Perhaps expectedly, the <span style=\"color: #700000;\">Communists</span> laughed in <span style=\"color: #c00000;\">our</span> face",
+  "files": [
+   "scenes/events/afa_formed.scene.dry",
+   "scenes/party_affairs/streetfighting.scene.dry"
+  ]
+ },
+ {
+  "i": 20,
+  "en": "We have stayed silent on the matter, providing effective toleration to our local members' attempts to join the mass organization [? if not kpd_truce or kpd_relation < 50: attempts which have, perhaps expectedly, been met with hostility by the national <span style=\"color: #700000;\">KPD</span> ?]",
+  "files": [
+   "scenes/events/afa_formed.scene.dry"
+  ]
+ },
+ {
+  "i": 21,
+  "en": "[? if not rfb_banned or not rfb_banned_prussia or reformist_strength + center_strength < left_strength + neorevisionist_strength: The bulk of our party demansd a united front against <span style=\"color: #7A3C00;\">Fascism</span> ?]",
+  "files": [
+   "scenes/events/afa_formed.scene.dry"
+  ]
+ },
+ {
+  "i": 22,
+  "en": "Call a constructive motion of no confidence!",
+  "files": [
+   "scenes/events/cabinet_reshuffled.scene.dry"
+  ]
+ },
+ {
+  "i": 23,
+  "en": "With our majority in the Reichstag, our constructive vote of no confidence is assured to pass. But who should we nominate as chancellor?",
+  "files": [
+   "scenes/events/cabinet_reshuffled.scene.dry"
+  ]
+ },
+ {
+  "i": 24,
+  "en": "With our majority, our constructive vote of no confidence is assured to pass. But who should we nominate as chancellor?",
+  "files": [
+   "scenes/events/cabinet_reshuffled.scene.dry"
+  ]
+ },
+ {
+  "i": 25,
+  "en": "The <span style=\"color: #000000;\">**[+ z_party_name +]**</span> calls for a constructive vote of no confidence against us!",
+  "files": [
+   "scenes/events/cvp_coalition_joever.scene.dry"
+  ]
+ },
+ {
+  "i": 26,
+  "en": "<span style=\"color: #c00000;\">SPD</span> + <span style=\"color: #700000;\">KPD</span> [? if sapd_formed: + <span style=\"color: #9B0000;\">SAPD</span> ?] ([+ left_coalition +]%). [? if kpd_relation < 50 : We do not have adequate relations with the <span style=\"color: #700000;\">KPD</span>. ?][? if communist_coalition < 3 : The <span style=\"color: #700000;\">Communists</span> are too committed to their radical ways to partake in government. ?] [? if rubicon: - Why the hell would Hindenburg allow this? ?] [? if president_ideology != \"Left\" and president != \"Hindenburg\": - President [+ president +] is fiercely opposed to <span style=\"color: #9B0000;\">socialist</span> governance. ?]",
+  "files": [
+   "scenes/events/cvp_coalition_joever.scene.dry"
+  ]
+ },
+ {
+  "i": 27,
+  "en": "All the compromise candidates that have emerged are broadly acceptable to the majority of the party, but a final decision on which to elect has yet to be made. Retired war hero and Reichstag member Lettow-Vorbeck has been suggested as a unity candidate, but persuading the reluctant Lettow-Vorbeck to lead a political party would require far more than just factional support.",
+  "files": [
+   "scenes/events/cvp_party_congress.scene.dry",
+   "scenes/events/cvp_party_congress_president.scene.dry"
+  ]
+ },
+ {
+  "i": 28,
+  "en": "The faction strengths are as follows.",
+  "files": [
+   "scenes/events/cvp_party_congress_president.scene.dry"
+  ]
+ },
+ {
+  "i": 29,
+  "en": "Stresemann retains his grasp on the party.",
+  "files": [
+   "scenes/events/dvp_party_congress_0.scene.dry"
+  ]
+ },
+ {
+  "i": 30,
+  "en": "The industrialists vote Stresemann down.",
+  "files": [
+   "scenes/events/dvp_party_congress_0.scene.dry"
+  ]
+ },
+ {
+  "i": 31,
+  "en": "[? if dnef_formed: Reichstag mandates for the other parties in the <span style=\"color: #BFC8CC;\">German National Unity Front</span> organization are counted toward the party itself for simplicity's sake. ?]",
+  "files": [
+   "scenes/events/election_1928.scene.dry"
+  ]
+ },
+ {
+  "i": 32,
+  "en": "<span style=\"color: #c00000;\">**SPD**</span> minority alone</span>",
+  "files": [
+   "scenes/events/election_1928.scene.dry"
+  ]
+ },
+ {
+  "i": 33,
+  "en": "<span style=\"color: #c00000;\">**SPD**</span> + <span style=\"color: #9B0000;\">SAPD</span> toleration ([+ socialist_front +]%)",
+  "files": [
+   "scenes/events/election_1928.scene.dry"
+  ]
+ },
+ {
+  "i": 34,
+  "en": "<span style=\"color: #c00000;\">SPD</span> + <span style=\"color: #9B0000;\">SAPD</span> toleration ([+ socialist_front +]%). [? if kpd_relation < 50 : The [? if not blutmai or not kpd_rectified_history: <span style=\"color: #9B0000;\">**SAPD**</span> ?][? if blutmai and kpd_rectified_history: <span style=\"color: #c00000;\">**SPD**</span> ?] are unwilling to support an enemy of their <span style=\"color: #700000;\">**KPD**</span> allies[? if blutmai and kpd_rectified_history: ... wait, what? ?] ?] [? if rubicon: - President Hindenburg will not allow a return to <span style=\"color: #c00000;\">socialist</span> governance. ?][? if president_ideology == \"Right\": - President [+ president +] is fiercely opposed to <span style=\"color: #c00000;\">socialist</span> governance. ?]",
+  "files": [
+   "scenes/events/election_1928.scene.dry"
+  ]
+ },
+ {
+  "i": 35,
+  "en": "Provide funding to <span style=\"color: #700000;\">Antifaschistische</span> <span style=\"color: #c00000;\">Aktion</span>",
+  "files": [
+   "scenes/events/harzburg_front.scene.dry",
+   "scenes/events/harzburg_front_dnf.scene.dry"
+  ]
+ },
+ {
+  "i": 36,
+  "en": "Appoint Rosenfeld as chancellor instead of [+ chancellor +].",
+  "files": [
+   "scenes/events/kpd_vote_of_no_confidence.scene.dry"
+  ]
+ },
+ {
+  "i": 37,
+  "en": "The right-wing parties would not like this.",
+  "files": [
+   "scenes/events/kpd_vote_of_no_confidence.scene.dry"
+  ]
+ },
+ {
+  "i": 38,
+  "en": "President [+ president +] has appointed [+ chancellor +] as chancellor.",
+  "files": [
+   "scenes/events/kpd_vote_of_no_confidence.scene.dry"
+  ]
+ },
+ {
+  "i": 39,
+  "en": "Vote % changes are compared to the last *Reichstag* election. <br> Seat % changes are compared to the last *Landtag* election.",
+  "files": [
+   "scenes/events/local_election_lippe.scene.dry"
+  ]
+ },
+ {
+  "i": 40,
+  "en": "Unfortunately, we have been relegated to toleration of the bourgeois parties.",
+  "files": [
+   "scenes/events/local_election_saxony_1933.scene.dry"
+  ]
+ },
+ {
+  "i": 41,
+  "en": "Our coalition partners are shocked by our intransigence! Despite Chancellor Müller's rejection of the proposal, the other parties bring the matter to a Reichstag vote, which easily passes, with only the <span style=\"color: #c00000;\">**SPD**</span> and <span style=\"color: #700000;\">**KPD**</span> voting against. The ship will be built.",
+  "files": [
+   "scenes/events/panzerkreuzer.scene.dry"
+  ]
+ },
+ {
+  "i": 42,
+  "en": "Our coalition partners are shocked by our intransigence! Despite Chancellor Müller's rejection of the proposal, the other parties bring the matter to a Reichstag vote, but with the support of the <span style=\"color: #700000;\">**KPD**</span>, our vote against the battlecruiser succeeds. The ship will not be built!",
+  "files": [
+   "scenes/events/panzerkreuzer.scene.dry"
+  ]
+ },
+ {
+  "i": 43,
+  "en": "Our coalition partners are shocked by our intransigence! Chancellor [+ chancellor +] brings the matter to a Reichstag vote, but with the support of the <span style=\"color: #700000;\">**KPD**</span>, our vote against the battlecruiser succeeds. The ship will not be built!",
+  "files": [
+   "scenes/events/panzerkreuzer.scene.dry"
+  ]
+ },
+ {
+  "i": 44,
+  "en": "<span style=\"color: #c00000;\">**SPD**</span> minority",
+  "files": [
+   "scenes/events/prussia_election_1928.scene.dry",
+   "scenes/events/prussian_coalition_formation.scene.dry",
+   "scenes/events/socchrist_prussia_collapse.scene.dry",
+   "scenes/events/soclib_prussia_collapse.scene.dry",
+   "scenes/events/weimar_prussia_collapse.scene.dry"
+  ]
+ },
+ {
+  "i": 45,
+  "en": "<span style=\"color: #c00000;\">**SPD**</span> + <span style=\"color: #9B0000;\">**SAPD**</span> toleration: ([+ socialist_front_prussia +]%)",
+  "files": [
+   "scenes/events/prussia_election_1928.scene.dry"
+  ]
+ },
+ {
+  "i": 46,
+  "en": "We have managed to form a <span style=\"color: #c00000;\">**SPD**</span> minority government, thanks to the toleration of the <span style=\"color: #9B0000;\">SAPD</span>. We are no longer bound by the demands of our former coalition partners, though they are going to start drifting to the right.",
+  "files": [
+   "scenes/events/prussia_election_1928.scene.dry",
+   "scenes/events/prussian_coalition_formation.scene.dry",
+   "scenes/events/socchrist_prussia_collapse.scene.dry",
+   "scenes/events/soclib_prussia_collapse.scene.dry",
+   "scenes/events/weimar_prussia_collapse.scene.dry"
+  ]
+ },
+ {
+  "i": 47,
+  "en": "<span style=\"color: #c00000;\">**SPD**</span> + <span style=\"color: #9B0000;\">SAPD</span> toleration: ([+ socialist_front_prussia +]%)",
+  "files": [
+   "scenes/events/prussian_coalition_formation.scene.dry",
+   "scenes/events/socchrist_prussia_collapse.scene.dry",
+   "scenes/events/soclib_prussia_collapse.scene.dry",
+   "scenes/events/weimar_prussia_collapse.scene.dry"
+  ]
+ },
+ {
+  "i": 48,
+  "en": "The <span style=\"color: #c00000;\">**SPD**</span> stands with the <span style=\"color: #700000;\">**Communists**</span>.",
+  "files": [
+   "scenes/events/schleicher_cabinet_12.scene.dry",
+   "scenes/events/schleicher_cabinet_12_alt.scene.dry"
+  ]
+ },
+ {
+  "i": 49,
+  "en": "This option is favored within the Defense Ministry: it has the potential to attract <span style=\"color: #000000;\">rep</span><span style=\"color: #DD0000;\">ubl</span><span style=\"color: #FFCC00;\">ican</span> support and avoid the civil unrest that the other two would likely provoke. Schleicher could remain in office as a caretaker indefinitely.",
+  "files": [
+   "scenes/events/schleicher_cabinet_4.scene.dry"
+  ]
+ },
+ {
+  "i": 50,
+  "en": "[? if spd_in_government and justice_minister_party = \"SPD\" : With our control of the Justice Ministry, we could simply drop the case. ?]",
+  "files": [
+   "scenes/events/weltbuhne.scene.dry"
+  ]
+ },
+ {
+  "i": 51,
+  "en": "The Western powers and all countries that feel threatened by German militarism are pleased that we have turned a chapter in our history.",
+  "files": [
+   "scenes/events/weltbuhne.scene.dry"
+  ]
+ },
+ {
+  "i": 52,
+  "en": "<img src=\"img/achievement/die_rote_justiz.png\" alt=\"Die Rote Justiz Icon\"",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 53,
+  "en": "<div class=\"achievement_subtitle\"> - fully reform the judiciary, ban the RfB, deport <span style=\"color: #7A3C00;\">Hitler</span>, prosecute Ernst Rohm, drop the Weltbuhne case and win Prussia v. Reich.",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 54,
+  "en": "<img src=\"img/achievement/bruning_der_rotfrontkampfer.png\" alt=\"Brüning der Rotfrontkämpfer\"",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 55,
+  "en": "<div style=\"font-weight: bold;\">Brüning der Rotfrontkämpfer</div>",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 56,
+  "en": "<div class=\"achievement_subtitle\"> - both the Lautenbach and left plans have been implemented while Brüning is Chancellor.",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 57,
+  "en": "<img src=\"img/achievement/merz_und_scholz.png\" alt=\"Merz und Scholz\"",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 58,
+  "en": "<div style=\"font-weight: bold;\">Merz und Scholz</div>",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 59,
+  "en": "<div class=\"achievement_subtitle\"> - form a <span style=\"color: #c00000;\">Social</span>-<span style=\"color: #000000;\">Christian</span> Coalition with the <i>true</i> <span style=\"color: #000000; font-weight: bold;\">CVP</span> where the <span style=\"color: #c00000; font-weight: bold;\">SPD</span> is junior partner and Brüning is Chancellor.",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 60,
+  "en": "<img src=\"img/achievement/lindner_moribund.png\" alt=\"Lindner Moribund\"",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 61,
+  "en": "<div style=\"font-weight: bold;\">Lindner Moribund</div>",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 62,
+  "en": "<div class=\"achievement_subtitle\"> - have the <span style=\"color: #FFCC00; font-weight: bold;\">LVP</span> be formed but carry no seats in the Reichstag.",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 63,
+  "en": "<img src=\"img/achievement/tausendjahrige_libreich.png\" alt=\"Tausendjährige Libreich\"",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 64,
+  "en": "<div style=\"font-weight: bold;\">Tausendjährige Libreich</div>",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 65,
+  "en": "<div class=\"achievement_subtitle\"> - have the  <span style=\"color: #FFCC00; font-weight: bold;\">LVP</span> become the largest party in the Reichstag.",
+  "files": [
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry",
+   "scenes/game_over.scene.dry"
+  ]
+ },
+ {
+  "i": 66,
+  "en": "Missing Report",
+  "files": [
+   "scenes/government_affairs/blank_4_alt.scene.dry"
+  ]
+ },
+ {
+  "i": 67,
+  "en": "[? if sapd_toleration: The <span style=\"color: #9B0000;\">**SAPD**</span> however, still opposes our policy of \"rescuing\" capitalism. ?]",
+  "files": [
+   "scenes/government_affairs/economic_policy.scene.dry"
+  ]
+ },
+ {
+  "i": 68,
+  "en": "[? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]",
+  "files": [
+   "scenes/government_affairs/foreign_policy.scene.dry"
+  ]
+ },
+ {
+  "i": 69,
+  "en": "Ban the <span style=\"color: #7A3C00;\">**SA**</span>, the <span style=\"color: #7A3C00;\">Nazi</span> paramilitary group.",
+  "files": [
+   "scenes/government_affairs/prussian_affairs.scene.dry"
+  ]
+ },
+ {
+  "i": 70,
+  "en": "What is [+ chancellor +] planning to do about this, threaten another <i>Reichsexekution</i>?",
+  "files": [
+   "scenes/government_affairs/prussian_affairs.scene.dry"
+  ]
+ },
+ {
+  "i": 71,
+  "en": "The federal government may disapprove all it wants, but [+ chancellor +] is well aware that we could resist another <i>Reichsexekution</i> if push came to shove — and would rather not tempt fate. As it turns out, the <span style=\"color: #7A3C00;\">Nazi</span> <span style=\"color: #7A3C00;\">**SA**</span> has many allies in the police and bureaucracy. Our relationship with the police weakens, and the <span style=\"color: #7A3C00;\">**SA**</span> can still organize illegally, right under the police's noses. [? if sa_banned_pro : Nevertheless, the <span style=\"color: #7A3C00;\">**SA**</span> is substantially weakened by our ban. ?]",
+  "files": [
+   "scenes/government_affairs/prussian_affairs.scene.dry"
+  ]
+ },
+ {
+  "i": 72,
+  "en": "[? if sapd_toleration: The <span style=\"color: #9B0000;\">**SAPD**</span> is turning against us for our welfare policy. ?]",
+  "files": [
+   "scenes/government_affairs/social_welfare.scene.dry"
+  ]
+ },
+ {
+  "i": 73,
+  "en": "Conditions for <span class=\"tooltip-text\" title=\"Communist Party of Germany\" style=\"color: #700000;\">**KPD**</span>'s continuous toleration of our governments",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 74,
+  "en": "<span style=\"color: #c00000;\">**SPD**</span> position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]",
+  "files": [
+   "scenes/library.scene.dry",
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 75,
+  "en": "[? if spd_in_government and sapd_toleration: <span style=\"color: #9B0000;\">**SAPD**</span> toleration dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]",
+  "files": [
+   "scenes/library.scene.dry",
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 76,
+  "en": "[? if kpd_demands_federal = 1 : <span class=\"tooltip-text\" title=\"Communist Party of Germany\" style=\"color: #700000;\">**KPD**</span> is currently tolerating our federal government. They expect us to carry out the following policies: ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 77,
+  "en": "[? if (welfare_goal = 1 and kpd_demands_federal = 1) : - Expand social welfare programs - [? if welfare_goal_completed : done ?][? if not welfare_goal_completed: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 78,
+  "en": "[? if (agriculture_goal = 1 and kpd_demands_federal = 1) : - Enact a land reform program. - [? if agriculture_goal_completed : done ?][? if not agriculture_goal_completed: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 79,
+  "en": "[? if (economy_goal = 1 and kpd_demands_federal = 1) : - Start substantial nationalization of the economy. - [? if economy_goal_completed : done ?][? if not economy_goal_completed: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 80,
+  "en": "[? if (finance_goal = 1 and kpd_demands_federal = 1) : - Make taxes more progressive. - [? if finance_goal_completed : done ?][? if not finance_goal_completed: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 81,
+  "en": "[? if (labor_goal = 1 and kpd_demands_federal = 1) : - Support workers in labor disputes. - [? if labor_goal_completed : done ?][? if not labor_goal_completed: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 82,
+  "en": "[? if (reichswehr_goal = 1 and kpd_demands_federal = 1) : - Reduce funding for the Reichswehr. - [? if reichswehr_goal_completed : done ?][? if not reichswehr_goal_completed: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 83,
+  "en": "[? if kpd_demands_federal = 1 : They are willing to grant us [+ kpd_ultimatum_timer +] months and will likely call a vote of no confidence if we do not carry the following policies out. ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 84,
+  "en": "[? if ((kpd_demands_prussia = 1) and (kpd_demands_federal = 1)) : Furthermore, ?][? if kpd_demands_prussia = 1: <span class=\"tooltip-text\" title=\"Communist Party of Germany\" style=\"color: #700000;\">**KPD**</span> is currently tolerating our government in Prussia. They expect us to carry out the following policies: ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 85,
+  "en": "[? if (rfb_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Unban the <span style=\"color: #700000;\">**RFB**</span>. - [? if rfb_goal_prussia <= 0: done ?][? if rfb_goal_prussia >= 1: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 86,
+  "en": "[? if (bureaucracy_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Purge the bureaucracy. - [? if bureaucracy_goal_prussia <= 0: done ?][? if bureaucracy_goal_prussia >= 1: pending ?] ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 87,
+  "en": "[? if kpd_demands_prussia = 1 : They are willing to grant us [+ kpd_ultimatum_prussia_timer +] months and will likely call a vote of no confidence if we do not carry the following policies out. ?]",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 88,
+  "en": "<span style=\"color: #9B0000",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 89,
+  "en": "<span style=\"color: #003755",
+  "files": [
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 90,
+  "en": "<span style=\"color: #7A3C00",
+  "files": [
+   "scenes/library.scene.dry",
+   "scenes/library.scene.dry"
+  ]
+ },
+ {
+  "i": 91,
+  "en": "[? if not snoopy: - New achievements: \"Der Rote Justiz\", \"Brüning der Rotfrontkämpfer\", \"Merz und Scholz\", \"Lindner Moribund\" and \"Tausendjährige Libreich\". ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 92,
+  "en": "[? if not snoopy: - Added Saxony Landtag Election in 1933. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 93,
+  "en": "[? if not snoopy: - Disconnected the discombobulator. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 94,
+  "en": "[? if not snoopy: - Added Class Consciousness of The New Middle Class and Class Consciousness of The Peasants And The Rural Working Class cards to the party affairs deck. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 95,
+  "en": "[? if not snoopy: - Reworked how failing primary and secondary burdens are affected if class consciousness is awakened. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 96,
+  "en": "[? if not snoopy: - Reworked choice effects in party cards such as media, rally, and campaigning to reflect class consciousness. If the new middle are conscious, doing a class struggle rally no longer reduces their support. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 97,
+  "en": "[? if not snoopy: - Reworked choice effects in government cards such as economic democracy, economic policy, fiscal policy, labour affairs, labour rights, and welfare to reflect class consciousness. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 98,
+  "en": "[? if not snoopy: - Reworked on-arrival effects in the capital strike scene to reflect class consciousness. Also reworked choices in some events cards to reflect class consciousness. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 99,
+  "en": "[? if not snoopy: - Reducing tariffs now increases new middle SPD support (irrespective of consciousness) whilst raising them reduces new middle SPD support. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 100,
+  "en": "[? if not snoopy: - Socialisations via the economic democracy card now generate +0.5 nationalization_progress and +0.5 nationalization_support. The 2nd and 3rd works councils expansion now generate +0.5 nationalization_support each. Socialisations increase labour strength. Works councils and socialisations decrease dissent for all factions. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 101,
+  "en": "[? if not snoopy: - Forming left front coalitions in the landtags no longer reduces your new middle support if the new middle class are conscious. If the rural demographic are conscious, forming left front coalitions in landtags also no longer reduces your rural support. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 102,
+  "en": "[? if not snoopy: - Convincing the KPD to increase their campaigning for you no longer reduces new middle SPD support if the new middle are conscious. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 103,
+  "en": "[? if not snoopy: - The socialism value can now be raised by commercialising media. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 104,
+  "en": "[? if not snoopy: - Added abilities to Aufhäuser and Baade for them to awaken the class consciousness of the new middle class and the peasantry & rural working class respectively. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 105,
+  "en": "[? if not snoopy: - Other bugfixes. ?]",
+  "files": [
+   "scenes/modinfo.scene.dry"
+  ]
+ },
+ {
+  "i": 106,
+  "en": "Our party has been a vehement defender of the constitutional rights of women to be treated the same as men. By this point, we have made great progress both in addressing wage disparity and the restrictions marriage pushes upon both employed and unemployed women[? if abortion_rights: , and even pushed through a bill to legalize abortion despite the conservative opposition ?]. However, all our efforts show that it is not enough: our enemy ought to be the patriarchal culture so prevalent in Germany: without tackling this foundation, no Constitution can overcome the misogynistic sentiments entrenched this deep.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 107,
+  "en": "We stand together with the feminist movement.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 108,
+  "en": "This isn't our fight.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 109,
+  "en": "Return card to hand.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry",
+   "scenes/party_affairs/new_middle_consciousness.scene.dry",
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 110,
+  "en": "We will need to extensively lubricate the gears of negotiation. (-2 resources)",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 111,
+  "en": "Not enough resources.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry",
+   "scenes/party_affairs/campaigning.scene.dry"
+  ]
+ },
+ {
+  "i": 112,
+  "en": "Through Marie Juchacz's work in our Frauensekretariat, we negotiate with **Bund Deutscher Frauenvereine** to urge them to reconcile their past opposition to leftist organization, and start negotiating our further cooperation to hold extensive campaigns, promoting women's rights at work and at home, seeking to offer a common ground to both \"traditional\" and \"new\" women to incentivize their participation in social life beyond the Imperial <span class=\"tooltip-text\" title=\"children, kitchen, church\">\"Kinder, Küche, Kirche\"</span>. We make accent on the livelihoods of widows and mothers who have lost their family in the Great War, those women who belong to the working poor, and aim to shift the blame in the popular perception of domestic abuse from influence of alcohol to present power imbalances.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 113,
+  "en": "While some prominent conservative activists, like Annagrete Lehmann of [? if dnvp_ideology == \"Radical\": <span style=\"color: #3E88B3;\">**DNVP**</span>?][? if dnvp_ideology == \"Moderate\": <span style=\"color: #003755;\">**DNF**</span>?], oppose our efforts out of a principle, even the most traditional women have grievances our rhetoric can appeal to.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 114,
+  "en": "(We can now sponsor BDF campaigns.)",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 115,
+  "en": "We are a party of the working class, and we do not have a responsibility to show preferential treatment.",
+  "files": [
+   "scenes/party_affairs/bdf_cooperation.scene.dry"
+  ]
+ },
+ {
+  "i": 116,
+  "en": "We can sponsor *Bund Deutscher Frauenvereine* for an extensive campaign among women.",
+  "files": [
+   "scenes/party_affairs/campaigning.scene.dry"
+  ]
+ },
+ {
+  "i": 117,
+  "en": "-1 resources.",
+  "files": [
+   "scenes/party_affairs/campaigning.scene.dry"
+  ]
+ },
+ {
+  "i": 118,
+  "en": "We have coordinated with BDF to campaign among women across all classes.",
+  "files": [
+   "scenes/party_affairs/campaigning.scene.dry"
+  ]
+ },
+ {
+  "i": 119,
+  "en": "Provide funding to <span style=\"color: #700000;\">Antifaschistische</span> <span style=\"color: #c00000;\">Aktion</span>, the <span style=\"color: #700000;\">KPD</span>'s mass organization against </span><span style=\"color: #7A3C00;\">Fascism</span>",
+  "files": [
+   "scenes/party_affairs/inter_party_relationships.scene.dry"
+  ]
+ },
+ {
+  "i": 120,
+  "en": "Awaken their class consciousness!",
+  "files": [
+   "scenes/party_affairs/new_middle_consciousness.scene.dry",
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 121,
+  "en": "[? if aufhauser_advisor: Aufhäuser can use the AfA-bund to do this. ?] [? if radio >= 2 and not aufhauser_advisor: We can use our existing radio program for this. ?] [? if commercialized_media >= 2 and not aufhauser_advisor: We can use our existing newspapers for this. ?]",
+  "files": [
+   "scenes/party_affairs/new_middle_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 122,
+  "en": "[? if radio < 2 and not aufhauser_advisor: Aufhäuser's role as the Chairman of the AfA-bund would be quite helpful for this. Alternatively, we might want to consider investing in radio. ?] [? if commercialized_media < 2 and not aufhauser_advisor: Aufhäuser's role as the Chairman of the AfA-bund would be quite helpful for this. Alternatively, we might want to consider commercializing our newspapers. ?]",
+  "files": [
+   "scenes/party_affairs/new_middle_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 123,
+  "en": "We have taken advantage of the situation and have awoken the class consciousness of the white collar workers. Increasingly, they flock to our party and [? if aufhauser_advisor: thanks to Aufhäuser's skills, ?] more white collar workers have joined the AfA-bund.",
+  "files": [
+   "scenes/party_affairs/new_middle_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 124,
+  "en": "By awakening the class consciousness of the new middle class, they have been removed from the secondary burdens. Pro-labor policies and radical left-wing policies, with the exception of raising taxes, can win their support. In addition, our media campaigning and rallies will have more of an effect amongst the new middle class, now that they are conscious.",
+  "files": [
+   "scenes/party_affairs/new_middle_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 125,
+  "en": "Awaken their class consciousness by the power of the radio!",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 126,
+  "en": "[? if baade_advisor: Baade, through his expertise on agriculture, can help us raise the consciousness of the rural workers and peasants. ?] [? if commercialized_media >= 2 and not baade_advisor: We can use our existing newspapers for this. ?]",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 127,
+  "en": "[? if not baade_advisor: Baade's expertise on agriculture can help us with this. ?][? if commercialized_media < 2 and not baade_advisor: We might want to consider commercialising our newspapers. ?]",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 128,
+  "en": "We have taken advantage of the situation and have awoken the class consciousness of the peasantry and the rural working class. Increasingly, they flock to our party and more rural labourers have joined the DLV - the German Agrictulrural Workers' Union.",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 129,
+  "en": "By awakening the class consciousness of the peasantry and the rural working class, failing a secondary burden will lessen the extent to which their support is reduced. In addition, our media campaigning and rallies will have more of an effect amongst rural voters, now that they are conscious.",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry",
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 130,
+  "en": "We can invest 1 budget into building more powerful radio transmission stations so that we can expand our radio network to the countryside.",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 131,
+  "en": "[? if budget < 1: We sadly do not have enough budget for this. ?] [? if spd_in_government = 0: We need to be in government to do this. ?] [? if radio < 2: We might want to consider building up our radio network. ?]",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 132,
+  "en": "We have taken advantage of the situation and have awoken the class consciousness of the peasantry and the rural working class. Increasingly, they flock to our party and more rural labourers have joined the DLV - the German Agricultural Workers' Union.",
+  "files": [
+   "scenes/party_affairs/rural_consciousness.scene.dry"
+  ]
+ },
+ {
+  "i": 133,
+  "en": "Prussian government: [? if spd_prussia : in government - ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 134,
+  "en": "<div style=\"text-align: center;\">Chancellor: [? if chancellor_party == \"SPD\": <span style=\"color: #c00000;\">[+ chancellor +]</span>?][? if chancellor_party == \"Z\": <span style=\"color: #000000;\">[+ chancellor +]</span>?][? if chancellor_party == \"NSDAP\": <span style=\"color: #7A3C00;\">Hitler</span>?][? if chancellor_party == \"KPD\": <span style=\"color: #700000;\">[+ chancellor +]</span>?][? if chancellor_party == \"SAPD\": <span style=\"color: #9B0000;\">[+ chancellor +]</span>?][? if (chancellor == \"Schleicher\" and not dnef_formed) or chancellor == \"Papen\": <span style=\"color: #808080;\">[+ chancellor +]</span>?][? if (chancellor == \"Schleicher\" or chancellor == \"Goerdeler\" or chancellor == \"Bredow\" or (chancellor == \"Treviranus\" and treviranus_party == \"DNEF\")) and dnef_formed: <span style=\"color: #BFC8CC;\">[+ chancellor +]</span>?][? if chancellor_party == \"KVP\": <span style=\"color: #0087DC;\">[+ chancellor +]</span>?][? if chancellor_party == \"DNVP\": <span style=\"color: #3E88B3;\">[+ chancellor +]</span>?] [? if chancellor_party == \"Z\":(<span style=\"color: #000000;\">**[+ z_party_name +]**</span>) ?][? if chancellor_party == \"SPD\":(<span style=\"color: #c00000;\">**SPD**</span>) ?][? if chancellor_party == \"KPD\":(<span style=\"color: #700000;\">**KPD**</span>) ?][? if chancellor_party == \"SAPD\":(<span style=\"color: #9B0000;\">**SAPD**</span>) ?][? if chancellor_party == \"NSDAP\":(<span style=\"color: #7A3C00;\">**NSDAP**</span>) ?][? if chancellor_party == \"I\":(<span style=\"color: #808080;\">I</span>) ?][? if chancellor_party == \"DNVP\":(<span style=\"color: #3E88B3;\">**DNVP**</span>) ?][? if chancellor_party == \"KVP\":(<span style=\"color: #0087DC;\">**KVP**</span>) ?][? if chancellor_party == \"DNEF\":(<span style=\"color: #BFC8CC;\">**DNEF**</span>) ?]</div>",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 135,
+  "en": "<div style=\"text-align: center;\">Vice-Chancellor: [? if vice_chancellor == \"Hammerstein\": <span style=\"color: #BFC8CC;\">[+ vice_chancellor +]</span> ?][? if vice_chancellor == \"Papen\": <span style=\"color: #808080;\">[+ vice_chancellor +]</span> ?][? if vice_chancellor == \"Strasser\": <span style=\"color: #6A1E1E;\">[+ vice_chancellor +]</span> ?][? if vice_chancellor == \"Stegerwald\": <span style=\"color: #000000;\">[+ vice_chancellor +]</span> ?][? if vice_chancellor == \"Papen\": (<span style=\"color: #808080;\">I</span>) ?][? if vice_chancellor == \"Strasser\": (<span style=\"color: #6A1E1E;\">**DSU**</span>) ?][? if vice_chancellor == \"Stegerwald\": (<span style=\"color: #000000;\">**Z**</span>) ?][? if vice_chancellor == \"Hammerstein\": (<span style=\"color: #BFC8CC;\">**DNEF**</span>) ?][? if not vice_chancellor: Vacant ?]</div>",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 136,
+  "en": "Method of governing: Presidential decrees",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 137,
+  "en": "[? if chancellor == \"Papen\": Hindenburg's confidence: [+ hindenburg_papen_r : confidence +]<br> ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 138,
+  "en": "[? if chancellor == \"Schleicher\": Hindenburg's confidence: [+ hindenburg_schleicher_r : confidence +]<br> ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 139,
+  "en": "[? if chancellor == \"Schleicher\" or chancellor == \"Bredow\" or chancellor == \"Goerdeler\" or chancellor == \"Treviranus\": [+ chancellor +]'s public popularity: [+ schleicher_approval : schleicher_popularity +]<br> ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 140,
+  "en": "[? if chancellor == \"Papen\": Schleicher's confidence: [+ schleicher_papen_r : confidence +]<br> ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 141,
+  "en": "[? if red_general_unlock: [? if chancellor == \"Schleicher\" or not schleicher_post: Schleicher?][? if chancellor != \"Schleicher\" and schleicher_post: State?]-<span style=\"color: #c00000;\">**SPD**</span> relations: [+ schleicher_spd_r : schleicher_spd +]<br> ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 142,
+  "en": "[? if reichswehr_strength > 100 and chancellor == \"Schleicher\": Reichswehr: 100 thousand troops.<br> ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 143,
+  "en": "[? if reichswehr_strength > 100 and chancellor == \"Schleicher\": State \"Militia\": [+ reichswehr_strength - 100 +] thousand troops. ?]",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 144,
+  "en": "Support for <span style=\"color: #9B0000;\">**Socialism**</span>: [+ socialism_disp +]%",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 145,
+  "en": "Support for <span style=\"color: #3E88B3;\">**Nationalism**</span>: [+ nationalism_disp +]%",
+  "files": [
+   "scenes/status.scene.dry"
+  ]
+ },
+ {
+  "i": 146,
+  "en": "[? if dnef_existed and chancellor == \"Bredow\": <div style=\"text-align: right; flex: 1;\">Ferdinand von Bredow</div> ?]",
+  "files": [
+   "scenes/status_right.scene.dry"
+  ]
+ },
+ {
+  "i": 147,
+  "en": "[? if dnef_existed and chancellor == \"Goerdeler\": <div style=\"text-align: right; flex: 1;\">Carl Goerdeler</div> ?]",
+  "files": [
+   "scenes/status_right.scene.dry"
+  ]
+ },
+ {
+  "i": 148,
+  "en": "[? if dnef_existed and chancellor == \"Treviranus\": <div style=\"text-align: right; flex: 1;\">Gottfried Treviranus</div> ?]",
+  "files": [
+   "scenes/status_right.scene.dry"
+  ]
+ },
+ {
+  "i": 149,
+  "en": "[? if dnef_existed: <p style=\"text-align: center;margin-bottom: 5px;\">Hindenburg's confidence: [+ hindenburg_schleicher_r : confidence +]</p> ?]",
+  "files": [
+   "scenes/status_right.scene.dry"
+  ]
+ },
+ {
+  "i": 150,
+  "en": "President [+ president +] will call snap elections.",
+  "files": [
+   "vote_of_no_confidence_constructive.scene.dry"
+  ]
+ },
+ {
+  "i": 151,
+  "en": "Never mind. What are our options?",
+  "files": [
+   "vote_of_no_confidence_constructive.scene.dry"
+  ]
+ },
+ {
+  "i": 152,
+  "en": "We don't have that power anymore. You really screwed us here with your reforms, you know that?",
+  "files": [
+   "vote_of_no_confidence_constructive.scene.dry"
+  ]
+ },
+ {
+  "i": 153,
+  "en": "To prevent being relegated to the opposition, we have called for new elections for [+ next_election_month : month +] [+ next_election_year +].",
+  "files": [
+   "vote_of_no_confidence_constructive.scene.dry"
+  ]
+ }
+]

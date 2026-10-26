@@ -19,9 +19,9 @@ if ((100 - Q.pro_republic) + Q.nationalism >= 90) {
 if (Q.lvp_timer_1_trigger == 1) {
     Q.dstp_formation_points += 5;
 }
-if (Q.major_curriculum == "humanist") {
+if (Q.major_curriculum == "гуманитарная") {
     Q.dstp_formation_points += 3;
-} else if (Q.minor_curriculum == "humanist") {
+} else if (Q.minor_curriculum == "гуманитарная") {
     Q.dstp_formation_points += 1;
 }
 if (Q.ddp_relation < 50) {
@@ -52,7 +52,6 @@ new-page: true
 - @dstp_formed: <span style="color: #D3C24D;">**НГП**</span> создана.
 - @status_quo: Переговоры провалились.
 
-
 @dstp_formed
 view-if: dstp_formation_points >= 3
 on-arrival: dstp_formed = 1; ddp_name = "НГП"; liberal_cooperation -= 5; bourgeois_cooperation -= 3; new_middle_ddp -= 2; old_middle_ddp += 4; rural_ddp += 2; ddp_right += 2; ddp_relation -= 5; pro_republic -= 3; nationalism += 5; justice_minister_party = ddp_name if justice_minister_party == "НДП"; agriculture_minister_party = ddp_name if agriculture_minister_party == "НДП"; economic_minister_party = ddp_name if economic_minister_party == "НДП"; finance_minister_party = ddp_name if finance_minister_party == "НДП"
@@ -64,7 +63,6 @@ go-to: recalculate
 
 Согласно соглашению, <span style="color: #D3C24D;">**НДП**</span> пообещала «расширить партию вправо», что может сулить лишь неприятности нашему ближайшему буржуазному союзнику. Несмотря на это, создание <span style="color: #D3C24D;">**НГП**</span> не просто раскол партии на левых и правых: лидер социально-республиканцев профсоюзник Эрнст Леммер помог предотвратить крупный раскол среди левых. Однако в этом союзе уже намечаются трещины. Лишь вопрос времени, когда этот эксперимент провалится.
 
-
 @status_quo
 view-if: dstp_formation_points < 3
 on-arrival: dstp_formed = 0; pro_republic += 3
@@ -75,7 +73,6 @@ go-to: recalculate
 Как и ожидалось, слияние организации антисемитов-националистов и партии, которую считают <span style="color: #005EB8;">еврейской</span>, провалилось: лидер Младогерманского ордена Артур Мараун покинул переговоры, сославшись на непреодолимые разногласия. [? if not vnr_cool and not saxony_election_1930_seen: Однако главный фактор иной: успешность <span style="color: #D3D3A9;">**ННОР**</span> никогда не проверялось на выборах. ?][? if not vnr_cool and saxony_election_1930_seen: Однако главное опасение иное: <span style="color: #D3D3A9;">**ННОР**</span> не удалось получить ни одного места на единственных выборах, в которых оно участвовало, — недавних выборах в саксонский ландтаг.  ?]
 
 Внутренняя оппозиция Кох-Везеру достигла апогея. Им недовольны все фракции. Его обвиняют в срыве переговоров о создании <span style="color: #FFCC00;">единой либеральной партии</span> и провале «возродить партию» через сотрудничество с Младогерманцами.
-
 
 @recalculate
 on-arrival: {!
@@ -93,10 +90,8 @@ if (Q.bourgeois_negotiations_elections_1930_timer == 1 && Q.bourgeois_negotiatio
 !}
 go-to: dstp_formed_achievement if dstp_formed; dstp_fail_achievement if not dstp_formed
 
-
 @dstp_formed_achievement
 achievement: dstp_formed
-
 
 
 @dstp_fail_achievement

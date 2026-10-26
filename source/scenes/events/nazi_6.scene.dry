@@ -26,7 +26,6 @@ on-display: {!
 
 - @nazi_2
 
-
 @nazi_2
 title: Спор обостряется…
 on-arrival: sa_strength -= 25; sa_militancy -= 0.03; unemployed_nsdap -= 4; workers_nsdap -= 2

@@ -1,0 +1,35 @@
+title: Членство в Рейхсбаннере падает
+subtitle: Наша непопулярность отрицательно сказалась на способности Рейхсбаннера вербовать новичков в свои ряды.
+view-if: workers_aid > 0 and workers_spd_normalized + unemployed_spd_normalized < (workers_kpd_normalized + workers_nsdap_normalized + workers_dnvp_normalized) and time >= workers_aid_unpopularity_time
+new-page: true
+tags: event
+on-display: {!  
+    var cardEl = document.createElement('div');  
+    cardEl.className = "face-figure2";  
+
+    var image = new Image();  
+    image.className = "face-img";  
+    image.src = "img/tnoreference.png";  
+
+    cardEl.appendChild(image);  
+    var contentDiv = document.querySelector("#page #mid_panel #content");
+    contentDiv.appendChild(cardEl);
+!}
+on-arrival: workers_aid_unpopularity_time = time + 6
+
+Членство в Рейхсбаннере падает
+
+К сожалению, на эффективности Рейхсбаннера пагубно сказывается непопулярность <span style="color: #c00000;">**СДПГ**</span>, так как рабочие не горят желанием вступать в его ряды. [? if left_strength >= 40: Однако более радикально настроенные члены нашего левого крыла в основном остались. ?] [? if spd_votes >= 29: Кроме того, нам не удаётся привлечь значительное число сторонников из нерабочих слоёв населения. ?]
+
+- @workers_aid_joever: Unfortunate.
+
+@workers_aid_joever
+on-arrival: {!
+    if (labor_strength < 40) {
+        workers_aid = Math.floor(workers_aid * 0.8);
+    } else {
+        workers_aid = Math.floor(workers_aid * 0.9);
+    }
+!}
+
+Это останется проблемой, если наша популярность продолжит падать.

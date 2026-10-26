@@ -1,7 +1,7 @@
 title: Гёрделер представляет кабинет
 subtitle: Исключительно «временная мера» до тех пор, пока <span style="color: #7A3C00;">национальная</span> <span style="color: #3E88B3;">оппозиция</span> не войдёт в правительство.
 view-if: chancellor = "Гёрделер" and goerdeler_pre_time == 1
-on-arrival: finance_minister_party = "I"; interior_minister_party = "НННП"; economic_minister_party = "I"; labor_minister_party = "I"; justice_minister_party = "I"; foreign_minister_party = "I"; agriculture_minister_party = "НННП"; reichswehr_minister = "I"
+on-arrival: finance_minister_party = "б/п"; interior_minister_party = "НННП"; economic_minister_party = "б/п"; labor_minister_party = "б/п"; justice_minister_party = "б/п"; foreign_minister_party = "б/п"; agriculture_minister_party = "НННП"; reichswehr_minister = "I"
 new-page: true
 tags: event
 max-visits: 1
@@ -16,7 +16,6 @@ face-image: img/portraits/goerdeler.jpg
 Партия[? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] всё больше опасается за свою роль в кабинете Гёрделера, отказываясь выдвигать таких министров, как Адам Штегервальд и Брюнинг, на посты министров труда и иностранных дел соответственно. Их отказ работать вместе с антисоциалистом Гугенбергом серьёзно осложнил текущие переговоры.
 
 - @goerdeler
-
 
 @goerdeler
 title: Шлейхер начнёт переговоры с Гугенбергом.
@@ -34,7 +33,6 @@ face-image: img/portraits/AlfredHugenberg.jpg
 
 - @goerdeler_2
 
-
 @goerdeler_2
 title: Шлейхер будет вести переговоры с [+ nsdap_leader +]ом.
 face-image: img/portraits/hitler2.jpg
@@ -44,7 +42,6 @@ face-image: img/portraits/hitler2.jpg
 Однако это совершенно неприемлемо для Гёрделера — и тем более для президента Гинденбурга, который категорически отказывается предоставлять пост канцлера или министра обороны члену [+ nsdap_leader +]. Более того, Гинденбург настаивает на том, чтобы Брюнинг и Грёнер остались в кабинете министров иностранных дел и обороны соответственно, по-прежнему ценя дипломатический опыт Брюнинга.
 
 - @goerdeler_3
-
 
 @goerdeler_3
 title: Какая неразбериха.

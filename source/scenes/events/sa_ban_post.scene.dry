@@ -20,7 +20,6 @@ face-image: img/portraits/groener.jpg
 
 - @bruning_explode: Правительство Брюнинга критически ослаблено и вот-вот станет следующей жертвой интриг Шлейхера.
 
-
 @bruning_explode
 on-arrival: groener_dead = 1; hindenburg_angry_bruning += 35
 

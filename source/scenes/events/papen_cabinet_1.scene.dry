@@ -1,7 +1,7 @@
 title: Папен представляет кабинет
 subtitle: «Кабинет баронов» — так его называют.
 view-if: chancellor = "Папен" and papen_time == 1
-on-arrival: chancellor_party = "I"; finance_minister_party = "I"; interior_minister_party = "НННП"; economic_minister_party = "I"; labor_minister_party = "I"; justice_minister_party = "НННП"; foreign_minister_party = "I"; agriculture_minister_party = "НННП"; reichswehr_minister = "I"
+on-arrival: chancellor_party = "б/п"; finance_minister_party = "б/п"; interior_minister_party = "НННП"; economic_minister_party = "б/п"; labor_minister_party = "б/п"; justice_minister_party = "НННП"; foreign_minister_party = "б/п"; agriculture_minister_party = "НННП"; reichswehr_minister = "I"
 new-page: true
 tags: event
 max-visits: 1
@@ -28,7 +28,6 @@ on-display: {!
 
 - @papen
 
-
 @papen
 title: Папен объявляет стране о своих целях.
 on-arrival: workers_spd += 2; workers_kpd += 2; pro_republic -= 3
@@ -38,7 +37,6 @@ on-arrival: workers_spd += 2; workers_kpd += 2; pro_republic -= 3
 Как пишет наша партийная газета «Форвертс», это — «уникальное прямое объявление верхами классовой войны». <span style="color: #c00000;">**СДПГ**</span> — и тем более <span style="color: #700000;">**Коммунисты**</span> — после нескольких месяцев упадка вновь набирают силу: начинается битва между баронами и народом. Более того, если <span style="color: #7A3C00;">**НСДАП**</span> поддержат этот кабинет, это может привести к краху их народной поддержки.
 
 - @papen_2
-
 
 @papen_2
 title: Рейхстаг распущен, назначены новые выборы.

@@ -18,7 +18,6 @@ card-image: img/portraits/LeberJulius.jpg
 - @easy_discard
 - @cancel_advisor_action
 
-
 @increase_funding
 subtitle: -1 бюджет
 choose-if: budget >= 1
@@ -26,7 +25,6 @@ unavailable-subtitle: Недостаточно бюджета.
 on-arrival: budget -= 1; coalition_dissent -= 1 if coalition_dissent > 0; reichswehr_loyalty += 0.07 if reichswehr_loyalty < 1; reichswehr_strength += 20; left_dissent += 5; kpd_coalition_dissent += 1; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1; eu_progress -= 1; dvp_left += 1; dvp_relation += 4; lvp_relation += 4; ddp_relation += 2; ddp_cohesion -= 1; ddp_right += 1; lvp_left += 1; goal_spd_cancel += 1; hindenburg_angry -= 10; economic_growth += 0.1
 
 Военные и правоцентристские партии приятно удивлены нашим решением увеличить финансирование армии. Члены нашей партии, в основном настроенные антимилитаристски, отнеслись к этому без особого энтузиазма. Соседи Германии с тревогой наблюдают за наращиванием нашей военной мощи. [? if reparations >= 0 : Это плохо скажется на переговорах о репарациях. ?]
-
 
 @decrease_funding
 subtitle: +1 к бюджету
@@ -37,7 +35,6 @@ on-arrival: budget += 1; coalition_dissent += 1 if in_grand_coalition == 1; coal
 У армии меньше оружия и солдат. Пока нет и намёка на переворот, но мы не знаем, где будет проведена черта. Правоцентристские партии поддерживают армию и категорически против наших бюджетных сокращений.
 
 Многие демобилизованные солдаты вступили в правые военизированные организации, такие как <span style="color: #3E88B3;">**Стальной Шлем**</span> и <span style="color: #7A3C00;">**СА**</span>, а с наших складов пропадает оружие.
-
 
 @reform
 subtitle: -1 к бюджету

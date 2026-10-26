@@ -16,7 +16,6 @@ new-page: true
 
 - @dvp_success: Сформирована <span style="color: #FFCC00;">**ЛНП**</span>.
 
-
 @dvp_success
 on-arrival: lvp_trigger_2_time = time; threshold_lvp = 1
 face-image: img/weimar_coalition_3.jpg
@@ -26,7 +25,6 @@ face-image: img/weimar_coalition_3.jpg
 Итоги съезда значительно ослабили влияние <span style="color: #C0A054;">**ННП**</span> правого крыла и определят идеологию <span style="color: #FFCC00;">Либеральной народной партии</span>, если она будет создана.
 
 - @lvp_congress: Первый <span style="color: #FFCC00;">**ЛНП**</span> проводит съезд
-
 
 @lvp_congress
 go-to: lvp_party_congress_1930_0

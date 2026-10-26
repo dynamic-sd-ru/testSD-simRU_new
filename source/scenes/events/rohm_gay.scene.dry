@@ -23,7 +23,6 @@ face-image: img/portraits/rohm.jpg
 - @expose_rohm: Мы опубликуем письма, так как разоблачение <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">се</span><span style="color: green;">кс</span><span style="color: blue;">уа</span><span style="color: purple;">льности</span> столь высокопоставленного <span style="color: #7A3C00;">нацистского</span> чиновника, несомненно, снизит их привлекательность для основного электората.
 - @no_expose_rohm: <span style="color: #c00000;">**СДПГ**</span> формально выступает в защиту прав <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">се</span><span style="color: green;">кс</span><span style="color: blue;">уа</span><span style="color: purple;">лов</span>, и предавать огласке столь личное дело — дурной тон.
 
-
 @expose_rohm
 on-arrival: hindenburg_angry_bruning -= 10; old_middle_nsdap -= 2; rural_nsdap -= 2; catholics_nsdap -= 2; new_middle_spd -= 0.01; z_relation += 3; left_dissent += 5
 
@@ -37,12 +36,10 @@ on-arrival: hindenburg_angry_bruning -= 10; old_middle_nsdap -= 2; rural_nsdap -
 
 - @persecute_rohm: Начать судебное преследование Рёма! <span style="color: red;">Го</span><span style="color: orange;">мо</span><span style="color: yellow;">сек</span><span style="color: green;">су</span><span style="color: blue;">аль</span><span style="color: purple;">ные</span> контакты запрещены параграфом 175, что позволяет нам возбудить против него дело. <i>(ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России)</i>.
 
-
 @no_expose_rohm
 on-arrival: old_middle_nsdap -= 2; left_dissent -= 5; wholesome_point += 1; rohm_join_rb_time = time + 6
 
 Для партии, выступающей за права <span style="color: red;">го</span><span style="color: orange;">м</span><span style="color: yellow;">о</span><span style="color: green;">се</span><span style="color: blue;">ксуа</span><span style="color: purple;">лов</span>, дурной тон — нападать на кого-то из-за гомосексуальности. Мы поступили благородно, но многие в нашей партии считают: мы упустили возможность.
-
 
 @persecute_rohm
 unavailable-subtitle: Несмотря на повсеместную неприязнь к <span style="color: red;">го</span><span style="color: orange;">м</span><span style="color: yellow;">о</span><span style="color: green;">се</span><span style="color: blue;">ксу</span><span style="color: purple;">алу</span>, судебная власть слишком реакционна, чтобы осудить высокопоставленного <span style="color: #7A3C00;">нациста</span>.

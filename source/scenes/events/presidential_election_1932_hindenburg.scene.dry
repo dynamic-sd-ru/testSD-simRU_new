@@ -64,7 +64,6 @@ max-visits: 1
 - @hindenburg_drop_out
 - @hindenburg_running
 
-
 @hindenburg_drop_out
 title: Мы ждём его решения.
 view-if: not hindenburg_run
@@ -76,7 +75,6 @@ view-if: not hindenburg_run
 Отсутствие кандидата, вокруг которого могли бы сплотиться немецкие центристы и умеренные правые, создаёт вакуум, который, вероятно, будет заполнен, когда другие партии в ближайшем будущем объявят своих кандидатов.
 
 - @presidential_election_1932_candidate: Что же будут за кандидаты, если Гинденбург уходит на покой?
-
 
 @hindenburg_running
 title: Мы ждём его решения.

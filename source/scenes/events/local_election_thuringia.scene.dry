@@ -23,7 +23,6 @@ on-display: {!
 
 - @thuringia: Сделаем всё возможное…
 
-
 @thuringia
 on-arrival: {!
 
@@ -422,6 +421,8 @@ go-to: thuringia_coalition_menu
 
 {!<svg id="thuringia_landtag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!
 {!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_thuringia_elections_vote +]%** {!</td><td>!} [+ spd_r_thuringia +]%{!</td></tr>!}
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#9B0000'> </div> !}СРПГ:{!</td><td>!} [+ sapd_thuringia_elections_vote +]%{!</td><td>!} [+ sapd_r_thuringia +]%{!</td></tr>!}  ?]
@@ -450,7 +451,12 @@ go-to: thuringia_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_thuringia_elections_vote +]%{!</td><td>!} [+ dnf_r_thuringia +]%{!</td></tr>!}  ?]
 
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_thuringia_elections_vote +]%{!</td><td>!} [+ nsdap_r_thuringia +]%{!</td></tr>!} {!</table>!} <hr id="read-marker"> В настоящее время Тюрингией управляет широкая правоцентристская коалиция, которая занимает ровно половину мест в ландтаге. В эту коалицию входят все партии правее нас, а также партии, представляющие нишевые интересы, — <span style="color: #b8996f;">**ЭП**</span> и <span style="color: #7FCEB1;">**ХНПКЗ**</span>, обе из которых имеют значительное влияние в политике земли. <hr id="read-marker"> Объединенная левая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_thuringia +]%
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_thuringia_elections_vote +]%{!</td><td>!} [+ nsdap_r_thuringia +]%{!</td></tr>!} {!</table>!}
+{!</table>!}
+<hr id="read-marker"> В настоящее время Тюрингией управляет широкая правоцентристская коалиция, которая занимает ровно половину мест в ландтаге. В эту коалицию входят все партии правее нас, а также партии, представляющие нишевые интересы, —
+<span style="color: #b8996f;">**ЭП**</span> и <span style="color: #7FCEB1;">**ХНПКЗ**</span>, обе из которых имеют значительное влияние в политике земли.
+<hr id="read-marker"> Объединенная левая коалиция (
+<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_thuringia +]%
 
 Большая коалиция (<span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if z_r_thuringia: &nbsp;+&nbsp;<span style="color: #000000;">**[+ z_party_name +]**</span> ?][? if not lvp_formed: &nbsp;+&nbsp;<span style="color: #C0A054;">**ННП**</span> ?]): [+ spd_coalition_thuringia +]%
 
@@ -459,7 +465,6 @@ go-to: thuringia_coalition_menu
 Правая коалиция ([? if z_r_thuringia: <span style="color: #000000;">**[+ z_party_name +]**</span> + ?][? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] + <span style="color: #7FCEB1;">**ХНПКЗ**</span> + <span style="color: #b8996f;">**ЭП**</span>[? if kvp_formed: &nbsp;+ <span style="color: #0087DC;">**КНП**</span> ?] + <span style="color: #3E88B3;">**НННП**</span>[? if dnvp_ideology == "Умеренные": &nbsp;+ <span style="color: #003755;">**НФГ**</span> ?] + <span style="color: #7A3C00;">**НСДАП**</span>): [+ far_right_coalition_thuringia +]%
 
 [? if nsdap_thuringia_elections_vote >= 8: Стремительный рост популярности <span style="color: #7A3C00;">**НСДАП**</span> на земельных и местных выборах, безусловно, заслуживает пристального внимания. ?]
-
 
 @thuringia_coalition_menu
 on-arrival: {!
@@ -489,7 +494,8 @@ if (((Q.z_relation >= 60 || !Q.stegerwald_path) && ((Q.dvp_relation >= (dvp_tole
 if ((Q.dvp_relation < (dvp_toleration_threshold + 5) && !Q.lvp_formed) || (Q.lvp_relation < (lvp_toleration_threshold + 5) && Q.lvp_formed)) Q.dvp_toleration_threshold_fail = 1;
 !}
 
-<hr id="read-marker"> Буржуазные партии исторически враждебны к нам в политике земли, особенно после пресловутого единого правительства левых <span style="color: #c00000;">**СДПГ**</span>–<span style="color: #D47B9B;">**НСДПГ**</span>-<span style="color: #700000;">**КПГ**</span>, столкнувшееся с <i>Reichsexekution (Имперской экзекуцией)</i> шесть лет назад. Они все еще не забыли, что <span style="color: #c00000;">**СДПГ**</span> это поддержала.
+<hr id="read-marker"> Буржуазные партии исторически враждебны к нам в политике земли, особенно после пресловутого единого правительства левых
+<span style="color: #c00000;">**СДПГ**</span>–<span style="color: #D47B9B;">**НСДПГ**</span>-<span style="color: #700000;">**КПГ**</span>, столкнувшееся с <i>Reichsexekution (Имперской экзекуцией)</i> шесть лет назад. Они все еще не забыли, что <span style="color: #c00000;">**СДПГ**</span> это поддержала.
 
 Тем временем набирающая силу <span style="color: #7A3C00;">**НСДАП**</span>, контролирующая теперь [+ nsdap_r_thuringia +]% голосов в ландтаге, больше не желает довольствоваться лишь воздержанием от вотума недоверия и требует для себя места в правительстве. Поскольку буржуазные партии твёрдо намерены не допустить нас к власти, Тюрингия вполне может стать первой землёй, где появится министр-<span style="color: #7A3C00;">нацист</span>.
 
@@ -502,7 +508,6 @@ if ((Q.dvp_relation < (dvp_toleration_threshold + 5) && !Q.lvp_formed) || (Q.lvp
 - @spd_majority
 
 
-
 @toleration_thuringia
 title: Действующее правобуржуазное правительство не получило большинства.
 subtitle: Мы предложим свое воздержание от вотума недоверия, чтобы не допустить их зависимости от <span style="color: #7A3C00;">**НСДАП**</span>.
@@ -513,12 +518,11 @@ on-arrival: thuringia_right = 1; pro_republic -= 1; rural_nsdap += 2; old_middle
 
 Удивительно, но, благодаря нашему примирению с буржуазными партиями, они согласились на наше воздержание от вотума недоверия. Таким образом, они правят в правительстве меньшинства с нашей поддержкой, чтобы предотвратить вхождение <span style="color: #7A3C00;">**НСДАП**</span> в правительство. Однако это становится отличной пропагандой для <span style="color: #7A3C00;">нацистов</span>, которые заручаются поддержкой избирателей за счёт <span style="color: #3E88B3;">**НННП**</span> и <span style="color: #7FCEB1;">**ХНПКЗ**</span>, так как те теперь запятнали себя связями с нами.
 
-
 @far_right_coalition_thuringia
 title: Действующая коалиция расширена за счёт <span style="color: #7A3C00;">**НСДАП**</span>.
 subtitle: Вот и доказательство того, насколько предвзяты «демократические» партии, когда дело доходит до сотрудничества с нами.
 view-if: far_right_coalition_thuringia >= 50 and bourgeois_coalition_thuringia < 50
-on-arrival: thuringia_nsdap = 1; workers_nsdap += 2; new_middle_nsdap += 4; old_middle_nsdap += 6; rural_nsdap += 2; unemployed_kpd -= 2; unemployed_nsdap += 2; sa_strength += 20; sa_militancy += 0.05; prussian_police_loyalty -= 0.05; pro_republic -= 5
+on-arrival: thuringia_nsdap = 1; workers_nsdap += 2; new_middle_nsdap += 4; old_middle_nsdap += 6; rural_nsdap += 2; unemployed_kpd -= 2; unemployed_nsdap += 2; sa_strength += 20; sa_militancy += 0.05; prussian_police_loyalty -= 0.05; pro_republic -= 5; kpd_nazi_urgency += 1;
 face-image: img/portraits/frick.jpg
 
 Вильгельм Фрик, осуждённый участник Пивного путча, становится первым <span style="color: #7A3C00;">нацистом</span> в Германии, занявшим министерский пост. Он получает контроль над министерствами внутренних дел и образования и, приняв простым большинством голосов «Закон о чрезвычайных полномочиях» в качестве чрезвычайного декрета, получает власть для коренного преобразования Тюрингии.
@@ -527,7 +531,6 @@ face-image: img/portraits/frick.jpg
 
 Контролируя министерство образования, Фрик назначает исследователей расовых теорий и известных <span style="color: #7A3C00;">нацистов</span> на руководящие посты во многих университетах и запрещает антивоенную книгу *«На Западном фронте без перемен»* к прочтению и постановке. Его попытки предоставить Гитлеру германское гражданство до сих пор не увенчались успехом, что вынуждает Гитлера искать другие пути.
 
-
 @bourgeois_coalition_thuringia
 title: Действующая правоцентристская коалиция продолжает править.
 subtitle: Действующая коалиция располагает большинством, причём без участия <span style="color: #7A3C00;">**НСДАП**</span>.
@@ -535,7 +538,6 @@ view-if: bourgeois_coalition_thuringia >= 50
 on-arrival: thuringia_right = 1; new_middle_dvp += 2; old_middle_dvp += 2; new_middle_other += 2; old_middle_other += 2; rural_other += 2
 
 Неожиданно для всех партии, входящие в действующее правительство, набрали больше голосов и теперь больше не нуждаются в голосах <span style="color: #7A3C00;">**НСДАП**</span>. Сохранение стабильного руководства в Тюрингии ослабит <span style="color: #7A3C00;">нацистов</span>.
-
 
 @grand_coalition_thuringia
 title: Сформирована [? if lvp_formed: <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рская</span> ?][? if not lvp_formed: Большая ?] Коалиция!
@@ -549,12 +551,11 @@ on-arrival: thuringia_spd = 1; rural_nsdap -= 2; new_middle_nsdap -= 2; old_midd
 
 Мы используем наши посты в правительстве, чтобы искоренить правые и <span style="color: #3E88B3;">националистические</span> симпатии в государственной службе и укрепить <span style="color: #000000;">рес</span><span style="color: #DD0000;">пуб</span><span style="color: #FFCC00;">ликанские</span> настроения.
 
-
 @united_left_thuringia
 title: <span style="color: #c00000;">**СДПГ**</span> сформирует коалиционное правительство с <span style="color: #700000;">**КПГ**</span>.
 subtitle: История повторится.
 view-if: left_coalition_thuringia >= 50 and (kpd_relation >= 40 and kpd_leader == "Примиренцы") or (kpd_relation >= 60 and kpd_leader != "Примиренцы")
-on-arrival: red_thuringia = 1; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5; lvp_relation -= 5; coup_progress += 3; hindenburg_angry += 40; rfb_militancy += 0.05; rfb_strength += 100; sa_strength += 50; sh_strength += 50; strife += 1; workers_spd += 3; workers_kpd += 3; unemployed_spd += 3; new_middle_spd -= 3; old_middle_spd -= 3; rural_spd -= 3; communist_coalition += 3; kpd_relation += 10
+on-arrival: red_thuringia = 1; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5; lvp_relation -= 5; coup_progress += 3; hindenburg_angry += 40; rfb_militancy += 0.05; rfb_strength += 100; sa_strength += 50; sh_strength += 50; strife += 1; workers_spd += 3; workers_kpd += 3; unemployed_spd += 3; new_middle_spd -= 3 if new_middle_conscious == 0; old_middle_spd -= 3; rural_spd -= 3 if rural_conscious == 0; communist_coalition += 3; kpd_relation += 10; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 on-display: {!  
     var cardEl = document.createElement('div');  
     cardEl.className = "face-figure2";  
@@ -572,7 +573,6 @@ on-display: {!
 
 Терпение Гинденбурга на исходе. Действуйте осторожно.
 
-
 @spd_majority
 title: <span style="color: #c00000;">**СДПГ**</span> формирует правительство большинства.
 subtitle: Поздравляем.
@@ -582,7 +582,6 @@ on-arrival: thuringia_spd = 1; rural_nsdap -= 3; new_middle_nsdap -= 4; old_midd
 К полному ужасу правых партий Тюрингии, в земле произошло нечто непредвиденное: СДПГ получила абсолютное большинство. Крайне правые бьют тревогу, заявляя о фальсификации выборов и других махинациях; на результаты обрушивается шквал обвинений вплоть до заявлений о прямом заговоре. Тем не менее, <span style="color: #c00000;">Красная</span> Тюрингия восстановлена, и притом без революционных опасений со стороны <span style="color: #D47B9B;">**Крайне правые кричат о подтасовках; в адрес результатов выборов сыплются обвинения в мошенничестве, прочих махинациях и даже в откровенном заговоре.**</span>/<span style="color: #700000;">**КПГ**</span> в ландтаге.
 
 КПГ
-
 
 @no_majority
 title: Большинство собрать не удаётся!
@@ -623,7 +622,6 @@ if ((Q.dvp_relation >= dvp_toleration_threshold && !Q.lvp_formed) || (Q.lvp_rela
 
 - @toleration_thuringia
 - @no_majority_2
-
 
 @no_majority_2
 title: Сформировать большинство так и не удалось!

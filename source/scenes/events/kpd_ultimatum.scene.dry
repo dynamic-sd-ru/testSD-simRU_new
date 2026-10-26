@@ -58,7 +58,6 @@ go-to: goals_success if kpd_goals_completed; goals_failed if not kpd_goals_compl
 
 [? if reichswehr_goal = 1 : - Сократить финансирование рейхсвера —[? if reichswehr_goal_completed : успех ?][? if not reichswehr_goal_completed: провал ?] ?]
 
-
 @goals_failed
 on-arrival: kpd_relation -= 10; workers_spd -= 8; unemployed_spd -= 8;
 
@@ -70,7 +69,6 @@ on-arrival: kpd_relation -= 10; workers_spd -= 8; unemployed_spd -= 8;
 - @no_vonc: Они не могут вынести вотум недоверия из-за конституционных реформ, но могут препятствовать работе нашего правительства при любой возможности.
 - @spd_majority: У нас и без них есть большинство.
 
-
 @appeal
 choose-if: (kpd_score >= 4 and kpd_relation > 50 and kpd_appeal_seen = 0) or kpd_leader = "Примиренцы"
 unavailable-subtitle: [? if kpd_score < 4: Они не верят в серьёзность наших намерений по достижению целей коалиции. ?] [? if kpd_relation < 50: Наши отношения слишком плохи. ?] [? if kpd_appeal_seen = 1: У нас больше нет времени. ?]
@@ -79,34 +77,29 @@ on-arrival: kpd_ultimatum_seen = 0; kpd_ultimatum_timer += 6; kpd_appeal_seen = 
 Мы утверждаем, что прилагаем все усилия для достижения целей коалиции, и во имя пролетарской солидарности мы обязаны заставить эту коалицию работать. К нашему удивлению, <span style="color: #700000;">**КПГ**</span> прислушалась к нашим доводам и готова дать нам ещё шесть месяцев на достижение целей коалиции.
 
 
-
 @goals_success
-on-arrival: workers_spd += 8; unemployed_spd += 8; kpd_relation += 10; workers_kpd += 5; kpd_coalition_success += 1
+on-arrival: workers_spd += 8; unemployed_spd += 8; kpd_relation += 10; workers_kpd += 5; kpd_coalition_success += 1; kpd_demands_federal = 0; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 go-to: popular_front_achievement if in_popular_front; united_front_achievement if in_left_front
 
 Вопреки всем ожиданиям, требования <span style="color: #700000;">**КПГ**</span> выполнены! По всей видимости, <span style="color: #700000;">**коммунисты**</span> оказались не готовы к такому повороту событий — созданию рабочего правительства демократическим путём. Они продолжат «воздерживаться от вотума недоверия» нашему правительству до конца срока его полномочий, при этом зорко следя за недопущением буржуазного отката.
-
 
 
 @popular_front_achievement
 on-arrival: popular_front_success += 1
 achievement: volksfront_2
 
-
 @united_front_achievement
 on-arrival: united_front_success += 1
 achievement: einheitsfront_2
 
-
 @no_vonc
 view-if: constructive_vonc
-on-arrival: in_popular_front = 0; in_left_front = 0; in_minority_government = 1;
+on-arrival: in_popular_front = 0; in_left_front = 0; in_minority_government = 1
 
 Фактически мы стали правительством меньшинства, и <span style="color: #700000;">**КПГ**</span> намерена препятствовать нашим попыткам проводить свою политику.
 
-
 @spd_majority
 view-if: spd_r >= 50
-on-arrival: in_popular_front = 0; in_left_front = 0; in_spd_majority = 1;
+on-arrival: in_popular_front = 0; in_left_front = 0; in_spd_majority = 1; kpd_demands_federal = 0
 
 А мы были так добры.

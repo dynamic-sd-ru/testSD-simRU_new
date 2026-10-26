@@ -3,7 +3,7 @@ subtitle: <span style="color: #C0A054;">**ННП**</span> решает свою 
 view-if: year = 1928 and month = 12 and dvp_congress_trigger = 1 and dnvp_ideology = "Радикалы" and not lvp_formed and lvp_timer_trigger == 0
 on-arrival: dvp_left += 1 if dvp_relation >= 50; dvp_right += 1 if dvp_relation < 35; dvp_right += 1 if not in_grand_coalition
 max-visits: 1
-tags: event
+#tags: event
 face-image: img/dvp.jpg
 new-page: true
 
@@ -14,7 +14,6 @@ new-page: true
 Немецкие промышленники не собираются отказываться от своего голоса в <span style="color: #C0A054;">**ННП**</span> так просто, и, учитывая ухудшающееся здоровье Штреземана, это, вероятно, его последний шанс сохранить контроль над партией. [? if not in_grand_coalition: Левое крыло <span style="color: #C0A054;">**ННП**</span> также ослабло из-за отсутствия коалиций с социалистами.  ?]
 
 - @resultsdvp: Партия голосует…
-
 
 @resultsdvp
 on-arrival: {!
@@ -28,7 +27,6 @@ if (Q.dvp_right > (Q.dvp_left*1.5) || (Q.dvp_right > (Q.dvp_left + 4))) {
 !}
 go-to: left if dvp_ideology == "Левые" or (dvp_left - dvp_right >= 3); right if dvp_ideology == "Правые" or (dvp_right - dvp_left >= 3); left_conflict if not ((dvp_ideology == "Левые" or (dvp_left - dvp_right >= 3)) and not (dvp_ideology == "Правые" or (dvp_right - dvp_left >= 3)))
 
-
 @left
 on-arrival: dvp_left += 10; dvp_relation += 10; liberal_cooperation += 3; workers_dvp += 1; workers_other -= 1; new_middle_dvp += 8; new_middle_dnvp -= 2; new_middle_other -= 6; old_middle_dvp += 4; old_middle_dnvp -= 2; old_middle_other -= 2; rural_dvp += 4; rural_dnvp -= 2; rural_other -= 2; catholics_other -= 2; catholics_z -= 2; catholics_dvp += 4; coalition_dissent -= 2 if in_grand_coalition; dvp_reform = 1; pro_republic += 5; ddp_left += 2; ddp_cohesion += 2
 face-image: img/portraits/Stresemann.jpg
@@ -37,7 +35,6 @@ face-image: img/portraits/Stresemann.jpg
 
 Мы заметили улучшение отношений с <span style="color: #C0A054;">**ННП**</span> и её отход от ультраправых. <span style="color: #D3C24D;">**[+ ddp_name +]**</span> также выразила одобрение действиям съезда и начала переговоры о дальнейшем сотрудничестве. Это также вызывает цепную реакцию в <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, смещая её влево.
 
-
 @left_conflict
 on-arrival: dvp_left += 5; dvp_relation += 5; liberal_cooperation += 2; workers_dvp += 1; workers_other -= 1; new_middle_dvp += 3; new_middle_dnvp -= 1; new_middle_other -= 2; old_middle_dvp += 4; old_middle_dnvp -= 2; old_middle_other -= 2; rural_dvp += 2; rural_dnvp -= 1; rural_other -= 1; catholics_other -= 2; catholics_dvp += 2; coalition_dissent -= 1 if in_grand_coalition; dvp_reform = 1; pro_republic += 3; ddp_cohesion += 1; ddp_left += 1
 face-image: img/portraits/Stresemann.jpg
@@ -45,7 +42,6 @@ face-image: img/portraits/Stresemann.jpg
 Штреземан и левое крыло <span style="color: #C0A054;">**ННП**</span> с минимальным перевесом продавили реформу, чего удалось добиться лишь из-за угроз Штреземана уйти в отставку в случае её провала. Половина делегации партии в рейхстаге связана с промышленными кругами, которые теперь практически лишились влияния в <span style="color: #C0A054;">**ННП**</span> и даже в <span style="color: #3E88B3;">**НННП**</span> под руководством Гугенберга. Теперь они открыто конфликтуют с левым крылом <span style="color: #C0A054;">**ННП**</span> и прекратили её финансирование.
 
 Мы заметили небольшое улучшение в отношениях с <span style="color: #C0A054;">**ННП**</span>, а также её отход от ультраправых. <span style="color: #D3C24D;">**[+ ddp_name +]**</span> также выразила одобрение действиям съезда и начала переговоры о дальнейшем сотрудничестве. Это также вызвало цепную реакцию в <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, сместив её влево.
-
 
 @right
 on-arrival: dvp_right += 5; dvp_relation -= 5; old_middle_other += 2; new_middle_other += 2; coalition_dissent += 1 if in_grand_coalition; dvp_reform = 0; pro_republic -= 2; ddp_cohesion -= 1; ddp_right += 1

@@ -49,7 +49,7 @@ if (!dynamicMode && !historicalMode && Q.difficulty != 1) {
   }
 }
 
-if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1934 && Q.month > 7) || Q.year >= 1935)) {
+if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1934 && Q.month > 8) || Q.year >= 1935)) {
   // Roter Zar von Preußen - At the end of the game, Otto Braun is president, chancellor, and minister-president of prussia at the same time.
   if (Q.president == 'Браун' && Q.chancellor == 'Браун' && Q.prussia_leader == "Браун") {
       this.achieve('red_tzar_of_prussia');
@@ -73,6 +73,10 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
   if (Q.year >= 1932  && Q.unemployed < 8.6 && Q.budget > 0 && Q.inflation < 5) {
       this.achieve('wirtschaftswunder');
   }
+  // Freie Marktwirtschaft - win without doing an economic plan.
+  if (!Q.economic_plan && !(Q.total_defeat || Q.long_war || Q.chancellor_party == "НСДАП" || Q.chancellor == "Гитлер" || Q.president == "Геринг" || Q.president == "Фрик" || Q.president == "Гитлер" || Q.president == "Хаммерштейн" || Q.president == "Зельдте" || Q.hammerstein_win || (Q.president == "Гергт" && Q.chancellor == "Зельдте"))) {
+      this.achieve('freie_marktwirtschaft');
+  }
   // Bollwerk der Demokratie - resist the Prussian Coup, and win.
   if (Q.republic_victory && Q.resist_coup) {
       this.achieve('bollwerk_der_demokratie');
@@ -94,7 +98,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve('sohn_seiner_klasse');
   }
   // Die Rote Fahne - join the KPD in the May Day march.
-  // Mehrheitspartei - form an <span style="color: #c00000;">**SPD**</span> majority government in the Reichstag.
+  // Mehrheitspartei - form an <span style="color: #c00000;">**СДПГ**</span> majority government in the Reichstag.
   // Panik im Mittelstand - have over 50% of New Middle Class support.
   if (Q.new_middle_spd_normalized && Q.new_middle_spd_normalized >= 50) {
       this.achieve('panik_im_mittelstand');
@@ -121,7 +125,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve("polykrise");
   }
   // Wirtschaftsexperiment - implement two different economic plans.
-  if ((Q.nationalization_progress >= 1 && Q.wtb_implemented >= 1) || (Q.wtb_implemented >= 1 && Q.moderate_plan_progress >= 1) || (Q.nationalization_progress >= 1 && Q.moderate_plan_progress >= 1)) {
+  if ((Q.nationalization_progress >= 1 && Q.wtb_implemented >= 1 && Q.nationalization_adopted == 1) || (Q.wtb_implemented >= 1 && Q.moderate_plan_progress >= 1) || (Q.nationalization_progress >= 1 && Q.nationalization_adopted == 1 && Q.moderate_plan_progress >= 1)) {
       this.achieve("wirtschaftsexperiment");
   }
   // Syndikalismus - support factory takeovers by workers.
@@ -168,7 +172,13 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
 
   const sortedParties = filteredPartySupport.sort((a, b) => b[1] - a[1]);
 
+  const thelargestparty = sortedParties[0]?.[0] ?? null;
+
   const secondLargestParty = sortedParties[1]?.[0] ?? null;
+
+  if (thelargestparty === 'lvp') {
+    Q.the_largest_party = 'lvp';
+  }
 
   if (secondLargestParty === 'dnvp') {
     Q.second_largest_party = 'dnvp';
@@ -282,12 +292,12 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       this.achieve('notwendigkeit');
   }
 
-  if (Q.president != "Хаммерштейн" && Q.president != "Гитлер" && Q.president !=   "Геринг" && Q.president != "Зельдте" && Q.chancellor != "Гитлер" && !Q.hammerstein_win && !(Q.president == "Гергт" && Q.chancellor == "Зельдте")) {
+  if (Q.president != "Хаммерштейн" && Q.president != "Гитлер" && Q.president != "Геринг" && Q.president != "Зельдте" && Q.chancellor != "Гитлер" && !Q.hammerstein_win && !(Q.president == "Гергт" && Q.chancellor == "Зельдте")) {
     if ((Q.president == "Розенфельд" || Q.president == "Тельман" || Q.president == "Мюнценберг" || Q.president == "Осецкий" || Q.president == "Манн") && Q.in_left_front && !Q.civil_war_seen) {
       Q.kpd_points_calc = 0;
       Q.kpd_points_calc += Q.rfb_force;
       Q.kpd_points_calc += (100 - Q.pro_republic) / 2;
-      Q.kpd_points_calc += Q.unemployed / 2;
+      Q.kpd_points_calc += Q.effective_unemployed / 2;
       Q.kpd_points_calc += Q.kpd_votes;
       Q.kpd_points_calc += Q.soviet_relation;
       if (Q.presid_calcent == "Тельман") Q.kpd_points_calc += 16;
@@ -309,7 +319,7 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
       }
     }
   }
-  if (Q.president != "Хаммерштейн" && Q.president != "Гитлер" && Q.president != "Геринг" && Q.president != "Зельдте" && Q.chancellor != "Гитлер" && !Q.hammerstein_win && !(Q.president ==   "Гергт" && Q.chancellor == "Зельдте")) {
+  if (Q.president != "Хаммерштейн" && Q.president != "Гитлер" && Q.president != "Геринг" && Q.president != "Зельдте" && Q.chancellor != "Гитлер" && !Q.hammerstein_win && !(Q.president == "Гергт" && Q.chancellor == "Зельдте")) {
     Q.weimar_win_calc = 1;
   } else {
     Q.weimar_win_calc = 0;
@@ -338,11 +348,22 @@ if ((Q.dynamic_mode || Q.historical_mode || Q.difficulty == 1) && !((Q.year == 1
   if (Q.chancellor == "Брайтшайд" && Q.left_cartel_france && Q.reparations_resolved && (Q.sdapo_win || Q.austria_peace) && Q.radio) {
     this.achieve('mr_breitscheid');
   }
-  if (Q.year == 1934 && Q.month == 7 && Q.hilferding_advisor && Q.wels_advisor && Q.kleber_der_partei) {
+  if (Q.year == 1934 && Q.month == 8 && Q.hilferding_advisor && Q.wels_advisor && Q.kleber_der_partei) {
     this.achieve('kleber_der_partei');
   }
   if (Q.prussian_police_loyalty >= 0.95 && Q.reichswehr_loyalty >= 0.95 && Q.interior_police_loyalty >= 0.95 && Q.judicial_reform >= 2 && Q.prussia_purge >= 2) {
     this.achieve('grosse_sauberung');
+  }
+  if (Q.judicial_reform >= 4 && Q.weltbuhne_dropped == 1 && Q.hitler_deported == 1 && Q.rohm_explode == 1 && Q.prussia_legal_returned == 1 && Q.rfb_banned == 1) {
+    this.achieve('die_rote_justiz');
+  }
+// Bruning der Rotfrontkampfer
+// Merz und Scholz
+  if (Q.lvp_r == 0 && Q.lvp_formed) {
+    this.achieve('lindner_moribund');
+  }
+  if (Q.the_largest_party == 'lvp') {
+    this.achieve('tausendjahrige_libreich');
   }
 }
 this.achieve('game_completed');
@@ -352,14 +373,12 @@ this.achieve('game_completed');
 
 [? if (chancellor == nsdap_chancellor or president == "Гитлер" or president == "Геринг" or president == "Фрик") and not republic_victory: <iframe src="https://en.wikipedia.org/wiki/The_Holocaust" height="800 " width="545" style=" margin-left: -20px; border: 1px solid #000; "></iframe> ?]
 
-
 @eg_menu
 
 - #endings
 - @ending_slides: Посмотреть финальные слайды.
 - @modinfo.paths: Посмотреть пройденные пути.
 - @end_game: Закончить игру.
-
 
 
 @hitler_wins
@@ -372,7 +391,6 @@ go-to: eg_menu
 
 [? if civil_war_seen == 1 : По крайней мере, мы сопротивлялись. Возможно, в невообразимом будущем наше сопротивление воспоют. ?]
 
-
 @war_against_hitler
 view-if: (chancellor == nsdap_chancellor or president == "Гитлер" or president == "Геринг" or president == "Фрик") and (long_war == 1)
 title: Адольф Гитлер у власти, но мы боремся, чтобы его остановить.
@@ -380,7 +398,6 @@ tags: endings
 go-to: eg_menu
 
 Адольф Гитлер пришёл к власти в Германии. Однако мы сплотили демократические силы страны против него и даём отпор. Исход этой войны неясен.
-
 
 
 @no_hitler
@@ -393,7 +410,6 @@ go-to: eg_menu
 
 [? if hitler_deported == 1 : Мы депортировали Гитлера обратно в Австрию. Надеемся, он никогда не вернётся. ?]
 
-
 @nsdap_win
 view-if: chancellor == "Геббельс" or chancellor == "Геринг" or president == "Геринг" or president == "Фрик"
 title: Несмотря на депортацию Гитлера, <span style="color: #7A3C00;">нацисты</span> всё равно пришли к власти…
@@ -401,7 +417,6 @@ tags: endings
 go-to: eg_menu
 
 <p>Несмотря на депортацию Гитлера, <span style="color: #7A3C00;">**НСДАП**</span> каким-то образом всё же пробралась к власти.</p>[? if long_war == 1 : Мы боремся с ними за контроль над Германией. ?]
-
 
 
 @civil_war_won
@@ -412,7 +427,6 @@ go-to: eg_menu
 
 Мы победили в гражданской войне против <span style="color: #808080;">реакционных</span> сил. Германия изменится навсегда, но пока слишком рано говорить, как именно.
 
-
 @civil_war_lost
 title: Мы проиграли гражданскую войну.
 view-if: total_defeat == 1
@@ -420,7 +434,6 @@ tags: endings
 go-to: eg_menu
 
 Мы проиграли гражданскую войну. По крайней мере, это быстрый переворот, который закончился прежде, чем Германия успела погрузиться в тотальную войну.
-
 
 @long_war
 title: Германия охвачена гражданской войной.
@@ -433,7 +446,6 @@ go-to: eg_menu
 [? if is_favorable == 0 : Нынешняя обстановка складывается не в нашу пользу. ?][? if west_relation >= 2: Наше дело пользуется поддержкой на Западе, но их закостенелые правительства не спешат отправлять нам помощь.  ?][? if soviet_aid >= 1 : <span style="color: #750e0e;">Советский Союз</span> оказывает помощь <span style="color: #700000;">коммунистам</span>, но не <span style="color: #c00000;">социалистам</span> и <span style="color: #D3C24D;">демократам</span>, в попытке определить будущее правительство Германии.  ?][? if east_aid >= 1 : <span style="color: #DC143C;">Поль</span><span style="color: #FFFFFF;">ша</span> и <span style="color: #11457E;">Чехо</span><span style="color: #FFFFFF;">сло</span><span style="color: #D7141A;">вакия</span> направили некоторую помощь для борьбы с фашистами. ?]
 
 
-
 @braun_victorious
 title: Победа Отто Брауна
 view-if: president == "Браун"
@@ -441,7 +453,6 @@ tags: endings
 go-to: eg_menu
 
 Отто Браун избран президентом Германии. Он никогда не стремился стать самым влиятельным человеком в Германии, но теперь он им стал.
-
 
 @rosenfeld_victorious
 title: Победа Курта Розенфельда
@@ -451,7 +462,6 @@ go-to: eg_menu
 
 Курт Розенфельд избран президентом Германии. Он никогда не стремился стать самым влиятельным человеком в стране, но вместе с <span style="color: #700000;">**КПГ**</span> нас ждёт <span style="color: #9B0000;">социалистическое</span> будущее.
 
-
 @president_schumacher
 title: Победа Курта Шумахера
 view-if: president == "Шумахер"
@@ -459,7 +469,6 @@ tags: endings
 go-to: eg_menu
 
 Курт Шумахер избран президентом Германии. Как молодой и амбициозный представитель <span style="color: #c00000;">**СДПГ**</span>, он будет определять курс Германии на долгие годы.
-
 
 @president_grzesinski
 title: Альберт Гжезинский одержал победу
@@ -469,7 +478,6 @@ go-to: eg_menu
 
 Альберт Гжезинский избран президентом Германии. Будучи молодым и амбициозным членом <span style="color: #c00000;">**СДПГ**</span>, он будет определять судьбу Германии в грядущие годы.
 
-
 @president_wels
 title: Победа Отто Вельса
 view-if: president == "Вельс"
@@ -478,7 +486,6 @@ go-to: eg_menu
 
 Отто Вельс избран президентом Германии. Какой долгий путь проделал председатель <span style="color: #c00000;">**СДПГ**</span> за время существования Республики! Ему предстоит определять будущее Германии на долгие годы.
 
-
 @president_juchacz
 title: Мари Юхач — президент
 view-if: president == "Юхач"
@@ -486,7 +493,6 @@ tags: endings
 go-to: eg_menu
 
 Мари Юхач избрана президентом Германии. Она стала первой в истории женщиной, избранной главой республиканского государства, и ей предстоит определять облик Германии на долгие годы.
-
 
 @president_einstein
 title: Альберт Эйнштейн — президент
@@ -498,7 +504,6 @@ go-to: eg_menu
 
 
 
-
 @spd_victorious
 title: <span style="color: #c00000;">**СДПГ**</span> по-прежнему в правительстве
 view-if: spd_in_government == 1 and chancellor_party == "СДПГ" and total_defeat == 0 and long_war == 0 and not schleicher_spd
@@ -506,7 +511,6 @@ tags: endings
 go-to: eg_menu
 
 <span style="color: #c00000;">**СДПГ**</span> по-прежнему в правительстве, во главе с канцлером [+ chancellor +]ом. Учитывая обстоятельства, это значительное достижение.
-
 
 @spd_victorious_2
 title: <span style="color: #c00000;">**СДПГ**</span> одержала победу?
@@ -518,7 +522,6 @@ go-to: eg_menu
 
 Стоило ли оно того?
 
-
 @communist_victory
 title: <span style="color: #700000;">**Коммунистическая**</span> победа
 view-if: chancellor_party == "КПГ" or president == "Тельман" and total_defeat == 0 and long_war == 0
@@ -526,7 +529,6 @@ tags: endings
 go-to: eg_menu
 
 К власти в Германии пришла <span style="color: #700000;">**КПГ**</span>, и в этом есть наша заслуга. Она попытается переделать страну по <span style="color: #750e0e;">советскому</span> образу и подобию. Насколько ей это удастся, покажет время.
-
 
 @works_program
 title: Программа общественных работ принята!
@@ -536,7 +538,6 @@ go-to: eg_menu
 
 Наше правительство приняло программу общественных работ!
 
-
 @unemployment_reduced
 title: Безработица снизилась по сравнению с пиковым значением.
 view-if: unemployed <= 15 and unemployed >= 10 and black_thursday_seen
@@ -545,7 +546,6 @@ go-to: eg_menu
 
 Хотя безработица всё ещё остаётся на неприятно высоком уровне, она далека от пиковых значений. Это успех нашей экономической политики.
 
-
 @unemployment_reduced_2
 title: Безработица успешно сокращена!
 view-if: unemployed < 10 and black_thursday_seen
@@ -553,7 +553,6 @@ tags: endings
 go-to: eg_menu
 
 Уровень безработицы значительно снизился! Это успех нашей экономической политики.
-
 
 
 
@@ -566,7 +565,6 @@ go-to: eg_menu
 Уровень безработицы остаётся опасно высоким. И хотя Гитлер не у власти, ситуация создаёт благодатную почву для нестабильности и экстремизма.
 
 
-
 @emergency_government
 title: <span style="color: #c00000;">**СДПГ**</span> правящая в составе чрезвычайного правительства.
 view-if: in_emergency_government == 1
@@ -574,7 +572,6 @@ tags: endings
 go-to: eg_menu
 
 <span style="color: #c00000;">**СДПГ**</span> правит в составе чрезвычайного правительства меньшинства во главе с президентом [+ president +] и канцлером [+ chancellor +]ом. Это временное и нестабильное положение дел, что открывает дорогу к дальнейшему <span style="color: #808080;">авторитаризму</span>.
-
 
 @peoples_party_achieved
 title: <span style="color: #c00000;">**СДПГ**</span> — «Народная Партия».
@@ -584,7 +581,6 @@ go-to: eg_menu
 
 <span style="color: #c00000;">**СДПГ**</span> объявлена «Народной партией», представляющей весь народ, а не только рабочий класс. У этой политики много как сторонников, так и противников. Что станет с партией — пока неясно.
 
-
 @nationalization_achieved
 title: Началась социализация экономики.
 view-if: nationalization_progress >= 2
@@ -592,7 +588,6 @@ tags: endings
 go-to: eg_menu
 
 В рамках нашего <span style="color: #c00000;">социалистического</span> экономического плана мы национализировали значительную часть экономики, начав переход к реальному <span style="color: #9b0000;">социализму</span>.
-
 
 @works_councils
 title: Рабочие советы получили больше власти.
@@ -602,7 +597,6 @@ go-to: eg_menu
 
 Теперь рабочие советы обладают куда большим влиянием, что даёт трудящимся демократический контроль над их экономической жизнью.
 
-
 @european_union
 title: Создан <span style="color: #001489;">Европейский</span> <span style="color: #FFDD00;">союз</span>!
 view-if: eu = 1
@@ -610,7 +604,6 @@ tags: endings
 go-to: eg_menu
 
 Мы помогли создать <span style="color: #001489;">Европейский</span> <span style="color: #FFDD00;">союз</span>, чтобы принести на континент мир и процветание. Время покажет, насколько он будет эффективен.
-
 
 @achievements
 title: Достижения
@@ -747,7 +740,12 @@ const achievements = [
   "achievement_mr_breitscheid",
   "achievement_alt_aber_gold",
   "achievement_kleber_der_partei",
-  "achievement_grosse_sauberung"
+  "achievement_grosse_sauberung",
+  "achievement_die_rote_justiz",
+  "achievement_bruning_der_rotfrontkampfer",
+  "achievement_merz_und_scholz",
+  "achievement_lindner_moribund",
+  "achievement_tausendjahrige_libreich"
 ];
 
 Q.unlockedCount = achievements.filter(key => Q[key] === 1).length;
@@ -867,9 +865,10 @@ go-to: fun_zone
 
 [? if game_achievement_einigkeit_und_recht_und_freiheit: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/einigkeit_und_recht_und_freiheit.png" alt="Иконка «Einigkeit und Recht und Freiheit»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Einigkeit und Recht und Freiheit</div> <div class="achievement_subtitle"> — дойти до конца игры без гражданской войны.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_victory_for_the_republic: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/victory_for_the_republic.png" alt="Иконка «Победа республики»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Победа Республики</div> <div class="achievement_subtitle"> — выиграйте гражданскую войну.</div> </div> {!</td>!} {!</tr>!}  ?] [? if game_achievement_bollwerk_der_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bollwerk_der_demokratie.png" alt="Иконка «Оплот»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bollwerk der Demokratie</div> <div class="achievement_subtitle"> — Окажите сопротивление Прусскому перевороту и одержите победу.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_victory_for_the_republic: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/victory_for_the_republic.png" alt="Иконка «Победа республики»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Победа Республики</div> <div class="achievement_subtitle"> — выиграйте гражданскую войну.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_bollwerk_der_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bollwerk_der_demokratie.png" alt="Иконка «Оплот»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bollwerk der Demokratie</div> <div class="achievement_subtitle"> — Окажите сопротивление Прусскому перевороту и одержите победу.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_red_tzar_of_prussia: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/red_tzar_of_prussia.png" alt="Иконка «Красный царь»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Roter Zar von PreuÃŸen</div> <div class="achievement_subtitle"> — Отто Браун — президент, канцлер и министр-президент.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_red_tzar_of_prussia: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/red_tzar_of_prussia.png" alt="Иконка «Красный царь»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Roter Zar von Preußen</div> <div class="achievement_subtitle"> — Отто Браун — президент, канцлер и министр-президент.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_einheitsfront: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/einheitsfront.png" alt="Иконка Einheitsfront" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Einheitsfront</div> <div class="achievement_subtitle"> - сформируйте правительство, состоящее из <span style="color: #c00000; font-weight: bold;">СДПГ</span> и <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -877,11 +876,11 @@ go-to: fun_zone
 
 [? if game_achievement_volksfront: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/volksfront.png" alt="Значок Volksfront" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Volksfront</div> <div class="achievement_subtitle"> — сформируйте правительство из <span style="color: #c00000; font-weight: bold;">СДПГ</span>, <span style="color: #700000; font-weight: bold;">КПГ</span> и <span style="color: #000000; font-weight: bold;">Партии Центра</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_grosse_volksfront: {!<tr>!}   {!<td style="width: 60px; height: 75px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volksfront.png" alt="Иконка «Великий народный фронт»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">GroÃŸe Volksfront</div> <div class="achievement_subtitle"> - Когда <span style="color: #000000;">Партию Центра</span> возглавляет Йоос или Кайзер, а <span style="color: #700000; font-weight: bold;">КПГ</span> — примиренцы, сформируйте правительство из <span style="color: #c00000; font-weight: bold;">СДПГ</span>, <span style="color: #700000; font-weight: bold;">КПГ</span> и <span style="color: #000000; font-weight: bold;">Партию Центра</span>. </div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_grosse_volksfront: {!<tr>!}   {!<td style="width: 60px; height: 75px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volksfront.png" alt="Иконка «Великий народный фронт»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Volksfront</div> <div class="achievement_subtitle"> - Когда <span style="color: #000000;">Партию Центра</span> возглавляет Йоос или Кайзер, а <span style="color: #700000; font-weight: bold;">КПГ</span> — примиренцы, сформируйте правительство из <span style="color: #c00000; font-weight: bold;">СДПГ</span>, <span style="color: #700000; font-weight: bold;">КПГ</span> и <span style="color: #000000; font-weight: bold;">Партию Центра</span>. </div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_volksfront_2: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/volksfront_2.png" alt="Иконка Народного фронта" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg fÃ¼r die Volksfront</div> <div class="achievement_subtitle"> - сформируйте Народный фронт, который выдержит требования <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_volksfront_2: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/volksfront_2.png" alt="Иконка Народного фронта" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Volksfront</div> <div class="achievement_subtitle"> - сформируйте Народный фронт, который выдержит требования <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_weimar_coalition: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/weimar_coalition.png" alt="Иконка Веймарской коалиции" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;"><span style="color: #000000;">Wei</span><span style="color: #DD0000;">ma</span><span style="color: #FFCC00;">ir</span>ская коалиция</div> <div class="achievement_subtitle"> - сформировать Веймарскую коалицию.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_weimar_coalition: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/weimar_coalition.png" alt="Иконка Веймарской коалиции" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;"><span style="color: #000000;">Wei</span><span style="color: #DD0000;">ma</span><span style="color: #FFCC00;">ir</span> ская коалиция</div> <div class="achievement_subtitle"> - сформировать Веймарскую коалицию.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_majority_party: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/majority_party.png" alt="Mehrheitspartei Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Mehrheitspartei</div> <div class="achievement_subtitle"> - сформировать однопартийное правительство большинства от <span style="color: #c00000; font-weight: bold;">СДПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -909,7 +908,7 @@ go-to: fun_zone
 
 [? if game_achievement_hirschfeld: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/hirschfeld.png" alt="Значок Хиршфельда" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Hirschfeld</div> <div class="achievement_subtitle"> - проведите реформы в защиту прав <span style="color: red;">го</span><span style="color: orange;">м</span><span style="color: yellow;">о</span><span style="color: green;">се</span><span style="color: blue;">ксу</span><span style="color: purple;">алов</span> (ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России).</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_women_reichsbanner: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/women_reichsbanner.png" alt="Mädchen in Uniform Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">MÃ¤dchen in Uniform</div> <div class="achievement_subtitle"> — место женщины — в Рейхсбаннере.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_women_reichsbanner: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/women_reichsbanner.png" alt="Mädchen in Uniform Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Mädchen in Uniform</div> <div class="achievement_subtitle"> — место женщины — в Рейхсбаннере.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_anders_als_die_andern: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/anders_als_die_andern.png" alt="Иконка Anders als die Andern" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Anders als die Andern</div> <div class="achievement_subtitle"> — сексуальные меньшинства защищают Республику (ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России).</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -923,11 +922,11 @@ go-to: fun_zone
 
 [? if game_achievement_katholischer_sozialismus: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/katholischer_sozialismus.png" alt="Иконка «Католический социализм»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Katholischer Sozialismus</div> <div class="achievement_subtitle"> - поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> католиками не менее 50%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_grosse_volkspartei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volkspartei.png" alt="Значок Большая Народная партия" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">GroÃŸe Народная партия (Volkspartei)</div> <div class="achievement_subtitle"> — Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> среди всех классов составляет не менее 40%.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_grosse_volkspartei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volkspartei.png" alt="Значок Большая Народная партия" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Народная партия (Volkspartei)</div> <div class="achievement_subtitle"> — Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> среди всех классов составляет не менее 40%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_klassenkampf: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/klassenkampf.png" alt="Значок Klassenkampf" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Klassenkampf</div> <div class="achievement_subtitle"> - поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> среди рабочих — не менее 80%, а среди среднего класса и сельского населения — менее 20%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_raterepublik: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/raterepublik.png" alt="Значок RÃ¤terepublik" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">RÃ¤terepublik</div> <div class="achievement_subtitle"> - начать переход к <span style="color: #9B0000;">социалистической</span> экономике.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_raterepublik: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/raterepublik.png" alt="Значок Räterepublik" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Räterepublik</div> <div class="achievement_subtitle"> - начать переход к <span style="color: #9B0000;">социалистической</span> экономике.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_polykrise: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/polykrise.png" alt="Иконка «Поликризис»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Поликризис</div> <div class="achievement_subtitle"> — пережить забастовку капитала и <span style="color: #7A3C00;">фашистский</span> переворот.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -981,7 +980,7 @@ go-to: fun_zone
 
 [? if game_achievement_ldp: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <img src="img/achievement/ldp.png" alt="Иконка доминирующей партийной системы" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Dominantes Parteiensystem</div> <div class="achievement_subtitle"> — достигните концовки «Полуторапартийная система». </div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_der_grosse_neustart: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_grosse_neustart.png" alt="Иконка Der GroÃŸe Neustart" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Великая перезагрузка</div> <div class="achievement_subtitle"> — получите концовку «<span style="color: #001489;">Европейское</span> <span style="color: #FFDD00;">будущее</span>». </div> </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_der_grosse_neustart: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_grosse_neustart.png" alt="Иконка Der Große Neustart" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Великая перезагрузка</div> <div class="achievement_subtitle"> — получите концовку «<span style="color: #001489;">Европейское</span> <span style="color: #FFDD00;">будущее</span>». </div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_deutsche_tory_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/deutsche_tory_demokratie.png" alt="Иконка 'Немецкая демократия тори'" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Deutsche Tory Demokratie</div> <div class="achievement_subtitle"> - добейтесь того, чтобы партия <span style="color: #3E88B3; font-weight: bold;">НННП</span> под руководством Тревирануса с курсом «демократии тори» стала второй по величине партией в рейхстаге. </div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1013,7 +1012,7 @@ go-to: fun_zone
 
 [? if game_achievement_heuchelei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/heuchelei.png" alt="Значок «Лицемерие»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Heuchelei</div> <div class="achievement_subtitle"> - преследуйте Эрнста Рёма за <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">сек</span><span style="color: green;">су</span><span style="color: blue;">аль</span><span style="color: purple;">ность</span>, а затем легализуйте её. </div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_warum_kampfen_wir_immer_noch: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/warum_kampfen_wir_immer_noch.png" alt="Warum kÃ¤mpfen wir immer noch? Значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Warum kämpfen wir immer noch?</div> <div class="achievement_subtitle"> - <span style="color: #D3C24D; font-weight: bold;">НДП</span> и <span style="color: #C0A054; font-weight: bold;">ННП</span> разделяют одну идеологию, но <span style="color: #FFCC00; font-weight: bold;">ЛНП</span> так и не была сформирована. </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_warum_kampfen_wir_immer_noch: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/warum_kampfen_wir_immer_noch.png" alt="Warum kämpfen wir immer noch? Значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Warum kämpfen wir immer noch?</div> <div class="achievement_subtitle"> - <span style="color: #D3C24D; font-weight: bold;">НДП</span> и <span style="color: #C0A054; font-weight: bold;">ННП</span> разделяют одну идеологию, но <span style="color: #FFCC00; font-weight: bold;">ЛНП</span> так и не была сформирована. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_leere_parolen: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/leere_parolen.png" alt="Leere Parolen Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Leere Parolen</div> <div class="achievement_subtitle"> — править во главе однопартийного большинства <span style="color: #c00000; font-weight: bold;">СДПГ</span> и провалить 10 или более правительственных обязательств. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1031,9 +1030,9 @@ go-to: fun_zone
 
 [? if game_achievement_wahre_bundesrepublik: {!<tr>!}   {!<td style="width: 60px; height: 100px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/wahre_bundesrepublik.png" alt="Иконка «Wahre Bundesrepublik»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Wahre Bundesrepublik</div> <div class="achievement_subtitle"> - добейтесь избрания Хойса президентом, а Аденауэра — канцлером, при этом Аденауэр должен возглавлять <span style='color: #000000; font-weight: bold;'>ХНП</span>, а <span style='color: #FFCC00; font-weight: bold;'>ЛНП</span> должна быть сформирована. Все конституционные реформы должны быть приняты, <span style='color: #7A3C00; font-weight: bold;'>НСДАП</span> и <span style='color: #700000; font-weight: bold;'>КПГ</span> не должны преодолеть 5-процентный барьер, Шумахер должен быть доступен в качестве советника, а в <span style='color: #c00000; font-weight: bold;'>СДПГ</span> должны доминировать реформисты. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_der_beliebte_prasident: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_beliebte_prasident.png" alt="Значок «Популярный президент»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der beliebte PrÃ¤sident</div> <div class="achievement_subtitle"> - Отто Браун набрал 60% или более голосов в первом туре президентских выборов 1932 г. </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_der_beliebte_prasident: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_beliebte_prasident.png" alt="Значок «Популярный президент»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der beliebte Präsident</div> <div class="achievement_subtitle"> - Отто Браун набрал 60% или более голосов в первом туре президентских выборов 1932 г. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_notwendigkeit: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/notwendigkeit.png" alt="Notwendigkeit Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Notwendigkeit</div> <div class="achievement_subtitle"> - Набирать на каждых выборах больше голосов, чем на предыдущих. </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_notwendigkeit: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/notwendigkeit.png" alt="Notwendigkeit Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Notwendigkeit</div> <div class="achievement_subtitle"> - Набирать на каждых выборах больше голосов, чем на предыдущих. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_comeback: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/comeback.gif" alt="Значок «Возвращение»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Возвращение</div> <div class="achievement_subtitle"> — позвольте Гинденбургу отправить вас в отставку, а затем вернитесь и сформируйте правительство большинства <span style="color: #c00000; font-weight: bold;">СДПГ</span>. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1072,11 +1071,11 @@ go-to: fun_zone
 
 [? if game_achievement_stabile_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/stabile_demokratie.png" alt="Иконка «Stabile Demokratie»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Stabile Demokratie</div> <div class="achievement_subtitle"> — одновременно обеспечить большинство как для Веймарской, так и для правоцентристской коалиции. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_neue_geschaftsfuhrung: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/neue_geschaftsfuhrung.png" alt="Neue GeschÃ¤ftsfÃ¼hrung значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Neue Geschäftsführung</div> <div class="achievement_subtitle"> — кандидат от <span style="color: #c00000; font-weight: bold;">СДПГ</span> побеждает на президентских выборах 1932 года, продолжая политику терпимости в отношении Брюнинга. </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_neue_geschaftsfuhrung: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/neue_geschaftsfuhrung.png" alt="Neue Geschäftsführung значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Neue Geschäftsführung</div> <div class="achievement_subtitle"> — кандидат от <span style="color: #c00000; font-weight: bold;">СДПГ</span> побеждает на президентских выборах 1932 года, продолжая политику терпимости в отношении Брюнинга. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_rotes_bayern: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/rotes_bayern.png" alt="Иконка Rotes Bayern" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Rotes Bayern</div> <div class="achievement_subtitle"> — сформировать в Баварии правительство большинства, состоящее только из членов <span style="color: #c00000; font-weight: bold;">СДПГ</span>. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_1919_geracht: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/1919_geracht.png" alt="Иконка «1919 Gerächt»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">1919 GerÃ¤cht</div> <div class="achievement_subtitle"> — получите концовку «„Спартак“ восстаёт вновь». </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_1919_geracht: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/1919_geracht.png" alt="Иконка «1919 Gerächt»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">1919 Gerächt</div> <div class="achievement_subtitle"> — получите концовку «„Спартак“ восстаёт вновь». </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_nach_der_spd_wir: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/nach_der_spd_wir.png" alt="Значок „Nach der СДПГ, wir!“" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Nach der SPD, wir!</div> <div class="achievement_subtitle"> — получите концовку «Авангард пролетариата у руля». </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1088,9 +1087,9 @@ go-to: fun_zone
 
 [? if game_achievement_er_ist_wieder_da: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/er_ist_wieder_da.png" alt="Значок Er ist wieder da" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Er ist wieder da</div> <div class="achievement_subtitle"> — добейтесь того, чтобы <span style="color: #7A3C00;">Гитлер</span> был назначен канцлером дважды. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_abgrundlaufer: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/abgrundlaufer.png" alt="Иконка Abgrundläufer" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">AbgrundlÃ¤ufer</div> <div class="achievement_subtitle"> - успешно добейтесь от Шлейхера двух уступок и не дайте <span style="color: #BFC8CC;">**ФНЕГ**</span> одержать победу. </div>{!</td>!} {!</tr>!}  ?]
+[? if game_achievement_abgrundlaufer: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/abgrundlaufer.png" alt="Иконка Abgrundläufer" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Abgrundläufer</div> <div class="achievement_subtitle"> - успешно добейтесь от Шлейхера двух уступок и не дайте <span style="color: #BFC8CC;">**ФНЕГ**</span> одержать победу. </div>{!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_bruning_uber_alles: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bruning_uber_alles.png" alt="Иконка BrÃ¼ning Uber Alles" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">BrÃ¼ning Uber Alles</div> <div class="achievement_subtitle"> - Генрих Брюнинг — президент, канцлер и министр-президент Пруссии. </div> {!</td>!} {!</tr>!}  ?]
+[? if game_achievement_bruning_uber_alles: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bruning_uber_alles.png" alt="Иконка Brüning Uber Alles" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Brüning Uber Alles</div> <div class="achievement_subtitle"> - Генрих Брюнинг — президент, канцлер и министр-президент Пруссии. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if game_achievement_der_aufstieg_skywalkers: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_aufstieg_skywalkers.png" alt="Иконка Der Aufstieg Skywalkers" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Aufstieg Skywalkers</div> <div class="achievement_subtitle"> - победите <span style="color: #7A3C00;">Гитлера</span> в гражданской войне после его возвращения из мёртвых. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1103,7 +1102,83 @@ go-to: fun_zone
 
 [? if game_achievement_kleber_der_partei: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/kleber_der_partei.png" alt="Kleber der Partei Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Kleber der Partei</div> <div class="achievement_subtitle"> - первоначальные 3 советника остаются с вами от начала и до конца игры (ячейка Мюллера должна оставаться пустой после его смерти). </div> {!</td>!} {!</tr>!}  ?]
 
-[? if game_achievement_grosse_sauberung: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_sauberung.png" alt="GroÃŸe SÃ¤uberung Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Säuberung</div> <div class="achievement_subtitle"> - к концу игры полностью реформируйте судебную систему, дважды проведите чистку прусской бюрократии и обеспечьте полную преданность полиции внутренних дел, прусской полиции и рейхсвера. </div> {!</td>!} {!</tr>!}  ?] {!</table>!}
+[? if game_achievement_grosse_sauberung: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_sauberung.png" alt="Große Säuberung Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Säuberung</div> <div class="achievement_subtitle"> - к концу игры полностью реформируйте судебную систему, дважды проведите чистку прусской бюрократии и обеспечьте полную преданность полиции внутренних дел, прусской полиции и рейхсвера. </div> {!</td>!} {!</tr>!}  ?]
+
+[? if game_achievement_die_rote_justiz: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/die_rote_justiz.png" alt="Иконка «Die Rote Justiz»"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Die Rote Justiz</div>
+      <div class="achievement_subtitle"> - полностью реформировать судебную систему, запретить РФБ, депортировать <span style="color: #7A3C00;">Гитлера</span>, привлечь к суду Эрнста Рёма, закрыть дело «Вельтбюне» и выиграть дело «Пруссия против Рейха».
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if game_achievement_bruning_der_rotfrontkampfer: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/bruning_der_rotfrontkampfer.png" alt="Brüning der Rotfrontkämpfer"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Brüning der Rotfrontkämpfer</div>
+      <div class="achievement_subtitle"> - при канцлере Брюнинге были реализованы и план Лаутенбаха, и левый план.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if game_achievement_merz_und_scholz: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/merz_und_scholz.png" alt="Merz und Scholz"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Merz und Scholz</div>
+      <div class="achievement_subtitle"> - сформировать <span style="color: #c00000;">социал</span>-<span style="color: #000000;">христианскую</span> коалицию с <i>истинной</i> <span style="color: #000000; font-weight: bold;">ХНП</span>, где <span style="color: #c00000; font-weight: bold;">СДПГ</span> — младший партнёр, а канцлером является Брюнинг.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if game_achievement_lindner_moribund: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/lindner_moribund.png" alt="Lindner Moribund"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Lindner Moribund</div>
+      <div class="achievement_subtitle"> - добиться формирования <span style="color: #FFCC00; font-weight: bold;">ЛНП</span>, которая не получит ни одного места в Рейхстаге.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if game_achievement_tausendjahrige_libreich: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/tausendjahrige_libreich.png" alt="Tausendjährige Libreich"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Tausendjährige Libreich</div>
+      <div class="achievement_subtitle"> - добиться, чтобы <span style="color: #FFCC00; font-weight: bold;">ЛНП</span> стала крупнейшей партией в Рейхстаге.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+{!</table>!}
 
 = Всего выполненных достижений
 
@@ -1115,7 +1190,8 @@ go-to: fun_zone
 
 [? if achievement_einigkeit_und_recht_und_freiheit: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/einigkeit_und_recht_und_freiheit.png" alt="Иконка Einigkeit und Recht und Freiheit" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Einigkeit und Recht und Freiheit</div> <div class="achievement_subtitle"> - дойдите до конца игры, не допустив гражданской войны.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_victory_for_the_republic: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/victory_for_the_republic.png" alt="Иконка «Победа Республики»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Republik</div> <div class="achievement_subtitle"> — победить в гражданской войне.</div> </div> {!</td>!} {!</tr>!}  ?] [? if achievement_bollwerk_der_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bollwerk_der_demokratie.png" alt="Иконка Bollwerk" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bollwerk der Demokratie</div> <div class="achievement_subtitle"> — окажите сопротивление Прусскому путчу и победите без боя. </div> </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_victory_for_the_republic: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/victory_for_the_republic.png" alt="Иконка «Победа Республики»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Republik</div> <div class="achievement_subtitle"> — победить в гражданской войне.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_bollwerk_der_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bollwerk_der_demokratie.png" alt="Иконка Bollwerk" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bollwerk der Demokratie</div> <div class="achievement_subtitle"> — окажите сопротивление Прусскому путчу и победите без боя. </div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_red_tzar_of_prussia: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/red_tzar_of_prussia.png" alt="Иконка «Красный царь»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Roter Zar von Preußen</div> <div class="achievement_subtitle"> — Отто Браун — рейхспрезидент, канцлер и министр-президент.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1171,7 +1247,7 @@ go-to: fun_zone
 
 [? if achievement_katholischer_sozialismus: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/katholischer_sozialismus.png" alt="Значок «Католический социализм»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Katholischer Sozialismus</div> <div class="achievement_subtitle"> - Поддержка католиками <span style="color: #c00000; font-weight: bold;">СДПГ</span> не менее 50%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_grosse_volkspartei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volkspartei.png" alt="Значок GroÃŸe Народная партия (Volkspartei)" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">GroÃŸe Народная партия (Volkspartei)</div> <div class="achievement_subtitle"> - Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> всеми классами составляет не менее 40%.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_grosse_volkspartei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volkspartei.png" alt="Значок Große Народная партия (Volkspartei)" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Народная партия (Volkspartei)</div> <div class="achievement_subtitle"> - Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> всеми классами составляет не менее 40%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_klassenkampf: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/klassenkampf.png" alt="Иконка Klassenkampf" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Klassenkampf</div> <div class="achievement_subtitle"> - Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> со стороны рабочих составляет не менее 80%, а поддержка со стороны среднего класса и сельских жителей — менее 20%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1193,7 +1269,7 @@ go-to: fun_zone
 
 [? if achievement_zeppelin_kapitan: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/zeppelin_kapitan.png" alt="Иконка капитана цеппелина" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Zeppelinkapitän</div> <div class="achievement_subtitle"> — Гуго Эккенер избран президентом.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_wahlrechts: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/wahlrechts.png" alt="Wahlrechts fÃ¼r Frauen Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Wahlrechts fÃ¼r Frauen</div> <div class="achievement_subtitle"> — Мари Юхач избрана президентом.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_wahlrechts: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/wahlrechts.png" alt="Wahlrechts für Frauen Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Wahlrechts für Frauen</div> <div class="achievement_subtitle"> — Мари Юхач избрана президентом.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_bundesrepublik: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bundesrepublik.png" alt="Значок Bundesrepublik" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bundesrepublik</div> <div class="achievement_subtitle"> — Конрад Аденауэр или Курт Шумахер избран президентом, а конституционные реформы ограничили власть президента.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1245,9 +1321,9 @@ go-to: fun_zone
 
 [? if achievement_linksliberale_renaissance: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/linksliberale_renaissance.png" alt="Иконка «Леволиберальный ренессанс»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Linksliberale Renaissance</div> <div class="achievement_subtitle"> - <span style="color: #D3C24D; font-weight: bold;">НДП</span> контролирует более 8% рейхстага и имеет вдвое больше мандатов, чем <span style="color: #C0A054; font-weight: bold;">ННП</span>. </div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_ein_interessantes_experiment: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/ein_interessantes_experiment.png" alt="Ein Interessantes Experiment Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Ein Interessantes Experiment</div> <div class="achievement_subtitle"> - <span style="color: #D3C24D; font-weight: bold;">НГП</span> была сформирована и выстояла. </div> </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_ein_interessantes_experiment: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/ein_interessantes_experiment.png" alt="Значок «Ein Interessantes Experiment»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Ein Interessantes Experiment</div> <div class="achievement_subtitle"> - <span style="color: #D3C24D; font-weight: bold;">НГП</span> была сформирована и выстояла. </div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_das_grosste_aller_zelte: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/das_grosste_aller_zelte.png" alt="Значок «Величайший из всех шатров»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Das GrÃ¶ÃŸte Aller Zelte</div> <div class="achievement_subtitle"> - усилить фракции неоревизионистов и социал-патриотов, не допуская откола фракций. </div> </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_das_grosste_aller_zelte: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/das_grosste_aller_zelte.png" alt="Значок «Величайший из всех шатров»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Das Größte Aller Zelte</div> <div class="achievement_subtitle"> - усилить фракции неоревизионистов и социал-патриотов, не допуская откола фракций. </div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_getrennt_marschieren_vereint_schlagen: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/getrennt_marschieren_vereint_schlagen.png" alt="Иконка «Маршировать раздельно, бить вместе»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Getrennt marschieren, vereint schlagen</div> <div class="achievement_subtitle"> — заставьте Шлейхера снять запрет на деятельность <span style="color: #700000; font-weight: bold;">КПГ</span>. </div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1261,7 +1337,7 @@ go-to: fun_zone
 
 [? if achievement_heuchelei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/heuchelei.png" alt="Значок «Лицемерие»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Heuchelei</div> <div class="achievement_subtitle"> - преследуйте Эрнста Рёма за <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">сек</span><span style="color: green;">су</span><span style="color: blue;">аль</span><span style="color: purple;">ность</span>, а затем легализуйте её. </div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_warum_kampfen_wir_immer_noch: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/warum_kampfen_wir_immer_noch.png" alt="Warum kÃ¤mpfen wir immer noch? Значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Warum kämpfen wir immer noch?</div> <div class="achievement_subtitle"> - <span style="color: #D3C24D; font-weight: bold;">НДП</span> и <span style="color: #C0A054; font-weight: bold;">ННП</span> разделяют одну идеологию, но <span style="color: #FFCC00; font-weight: bold;">ЛНП</span> так и не была сформирована. </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_warum_kampfen_wir_immer_noch: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/warum_kampfen_wir_immer_noch.png" alt="Warum kämpfen wir immer noch? Значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Warum kämpfen wir immer noch?</div> <div class="achievement_subtitle"> - <span style="color: #D3C24D; font-weight: bold;">НДП</span> и <span style="color: #C0A054; font-weight: bold;">ННП</span> разделяют одну идеологию, но <span style="color: #FFCC00; font-weight: bold;">ЛНП</span> так и не была сформирована. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_leere_parolen: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/leere_parolen.png" alt="Leere Parolen Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Leere Parolen</div> <div class="achievement_subtitle"> — править во главе однопартийного большинства <span style="color: #c00000; font-weight: bold;">СДПГ</span> и провалить 10 или более правительственных обязательств. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1273,13 +1349,13 @@ go-to: fun_zone
 
 [? if achievement_staatspolitiker: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/staatspolitiker.png" alt="Иконка «Государственный деятель»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Staatspolitiker</div> <div class="achievement_subtitle"> - <span style="color: #c00000; font-weight: bold;">СДПГ</span> представлена в правительстве каждой земли. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_soziale_politik_fur_dich: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/soziale_politik_fur_dich.png" alt="Значок «Soziale Politik für Dich»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Soziale Politik fÃ¼r Dich</div> <div class="achievement_subtitle"> — продержаться у власти четыре года подряд и ни разу не провалить правительственное испытание. </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_soziale_politik_fur_dich: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/soziale_politik_fur_dich.png" alt="Значок «Soziale Politik für Dich»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Soziale Politik für Dich</div> <div class="achievement_subtitle"> — продержаться у власти четыре года подряд и ни разу не провалить правительственное испытание. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_polizeistaat: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/polizeistaat.png" alt="Значок «Polizeistaat»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Polizeistaat</div> <div class="achievement_subtitle"> — в течение целого года непрерывно поддерживать контроль прусской полиции на улицах на уровне 50% и более. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_wahre_bundesrepublik: {!<tr>!}   {!<td style="width: 60px; height: 100px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/wahre_bundesrepublik.png" alt="Иконка «Истинная Федеративная Республика»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Wahre Bundesrepublik</div> <div class="achievement_subtitle"> - добейтесь избрания Хойса президентом, а Аденауэра — канцлером, при этом Аденауэр должен возглавлять <span style='color: #000000; font-weight: bold;'>ХНП</span>, а <span style='color: #FFCC00; font-weight: bold;'>ЛНП</span> должна быть сформирована. Все конституционные реформы должны быть приняты, <span style='color: #7A3C00; font-weight: bold;'>НСДАП</span> и <span style='color: #700000; font-weight: bold;'>КПГ</span> не должны преодолеть 5-процентный барьер, Шумахер должен быть доступен в качестве советника, а в <span style='color: #c00000; font-weight: bold;'>СДПГ</span> должны доминировать реформисты. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_der_beliebte_prasident: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_beliebte_prasident.png" alt="Der beliebte PrÃ¤sident Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der beliebte PrÃ¤sident</div> <div class="achievement_subtitle"> — Отто Браун получил 60% или более голосов в первом туре президентских выборов 1932 года. </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_der_beliebte_prasident: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_beliebte_prasident.png" alt="Der beliebte Präsident Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der beliebte Präsident</div> <div class="achievement_subtitle"> — Отто Браун получил 60% или более голосов в первом туре президентских выборов 1932 года. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_notwendigkeit: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/notwendigkeit.png" alt="Notwendigkeit Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Notwendigkeit</div> <div class="achievement_subtitle"> — набирайте на каждых выборах больше голосов, чем на предыдущих. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1304,7 +1380,7 @@ go-to: fun_zone
 
 [? if achievement_der_arbeiterstaat: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_arbeiterstaat.png" alt="Иконка «Рабочее государство»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Arbeiterstaat</div> <div class="achievement_subtitle"> — во главе каждой партии стоит её самый прорабочий лидер. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_soziale_marktwirtschaft: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/soziale_marktwirtschaft.png" alt="Soziale Marktwirtschaft Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Soziale Marktwirtschaft</div> <div class="achievement_subtitle"> — уровень безработицы снижен на 10% или более при канцлере Брюнинге. </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_soziale_marktwirtschaft: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/soziale_marktwirtschaft.png" alt="Значок Soziale Marktwirtschaft" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Soziale Marktwirtschaft</div> <div class="achievement_subtitle"> — уровень безработицы снижен на 10% или более при канцлере Брюнинге. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_gegen_papen_hitler_thalmann: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/gegen_papen_hitler_thalmann.png" alt="Иконка «Против Папена, Гитлера, Тельмана»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Gegen Papen, Hitler, Thälmann</div> <div class="achievement_subtitle"> — довести <span style="color: #7A3C00;">Гитлера</span> до самоубийства, Шлейхер заключил в тюрьму <span style="color: #700000;">Тельмана</span> — а вы победили <span style="color: #808080;">Папена</span> в гражданской войне. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1338,9 +1414,9 @@ go-to: fun_zone
 
 [? if achievement_abgrundlaufer: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/abgrundlaufer.png" alt="Иконка Abgrundläufer" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Abgrundläufer</div> <div class="achievement_subtitle"> — успешно потребовать от Шлейхера две уступки и не допустить <span style="color: #BFC8CC;">**ФНЕГ**</span> победы. </div>{!</td>!} {!</tr>!}  ?]
 
-[? if achievement_bruning_uber_alles: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bruning_uber_alles.png" alt="Brüning Uber Alles Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Brüning Uber Alles</div> <div class="achievement_subtitle"> — Генрих Брюнинг — президент, канцлер и министр-президент Пруссии. </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_bruning_uber_alles: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bruning_uber_alles.png" alt="Иконка Brüning Uber Alles" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Brüning Uber Alles</div> <div class="achievement_subtitle"> — Генрих Брюнинг — президент, канцлер и министр-президент Пруссии. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_der_aufstieg_skywalkers: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_aufstieg_skywalkers.png" alt="Der Aufstieg Skywalkers Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Aufstieg Skywalkers</div> <div class="achievement_subtitle"> — победите <span style="color: #7A3C00;">Гитлера</span> в гражданской войне после того, как он вернётся из мёртвых. </div> {!</td>!} {!</tr>!}  ?]
+[? if achievement_der_aufstieg_skywalkers: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_aufstieg_skywalkers.png" alt="Иконка Der Aufstieg Skywalkers" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Aufstieg Skywalkers</div> <div class="achievement_subtitle"> — победите <span style="color: #7A3C00;">Гитлера</span> в гражданской войне после того, как он вернётся из мёртвых. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if achievement_kulturkampf: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/kulturkampf.png" alt="Значок Kulturkampf" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Kulturkampf</div> <div class="achievement_subtitle"> - проведите все реформы о правах женщин и <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">се</span><span style="color: green;">кс</span><span style="color: blue;">уа</span><span style="color: purple;">лов</span>, секуляризуйте образование и сформируйте <span style="color: #c00000;">социал</span>-<span style="color: #D3C24D;">либеральную</span> коалицию. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1350,7 +1426,83 @@ go-to: fun_zone
 
 [? if achievement_kleber_der_partei: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/kleber_der_partei.png" alt="Kleber der Partei Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Kleber der Partei</div> <div class="achievement_subtitle"> - первоначальные 3 советника остаются с вами от начала и до конца игры (ячейка Мюллера должна оставаться пустой после его смерти). </div> {!</td>!} {!</tr>!}  ?]
 
-[? if achievement_grosse_sauberung: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_sauberung.png" alt="GroÃŸe SÃ¤uberung Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Säuberung</div> <div class="achievement_subtitle"> - к концу игры полностью реформируйте судебную систему, дважды проведите чистку прусской бюрократии и обеспечьте полную преданность полиции внутренних дел, прусской полиции и рейхсвера. </div> {!</td>!} {!</tr>!}  ?] {!</table>!}
+[? if achievement_grosse_sauberung: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_sauberung.png" alt="Große Säuberung Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Säuberung</div> <div class="achievement_subtitle"> - к концу игры полностью реформируйте судебную систему, дважды проведите чистку прусской бюрократии и обеспечьте полную преданность полиции внутренних дел, прусской полиции и рейхсвера. </div> {!</td>!} {!</tr>!}  ?]
+
+[? if achievement_die_rote_justiz: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/die_rote_justiz.png" alt="Иконка «Die Rote Justiz»"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Die Rote Justiz</div>
+      <div class="achievement_subtitle"> - полностью реформировать судебную систему, запретить РФБ, депортировать <span style="color: #7A3C00;">Гитлера</span>, привлечь к суду Эрнста Рёма, закрыть дело «Вельтбюне» и выиграть дело «Пруссия против Рейха».
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if achievement_bruning_der_rotfrontkampfer: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/bruning_der_rotfrontkampfer.png" alt="Brüning der Rotfrontkämpfer"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Brüning der Rotfrontkämpfer</div>
+      <div class="achievement_subtitle"> - при канцлере Брюнинге были реализованы и план Лаутенбаха, и левый план.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if achievement_merz_und_scholz: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/merz_und_scholz.png" alt="Merz und Scholz"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Merz und Scholz</div>
+      <div class="achievement_subtitle"> - сформировать <span style="color: #c00000;">социал</span>-<span style="color: #000000;">христианскую</span> коалицию с <i>истинной</i> <span style="color: #000000; font-weight: bold;">ХНП</span>, где <span style="color: #c00000; font-weight: bold;">СДПГ</span> — младший партнёр, а канцлером является Брюнинг.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if achievement_lindner_moribund: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/lindner_moribund.png" alt="Lindner Moribund"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Lindner Moribund</div>
+      <div class="achievement_subtitle"> - добиться формирования <span style="color: #FFCC00; font-weight: bold;">ЛНП</span>, которая не получит ни одного места в Рейхстаге.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if achievement_tausendjahrige_libreich: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/tausendjahrige_libreich.png" alt="Tausendjährige Libreich"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Tausendjährige Libreich</div>
+      <div class="achievement_subtitle"> - добиться, чтобы <span style="color: #FFCC00; font-weight: bold;">ЛНП</span> стала крупнейшей партией в Рейхстаге.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+{!</table>!}
 
 = Неполученные достижения
 
@@ -1362,17 +1514,18 @@ go-to: fun_zone
 
 [? if not achievement_einigkeit_und_recht_und_freiheit: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/einigkeit_und_recht_und_freiheit.png" alt="Иконка «Einigkeit und Recht und Freiheit» (простая)" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Einigkeit und Recht und Freiheit</div> <div class="achievement_subtitle"> - пройдите игру, не допустив гражданской войны.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_victory_for_the_republic: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/victory_for_the_republic.png" alt="Иконка «Победа республики»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Republik</div> <div class="achievement_subtitle"> - победите в гражданской войне.</div> </div> {!</td>!} {!</tr>!}  ?] [? if not achievement_bollwerk_der_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bollwerk_der_demokratie.png" alt="Иконка «Bollwerk»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bollwerk der Demokratie</div> <div class="achievement_subtitle"> - дайте отпор Прусскому путчу и победите.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_victory_for_the_republic: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/victory_for_the_republic.png" alt="Иконка «Победа республики»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Republik</div> <div class="achievement_subtitle"> - победите в гражданской войне.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_bollwerk_der_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bollwerk_der_demokratie.png" alt="Иконка «Bollwerk»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bollwerk der Demokratie</div> <div class="achievement_subtitle"> - дайте отпор Прусскому путчу и победите.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_red_tzar_of_prussia: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/red_tzar_of_prussia.png" alt="Иконка «Красный царь»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Roter Zar von Preußen</div> <div class="achievement_subtitle">- Отто Браун — президент, канцлер и министром-президент.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_einheitsfront: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/einheitsfront.png" alt="Иконка Einheitsfront" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Einheitsfront</div> <div class="achievement_subtitle"> - сформируйте правительство, состоящее из <span style="color: #c00000; font-weight: bold;">СДПГ</span> и <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_einheitsfront_2: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/einheitsfront_2.png" alt="Sieg fÃ¼r die Einheitsfront Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}<div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Einheitsfront</div> <div class="achievement_subtitle"> — сформируйте Левый фронт, который выстоит перед требованиями <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_einheitsfront_2: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/einheitsfront_2.png" alt="Sieg für die Einheitsfront Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}<div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Einheitsfront</div> <div class="achievement_subtitle"> — сформируйте Левый фронт, который выстоит перед требованиями <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_volksfront: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/volksfront.png" alt="Иконка Volksfront" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Volksfront</div> <div class="achievement_subtitle"> — сформируйте правительство, состоящее из <span style="color: #c00000; font-weight: bold;">СДПГ</span>, <span style="color: #700000; font-weight: bold;">КПГ</span> и <span style="color: #000000; font-weight: bold;">Партии Центра</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_grosse_volksfront: {!<tr>!}   {!<td style="width: 60px; height: 75px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volksfront.png" alt="Иконка GroÃŸe Volksfront" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Volksfront</div> <div class="achievement_subtitle"> — Когда <span style="color: #000000;">партию Центра</span> возглавляет Йоос или Кайзер, а <span style="color: #700000; font-weight: bold;">КПГ</span> — примиренцы, сформируйте правительство, состоящее из <span style="color: #c00000; font-weight: bold;">СДПГ</span>, <span style="color: #700000; font-weight: bold;">КПГ</span> и <span style="color: #000000; font-weight: bold;">партии Центра</span>. </div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_grosse_volksfront: {!<tr>!}   {!<td style="width: 60px; height: 75px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volksfront.png" alt="Иконка Große Volksfront" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Volksfront</div> <div class="achievement_subtitle"> — Когда <span style="color: #000000;">партию Центра</span> возглавляет Йоос или Кайзер, а <span style="color: #700000; font-weight: bold;">КПГ</span> — примиренцы, сформируйте правительство, состоящее из <span style="color: #c00000; font-weight: bold;">СДПГ</span>, <span style="color: #700000; font-weight: bold;">КПГ</span> и <span style="color: #000000; font-weight: bold;">партии Центра</span>. </div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_volksfront_2: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/volksfront_2.png" alt="Значок Volksfront" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sieg für die Volksfront</div> <div class="achievement_subtitle"> — Сформируйте Народный фронт, который выдержит требования <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1386,7 +1539,7 @@ go-to: fun_zone
 
 [? if not achievement_rote_millionar: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/rote_millionar.png" alt="Иконка «Der rote Millionär»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der rote Millionär</div> <div class="achievement_subtitle"> - Вилли Мюнценберг — президент.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_sohn_seiner_klasse: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/sohn_seiner_klasse.png" alt="Sohn seiner Klasse Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sohn seiner Klasse</div> <div class="achievement_subtitle"> - Эрнст Тельман — президент или канцлер.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_sohn_seiner_klasse: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/sohn_seiner_klasse.png" alt="Sohn seiner Klasse Иконка" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Sohn seiner Klasse</div> <div class="achievement_subtitle"> - Эрнст Тельман — президент или канцлер.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_versohnler: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/versohnler.png" alt="Значок «Versöhnler»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Versöhnler</div> <div class="achievement_subtitle"> — примиренцы возглавляют <span style="color: #700000; font-weight: bold;">КПГ</span>.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1418,7 +1571,7 @@ go-to: fun_zone
 
 [? if not achievement_katholischer_sozialismus: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/katholischer_sozialismus.png" alt="Иконка «Католический социализм»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Katholischer Sozialismus</div> <div class="achievement_subtitle"> – Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> католиками составляет не менее 50%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_grosse_volkspartei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volkspartei.png" alt="Иконка «GroÃŸe Народная партия (Volkspartei)»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Volkspartei</div> <div class="achievement_subtitle"> — Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> среди всех классов составляет не менее 40%.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_grosse_volkspartei: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_volkspartei.png" alt="Иконка «Große Народная партия (Volkspartei)»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Volkspartei</div> <div class="achievement_subtitle"> — Поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> среди всех классов составляет не менее 40%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_klassenkampf: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/klassenkampf.png" alt="Иконка «Классовая борьба»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Klassenkampf</div> <div class="achievement_subtitle"> - поддержка <span style="color: #c00000; font-weight: bold;">СДПГ</span> со стороны рабочих составляет не менее 80%, а со стороны среднего класса и сельского населения — менее 20%.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1440,7 +1593,7 @@ go-to: fun_zone
 
 [? if not achievement_zeppelin_kapitan: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/zeppelin_kapitan.png" alt="Значок Zeppelinkapitän" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Zeppelinkapitän</div> <div class="achievement_subtitle"> - Гуго Эккенер избран президентом.</div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_wahlrechts: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/wahlrechts.png" alt="Wahlrechts fÃ¼r Frauen Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Wahlrechts für Frauen</div> <div class="achievement_subtitle"> - Мари Юхач избрана президентом.</div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_wahlrechts: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/wahlrechts.png" alt="Wahlrechts für Frauen Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Wahlrechts für Frauen</div> <div class="achievement_subtitle"> - Мари Юхач избрана президентом.</div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_bundesrepublik: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #c00000; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bundesrepublik.png" alt="Иконка Bundesrepublik" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #c00000; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Bundesrepublik</div> <div class="achievement_subtitle"> — Конрад Аденауэр или Курт Шумахер избран президентом, а конституционные реформы ограничили президентскую власть.</div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1476,7 +1629,7 @@ go-to: fun_zone
 
 [? if not achievement_ldp: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <img src="img/achievement/ldp.png" alt="Иконка 'Доминирующая партийная система'" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Dominantes Parteiensystem</div> <div class="achievement_subtitle"> - получите концовку «Полуторапартийная система». </div> </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_der_grosse_neustart: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_grosse_neustart.png" alt="Der GroÃŸe Neustart Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Große Neustart</div> <div class="achievement_subtitle"> - достигните концовки «<span style="color: #001489;">Европейское</span> <span style="color: #FFDD00;">будущее</span>». </div> </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_der_grosse_neustart: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_grosse_neustart.png" alt="Der Große Neustart Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Große Neustart</div> <div class="achievement_subtitle"> - достигните концовки «<span style="color: #001489;">Европейское</span> <span style="color: #FFDD00;">будущее</span>». </div> </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_deutsche_tory_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/deutsche_tory_demokratie.png" alt="Значок Deutsche Tory Demokratie" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Deutsche Tory Demokratie</div> <div class="achievement_subtitle"> - Добейтесь того, чтобы партия <span style="color: #3E88B3; font-weight: bold;">НННП</span> под руководством Тревирануса с идеологией «тори-демократия» стала второй по величине партией в рейхстаге. </div> </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1532,7 +1685,7 @@ go-to: fun_zone
 
 [? if not achievement_comeback: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/comeback.gif" alt="Иконка «Возвращение»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Comeback</div> <div class="achievement_subtitle"> — Ваше правительство отправил в отставку Гинденбург, но на досрочных выборах вы сформировали правительство большинства от <span style="color: #c00000; font-weight: bold;">СДПГ</span>. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_grosse_weimarer_koalition: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_weimarer_koalition.png" alt="GroÃŸe Weimarer Koalition — значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Weimarer Koalition</div> <div class="achievement_subtitle"> - сформируйте Веймарскую коалицию, где Кайзер возглавляет <span style="color: #000000;">Партию Центра</span>/<span style="color: #000000; font-weight: bold;">ХНП</span>, а Хойс — <span style="color: #FFCC00; font-weight: bold;">ЛНП</span>. </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_grosse_weimarer_koalition: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_weimarer_koalition.png" alt="Große Weimarer Koalition — значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Weimarer Koalition</div> <div class="achievement_subtitle"> - сформируйте Веймарскую коалицию, где Кайзер возглавляет <span style="color: #000000;">Партию Центра</span>/<span style="color: #000000; font-weight: bold;">ХНП</span>, а Хойс — <span style="color: #FFCC00; font-weight: bold;">ЛНП</span>. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_das_blatt_hat_sich_gewendet: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/das_blatt_hat_sich_gewendet.png" alt="Das Blatt hat sich gewendet — значок" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Das Blatt hat sich gewendet</div> <div class="achievement_subtitle"> - одна из отколовшихся от <span style="color: #3E88B3; font-weight: bold;">НННП</span> партий занимает больше мест в рейхстаге, чем сама партия. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1550,9 +1703,9 @@ go-to: fun_zone
 
 [? if not achievement_der_arbeiterstaat: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_arbeiterstaat.png" alt="Иконка Der Arbeiterstaat" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Arbeiterstaat</div> <div class="achievement_subtitle"> - каждая партия возглавляется её самым прорабочим лидером. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_soziale_marktwirtschaft: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/soziale_marktwirtschaft.png" alt="Soziale Marktwirtschaft Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Soziale Marktwirtschaft</div> <div class="achievement_subtitle"> - уровень безработицы снижен на 10% или более при канцлере Брюнинге. </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_soziale_marktwirtschaft: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/soziale_marktwirtschaft.png" alt="Значок Soziale Marktwirtschaft" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Soziale Marktwirtschaft</div> <div class="achievement_subtitle"> - уровень безработицы снижен на 10% или более при канцлере Брюнинге. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_gegen_papen_hitler_thalmann: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/gegen_papen_hitler_thalmann.png" alt="Значок «Gegen Papen, Hitler, ThÃ¤lmann»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Gegen Papen, Hitler, Thälmann</div> <div class="achievement_subtitle"> - довести <span style="color: #7A3C00;">Гитлера</span> до самоубийства, добиться, чтобы Шлейхер посадил <span style="color: #700000;">Тельмана</span> в тюрьму, и разгромить <span style="color: #808080;">Папена</span> в гражданской войне. </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_gegen_papen_hitler_thalmann: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/gegen_papen_hitler_thalmann.png" alt="Значок «Gegen Papen, Hitler, Thälmann»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Gegen Papen, Hitler, Thälmann</div> <div class="achievement_subtitle"> - довести <span style="color: #7A3C00;">Гитлера</span> до самоубийства, добиться, чтобы Шлейхер посадил <span style="color: #700000;">Тельмана</span> в тюрьму, и разгромить <span style="color: #808080;">Папена</span> в гражданской войне. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_wels: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/wels.png" alt="Иконка Отто Вельса" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Wels' wilder Ritt</div> <div class="achievement_subtitle"> - избрать Отто Вельса президентом после импичмента Гинденбургу. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1566,7 +1719,7 @@ go-to: fun_zone
 
 [? if not achievement_stabile_demokratie: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/stabile_demokratie.png" alt="Иконка Stabile Demokratie" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Stabile Demokratie</div> <div class="achievement_subtitle"> — иметь большинство и для Веймарской коалиции, и для правоцентристской коалиции одновременно. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_neue_geschaftsfuhrung: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/neue_geschaftsfuhrung.png" alt="Значок «Neue GeschÃ¤ftsfÃ¼hrung»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Neue Geschäftsführung</div> <div class="achievement_subtitle"> - кандидат от <span style="color: #c00000; font-weight: bold;">СДПГ</span> побеждает на президентских выборах 1932 года и при этом партия воздерживалась от вотумов недоверия Брюнингу. </div> {!</td>!}</span> победу. </div> {!</tr>!}  ?]
+[? if not achievement_neue_geschaftsfuhrung: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/neue_geschaftsfuhrung.png" alt="Значок «Neue Geschäftsführung»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Neue Geschäftsführung</div> <div class="achievement_subtitle"> - кандидат от <span style="color: #c00000; font-weight: bold;">СДПГ</span> побеждает на президентских выборах 1932 года и при этом партия воздерживалась от вотумов недоверия Брюнингу. </div> {!</td>!}</span> победу. </div> {!</tr>!}  ?]
 
 [? if not achievement_rotes_bayern: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/rotes_bayern.png" alt="Иконка Rotes Bayern" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Rotes Bayern</div> <div class="achievement_subtitle"> - сформировать в Баварии правительство большинства, состоящее только из <span style="color: #c00000; font-weight: bold;">СДПГ</span>. </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1582,11 +1735,11 @@ go-to: fun_zone
 
 [? if not achievement_er_ist_wieder_da: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/er_ist_wieder_da.png" alt="Значок «Er ist wieder da»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Er ist wieder da</div> <div class="achievement_subtitle"> — <span style="color: #7A3C00;">Гитлера</span> дважды назначили рейхсканцлером за одно прохождение. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_abgrundlaufer: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/abgrundlaufer.png" alt="Значок «AbgrundlÃ¤ufer»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Abgrundläufer</div> <div class="achievement_subtitle"> - Добейтесь от Шлейхера двух уступок и при этом предотвратите победу <span style="color: #BFC8CC;">**ФНЕГ**</span>. </div>{!</td>!} {!</tr>!}  ?]
+[? if not achievement_abgrundlaufer: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/abgrundlaufer.png" alt="Значок «Abgrundläufer»" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(10, 24, 97, 0.25);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Abgrundläufer</div> <div class="achievement_subtitle"> - Добейтесь от Шлейхера двух уступок и при этом предотвратите победу <span style="color: #BFC8CC;">**ФНЕГ**</span>. </div>{!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_bruning_uber_alles: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/bruning_uber_alles.png" alt="Brüning Über Alles Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(91, 154, 141, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Brüning Über Alles</div> <div class="achievement_subtitle"> - Генрих Брюнинг — президент, канцлер и министр-президент Пруссии. </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_der_aufstieg_skywalkers: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_aufstieg_skywalkers.png" alt="Der Aufstieg Skywalkers Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Aufstieg Skywalkers</div> <div class="achievement_subtitle"> - победить <span style="color: #7A3C00;">Гитлера</span> в гражданской войне после его возвращения из мёртвых в Рубиконе. </div> {!</td>!} {!</tr>!}  ?]
+[? if not achievement_der_aufstieg_skywalkers: {!<tr>!}   {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/der_aufstieg_skywalkers.png" alt="Иконка Der Aufstieg Skywalkers" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Der Aufstieg Skywalkers</div> <div class="achievement_subtitle"> - победить <span style="color: #7A3C00;">Гитлера</span> в гражданской войне после его возвращения из мёртвых в Рубиконе. </div> {!</td>!} {!</tr>!}  ?]
 
 [? if not achievement_kulturkampf: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/kulturkampf.png" alt="Иконка Kulturkampf" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Kulturkampf</div> <div class="achievement_subtitle"> - примите все реформы о правах женщин и <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">сек</span><span style="color: green;">су</span><span style="color: blue;">а</span><span style="color: purple;">лов</span>, секуляризуйте образование и сформируйте <span style="color: #c00000;">социал-</span><span style="color: #D3C24D;">либеральную</span> коалицию. (ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России). </div> {!</td>!} {!</tr>!}  ?]
 
@@ -1596,10 +1749,85 @@ go-to: fun_zone
 
 [? if not achievement_kleber_der_partei: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/kleber_der_partei.png" alt="Kleber der Partei Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(196, 177, 86, 0.1);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Kleber der Partei</div> <div class="achievement_subtitle"> - первоначальные 3 советника остаются с вами от начала и до конца игры (ячейка Мюллера должна оставаться пустой после его смерти). </div> {!</td>!} {!</tr>!}  ?]
 
-[? if not achievement_grosse_sauberung: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_sauberung.png" alt="GroÃŸe SÃ¤uberung Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Säuberung</div> <div class="achievement_subtitle"> - к концу игры полностью реформируйте судебную систему, дважды проведите чистку прусской бюрократии и обеспечьте полную преданность полиции внутренних дел, прусской полиции и рейхсвера. </div> {!</td>!} {!</tr>!}  ?] {!</table>!}
+[? if not achievement_grosse_sauberung: {!<tr>!}   {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}         <img src="img/achievement/grosse_sauberung.png" alt="Große Säuberung Icon" style="width: 100%; height: 100%; object-fit: cover; display: block;"> {!</td>!}   {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}         <div style="padding-left: 0.5em;"> <div style="font-weight: bold;">Große Säuberung</div> <div class="achievement_subtitle"> - к концу игры полностью реформируйте судебную систему, дважды проведите чистку прусской бюрократии и обеспечьте полную преданность полиции внутренних дел, прусской полиции и рейхсвера. </div> {!</td>!} {!</tr>!}  ?]
+
+[? if not achievement_die_rote_justiz: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/die_rote_justiz.png" alt="Иконка «Die Rote Justiz»"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(128, 0, 0, 0.15);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Die Rote Justiz</div>
+      <div class="achievement_subtitle"> - полностью реформировать судебную систему, запретить РФБ, депортировать <span style="color: #7A3C00;">Гитлера</span>, привлечь к суду Эрнста Рёма, закрыть дело «Вельтбюне» и выиграть дело «Пруссия против Рейха».
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if not achievement_bruning_der_rotfrontkampfer: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/bruning_der_rotfrontkampfer.png" alt="Brüning der Rotfrontkämpfer"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Brüning der Rotfrontkämpfer</div>
+      <div class="achievement_subtitle"> - при канцлере Брюнинге были реализованы и план Лаутенбаха, и левый план.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if not achievement_merz_und_scholz: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 78px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/merz_und_scholz.png" alt="Merz und Scholz"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Merz und Scholz</div>
+      <div class="achievement_subtitle"> - сформировать <span style="color: #c00000;">социал</span>-<span style="color: #000000;">христианскую</span> коалицию с <i>истинной</i> <span style="color: #000000; font-weight: bold;">ХНП</span>, где <span style="color: #c00000; font-weight: bold;">СДПГ</span> — младший партнёр, а канцлером является Брюнинг.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if not achievement_lindner_moribund: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/lindner_moribund.png" alt="Lindner Moribund"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Lindner Moribund</div>
+      <div class="achievement_subtitle"> - добиться формирования <span style="color: #FFCC00; font-weight: bold;">ЛНП</span>, которая не получит ни одного места в Рейхстаге.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+
+[? if not achievement_tausendjahrige_libreich: 
+{!<tr>!}
+  {!<td style="width: 60px; height: 60px; vertical-align: middle; text-align: center; border: 2px solid #0077FF; background-color: rgba(192, 0, 0, 0.1);">!}
+    <img src="img/achievement/tausendjahrige_libreich.png" alt="Tausendjährige Libreich"
+         style="width: 100%; height: 100%; object-fit: cover; display: block;">
+  {!</td>!}
+  {!<td style="border: 2px solid #0077FF; background-color: rgba(97, 24, 19, 0.2);">!}
+    <div style="padding-left: 0.5em;">
+      <div style="font-weight: bold;">Tausendjährige Libreich</div>
+      <div class="achievement_subtitle"> - добиться, чтобы <span style="color: #FFCC00; font-weight: bold;">ЛНП</span> стала крупнейшей партией в Рейхстаге.
+    </div>
+  {!</td>!}
+{!</tr>!}
+?]
+{!</table>!}
 
 = Полное завершение
-
 
 @fun_zone
 on-display: {! 
@@ -1680,7 +1908,6 @@ on-display: {!
 
 - @go_back
 
-
 @go_back
 title: Назад.
 on-arrival: {!
@@ -1694,7 +1921,6 @@ elements.forEach(el => {
 });
 !}
 go-to: eg_menu if started == 1; root.start_menu_2 if started == 0
-
 
 @end_game
 game-over: true

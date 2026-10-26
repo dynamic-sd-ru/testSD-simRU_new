@@ -21,7 +21,6 @@ tags: govt_affairs, cabinet
 
 # economic growth due to gay tourism, and creating a new economic niche for the gay populace.
 
-
 @repeal_175
 subtitle: Параграф 175 в настоящее время криминализует <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">сек</span><span style="color: green;">су</span><span style="color: blue;">аль</span><span style="color: purple;">ные</span> акты. Мы можем принять закон, чтобы это изменить. <i>(ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России)</i>
 unavailable-subtitle: У нас нет большинства голосов для принятия этого закона.
@@ -34,10 +33,8 @@ go-to: heuchelei if rohm_explode
 
 Разумеется, консерваторы и <span style="color: #7A3C00;">крайне</span> <span style="color: #3E88B3;">правые</span> обвиняют нас в «дегенеративности».
 
-
 @heuchelei
 achievement: heuchelei
-
 
 @reform_183
 subtitle: Параграф 183 криминализирует публичные проявления <span style="color: red;">го</span><span style="color: orange;">м</span><span style="color: yellow;">о</span><span style="color: green;">се</span><span style="color: blue;">кс</span><span style="color: purple;">уальности</span> и трансвестизм <i>(Экстремистская международная организация запрещенная Верховным Судом Российской Федерации)</i>. Мы можем это изменить.
@@ -47,7 +44,6 @@ choose-if: progressive_coalition >= 50
 on-arrival: reformed_183 = 1; homosexual_rights += 1; z_relation -= 5; kpd_relation += 4*(1-dissent); ddp_relation += 4*(1-dissent); coalition_dissent += 1 if (in_grand_coalition or in_weimar_coalition); catholics_spd -= 4; ddp_left += 1; ddp_cohesion -= 1; economic_growth += 0.1;
 
 Проголосовав вместе с прогрессивистами из <span style="color: #700000;">**КПГ**</span> и [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: левыми членами <span style="color: #FFCC00;">**ЛНП**</span> ?] Мы реформировали Параграф 183: он больше не предусматривает уголовной ответственности за публичную <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">се</span><span style="color: green;">кс</span><span style="color: blue;">уа</span><span style="color: purple;">льность</span> и <span style="color: deepskyblue;">кросс</span><span style="color: deeppink;">дрессинг</span>. <i>(ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России)</i>.
-
 
 
 @change_sex

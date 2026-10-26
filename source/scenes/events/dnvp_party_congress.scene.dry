@@ -26,10 +26,20 @@ new-page: true
 
 - @resultsdnvp: Партия голосует…
 
-
 @resultsdnvp
-go-to: hergt if (((pro_republic - nationalism - previous_spd_last_election_votes >= -18) or (pro_republic - nationalism - previous_spd_last_election_votes >= -26 and in_right_coalition_prussia and in_right_coalition) or (pro_republic - nationalism - previous_spd_last_election_votes >= -23 and in_right_coalition) or (pro_republic - nationalism - previous_spd_last_election_votes >= -21 and in_right_coalition_prussia)) and ((pro_republic_7 >= 65) or ((pro_republic >= 57 and in_right_coalition and in_right_coalition_prussia) or (pro_republic >= 59 and in_right_coalition) or (pro_republic >= 62 and in_right_coalition_prussia))) or tariffs < 0); hugenberg if (((pro_republic - nationalism - previous_spd_last_election_votes <= -22) or (pro_republic - nationalism - previous_spd_last_election_votes <= -27 and in_right_coalition and in_right_coalition_prussia) or (pro_republic - nationalism - previous_spd_last_election_votes <= -25 and in_right_coalition) or (pro_republic - nationalism - previous_spd_last_election_votes <= -24 and in_right_coalition_prussia)) and ((pro_republic_7 < 65) and not ((pro_republic >= 57 and in_right_coalition and in_right_coalition_prussia) or (pro_republic >= 59 and in_right_coalition) or (pro_republic >= 62 and in_right_coalition_prussia))) and tariffs >= 0); triumvirate if not ((((pro_republic - nationalism - previous_spd_last_election_votes <= -22) or (pro_republic - nationalism - previous_spd_last_election_votes <= -27 and in_right_coalition and in_right_coalition_prussia) or (pro_republic - nationalism - previous_spd_last_election_votes <= -25 and in_right_coalition) or (pro_republic - nationalism - previous_spd_last_election_votes <= -24 and in_right_coalition_prussia)) and ((pro_republic_7 < 65) and not ((pro_republic >= 57 and in_right_coalition and in_right_coalition_prussia) or (pro_republic >= 59 and in_right_coalition) or (pro_republic >= 62 and in_right_coalition_prussia))) and tariffs >= 0) or (((pro_republic - nationalism - previous_spd_last_election_votes >= -18) or (pro_republic - nationalism - previous_spd_last_election_votes >= -26 and in_right_coalition_prussia and in_right_coalition) or (pro_republic - nationalism - previous_spd_last_election_votes >= -23 and in_right_coalition) or (pro_republic - nationalism - previous_spd_last_election_votes >= -21 and in_right_coalition_prussia)) and ((pro_republic_7 >= 65) or ((pro_republic >= 57 and in_right_coalition and in_right_coalition_prussia) or (pro_republic >= 59 and in_right_coalition) or (pro_republic >= 62 and in_right_coalition_prussia))) or tariffs < 0))
-
+on-arrival: {!
+  Q.dnvp_balance = Q.pro_republic - Q.nationalism - Q.previous_spd_last_election_votes + 20;
+  Q.dnvp_civility = Q.pro_republic - 64;
+  if (Q.in_right_coalition) {Q.dnvp_balance += 4; Q.dnvp_civility += 5;}
+  if (Q.in_right_coalition_prussia) {Q.dnvp_balance += 2; Q.dnvp_civility += 2;}
+  if (Q.in_right_coalition_prussia && Q.in_right_coalition) {Q.dnvp_balance += 1;}
+  if (Q.dnvp_civility < 0 || !(Q.in_right_coalition || Q.in_right_coalition_prussia)) {Q.dnvp_excluded = 1;}
+  
+  if ((Q.dnvp_balance >= 2 && (Q.pro_republic_7 >= 65 || !Q.dnvp_excluded)) || Q.tariffs < 0) {Q.hergt_win = 1;}
+  if ((Q.dnvp_balance <= -2 && (Q.pro_republic_7 < 65 || Q.dnvp_excluded)) && Q.tariffs >= 0) {Q.hugenberg_win = 1;}
+  if (!(Q.hergt_win || Q.hugenberg_win)) {Q.triumvirate_win = 1;}
+!}  
+go-to: hergt if hergt_win; hugenberg if hugenberg_win; triumvirate if triumvirate_win
 
 @hergt
 on-arrival: dnvp_leader = "Гергт"; dnvp_ideology = "Умеренные"; workers_other -= 1; rural_other -= 1; new_middle_other -= 1; old_middle_other -= 1; ddp_left += 1; dvp_left += 1; lvp_left += 1; z_relation -= 3; ddp_relation -= 2; dvp_relation -= 5
@@ -39,7 +49,6 @@ face-image: img/portraits/OskarHergt.jpg
 
 По итогам съезда, вскрывшего серьёзные разногласия, новым лидером <span style="color: #3E88B3;">**НННП**</span> избран Оскар Гергт. Гугенберг и его сторонники намекнули на выход правого крыла из партии, а сам Гугенберг приостановил её финансовую поддержку.
 
-
 @triumvirate
 on-arrival: dnvp_leader = "Триумвират"; dnvp_ideology = "Радикалы"; workers_dnvp -= 1; rural_dnvp -= 2; catholics_other += 1; workers_other += 1; new_middle_dvp += 2; new_middle_lvp += 2; new_middle_dnvp -= 2; pro_republic -= 2; dvp_right += 1; ddp_right += 1; lvp_right += 1
 face-image: img/portraits/Kuno_von_Westarp.jpg
@@ -47,7 +56,6 @@ face-image: img/portraits/Kuno_von_Westarp.jpg
 Ни у Гугенберга, ни у Гергта нет большинства: теперь они ищут компромиссное решение между двумя фракциями. Группа делегатов, колеблющихся между ними, в виде компромисса предложила триумвират из Вестарпа, Гугенберга и представителя от Прусской ячейки партии. Это предложение поддержал сам Гугенберг, так как оно позволит ему управлять партией из-за кулис, ведь прусская <span style="color: #3E88B3;">НННП</span> — его преданный оплот в партии.
 
 Вестарп не в восторге от этого предложения, но согласился принять в нём участие ради единства партии. Эта договорённость нестабильна и долго не продержится.
-
 
 @hugenberg
 on-arrival: dnvp_leader = "Гугенберг"; dnvp_ideology = "Радикалы"; workers_dnvp -= 1; new_middle_dvp += 2; new_middle_lvp += 2; new_middle_dnvp -= 2; catholics_other += 2; workers_other += 2; pro_republic -= 3; dvp_right += 1; ddp_right += 1; lvp_right += 1

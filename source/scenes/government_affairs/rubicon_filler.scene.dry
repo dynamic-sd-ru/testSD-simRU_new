@@ -16,7 +16,6 @@ go-to: blank if schleicher_spd_influence >= 6
 - @protest: Протестовать против правительства.
 - @easy_discard
 
-
 @money
 subtitle: +1 ресурс
 view-if: resources < 2
@@ -24,20 +23,17 @@ on-arrival: resources += 1
 
 Мы получили один дополнительный ресурс.
 
-
 @dissent
 subtitle: Нам нельзя допустить раскола, не в такое время.
 on-arrival: left_dissent -= 5; center_dissent -= 5; labor_dissent -= 5; reformist_dissent -= 5
 
 Мы снизили недовольство во всех фракциях.
 
-
 @campaign
 subtitle: Мы должны защитить наше творение.
 on-arrival: pro_republic += 2
 
 Через несколько лет немецкий народ скажет нам спасибо.
-
 
 @protest
 subtitle: Кабинет [+ chancellor +]а не должен устоять.

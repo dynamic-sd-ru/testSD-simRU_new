@@ -17,7 +17,6 @@ new-page: true
 
 - @dingeldey_explode
 
-
 @dingeldey_explode
 title: Дингельдея смещают вотумом недоверия!
 on-arrival: dvp_leader = "цу Дона-Шлодин"; dvp_left += 5; liberal_cooperation += 5; bourgeois_cooperation += 5; dvp_relation += 15; dvp_relation = 25 if dvp_relation < 25; new_middle_dvp += 4; old_middle_dvp += 4; rural_dvp += 2; pro_republic += dvp_votes*2; ddp_right += 2; ddp_cohesion += 2

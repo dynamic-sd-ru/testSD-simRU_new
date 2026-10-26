@@ -33,7 +33,6 @@ new-page: true
 - @dvp_success: Голосование в партии…
 - @dvp_fail: Голосование в партии…
 
-
 @dvp_success
 view-if: lvp_formation_points >= 3
 on-arrival: dvp_relation += 3; dvp_left += 3
@@ -44,7 +43,6 @@ face-image: img/weimar_coalition_3.jpg
 Итоги съезда значительно ослабили влияние правого крыла <span style="color: #C0A054;">**ННП**</span> и определят идеологию <span style="color: #FFCC00;">Либеральной народной партии</span> в случае её создания.
 
 - @lvp_merger_1929_2
-
 
 @dvp_fail
 view-if: lvp_formation_points < 3

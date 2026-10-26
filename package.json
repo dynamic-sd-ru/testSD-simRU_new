@@ -4,7 +4,11 @@
   "description": "Building the game:",
   "main": "out/html/index.html",
   "scripts": {
-    "dendrynexus": "dendrynexus"
+    "dendrynexus": "dendrynexus",
+    "localize": "node scripts/localize-engine.js",
+    "postinstall": "node scripts/localize-engine.js",
+    "build": "npm run localize && dendrynexus compile && npm run localize",
+    "make-html": "npm run localize && dendrynexus make-html --pretty"
   },
   "repository": {
     "type": "git",

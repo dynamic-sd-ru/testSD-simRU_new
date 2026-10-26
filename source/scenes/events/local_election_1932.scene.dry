@@ -24,7 +24,6 @@ max-visits: 1
 
 - @new_elections: Сделаем всё, что в наших силах…
 
-
 @new_elections
 on-arrival: {!  
 
@@ -46,13 +45,11 @@ Q.nsdap_local_elections_vote = Q.nsdap_votes;
 go-to: election_menu
 
 
-
 @election_menu
 
 - @bavaria
 - @wurttemberg
 - @results_overall
-
 
 @results_overall
 title: Общие результаты
@@ -194,6 +191,8 @@ if (Q.z_local_elections_vote + Q.ddp_local_elections_vote + Q.dvp_local_election
 
 **Общие результаты:**
 
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td></tr>!} {!
 {!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td></tr>!} {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_local_elections_vote +]%** {!</td></tr>!}
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#9B0000'> </div> !}СРПГ:{!</td><td>!} [+ sapd_local_elections_vote +]%{!</td></tr>!}  ?]
@@ -217,6 +216,7 @@ if (Q.z_local_elections_vote + Q.ddp_local_elections_vote + Q.dvp_local_election
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_local_elections_vote +]%{!</td></tr>!}  ?]
 
 {!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_local_elections_vote +]%{!</td></tr>!} {!</table>!}
+{!</table>!}
 
 [? if nsdap_local_elections_vote >= 20: Выдающиеся результаты <span style="color: #7A3C00;">**НСДАП**</span> оставляют мало шансов на создание демократической коалиции во многих ландтагах и могут вынудить [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] в крайнем случае пойти с ними на переговоры. ?]
 
@@ -229,7 +229,6 @@ if (Q.z_local_elections_vote + Q.ddp_local_elections_vote + Q.dvp_local_election
 [? if bourgeois_local_cvp_win: Буржуазные партии, особенно <span style="color: #000000;">**[+ z_party_name +]**</span>, неожиданно хорошо выступили на этих выборах, вопреки ожиданиям, что экономический кризис подтолкнёт избирателей к <span style="color: #7A3C00;">ультра</span>-<span style="color: #3E88B3;">правым</span>. В ходе одного из своих первых электоральных испытаний <span style="color: #000000;">**[+ z_party_name +]**</span> пока что пользуется явным успехом. ?]
 
 [? if bruning_time and nsdap_local_elections_vote >= 20 and president == "Гинденбург": Эти результаты, скорее всего, станут последним гвоздём в крышку гроба правительства Брюнинга, поскольку президент Гинденбург теряет к нему доверие. Вероятно, на смену ему придёт кто-то ещё более правый, чем Брюнинг, учитывая продолжающийся политический сдвиг страны вправо. ?]
-
 
 @bavaria
 title: Выборы в ландтаг <span style="color: #00CCFF;">Баварии</span>
@@ -579,6 +578,8 @@ go-to: bavaria_coalition_menu
 
 {!<svg id="bavaria_landtag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!
 {!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_bavaria_elections_vote +]%** {!</td><td>!} [+ spd_r_bavaria +]%{!</td></tr>!}
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#9B0000'> </div> !}СРПГ:{!</td><td>!} [+ sapd_bavaria_elections_vote +]%{!</td><td>!} [+ sapd_r_bavaria +]%{!</td></tr>!}  ?]
@@ -603,14 +604,18 @@ go-to: bavaria_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_bavaria_elections_vote +]%{!</td><td>!} [+ dnf_r_bavaria +]%{!</td></tr>!}  ?]
 
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_bavaria_elections_vote +]%{!</td><td>!} [+ nsdap_r_bavaria +]%{!</td></tr>!} {!</table>!} <hr id="read-marker"> <span style="color: #38C538;">Баварский крестьянский союз</span> служит ядром федеральной <span style="color: #007A00;">Немецкой крестьянской партии</span>, и он на удивление либеральный и <span style="color: #000000;">рес</span><span style="color: #DD0000;">пуб</span><span style="color: #FFCC00;">ликанский</span> по сравнению с другими аграрными партиями и организациями, такими как <span style="color: #7FCEB1;">**ХНПКЗ**</span>. Недавно они даже вышли из кабинета <span style="color: #A2D8E0;">**БНП**</span> из-за спора о налогах.[? if cvp_formed: <br><br> С формированием <span style="color: #000000;">**[+ z_party_name +]**</span>, баварское отделение <span style="color: #3E88B3;">**НННП**</span> в значительной степени слилось с <span style="color: #A2D8E0;">**БНП**</span>, хотя некоторые элементы вместо этого предпочли объединиться с <span style="color: #003755;">**НФГ**</span>. ?] <hr id="read-marker"> Объединенная Левая Коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: + <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_bavaria +]%
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_bavaria_elections_vote +]%{!</td><td>!} [+ nsdap_r_bavaria +]%{!</td></tr>!} {!</table>!}
+{!</table>!}
+<hr id="read-marker">
+<span style="color: #38C538;">Баварский крестьянский союз</span> служит ядром федеральной <span style="color: #007A00;">Немецкой крестьянской партии</span>, и он на удивление либеральный и <span style="color: #000000;">рес</span><span style="color: #DD0000;">пуб</span><span style="color: #FFCC00;">ликанский</span> по сравнению с другими аграрными партиями и организациями, такими как <span style="color: #7FCEB1;">**ХНПКЗ**</span>. Недавно они даже вышли из кабинета <span style="color: #A2D8E0;">**БНП**</span> из-за спора о налогах.[? if cvp_formed: <br><br> С формированием <span style="color: #000000;">**[+ z_party_name +]**</span>, баварское отделение <span style="color: #3E88B3;">**НННП**</span> в значительной степени слилось с <span style="color: #A2D8E0;">**БНП**</span>, хотя некоторые элементы вместо этого предпочли объединиться с <span style="color: #003755;">**НФГ**</span>. ?]
+<hr id="read-marker"> Объединенная Левая Коалиция (
+<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: + <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_bavaria +]%
 
 Коалиция «Светофор» (<span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] + <span style="color: #38C538;">Баварский Крестьянский Союз</span>): [+ spd_coalition_bavaria +]%
 
 [? if not kvp_formed: Буржуазная коалиция (<span style="color: #A2D8E0;">**БНП**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist: &nbsp;+ <span style="color: #C0A054;">**ННП**</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]+**Прочие**[? if not cvp_formed: &nbsp;+ <span style="color: #3E88B3;">**НННП**</span> ?]): [+ bourgeois_coalition_bavaria +]% ?]
 
 [? if kvp_formed: Буржуазная коалиция (<span style="color: #A2D8E0;">**БНП**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist: &nbsp;+ <span style="color: #C0A054;">**ННП**</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]+**Прочие** + <span style="color: #0087DC;">**КНП**</span>): [+ bourgeois_coalition_bavaria +]% ?]
-
 
 @bavaria_coalition_menu
 
@@ -621,7 +626,6 @@ go-to: bavaria_coalition_menu
 - @spd_majority
 - @spd_coalition
 - @united_left
-
 
 
 
@@ -636,7 +640,6 @@ go-to: election_menu
 
 Генрих Гельд, действующий премьер-министр и демократически настроенный член <span style="color: #A2D8E0;">**БНП**</span>, остаётся у власти.
 
-
 @bvp_majority
 title: <span style="color: #A2D8E0;">**БНП**</span> снова получила большинство.
 subtitle: Как и ожидалось?
@@ -648,7 +651,6 @@ go-to: election_menu
 
 Генрих Гельд, действующий министр-президент и продемократический член <span style="color: #A2D8E0;">**БНП**</span>, остаётся у власти.
 
-
 @nsdap_majority
 title: <span style="color: #7A3C00;">**НСДАП**</span> получает большинство?
 subtitle: Как до этого дошло?..
@@ -657,7 +659,6 @@ on-arrival: bavaria_nsdap = 1; new_middle_nsdap += 6; old_middle_nsdap += 6; rur
 go-to: election_menu
 
 Какого чёрта.
-
 
 @bvp_coalition
 title: В коалицию с <span style="color: #A2D8E0;">**БНП**</span> входят <span style="color: #38C538;">Баварская крестьянская лига</span> и различные буржуазные партии.
@@ -670,7 +671,6 @@ go-to: election_menu
 
 Генрих Гельд, действующий министр-президент и сторонник демократии из партии <span style="color: #A2D8E0;">**БНП**</span>, остаётся у власти.
 
-
 @spd_majority
 title: <span style="color: #c00000;">**СДПГ**</span> формирует правительство большинства.
 subtitle: Поздравляем.
@@ -680,7 +680,6 @@ achievement: rotes_bayern
 go-to: election_menu
 
 Нам каким-то образом удалось получить большинство в ландтаге и поставить нашего министра-президента во главе самой консервативной земли в стране. Будем надеяться, что в этот раз всё не закончится так же плохо, как в прошлый. С 1921 года Баварией правят правые, а <span style="color: #A2D8E0;">**БНП**</span> часто покрывала реакционную политическую деятельность. Теперь мы можем это изменить и дать решительный отпор <span style="color: #7A3C00;">**СА**</span> громилам, орудующим на улицах, [? if sa_nationwide_ban: и более решительно применять общенациональный запрет организации, который консервативное правительство Гельда по большей части игнорировало  ?].
-
 
 @spd_coalition
 title: <span style="color: #c00000;">**СДПГ**</span> сформирует коалиционное правительство с буржуазными партиями.
@@ -692,7 +691,6 @@ go-to: election_menu
 achievement: ampelkoalition
 
 Каким-то образом мы привели[? if not lvp_formed and ddp_r_bavaria: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> и ?][? if lvp_formed and lvp_r_bavaria: <span style="color: #FFCC00;">**ЛНП**</span> и ?] <span style="color: #38C538;">Баварский крестьянский союз</span> за стол переговоров, несмотря на то что они предпочитали работать с <span style="color: #A2D8E0;">**БНП**</span>. Благодаря связям с левым и либеральным крылом <span style="color: #38C538;">Баварского крестьянского союза</span> мы преодолели их нежелание — и теперь мы в правительстве! С 1921 года Баварией управляли правые, и <span style="color: #A2D8E0;">**БНП**</span> часто покрывала реакционную политическую деятельность. Теперь мы можем это изменить и противостоять <span style="color: #7A3C00;">**СА**</span> громилам, бродящим по улицам, [? if sa_nationwide_ban: и более решительно применять общенациональный запрет на деятельность организации, который консервативное правительство Хельда по большей части игнорировало.  ?].
-
 
 
 @united_left
@@ -1055,6 +1053,8 @@ go-to: wurttemberg_coalition_menu
 
 {!<svg id="wurttemberg_landtag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!
 {!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_wurttemberg_elections_vote +]%** {!</td><td>!} [+ spd_r_wurttemberg +]%{!</td></tr>!}
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#9B0000'> </div> !}СРПГ:{!</td><td>!} [+ sapd_wurttemberg_elections_vote +]%{!</td><td>!} [+ sapd_r_wurttemberg +]%{!</td></tr>!}  ?]
@@ -1079,16 +1079,20 @@ go-to: wurttemberg_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_wurttemberg_elections_vote +]%{!</td><td>!} [+ dnf_r_wurttemberg +]%{!</td></tr>!}  ?]
 
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_wurttemberg_elections_vote +]%{!</td><td>!} [+ nsdap_r_wurttemberg +]%{!</td></tr>!} {!</table>!} <hr id="read-marker"> <span style="color: #006400;">Вюртембергский союз крестьян и виноградарей</span> (<span style="color: #006400;">**ВКСВ**</span>) — это региональное отделение Имперского Аграрного союза (RLB), тесно сотрудничающее с региональным отделением <span style="color: #3E88B3;">**НННП**</span>, <span style="color: #3E88B3;">Вюртембергской гражданской партией</span>.[? if cvp_formed: Однако создание <span style="color: #000000;">**[+ z_party_name +]**</span> привело к слиянию <span style="color: #3E88B3;">Гражданской партии</span> и <span style="color: #000000;">партии Центра</span>.  ?] <hr id="read-marker"> Объединенная Левая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: + <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_wurttemberg +]%
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_wurttemberg_elections_vote +]%{!</td><td>!} [+ nsdap_r_wurttemberg +]%{!</td></tr>!} {!</table>!}
+{!</table>!}
+<hr id="read-marker">
+<span style="color: #006400;">Вюртембергский союз крестьян и виноградарей</span> (<span style="color: #006400;">**ВКСВ**</span>) — это региональное отделение Имперского Аграрного союза (RLB), тесно сотрудничающее с региональным отделением <span style="color: #3E88B3;">**НННП**</span>, <span style="color: #3E88B3;">Вюртембергской гражданской партией</span>.[? if cvp_formed: Однако создание <span style="color: #000000;">**[+ z_party_name +]**</span> привело к слиянию <span style="color: #3E88B3;">Гражданской партии</span> и <span style="color: #000000;">партии Центра</span>.  ?]
+<hr id="read-marker"> Объединенная Левая коалиция (
+<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: + <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_wurttemberg +]%
 
-[? if not cvp_formed: <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ская коалиция (<span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] + <span style="color: #000000;">**[+ z_party_name +]**</span>): [+ spd_coalition_wurttemberg +]% ?][? if cvp_formed: <span style="color: #c00000;">Социал-</span>[? if not lvp_formed: <span style="color: #D3C24D;">либеральная</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральная</span> ?] Коалиция (<span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]): [+ spd_coalition_wurttemberg +]% ?]
+[? if not cvp_formed: <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ская коалиция (<span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] + <span style="color: #000000;">**[+ z_party_name +]**</span>): [+ spd_coalition_wurttemberg +]% ?][? if cvp_formed: <span style="color: #c00000;">Социал-</span>[? if not lvp_formed: <span style="color: #D3C24D;">либеральная</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральная</span> ?] Коалиция (<span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]): [+ spd_coalition_wurttemberg +]% ?]
 
 [? if not kvp_formed: Буржуазная коалиция (<span style="color: #000000;">**[+ z_party_name +]**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist: &nbsp;+ <span style="color: #C0A054;">**ННП**</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] + <span style="color: #006400;">**ВКСВ**</span> +**Прочие**[? if dnvp_ideology == "Умеренные" and not cvp_formed: &nbsp;+ <span style="color: #3E88B3;">**НННП**</span> ?]): [+ bourgeois_coalition_wurttemberg +]% ?]
 
 [? if kvp_formed: Буржуазная коалиция (<span style="color: #000000;">**[+ z_party_name +]**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist: &nbsp;+ <span style="color: #C0A054;">**ННП**</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] + <span style="color: #006400;">**ВКСВ**</span> +**Прочие** + <span style="color: #0087DC;">**КНП**</span>): [+ bourgeois_coalition_wurttemberg +]% ?]
 
 [? if( ddp_wurttemberg_elections_vote + dvp_wurttemberg_elections_vote < 8 and not lvp_formed) or (lvp_wurttemberg_elections_vote < 12 and lvp_formed): [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist:  и <span style="color: #C0A054;">**ННП**</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] потерпели сокрушительное поражение, потеряв значительное число мест по сравнению с 1928 годом. Это сильно деморализует <span style="color: #FFCC00;">либералов</span>, которые надеялись сохранить традиционный оплот в Вюртемберге. В совокупности с результатами других местных выборов это означает, что <span style="color: #FFCC00;">либеральные партии</span>, по сути, перестали существовать как влиятельная политическая сила. ?]
-
 
 @wurttemberg_coalition_menu
 
@@ -1106,7 +1110,6 @@ go-to: wurttemberg_coalition_menu
 
 
 
-
 @z_toleration_wurttemberg
 title: Действующее правительство [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] не получило большинства, но продолжит править как исполняющее обязанности.
 subtitle: Для избрания нового министра-президента — или роспуска ландтага — требуется абсолютное большинство. Глубокий антагонизм между оппозиционными партиями сделал преодоление этого препятствия практически невозможным.
@@ -1115,7 +1118,6 @@ on-arrival: wurttemberg_right = 1; wurttemberg_vonc = 1; pro_republic -= 1; cath
 go-to: election_menu
 
 Хоть [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и её протестантские консервативные партнёры не набрали большинства, они продолжают править в качестве исполняющего обязанности правительства. Этот результат повторяет итоги выборов 1928 года, так что, возможно, такой исход ожидаем.
-
 
 @nsdap_majority_wurttemberg
 title: <span style="color: #7A3C00;">**НСДАП**</span> получает большинство?
@@ -1126,7 +1128,6 @@ go-to: election_menu
 
 Блин, ну и жесть. Слушай, я без понятия, что тут писать.
 
-
 @bourgeois_coalition_wurttemberg
 title: [? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] в коалиции с <span style="color: #006400;">**ВКСВ**</span>, <span style="color: #FFCC00;">либералами</span> и другими мелкими буржуазными партиями.
 subtitle: Это действующая коалиция.
@@ -1135,7 +1136,6 @@ on-arrival: wurttemberg_right = 1; new_middle_nsdap -= 2; old_middle_nsdap -= 2;
 go-to: election_menu
 
 Действующая коалиция, состоящая из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?],[? if not cvp_formed: &nbsp;<span style="color: #3E88B3;">**НННП**</span>, ?] <span style="color: #FFCC00;">либералов</span>, и при воздержании от вотума недоверия со стороны <span style="color: #006400;">**ВКСВ**</span>, вновь получила большинство. Сохранение стабильного руководства в Вюртемберге ослабит <span style="color: #7A3C00;">нацистов</span>.
-
 
 @spd_majority_wurttemberg
 title: <span style="color: #c00000;">**СДПГ**</span> формирует правительство большинства.
@@ -1148,7 +1148,6 @@ go-to: election_menu
 
 Курт Шумахер избран министром-президентом.
 
-
 @weimar_coalition_wurttemberg
 title: Сформирована <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рская</span> коалиция!
 subtitle: Нам как-то удалось убедить [? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] впустить нас в правительство.
@@ -1158,10 +1157,9 @@ choose-if: z_relation >= 60 and ((ddp_relation >= 40 and not lvp_formed) or (lvp
 on-arrival: wurttemberg_spd = 1; wurttemberg_weimar = 1; rural_nsdap -= 2; new_middle_spd += 2; old_middle_spd += 2; rural_other += 4; z_relation += 3; ddp_relation += 3; lvp_relation += 3; pro_republic += 3; catholics_nsdap -= 2; catholics_spd += 2; catholics_z += 1; catholics_other += 1; sa_strength -= 25
 go-to: election_menu
 
-Хотя [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] в Вюртемберге исторически занимала враждебную позицию, нам удалось убедить её сформировать правительство большинства в рамках <span style="color: #000000;">ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции. Теперь мы сосредоточимся на искоренении <span style="color: #3E88B3;">националистических</span> и антидемократических настроений в полиции.
+Хотя [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] в Вюртемберге исторически занимала враждебную позицию, нам удалось убедить её сформировать правительство большинства в рамках <span style="color: #000000;">ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской коалиции. Теперь мы сосредоточимся на искоренении <span style="color: #3E88B3;">националистических</span> и антидемократических настроений в полиции.
 
 <span style="color: #000000;">Ойген Больц</span> сохраняет пост министра-президента в рамках нашего соглашения.
-
 
 @social_liberal_coalition_wurttemberg
 title: Сформирована <span style="color: #c00000;">социал</span>-[? if not lvp_formed: <span style="color: #D3C24D;">либеральная</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральная</span> ?] Коалиция!
@@ -1177,7 +1175,6 @@ go-to: election_menu
 При новом правительстве нашей главной задачей станет искоренение <span style="color: #3E88B3;">националистических</span> и антидемократических элементов, укоренившихся в полиции.
 
 Курт Шумахер избран министром-председателем.
-
 
 @united_left_wurttemberg
 title: <span style="color: #c00000;">**СДПГ**</span> сформирует коалиционное правительство с <span style="color: #700000;">**КПГ**</span>?

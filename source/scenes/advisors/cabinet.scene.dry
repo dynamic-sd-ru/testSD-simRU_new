@@ -2,7 +2,7 @@ title: Кабинет
 is-pinned-card: true
 tags: advisor
 card-image: img/muller_cabinet.jpg
-view-if: in_spd_majority or (in_emergency_government and chancellor_party = "СДПГ") or (in_left_front and chancellor_party = "СДПГ")
+view-if: in_spd_majority or sapd_toleration or (in_emergency_government and chancellor_party = "СДПГ") or ((in_left_front) and chancellor_party = "СДПГ")
 on-arrival: last_cabinet_action = 1
 new-page: true 
 
@@ -12,7 +12,6 @@ new-page: true
 
 - #cabinet
 - @back: Вернуться на главный экран
-
 
 @back
 on-arrival: last_cabinet_action = 0

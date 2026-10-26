@@ -1,7 +1,7 @@
 title: Гарцбургский фронт
 subtitle: Правые силы объединяются против действующего правительства.
 new-page: true
-on-arrival: harzburg_front_seen = 1; harzburg_front_time = time; sa_strength += 50; sa_militancy += 0.05; sh_militancy += 0.05; old_middle_nsdap += 3; rural_nsdap += 3; nazi_urgency += 1; iron_front_timer = 0; dvp_right += 1 if dvp_leader == "Дингельдей"; lvp_right += 1; pro_republic -= 3; hindenburg_angry += 10; hindenburg_angry_bruning += 10
+on-arrival: harzburg_front_seen = 1; harzburg_front_time = time; sa_strength += 50; sa_militancy += 0.05; sh_militancy += 0.05; old_middle_nsdap += 3; rural_nsdap += 3; nazi_urgency += 1; iron_front_timer = 0; dvp_right += 1 if dvp_leader == "Дингельдей"; lvp_right += 1; pro_republic -= 3; hindenburg_angry += 10; hindenburg_angry_bruning += 10; kpd_nazi_urgency += 1;
 tags: event
 view-if: year = 1931 and month >= 10 and chancellor != "Шлейхер" and chancellor != "Папен" and dnvp_ideology == "Умеренные"
 max-visits: 1
@@ -15,7 +15,9 @@ max-visits: 1
 - @strategy: Мы должны разработать внятную стратегию борьбы с правыми.
 - @confronting_nazis.iron_front: Мы должны создать <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span>!
 - @iron_front: Мы должны создать <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span>!
-
+- @inter_party_relationships.afa:Выделить финансирование <span style="color: #700000;">Antifaschistische</span> <span style="color: #c00000;">Aktion</span>
+- @streetfighting.afa-truce:Связаться с <span style="color: #700000;">КПГ</span>, чтобы согласовать наши силы во имя <span style="color: #700000;">анти</span><span style="color: #c00000;">-</span><span style="color: #7A3C00;">фашизма</span>
+- @streetfighting.afa-lol:Связаться с <span style="color: #700000;">КПГ</span>, чтобы согласовать наши силы во имя <span style="color: #700000;">анти</span><span style="color: #c00000;">-</span><span style="color: #7A3C00;">фашизма</span>
 
 @strategy
 view-if: nazi_urgency < 3

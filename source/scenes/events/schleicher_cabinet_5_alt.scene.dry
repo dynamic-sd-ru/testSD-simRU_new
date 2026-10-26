@@ -28,7 +28,6 @@ on-display: {!
 
 - @schleicher_2
 
-
 @schleicher_2
 title: Свет в конце тоннеля!
 on-arrival: unemployed -= 2; economic_growth += 1; schleicher_approval += 4; inflation += 2; schleicher_economy_time = rubicon_time + 24; papen_economy_time = 0; schleicher_victory += 1; workers_nsdap -= 3; workers_kpd -= 5; unemployed_kpd -= 5; unemployed_nsdap -= 3; pro_republic += 8; hindenburg_schleicher_r += 2; schleicher_strength += 2; papen_strength -= 1; hindenburg_hitler_r -= 3; dvp_left += 5; ddp_left += 3; ddp_cohesion += 3; lvp_left += 5; schleicher_spd_influence += 1; schleicher_spd_influence += 1 if wtb_adopted; schleicher_spd_influence += 1 if schleicher_spd_r >= 4; schleicher_spd_r += 1; schleicher_spd_r += 1 if wtb_adopted; schleicher_spd_support += 4; schleicher_spd_support += 2 if wtb_adopted

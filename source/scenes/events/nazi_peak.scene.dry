@@ -26,8 +26,7 @@ priority: -2
 
 - @nazi_explode: Мы должны продержаться ещё хотя бы несколько месяцев.
 
-
 @nazi_explode
-on-arrival: neorevisionist_dissent -= 20; labor_dissent -= 10; left_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; ddp_left += 3; dvp_left += 5; lvp_left += 5; ddp_cohesion += 3
+on-arrival: neorevisionist_dissent -= 20; labor_dissent -= 10; left_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; ddp_left += 3; dvp_left += 5; lvp_left += 5; ddp_cohesion += 3; kpd_nazi_urgency -= 1;
 
 <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арская</span> система ещё не в безопасности; мы не должны успокаиваться. В ближайшие месяцы может случиться всё что угодно. Ходят даже слухи о путче <span style="color: #7A3C00;">**СА**</span> — отчаянной последней попытке захватить власть.
