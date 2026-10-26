@@ -1,0 +1,78 @@
+{
+ "per_var": {
+  "agriculture_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "chancellor_party": {
+   "I": "б/п",
+   "KVP": "КНП",
+   "SAPD": "СРПГ"
+  },
+  "economic_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "finance_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "foreign_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "interior_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "justice_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "labor_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "reichswehr_minister_party": {
+   "BVP": "БНП",
+   "DNF": "НФГ",
+   "I": "б/п",
+   "KVP": "КНП",
+   "Others": "Прочие"
+  },
+  "treviranus_party": {
+   "KVP": "КНП"
+  },
+  "vorbeck_party": {
+   "KVP": "КНП"
+  },
+  "westarp_party": {
+   "KVP": "КНП"
+  },
+  "z_party_name": {
+   "CVP": "ХНП"
+  }
+ },
+ "global": {}
+}

@@ -132,7 +132,7 @@ on-arrival: wtb_enactment_continuation_finish = time + 6 if wtb_implemented == 1
 
 [? if in_popular_front or in_left_front: Но <span style="color: #700000;">**КПГ**</span>, однако, по-прежнему выступает против нашей политики «спасения» капитализма. ?]
 
-[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> however, still opposes our policy of "rescuing" capitalism. ?]
+[? if sapd_toleration: Впрочем, <span style="color: #9B0000;">**СРПГ**</span> по-прежнему против нашей политики «спасения» капитализма. ?]
 
 @implement_wtb_no_deficit
 title: Реализовать план ВТБ.

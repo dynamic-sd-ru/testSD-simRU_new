@@ -451,12 +451,12 @@ go-to: thuringia_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_thuringia_elections_vote +]%{!</td><td>!} [+ dnf_r_thuringia +]%{!</td></tr>!}  ?]
 
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_thuringia_elections_vote +]%{!</td><td>!} [+ nsdap_r_thuringia +]%{!</td></tr>!} {!
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_thuringia_elections_vote +]%{!</td><td>!} [+ nsdap_r_thuringia +]%{!</td></tr>!} {!</table>!}
 {!</table>!}
-<hr id="read-marker">
-Thuringia is currently governed by a broad center-right coalition, which holds exactly half of the Landtag's seats. This coalition includes all parties to the right of us, along with the special interest parties, the <span style="color: #b8996f;">**ЭП**</span> and <span style="color: #7FCEB1;">**ХНПКЗ**</span>, both of which have a significant presence in state politics.
-<hr id="read-marker">
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_thuringia_elections_vote +]%{!</td><td>!} [+ nsdap_r_thuringia +]%{!</td></tr>!} {!</table>!} <hr id="read-marker"> В настоящее время Тюрингией управляет широкая правоцентристская коалиция, которая занимает ровно половину мест в ландтаге. В эту коалицию входят все партии правее нас, а также партии, представляющие нишевые интересы, — <span style="color: #b8996f;">**ЭП**</span> и <span style="color: #7FCEB1;">**ХНПКЗ**</span>, обе из которых имеют значительное влияние в политике земли. <hr id="read-marker"> Объединенная левая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_thuringia +]%
+<hr id="read-marker"> В настоящее время Тюрингией управляет широкая правоцентристская коалиция, которая занимает ровно половину мест в ландтаге. В эту коалицию входят все партии правее нас, а также партии, представляющие нишевые интересы, —
+<span style="color: #b8996f;">**ЭП**</span> и <span style="color: #7FCEB1;">**ХНПКЗ**</span>, обе из которых имеют значительное влияние в политике земли.
+<hr id="read-marker"> Объединенная левая коалиция (
+<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_thuringia +]%
 
 Большая коалиция (<span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if z_r_thuringia: &nbsp;+&nbsp;<span style="color: #000000;">**[+ z_party_name +]**</span> ?][? if not lvp_formed: &nbsp;+&nbsp;<span style="color: #C0A054;">**ННП**</span> ?]): [+ spd_coalition_thuringia +]%
 
@@ -494,8 +494,8 @@ if (((Q.z_relation >= 60 || !Q.stegerwald_path) && ((Q.dvp_relation >= (dvp_tole
 if ((Q.dvp_relation < (dvp_toleration_threshold + 5) && !Q.lvp_formed) || (Q.lvp_relation < (lvp_toleration_threshold + 5) && Q.lvp_formed)) Q.dvp_toleration_threshold_fail = 1;
 !}
 
-<hr id="read-marker">
-<hr id="read-marker"> Буржуазные партии исторически враждебны к нам в политике земли, особенно после пресловутого единого правительства левых <span style="color: #c00000;">**СДПГ**</span>–<span style="color: #D47B9B;">**НСДПГ**</span>-<span style="color: #700000;">**КПГ**</span>, столкнувшееся с <i>Reichsexekution (Имперской экзекуцией)</i> шесть лет назад. Они все еще не забыли, что <span style="color: #c00000;">**СДПГ**</span> это поддержала.
+<hr id="read-marker"> Буржуазные партии исторически враждебны к нам в политике земли, особенно после пресловутого единого правительства левых
+<span style="color: #c00000;">**СДПГ**</span>–<span style="color: #D47B9B;">**НСДПГ**</span>-<span style="color: #700000;">**КПГ**</span>, столкнувшееся с <i>Reichsexekution (Имперской экзекуцией)</i> шесть лет назад. Они все еще не забыли, что <span style="color: #c00000;">**СДПГ**</span> это поддержала.
 
 Тем временем набирающая силу <span style="color: #7A3C00;">**НСДАП**</span>, контролирующая теперь [+ nsdap_r_thuringia +]% голосов в ландтаге, больше не желает довольствоваться лишь воздержанием от вотума недоверия и требует для себя места в правительстве. Поскольку буржуазные партии твёрдо намерены не допустить нас к власти, Тюрингия вполне может стать первой землёй, где появится министр-<span style="color: #7A3C00;">нацист</span>.
 

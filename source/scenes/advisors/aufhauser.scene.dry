@@ -51,10 +51,10 @@ on-arrival: advisor_action_timer = 6
 go-to: crisis_program.support_moderate
 
 @radicalize_new_middle
-title: Awaken the class consciousness of the New Middle Class
-subtitle: As the Chairman of the AfA-bund, Aufhäuser can help us to awaken the class consciousness of the new middle class.
+title: Пробудить классовое самосознание нового среднего класса
+subtitle: Как председатель AfA-bund, Ауфхойзер может помочь нам пробудить классовое самосознание нового среднего класса.
 choose-if: socialism >= 51 and new_middle_spd_normalized >= 15 and new_middle_conscious == 0
-unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?][? if socialism < 51: We must seek to make socialism more popular. ?][? if new_middle_spd_normalized < 15: We sadly do not have enough support amongst the new middle class. ?][? if new_middle_conscious == 1: We have already awoken the class consciousness of the new middle class. ?]
+unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] мес. до следующего действия советника. ?][? if socialism < 51: Нам нужно добиться большей популярности социализма. ?][? if new_middle_spd_normalized < 15: К сожалению, у нас недостаточно поддержки среди нового среднего класса. ?][? if new_middle_conscious == 1: Мы уже пробудили классовое самосознание нового среднего класса. ?]
 max-visits: 1
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1
 go-to: new_middle_consciousness

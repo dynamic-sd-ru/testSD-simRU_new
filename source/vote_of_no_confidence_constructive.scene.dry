@@ -1,5 +1,5 @@
-title: The Right calls a constructive vote of no confidence against the current government!
-subtitle: We have angered our coalition partners too much...
+title: Правые выносят на голосование вотум недоверия действующему правительству!
+subtitle: Мы слишком разгневали наших партнёров по коалиции…
 new-page: true
 on-arrival: tried_supporting_kpd = 0; z_relation -= 5 if not in_social_catholic_coalition; dvp_relation -= 5 if in_grand_coalition; ddp_relation -= 5 if not in_social_catholic_coalition; lvp_relation -= 5 if in_weimar_coalition and not in_social_catholic_coalition or in_grand_coalition; lvp_right += 2 if in_weimar_coalition or in_grand_coalition; dvp_right += 2 if in_grand_coalition; ddp_right += 1; hindenburg_angry += 20
 on-departure: secularized = 0
@@ -7,61 +7,61 @@ view-if: chancellor_party == "СДПГ" and spd_in_government = 1 and ((in_grand
 tags: event
 go-to: vonc_menu
 
-= Constructive Vote of No Confidence
+Вотум недоверия
 
-The [? if z_party_name != "ХНП": <span style="color: #000000;">Center Party</span>?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span>?] has called for a constructive vote of no confidence against us, due to our various policies and disagreements. If this succeeds, a new government will be formed under Heinrich Brüning.
+[? if in_grand_coalition and not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if (in_grand_coalition or in_social_liberal_coalition) and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if in_weimar_coalition or in_popular_front or in_minority_government and not in_social_liberal_coalition: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?][? if lvp_formed and not in_social_catholic_coalition: &nbsp;и <span style="color: #FFCC00;">**ЛНП**</span> ?] ?][? if in_social_liberal_coalition and not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?] потребовала вынести нам вотум недоверия из-за проводимой нами политики и возникших разногласий. В случае успеха через несколько месяцев, вероятно, будут назначены выборы.
 
 @vonc_menu
 
-- @try_assuage: Try to assuage our partners.
+- @try_assuage: Попытаться успокоить наших партнёров.
 - @right_coalition: Brüning forms a right-wing coalition.
 - @center_right_coalition: Brüning forms a center-right coalition.
 - @bourgeois_coalition: Brüning forms a bourgeois coalition.
-- @snap_elections: President [+ president +] will call snap elections.
+- @snap_elections:Президент [+ president +] объявит досрочные выборы.
 
 @try_assuage
 
-How do we assuage our partners?
+Как нам успокоить партнёров?
 
-- @dvp_prussia_2: Let the <span style="color: #C0A054;">**ННП**</span> into Prussia.
-- @give_up_prussia: Give up on leadership of Prussia.
-- @austerity: Enact a massive austerity plan.
-- @resources: Use our resources to reduce dissent within the coalition.
-- @vonc_menu: Never mind. What are our options?
+- @dvp_prussia_2: Допустить <span style="color: #C0A054;">**ННП**</span> в Пруссию.
+- @give_up_prussia: Отказаться от руководства Пруссией.
+- @austerity: Принять масштабный план жёсткой экономии.
+- @resources: Использовать наши ресурсы, чтобы ослабить разногласия в коалиции.
+- @vonc_menu:Неважно. Какие у нас варианты?
 
 @dvp_prussia_2
 view-if: year <= 1929 and in_grand_coalition_prussia = 0 and (in_weimar_coalition_prussia or in_minority_weimar_coalition_prussia) and in_grand_coalition = 1 and dvp_was_in_prussia == 0 and not lvp_formed
 choose-if: z_leader != "Каас" and not secularized
-unavailable-subtitle: [? if z_leader = "Kaas": Kaas and the [? if z_party_name != "CVP": <span style="color: #000000;">Center</span>?][? if z_party_name == "CVP": <span style="color: #000000;">**ХНП**</span>?] strongly dissents against. ?]
+unavailable-subtitle: [? if z_leader = "Каас": Каас и[? if z_party_name != "ХНП": <span style="color: #000000;">партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]категорически против. ?]
 on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; dvp_relation += 10; z_relation -= 5; ddp_relation += 3; coalition_dissent -= 1; left_dissent += 5; in_grand_coalition_prussia = 1; dvp_left += 3; new_middle_dvp += 3
 
-Letting the <span style="color: #C0A054;">**ННП**</span> into the Prussian government is an offer too good for them to refuse, no matter their leadership. 
+Допустить <span style="color: #C0A054;">**ННП**</span> в прусское правительство — предложение, от которого они не смогут отказаться, кто бы ни стоял во главе партии.
 
-However, this has negatively impacted our freedom of action we previously had in the <span style="color: #000000;">We</span><span style="color: #DD0000;">im</span><span style="color: #FFCC00;">ar</span> coalition.
+Однако это отрицательно сказалось на свободе действий, которая была у нас в рамках <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской коалиции.
 
 @give_up_prussia
-subtitle: Braun would need to resign.
+subtitle: Брауну придётся уйти в отставку.
 view-if: prussia_leader = "Браун" and neo_weimar_coalition_prussia >= 50
 on-arrival: coalition_dissent = 1; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; reformist_dissent += 10; center_dissent += 10; labor_dissent += 10; left_dissent += 5; workers_spd -= 5; new_middle_spd -= 5; rural_spd -= 3; braun_resign = 1
 
-Fine. We no longer control the government of Prussia. The vote has been called off.
+Хорошо. Мы больше не контролируем правительство Пруссии. Голосование отменено.
 
-The Minister-President position is transferred to the [? if z_party_name != "ХНП": <span style="color: #000000;">Center</span>?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span>?].
+Должность министра-президента переходит к[? if z_party_name != "ХНП": <span style="color: #000000;">«Центр»</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 
 @austerity
 view-if: welfare >= 0 and not secularized
 on-arrival: coalition_dissent = 0; workers_spd -= 10; unemployed_spd -= 10; workers_kpd += 7; workers_nsdap += 3; unemployed_kpd += 5; unemployed_nsdap += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; reformist_dissent += 5; welfare -= 2; budget += 1; unemployed += 3; kpd_coalition_dissent += 1; kpd_relation -= 10 if in_popular_front; goal_spd_cancel += 1; social_welfare_timer = 10
 
-Fine. We enacted a massive austerity program to cut welfare, in order to maintain the stability of our coalition. The vote has been called off.
+Хорошо. Мы ввели масштабную программу жёсткой экономии, сократив социальные расходы ради сохранения стабильности коалиции. Голосование отменено.
 
 @resources
 view-if: secularized = 0
 choose-if: (resources >= 3 and in_weimar_coalition or in_popular_front or in_minority_government) or ((resources >= 3 and in_grand_coalition and not (dvp_ideology == "Правые" and year >= 1930) and not lvp_formed) or (resources >= 3 and (in_grand_coalition or in_weimar_coalition) and not (lvp_ideology == "Правые" and year >= 1930) and lvp_formed))
-unavailable-subtitle: [? if resources < 3: We do not have enough resources. ?] [? if in_grand_coalition and (dvp_ideology == "Right" and year >= 1930) and not lvp_formed: The <span style="color: #C0A054;">**ННП**</span> doesn't want our resources anymore. ?] [? if (in_grand_coalition or in_weimar_coalition) and (lvp_ideology == "Right" and year >= 1930) and lvp_formed: The <span style="color: #FFCC00;">**ЛНП**</span> doesn't want our resources anymore. ?]
-subtitle: -3 resources
+unavailable-subtitle: [? if resources < 3: У нас недостаточно ресурсов. ?] [? if in_grand_coalition and (dvp_ideology == "Правые" and year >= 1930) and not lvp_formed: <span style="color: #C0A054;">**ННП**</span> больше не нужны наши ресурсы. ?] [? if (in_grand_coalition or in_weimar_coalition) and (lvp_ideology == "Правые" and year >= 1930) and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> больше не нужны наши ресурсы. ?]
+subtitle: -3 ресурса
 on-arrival: resources -= 3; coalition_dissent -= 1;
 
-By transferring resources to our coalition partners, we can reduce their dissent against our policies. This is a crude, but effective solution.
+Передав ресурсы нашим партнёрам по коалиции, мы можем ослабить их недовольство нашей политикой. Это грубое, но эффективное решение.
 
 @right_coalition
 view-if: right_coalition >= 50 and (dnvp_ideology == "Умеренные" or dnvp_westarp) and not (year = 1929 and month >= 7)
@@ -81,8 +81,8 @@ go-to: election_1928.bourgeois_coalition
 @snap_elections
 view-if: president_ideology == "Левые"
 choose-if: presidential_powers != 1
-unavailable-subtitle: We don't have that power anymore. You really screwed us here with your reforms, you know that?
+unavailable-subtitle: У нас больше нет таких полномочий. Вы серьёзно подставили нас своими реформами, знаете ли.
 call: set_next_election_time
 on-arrival: time_to_election = 3; spd_in_government = 0; in_grand_coalition = 0; in_weimar_coalition = 0; in_popular_front = 0; spd_toleration = 0; spd_toleration_right = 0; coalition_dissent = 0; pro_republic -= 5; old_middle_spd -= 3; new_middle_spd -= 2; workers_spd -= 3 if pro_republic < 50; workers_spd -= 4 if pro_republic < 40; old_middle_nsdap += 4 if pro_republic < 50; new_middle_nsdap += 3 if pro_republic < 50; lvp_right += 3; ddp_right += 2; ddp_cohesion -= 1; dvp_right += 3
 
-To prevent being relegated to the opposition, we have called for new elections for [+ next_election_month : month +] [+ next_election_year +].
+Чтобы не оказаться в оппозиции, мы объявили новые выборы на [+ next_election_month : month +] [+ next_election_year +].

@@ -49,8 +49,8 @@ on-arrival: welfare -= 1 if budget <= 0; workers_spd -= 3; workers_spd += 2 if b
 view-if: spd_in_government = 0 and spd_toleration = 0 and (in_right_coalition = 1 or in_center_right_coalition = 1 or in_bourgeois_coalition = 1)
 on-arrival: welfare -= 1 if budget <= 0; unemployed_spd += 3 if budget <= 0; workers_nsdap -= 2 if budget > 0; pro_republic -= 3; pro_republic += 2 if budget > 0; economic_growth -= 1; economic_growth += 0.4 if budget > 0; unemployed -= 1 if budget > 0; inflation += 0.8 if inflation < 0 and budget > 0; budget -= 1 if budget > 0
 
-[? if budget <= 0: Канцлер [+ chancellor +] реагирует на банковский кризис дальнейшим урезанием социальных выплат. ?][? if budget > 0: Неожиданно канцлер [+ chancellor +] воздержался от сокращения социальных расходов благодаря профициту бюджета и принял меры для стабилизации экономики и банковской системы. ?] [? if budget <= 0: Поскольку мы находимся в жесткой оппозиции к нынешнему кабинету министров, у нас развязаны руки для митингов против этих мер жесткой экономии. ?]
-
+[? if budget <= 0: Канцлер [+ chancellor +] реагирует на банковский кризис дальнейшим урезанием социальных выплат. ?][? if budget > 0: Неожиданно канцлер [+ chancellor +] воздержался от сокращения социальных расходов благодаря профициту бюджета и принял меры для стабилизации экономики и банковской системы. ?]
+[? if budget <= 0: Поскольку мы находимся в жесткой оппозиции к нынешнему кабинету министров, у нас развязаны руки для митингов против этих мер жесткой экономии. ?]
 
 @austerity_snaps
 view-if: spd_in_government = 0 and spd_toleration = 0 and in_right_coalition = 0 and in_center_right_coalition = 0 and secret_mode = 0 and chancellor = "Брюнинг"
@@ -62,15 +62,15 @@ on-arrival: welfare -= 1 if budget <= 0; workers_spd -= 1; workers_spd += 1 if b
 view-if: chancellor = "Гёрделер"
 on-arrival: welfare -= 1 if budget <= 0; unemployed_spd += 3 if budget <= 0; workers_nsdap -= 2 if budget > 0; pro_republic -= 3; pro_republic += 2 if budget > 0; economic_growth -= 1; economic_growth += 0.4 if budget > 0; unemployed -= 1 if budget > 0; inflation += 0.8 if inflation < 0 and budget > 0; budget -= 1 if budget > 0
 
-[? if budget <= 0: Канцлер [+ chancellor +] реагирует на банковский кризис дальнейшим урезанием социальных выплат. ?][? if budget > 0: Неожиданно канцлер [+ chancellor +] воздержался от сокращения социальных расходов благодаря профициту бюджета и принял меры для стабилизации экономики и банковской системы. ?] [? if budget <= 0: Поскольку мы находимся в жесткой оппозиции к нынешнему кабинету министров, у нас развязаны руки для митингов против этих мер жесткой экономии. ?]
-
+[? if budget <= 0: Канцлер [+ chancellor +] реагирует на банковский кризис дальнейшим урезанием социальных выплат. ?][? if budget > 0: Неожиданно канцлер [+ chancellor +] воздержался от сокращения социальных расходов благодаря профициту бюджета и принял меры для стабилизации экономики и банковской системы. ?]
+[? if budget <= 0: Поскольку мы находимся в жесткой оппозиции к нынешнему кабинету министров, у нас развязаны руки для митингов против этих мер жесткой экономии. ?]
 
 @austerity_hitler
 view-if: chancellor = "Гитлер"
 on-arrival: welfare -= 1 if budget <= 0; unemployed_spd += 3 if budget <= 0; workers_nsdap -= 5; workers_nsdap += 4 if budget > 0; unemployed_nsdap -= 5; unemployed_nsdap += 4 if budget > 0; pro_republic -= 5; pro_republic += 2 if budget > 0; economic_growth -= 1; economic_growth += 0.4 if budget > 0; unemployed -= 1 if budget > 0; inflation += 0.8 if inflation < 0 and budget > 0; budget -= 1 if budget > 0
 
-[? if budget <= 0: Канцлер [+ chancellor +] отвечает на банковский кризис очередными сокращениями социальных расходов. Он винит в кризисе «жидо-большевистский заговор» и утверждает, что его вынудили пойти на этот шаг, но тем не менее, это подорвало его авторитет как противника жесткой экономии.  ?][? if budget > 0: Неожиданно канцлер [+ chancellor +] воздержался от сокращения социальных расходов благодаря профициту бюджета и принял меры для стабилизации экономики и банковской системы. ?]  [? if budget <= 0: Поскольку мы находимся в жесткой оппозиции к нынешнему кабинету министров, у нас развязаны руки для митингов против этих мер жесткой экономии. ?]
-
+[? if budget <= 0: Канцлер [+ chancellor +] отвечает на банковский кризис очередными сокращениями социальных расходов. Он винит в кризисе «жидо-большевистский заговор» и утверждает, что его вынудили пойти на этот шаг, но тем не менее, это подорвало его авторитет как противника жесткой экономии.  ?][? if budget > 0: Неожиданно канцлер [+ chancellor +] воздержался от сокращения социальных расходов благодаря профициту бюджета и принял меры для стабилизации экономики и банковской системы. ?]
+[? if budget <= 0: Поскольку мы находимся в жесткой оппозиции к нынешнему кабинету министров, у нас развязаны руки для митингов против этих мер жесткой экономии. ?]
 
 @austerity_wirth
 view-if: spd_toleration = 1 and chancellor = "Вирт"

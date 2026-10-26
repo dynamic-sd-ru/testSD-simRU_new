@@ -406,43 +406,43 @@ elements.forEach(el => {
 
 [? if not snoopy: - Исправлена ошибка, из-за которой не применялось замедление роста недовольства от центристов и внефракционных советников.  ?]
 
-[? if not snoopy: - Other bug fixes. ?]
+Прочие исправления ошибок.
 
 **V1.06 - 2026/5/24**
 
-[? if not snoopy: - New achievements: "Der Rote Justiz", "Brüning der Rotfrontkämpfer", "Merz und Scholz", "Lindner Moribund" and "Tausendjährige Libreich". ?]
+[? if not snoopy: - Новые достижения: «Der Rote Justiz», «Brüning der Rotfrontkämpfer», «Merz und Scholz», «Lindner Moribund» и «Tausendjährige Libreich». ?]
 
-[? if not snoopy: - Added Saxony Landtag Election in 1933. ?]
+[? if not snoopy: - Добавлены выборы в ландтаг Саксонии в 1933 году. ?]
 
-[? if not snoopy: - Disconnected the discombobulator. ?]
+[? if not snoopy: - Отключён «дискомбобулятор». ?]
 
 [? if not snoopy: - Другие исправления ошибок. ?]
 
 **V1.07 - 2026/08/04**
 
-[? if not snoopy: - Added Class Consciousness of The New Middle Class and Class Consciousness of The Peasants And The Rural Working Class cards to the party affairs deck. ?]
+[? if not snoopy: - В колоду партийных дел добавлены карты «Классовое самосознание нового среднего класса» и «Классовое самосознание крестьянства и сельского рабочего класса». ?]
 
-[? if not snoopy: - Reworked how failing primary and secondary burdens are affected if class consciousness is awakened. ?]
+[? if not snoopy: - Переработано, как провал основных и второстепенных обременений влияет на поддержку при пробуждённом классовом самосознании. ?]
 
-[? if not snoopy: - Reworked choice effects in party cards such as media, rally, and campaigning to reflect class consciousness. If the new middle are conscious, doing a class struggle rally no longer reduces their support. ?]
+[? if not snoopy: - Переработаны эффекты выбора в партийных картах — медиа, митинг и агитация — с учётом классового самосознания. Если новый средний класс самосознателен, митинг за классовую борьбу больше не снижает его поддержку. ?]
 
-[? if not snoopy: - Reworked choice effects in government cards such as economic democracy, economic policy, fiscal policy, labour affairs, labour rights, and welfare to reflect class consciousness. ?]
+[? if not snoopy: - Переработаны эффекты выбора в правительственных картах — экономическая демократия, экономическая политика, фискальная политика, трудовые вопросы, трудовые права и социальное обеспечение — с учётом классового самосознания. ?]
 
-[? if not snoopy: - Reworked on-arrival effects in the capital strike scene to reflect class consciousness. Also reworked choices in some events cards to reflect class consciousness. ?]
+[? if not snoopy: - Переработаны эффекты по прибытии в сцене забастовки в столице с учётом классового самосознания. Также переработаны варианты выбора в некоторых событийных картах с учётом классового самосознания. ?]
 
-[? if not snoopy: - Reducing tariffs now increases new middle SPD support (irrespective of consciousness) whilst raising them reduces new middle SPD support. ?]
+[? if not snoopy: - Снижение тарифов теперь повышает поддержку СДПГ среди нового среднего класса (независимо от самосознания), а их повышение — снижает. ?]
 
-[? if not snoopy: - Socialisations via the economic democracy card now generate +0.5 nationalization_progress and +0.5 nationalization_support. The 2nd and 3rd works councils expansion now generate +0.5 nationalization_support each. Socialisations increase labour strength. Works councils and socialisations decrease dissent for all factions. ?]
+[? if not snoopy: - Социализации через карту экономической демократии теперь дают +0,5 nationalization_progress и +0,5 nationalization_support. Второе и третье расширение советов предприятий теперь дают по +0,5 nationalization_support. Социализации повышают силу рабочих. Советы предприятий и социализации снижают недовольство всех фракций. ?]
 
-[? if not snoopy: - Forming left front coalitions in the landtags no longer reduces your new middle support if the new middle class are conscious. If the rural demographic are conscious, forming left front coalitions in landtags also no longer reduces your rural support. ?]
+[? if not snoopy: - Формирование коалиций левого фронта в ландтагах больше не снижает поддержку среди нового среднего класса, если этот класс самосознателен. Если сельский электорат самосознателен, формирование коалиций левого фронта в ландтагах также больше не снижает поддержку среди сельских жителей. ?]
 
-[? if not snoopy: - Convincing the KPD to increase their campaigning for you no longer reduces new middle SPD support if the new middle are conscious. ?]
+[? if not snoopy: - Убеждение КПГ усилить агитацию в нашу пользу больше не снижает поддержку СДПГ среди нового среднего класса, если этот класс самосознателен. ?]
 
-[? if not snoopy: - The socialism value can now be raised by commercialising media. ?]
+[? if not snoopy: - Значение социализма теперь можно повышать за счёт коммерциализации СМИ. ?]
 
-[? if not snoopy: - Added abilities to Aufhäuser and Baade for them to awaken the class consciousness of the new middle class and the peasantry & rural working class respectively. ?]
+[? if not snoopy: - Добавлены способности Ауфхойзеру и Бааде пробуждать классовое самосознание нового среднего класса и крестьянства с сельским рабочим классом соответственно. ?]
 
-[? if not snoopy: - Other bugfixes. ?]
+[? if not snoopy: - Прочие исправления ошибок. ?]
 
 = Планы на будущее
 

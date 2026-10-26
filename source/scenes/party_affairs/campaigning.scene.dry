@@ -16,7 +16,7 @@ tags: party_affairs
 - @old_middle: «Старый средний класс»: малый бизнес, индивидуальные предприниматели и ремесленники.
 - @rural: Сельские рабочие и мелкие крестьяне, которые в прошлом чувствовали себя обделёнными нашим вниманием.
 - @unemployed: Безработные.
-- @bdf: We can sponsor *Bund Deutscher Frauenvereine* for an extensive campaign among women.
+- @bdf:Мы можем спонсировать *Bund Deutscher Frauenvereine* для масштабной кампании среди женщин.
 - @catholics: Католики, которые обычно поддерживают [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 - @root: Мы либо не хотим, либо не можем сейчас вести агитацию.
 - @easy_discard
@@ -64,12 +64,12 @@ on-arrival: unemployed_spd += 6*(1-dissent); resources -= 1; unemployed_spd -= 3
 
 @bdf
 view-if: bdf_cooperation
-subtitle: -1 resources.
+subtitle: -1 ресурс.
 choose-if: resources >= 1
-unavailable-subtitle: Not enough resources.
+unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: resources -= 1; workers_spd += 4*(1-dissent); new_middle_spd += 4*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); catholics_spd += 1*(1-dissent);
 
-We have coordinated with BDF to campaign among women across all classes.
+Мы согласовали с BDF кампанию среди женщин всех классов.
 
 @catholics
 subtitle: -1 ресурс

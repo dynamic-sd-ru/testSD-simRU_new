@@ -58,7 +58,7 @@ go-to: successor_menu
 @papen
 title: Франц фон Папен?
 subtitle: Относительно неизвестный католический консерватор из <span style="color: #000000;">Партии Центра</span>. Предпочтительный кандидат Шлейхера.
-on-arrival: spd_toleration = 0; spd_toleration_right = 0; chancellor = "Папен"; chancellor_party = "I"; schleicher_papen_r -= 1; kpd_nazi_urgency += 1;
+on-arrival: spd_toleration = 0; spd_toleration_right = 0; chancellor = "Папен"; chancellor_party = "б/п"; schleicher_papen_r -= 1; kpd_nazi_urgency += 1;
 view-if: westarp_seen and goerdeler_seen
 face-image: img/portraits/PapenFranz.jpg
 

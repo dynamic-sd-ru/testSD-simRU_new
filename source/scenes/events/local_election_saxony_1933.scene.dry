@@ -668,14 +668,14 @@ go-to: saxony_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_saxony_elections_vote +]% {!</td><td>!} [+ dnf_r_saxony +]% {!</td></tr>!}  ?]
 
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]% {!</td><td>!} [+ nsdap_r_saxony +]% {!</td></tr>!} {!
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]% {!</td><td>!} [+ nsdap_r_saxony +]% {!</td></tr>!} {!</table>!}
 {!</table>!}
 <hr id="read-marker">
-[? if aspd_dead and reformists_resign: Despite the <span style="color: #fe9e00;">**ASPD**</span>'s reunion with the <span style="color: #c00000;">**СДПГ**</span> after the Landtag election 4 years ago, our party's leftist direction at the federal level has driven them to split off again. ?]
-[? if nsdap_r_saxony > (nsdap_r_saxony_old + 5) and not saxony_nsdap: The <span style="color: #7A3C00;">**Nazis**</span> have made significant gains relative to last election.  This may make a stable governing arrangement more difficult this time around. ?]
-[? if saxony_nsdap: Following Gregor Stasser's anti-capitalist antics of the previous coalition, the bourgeois parties are quite reluctant to include the <span style="color: #7A3C00;">**Nazis**</span> in government again. ?]
-<hr id="read-marker">
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]% {!</td><td>!} [+ nsdap_r_saxony +]% {!</td></tr>!} {!</table>!} <hr id="read-marker"> [? if aspd_dead and reformists_resign: Несмотря на воссоединение <span style="color: #fe9e00;">**СДПГ(с)**</span> с <span style="color: #c00000;">**СДПГ**</span> после выборов в ландтаг 4 года назад, левый курс нашей партии на федеральном уровне заставил их вновь отколоться.  ?] [? if nsdap_r_saxony > (nsdap_r_saxony_old + 5) and not saxony_nsdap: <span style="color: #7A3C00;">**нацисты**</span> добились значительных успехов по сравнению с прошлыми выборами. В этот раз это может усложнить формирование стабильного правительства.  ?] [? if saxony_nsdap: После антикапиталистических выходок Грегора Штрассера в предыдущей коалиции, буржуазные партии крайне неохотно рассматривают включение <span style="color: #7A3C00;">**нацисты**</span> в новое правительство.  ?]<hr id="read-marker"> Объединенная Левая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_saxony +]%
+[? if aspd_dead and reformists_resign: Несмотря на воссоединение <span style="color: #fe9e00;">**СДПГ(с)**</span> с <span style="color: #c00000;">**СДПГ**</span> после выборов в ландтаг 4 года назад, левый курс нашей партии на федеральном уровне заставил их вновь отколоться.  ?]
+[? if nsdap_r_saxony > (nsdap_r_saxony_old + 5) and not saxony_nsdap: <span style="color: #7A3C00;">**нацисты**</span> добились значительных успехов по сравнению с прошлыми выборами. В этот раз это может усложнить формирование стабильного правительства.  ?]
+[? if saxony_nsdap: После антикапиталистических выходок Грегора Штрассера в предыдущей коалиции, буржуазные партии крайне неохотно рассматривают включение <span style="color: #7A3C00;">**нацисты**</span> в новое правительство.  ?]
+<hr id="read-marker"> Объединенная Левая коалиция (
+<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_saxony +]%
 
 Большая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #fe9e00;">**СДПГ(с)**</span> + [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if z_r_saxony: &nbsp;+&nbsp;<span style="color: #000000;">**[+ z_party_name +]**</span>  ?][? if not lvp_formed: &nbsp;+&nbsp;<span style="color: #C0A054;">**ННП**</span> ?]): [+ spd_coalition_saxony +]%
 
@@ -948,7 +948,7 @@ choose-if: mega_bourgeois_coalition_saxony >= 50 and true_bourgeois_coalition_sa
 unavailable-subtitle: [? if mega_bourgeois_coalition < 50: Наши голоса ничего не решат, поскольку у антидемократических партий большинство. ?][? if true_bourgeois_coalition_saxony >= 50: Им не нужна наша терпимость. ?]
 on-arrival: saxony_toleration = 1; saxony_groko = 0; pro_republic += 2; saxony_groko = 0; red_saxony = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
 
-Unfortunately, we have been relegated to toleration of the bourgeois parties.   
+К сожалению, нам осталась лишь терпимость по отношению к буржуазным партиям.
 К сожалению, мы были оттеснены до роли оказывающих терпимость буржуазным партиям. Восстановлен кабинет Шика, состоящий исключительно из [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> и <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if stegerwald_path: ,[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] ?].
 
 @far_right_coalition_saxony
@@ -1028,8 +1028,8 @@ on-display: {!
 
 Удивительно, но [? if president_ideology != "Левые" and not presidential_powers: несмотря на нежелание обеих сторон из-за опасений, что <span style="color: #808080;">реакционный</span> президент прикажет провести <i>рейхсэкзекуцию</i> в случае формирования коалиции, ?] <span style="color: #c00000;">Красная</span> Саксония восстановлена!
 
-[? if (president_ideology == "Умеренные" or president == "Гинденбург") and not presidential_powers: As one of the most left-wing and industrial states in Germany, we will use our leverage to implement comprehensive reforms and transform Saxony into a stronghold of <span style="color: #c00000;">socialism</span>. The President’s patience is especially thin. Tread carefully. ?]
-[? if (president_ideology == "Умеренные" or president == "Гинденбург") and not presidential_powers: Поскольку это одна из самых левых и индустриальных земель Германии, мы используем наши рычаги влияния для проведения всесторонних реформ и превращения Саксонии в оплот <span style="color: #c00000;">социализма</span>. Терпение президента особенно на исходе. Действуйте осторожно.  ?] [? if president_ideology == "Левые" or presidential_powers: Поскольку это одна из самых левых и индустриальных земель Германии, мы используем наши рычаги влияния для проведения всесторонних реформ и превращения Саксонии в оплот <span style="color: #c00000;">социализма</span>. Однако слухи о попытке ультраправого переворота растут. Действуйте осторожно. ?]
+[? if (president_ideology == "Умеренные" or president == "Гинденбург") and not presidential_powers: Поскольку это одна из самых левых и индустриальных земель Германии, мы используем наши рычаги влияния для проведения всесторонних реформ и превращения Саксонии в оплот <span style="color: #c00000;">социализма</span>. Терпение президента особенно на исходе. Действуйте осторожно.  ?]
+[? if president_ideology == "Левые" or presidential_powers: Поскольку это одна из самых левых и индустриальных земель Германии, мы используем наши рычаги влияния для проведения всесторонних реформ и превращения Саксонии в оплот <span style="color: #c00000;">социализма</span>. Однако слухи о попытке ультраправого переворота растут. Действуйте осторожно. ?]
 
 @president_nope
 

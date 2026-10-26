@@ -58,4 +58,4 @@ subtitle: Рост безработицы требует увеличения р
 
 [? if in_popular_front or in_left_front: Наша социальная политика настраивает <span style="color: #700000;">**КПГ**</span> против нас. ?]
 
-[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> is turning against us for our welfare policy. ?]
+[? if sapd_toleration: <span style="color: #9B0000;">**СРПГ**</span> ополчается на нас из-за нашей социальной политики. ?]

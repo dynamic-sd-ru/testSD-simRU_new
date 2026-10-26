@@ -165,6 +165,6 @@ if (Q.agriculture_minister_party !== "СДПГ" && Q.in_social_liberal_coalition
 if (Q.agriculture_minister_party !== "СДПГ" && Q.in_social_liberal_coalition && Q.lvp_formed) Q.agriculture_minister_party = "ЛНП";
 if (Q.agriculture_minister !== "Бааде" && Q.in_social_liberal_coalition) Q.agriculture_minister = "Дитрих";
 
-if (Q.reichswehr_minister_party !== "СДПГ") Q.reichswehr_minister_party = "I";
+if (Q.reichswehr_minister_party !== "СДПГ") Q.reichswehr_minister_party = "б/п";
 if (Q.reichswehr_minister !== "Лебер") Q.reichswehr_minister = "Грёнер";
 !}

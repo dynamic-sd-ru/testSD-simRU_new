@@ -1,0 +1,32 @@
+{
+ "scenes/events/sapd_toleration_prussia_collapse.scene.dry": [
+  "scenes/events/prussian_coalition_formation.scene.dry",
+  "scenes/events/weimar_prussia_collapse.scene.dry",
+  "scenes/events/socchrist_prussia_collapse.scene.dry",
+  "scenes/events/soclib_prussia_collapse.scene.dry"
+ ],
+ "scenes/events/afa_formed.scene.dry": [
+  "scenes/party_affairs/streetfighting.scene.dry",
+  "scenes/party_affairs/inter_party_relationships.scene.dry"
+ ],
+ "vote_of_no_confidence_constructive.scene.dry": [
+  "scenes/events/vote_of_no_confidence.scene.dry",
+  "scenes/events/cabinet_reshuffled.scene.dry",
+  "scenes/government_affairs/coalition_affairs.scene.dry"
+ ],
+ "scenes/events/workers_aid_unpopularity.scene.dry": [
+  "scenes/events/reichsbanner_unpopularity.scene.dry"
+ ],
+ "scenes/party_affairs/bdf_cooperation.scene.dry": [
+  "scenes/party_affairs/campaigning.scene.dry",
+  "scenes/party_affairs/womens_auxiliary.scene.dry"
+ ],
+ "scenes/party_affairs/new_middle_consciousness.scene.dry": [
+  "scenes/party_affairs/campaigning.scene.dry",
+  "scenes/government_affairs/coalition_affairs.scene.dry"
+ ],
+ "scenes/party_affairs/rural_consciousness.scene.dry": [
+  "scenes/party_affairs/campaigning.scene.dry",
+  "scenes/government_affairs/coalition_affairs.scene.dry"
+ ]
+}

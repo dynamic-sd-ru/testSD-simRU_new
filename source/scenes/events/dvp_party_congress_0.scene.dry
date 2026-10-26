@@ -42,9 +42,9 @@ new-page: true
 
 Немецкие промышленники не собираются лишаться своего голоса в <span style="color: #C0A054;">**ННП**</span> так просто, и, учитывая ухудшающееся здоровье Штреземана, это, вероятно, его последний шанс сохранить контроль над партией.[? if not in_grand_coalition: Левое крыло <span style="color: #C0A054;">**ННП**</span> также ослабло из-за отсутствия коалиций с социалистами.  ?]
 
-- @left: Stresemann maintains control of the party!
-- @left_conflict: Stresemann retains his grasp on the party.
-- @right: The industrialists vote Stresemann down.
+- @left:Стреземан сохраняет контроль над партией!
+- @left_conflict:Штреземан сохраняет контроль над партией.
+- @right:Промышленники голосуют против Штреземана.
 
 @left
 view-if: stresemann_reform_yay

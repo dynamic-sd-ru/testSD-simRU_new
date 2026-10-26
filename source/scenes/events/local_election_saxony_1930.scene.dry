@@ -639,12 +639,12 @@ go-to: saxony_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_saxony_elections_vote +]%{!</td><td>!} [+ dnf_r_saxony +]%{!</td></tr>!}  ?]
 
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]%{!</td><td>!} [+ nsdap_r_saxony +]%{!</td></tr>!} {!
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]%{!</td><td>!} [+ nsdap_r_saxony +]%{!</td></tr>!} {!</table>!}
 {!</table>!}
-<hr id="read-marker">
-{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]%{!</td><td>!} [+ nsdap_r_saxony +]%{!</td></tr>!} {!</table>!} <hr id="read-marker"> Кабинет [+ saxony_leader +]а распался несколько месяцев назад из-за разногласий, связанных с голосованием саксонской делегации в рейхсрате за план Юнга, что привело к вотуму недоверия со стороны <span style="color: #3E88B3;">**НННП**</span>, <span style="color: #11DD11;">**СЗН**</span>, и <span style="color: #7A3C00;">**НСДАП**</span>. Однако они всё же избирают представителя [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] Вальтера Шика на пост министра-президента временного кабинета экспертов. <span style="color: #7A3C00;">**НСДАП**</span> в итоге проголосовала за роспуск парламента. Политический климат сильно изменился с прошлого года, и ожидается, что экстремистские партии усилят свои позиции. <hr id="read-marker"> Объединенная левая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_saxony +]%
-<hr id="read-marker">
-United Left Coalition (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**KPO**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed:&nbsp;+ <span style="color: #9B0000;">**СРПГ**</span>?]): [+ left_coalition_saxony +]% 
+<hr id="read-marker"> Кабинет
+[+ saxony_leader +]а распался несколько месяцев назад из-за разногласий, связанных с голосованием саксонской делегации в рейхсрате за план Юнга, что привело к вотуму недоверия со стороны <span style="color: #3E88B3;">**НННП**</span>, <span style="color: #11DD11;">**СЗН**</span>, и <span style="color: #7A3C00;">**НСДАП**</span>. Однако они всё же избирают представителя [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] Вальтера Шика на пост министра-президента временного кабинета экспертов. <span style="color: #7A3C00;">**НСДАП**</span> в итоге проголосовала за роспуск парламента. Политический климат сильно изменился с прошлого года, и ожидается, что экстремистские партии усилят свои позиции.
+<hr id="read-marker"> Объединенная левая коалиция (
+<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_saxony +]%
 
 Большая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #fe9e00;">**СДПГ(с)**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if z_r_saxony: &nbsp;+&nbsp;<span style="color: #000000;">**[+ z_party_name +]**</span> ?][? if not lvp_formed: &nbsp;+&nbsp;<span style="color: #C0A054;">**ННП**</span> ?]): [+ spd_coalition_saxony +]%
 
@@ -694,8 +694,8 @@ if ((Q.dvp_relation < (dvp_toleration_threshold + 5) && !Q.lvp_formed) || (Q.lvp
 }
 !}
 
-<hr id="read-marker">
-<hr id="read-marker"> Стремительный взлёт <span style="color: #7A3C00;">**НСДАП**</span> вызывает тревогу, поскольку экономическая депрессия продолжает радикализировать избирателей, смещая их симпатии вправо. Их поддержка в основном исходит от буржуазных правых, чьи голоса раздроблены между различными буржуазными партиями и партиями, представляющими особые интересы. Из-за отсутствия сильной, единой правоцентристской альтернативы многие обратились к <span style="color: #7A3C00;">**НСДАП**</span> в рамках протестного голосования.
+<hr id="read-marker"> Стремительный взлёт
+<span style="color: #7A3C00;">**НСДАП**</span> вызывает тревогу, поскольку экономическая депрессия продолжает радикализировать избирателей, смещая их симпатии вправо. Их поддержка в основном исходит от буржуазных правых, чьи голоса раздроблены между различными буржуазными партиями и партиями, представляющими особые интересы. Из-за отсутствия сильной, единой правоцентристской альтернативы многие обратились к <span style="color: #7A3C00;">**НСДАП**</span> в рамках протестного голосования.
 
 Тем временем <span style="color: #fe9e00;">**СДПГ(с)**</span> фактически прекратила своё существование, набрав ничтожный [+ aspd_saxony_elections_vote +]% голосов. И хотя начались обсуждения о слиянии с саксонской <span style="color: #c00000;">**СДПГ**</span>, левый уклон нашей партии до сих пор препятствовал какому-либо значимому прогрессу.
 

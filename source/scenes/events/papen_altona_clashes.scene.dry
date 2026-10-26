@@ -1,6 +1,6 @@
 title: Марш <span style="color: #7A3C00;">нацистов</span> в Альтоне
 new-page: true
-subtitle: Организованная <span style="color: #7A3C00;">**Демонстрация <span style="color: #7A3C00;">СА**</span> может перерасти в насилие.
+subtitle: <span style="color: #7A3C00;">**Демонстрация СА**</span>, которая может обернуться насилием.
 tags: event
 view-if: papen_time == 7 and spd_prussia == 1 and chancellor == "Папен" and not altona_seen
 on-arrival: altona_seen = 1

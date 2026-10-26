@@ -49,4 +49,4 @@ on-arrival: red_saxony = 0; workers_spd -= 5; workers_kpd -= 5; unemployed_kpd -
 
 Выступления <span style="color: #700000;">коммунистов</span> на улицах жестоко подавлены. Рейхсвер патрулирует улицы, ограничивает политические собрания и закрывает глаза преследования <span style="color: #7A3C00;">нацистских</span> <span style="color: #7A3C00;">**СА**</span> против местных левых.
 
-[+ president +] назначает [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span>?] члена Вильгельма Бюнгера в качестве <i>рейхскомиссара</i> для управления Саксонией, которому поручено свернуть наши реформы и жестоко подавить <span style="color: #700000;">**RFB**</span>.
+[+ president +] назначает [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span>?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span>?] члена Вильгельма Бюнгера в качестве <i>рейхскомиссара</i> для управления Саксонией, которому поручено свернуть наши реформы и жестоко подавить <span style="color: #700000;">**РФБ**</span>.

@@ -262,7 +262,7 @@ if (Q.z_leader == "Брахт") {
 }
 
 if (Q.kvp_formed) {
-    Q.treviranus_party = "KVP";
+    Q.treviranus_party = "КНП";
 } else {
     Q.treviranus_party = "НННП";
 }

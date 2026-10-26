@@ -777,8 +777,8 @@ go-to: coalition_menu
 
 {!<table>!} 
 !}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}% изм.{!</td><td>!}Мест в ландтаге{!</td><td>!}% изм.{!</td></tr>!} 
-[? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **SPD:** {!</td><td>!} **[+ spd_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_spd_prussia +]** {!</td><td>!} **[+ spd_r_prussia +]%** {!</td><td>!} **[+ str_change_spd_prussia +]** {!</td></tr>!} ?]
-{!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}% изм.{!</td><td>!}Мест в ландтаге{!</td><td>!}% изм.{!</td></tr>!} [? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_spd_prussia +]** {!</td><td>!} **[+ spd_r_prussia +]%** {!</td><td>!} **[+ str_change_spd_prussia +]** {!</td></tr>!}  ?] [? if dnef_formed: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div> !} **ФНЕГ:** {!</td><td>!} **[+ dnef_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_dnef_prussia +]** {!</td><td>!} **[+ dnef_r_prussia +]%** {!</td><td>!} **[+ str_change_dnef_prussia +]** {!</td></tr>!}  ?]
+{!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}% изм.{!</td><td>!}Мест в ландтаге{!</td><td>!}% изм.{!</td></tr>!} [? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_spd_prussia +]** {!</td><td>!} **[+ spd_r_prussia +]%** {!</td><td>!} **[+ str_change_spd_prussia +]** {!</td></tr>!}  ?]
+[? if dnef_formed: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div> !} **ФНЕГ:** {!</td><td>!} **[+ dnef_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_dnef_prussia +]** {!</td><td>!} **[+ dnef_r_prussia +]%** {!</td><td>!} **[+ str_change_dnef_prussia +]** {!</td></tr>!}  ?]
 
 [? if dnef_formed: {!<tr><td><div class="box2" style='background-color:#BFC8CC'> </div> !}ФНЕГ:{!</td><td>!} [+ schleicher_dnef_votes_prussia +]%{!</td><td>!} [+ str_votes_change_schleicher_dnef_prussia +] {!</td><td>!} [+ dnef_r_prussia +]%{!</td><td>!} [+ str_change_dnef_prussia +] {!</td></tr>!}  ?]
 
@@ -910,14 +910,14 @@ on-arrival: pro_republic += 5; reichswehr_loyalty -= 0.05 if chancellor == "Бр
 Браун избран министром-президентом Пруссии.
 
 @spd_minority
-title: <span style="color: #c00000;">**СДПГ**</span> minority
-subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #9B0000;">**СРПГ**</span> toleration: ([+ socialist_front_prussia +]%)
+title: <span style="color: #c00000;">**СДПГ**</span> меньшинство
+subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #9B0000;">**СРПГ**</span> терпимость: ([+ socialist_front_prussia +]%)
 view-if: socialist_front_prussia >= 50 and kpd_relation >= 50 and sapd_formed and spd_r_prussia < 50
 on-arrival: pro_republic += 5; reichswehr_loyalty -= 0.05 if chancellor == "Браун"; ddp_right += 2; dvp_right += 4; lvp_right += 3; liberal_cooperation += 5; bourgeois_cooperation += 5; prussia_leader = "Браун"; sapd_toleration_prussia = 1; prussian_police_loyalty += 0.1; prussian_police_strength += 50; democratization += 3; coup_progress += 1; capital_strike_progress += 2; ddp_relation -= 3; lvp_relation -= 3; z_relation -= 3; spd_prussia = 1
 
-We have managed to form a <span style="color: #c00000;">**СДПГ**</span> minority government, thanks to the toleration of the <span style="color: #9B0000;">SAPD</span>. We are no longer bound by the demands of our former coalition partners, though they are going to start drifting to the right.
+Нам удалось сформировать правительство меньшинства <span style="color: #c00000;">**СДПГ**</span> благодаря терпимости <span style="color: #9B0000;">СРПГ</span>. Мы больше не связаны требованиями прежних партнёров по коалиции, хотя они начнут дрейфовать вправо.
 
-Braun is selected to be the Minister-President of Prussia.
+Браун избран министром-президентом Пруссии.
 
 @social_christian_coalition_prussia
 title: Сможем ли мы сформировать <span style="color: #c00000;">социал</span>-<span style="color: #000000;">христианскую</span> коалицию?

@@ -53,14 +53,14 @@ on-arrival: pro_republic += 5; reichswehr_loyalty -= 0.05 if chancellor == "Бр
 Браун избран министром-президентом Пруссии.
 
 @spd_minority
-title: <span style="color: #c00000;">**СДПГ**</span> minority
-subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #9B0000;">SAPD</span> toleration: ([+ socialist_front_prussia +]%)
+title: <span style="color: #c00000;">**СДПГ**</span> меньшинство
+subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #9B0000;">СРПГ</span> терпимость: ([+ socialist_front_prussia +]%)
 view-if: socialist_front_prussia >= 50 and kpd_relation >= 50 and sapd_formed and spd_r_prussia < 50
 on-arrival: pro_republic += 5; reichswehr_loyalty -= 0.05 if chancellor == "Браун"; ddp_right += 2; dvp_right += 4; lvp_right += 3; liberal_cooperation += 5; bourgeois_cooperation += 5; prussia_leader = "Браун"; sapd_toleration_prussia = 1; prussian_police_loyalty += 0.1; prussian_police_strength += 50; democratization += 3; coup_progress += 1; capital_strike_progress += 2; ddp_relation -= 3; lvp_relation -= 3; z_relation -= 3; spd_prussia = 1
 
-We have managed to form a <span style="color: #c00000;">**СДПГ**</span> minority government, thanks to the toleration of the <span style="color: #9B0000;">SAPD</span>. We are no longer bound by the demands of our former coalition partners, though they are going to start drifting to the right.
+Нам удалось сформировать правительство меньшинства <span style="color: #c00000;">**СДПГ**</span> благодаря терпимости <span style="color: #9B0000;">СРПГ</span>. Мы больше не связаны требованиями прежних партнёров по коалиции, хотя они начнут дрейфовать вправо.
 
-Braun is selected to be the Minister-President of Prussia.
+Браун избран министром-президентом Пруссии.
 
 
 @social_christian_coalition_prussia

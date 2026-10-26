@@ -62,7 +62,7 @@ is-special: true
 [? if dnef_existed and chancellor == "Гёрделер": <img src="img/portraits/goerdeler.jpg" alt="Carl Friedrich Goerdeler" style="width: 50%;"> ?]
 [? if dnef_existed and chancellor == "Тревиранус": <img src="img/portraits/Treviranus.jpg" alt="Gottfried Reinhold Тревиранус" style="width: 50%;"> ?]
 [? if dnef_existed: </div> ?]
- [? if dnef_existed: <p style="text-align: center;margin-bottom: 5px;">Доверие Гинденбурга: [+ hindenburg_schleicher_r : confidence +]</p> ?] 
+[? if dnef_existed: <p style="text-align: center;margin-bottom: 5px;">Одобрение Гинденбурга: [+ hindenburg_schleicher_r : confidence +]</p> ?]
 [? if dnef_existed: <div style="display: flex; gap: 5px; margin-bottom: 5px; margin-left: -3px;">  ?] [? if dnef_existed: <img src="img/weimar_coalition_3.jpg" alt="Republicans and Constitutionalists" style="width: 50%;">  ?] [? if dnef_existed: <img src="img/dnvp_monarchy.jpg" alt="Nationalists and Conservatives" style="width: 50%;">  ?] [? if dnef_existed: </div> ?]
 
 [? if dnef_existed: <div style="display: flex; gap: 5px; margin-bottom: 5px; margin-left: -3px;"> ?]

@@ -343,8 +343,8 @@ if (d3 && window) {
 
 [? if dsu_exist: <tr><td><div class="box" style='background-color:#6A1E1E'> </div>{!</td><td>!}НСС:{!</td><td>!} [+ dsu_r +]%{!</td></tr>!}  ?]
 
-[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] 
- [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?]
+[? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if nvf_exist and not nvf_dnef: {!<tr><td><div class="box" style='background-color:#142e20'> </div>{!</td><td>!}!}ННФ:{!</td><td>!} [+ nvf_r +]%{!</td></tr>!}  ?] {!</table>!}
 {!</table>!}
@@ -622,7 +622,7 @@ choose-if: schleicher_spd_influence < 4
 
 Возможно, пришло наше время нанести удар?
 
-- @kpd_ban_civil_war: The <span style="color: #c00000;">**СДПГ**</span> stands with the <span style="color: #700000;">**Communists**</span>.
+- @kpd_ban_civil_war:<span style="color: #c00000;">**СДПГ**</span> на стороне <span style="color: #700000;">**коммунистов**</span>.
 - @fight_mild
 - @do_nothing: Это не наша война.
 

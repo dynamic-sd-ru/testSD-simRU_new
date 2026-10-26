@@ -25,7 +25,7 @@ Q.schleicher_approval -= 4;
 if (Q.dnvp_ideology == "Радикалы" && !Q.kvp_formed) {
     Q.treviranus_party = "ФНЕГ";
 } else if (Q.dnvp_ideology == "Радикалы" && Q.kvp_formed) {
-    Q.treviranus_party = "KVP";
+    Q.treviranus_party = "КНП";
 } else if (Q.dnvp_ideology == "Умеренные") {
     Q.treviranus_party = "НННП";
 }

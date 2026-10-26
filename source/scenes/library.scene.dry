@@ -12,7 +12,7 @@ go-to: menu
 - @government: Государственное устройство Германии
 - @weimar_timeline: Хронология Веймарской республики до 1928 года
 - @curr_gov: Информация о текущем правительстве
-- @kpd_ultimata: Conditions for <span class="tooltip-text" title="Коммунистическая партия Германии" style="color: #700000;">**КПГ**</span>'s continuous toleration of our governments
+- @kpd_ultimata:Условия непрерывной терпимости <span class="tooltip-text" title="Коммунистическая партия Германии" style="color: #700000;">**КПГ**</span> к нашим правительствам
 - @demographics: Демография
 - @parties: Партии
 - @public_opinion: Общественное мнение (и прогнозы результатов выборов)
@@ -68,7 +68,7 @@ go-to: cabinet if spd_in_government; menu if not spd_in_government
 
 Президент: [? if president == "Гинденбург": <span style="color: #808080;">Гинденбург</span>  ?][? if president == "Браун" or president == "Шумахер" or president == "Вельс" or president == "Гржезинский" or president == "Юхач" or (president == "Розенфельд" and not left_split): <span style="color: #c00000;">[+ president +]</span> ?][? if president == "Розенфельд" and left_split: <span style="color: #9B0000;">[+ president +]</span> ?][? if president == "Тельман": <span style="color: #700000;">[+ president +]</span> ?][? if president == "Мюнценберг": <span style="color: #9B0000;">[+ president +]</span> ?][? if president == "Гитлер" or president == "Геринг" or president == "Фрик": <span style="color: #7A3C00;">[+ president +]</span> ?][? if president == "Эккенер": <span style="color: #000000;">Эк</span><span style="color: #DD0000;">кен</span><span style="color: #FFCC00;">ер</span>  ?][? if (president == "Гесслер" or president == "Хойс") and not lvp_formed: <span style="color: #D3C24D;">[+ president +]</span> ?][? if (president == "Лютер" or president == "Яррес") and not lvp_formed: <span style="color: #C0A054;">[+ president +]</span> ?][? if (president == "Гесслер" or president == "Хойс" or president == "Яррес" or president == "Лютер") and lvp_formed: <span style="color: #FFCC00;">[+ president +]</span> ?][? if president == "Аденауэр" or president == "Брюнинг" or president == "Штегервальд": <span style="color: #000000;">[+ president +]</span> ?][? if president == "Зельдте" or president == "Гергт" or ((president == "Вестарп" or president == "Леттов_Форбек") and dnvp_ideology == "Умеренные"): <span style="color: #3E88B3;">[+ president +]</span> ?][? if (president == "Вестарп" or president == "Леттов_Форбек") and dnvp_ideology == "Радикалы": <span style="color: #0087DC;">[+ president +]</span> ?][? if president == "Гроссман (и.о.)" or president == "Бумке (и.о.)" or president == "Зект": <span style="color: #808080;">[+ president +]</span> ?][? if president == "Хаммерштейн": <span style="color: #BFC8CC;">[+ president +]</span> ?][? if president == "Манн" or president == "Осецкий": <span style="color: #E0A0A0;">[+ president +]</span> ?][? if president == "Эйнштейн": <span style="color: #CFC88F;">[+ president +]</span> ?] [? if president == "Аденауэр" or president == "Брюнинг" or president == "Штегервальд": (<span style="color: #000000;">**[+ z_party_name +]**</span>) ?][? if president == "Браун" or president == "Шумахер" or president == "Вельс" or president == "Юхач" or (president == "Розенфельд" and not left_split): (<span style="color: #c00000;">**СДПГ**</span>) ?][? if president == "Розенфельд" and left_split: (<span style="color: #9B0000;">**СРПГ**</span>) ?][? if president == "Тельман" or president == "Мюнценберг": (<span style="color: #700000;">**КПГ**</span>) ?][? if president == "Зельдте" or president == "Гергт" or ((president == "Вестарп" or president == "Леттов_Форбек") and dnvp_ideology == "Умеренные"): (<span style="color: #3E88B3;">**НННП**</span>) ?][? if (president == "Вестарп" or president == "Леттов_Форбек") and dnvp_ideology == "Радикалы": (<span style="color: #0087DC;">**КНП**</span>) ?][? if president == "Гитлер" or president == "Геринг" or president == "Фрик": (<span style="color: #7A3C00;">**НСДАП**</span>) ?][? if (president == "Гесслер" or president == "Хойс") and not lvp_formed: (<span style="color: #D3C24D;">**[+ ddp_name +]**</span>) ?][? if (president == "Лютер" or president == "Яррес") and not lvp_formed: (<span style="color: #C0A054;">**ННП**</span>) ?][? if (president == "Гесслер" or president == "Хойс" or president == "Яррес" or president == "Лютер") and lvp_formed: (<span style="color: #FFCC00;">**ЛНП**</span>) ?][? if president == "Эккенер" or president == "Гинденбург" or president == "Гроссман (и.о.)" or president == "Бумке (и.о.)" or president == "Зект": (<span style="color: #808080;">б/п</span>)  ?][? if president == "Хаммерштейн": (<span style="color: #BFC8CC;">**ФНЕГ**</span>) ?][? if president == "Манн" or president == "Осецкий": (<span style="color: #E0A0A0;">Н</span>)  ?][? if president == "Эйнштейн": (<span style="color: #CFC88F;">Н</span>)  ?]
 
-Канцлер: [? if chancellor_party == "СДПГ": <span style="color: #c00000;">[+ chancellor +]</span> ?][? if chancellor_party == "Центр": <span style="color: #000000;">[+ chancellor +]</span> ?][? if chancellor_party == "НСДАП": <span style="color: #7A3C00;">[+ chancellor +]</span> ?][? if chancellor_party == "НСС": <span style="color: #6A1E1E;">[+ chancellor +]</span> ?][? if chancellor_party == "КПГ": <span style="color: #700000;">[+ chancellor +]</span> ?][? if chancellor_party == "НННП": <span style="color: #3E88B3;">[+ chancellor +]</span> ?][? if (chancellor == "Шлейхер" and not dnef_formed) or chancellor == "Папен": <span style="color: #808080;">[+ chancellor +]</span> ?][? if (chancellor == "Шлейхер" or chancellor == "Гёрделер" or chancellor == "Бредов") and dnef_formed: <span style="color: #BFC8CC;">[+ chancellor +]</span> ?][? if chancellor == "Гёрделер" and not dnef_formed: <span style="color: #808080;">[+ chancellor +]</span> ?] [? if chancellor_party == "Центр": (<span style="color: #000000;">**[+ z_party_name +]**</span>) ?][? if chancellor_party == "СДПГ": (<span style="color: #c00000;">**СДПГ**</span>) ?][? if chancellor_party == "КПГ": (<span style="color: #700000;">**КПГ**</span>) ?][? if chancellor_party == "НННП": <span style="color: #3E88B3;">**НННП**</span> ?][? if chancellor_party == "НСС": (<span style="color: #6A1E1E;">**НСС**</span>) ?][? if chancellor_party == "НСДАП": (<span style="color: #7A3C00;">**НСДАП**</span>) ?][? if chancellor_party == "I": (<span style="color: #808080;">б/п</span>)  ?][? if chancellor_party == "ФНЕГ": (<span style="color: #BFC8CC;">**ФНЕГ**</span>) ?]
+Канцлер: [? if chancellor_party == "СДПГ": <span style="color: #c00000;">[+ chancellor +]</span> ?][? if chancellor_party == "Центр": <span style="color: #000000;">[+ chancellor +]</span> ?][? if chancellor_party == "НСДАП": <span style="color: #7A3C00;">[+ chancellor +]</span> ?][? if chancellor_party == "НСС": <span style="color: #6A1E1E;">[+ chancellor +]</span> ?][? if chancellor_party == "КПГ": <span style="color: #700000;">[+ chancellor +]</span> ?][? if chancellor_party == "НННП": <span style="color: #3E88B3;">[+ chancellor +]</span> ?][? if (chancellor == "Шлейхер" and not dnef_formed) or chancellor == "Папен": <span style="color: #808080;">[+ chancellor +]</span> ?][? if (chancellor == "Шлейхер" or chancellor == "Гёрделер" or chancellor == "Бредов") and dnef_formed: <span style="color: #BFC8CC;">[+ chancellor +]</span> ?][? if chancellor == "Гёрделер" and not dnef_formed: <span style="color: #808080;">[+ chancellor +]</span> ?] [? if chancellor_party == "Центр": (<span style="color: #000000;">**[+ z_party_name +]**</span>) ?][? if chancellor_party == "СДПГ": (<span style="color: #c00000;">**СДПГ**</span>) ?][? if chancellor_party == "КПГ": (<span style="color: #700000;">**КПГ**</span>) ?][? if chancellor_party == "НННП": <span style="color: #3E88B3;">**НННП**</span> ?][? if chancellor_party == "НСС": (<span style="color: #6A1E1E;">**НСС**</span>) ?][? if chancellor_party == "НСДАП": (<span style="color: #7A3C00;">**НСДАП**</span>) ?][? if chancellor_party == "б/п": (<span style="color: #808080;">б/п</span>)  ?][? if chancellor_party == "ФНЕГ": (<span style="color: #BFC8CC;">**ФНЕГ**</span>) ?]
 
 Министр-президент Пруссии: [? if prussia_leader = "Браун" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #c00000;">Браун</span> (<span style="color: #c00000;">**СДПГ**</span>) ?][? if prussia_leader = "Розенфельд" and not sapd_formed and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #c00000;">Розенфельд</span> (<span style="color: #c00000;">**СДПГ**</span>) ?][? if prussia_leader = "Розенфельд" and sapd_formed and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #9B0000;">Розенфельд</span> (<span style="color: #9B0000;">**СРПГ**</span>) ?][? if prussia_leader = "Штегервальд" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #000000;">Штегервальд</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) ?][? if prussia_leader = "Брюнинг" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #000000;">Брюнинг</span> (<span style="color: #000000;">**[+ z_party_name +]**</span>) ?][? if prussia_leader = "Лютер" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)) and not lvp_formed and dvp_exist: <span style="color: #C0A054;">Лютер</span> (<span style="color: #C0A054;">**ННП**</span>) ?][? if prussia_leader = "Лютер" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)) and not lvp_formed and not dvp_exist: <span style="color: #D3C24D;">Лютер</span> (<span style="color: #D3C24D;">**ННП**</span>) ?][? if prussia_leader = "Лютер" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)) and lvp_formed: <span style="color: #FFCC00;">Лютер</span> (<span style="color: #FFCC00;">**ЛНП**</span>) ?][? if prussia_leader = "Геринг": <span style="color: #7A3C00;">Геринг</span> (<span style="color: #7A3C00;">**НСДАП**</span>) ?][? if (prussia_leader = "Папен" or (chancellor == nsdap_chancellor and (not rubicon_mini or game_over)) and not prussia_leader == "Геринг") and started: <span style="color: #808080;">Папен</span> (<span style="color: #808080;">I</span>) ?][? if prussia_leader = "Шлейхер" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): [? if not dnef_formed: <span style="color: #808080;">Шлейхер</span> ?][? if dnef_formed: <span style="color: #BFC8CC;">Шлейхер</span> ?]([? if not dnef_formed: <span style="color: #808080;">б/п</span> ?][? if dnef_formed: <span style="color: #BFC8CC;">**ФНЕГ**</span> ?]) ?][? if prussia_leader = "Гёрделер" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #808080;">Гёрделер</span> (<span style="color: #808080;">I</span>) ?][? if prussia_leader = "Штрассер" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #6A1E1E;">Штрассер</span> (<span style="color: #6A1E1E;">**НСС**</span>) ?][? if prussia_leader = "joavig" and (chancellor != nsdap_chancellor or (rubicon_mini and not game_over)): <span style="color: #700000;">joavig</span> (<span style="color: #7A3C00;">**НСДАП**</span>) ?]
 
@@ -80,29 +80,29 @@ go-to: cabinet if spd_in_government; menu if not spd_in_government
 <span class="tooltip-text" title="Социал-демократическая партия Германии" style="color: #c00000;">**СДПГ**</span>: [+ spd_r +]%
 [? if sapd_formed and sapd_r > 0: <span class="tooltip-text" title="Социалистическая Рабочая Партия Германии" style="color: #9B0000;">**СРПГ**</span>: [+ sapd_r +]% ?]
 # 1928: 15, 1930: 15, 1932:
-
+[? if z_party_name != "ХНП": <span class="tooltip-text" title="Партия Центра и Баварская народная партия"><span style="color: #000000;">**[+ z_party_name +]**</span> + <span style="color: #A2D8E0;">**БНП**</span></span> ?][? if z_party_name == "ХНП": <span class="tooltip-text" title="Христианская народная Партия + Баварская народная партия"><span style="color: #000000;">**[+ z_party_name +]**</span> + <span style="color: #A2D8E0;">**БНП**</span></span> ?]: [+ z_r +]%
 # 1928: 10, 1930: 13
 <span class="tooltip-text" title="Коммунистическая партия Германии" style="color: #700000;">**КПГ**</span>: [+ kpd_r +]%
 # 1928: 5, 1930: 4 (as DStP)
 [? if lvp_formed: <span class="tooltip-text" title="Либеральная народная партия" style="color: #FFCC00;">**ЛНП**</span>: [+ lvp_r +]% ?]
-[? if (not lvp_formed or not ddp_name) : [? if not ddp_name:<span class="tooltip-text" title = "Немецкая демократическая партия" style="color: #D3C24D;">**DDP**</span>?][? if ddp_name = "НДП":<span class="tooltip-text" title = "Немецкая демократическая партия" style="color: #D3C24D;">**[+ ddp_name +]**</span>?][? if ddp_name = "НГП":<span class="tooltip-text" title="Немецкая государственная партия" style="color: #D3C24D;">**[+ ddp_name +]**</span>?]: [+ ddp_r +]% ?]
+[? if (not lvp_formed or not ddp_name) : [? if not ddp_name: <span class="tooltip-text" title="Немецкая демократическая партия" style="color: #D3C24D;">**НДП**</span> ?][? if ddp_name = "НДП": <span class="tooltip-text" title="Немецкая демократическая партия" style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if ddp_name = "НГП": <span class="tooltip-text" title="Немецкая государственная партия" style="color: #D3C24D;">**[+ ddp_name +]**</span> ?]: [+ ddp_r +]% ?]
 # 1928: 9, 1930: 5
 [? if not lvp_formed and dvp_exist : <span class="tooltip-text" title="Немецкая народная партия" style="color: #C0A054;">**ННП**</span>: [+ dvp_r +]% ?]
 [? if kvp_formed and not dnvp_dvp_formed : <span class="tooltip-text" title="Консервативная народная партия" style="color: #0087DC;">**КНП**</span>: [+ kvp_r +]% ?]
-[? if dnvp_dvp_formed: <span class="tooltip-text" title="Свободно-консервативная партия" style="color: #00C0FF;">**FKP**</span>: [+ kvp_r +]% ?]
+[? if dnvp_dvp_formed: <span class="tooltip-text" title="Свободная Консервативная партия" style="color: #00C0FF;">**СКП**</span>: [+ kvp_r +]% ?]
 # 1928: 14, 1930: 7
-[? if not cvp_formed and not dnvp_defunct: <span class="tooltip-text" title="Немецкая национальная народная партия" style="color: #3E88B3;">**НННП**</span>: [+ dnvp_r +]%?]
+[? if not cvp_formed and not dnvp_defunct: <span class="tooltip-text" title="Немецкая национальная народная партия" style="color: #3E88B3;">**НННП**</span>: [+ dnvp_r +]% ?]
 [? if dnf_formed: <span class="tooltip-text" title="Национальный Фронт Германии" style="color: #003755;">**НФГ**</span>: [+ dnf_r +]% ?]
 # 1928: 3, 1930: 18
-[? if dsu_exist: <span class="tooltip-text" title="Немецкий социальный союз" style="color: #6A1E1E;">**НСС**</span>: [+ dsu_r +]%?]
-[? if not nsdap_split: <span class="tooltip-text" title="Национал-социалистическая немецкая рабочая партия (нацисты)" style="color: #7A3C00;">**НСДАП**</span>: [+ nsdap_r +]%?]
-[? if nsdap_split: <span class="tooltip-text" title="Национал-социалистическая немецкая рабочая партия (нацисты)" style="color: #7A3C00;">**НСДАП**</span>: [+ nsdap_hitler_r +]%?]
-[? if nvf_exist: <span class="tooltip-text" title="Национальный Народный фронт" style="color: #142e20;">**ННФ**</span>: [+ nvf_r +]%?]
+[? if dsu_exist: <span class="tooltip-text" title="Немецкий социальный союз" style="color: #6A1E1E;">**НСС**</span>: [+ dsu_r +]% ?]
+[? if not nsdap_split: <span class="tooltip-text" title="Национал-социалистическая немецкая рабочая партия (нацисты)" style="color: #7A3C00;">**НСДАП**</span>: [+ nsdap_r +]% ?]
+[? if nsdap_split: <span class="tooltip-text" title="Национал-социалистическая немецкая рабочая партия (нацисты)" style="color: #7A3C00;">**НСДАП**</span>: [+ nsdap_hitler_r +]% ?]
+[? if nvf_exist: <span class="tooltip-text" title="Национальный Народный фронт" style="color: #142e20;">**ННФ**</span>: [+ nvf_r +]% ?] **Прочие**:
 # 1928: 9, 1930: 10
- **Прочие**: [+ other_r +]%
+[+ other_r +]%
 
-<span style="color: #c00000;">**СДПГ**</span> position: [? if spd_toleration : toleration ?][? if spd_in_government : in government - ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : opposition ?][? if spd_caretaker : caretaker government ?]
-<span style="color: #c00000;">**СДПГ**</span>: [? if spd_toleration : воздерживается от вотума недоверия ?][? if spd_in_government : в правительстве —  ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : в оппозиции ?][? if spd_caretaker : формирует переходное правительство ?] [? if in_weimar_coalition and not in_social_catholic_coalition and not in_social_liberal_coalition and spd_in_government: <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арская</span> коалиция  ?][? if in_social_catholic_coalition and spd_in_government: <span style="color: #c00000;">Социально</span>-[? if not stegerwald_path: <span style="color: #000000;">католическая</span> ?][? if stegerwald_path: <span style="color: #000000;">Христианская</span> ?] Коалиция ?][? if in_social_liberal_coalition and spd_in_government: <span style="color: #c00000;">«Кетчуп»</span> и [? if not lvp_formed: <span style="color: #D3C24D;">«Горчица»</span> ?][? if lvp_formed: <span style="color: #FFCC00;">«Горчица»</span> ?] Коалиция ?][? if in_grand_coalition and spd_in_government: Большая коалиция ?][? if in_popular_front and spd_in_government: Народный фронт ?][? if in_left_front and spd_in_government: Левый фронт ?][? if in_spd_majority and spd_in_government: Большинство <span style="color: #c00000;">**СДПГ**</span>  ?][? if in_minority_government and spd_in_government:  — правительство меньшинства ?][? if in_emergency_government and spd_in_government:  — чрезвычайное правительство ?]
+<span style="color: #c00000;">**СДПГ**</span>: [? if spd_toleration : воздерживается от вотума недоверия ?][? if spd_in_government : в правительстве —  ?][? if spd_toleration == 0 and spd_in_government == 0 and spd_caretaker == 0 : в оппозиции ?][? if spd_caretaker : формирует переходное правительство ?]
+[? if in_weimar_coalition and not in_social_catholic_coalition and not in_social_liberal_coalition and spd_in_government: <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арская</span> коалиция  ?][? if in_social_catholic_coalition and spd_in_government: <span style="color: #c00000;">Социально</span>-[? if not stegerwald_path: <span style="color: #000000;">католическая</span> ?][? if stegerwald_path: <span style="color: #000000;">Христианская</span> ?] Коалиция ?][? if in_social_liberal_coalition and spd_in_government: <span style="color: #c00000;">«Кетчуп»</span> и [? if not lvp_formed: <span style="color: #D3C24D;">«Горчица»</span> ?][? if lvp_formed: <span style="color: #FFCC00;">«Горчица»</span> ?] Коалиция ?][? if in_grand_coalition and spd_in_government: Большая коалиция ?][? if in_popular_front and spd_in_government: Народный фронт ?][? if in_left_front and spd_in_government: Левый фронт ?][? if in_spd_majority and spd_in_government: Большинство <span style="color: #c00000;">**СДПГ**</span>  ?][? if in_minority_government and spd_in_government:  — правительство меньшинства ?][? if in_emergency_government and spd_in_government:  — чрезвычайное правительство ?]
 
 [? if bruning_time and spd_toleration: Поддержка Брюнинга в рейхстаге: [+ bruning_coalition +]% ?]
 
@@ -118,7 +118,7 @@ go-to: cabinet if spd_in_government; menu if not spd_in_government
 
 [? if spd_in_government and (in_left_front or in_popular_front): <span style="color: #700000;">**КПГ**</span> разногласия в коалиции: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
-[? if spd_in_government and sapd_toleration: <span style="color: #9B0000;">**СРПГ**</span> toleration dissent: [+ kpd_coalition_dissent : coalition_dissent +] ?]
+[? if spd_in_government and sapd_toleration: <span style="color: #9B0000;">**СРПГ**</span> недовольство терпимостью: [+ kpd_coalition_dissent : coalition_dissent +] ?]
 
 @cabinet
 go-to: menu
@@ -126,109 +126,109 @@ go-to: menu
 Текущий кабинет:
 
 Труд:  
-[? if labor_minister_party == "СДПГ": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?]
+Труд:[? if labor_minister_party == "СДПГ": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?]
 [? if labor_minister_party == "КПГ": <span style="color: #700000;">[+ labor_minister_party +]</span> ?]
 [? if labor_minister_party == ddp_name: <span style="color: #D3C24D;">[+ labor_minister_party +]</span> ?]
 [? if labor_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ labor_minister_party +]</span> ?]
 [? if labor_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-[? if labor_minister_party == "BVP": <span style="color: #A2D8E0;">[+ labor_minister_party +]</span> ?]
+[? if labor_minister_party == "БНП": <span style="color: #A2D8E0;">[+ labor_minister_party +]</span> ?]
 [? if labor_minister_party == "ННП": <span style="color: #C0A054;">[+ labor_minister_party +]</span> ?]
-[? if labor_minister_party == "Others": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?]
-[? if labor_minister_party == "KVP": <span style="color: #0087DC;">[+ labor_minister_party +]</span> ?]
+[? if labor_minister_party == "Прочие": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?]
+[? if labor_minister_party == "КНП": <span style="color: #0087DC;">[+ labor_minister_party +]</span> ?]
 [? if labor_minister_party == "НННП": <span style="color: #3E88B3;">[+ labor_minister_party +]</span> ?]
-[? if labor_minister_party == "DNF": <span style="color: #003755;">[+ labor_minister_party +]</span> ?]
+[? if labor_minister_party == "НФГ": <span style="color: #003755;">[+ labor_minister_party +]</span> ?]
 [? if labor_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ labor_minister_party +]</span> ?]
-[? if labor_minister_party == "I": [+ labor_minister_party +] ?]
+[? if labor_minister_party == "б/п": [+ labor_minister_party +]  ?]
 
 Внутренние дела:  
-[? if interior_minister_party == "СДПГ": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?]
+Внутренние дела:[? if interior_minister_party == "СДПГ": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?]
 [? if interior_minister_party == "КПГ": <span style="color: #700000;">[+ interior_minister_party +]</span> ?]
 [? if interior_minister_party == ddp_name: <span style="color: #D3C24D;">[+ interior_minister_party +]</span> ?]
 [? if interior_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ interior_minister_party +]</span> ?]
 [? if interior_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-[? if interior_minister_party == "BVP": <span style="color: #A2D8E0;">[+ interior_minister_party +]</span> ?]
+[? if interior_minister_party == "БНП": <span style="color: #A2D8E0;">[+ interior_minister_party +]</span> ?]
 [? if interior_minister_party == "ННП": <span style="color: #C0A054;">[+ interior_minister_party +]</span> ?]
-[? if interior_minister_party == "Others": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?]
-[? if interior_minister_party == "KVP": <span style="color: #0087DC;">[+ interior_minister_party +]</span> ?]
+[? if interior_minister_party == "Прочие": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?]
+[? if interior_minister_party == "КНП": <span style="color: #0087DC;">[+ interior_minister_party +]</span> ?]
 [? if interior_minister_party == "НННП": <span style="color: #3E88B3;">[+ interior_minister_party +]</span> ?]
-[? if interior_minister_party == "DNF": <span style="color: #003755;">[+ interior_minister_party +]</span> ?]
+[? if interior_minister_party == "НФГ": <span style="color: #003755;">[+ interior_minister_party +]</span> ?]
 [? if interior_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ interior_minister_party +]</span> ?]
-[? if interior_minister_party == "I": [+ labor_minister_party +] ?]
+[? if interior_minister_party == "б/п": [+ labor_minister_party +]  ?]
 
 Финансы:  
-[? if finance_minister_party == "СДПГ": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?]
+Финансы:[? if finance_minister_party == "СДПГ": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?]
 [? if finance_minister_party == "КПГ": <span style="color: #700000;">[+ finance_minister_party +]</span> ?]
 [? if finance_minister_party == ddp_name: <span style="color: #D3C24D;">[+ finance_minister_party +]</span> ?]
 [? if finance_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ finance_minister_party +]</span> ?]
 [? if finance_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-[? if finance_minister_party == "BVP": <span style="color: #A2D8E0;">[+ finance_minister_party +]</span> ?]
+[? if finance_minister_party == "БНП": <span style="color: #A2D8E0;">[+ finance_minister_party +]</span> ?]
 [? if finance_minister_party == "ННП": <span style="color: #C0A054;">[+ finance_minister_party +]</span> ?]
-[? if finance_minister_party == "Others": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?]
-[? if finance_minister_party == "KVP": <span style="color: #0087DC;">[+ finance_minister_party +]</span> ?]
+[? if finance_minister_party == "Прочие": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?]
+[? if finance_minister_party == "КНП": <span style="color: #0087DC;">[+ finance_minister_party +]</span> ?]
 [? if finance_minister_party == "НННП": <span style="color: #3E88B3;">[+ finance_minister_party +]</span> ?]
-[? if finance_minister_party == "DNF": <span style="color: #003755;">[+ finance_minister_party +]</span> ?]
+[? if finance_minister_party == "НФГ": <span style="color: #003755;">[+ finance_minister_party +]</span> ?]
 [? if finance_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ finance_minister_party +]</span> ?]
-[? if finance_minister_party == "I": [+ finance_minister_party +] ?]
+[? if finance_minister_party == "б/п": [+ finance_minister_party +]  ?]
 
 Экономика:  
-[? if economic_minister_party == "СДПГ": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?]
+Экономика:[? if economic_minister_party == "СДПГ": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?]
 [? if economic_minister_party == "КПГ": <span style="color: #700000;">[+ economic_minister_party +]</span> ?]
 [? if economic_minister_party == ddp_name: <span style="color: #D3C24D;">[+ economic_minister_party +]</span> ?]
 [? if economic_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ economic_minister_party +]</span> ?]
 [? if economic_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-[? if economic_minister_party == "BVP": <span style="color: #A2D8E0;">[+ economic_minister_party +]</span> ?]
+[? if economic_minister_party == "БНП": <span style="color: #A2D8E0;">[+ economic_minister_party +]</span> ?]
 [? if economic_minister_party == "ННП": <span style="color: #C0A054;">[+ economic_minister_party +]</span> ?]
-[? if economic_minister_party == "Others": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?]
-[? if economic_minister_party == "KVP": <span style="color: #0087DC;">[+ economic_minister_party +]</span> ?]
+[? if economic_minister_party == "Прочие": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?]
+[? if economic_minister_party == "КНП": <span style="color: #0087DC;">[+ economic_minister_party +]</span> ?]
 [? if economic_minister_party == "НННП": <span style="color: #3E88B3;">[+ economic_minister_party +]</span> ?]
-[? if economic_minister_party == "DNF": <span style="color: #003755;">[+ economic_minister_party +]</span> ?]
+[? if economic_minister_party == "НФГ": <span style="color: #003755;">[+ economic_minister_party +]</span> ?]
 [? if economic_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ economic_minister_party +]</span> ?]
-[? if economic_minister_party == "I": [+ economic_minister_party +] ?]
+[? if economic_minister_party == "б/п": [+ economic_minister_party +]  ?]
 
 Юстиция:  
-[? if justice_minister_party == "СДПГ": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?]
+Юстиция:[? if justice_minister_party == "СДПГ": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?]
 [? if justice_minister_party == "КПГ": <span style="color: #700000;">[+ justice_minister_party +]</span> ?]
 [? if justice_minister_party == ddp_name: <span style="color: #D3C24D;">[+ justice_minister_party +]</span> ?]
 [? if justice_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ justice_minister_party +]</span> ?]
 [? if justice_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-[? if justice_minister_party == "BVP": <span style="color: #A2D8E0;">[+ justice_minister_party +]</span> ?]
+[? if justice_minister_party == "БНП": <span style="color: #A2D8E0;">[+ justice_minister_party +]</span> ?]
 [? if justice_minister_party == "ННП": <span style="color: #C0A054;">[+ justice_minister_party +]</span> ?]
-[? if justice_minister_party == "Others": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?]
-[? if justice_minister_party == "KVP": <span style="color: #0087DC;">[+ justice_minister_party +]</span> ?]
+[? if justice_minister_party == "Прочие": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?]
+[? if justice_minister_party == "КНП": <span style="color: #0087DC;">[+ justice_minister_party +]</span> ?]
 [? if justice_minister_party == "НННП": <span style="color: #3E88B3;">[+ justice_minister_party +]</span> ?]
-[? if justice_minister_party == "DNF": <span style="color: #003755;">[+ justice_minister_party +]</span> ?]
+[? if justice_minister_party == "НФГ": <span style="color: #003755;">[+ justice_minister_party +]</span> ?]
 [? if justice_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ justice_minister_party +]</span> ?]
-[? if justice_minister_party == "I": [+ justice_minister_party +] ?]
+[? if justice_minister_party == "б/п": [+ justice_minister_party +]  ?]
 
 Иностранные дела:  
-[? if foreign_minister_party == "СДПГ": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?]
+Иностранные дела:[? if foreign_minister_party == "СДПГ": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?]
 [? if foreign_minister_party == "КПГ": <span style="color: #700000;">[+ foreign_minister_party +]</span> ?]
 [? if foreign_minister_party == ddp_name: <span style="color: #D3C24D;">[+ foreign_minister_party +]</span> ?]
 [? if foreign_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ foreign_minister_party +]</span> ?]
 [? if foreign_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-[? if foreign_minister_party == "BVP": <span style="color: #A2D8E0;">[+ foreign_minister_party +]</span> ?]
+[? if foreign_minister_party == "БНП": <span style="color: #A2D8E0;">[+ foreign_minister_party +]</span> ?]
 [? if foreign_minister_party == "ННП": <span style="color: #C0A054;">[+ foreign_minister_party +]</span> ?]
-[? if foreign_minister_party == "Others": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?]
-[? if foreign_minister_party == "KVP": <span style="color: #0087DC;">[+ foreign_minister_party +]</span> ?]
+[? if foreign_minister_party == "Прочие": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?]
+[? if foreign_minister_party == "КНП": <span style="color: #0087DC;">[+ foreign_minister_party +]</span> ?]
 [? if foreign_minister_party == "НННП": <span style="color: #3E88B3;">[+ foreign_minister_party +]</span> ?]
-[? if foreign_minister_party == "DNF": <span style="color: #003755;">[+ foreign_minister_party +]</span> ?]
+[? if foreign_minister_party == "НФГ": <span style="color: #003755;">[+ foreign_minister_party +]</span> ?]
 [? if foreign_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ foreign_minister_party +]</span> ?]
-[? if foreign_minister_party == "I": [+ foreign_minister_party +] ?]
+[? if foreign_minister_party == "б/п": [+ foreign_minister_party +]  ?]
 
 Рейхсвер:  
-[? if reichswehr_minister_party == "СДПГ": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?]
+Рейхсвер:[? if reichswehr_minister_party == "СДПГ": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?]
 [? if reichswehr_minister_party == "КПГ": <span style="color: #700000;">[+ reichswehr_minister_party +]</span> ?]
 [? if reichswehr_minister_party == ddp_name: <span style="color: #D3C24D;">[+ reichswehr_minister_party +]</span> ?]
 [? if reichswehr_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ reichswehr_minister_party +]</span> ?]
 [? if reichswehr_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-[? if reichswehr_minister_party == "BVP": <span style="color: #A2D8E0;">[+ reichswehr_minister_party +]</span> ?]
+[? if reichswehr_minister_party == "БНП": <span style="color: #A2D8E0;">[+ reichswehr_minister_party +]</span> ?]
 [? if reichswehr_minister_party == "ННП": <span style="color: #C0A054;">[+ reichswehr_minister_party +]</span> ?]
-[? if reichswehr_minister_party == "Others": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?]
-[? if reichswehr_minister_party == "KVP": <span style="color: #0087DC;">[+ reichswehr_minister_party +]</span> ?]
+[? if reichswehr_minister_party == "Прочие": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?]
+[? if reichswehr_minister_party == "КНП": <span style="color: #0087DC;">[+ reichswehr_minister_party +]</span> ?]
 [? if reichswehr_minister_party == "НННП": <span style="color: #3E88B3;">[+ reichswehr_minister_party +]</span> ?]
-[? if reichswehr_minister_party == "DNF": <span style="color: #003755;">[+ reichswehr_minister_party +]</span> ?]
+[? if reichswehr_minister_party == "НФГ": <span style="color: #003755;">[+ reichswehr_minister_party +]</span> ?]
 [? if reichswehr_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ reichswehr_minister_party +]</span> ?]
-[? if reichswehr_minister_party == "I": [+ reichswehr_minister_party +] ?]
+[? if reichswehr_minister_party == "б/п": [+ reichswehr_minister_party +]  ?]
 
 Сельское хозяйство:  
 [? if agriculture_minister_party == "СДПГ": <span style="color: #c00000;">[+ agriculture_minister_party +]</span> ?]
@@ -236,48 +236,48 @@ go-to: menu
 [? if agriculture_minister_party == ddp_name: <span style="color: #D3C24D;">[+ agriculture_minister_party +]</span> ?]
 [? if agriculture_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ agriculture_minister_party +]</span> ?]
 [? if agriculture_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?]
-Труд:[? if labor_minister_party == "СДПГ": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "КПГ": <span style="color: #700000;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == ddp_name: <span style="color: #D3C24D;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if labor_minister_party == "BVP": <span style="color: #A2D8E0;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "ННП": <span style="color: #C0A054;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "Others": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "KVP": <span style="color: #0087DC;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "НННП": <span style="color: #3E88B3;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "DNF": <span style="color: #003755;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "I": [+ labor_minister_party +]  ?]
-Внутренние дела:[? if interior_minister_party == "СДПГ": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "КПГ": <span style="color: #700000;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == ddp_name: <span style="color: #D3C24D;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if interior_minister_party == "BVP": <span style="color: #A2D8E0;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "ННП": <span style="color: #C0A054;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "Others": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "KVP": <span style="color: #0087DC;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "НННП": <span style="color: #3E88B3;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "DNF": <span style="color: #003755;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "I": [+ labor_minister_party +]  ?]
-Финансы:[? if finance_minister_party == "СДПГ": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "КПГ": <span style="color: #700000;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == ddp_name: <span style="color: #D3C24D;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if finance_minister_party == "BVP": <span style="color: #A2D8E0;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "ННП": <span style="color: #C0A054;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "Others": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "KVP": <span style="color: #0087DC;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "НННП": <span style="color: #3E88B3;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "DNF": <span style="color: #003755;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "I": [+ finance_minister_party +]  ?]
-Экономика:[? if economic_minister_party == "СДПГ": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "КПГ": <span style="color: #700000;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == ddp_name: <span style="color: #D3C24D;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if economic_minister_party == "BVP": <span style="color: #A2D8E0;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "ННП": <span style="color: #C0A054;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "Others": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "KVP": <span style="color: #0087DC;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "НННП": <span style="color: #3E88B3;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "DNF": <span style="color: #003755;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "I": [+ economic_minister_party +]  ?]
-Юстиция:[? if justice_minister_party == "СДПГ": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "КПГ": <span style="color: #700000;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == ddp_name: <span style="color: #D3C24D;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if justice_minister_party == "BVP": <span style="color: #A2D8E0;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "ННП": <span style="color: #C0A054;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "Others": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "KVP": <span style="color: #0087DC;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "НННП": <span style="color: #3E88B3;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "DNF": <span style="color: #003755;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "I": [+ justice_minister_party +]  ?]
-Иностранные дела:[? if foreign_minister_party == "СДПГ": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "КПГ": <span style="color: #700000;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == ddp_name: <span style="color: #D3C24D;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if foreign_minister_party == "BVP": <span style="color: #A2D8E0;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "ННП": <span style="color: #C0A054;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "Others": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "KVP": <span style="color: #0087DC;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "НННП": <span style="color: #3E88B3;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "DNF": <span style="color: #003755;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "I": [+ foreign_minister_party +]  ?]
-Рейхсвер:[? if reichswehr_minister_party == "СДПГ": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "КПГ": <span style="color: #700000;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == ddp_name: <span style="color: #D3C24D;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if reichswehr_minister_party == "BVP": <span style="color: #A2D8E0;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "ННП": <span style="color: #C0A054;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "Others": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "KVP": <span style="color: #0087DC;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "НННП": <span style="color: #3E88B3;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "DNF": <span style="color: #003755;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "I": [+ reichswehr_minister_party +]  ?]
-Сельское хозяйство:[? if agriculture_minister_party == "СДПГ": <span style="color: #c00000;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "КПГ": <span style="color: #700000;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == ddp_name: <span style="color: #D3C24D;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if agriculture_minister_party == "BVP": <span style="color: #A2D8E0;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "ННП": <span style="color: #C0A054;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "Others": <span style="color: #c00000;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "KVP": <span style="color: #0087DC;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "НННП": <span style="color: #3E88B3;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "DNF": <span style="color: #003755;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "I": [+ agriculture_minister_party +] ?]
+Труд:[? if labor_minister_party == "СДПГ": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "КПГ": <span style="color: #700000;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == ddp_name: <span style="color: #D3C24D;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if labor_minister_party == "БНП": <span style="color: #A2D8E0;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "ННП": <span style="color: #C0A054;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "Прочие": <span style="color: #c00000;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "КНП": <span style="color: #0087DC;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "НННП": <span style="color: #3E88B3;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "НФГ": <span style="color: #003755;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ labor_minister_party +]</span> ?] [? if labor_minister_party == "б/п": [+ labor_minister_party +]  ?]
+Внутренние дела:[? if interior_minister_party == "СДПГ": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "КПГ": <span style="color: #700000;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == ddp_name: <span style="color: #D3C24D;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if interior_minister_party == "БНП": <span style="color: #A2D8E0;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "ННП": <span style="color: #C0A054;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "Прочие": <span style="color: #c00000;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "КНП": <span style="color: #0087DC;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "НННП": <span style="color: #3E88B3;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "НФГ": <span style="color: #003755;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ interior_minister_party +]</span> ?] [? if interior_minister_party == "б/п": [+ labor_minister_party +]  ?]
+Финансы:[? if finance_minister_party == "СДПГ": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "КПГ": <span style="color: #700000;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == ddp_name: <span style="color: #D3C24D;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if finance_minister_party == "БНП": <span style="color: #A2D8E0;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "ННП": <span style="color: #C0A054;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "Прочие": <span style="color: #c00000;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "КНП": <span style="color: #0087DC;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "НННП": <span style="color: #3E88B3;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "НФГ": <span style="color: #003755;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ finance_minister_party +]</span> ?] [? if finance_minister_party == "б/п": [+ finance_minister_party +]  ?]
+Экономика:[? if economic_minister_party == "СДПГ": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "КПГ": <span style="color: #700000;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == ddp_name: <span style="color: #D3C24D;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if economic_minister_party == "БНП": <span style="color: #A2D8E0;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "ННП": <span style="color: #C0A054;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "Прочие": <span style="color: #c00000;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "КНП": <span style="color: #0087DC;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "НННП": <span style="color: #3E88B3;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "НФГ": <span style="color: #003755;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ economic_minister_party +]</span> ?] [? if economic_minister_party == "б/п": [+ economic_minister_party +]  ?]
+Юстиция:[? if justice_minister_party == "СДПГ": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "КПГ": <span style="color: #700000;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == ddp_name: <span style="color: #D3C24D;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if justice_minister_party == "БНП": <span style="color: #A2D8E0;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "ННП": <span style="color: #C0A054;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "Прочие": <span style="color: #c00000;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "КНП": <span style="color: #0087DC;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "НННП": <span style="color: #3E88B3;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "НФГ": <span style="color: #003755;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ justice_minister_party +]</span> ?] [? if justice_minister_party == "б/п": [+ justice_minister_party +]  ?]
+Иностранные дела:[? if foreign_minister_party == "СДПГ": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "КПГ": <span style="color: #700000;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == ddp_name: <span style="color: #D3C24D;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if foreign_minister_party == "БНП": <span style="color: #A2D8E0;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "ННП": <span style="color: #C0A054;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "Прочие": <span style="color: #c00000;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "КНП": <span style="color: #0087DC;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "НННП": <span style="color: #3E88B3;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "НФГ": <span style="color: #003755;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ foreign_minister_party +]</span> ?] [? if foreign_minister_party == "б/п": [+ foreign_minister_party +]  ?]
+Рейхсвер:[? if reichswehr_minister_party == "СДПГ": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "КПГ": <span style="color: #700000;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == ddp_name: <span style="color: #D3C24D;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if reichswehr_minister_party == "БНП": <span style="color: #A2D8E0;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "ННП": <span style="color: #C0A054;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "Прочие": <span style="color: #c00000;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "КНП": <span style="color: #0087DC;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "НННП": <span style="color: #3E88B3;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "НФГ": <span style="color: #003755;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ reichswehr_minister_party +]</span> ?] [? if reichswehr_minister_party == "б/п": [+ reichswehr_minister_party +]  ?]
+Сельское хозяйство:[? if agriculture_minister_party == "СДПГ": <span style="color: #c00000;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "КПГ": <span style="color: #700000;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == ddp_name: <span style="color: #D3C24D;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "ЛНП": <span style="color: #FFCC00;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "Центр": <span style="color: #000000;">[+ z_party_name +]</span> ?] [? if agriculture_minister_party == "БНП": <span style="color: #A2D8E0;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "ННП": <span style="color: #C0A054;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "Прочие": <span style="color: #c00000;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "КНП": <span style="color: #0087DC;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "НННП": <span style="color: #3E88B3;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "НФГ": <span style="color: #003755;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "НСДАП": <span style="color: #7A3C00;">[+ agriculture_minister_party +]</span> ?] [? if agriculture_minister_party == "б/п": [+ agriculture_minister_party +] ?]
 
 @kpd_ultimata
 view-if: (kpd_demands_federal = 1) or (kpd_demands_prussia = 1)
 go-to: menu
 
-[? if kpd_demands_federal = 1 : <span class="tooltip-text" title="Коммунистическая партия Германии" style="color: #700000;">**КПГ**</span> is currently tolerating our federal government. They expect us to carry out the following policies: ?]
+[? if kpd_demands_federal = 1 : <span class="tooltip-text" title="Коммунистическая партия Германии" style="color: #700000;">**КПГ**</span> сейчас проявляет терпимость к нашему федеральному правительству. Она ожидает от нас проведения следующей политики: ?]
 
-[? if (welfare_goal = 1 and kpd_demands_federal = 1) : - Expand social welfare programs - [? if welfare_goal_completed : done ?][? if not welfare_goal_completed: pending ?] ?]
+[? if (welfare_goal = 1 and kpd_demands_federal = 1) : - Расширить программы социального обеспечения - [? if welfare_goal_completed : выполнено ?][? if not welfare_goal_completed: ожидается ?] ?]
 
-[? if (agriculture_goal = 1 and kpd_demands_federal = 1) : - Enact a land reform program. - [? if agriculture_goal_completed : done ?][? if not agriculture_goal_completed: pending ?] ?]
+[? if (agriculture_goal = 1 and kpd_demands_federal = 1) : - Провести программу земельной реформы. - [? if agriculture_goal_completed : выполнено ?][? if not agriculture_goal_completed: ожидается ?] ?]
 
-[? if (economy_goal = 1 and kpd_demands_federal = 1) : - Start substantial nationalization of the economy. - [? if economy_goal_completed : done ?][? if not economy_goal_completed: pending ?] ?]
+[? if (economy_goal = 1 and kpd_demands_federal = 1) : - Начать масштабную национализацию экономики. - [? if economy_goal_completed : выполнено ?][? if not economy_goal_completed: ожидается ?] ?]
 
-[? if (finance_goal = 1 and kpd_demands_federal = 1) : - Make taxes more progressive. - [? if finance_goal_completed : done ?][? if not finance_goal_completed: pending ?] ?]
+[? if (finance_goal = 1 and kpd_demands_federal = 1) : - Сделать налоги более прогрессивными. - [? if finance_goal_completed : выполнено ?][? if not finance_goal_completed: ожидается ?] ?]
 
-[? if (labor_goal = 1 and kpd_demands_federal = 1) : - Support workers in labor disputes. - [? if labor_goal_completed : done ?][? if not labor_goal_completed: pending ?] ?]
+[? if (labor_goal = 1 and kpd_demands_federal = 1) : - Поддержать рабочих в трудовых спорах. - [? if labor_goal_completed : выполнено ?][? if not labor_goal_completed: ожидается ?] ?]
 
-[? if (foreign_goal = 1 and kpd_demands_federal = 1) : - Improve our relations with the <span style="color: #750e0e;">Soviet Union</span>. - [? if foreign_goal_completed : done ?][? if not foreign_goal_completed: pending ?] ?]
+Улучшить наши отношения с <span style="color: #750e0e;">Советским Союзом</span>.
 
-[? if (reichswehr_goal = 1 and kpd_demands_federal = 1) : - Reduce funding for the Reichswehr. - [? if reichswehr_goal_completed : done ?][? if not reichswehr_goal_completed: pending ?] ?]
+[? if (reichswehr_goal = 1 and kpd_demands_federal = 1) : - Сократить финансирование Рейхсвера. - [? if reichswehr_goal_completed : выполнено ?][? if not reichswehr_goal_completed: ожидается ?] ?]
 
-[? if kpd_demands_federal = 1 : They are willing to grant us [+ kpd_ultimatum_timer +] months and will likely call a vote of no confidence if we do not carry the following policies out. ?]
+[? if kpd_demands_federal = 1 : Они готовы дать нам [+ kpd_ultimatum_timer +] мес. и, скорее всего, внесут вотум недоверия, если мы не проведём следующую политику. ?]
 
-[? if ((kpd_demands_prussia = 1) and (kpd_demands_federal = 1)) : Furthermore, ?][? if kpd_demands_prussia = 1: <span class="tooltip-text" title="Коммунистическая партия Германии" style="color: #700000;">**КПГ**</span> is currently tolerating our government in Prussia. They expect us to carry out the following policies: ?]
+[? if ((kpd_demands_prussia = 1) and (kpd_demands_federal = 1)) : Кроме того, ?][? if kpd_demands_prussia = 1: <span class="tooltip-text" title="Коммунистическая партия Германии" style="color: #700000;">**КПГ**</span> сейчас проявляет терпимость к нашему правительству в Пруссии. Она ожидает от нас проведения следующей политики: ?]
 
-[? if (interior_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Ban the <span style="color: #7A3C00;">**SA**</span> and <span style="color: #3E88B3;">**Stahlhelm**</span>. - [? if interior_goal_prussia <= 0 : done ?][? if interior_goal_prussia >= 1: pending ?] ?]
+Запретить <span style="color: #7A3C00;">**СА**</span> и <span style="color: #3E88B3;">**Стальной Шлем**</span>.
 
-[? if (rfb_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Unban the <span style="color: #700000;">**RFB**</span>. - [? if rfb_goal_prussia <= 0: done ?][? if rfb_goal_prussia >= 1: pending ?] ?]
+[? if (rfb_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Разрешить <span style="color: #700000;">**РФБ**</span>. - [? if rfb_goal_prussia <= 0: выполнено ?][? if rfb_goal_prussia >= 1: ожидается ?] ?]
 
-[? if (bureaucracy_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Purge the bureaucracy. - [? if bureaucracy_goal_prussia <= 0: done ?][? if bureaucracy_goal_prussia >= 1: pending ?] ?]
+[? if (bureaucracy_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Очистить бюрократию. - [? if bureaucracy_goal_prussia <= 0: выполнено ?][? if bureaucracy_goal_prussia >= 1: ожидается ?] ?]
 
-[? if (free_kpd_goal_seen_prussia = 1 and kpd_demands_prussia = 1) : - Protect <span style="color: #700000;">communist</span> demonstrations. - [? if free_kpd_goal_prussia <= 0: done ?][? if free_kpd_goal_prussia >= 1: pending ?] ?]
+Защитить <span style="color: #700000;">коммунистические</span> демонстрации.
 
-[? if kpd_demands_prussia = 1 : They are willing to grant us [+ kpd_ultimatum_prussia_timer +] months and will likely call a vote of no confidence if we do not carry the following policies out. ?]
+[? if kpd_demands_prussia = 1 : Они готовы дать нам [+ kpd_ultimatum_prussia_timer +] мес. и, скорее всего, внесут вотум недоверия, если мы не проведём следующую политику. ?]
 
 @demographics
 go-to: menu
@@ -356,16 +356,16 @@ go-to: menu
 
 [? if nsdap_split: <span style="color: #7A3C00;">**НСДАП**</span>: [+ nsdap_hitler_votes +]% ?]
 
-[? if nvf_exist: <span style="color: #142e20;">**ННФ**</span>: [+ nvf_votes +]% ?]
+[? if nvf_exist: <span style="color: #142e20;">**ННФ**</span>: [+ nvf_votes +]% ?] **Прочие**:
 # 1928: 9, 1930: 10
- **Прочие**: [+ other_votes +]%
+[+ other_votes +]%
 
 **Подробные результаты по каждой демографической группе**:
 
 # 1928: 30, 1930: 25, 1932: 22
     # 1928: 15, 1930: 15, 1932:
             <tr>
-            <th>Party</th>
+            <th>Партия</th>
             # 1928: 10, 1930: 13
             # 1928: 5, 1930: 4 (as DStP)
             # 1928: 9, 1930: 5
@@ -455,7 +455,7 @@ go-to: menu
             <td style="background-color: rgba(0, 135, 220, 0.2);">[+ catholics_kvp_display +]%</td>
         {!</tr>!} ?]
         [? if dnvp_dvp_formed: {!<tr>!}
-            <td><span style="color: #00C0FF;">**FKP**</span></td>
+            <td><span style="color: #00C0FF;">**СКП**</span></td>
             <td style="background-color: rgba(0, 192, 255, 0.2); padding: 10px;">[+ workers_kvp_display +]%</td>
             <td style="background-color: rgba(0, 192, 255, 0.2);">[+ new_middle_kvp_display +]%</td>
             <td style="background-color: rgba(0, 192, 255, 0.2);">[+ old_middle_kvp_display +]%</td>
@@ -500,7 +500,7 @@ go-to: menu
             <td style="background-color: rgba(122, 60, 0, 0.2);">[+ catholics_nsdap_display +]%</td>
         {!</tr>!} ?]
         <tr>
-            <td>**Others**</td>
+            <td>**Прочие**</td>
             <td style="background-color: rgba(153, 153, 153, 0.1); padding: 10px;">[+ workers_other_display +]%</td>
             <td style="background-color: rgba(153, 153, 153, 0.1);">[+ new_middle_other_display +]%</td>
             <td style="background-color: rgba(153, 153, 153, 0.1);">[+ old_middle_other_display +]%</td>
@@ -1045,8 +1045,8 @@ if (d3 && window) {
 
 [? if dsu_exist: <tr><td><div class="box" style='background-color:#6A1E1E'> </div>{!</td><td>!}НСС:{!</td><td>!} [+ dsu_r +]%{!</td></tr>!}  ?]
 
-[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] 
- [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?]
+[? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if nvf_exist and not nvf_dnef: {!<tr><td><div class="box" style='background-color:#142e20'> </div>{!</td><td>!}!}ННФ:{!</td><td>!} [+ nvf_r +]%{!</td></tr>!}  ?] {!</table>!}
 {!</table>!}

@@ -15,9 +15,9 @@ max-visits: 1
 - @strategy: Мы должны разработать внятную стратегию борьбы с правыми.
 - @confronting_nazis.iron_front: Мы должны создать <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span>!
 - @iron_front: Мы должны создать <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span>!
-- @inter_party_relationships.afa: Provide funding to <span style="color: #700000;">Antifaschistische</span> <span style="color: #c00000;">Aktion</span>
-- @streetfighting.afa-truce: Reach out to the <span style="color: #700000;">KPD</span> to coordinate our forces in the name of <span style="color: #700000;">Anti</span><span style="color: #c00000;">-</span><span style="color: #7A3C00;">Fascism</span>
-- @streetfighting.afa-lol: Reach out to the <span style="color: #700000;">KPD</span> to coordinate our forces in the name of <span style="color: #700000;">Anti</span><span style="color: #c00000;">-</span><span style="color: #7A3C00;">Fascism</span>
+- @inter_party_relationships.afa:Выделить финансирование <span style="color: #700000;">Antifaschistische</span> <span style="color: #c00000;">Aktion</span>
+- @streetfighting.afa-truce:Связаться с <span style="color: #700000;">КПГ</span>, чтобы согласовать наши силы во имя <span style="color: #700000;">анти</span><span style="color: #c00000;">-</span><span style="color: #7A3C00;">фашизма</span>
+- @streetfighting.afa-lol:Связаться с <span style="color: #700000;">КПГ</span>, чтобы согласовать наши силы во имя <span style="color: #700000;">анти</span><span style="color: #c00000;">-</span><span style="color: #7A3C00;">фашизма</span>
 
 @strategy
 view-if: nazi_urgency < 3

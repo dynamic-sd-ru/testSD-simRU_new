@@ -167,7 +167,7 @@ unavailable-subtitle: <span style="color: #7A3C00;">Фашисты</span> уве
 title: Покинуть наши посты в правительстве.
 choose-if: president != "Браун"
 unavailable-subtitle: Президент Браун не может уйти в отставку.
-on-arrival: chancellor = "Гёрделер"; chancellor_party = "I"; spd_in_government = 0;
+on-arrival: chancellor = "Гёрделер"; chancellor_party = "б/п"; spd_in_government = 0;
 go-to: accept
 
 Мы покинули наши посты в правительстве. Нас сменил <span style="color: #808080;">реакционер</span> Гёрделер, который намерен привести в правительство <span style="color: #7A3C00;">национальную</span> <span style="color: #3E88B3;">оппозицию</span>.

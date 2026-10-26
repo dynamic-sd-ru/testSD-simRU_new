@@ -49,12 +49,12 @@ on-arrival: dvp_relation -= 5; lvp_relation -= 3; z_relation -= 3; workers_spd -
 @built
 on-arrival:  panzerkreuzer_funded = 1;
 
-Our coalition partners are shocked by our intransigence! Despite Chancellor Müller's rejection of the proposal, the other parties bring the matter to a Reichstag vote, which easily passes, with only the <span style="color: #c00000;">**СДПГ**</span> and <span style="color: #700000;">**КПГ**</span> voting against. The ship will be built.
+Наши партнёры по коалиции шокированы нашей неуступчивостью! Несмотря на отказ канцлера Мюллера от предложения, другие партии выносят вопрос на голосование в Рейхстаге, и оно с лёгкостью проходит: против голосуют только <span style="color: #c00000;">**СДПГ**</span> и <span style="color: #700000;">**КПГ**</span>. Корабль будет построен.
 
 @not_built
 on-arrival:  panzerkreuzer_funded = 0; nationalism -= 6*(1-dissent); reichswehr_loyalty -= 0.05; left_dissent -= 10; labor_dissent -= 10; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5; panzerkreuzer_failed = 1; workers_spd += 5*(1-dissent); ddp_left += 1; ddp_cohesion += 1; pacifism += 1; kpd_relation += 5; reichswehr_goal_spd += 1; hindenburg_angry += 5; coup_progress += 1;
 
-Our coalition partners are shocked by our intransigence! Despite Chancellor Müller's rejection of the proposal, the other parties bring the matter to a Reichstag vote, but with the support of the <span style="color: #700000;">**КПГ**</span>, our vote against the battlecruiser succeeds. The ship will not be built!
+Наши партнёры по коалиции шокированы нашей неуступчивостью! Несмотря на отказ канцлера Мюллера от предложения, другие партии выносят вопрос на голосование в Рейхстаге, но благодаря поддержке <span style="color: #700000;">**КПГ**</span> наше голосование против линейного крейсера проходит. Корабль не будет построен!
 
 @built_bruning
 on-arrival:  panzerkreuzer_funded = 1;
@@ -64,4 +64,4 @@ Our coalition partners are shocked by our intransigence! Chancellor [+ chancello
 @not_built_bruning
 on-arrival:  panzerkreuzer_funded = 0; nationalism -= 6*(1-dissent); reichswehr_loyalty -= 0.05; left_dissent -= 10; labor_dissent -= 10; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5; panzerkreuzer_failed = 1; workers_spd += 5*(1-dissent); ddp_left += 1; ddp_cohesion += 1; pacifism += 1; kpd_relation += 5; reichswehr_goal_spd += 1; hindenburg_angry += 5; coup_progress += 1;
 
-Our coalition partners are shocked by our intransigence! Chancellor [+ chancellor +] brings the matter to a Reichstag vote, but with the support of the <span style="color: #700000;">**КПГ**</span>, our vote against the battlecruiser succeeds. The ship will not be built!
+Наши партнёры по коалиции шокированы нашей неуступчивостью! Канцлер [+ chancellor +] выносит вопрос на голосование в Рейхстаге, но благодаря поддержке <span style="color: #700000;">**КПГ**</span> наше голосование против линейного крейсера проходит. Корабль не будет построен!

@@ -30,7 +30,7 @@ view-if: investigate_far_right >= 1
 
 
 @hilferding_resign
-on-arrival: finance_minister_party = "ННП" if in_grand_coalition; finance_minister_party = "ЛНП" if (in_grand_coalition or in_weimar_coalition) and lvp_formed; finance_minister_party = "I" if (in_weimar_coalition and not lvp_formed) or in_popular_front or in_left_front or sapd_toleration; finance_minister = "Мольденхауэр"; finance_minister = "Кёлер" if (in_weimar_coalition and not lvp_formed) or in_popular_front; economic_minister_granted = 1 if economic_minister_party != "СДПГ"; economic_minister_party = "СДПГ" if economic_minister_party != "СДПГ"; economic_minister = "Шмидт" if economic_minister_party = "СДПГ"
+on-arrival: finance_minister_party = "ННП" if in_grand_coalition; finance_minister_party = "ЛНП" if (in_grand_coalition or in_weimar_coalition) and lvp_formed; finance_minister_party = "б/п" if (in_weimar_coalition and not lvp_formed) or in_popular_front or in_left_front or sapd_toleration; finance_minister = "Мольденхауэр"; finance_minister = "Кёлер" if (in_weimar_coalition and not lvp_formed) or in_popular_front; economic_minister_granted = 1 if economic_minister_party != "СДПГ"; economic_minister_party = "СДПГ" if economic_minister_party != "СДПГ"; economic_minister = "Шмидт" if economic_minister_party = "СДПГ"
 
 Не имея другого выбора, Гильфердинг подал в отставку с поста министра финансов. Его место займёт [? if (in_grand_coalition or (in_weimar_coalition and lvp_formed)): правоцентрист ?][? if not in_grand_coalition: технократ ?].
 

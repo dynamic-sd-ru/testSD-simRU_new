@@ -1,7 +1,7 @@
 title: Кабинет Гёрделера уцелеет?
 subtitle: Гугенберг спасёт кабинет?
 view-if: chancellor = "Гёрделер" and goerdeler_pre_time >= 2 and goerdeler_right_coalition >= 50
-on-arrival: finance_minister_party = "I"; finance_minister_party = "НННП"; agriculture_minister_party = "НННП"
+on-arrival: finance_minister_party = "б/п"; finance_minister_party = "НННП"; agriculture_minister_party = "НННП"
 new-page: true
 tags: event
 max-visits: 1

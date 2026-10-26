@@ -186,8 +186,8 @@ on-arrival: ddp_candidate = spd_candidate if ddp_relation >= 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] 
-[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if ddp_candidate != spd_candidate: К сожалению, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> не нужен [+ spd_candidate +]. Похоже, <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ская</span> коалиция распадается. ?]
+[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?]
+[? if ddp_candidate != spd_candidate: К сожалению, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> не нужен [+ spd_candidate +]. Похоже, <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ская</span> коалиция распадается. ?]
 
 
 @convince_ddp_spd
@@ -197,8 +197,8 @@ on-arrival: ddp_candidate = spd_candidate if ddp_relation >= 60
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] 
-[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if ddp_candidate != spd_candidate: К сожалению, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> не нужен [+ spd_candidate +]. ?]
+[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?]
+[? if ddp_candidate != spd_candidate: К сожалению, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> не нужен [+ spd_candidate +]. ?]
 
 @convince_lvp_unity
 title: Убедить <span style="color: #FFCC00;">**ЛНП**</span>: им нужен [+ spd_candidate +].
@@ -207,8 +207,8 @@ on-arrival: lvp_candidate = spd_candidate if lvp_relation >= 50
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if lvp_candidate = spd_candidate: The <span style="color: #FFCC00;">**ЛНП**</span> is easily persuaded to support [+ spd_candidate +]! ?]
-[? if lvp_candidate = spd_candidate: <span style="color: #FFCC00;">**ЛНП**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if lvp_candidate != spd_candidate: К сожалению, <span style="color: #FFCC00;">**ЛНП**</span>, похоже, не нужен [+ spd_candidate +]. <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ская</span> коалиция, похоже, раскалывается. ?]
+[? if lvp_candidate = spd_candidate: <span style="color: #FFCC00;">**ЛНП**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?]
+[? if lvp_candidate != spd_candidate: К сожалению, <span style="color: #FFCC00;">**ЛНП**</span>, похоже, не нужен [+ spd_candidate +]. <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ская</span> коалиция, похоже, раскалывается. ?]
 
 
 @convince_lvp_spd
@@ -218,8 +218,8 @@ on-arrival: lvp_candidate = spd_candidate if lvp_relation >= 65
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
-[? if lvp_candidate = spd_candidate: The <span style="color: #FFCC00;">**ЛНП**</span> is easily persuaded to support [+ spd_candidate +]! ?]
-[? if lvp_candidate = spd_candidate: <span style="color: #FFCC00;">**ЛНП**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if lvp_candidate != spd_candidate: К сожалению, <span style="color: #FFCC00;">**ЛНП**</span> не нужен [+ spd_candidate +]. ?]
+[? if lvp_candidate = spd_candidate: <span style="color: #FFCC00;">**ЛНП**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?]
+[? if lvp_candidate != spd_candidate: К сожалению, <span style="color: #FFCC00;">**ЛНП**</span> не нужен [+ spd_candidate +]. ?]
 
 @convince_kpd_spd
 title: Убедить <span style="color: #700000;">**КПГ**</span>: им нужен [+ spd_candidate +].
@@ -343,8 +343,8 @@ go-to: r2_start if round = 1 and not has_majority; election_end if round > 1; r1
 
 [? if Eckener_running : <span style="color: #000000;">**Эк**</span><span style="color: #DD0000;">**кен**</span><span style="color: #FFCC00;">**ер**</span> -[+ Eckener_votes_disp +]% ?]
 
-[? if Grzesinski_running : <span style="color: #c00000;">**Гржезинский**</span> -[+ Grzesinski_votes_disp +]% ?] [? if Wels_running : <span style="color: #c00000;">**Вельс**</span> -[+ Wels_votes_disp +]% ?]
- [? if Wels_running : <span style="color: #c00000;">**Вельс**</span> -[+ Wels_votes_disp +]% ?]
+[? if Grzesinski_running : <span style="color: #c00000;">**Гржезинский**</span> -[+ Grzesinski_votes_disp +]% ?]
+[? if Wels_running : <span style="color: #c00000;">**Вельс**</span> -[+ Wels_votes_disp +]% ?]
 
 [? if sapd_candidate == "Бойкот" or kpd_candidate == "Бойкот" : Испорченные бюллетени —[+ boycott_votes +]% ?]
 
@@ -377,8 +377,8 @@ go-to: r2_menu
 
 Лидирует [+ winner_desc +]. В первом туре никому не удалось набрать большинство голосов. Во втором туре победит кандидат, получивший простое большинство.
 
-[? if gessler_drops_out : Кандидат от <span style="color: #FFCC00;">либералов</span> Отто Гесслер снял свою кандидатуру в пользу кандидата от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] Конрада Аденауэра. Это консолидирует голоса умеренного буржуазного блока. ?] [? if adenauer_drops_out : Кандидат от[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] Конрад Аденауэр снял свою кандидатуру в пользу Отто Гесслера. Это консолидирует голоса умеренного буржуазного блока. ?]
-
+[? if gessler_drops_out : Кандидат от <span style="color: #FFCC00;">либералов</span> Отто Гесслер снял свою кандидатуру в пользу кандидата от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] Конрада Аденауэра. Это консолидирует голоса умеренного буржуазного блока. ?]
+[? if adenauer_drops_out : Кандидат от[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] Конрад Аденауэр снял свою кандидатуру в пользу Отто Гесслера. Это консолидирует голоса умеренного буржуазного блока. ?]
 
 Что нам делать?
 

@@ -233,8 +233,8 @@ go-to: negotiation_menu_med if spd_med; negotiation_menu_win if spd_win
 {!<svg id="alt_reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
 {!<table>!}
-{!<table>!} [? if not dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **СДПГ:** {!</td><td>!} **[+ spd_r_alt +]%** {!</td></tr>!}  ?] [? if dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r_alt +]%** {!</td></tr>!}  ?]
- [? if dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r_alt +]%** {!</td></tr>!}  ?]
+{!<table>!} [? if not dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **СДПГ:** {!</td><td>!} **[+ spd_r_alt +]%** {!</td></tr>!}  ?]
+[? if dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r_alt +]%** {!</td></tr>!}  ?]
 
 [? if not lvp_formed and dstp_dnef and ddp_r_alt: {!<tr><td><div class="box2" style='background-color:#A79A3F'> </div>{!</td><td>!}!} [+ ddp_name +]:{!</td><td>!} [+ ddp_r_alt +]%{!</td></tr>!}  ?]
 

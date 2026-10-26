@@ -316,6 +316,196 @@ def sync_dates(translated, source):
     return translated[:m_tr.start()] + m_new.group(0) + translated[m_tr.end():]
 
 
+# ------------------------------------------------------- re-flowed blocks --
+# The translation sometimes keeps a whole block of upstream lines on a single
+# line (the translator joined the paragraphs).  Such a line already carries the
+# full text - including every `[? ... ?]` switch - so it can be placed on the
+# first line of the group while the remaining lines of the group are blanked.
+# Nothing is retranslated here: the block is moved as a whole.
+CYR_TEXT = re.compile(r'[\u0400-\u04FF]')
+MARKUP_TOKEN = re.compile(
+    r'<span[^>]*>|</span>|<p[^>]*>|</p>|<h1[^>]*>|</h1>|<h2[^>]*>|</h2>'
+    r'|<div[^>]*>|</div>|<b>|</b>|<i>|</i>|<hr[^>]*>|<br\s*/?>'
+    r'|<table[^>]*>|</table>|<tr[^>]*>|</tr>|<td[^>]*>|</td>'
+    r'|\[\?[^\]]*?:|\?\]|\[\+[^\]]*?\]|\*\*|&[a-z]+;')
+
+
+def markup_seq(text):
+    """Markup tokens with attribute values wiped (they differ per language)."""
+    out = []
+    for m in MARKUP_TOKEN.finditer(text or ''):
+        tok = m.group(0)
+        tok = re.sub(r'=' + '"[^"]*"', '="_"', tok)
+        tok = re.sub(r'\[\?\s*(if\s+)?(not\s+)?.*?:$', '[?', tok)
+        out.append(tok)
+    return out
+
+
+SIG_RE = re.compile(
+    r'\[\?\s*if\s+([^:]*?)\s*:|\[\+\s*([^\]]*?)\s*\+?\]'
+    r'|<hr[^>]*>|<span[^>]*?color:\s*(#[0-9A-Fa-f]{3,6})')
+SIG_ID = re.compile(r'[a-z][a-z0-9_]{1,}')
+
+
+def sig_items(text):
+    """Language independent anchors of a line: [(key, start, end, raw)].
+
+    Conditions are reduced to the names of the variables they test (string
+    literals translated inside them are dropped), placeholders and span colours
+    are kept as they are, so a translated line has the same anchors as the
+    English one.
+    """
+    out = []
+    for m in SIG_RE.finditer(text or ''):
+        raw = m.group(0)
+        if m.group(1) is not None:
+            cond = re.sub(r'"[^"]*"', ' ', m.group(1))
+            names = sorted(set(SIG_ID.findall(cond)))
+            key = 'C:' + ','.join(names)
+        elif m.group(2) is not None:
+            key = 'V:' + m.group(2).strip()
+        elif m.group(3):
+            key = 'h' + m.group(3).lower()
+        else:
+            key = 'hr'
+        out.append((key, m.start(), m.end(), raw))
+    return out
+
+
+def joined_balance(piece, en=None):
+    """0, если разметка куска самодостаточна (все блоки закрыты).
+
+    Совпадения с английской строкой требовать нельзя: готовый перевод иногда
+    теряет пару условий, но кусок обязан быть замкнутым, иначе сцена сломается.
+    """
+    bad = 0
+    for opener, closer in (('[?', '?]'), ('[+', '+]'), ('<span', '</span>'),
+                           ('<b>', '</b>'), ('<i>', '</i>'), ('<div', '</div>')):
+        if piece.count(opener) != piece.count(closer):
+            bad += 1
+    if piece.lstrip().startswith('?]') or piece.rstrip().endswith('[?'):
+        bad += 1
+    return bad
+
+
+def stitch_tail(piece, rest, en):
+    """Give a torn piece the tail it is missing from what follows it."""
+    if not joined_balance(piece, en):
+        return piece, ''
+    for cut in range(1, len(rest)):
+        if rest[cut] != ' ':
+            continue
+        cand = piece + rest[:cut]
+        if not joined_balance(cand, en):
+            return cand, rest[cut:]
+    return piece + rest, ''
+
+
+def split_joined(chunks, text):
+    """Cut a re-flowed translation back onto the upstream lines.
+
+    The translation sometimes keeps a whole group of upstream lines on one
+    line (and drops a few markup bits on the way).  Its anchors are the anchors
+    of those lines, in the same order, so the text can be cut at the anchor
+    boundaries: every upstream line gets back its own piece of the translated
+    line.  The anchor sequences are aligned with difflib, so a couple of
+    dropped anchors do not spoil the whole block.
+    Returns {chunk_line: piece} or None when the match is not convincing.
+    """
+    titems = sig_items(text)
+    if len(titems) < 3:
+        return None
+    citems = [sig_items(ch[1]) for ch in chunks]
+    flat, owner = [], []
+    for pos, items in enumerate(citems):
+        for key, _, _, _ in items:
+            flat.append(key)
+            owner.append(pos)
+    if not flat:
+        return None
+    tr = [k for k, _, _, _ in titems]
+    sm = difflib.SequenceMatcher(None, flat, tr, autojunk=False)
+    matched = {}
+    for blk in sm.get_matching_blocks():
+        for d in range(blk.size):
+            matched[blk.a + d] = blk.b + d
+    if len(matched) < 2:
+        return None
+    first = {}
+    for fa, tb in matched.items():
+        pos = owner[fa]
+        first.setdefault(pos, tb)
+    used = sorted(first)
+    if len(used) < 2:
+        return None
+    lo, hi = used[0], used[-1]
+    uset = set(used)
+    for pos in range(lo, hi + 1):
+        if pos not in uset and citems[pos]:
+            return None
+    expected = sum(len(citems[pos]) for pos in used)
+    if expected and len(matched) < 0.6 * expected:
+        return None
+    plan = []
+    for pos in used:
+        a = 0 if first[pos] == 0 else titems[first[pos]][1]
+        plan.append([chunks[pos][-1], chunks[pos][1], a])
+    pieces = {}
+    for i, (ln, en, a) in enumerate(plan):
+        b = plan[i + 1][2] if i + 1 < len(plan) else len(text)
+        piece = text[a:b].strip()
+        # a torn piece would break the scene markup: leave the block alone
+        if piece and joined_balance(piece, en):
+            return None
+        if piece:
+            pieces[ln] = piece
+    if len(pieces) < 2:
+        return None
+    return pieces
+
+
+def reflow_repair(sc, tr_sc, new_lines, report):
+    """Hand every line of a re-flowed translated block back to its host line."""
+    if not tr_sc:
+        return
+    tr_prose = [c for c in tr_sc['chunks']
+                if c[0] == 'prose' and CYR_TEXT.search(c[1])]
+    chunks = [c for c in sc['chunks'] if c[0] == 'prose']
+    if not tr_prose or len(chunks) < 2:
+        return
+    claimed = {}
+    for tc in tr_prose:
+        if len(sig_items(tc[1])) < 3:
+            continue
+        pieces = split_joined(chunks, tc[1])
+        if not pieces:
+            continue
+        lines = sorted(pieces)
+        if any(ln in claimed for ln in lines):
+            report['reflow_skipped'].append(
+                [report['file'], tc[-1], lines, tc[1][:60]])
+            continue
+        bad = False
+        for ln in lines:
+            cur = new_lines[ln].strip()
+            if not cur or not CYR_TEXT.search(cur):
+                continue
+            if cur == pieces[ln] or cur == tc[1].strip():
+                continue
+            bad = True
+            break
+        if bad:
+            report['reflow_skipped'].append(
+                [report['file'], tc[-1], lines, tc[1][:60]])
+            continue
+        for ln in lines:
+            claimed[ln] = pieces[ln]
+        report['reflowed'].append([report['file'], lines[0], len(lines),
+                                   tc[1][:60]])
+    for ln, piece in claimed.items():
+        new_lines[ln] = piece
+
+
 def index_by_line(scene):
     return {ch[-1]: ch for ch in scene['chunks']}
 
@@ -334,6 +524,7 @@ def merge_file(base_path, new_path, tr_path, out_path, report):
         indent = old[:len(old) - len(old.lstrip())]
         new_lines[line_no] = indent + payload
 
+    sc_last = tr_last = None
     base_map, tr_map = {}, {}
     for sc in base_scenes:
         base_map.setdefault(sc['id'], sc)
@@ -423,6 +614,7 @@ def merge_file(base_path, new_path, tr_path, out_path, report):
         dir_counter = {}
         used_tr_text = []          # translated prose already placed in this scene
         translated_lines = set()   # new-file prose lines that got a translation
+        sc_last, tr_last = sc, tr_sc
         for ch in sc['chunks']:
             line = ch[-1]
             if ch[0] == 'code':
@@ -494,6 +686,13 @@ def merge_file(base_path, new_path, tr_path, out_path, report):
                             [report['file'], line, 'prose', ch[1]])
                         continue
                     report['untranslated'].append([report['file'], line, 'prose', ch[1]])
+        reflow_repair(sc, tr_sc, new_lines, report)
+
+    # drop 'untranslated' entries whose line got a translation after all
+    if report['untranslated']:
+        report['untranslated'] = [
+            e for e in report['untranslated']
+            if e[0] != report['file'] or not CYR_TEXT.search(new_lines[e[1]])]
 
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     open(out_path, 'w', encoding='utf-8').write('\n'.join(new_lines))
@@ -514,6 +713,7 @@ def main():
         maps = ['work/value_map.json', 'work/extra_map.json']
     load_value_maps(maps)
     report = {'untranslated': [], 'stale': [], 'merged_lines': [],
+              'reflowed': [], 'reflow_skipped': [],
               'scene_matched_by_options': [],
               'new_scene_text': [], 'files_new': [], 'file': ''}
     n = 0

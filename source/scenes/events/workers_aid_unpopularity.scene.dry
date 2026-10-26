@@ -1,5 +1,5 @@
-title: Workers' Welfare Membership Dwindles
-subtitle: Our unpopularity has impaired Workers' Welfare's recruitment ability.
+title: Членство в Рейхсбаннере падает
+subtitle: Наша непопулярность отрицательно сказалась на способности Рейхсбаннера вербовать новичков в свои ряды.
 view-if: workers_aid > 0 and workers_spd_normalized + unemployed_spd_normalized < (workers_kpd_normalized + workers_nsdap_normalized + workers_dnvp_normalized) and time >= workers_aid_unpopularity_time
 new-page: true
 tags: event
@@ -17,9 +17,9 @@ on-display: {!
 !}
 on-arrival: workers_aid_unpopularity_time = time + 6
 
-= Workers' Aid Membership Dwindles
+Членство в Рейхсбаннере падает
 
-Unfortunately, Workers' Aid's effectiveness is dragged down by the <span style="color: #c00000;">**СДПГ**</span>'s unpopularity, as the workers aren't particularly enthusiastic about joining. [? if labor_strength >= 40: However, more dedicated union members have largely remained. ?] [? if spd_votes >= 29: Furthermore, we are unable to recruit significant amount of supporters from non-worker demographics. ?]
+К сожалению, на эффективности Рейхсбаннера пагубно сказывается непопулярность <span style="color: #c00000;">**СДПГ**</span>, так как рабочие не горят желанием вступать в его ряды. [? if left_strength >= 40: Однако более радикально настроенные члены нашего левого крыла в основном остались. ?] [? if spd_votes >= 29: Кроме того, нам не удаётся привлечь значительное число сторонников из нерабочих слоёв населения. ?]
 
 - @workers_aid_joever: Unfortunate.
 
@@ -32,4 +32,4 @@ on-arrival: {!
     }
 !}
 
-This will continue to be a problem if our popularity continues to flag.
+Это останется проблемой, если наша популярность продолжит падать.
