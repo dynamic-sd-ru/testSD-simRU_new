@@ -16,7 +16,6 @@ new-page: true
 - @snap_election
 - @root: Вернуться к главному
 
-
 @building_the_left
 title: Укрепление левого крыла
 subtitle: Сместить <span style="color: #c00000;">**СДПГ**</span> влево.
@@ -25,7 +24,6 @@ choose-if: advisor_action_timer = 0
 on-arrival: advisor_action_timer = 6; left_strength += 6; left_dissent -= 8; reformist_dissent += 2
 
 Мы усилили фракцию левых в рядах <span style="color: #c00000;">**СДПГ**</span>.
-
 
 @kpd_cooperation
 title: Сотрудничество с <span style="color: #700000;">**КПГ**</span>
@@ -36,7 +34,6 @@ on-arrival: advisor_action_timer = 6; left_strength += 5; kpd_relation += 4*(1-d
 
 В ходе своей работы Розенфельд защищал отдельных членов <span style="color: #700000;">**КПГ**</span>; это должно поспособствовать налаживанию связей.
 
-
 @prussian_bulwark
 title: Прусский оплот
 subtitle: Будучи министром-президентом Пруссии, Розенфельд контролирует прусский бюрократический аппарат и службы безопасности.
@@ -44,7 +41,6 @@ choose-if: advisor_action_timer <= 0 and prussia_leader = "Розенфельд"
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] мес. до следующего действия советника. ?][? if prussia_leader != "Розенфельд" : Розенфельд не контролирует Пруссию. ?]
 on-arrival: advisor_action_timer = 6; prussian_affairs_timer -= 6; last_advisor_action = 1
 go-to: prussian_affairs_left
-
 
 @against_toleration
 title: Против тактики воздержания от вотума недоверия
@@ -59,9 +55,8 @@ go-to: new_prussia_election if in_social_catholic_coalition_prussia or in_weimar
 
 Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @new_prussia_election
-on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
+on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
 call: set_next_election_time_prussia
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] потребовала ответного голосования в Пруссии, что привело к роспуску ландтага и назначению новых выборов.
@@ -70,14 +65,12 @@ call: set_next_election_time_prussia
 
 Двойной роспуск поколебал веру народа в демократию, а <span style="color: #7A3C00;">нацисты</span> воспользовались нестабильностью, чтобы заявить о неработоспособности демократии и о том, что Германии нужен сильный лидер.
 
-
 @center_right_coalition_prussia
-on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
+on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] инициировала ответный вотум недоверия в Пруссии, сместив наше правительство и заменив его правоцентристской коалицией, состоящей из всех партий правее нас, за исключением <span style="color: #003755;">**НФГ**</span> и <span style="color: #7A3C00;">**НСДАП**</span>. Хотя это и неудача, но не худший из возможных исходов, поскольку новые выборы могли бы привести к значительному усилению экстремистских партий.
 
 [? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?] из [? if z_party_name != "ХНП": <span style="color: #000000;">партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] назначен министром-президентом Пруссии.
-
 
 @snap_election
 title: Досрочные выборы

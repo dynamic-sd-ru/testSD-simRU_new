@@ -13,7 +13,6 @@ max-visits: 1
 - @fight: Мы будем сражаться на улицах, чтобы не дать Гитлеру удержать власть.
 - @give_up: Мы будем голосовать против <span style="color: #7A3C00;">нацистов</span> в Рейхстаге.
 
-
 @fight
 
 Мы осознаём, что это означает гражданскую войну, войну со всей мощью государства?
@@ -21,12 +20,10 @@ max-visits: 1
 - @civil_war: Да.
 - @give_up: Мы не готовы к войне. Вместо этого мы проголосуем против <span style="color: #7A3C00;">нацистов</span> в Рейхстаге.
 
-
 @give_up
 go-to: give_up_1 if president_ideology != "Левые" or reichswehr_loyalty > 0.2; give_up_2 if (president_ideology == "Левые" and reichswehr_loyalty <= 0.2)
 
 Президент на нашей стороне, но рейхсвер расколот.
-
 
 @give_up_1
 on-arrival: {!
@@ -93,10 +90,9 @@ Q.rubicon_mini_leave = 1;
 
 И всё же они больше доверяют [+ president +]у, чем канцлеру [+ old_chancellor +]у и под этим влиянием [+ old_chancellor +] вынужден признать своё поражение. Его смещение, наряду с заменой многих министров-<span style="color: #7A3C00;">нацистов</span>, остановило сползание Германии к диктатуре.
 
-[? if chancellor == "Брюнинг": Генрих Брюнинг из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]назначен временным канцлером. ?][? if chancellor == "Вельс": Отто Вельс из <span style="color: #c00000;">**СДПГ**</span> назначен канцлером. ?]
+[? if chancellor == "Брюнинг": Генрих Брюнинг из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] назначен временным канцлером. ?][? if chancellor == "Вельс": Отто Вельс из <span style="color: #c00000;">**СДПГ**</span> назначен канцлером. ?]
 
 Следующие выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @give_up_2
 

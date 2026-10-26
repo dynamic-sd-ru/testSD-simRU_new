@@ -18,9 +18,8 @@ face-image: img/redfront.jpg
 - @allow: Разрешить демонстрации.
 - @join: Присоединиться к демонстрациям.
 
-
 @ban
-on-arrival: blutmai = 1; kpd_relation -= 25; z_relation += 3; dvp_relation += 3; ddp_relation += 3; lvp_relation += 3; workers_spd -= 4; unemployed_spd -= 4; workers_kpd += 2; unemployed_kpd += 3; communist_coalition -= 3; strife += 1; dvp_left += 1; ddp_left += 0.5; lvp_left += 1; hindenburg_angry -= 8
+on-arrival: blutmai = 1; kpd_relation -= 25; z_relation += 3; dvp_relation += 3; ddp_relation += 3; lvp_relation += 3; workers_spd -= 4; unemployed_spd -= 4; workers_kpd += 2; unemployed_kpd += 3; communist_coalition -= 3; strife += 1; dvp_left += 1; ddp_left += 0.5; lvp_left += 1; hindenburg_angry -= 8; kpd_nazi_urgency -= 1;
 on-display: {!  
     var cardEl = document.createElement('div');  
     cardEl.className = "face-figure2";  
@@ -42,7 +41,6 @@ on-display: {!
 - @communist_fault: Это вина <span style="color: #700000;">**коммунистов**</span>, отказавшихся подчиняться закону.
 - @no_fault: Это досадный инцидент, который не должен был случиться — но в нём нет ничьей вины.
 
-
 @corrupt_police
 on-arrival: kpd_relation += 10; z_relation -= 2; dvp_relation -= 2; lvp_relation -= 2; prussian_police_loyalty += 0.05; hindenburg_angry += 4; prussian_police_loyalty += 0.05 if judicial_reform > 0; kpd_relation += 10 if judicial_reform > 0;
 
@@ -50,17 +48,14 @@ on-arrival: kpd_relation += 10; z_relation -= 2; dvp_relation -= 2; lvp_relation
 
 Это несколько смягчило гнев <span style="color: #700000;">**коммунистов**</span>, но, конечно, далеко не всех.
 
-
 @communist_fault
-on-arrival: kpd_relation -= 10; z_relation += 3; dvp_relation += 3; lvp_relation += 2; rfb_strength -= 80; rfb_banned = 1; hindenburg_angry -= 4
+on-arrival: kpd_relation -= 10; z_relation += 3; dvp_relation += 3; lvp_relation += 2; rfb_strength -= 80; rfb_banned = 1; hindenburg_angry -= 4; kpd_nazi_urgency -= 1;
 
 Если <span style="color: #700000;">**КПГ**</span> продолжает действовать незаконно, они должны понести наказание. Таким образом, мы запретили <span style="color: #8B0000;">**СКФ**</span>, их военизированной группировки. Буржуазные и правые партии одобрят это.
-
 
 @no_fault
 
 Эта позиция не принесёт нам союзников, но и не оттолкнёт от нас никого.
-
 
 
 @allow_police
@@ -69,18 +64,16 @@ on-arrival: kpd_relation += 5; workers_kpd += 3; unemployed_kpd += 5
 Демонстрация проходит мирно под бдительным надзором полиции. Очевидцы восхищаются силой <span style="color: #700000;">коммунистических</span> рабочих, и, возможно, некоторые из наших сторонников перешли на их сторону.
 
 
-
 @allow
-on-arrival: workers_kpd += 3; unemployed_kpd += 5; kpd_relation += 10; rfb_strength += 50; z_relation -= 3; dvp_relation -= 3; ddp_relation -= 2; lvp_relation -= 3; coalition_dissent += 1; rfb_militancy += 0.1; dvp_right += 1; ddp_right += 0.5; lvp_right += 1; hindenburg_angry += 5
+on-arrival: workers_kpd += 3; unemployed_kpd += 5; kpd_relation += 10; rfb_strength += 50; z_relation -= 3; dvp_relation -= 3; ddp_relation -= 2; lvp_relation -= 3; coalition_dissent += 1; rfb_militancy += 0.1; dvp_right += 1; ddp_right += 0.5; lvp_right += 1; hindenburg_angry += 5; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 Демонстрация проходит мирно, полиция практически не вмешивается. Очевидцы восхищаются силой <span style="color: #700000;">коммунистических</span> рабочих, и, возможно, некоторых наших членов переманили. <span style="color: #700000;">**КПГ**</span> никогда в этом не признается, но их отношение к нам становится менее враждебным (даже если мы им всё ещё не *нравимся* ). Наши <span style="color: #000000;">цен</span><span style="color: #C0A054;">тристские</span> союзники осуждают демонстрацию, но их протесты тщетны.
-
 
 
 @join
 choose-if: kpd_relation >= 45
 unavailable-subtitle: <span style="color: #700000;">Коммунисты</span> недостаточно нам доверяют.
-on-arrival: kpd_relation += 15; workers_kpd += 3; unemployed_kpd += 5; workers_spd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; z_relation -= 10; dvp_relation -= 10; coalition_dissent += 2; communist_coalition += 2; rb_strength += 100; rfb_strength += 100; rfb_militancy += 0.1; sa_strength += 50; sh_strength += 50; dvp_right += 3; ddp_right += 3; ddp_relation -= 8; ddp_cohesion -= 1; lvp_right += 3; lvp_relation -= 10; hindenburg_angry += 20
+on-arrival: kpd_relation += 15; workers_kpd += 3; unemployed_kpd += 5; workers_spd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; z_relation -= 10; dvp_relation -= 10; coalition_dissent += 2; communist_coalition += 2; rb_strength += 100; rfb_strength += 100; rfb_militancy += 0.1; sa_strength += 50; sh_strength += 50; dvp_right += 3; ddp_right += 3; ddp_relation -= 8; ddp_cohesion -= 1; lvp_right += 3; lvp_relation -= 10; hindenburg_angry += 20; kpd_nazi_urgency += 1;
 achievement: die_rote_fahne
 
 Трудно убедить <span style="color: #700000;">**Коммунистов**</span> пойти на демонстрацию вместе с нами, учитывая историю их и нашей партий. Однако в конце концов они уступают. Эта демонстрация пролетарского единства вдохновляет рабочих и ужасает буржуазию и средний класс. [? if in_grand_coalition or in_weimar_coalition: Наши партнёры по правительственной коалиции возмущены нашим совместным выступлением с <span style="color: #700000;">коммунистами</span> и угрожают развалить правительство.  ?] <span style="color: #7A3C00;">Ультра</span><span style="color: #3E88B3;">правые</span> военизированные организации активизируют вербовку, чтобы противостоять нам.

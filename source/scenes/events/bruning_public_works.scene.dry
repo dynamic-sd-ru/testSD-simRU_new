@@ -30,7 +30,6 @@ on-arrival: bruning_sigma_time = time + 3
 
 - @wait
 
-
 @wait
 title: Указ будет представлен в ближайшем будущем.
 

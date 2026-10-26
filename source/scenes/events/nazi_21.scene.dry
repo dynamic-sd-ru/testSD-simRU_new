@@ -27,7 +27,6 @@ on-display: {!
 
 - @nazi_2: Без средств и без поддержки.
 
-
 @nazi_2
 on-arrival: {!
 Q.nsdap_split = 1;

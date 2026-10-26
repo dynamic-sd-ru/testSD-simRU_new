@@ -1,24 +1,32 @@
 #!/bin/bash
-# Full pipeline: upstream base/new + translated tree -> compiled Russian build.
-# usage: work/build.sh [OUTDIR]      (default /home/user/work/out)
+# Полный конвейер переноса перевода.
+#   usage: tools/build.sh [OUTDIR]
+#   BASE — версия игры, для которой сделан перевод (60d02d0e)
+#   NEW  — актуальная версия игры (307d5473)
+#   TR   — дерево перевода (обычно source/ этого репозитория)
+# Пути можно переопределить переменными окружения BASE_DIR / NEW_DIR / TR_DIR.
 set -e
-cd /home/user
-OUT=${1:-/home/user/work/out}
+ROOT=${ROOT:-/home/user}
+BASE=${BASE_DIR:-$ROOT/work/base/source}
+NEW=${NEW_DIR:-$ROOT/work/new/source}
+TR=${TR_DIR:-$ROOT/work/tr2}
+OUT=${1:-$ROOT/work/out}
+TOOLS=$(cd "$(dirname "$0")" && pwd)
 
 rm -rf "$OUT"
-python3 work/assemble.py work/base/source work/new/source work/tr2 "$OUT" \
-        --report work/report_assemble.json
-python3 work/post_game_over.py "$OUT/scenes/game_over.scene.dry" \
-        work/tr2/scenes/game_over.scene.dry work/report_achievements.txt
-cp -r work/tr2/scenes/tutorial "$OUT/scenes/"
-python3 work/carry_code.py work/base/source work/tr2 "$OUT"
-python3 work/carry_tr_scenes.py work/tr2 "$OUT"
-python3 work/apply_values.py "$OUT" work/value_map.json work/extra_map.json
-python3 work/apply_party_names.py "$OUT"
-python3 work/js_localize.py work/base/source work/tr2 "$OUT" --report work/js_strings.json
-python3 work/fix_candkeys.py work/new/source "$OUT" "" work/value_map.json work/extra_map.json
-python3 work/patch_fragments.py "$OUT" work/tr2 --report work/fragment_patches.json
-python3 work/fix_titles.py work/base/source work/tr2 "$OUT" --report work/title_fixes.json
-python3 work/fix_mojibake.py "$OUT" work/mojibake_fixes.json
-python3 work/fix_spaces.py "$OUT" work/space_fixes.json
+python3 "$TOOLS/assemble.py" "$BASE" "$NEW" "$TR" "$OUT" \
+        --report "$ROOT/work/report_assemble.json"
+python3 "$TOOLS/post_game_over.py" "$OUT/scenes/game_over.scene.dry" \
+        "$TR/scenes/game_over.scene.dry" "$ROOT/work/report_achievements.txt"
+cp -r "$TR/scenes/tutorial" "$OUT/scenes/"
+python3 "$TOOLS/carry_code.py" "$BASE" "$TR" "$OUT"
+python3 "$TOOLS/carry_tr_scenes.py" "$TR" "$OUT"
+python3 "$TOOLS/apply_values.py" "$OUT" "$TOOLS/maps/value_map.json" "$TOOLS/maps/extra_map.json"
+python3 "$TOOLS/apply_party_names.py" "$OUT"
+python3 "$TOOLS/js_localize.py" "$BASE" "$TR" "$OUT" --report "$ROOT/work/js_strings.json"
+python3 "$TOOLS/fix_candkeys.py" "$NEW" "$OUT" "" "$TOOLS/maps/value_map.json" "$TOOLS/maps/extra_map.json"
+python3 "$TOOLS/patch_fragments.py" "$OUT" "$TR" --report "$ROOT/work/fragment_patches.json"
+python3 "$TOOLS/fix_titles.py" "$BASE" "$TR" "$OUT" --report "$ROOT/work/title_fixes.json"
+python3 "$TOOLS/fix_mojibake.py" "$OUT" "$ROOT/work/mojibake_fixes.json"
+python3 "$TOOLS/fix_spaces.py" "$OUT" "$ROOT/work/space_fixes.json"
 echo "build ready in $OUT"

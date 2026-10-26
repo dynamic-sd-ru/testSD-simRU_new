@@ -13,9 +13,8 @@ max-visits: 1
 
 - @bourgeois
 - @vonc_yes
-- @vonc_no  
+- @vonc_no
 - @no_matter
-
 
 @bourgeois
 title: Будет сформирована буржуазная коалиция.
@@ -26,7 +25,6 @@ go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_co
 
 Секретный режим включён.
 
-
 @vonc_yes
 title: Поддержать вотум недоверия, проголосовав против правительства.
 subtitle: Правительство падёт, и будут назначены новые выборы.
@@ -36,7 +34,6 @@ call: set_next_election_time
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 Правая коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @vonc_no
 title: Выступить против вотума недоверия и проголосовать за правительство.
@@ -49,7 +46,6 @@ go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_co
 
 Поддержав правительство, мы, по сути, согласились воздерживаться от вотума недоверия [+ chancellor +] правительству. Мы не представлены в правительстве, но несём ответственность за его стабильность. Эта мера крайне непопулярна в партии и среди наших сторонников, поскольку мы уже дважды позволили сформировать правое правительство.
 
-
 @no_matter
 title: Неважно, что мы сделаем.
 subtitle: Антиправительственные партии набирают более 50% голосов, независимо от нашего выбора.
@@ -59,7 +55,6 @@ on-arrival: time_to_election = 3; spd_in_government = 0; in_right_coalition = 0;
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 Правая коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @new_prussia_election
 on-arrival: prussia_coalition_trigger = 1 if right_coalition_prussia < 50
@@ -73,17 +68,15 @@ on-arrival: prussia_coalition_trigger = 1 if right_coalition_prussia < 50
 - @new_prussia_election_called: Придётся объявить новые выборы.
 
 
-
 @new_prussia_election_oppo
 view-if: right_coalition_prussia >= 50
 on-arrival: in_right_coalition_prussia = 1; in_center_right_coalition_prussia = 0; right_prussia = 1; bourgeois_cooperation += 1; liberal_cooperation += 1
 
 На том и стоим.
 
-
 @new_prussia_election_called
 view-if: right_coalition_prussia < 50
-on-arrival: was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; spd_toleration_prussia = 0; kpd_goals_seen_prussia = 0
+on-arrival: was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; spd_toleration_prussia = 0; kpd_goals_seen_prussia = 0
 call: set_next_election_time_prussia
 
 Новые выборы в Пруссии назначены на [+ next_election_month_prussia : month +] [+ next_election_year_prussia +].

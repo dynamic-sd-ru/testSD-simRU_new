@@ -25,13 +25,12 @@ on-display: {!
 
 - @nazi
 
-
 @nazi
 title: В ответ немедленно укрепить Рейхсбаннер.
 subtitle: -1 ресурс
 unavailable-subtitle: Недостаточно ресурсов.
 choose-if: resources >= 1
-on-arrival: nazi_urgency += 1; resources -= 1; rb_strength += 200; rb_militancy += 0.05
+on-arrival: nazi_urgency += 1; resources -= 1; rb_strength += 200; rb_militancy += 0.05; kpd_nazi_urgency += 1
 
 Такое развитие событий убедило <span style="color: #c00000;">**СДПГ**</span> — и самого Отто Вельса — предоставить Рейхсбаннеру независимые полномочия и финансовую поддержку, которую его лидеры считают жизненно важной.
 

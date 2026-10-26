@@ -30,7 +30,6 @@ set-bg: img/map_2.jpg
 
 - @wait
 
-
 @wait
 title: Мы проголосуем за этот закон, как и буржуазные партии. [? if dvp_exist and not lvp_formed: (за исключением <span style="color: #C0A054;">**ННП**</span>) ?][? if lvp_formed: (за исключением <span style="color: #FFCC00;">**ЛНП**</span>промышленников из ЛНП) ?]
 on-arrival: labor_dissent -= 5; wtb_points += 200; hindenburg_angry_bruning -= 50; dvp_left += 5; ddp_left += 3; lvp_left += 3; ddp_cohesion += 3; z_relation += 5 if wtb_adopted; ddp_relation += 5 if wtb_adopted; lvp_relation += 5 if wtb_adopted; unemployed -= 3; inflation += 2; budget -= 1; economic_growth += 2; workers_nsdap -= 2; workers_ddp += 1; workers_z += 1; workers_dnvp += 1; workers_lvp += 1; unemployed_nsdap -= 3; unemployed_z += 2; unemployed_ddp += 2; unemployed_dnvp += 2; unemployed_lvp += 2
@@ -39,7 +38,6 @@ go-to: public_works_pt2 if reparations_resolved
 При мощной поддержке со стороны[? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], генерала Курта фон Шлейхера и его союзников в <span style="color: #3E88B3;">**НННП**</span>, законопроект проходит. Однако он вызвал гнев промышленников в правоцентристской коалиции[? if not reparations_resolved: — хотя урезанный масштаб плана пока что сдерживает их возмущение ?].
 
 [? if reparations_resolved: Несмотря на давнее убеждение Брюнинга в том, что общественные работы следует начинать только после того, как кризис достигнет дна, похоже, он считает, что этот момент настал — благодаря началу мирового экономического подъёма и отмене репараций. Тем не менее страх населения перед инфляцией сдерживает любое значительное расширение денежной массы, а промышленники в правящей коалиции всеми силами пытались выхолостить самые дорогие положения законопроекта. К счастью, для его принятия их голоса не требуются. ?]
-
 
 @public_works_pt2
 on-arrival: labor_dissent -= 5; hindenburg_angry_bruning -= 25; lautenbach_adopted = 1; lautenbach_plan_time = time + 12; public_works_name = "Дитрих"; dvp_left += 3; ddp_left += 2; lvp_left += 2; ddp_cohesion += 2; inflation += 2; budget -= 1; economic_growth += 2; workers_nsdap -= 1; workers_ddp += 1; workers_z += 1; workers_dnvp += 1; workers_lvp += 1; unemployed_nsdap -= 3; unemployed_z += 2; unemployed_ddp += 2; unemployed_dnvp += 2; unemployed_lvp += 2

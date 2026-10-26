@@ -17,7 +17,6 @@ new-page: true
 - @root: Вернуться на главный экран
 
 
-
 @media_
 title: СМИ
 subtitle: Руководить нашими партийными газетами и радио.
@@ -25,7 +24,6 @@ choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?]
 on-arrival: advisor_action_timer = 6; media_timer -= 6; last_advisor_action = 1
 go-to: media
-
 
 
 @faction_support_
@@ -37,43 +35,37 @@ on-arrival: advisor_action_timer = 6
 
 Какую фракцию нам следует поддержать?
 
-- @support_left: Левые 
-- @support_center: Центристы 
+- @support_left: Левые
+- @support_center: Центристы
 - @support_labor: Профсоюзники
-- @support_reform: Реформисты 
-- @support_neorev: Неоревизионисты 
-
+- @support_reform: Реформисты
+- @support_neorev: Неоревизионисты
 
 @support_left
 on-arrival: left_dissent -= 8; left_strength += 8; editorial_line = "Левые"
 
 «Форвертс» печатает передовицы в поддержку левых позиций.
 
-
 @support_center
 on-arrival: center_dissent -= 8; center_strength += 8; editorial_line = "Центр"
 
 Газета «Форвертс» публикует редакционные статьи в поддержку центристских позиций.
-
 
 @support_labor
 on-arrival: labor_dissent -= 8; labor_strength += 8; editorial_line = "Труд"
 
 «Форвертс» публикует редакционные статьи в поддержку политики профсоюзов.
 
-
 @support_reform
 on-arrival: reformist_dissent -= 8; reformist_strength += 8; editorial_line = "Реформисты"
 
 «Форвертс» печатает передовицы в поддержку реформистской политики.
-
 
 @support_neorev
 view-if: neorevisionism
 on-arrival: neorevisionist_dissent -= 8; neorevisionist_strength += 8; editorial_line = "Неоревизионисты"; nazi_urgency += 1
 
 В газете «Форвертс» печатают статьи в поддержку неоревизионистских идей.
-
 
 @kpd_cooperation
 title: Сотрудничество с <span style="color: #700000;">**КПГ**</span>

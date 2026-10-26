@@ -302,6 +302,20 @@ def second_chance(new_scene, tr_scene, mapped, threshold=1.75):
     return extra
 
 
+DATE = re.compile(r'\b20\d{2}/\d{1,2}/\d{1,2}\b')
+
+
+def sync_dates(translated, source):
+    """Keep the upstream date inside a translated line (the changelog keeps moving)."""
+    m_new = DATE.search(source or '')
+    if not m_new:
+        return translated
+    m_tr = DATE.search(translated or '')
+    if not m_tr:
+        return translated
+    return translated[:m_tr.start()] + m_new.group(0) + translated[m_tr.end():]
+
+
 def index_by_line(scene):
     return {ch[-1]: ch for ch in scene['chunks']}
 
@@ -438,12 +452,13 @@ def merge_file(base_path, new_path, tr_path, out_path, report):
                     if translatable_text(ch[2]):
                         report['untranslated'].append([report['file'], line, key, ch[2]])
                 else:
-                    put(line, '%s: %s' % (key, val))
+                    put(line, '%s: %s' % (key, sync_dates(val, ch[2])))
                     if b_ch is not None and b_ch[0] == 'directive' and b_ch[2] != ch[2]:
                         report['stale'].append([report['file'], line, 'directive ' + key])
             elif ch[0] == 'option':
                 if t_ch is not None and t_ch[0] == 'option':
                     text = t_ch[2]
+                    text = sync_dates(text, ch[2])
                     put(line, ('- @%s: %s' % (ch[1], text)).rstrip()
                         if text else '- @%s' % ch[1])
                 elif translatable_text(ch[2]):
@@ -493,7 +508,11 @@ def main():
             report_path = sys.argv[i + 1]
         if a == '--only':
             only = sys.argv[i + 1]
-    load_value_maps(['work/value_map.json', 'work/extra_map.json'])
+    here = os.path.dirname(os.path.abspath(__file__))
+    maps = [os.path.join(here, 'maps', n) for n in ('value_map.json', 'extra_map.json')]
+    if not all(os.path.exists(m) for m in maps):
+        maps = ['work/value_map.json', 'work/extra_map.json']
+    load_value_maps(maps)
     report = {'untranslated': [], 'stale': [], 'merged_lines': [],
               'scene_matched_by_options': [],
               'new_scene_text': [], 'files_new': [], 'file': ''}

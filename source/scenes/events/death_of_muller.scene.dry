@@ -10,7 +10,6 @@ face-image: img/portraits/MüllerHermann.jpg
 
 = Смерть Германа Мюллера
 
-
 @pm
 on-arrival: muller_died_in_office = 1
 
@@ -22,13 +21,11 @@ on-arrival: muller_died_in_office = 1
 - @bruning_chancellor: Пусть Генрих Брюнинг из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] станет канцлером.
 - @wirth_chancellor: Йозеф Вирт из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] должен стать канцлером.
 
-
 @braun_chancellor
 on-arrival: chancellor = "Браун"; chancellor_party = "СДПГ"; z_relation -= 3; dvp_relation -= 3; ddp_relation -= 3; lvp_relation -= 3; z_relation -= 3 if prussia_leader == "Браун"; dvp_relation -= 3 if prussia_leader == "Браун"; ddp_relation -= 3 if prussia_leader == "Браун"; lvp_relation -= 3 if prussia_leader == "Браун"
 subtitle: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] обеспокоена тем, что в руках одного человека окажется столько власти.
 
 Наши партнёры по коалиции неохотно принимают нового канцлера, но не высказывают громких возражений.
-
 
 
 @wels_chancellor
@@ -37,13 +34,11 @@ subtitle: Он хороший организатор, но хороший ли �
 
 Наши партнёры по коалиции неохотно принимают нового канцлера, но не высказывают громких возражений.
 
-
 @breitscheid_chancellor
 on-arrival: chancellor = "Брайтшайд"; chancellor_party = "СДПГ"; z_relation -= 5; dvp_relation -= 5; ddp_relation -= 5; lvp_relation -= 5; kpd_relation += 3
 subtitle: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] обеспокоена его левыми тенденциями.
 
 Наши партнёры по коалиции неохотно принимают нового канцлера, но громко не возражают.
-
 
 @bruning_chancellor
 on-arrival: chancellor = "Брюнинг"; chancellor_party = "Центр"; z_relation += 5; dvp_relation += 5; ddp_relation += 5; lvp_relation += 5; coalition_dissent -= 1; dvp_left += 1; ddp_left += 1; ddp_cohesion += 1; lvp_left += 1
@@ -51,14 +46,12 @@ subtitle: [? if z_party_name != "ХНП": <span style="color: #000000;">Парт
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] благодарна нам за поддержку кандидатуры Брюнинга на пост канцлера.
 
-
 @wirth_chancellor
 on-arrival: chancellor = "Вирт"; chancellor_party = "Центр"; z_relation += 5; dvp_relation += 2; ddp_relation += 2; lvp_relation += 2
 view-if: z_ideology == "Левые"
 subtitle: Как умеренный член [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], он мог бы стать символом единства.
 
 Наши партнёры по коалиции согласны на кандидатуру Йозефа Вирта от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] в качестве нового канцлера.
-
 
 
 @not_pm

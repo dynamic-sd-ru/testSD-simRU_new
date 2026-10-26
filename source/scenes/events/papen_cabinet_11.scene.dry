@@ -18,7 +18,6 @@ face-image: img/weimar_constitution.jpg
 
 - @papen
 
-
 @papen
 title: Кабинет собирается на заседание.
 on-display: {!  
@@ -40,7 +39,6 @@ on-arrival: hindenburg_papen_r -= 1
 Когда его последняя надежда сохранить власть угасла, а все министры, кроме одного, выступили против него, у Папена не осталось иного выхода: уйти в отставку сейчас или быть раздавленным рейхстагом в конце недели.
 
 - @papen_2
-
 
 @papen_2
 title: Папен уходит в отставку!
@@ -64,21 +62,21 @@ on-display: {!
 
 - @papen_3
 
-
 @papen_3
 title: Генерал Курт фон Шлейхер назначен канцлером!
 on-arrival: {!
 Q.chancellor = "Шлейхер";
 if (Q.prussia_leader == "Папен") Q.prussia_leader = "Шлейхер"
 Q.schleicher_time = 0
+Q.kpd_nazi_urgency += 1;
 
 Q.pro_republic += 5;
 Q.reichswehr_militancy += 0.5;
 
-Q.papen_goal = "Cry over spilt milk";
-Q.schleicher_goal = "Scavenge for parliamentary backing";
-Q.oskar_goal = "Be buddies with Schleicher";
-Q.meissner_goal = "Become acquainted with the new chancellor";
+Q.papen_goal = "Сокрушаться о потерянном";
+Q.schleicher_goal = "Искать поддержку в рейхстаге";
+Q.oskar_goal = "Дружить со Шлейхером";
+Q.meissner_goal = "Познакомиться с новым канцлером";
 
 Q.schleicher_papen_r = 0; 
 Q.hindenburg_schleicher_r -= 1; 

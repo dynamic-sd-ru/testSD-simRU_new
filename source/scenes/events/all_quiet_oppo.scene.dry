@@ -19,7 +19,6 @@ face-image: img/All_Quiet.jpg
 - @allow: Мы ждём их решения…
 - @allow_protect: Мы ждём их решения…
 
-
 @ban
 view-if: z_ideology == "Правые" and not (spd_toleration_prussia and prussian_police_loyalty >= 0.65)
 on-arrival: old_middle_nsdap += 4; new_middle_nsdap += 3; workers_nsdap += 2; unemployed_nsdap += 2; sa_strength += 50; nationalism += 5; pro_republic -= 4
@@ -27,13 +26,11 @@ on-arrival: old_middle_nsdap += 4; new_middle_nsdap += 3; workers_nsdap += 2; un
 [? if in_right_coalition_prussia: Правая коалиция ?][? if in_center_right_coalition_prussia: Правоцентристская коалиция ?] уступила требованиям <span style="color: #7A3C00;">нацистов</span> и запретила скандальный фильм. <span style="color: #7A3C00;">Нацисты</span> объявляют это решение триумфом. Это приводит к заметному подъёму их боевого духа и политической уверенности.
 
 
-
 @allow
 view-if: z_ideology == "Левые" and not (spd_toleration_prussia and prussian_police_loyalty >= 0.65)
 on-arrival: nationalism += 3; old_middle_nsdap += 4; new_middle_nsdap += 3; workers_nsdap += 1; sa_strength += 15; pro_republic -= 3; strife += 1
 
 Буржуазные партии разрешили показ фильма, несмотря на угрозы со стороны <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>. Однако кинопоказы сопровождаются насилием. В итоге показ фильма прекращают, что позволяет <span style="color: #7A3C00;">нацистам</span> объявить этот исход победой своего движения.
-
 
 
 @allow_protect

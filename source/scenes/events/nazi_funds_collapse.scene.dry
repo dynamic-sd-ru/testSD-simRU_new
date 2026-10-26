@@ -28,10 +28,9 @@ on-display: {!
 
 - @nazi_explode
 
-
 @nazi_explode
 title: <span style="color: #7A3C00;">Нацистское</span> движение временно парализовано.
 subtitle: Строгая экономия в партии, бунтующей против политики строгой экономии.
-on-arrival: nazi_funds_timer += 12; sa_strength -= 50; sa_militancy -= 0.05; nazi_explode += 3
+on-arrival: nazi_funds_timer += 12; sa_strength -= 50; sa_militancy -= 0.05; nazi_explode += 3;kpd_nazi_urgency -= 1;
 
 Пока пожертвования от сторонников, на которые <span style="color: #7A3C00;">**НСДАП**</span> когда-то рассчитывала, не возобновятся, в ближайшие месяцы партия будет жить в режиме строгой экономии. Даже доходы от продаж автобиографической *«Моя борьба»*[? if not hitler_dead: — ранее уходившие на финансирование роскошного образа жизни Гитлера — ?][? if hitler_dead: &nbsp; ?] теперь перенаправляются в партийную кассу: лишь бы удержать партию на плаву.

@@ -23,7 +23,6 @@ on-display: {!
 
 - @saxony: Что ж, сделаем всё возможное…
 
-
 @saxony
 on-arrival: {!
 
@@ -81,12 +80,12 @@ if (Q.workers_spd_normalized >= 70) saxony_adjustment_factors.spd += 0.1;
 if (Q.unemployed_spd_normalized >= 50) saxony_adjustment_factors.spd += 0.1;
 if (Q.works_program > 1) saxony_adjustment_factors.spd += 0.1;
 if (Q.saxony_joever && Q.red_saxony) saxony_adjustment_factors.spd += 0.1;
-if (Q.unemployed >= 15) saxony_adjustment_factors.spd -= 0.1;
+if (Q.effective_unemployed >= 15) saxony_adjustment_factors.spd -= 0.1;
 Q.spd_saxony_elections_vote = Q.spd_votes*saxony_adjustment_factors.spd;
 if (Q.saxony_joever && Q.red_saxony) saxony_adjustment_factors.sapd += 0.1;
 if (Q.workers_sapd_normalized >= 10) saxony_adjustment_factors.sapd += 0.1;
 Q.sapd_saxony_elections_vote = Q.sapd_votes*saxony_adjustment_factors.sapd;
-if (Q.unemployed >= 15) saxony_adjustment_factors.kpd += 0.1;
+if (Q.effective_unemployed >= 15) saxony_adjustment_factors.kpd += 0.1;
 if (Q.saxony_joever && Q.red_saxony) saxony_adjustment_factors.kpd += 0.1;
 Q.kpd_saxony_elections_vote = Q.kpd_votes*saxony_adjustment_factors.kpd;
 if (Q.stolper_program_adopted) saxony_adjustment_factors.ddp += 0.2;
@@ -631,6 +630,8 @@ go-to: saxony_coalition_menu
 
 {!<svg id="saxony_landtag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!
 {!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_saxony_elections_vote +]%** {!</td><td>!} [+ spd_r_saxony +]% {!</td></tr>!}
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#9B0000'> </div> !}СРПГ:{!</td><td>!} [+ sapd_saxony_elections_vote +]% {!</td><td>!} [+ sapd_r_saxony +]% {!</td></tr>!}  ?]
@@ -667,6 +668,13 @@ go-to: saxony_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_saxony_elections_vote +]% {!</td><td>!} [+ dnf_r_saxony +]% {!</td></tr>!}  ?]
 
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]% {!</td><td>!} [+ nsdap_r_saxony +]% {!</td></tr>!} {!
+{!</table>!}
+<hr id="read-marker">
+[? if aspd_dead and reformists_resign: Despite the <span style="color: #fe9e00;">**ASPD**</span>'s reunion with the <span style="color: #c00000;">**СДПГ**</span> after the Landtag election 4 years ago, our party's leftist direction at the federal level has driven them to split off again. ?]
+[? if nsdap_r_saxony > (nsdap_r_saxony_old + 5) and not saxony_nsdap: The <span style="color: #7A3C00;">**Nazis**</span> have made significant gains relative to last election.  This may make a stable governing arrangement more difficult this time around. ?]
+[? if saxony_nsdap: Following Gregor Stasser's anti-capitalist antics of the previous coalition, the bourgeois parties are quite reluctant to include the <span style="color: #7A3C00;">**Nazis**</span> in government again. ?]
+<hr id="read-marker">
 {!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]% {!</td><td>!} [+ nsdap_r_saxony +]% {!</td></tr>!} {!</table>!} <hr id="read-marker"> [? if aspd_dead and reformists_resign: Несмотря на воссоединение <span style="color: #fe9e00;">**СДПГ(с)**</span> с <span style="color: #c00000;">**СДПГ**</span> после выборов в ландтаг 4 года назад, левый курс нашей партии на федеральном уровне заставил их вновь отколоться.  ?] [? if nsdap_r_saxony > (nsdap_r_saxony_old + 5) and not saxony_nsdap: <span style="color: #7A3C00;">**нацисты**</span> добились значительных успехов по сравнению с прошлыми выборами. В этот раз это может усложнить формирование стабильного правительства.  ?] [? if saxony_nsdap: После антикапиталистических выходок Грегора Штрассера в предыдущей коалиции, буржуазные партии крайне неохотно рассматривают включение <span style="color: #7A3C00;">**нацисты**</span> в новое правительство.  ?]<hr id="read-marker"> Объединенная Левая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_saxony +]%
 
 Большая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #fe9e00;">**СДПГ(с)**</span> + [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if z_r_saxony: &nbsp;+&nbsp;<span style="color: #000000;">**[+ z_party_name +]**</span>  ?][? if not lvp_formed: &nbsp;+&nbsp;<span style="color: #C0A054;">**ННП**</span> ?]): [+ spd_coalition_saxony +]%
@@ -676,7 +684,6 @@ go-to: saxony_coalition_menu
 [? if dnvp_ideology == "Радикалы": Буржуазная коалиция ([? if z_r_saxony: <span style="color: #000000;">**[+ z_party_name +]**</span> +  ?][? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> + <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if vnr_formed: &nbsp;+ <span style="color: #D3D3A9;">**ННОР**</span>  ?] + <span style="color: #b8996f;">**ЭП**</span> + <span style="color: #0075EB;">**ПНС**</span>[? if csvd_formed: &nbsp;+ <span style="color: #8ED8E4;">**ХСНС**</span>  ?][? if kvp_formed: &nbsp;+ <span style="color: #0087DC;">**КНП**</span> ?]): [+ true_bourgeois_coalition_saxony +]%  ?]
 
 [? if saxony_no_majority_2: Правая коалиция ([? if z_r_saxony: <span style="color: #000000;">**[+ z_party_name +]**</span> +  ?][? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] + <span style="color: #b8996f;">**ЭП**</span> + <span style="color: #0075EB;">**ПНС**</span>[? if kvp_formed: &nbsp;+ <span style="color: #0087DC;">**КНП**</span> ?] + <span style="color: #11DD11;">**ССН**</span> + <span style="color: #3E88B3;">**НННП**</span> + <span style="color: #7A3C00;">**НСДАП**</span>): [+ true_bourgeois_coalition_saxony +]% ?]
-
 
 @saxony_coalition_menu
 on-arrival: {!
@@ -702,7 +709,7 @@ if (Q.lvp_leader == "Дингельдей") {
     lvp_toleration_threshold += 10;
 } else if (Q.lvp_leader == "Дикман") {
     lvp_toleration_threshold -= 10;
-} else if (Q.lvp_leader == "Baumer") {
+} else if (Q.lvp_leader == "Боймер") {
     lvp_toleration_threshold -= 10;
 } else if (Q.lvp_leader == "Штольпер") {
     lvp_toleration_threshold -= 10;
@@ -767,19 +774,17 @@ if ((Q.dvp_relation < (dvp_toleration_threshold + 5) && !Q.lvp_formed) || (Q.lvp
 
 # Coalitions are still a work in progress for sure.  Initial ones down here are just the 1930 text repeated, plus a little more.
 
-
 @continue_left_saxony
 title: Мы продолжим нашу коалицию с <span style="color: #700000;">**КПГ**</span>.
 subtitle: <span style="color: #700000;">**Единая**</span> <span style="color: #c00000;">**фронт**</span> шагает вперед.
 view-if: left_coalition_saxony >= 50 and red_saxony
 choose-if: (kpd_relation >= 25 and kpd_leader == "Примиренцы") or (kpd_relation >= 45 and kpd_leader != "Примиренцы")
 unavailable-subtitle: Отношения между нашими партиями слишком сильно ухудшились.
-on-arrival: red_saxony = 1; z_relation -= 4; ddp_relation -= 4; dvp_relation -= 4; lvp_relation -= 4; coup_progress += 3; hindenburg_angry += 30; rfb_militancy += 0.04; rfb_strength += 100; sa_strength += 40; sh_strength += 40; strife += 1; workers_spd += 3; workers_kpd += 3; unemployed_spd += 3; new_middle_spd -= 3; old_middle_spd -= 3; rural_spd -= 3; communist_coalition += 2; kpd_relation += 10; saxony_toleration = 0; saxony_groko = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
+on-arrival: red_saxony = 1; z_relation -= 4; ddp_relation -= 4; dvp_relation -= 4; lvp_relation -= 4; coup_progress += 3; hindenburg_angry += 30; rfb_militancy += 0.04; rfb_strength += 100; sa_strength += 40; sh_strength += 40; strife += 1; workers_spd += 3; workers_kpd += 3; unemployed_spd += 3; new_middle_spd -= 3; old_middle_spd -= 3; rural_spd -= 3; communist_coalition += 2; kpd_relation += 10; saxony_toleration = 0; saxony_groko = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 <span style="color: #c00000;">**Красная**</span> Саксония сохраняется. Буржуазные партии ненавидят нас еще больше, но их крики тщетны. Мы продолжим превращать эту землю в оплот <span style="color: #c00000;">социализма</span>.
 
 [? if coup_progress >= 8: Ходят слухи, что на фоне нашей победы на выборах готовится попытка ультраправого переворота. Действуйте осторожно. ?]
-
 
 @continue_borko_saxony
 title: Буржуазные партии сохранили свое парламентское большинство.
@@ -789,7 +794,6 @@ on-arrival: saxony_right_2 = 1; pro_republic += 1; rural_nsdap -= 1; old_middle_
 Буржуазные партии вновь самостоятельно обеспечили себе большинство.
 
 Продолжающееся доминирование буржуазных партий деморализует как <span style="color: #7A3C00;">**НСДАП**</span>, так и нас, поскольку мы вновь отброшены на роль бессильной оппозиции.
-
 
 @ddp_saxony
 title: Мы сформируем коалицию только с <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if reformists_resign or not aspd_dead: и <span style="color: #fe9e00;">**СДПГ(с)**</span> ?].
@@ -801,7 +805,6 @@ on-arrival: saxony_spd = 1; saxony_groko = 0; saxony_toleration = 0; workers_nsd
 
 Каким-то образом <span style="color: #D3C24D;">**[+ ddp_name +]**</span> готовы сформировать с нами коалицию без все более <span style="color: #808080;">реакционных</span> <span style="color: #C0A054;">**ННП**</span> на свою сторону.
 
-
 @soclib_saxony_cvp
 title: Мы сформируем коалицию только с <span style="color: #FFCC00;">либералами</span>[? if reformists_resign or not aspd_dead: и <span style="color: #fe9e00;">**СДПГ(с)**</span> ?].
 subtitle: Учитывая, что <span style="color: #000000;">**ХНП**</span> качнулись вправо, это может стать жизнеспособным вариантом.
@@ -811,7 +814,6 @@ unavailable-subtitle: Нам нужно улучшить отношения с[?
 on-arrival: saxony_spd = 1; saxony_groko = 0; saxony_toleration = 0; workers_nsdap -= 3; unemployed_nsdap -= 3; workers_spd += 3; unemployed_spd += 3; new_middle_nsdap -= 3; unemployed_nsdap -= 3; ddp_relation += 3; lvp_relation += 3; dvp_relation += 5; pro_republic += 3; reformist_dissent -= 10; reformist_strength += 5; red_saxony = 0; saxony_joever = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 1; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
 
 Каким-то образом либералы готовы сформировать с нами коалицию без все более <span style="color: #808080;">реакционных</span> <span style="color: #000000;">**ХНП**</span> на свою сторону.
-
 
 @far_left_saxony
 title: <span style="color: #700000;">**КПГ**</span> сформируют правительство[? if sapd_formed: с <span style="color: #9B0000;">SAPD</span> ?], с нашим участием или без него.
@@ -825,7 +827,6 @@ on-arrival: dataminer_detected = 1; kpd_reichsex_sax = 1; kpd_relation = 65; wor
 
 - @civil_war
 
-
 @nazi_saxony
 title: <span style="color: #7A3C00;">**НСДАП**</span> формирует правительство большинства.
 subtitle: Нам конец...
@@ -838,20 +839,16 @@ face-image: img/portraits/strasser.jpg
 
 Саксония, некогда оплот <span style="color: #c00000;">социализма</span> и демократии, теперь разрушается <span style="color: #7A3C00;">нацистами</span>. «Демократический» аспект в первую очередь, поскольку Штрассер принял относительно прорабочие и антикапиталистические меры, по крайней мере, по сравнению с буржуазными партиями. Полиция земли, теперь почти полностью состоящая из <span style="color: #7A3C00;">нацистов</span>, активно подавляет <span style="color: #c00000;">социалистические</span>, <span style="color: #700000;">коммунистические</span> и даже <span style="color: #FFCC00;">либеральные</span> организации и собрания. Газеты, критикующие правительство, были запрещены, а государственные служащие, подозреваемые в <span style="color: #c00000;">социалистических</span> или <span style="color: #D3C24D;">демократических</span> симпатиях, массово увольняются.
 
-
 @president_oops
 
 Благодаря нашей собственной поправке к конституции президент больше не имеет полномочий объявлять рейхсэкзекуцию, и поэтому мы бессильны предотвратить такое развитие событий.
-
 
 @president_allow
 
 Несмотря на свои серьезные разногласия с <span style="color: #7A3C00;">нацистами</span>, президент [+ president +] не желает ничего предпринимать по поводу их захвата власти в Саксонии.
 
-
 @president_hate
 go-to: pres_kpd if (president == "Мюнценберг" or president == "Тельман"); pres_spd if president_ideology == "Левые" and not (president == "Мюнценберг" or president == "Тельман")
-
 
 @pres_kpd
 on-arrival: kpd_reichsex_sax = 1; kpd_relation = 65
@@ -860,7 +857,6 @@ on-arrival: kpd_reichsex_sax = 1; kpd_relation = 65
 
 - @civil_war
 
-
 @pres_spd
 
 президент [+ president +] теперь сталкивается с дилеммой. Как бы ужасны ни были <span style="color: #7A3C00;">нацисты</span>, они <i>действительно</i> получили большинство, так разве у них нет мандата на управление? Более того, они почти наверняка будут сопротивляться любой попытке <i>рейхсэкзекуции</i>, что спровоцирует гражданскую войну.
@@ -868,11 +864,9 @@ on-arrival: kpd_reichsex_sax = 1; kpd_relation = 65
 - @yes
 - @no
 
-
 @no
 title: <span style="color: #7A3C00;">Нацисты</span> одержали победу. Пусть правят.
 subtitle: Мы не хотим рисковать гражданской войной в данный момент.
-
 
 @yes
 title: Полномочия <i>рейхсэкзекуции</i> существуют не просто так, и именно такие времена требуют их применения.
@@ -881,7 +875,6 @@ subtitle: президент [+ president +] сместит кабинет Шт�
 Как и ожидалось, <span style="color: #7A3C00;">нацисты</span> отказываются сдаваться.
 
 - @civil_war
-
 
 @no_majority_spd
 title: Большинство собрать не удаётся!
@@ -896,7 +889,6 @@ view-if: saxony_spd_maj and true_bourgeois_coalition_saxony < 50 and (spd_coalit
 - @sapd_aspd_ddp
 - @no_majority_2
 
-
 @sapd_aspd_ddp
 title: Возможно, наши отколовшиеся партии и <span style="color: #D3C24D;">**[+ ddp_name +]**</span> удастся убедить во имя стабильности?
 view-if: spd_r_saxony + sapd_r_saxony + aspd_r_saxony + ddp_r_saxony >= 50 
@@ -905,7 +897,6 @@ unavailable-subtitle: [? if kpd_relation < 30 and sapd_formed: <span style="colo
 on-arrival: saxony_spd = 1; saxony_spd_splinter = 1; pro_republic += 1; old_middle_ddp -= 2; new_middle_ddp -= 2; saxony_toleration = 0; saxony_groko = 0; red_saxony = 0; saxony_joever = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
 
 Мы на скорую руку сколотили коалицию большинства с другими конституционными левоцентристскими партиями. Надеемся, она продержится.
-
 
 @continue_spd_majority
 title: Мы сохраняем наше правительство большинства.
@@ -917,7 +908,6 @@ on-arrival: saxony_spd = 1; reformist_dissent -= 5; left_dissent -= 20; left_str
 
 Мы сохранили единоличное большинство в саксонском ландтаге. Это практически закрепило за нами статус естественной правящей партии Саксонии.
 
-
 @continue_toleration_saxony
 title: Мы продолжим наше соглашение о терпимости к действующему правительству.
 view-if: saxony_toleration
@@ -926,7 +916,6 @@ unavailable-subtitle: [? if not toleration_possible_saxony: Буржуазные
 on-arrival: saxony_toleration = 1; pro_republic += 1; left_dissent += 10; workers_kpd += 2; workers_sapd += 2 if sapd_formed; workers_spd -= 3; unemployed_kpd += 3; unemployed_sapd += 3 if sapd_formed; unemployed_spd -= 5; saxony_groko = 0; red_saxony = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
 
 Наше соглашение о терпимости в Саксонии продолжается. Оставшиеся левые элементы нашей партии устают от этого соглашения, и они все чаще переходят к <span style="color: #700000;">**КПГ**</span> [? if sapd_formed: и <span style="color: #9B0000;">**СРПГ**</span> ?]. Тем не менее, мы хотя бы избежали повторных выборов.
-
 
 @continue_groko_saxony
 title: Канцлером от[? if lvp_formed and stegerwald_path: <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рскую</span> ?][? if not lvp_formed or not stegerwald_path: Большую ?] коалиция сохранена!
@@ -940,7 +929,6 @@ on-arrival: saxony_spd = 1; saxony_groko = 1; workers_nsdap -= 3; unemployed_nsd
 
 Это развитие событий ослабило [? if nsdap_r_saxony < 10: и без того испытывающих трудности  ?]<span style="color: #7A3C00;">**НСДАП**</span>, [? if nsdap_r_saxony > nsdap_r_saxony_old: которые надеялись использовать свою возросшую популярность, чтобы на этот раз пробиться в правительство ?].
 
-
 @new_grand_coalition_saxony
 title: Сформирована[? if lvp_formed and stegerwald_path: <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рскую</span> ?][? if not lvp_formed or not stegerwald_path: Большую ?]Коалиция!
 subtitle: Мы наконец примирились с буржуазными партиями, и они готовы снова управлять вместе с нами.
@@ -953,7 +941,6 @@ on-arrival: saxony_spd = 1; saxony_groko = 1; saxony_toleration = 0; workers_nsd
 
 Это развитие событий ослабило <span style="color: #7A3C00;">**НСДАП**</span>, которая теперь оттеснена в бессильную оппозицию.
 
-
 @toleration_saxony
 title: Мы заключим соглашение о терпимости с буржуазными партиями.
 view-if: not saxony_toleration and spd_r_saxony < 50
@@ -961,8 +948,8 @@ choose-if: mega_bourgeois_coalition_saxony >= 50 and true_bourgeois_coalition_sa
 unavailable-subtitle: [? if mega_bourgeois_coalition < 50: Наши голоса ничего не решат, поскольку у антидемократических партий большинство. ?][? if true_bourgeois_coalition_saxony >= 50: Им не нужна наша терпимость. ?]
 on-arrival: saxony_toleration = 1; saxony_groko = 0; pro_republic += 2; saxony_groko = 0; red_saxony = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
 
+Unfortunately, we have been relegated to toleration of the bourgeois parties.   
 К сожалению, мы были оттеснены до роли оказывающих терпимость буржуазным партиям. Восстановлен кабинет Шика, состоящий исключительно из [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> и <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if stegerwald_path: ,[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] ?].
-
 
 @far_right_coalition_saxony
 title: <span style="color: #7A3C00;">НСДАП</span> входит в правящую коалицию.
@@ -980,7 +967,6 @@ face-image: img/portraits/strasser.jpg
 
 Однако существует реальная возможность, что Штрассер будет смещён со своего поста партнёрами по коалиции, поскольку они никогда не питали к нему особых симпатий.
 
-
 @reichsex_dilemma
 
 президент [+ president +] рассматривает возможность применения <i>рейхсэкзекуции</i>, чтобы остановить <span style="color: #7A3C00;">нацистский</span> террор в Саксонии. Однако это чревато гражданской войной. Даже если попытка увенчается успехом, мы, скорее всего, снова окажемся в бесконечном цикле выборов.
@@ -988,19 +974,16 @@ face-image: img/portraits/strasser.jpg
 - @do
 - @dont
 
-
 @do
 title: Полномочия <i>рейхсэкзекуции</i> существуют не просто так, и именно такие времена требуют их применения.
 subtitle: президент [+ president +] сместит Штрассера с его поста, при необходимости — силой.
 on-arrival: pres_strength = rb_strength*rb_militancy*(1-dissent/2); enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; pres_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy; pres_strength += rfb_strength*rfb_militancy if (president == "Мюнценберг" or president == "Тельман"); pres_strength += rfb_strength*rfb_militancy*(kpd_relation/100) if (kpd_truce or in_popular_front or in_left_front or in_popular_front_prussia or in_left_front_prussia) and president != "Мюнценберг" and president != "Тельман"
 go-to: pres_victory if pres_strength >= enemy_strength; war if pres_strength < enemy_strength
 
-
 @pres_victory
 on-arrival: saxony_nsdap = 0; workers_nsdap -= 4; unemployed_nsdap -= 4; new_middle_nsdap -= 4; old_middle_nsdap -= 4; rural_nsdap -= 4; sa_strength -= 100; sa_militancy *= 0.8; coup_progress -= 3; pro_republic += 2; saxony_1933_trigger_time = time + 3
 
 Штрассер отступил! К сожалению, поскольку другого реального пути к созданию коалиции в ландтаге не было, его придется распустить для проведения новых выборов.
-
 
 @war
 on-arrival: kpd_relation = 65 if president == "Мюнценберг" or president == "Тельман"; kpd_reichsex_sax = 1 if president == "Мюнценберг" or president == "Тельман"
@@ -1009,13 +992,11 @@ on-arrival: kpd_relation = 65 if president == "Мюнценберг" or presiden
 
 - @civil_war: Это гражданская война.
 
-
 @dont
 title: Мы не должны рисковать началом гражданской войны из-за Саксонии.
 subtitle: Мы позволим кабинету остаться.
 
 Будем надеяться, что пребывание Штрассера у власти окажется недолгим.
-
 
 @true_bourgeois_coalition_saxony
 title: Буржуазные партии получили большинство, чтобы править через парламент.
@@ -1026,12 +1007,11 @@ on-arrival: saxony_right_2 = 1; pro_republic += 2; rural_nsdap -= 2; old_middle_
 
 <span style="color: #7A3C00;">**НСДАП**</span> глубоко деморализована этим поражением, поскольку оттеснена на роль бессильной оппозиции. Она рассчитывала, что общенациональная политическая обстановка сыграет ей на руку и позволит влиять на правительство.
 
-
 @united_left_saxony
 title: <span style="color: #c00000;">**СДПГ**</span> сформирует коалиционное правительство с <span style="color: #700000;">**КПГ**</span>.
 subtitle: Повторится ли история?
 view-if: left_coalition_saxony >= 50 and (kpd_relation >= 35 and kpd_leader == "Примиренцы") or (kpd_relation >= 55 and kpd_leader != "Примиренцы") and not red_saxony
-on-arrival: red_saxony = 1; z_relation -= 7; ddp_relation -= 7; dvp_relation -= 7; lvp_relation -= 7; coup_progress += 5; hindenburg_angry += 60; rfb_militancy += 0.08; rfb_strength += 150; sa_strength += 80; sh_strength += 80; strife += 1; workers_spd += 5; workers_kpd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; rural_spd -= 5; communist_coalition += 3; kpd_relation += 15; saxony_toleration = 0; saxony_groko = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
+on-arrival: red_saxony = 1; z_relation -= 7; ddp_relation -= 7; dvp_relation -= 7; lvp_relation -= 7; coup_progress += 5; hindenburg_angry += 60; rfb_militancy += 0.08; rfb_strength += 150; sa_strength += 80; sh_strength += 80; strife += 1; workers_spd += 5; workers_kpd += 5; unemployed_spd += 5; new_middle_spd -= 5 if new_middle_conscious == 0; old_middle_spd -= 5; rural_spd -= 5 if rural_conscious == 0; communist_coalition += 3; kpd_relation += 15; saxony_toleration = 0; saxony_groko = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
 go-to: president_nope if president_ideology == "Правые" and not presidential_powers
 on-display: {!  
     var cardEl = document.createElement('div');  
@@ -1048,18 +1028,16 @@ on-display: {!
 
 Удивительно, но [? if president_ideology != "Левые" and not presidential_powers: несмотря на нежелание обеих сторон из-за опасений, что <span style="color: #808080;">реакционный</span> президент прикажет провести <i>рейхсэкзекуцию</i> в случае формирования коалиции, ?] <span style="color: #c00000;">Красная</span> Саксония восстановлена!
 
+[? if (president_ideology == "Умеренные" or president == "Гинденбург") and not presidential_powers: As one of the most left-wing and industrial states in Germany, we will use our leverage to implement comprehensive reforms and transform Saxony into a stronghold of <span style="color: #c00000;">socialism</span>. The President’s patience is especially thin. Tread carefully. ?]
 [? if (president_ideology == "Умеренные" or president == "Гинденбург") and not presidential_powers: Поскольку это одна из самых левых и индустриальных земель Германии, мы используем наши рычаги влияния для проведения всесторонних реформ и превращения Саксонии в оплот <span style="color: #c00000;">социализма</span>. Терпение президента особенно на исходе. Действуйте осторожно.  ?] [? if president_ideology == "Левые" or presidential_powers: Поскольку это одна из самых левых и индустриальных земель Германии, мы используем наши рычаги влияния для проведения всесторонних реформ и превращения Саксонии в оплот <span style="color: #c00000;">социализма</span>. Однако слухи о попытке ультраправого переворота растут. Действуйте осторожно. ?]
-
 
 @president_nope
 
 - @joever
 
-
 @joever
 title: президент [+ president +] немедленно отдает приказ о <i>рейхсэкзекуции</i> против саксонского правительства.
 on-arrival: reichsex_sax_trigger = 1
-
 
 @no_majority
 title: Большинство собрать не удаётся!
@@ -1074,7 +1052,6 @@ view-if: not saxony_spd_maj and true_bourgeois_coalition_saxony < 50 and (spd_co
 - @sapd_aspd_ddp
 - @no_majority_2
 
-
 @no_majority_2
 title: Большинства по-прежнему нет!
 subtitle: [? if mega_bourgeois_coalition_saxony < 50: Даже с нашими голосами для коалиции всё кончено. ?][? if mega_bourgeois_coalition_saxony >= 50: Мы откажемся от политики воздержания от вотума недоверия к буржуазному правительству, что приведёт к новым выборам. ?]
@@ -1082,7 +1059,6 @@ view-if: (not saxony_no_majority_2 or far_right_coalition_saxony < 50)
 on-arrival: saxony_1933_trigger_time = time + 3; saxony_no_majority_2 = 1; saxony_no_majority = 1 if not saxony_no_majority; saxony_no_majority += 1 if saxony_no_majority; new_middle_nsdap += 3; old_middle_nsdap += 3; rural_nsdap += 3; unemployed_nsdap += 3; pro_republic -= 3; new_middle_spd -= 2 if toleration_possible_saxony; old_middle_spd -= 2 if toleration_possible_saxony; rural_spd -= 1 if toleration_possible_saxony; reformist_dissent += 10 if toleration_possible_saxony; left_dissent -= 5 if toleration_possible_saxony; saxony_toleration = 0; saxony_groko = 0; red_saxony = 0; saxony_joever = 0; saxony_spd = 0; saxony_right_2 = 0; saxony_nsdap = 0; saxony_spd_splinter = 0; saxony_soclib = 0; saxony_nsdap_maj = 0; saxony_kpd = 0; saxony_spd_maj = 0
 
 За неимением жизнеспособных альтернатив ландтагу грозит роспуск, что повлечет за собой новые выборы — возможность, которой <span style="color: #7A3C00;">**НСДАП**</span> надеется воспользоваться, сыграв на политической нестабильности и кажущемся провале парламентской демократии.
-
 
 @spd_majority
 title: Сформировать правительство только из СДПГ!

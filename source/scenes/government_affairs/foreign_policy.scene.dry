@@ -12,7 +12,6 @@ go-to: fp_menu
 
 Что должно стать приоритетом нашей внешней политики?
 
-
 @fp_menu
 
 - @improve_west
@@ -34,20 +33,17 @@ go-to: fp_menu
 - @easy_discard
 - @cancel_advisor_action
 
-
 @improve_west
 title: Улучшить отношения с <span style="color: #002654;">западными</span> <span style="color: #D7141A;">союзниками</span>.
 on-arrival: west_relation += 2; reparations_negotiation += 1
 
 Ключ к миру в Европе — сближение <span style="color: #002654;">Франции</span> и Германии. Мы предпринимаем шаги к этому. [? if young_plan_seen == 0 : Этого трудно достичь, когда <span style="color: #002654;">Франция</span> оккупирует значительную часть территории Германии, но мы работаем над этим. ?]
 
-
 @improve_east
 title: Улучшить отношения с нашими восточными соседями.
 on-arrival: east_relation += 2;
 
 Мы также стремимся улучшить отношения с нашими восточными соседями, <span style="color: #DC143C;">Поль</span><span style="color: #FFFFFF;">шей</span> и <span style="color: #11457E;">Чехо</span><span style="color: #FFFFFF;">сло</span><span style="color: #D7141A;">вакией</span>, которые справедливо опасаются германской агрессии. Надеемся, мы сможем убедить их в наших мирных намерениях.
-
 
 @improve_soviet_eco
 title: Расширить экспорт в <span style="color: #750e0e;">**Советский Союз**</span>.
@@ -59,7 +55,6 @@ max-visits: 1
 <span style="color: #750e0e;">Советский Союз</span> с его централизованной плановой экономикой и изоляцией от мировых рынков сумел оградить себя от последствий Великой депрессии. С тех пор там проходит стремительная индустриализация в соответствии с их пятилетним планом, что делает их ключевым партнёром для экспорта, особенно на фоне роста тарифов у наших номинальных торговых партнёров на Западе и их общей изоляции от международных рынков.
 
 <span style="color: #940000;">Советы</span> этим довольны, а мы получим экономическую выгоду. Единственный недостаток в том, что машина правой пропаганды осудила этот шаг и оказывает давление на [? if president == "Гинденбург": президента Гинденбурга и ?] буржуазные партии, чтобы те порвали с нами.
-
 
 @improve_soviet
 title: Улучшить отношения с <span style="color: #750e0e;">**Советским Союзом**</span>.
@@ -73,14 +68,12 @@ subtitle: Мы также могли бы поднять вопрос о <span s
 - @soviet_economic_aid_yes: Оказать помощь в обмен лишь на хорошие отношения.
 - @soviet_economic_aid_no: Не оказывать помощь.
 
-
 @soviet_economic_aid_yes_mil
 choose-if: budget >= 1
 subtitle: -1 бюджета
 on-arrival: soviet_aid_forpol = 1; budget -= 1; soviet_relation += 1; reichswehr_militancy += 0.2; reichswehr_loyalty += 0.05; foreign_goal_completed += 1
 
 <span style="color: #940000;">Советы</span> довольны тем, что мы направили им помощь, и согласились помочь в подготовке нашей армии. Рейхсвер ценит нашу поддержку.
-
 
 @soviet_economic_aid_yes
 choose-if: budget >= 1
@@ -93,18 +86,15 @@ on-arrival: soviet_aid_forpol = 1; budget -= 1; soviet_relation += 2; coalition_
 - @wittorf: Знают ли <span style="color: #940000;">Советы</span> о деле Витторфа? Знают ли они, что мы знаем?
 - @root: Не упоминать <span style="color: #700000;">**КПГ**</span>.
 
-
 @soviet_economic_aid_no
 
 <span style="color: #940000;">Советы</span> несколько расстроены, но, похоже, они ожидали такого ответа.
-
 
 
 @kpd
 on-arrival: kpd_relation += 8*(1-dissent); communist_coalition += 1 if kpd_foreign_seen == 0; kpd_foreign_seen = 1
 
 Мы также упоминаем <span style="color: #700000;">**КПГ**</span> в наших разговорах с <span style="color: #940000;">советским</span> послом. Они утверждают, что <span style="color: #700000;">**КПГ**</span> полностью независима от <span style="color: #940000;">советского</span> правительства, и что конфликт — дело рук Тельмана. Но вскоре после нашего разговора мы замечаем некоторое смягчение позиции со стороны <span style="color: #700000;">**КПГ**</span>.
-
 
 @wittorf
 view-if: wittorf_secret = 1 and ((year = 1929 and month < 6) or year = 1928) and wittorf_soviet_union = 0
@@ -113,7 +103,6 @@ on-arrival: wittorf_soviet_union = 1; kpd_relation += 6*(1-dissent); kpd_foreign
 max-visits: 1
 
 Конечно, <span style="color: #8B0000;">Сталин</span> и различные лидеры <span style="color: #D50000;">Коминтерна</span> знают о Деле Витторфа, но, похоже, они не в курсе, что мы тоже знаем. <span style="color: #D50000;">Коминтерн</span> планировал выстроить вокруг этого дела версию событий, оправдывающую Тельмана, но теперь они, возможно, будут менее склонны его защищать.
-
 
 
 @customs_union
@@ -130,7 +119,6 @@ view-if: black_thursday_seen = 1 and customs_union = 0
 - @customs_union_2: Да, давайте!
 - @fp_menu: Нет, давайте займёмся чем-нибудь другим.
 
-
 @customs_union_2
 on-arrival: banking_crisis_timer = 4; customs_union = 1; west_relation -= 2; east_relation -= 2; z_relation += 6; dvp_relation += 6; ddp_relation += 4; lvp_relation += 6; coalition_dissent -= 1 if coalition_dissent > 0; coup_progress -= 1; hindenburg_angry -= 15
 max-visits: 1
@@ -140,7 +128,6 @@ max-visits: 1
 Незамедлительно <span style="color: #002654;">Франция</span> и другие соседние страны заявляют протест. Какова будет их реакция в долгосрочной перспективе, ещё предстоит увидеть.
 
 
-
 @negotiate
 title: Провести переговоры о наших оставшихся обязательствах по Версальскому договору.
 subtitle: [? if young_plan_seen == 1 and black_thursday_seen : После принятия плана Юнга <span style="color: #002654;">Франция</span> обязалась вывести войска из Рейнской области. Теперь мы должны выяснить, смогут ли они ещё больше сократить наши репарации, учитывая экономическую депрессию.  ?][? if young_plan_seen == 1 and not black_thursday_seen : После принятия плана Юнга <span style="color: #002654;">Франция</span> обязалась вывести войска из Рейнской области. Теперь мы должны выяснить, смогут ли они ещё больше сократить наши репарации. ?]
@@ -148,7 +135,6 @@ view-if: reparations > -2 and reparations_negotiation < 3
 on-arrival: west_relation += 1; reparations_negotiation += 1; reparations_negotiation += 1 if pacifism >= 3; reparations_negotiation += 1 if nationalism <= 50; reparations_negotiation += 1 if west_relation >= 3
 
 Переговоры в целом проходят гладко. Западные державы убеждены в искренности и доброй воле Германии.[? if nationalism <= 50 or pacifism >= 3 : Они рады видеть, что мы отказываемся от милитаризма. ?]
-
 
 
 @reduce_reparations
@@ -163,7 +149,6 @@ max-visits: 1
 Наконец, учитывая экономическую обстановку и продолжающиеся переговоры, <span style="color: #0A3161;">западные</span> <span style="color: #C8102E;">союзники</span> готовы приостановить наши репарационные выплаты! В этом большая заслуга американского президента Гувера, который более дружелюбен к нам, чем <span style="color: #001489;">европейцы</span>.
 
 Это снизило напряжённость в правительстве, и это достижение записали в актив нашей партии.
-
 
 @settle_reparations
 title: Мы наконец-то урегулируем вопрос репараций с <span style="color: #0A3161;">западными</span> <span style="color: #C8102E;">союзниками</span>!
@@ -180,19 +165,17 @@ max-visits: 1
 
 - @schleicher_spd
 
-
 @schleicher_spd
 view-if: schleicher_spd and president == "Гинденбург"
 title: Но, разумеется, Шлейхер оговаривает, что мы должны потребовать военного паритета.
 subtitle: Это будет серьёзным предательством наших ценностей!
-on-arrival: military_parity = 1 if eu or (west_relation >= 8 and reformist_strength >= left_strength + center_strength and soviet_relation == 0 and kpd_relation < 30); reichswehr_strength += 300 if military_parity; sh_strength -= 100 if military_parity; sa_strength -= 50 if military_parity; rb_strength -= 150 if military_parity; nationalism += 5; nationalism += 15 if military_parity; pacifism -= 3; reichswehr_loyalty += 0.5 if military_parity; reichswehr_militancy += 2 if military_parity; workers_spd -= 6; old_middle_spd -= 2; new_middle_spd -= 4; rural_spd -= 2; catholics_spd -= 2; unemployed_spd -= 4; workers_kpd += 6; old_middle_ddp += 2; new_middle_ddp += 4; rural_ddp += 2; catholics_kpd += 2; unemployed_kpd += 4; old_middle_spd += 20 if military_parity; workers_nsdap -= 3 if military_parity; unemployed_nsdap -= 4 if military_parity; new_middle_nsdap -= 3 if military_parity; old_middle_nsdap -= 15 if military_parity; rural_nsdap -= 3 if military_parity; catholics_nsdap -= 3 if military_parity; left_dissent += 50; center_dissent += 40; labor_dissent += 30; reformist_dissent += 20; neorevisionist_dissent += 20; left_strength -= 20; center_strength -= 10; ddp_relation -= 5; dvp_relation += 15; dvp_left += 5; ddp_left += 10; ddp_cohesion += 5; lvp_relation += 5; new_middle_ddp += 10 if ddp_leader == "Людерс"; new_middle_spd -= 10 if ddp_leader == "Людерс"; workers_ddp += 5 if ddp_leader == "Людерс"; workers_spd -= 5 if ddp_leader == "Людерс"; west_relation -= 4; eu_progress -= 2
+on-arrival: military_parity = 1 if eu or (west_relation >= 8 and reformist_strength >= left_strength + center_strength and soviet_relation == 0 and kpd_relation < 30); reichswehr_strength += 300 if military_parity; sh_strength -= 100 if military_parity; sa_strength -= 50 if military_parity; rb_strength -= 150 if military_parity; nationalism += 5; nationalism += 15 if military_parity; pacifism -= 3; reichswehr_loyalty += 0.5 if military_parity; reichswehr_militancy += 2 if military_parity; workers_spd -= 6; old_middle_spd -= 2; new_middle_spd -= 4; rural_spd -= 2; catholics_spd -= 2; unemployed_spd -= 4; workers_kpd += 6; old_middle_ddp += 2; new_middle_ddp += 4; rural_ddp += 2; catholics_kpd += 2; unemployed_kpd += 4; old_middle_spd += 20 if military_parity; workers_nsdap -= 3 if military_parity; unemployed_nsdap -= 4 if military_parity; new_middle_nsdap -= 3 if military_parity; old_middle_nsdap -= 15 if military_parity; rural_nsdap -= 3 if military_parity; catholics_nsdap -= 3 if military_parity; left_dissent += 50; center_dissent += 40; labor_dissent += 30; reformist_dissent += 20; neorevisionist_dissent += 20; left_strength -= 20; center_strength -= 10; ddp_relation -= 5; dvp_relation += 15; dvp_left += 5; ddp_left += 10; ddp_cohesion += 5; lvp_relation += 5; new_middle_ddp += 10 if ddp_leader == "Людерс"; new_middle_spd -= 10 if ddp_leader == "Людерс"; workers_ddp += 5 if ddp_leader == "Людерс"; workers_spd -= 5 if ddp_leader == "Людерс"; west_relation -= 4; eu_progress -= 2; kpd_nazi_urgency -= 1;
 
 Генерал Шлейхер потребовал, чтобы мы подняли вопрос о перевооружении, которое до сих пор ограничено Версальским договором. Однако <span style="color: #002654;">французский</span> премьер-министр Эдуар Эррио ухватился за это как за признание того, что Германия на самом деле способна выплачивать репарации и просто направит высвободившиеся средства на перевооружение.
 
 [? if military_parity: [? if eu: Однако с образованием <span style="color: #001489;">Европейского</span> <span style="color: #FFDD00;">союза</span> и заключением его оборонных соглашений предотвращение перевооружения Германии стало практически неактуальным. В результате военные ограничения снимаются! ?][? if not eu: Однако наши исключительно дружеские отношения с <span style="color: #0A3161;">западными</span> <span style="color: #C8102E;">союзниками</span> привели к тому, что они нехотя предоставили нам послабления в вопросе перевооружения, полагая, что мы можем стать оплотом против <span style="color: #700000;">большевиков</span>. ?] В результате <span style="color: #7A3C00;">**НСДАП**</span> лишились еще одного инструмента пропаганды. Тем не менее, мы продолжаем нести тяжелые потери, уступая <span style="color: #700000;">**Коммунистам **</span>[? if not lvp_formed: &nbsp;и <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, к которым перешло множество наших сторонников ?]. ?]
 
 [? if not military_parity: Это сильно повредило нашему пацифистскому и демократическому имиджу как внутри страны, так и за рубежом. Будь ты проклят, Шлейхер! ?]
-
 
 @expose
 title: Разоблачить тайные планы перевооружения прежнего министерства иностранных дел!
@@ -203,16 +186,14 @@ on-arrival: west_relation += 2; east_relation += 1; nationalism -= 5*(1-dissent)
 
 Союзники благодарны нам за разоблачение и осуждение милитаризма. Наши партнёры по коалиции настроены не столь благосклонно.
 
-
 @concordat_negotiate
 title: Заключить конкордат между Германией и Ватиканом.
 view-if: (prussian_concordat = 1 or not spd_prussia) and reichskonkordat = 0 and reichskonkordat_progress < 4
 on-arrival: reichskonkordat_progress += 1; reichskonkordat_progress += 1 if z_leader == "Каас"; reichskonkordat_progress -= 1 if abortion_rights; reichskonkordat_progress -= 1 if family_law; z_relation += 3*(1-dissent); dvp_relation -= 1; ddp_relation -= 2; ddp_cohesion -= 0.25; lvp_relation -= 1; foreign_goal_spd_peoples += 1
 
-Римско-католическая церковь заинтересована в развитии отношений с Германской республикой, считая нас предпочтительнее старой антикатолической политики Империи. Мы работаем над подписанием конкордата — соглашения между Ватиканом и республикой, которое официально признаёт права и интересы Церкви в стране. [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] особенно заинтересована в заключении этого соглашения. Либеральные партии выступают против этой идеи. 
+Римско-католическая церковь заинтересована в развитии отношений с Германской республикой, считая нас предпочтительнее старой антикатолической политики Империи. Мы работаем над подписанием конкордата — соглашения между Ватиканом и республикой, которое официально признаёт права и интересы Церкви в стране. [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] особенно заинтересована в заключении этого соглашения. Либеральные партии выступают против этой идеи.
 
 [? if family_law : Наше либерализованное бракоразводное законодательство затрудняет выстраивание отношений с Ватиканом. ?] [? if abortion : Легализация абортов затрудняет налаживание связей с Церковью. ?] [? if z_leader == "Каас" : Каас из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] может использовать свои связи, чтобы ускорить переговоры. ?]
-
 
 @concordat
 title: Мы можем подписать Конкордат с Ватиканом!
@@ -222,14 +203,12 @@ achievement: reichskonkordat
 
 Мы успешно подписали Конкордат между Германией и Римско-католической церковью! Этот договор определяет официальные отношения между Церковью и германским государством, гарантируя свободу вероисповедания для католиков и право церкви назначать собственное духовенство. Католики Германии довольны, как и их представители в [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 
-
 @support_austria
 title: Оказать дипломатическую поддержку австрийской демократии в борьбе с диктатурой Дольфуса.
 view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
 on-arrival: sdapo_strength += 1; left_dissent -= 3; center_dissent -= 3
 
 Мы оказываем австрийской демократии поддержку на словах, ведём информационную войну против <span style="color: #7A3C00;">австрофашизма</span> и вводим дополнительные торговые санкции. Время покажет, будет ли этого достаточно.
-
 
 @support_austria_2
 title: Оказать материальную поддержку австрийской демократии в борьбе с диктатурой Дольфуса.
@@ -239,7 +218,6 @@ view-if: austrian_parliament_seen = 1 and austrian_civil_war_seen = 0
 on-arrival: budget -= 1; sdapo_strength += 3; left_dissent -= 6; center_dissent -= 6
 
 Публично мы заявляем о поддержке австрийской демократии, ведём информационную войну против <span style="color: #7A3C00;">австрофашизма</span> и вводим дополнительные торговые санкции. Негласно же мы оказываем финансовую и иную «поддержку» нашим товарищам в Австрии в их борьбе с диктатурой.
-
 
 @european_union
 title: Предпринять шаги к созданию «<span style="color: #001489;">Европейского</span> <span style="color: #FFDD00;">союза</span>».
@@ -252,10 +230,11 @@ on-arrival: eu_negotiation = 1; eu_progress += 1; west_relation += 1; foreign_go
 Создание «<span style="color: #FFDD00;">Соединённых Штатов</span> <span style="color: #001489;">Европы</span>» — давняя часть <span style="color: #c00000;">**социал-демократической**</span> программы внешней политики. Наконец, мы предпринимаем шаги в этом направлении. Учитывая наши позитивные отношения с другими странами <span style="color: #001489;">Европы</span>, мы можем начать многосторонние переговоры о расширении <span style="color: #001489;">европейского</span> <span style="color: #FFDD00;">федерализма</span>. Однако потребуется время, чтобы выработать точные очертания этого будущего «<span style="color: #001489;">Европейского</span> <span style="color: #FFDD00;">союза</span>».
 
 
-
 @european_union_2
 title: Мы можем подписать договор о создании <span style="color: #001489;">Европейского</span> <span style="color: #FFDD00;">союза</span>!
-view-if: west_relation >= 5 and east_relation >= 4 and eu_progress >= 3 and not eu and france_left_seen
+unavailable-subtitle: [? if west_relation < 5 : Our relations with the West are not good enough. ?] [? if east_relation < 4 : Our relations with the East are not good enough. ?]
+view-if: eu_progress >= 3 and not eu and france_left_seen
+choose-if: west_relation >= 5 and east_relation >= 4
 on-arrival: eu = 1; unemployed -= 2 if unemployed >= 10; inflation += 2 if inflation <= -2; inflation -= 1 if inflation >= 4.5; workers_spd += 5*(1-dissent); new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); rural_spd += 4*(1-dissent); catholics_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent); pro_republic += 5; nationalism -= 5; budget += 1; ddp_left += 3; ddp_cohesion += 3; ddp_relation += 10; lvp_relation += 5; foreign_goal_spd_peoples += 1; economic_growth += 1 if economic_growth < 3; kpd_coalition_dissent += 1; kpd_relation -= 10
 max-visits: 1
 achievement: eu

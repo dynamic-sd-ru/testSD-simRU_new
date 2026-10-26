@@ -12,7 +12,6 @@ go-to: economic_plan_menu if not lautenbach_adopted; economic_plan_dilemma if la
 
 Мы уже разработали экономический план. Теперь его нужно реализовать.[? if budget < 0: Если наш бюджет уйдёт в слишком большой минус, почти наверняка произойдёт бегство капитала. ?]
 
-
 @economic_plan_dilemma
 
 [+ public_works_name +] план уже реализован кабинетом Брюнинга до нас. Стоит ли нам продолжать его реализацию и, возможно, расширить его охват, или же мы должны следовать нашей собственной экономической стратегии?
@@ -22,7 +21,6 @@ go-to: economic_plan_menu if not lautenbach_adopted; economic_plan_dilemma if la
 - @nationalize_1
 - @nationalize_2
 - @cancel_advisor_action
-
 
 @lautenbach_continuation
 title: Мы продолжим реализацию [+ public_works_name +] плана.
@@ -36,6 +34,7 @@ on-arrival: lautenbach_plan_time = time + 12 if time >= lautenbach_plan_time; la
 
 [? if in_popular_front or in_left_front: <span style="color: #700000;">**КПГ**</span> выступает против экономического плана, видя в нём спасение капитализма, а не шаг к настоящему <span style="color: #9b0000;">социализму</span>. ?]
 
+[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> opposes the economic plan, seeing it as a rescue of capitalism rather than a step towards real <span style="color: #9b0000;">socialism</span>. ?]
 
 @lautenbach_wtb
 title: Наполнить план ВТБ планом [+ public_works_name +]а, предполагающим значительное расширение общественных работ и повышение зарплат.
@@ -52,6 +51,7 @@ max-visits: 1
 
 [? if in_popular_front or in_left_front: <span style="color: #700000;">**КПГ**</span> выступает против экономического плана, считая его спасением капитализма, а не шагом к настоящему <span style="color: #9b0000;">социализму</span>. ?]
 
+[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> opposes the economic plan, seeing it as a rescue of capitalism rather than a step towards real <span style="color: #9b0000;">socialism</span>. ?]
 
 @economic_plan_menu
 
@@ -69,7 +69,6 @@ max-visits: 1
 - @easy_discard
 - @cancel_advisor_action
 
-
 @austerity
 title: Рассмотреть возможные меры жёсткой экономии.
 subtitle: Мы должны как-нибудь наскрести денег.
@@ -78,7 +77,6 @@ view-if: black_thursday_seen
 - @cut_salaries
 - @industrial_levy
 - @economic_plan_menu: Назад.
-
 
 @cut_salaries
 title: Урезать зарплаты госслужащим.
@@ -89,7 +87,6 @@ on-arrival: government_salaries_cut = 1; new_middle_spd -= 8; new_middle_ddp -= 
 go-to: austerity
 
 Мы сократили зарплаты госслужащим примерно на 15%, представив это как болезненный, но необходимый шаг к восстановлению экономики Германии. Однако это оправдание мало кого убедило: многие отвернулись от демократических партий в пользу радикальной <span style="color: #7A3C00;">**НСДАП**</span>.
-
 
 @industrial_levy
 title: Сохранить промышленный сбор.
@@ -102,17 +99,15 @@ go-to: austerity
 
 Мы сохранили промышленный сбор, хотя он больше не используется для выплаты репараций. Как и ожидалось, мы навлекли на себя гнев деловых кругов[? if president == "Гинденбург": , которые обратятся со своими жалобами к президенту Гинденбургу ?]. В ответ на наше решение промышленники удвоят свою финансовую поддержку <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правым</span>[? if in_grand_coalition and not lvp_formed: , и <span style="color: #C0A054;">**ННП**</span>, в надежде, что они свергнут наше правительство ?][? if (in_weimar_coalition or in_grand_coalition) and lvp_formed: , и <span style="color: #FFCC00;">**ЛНП**</span>, в надежде, что они свергнут наше правительство ?].
 
-
 @wtb_2
 title: Продолжить внедрение плана ВТБ.
 subtitle: -3 к бюджету
 unavailable-subtitle: Безработица достаточно низкая, время для плана ВТБ прошло.
 view-if: wtb_implemented > 2 and budget >= 3 
 choose-if: unemployed > 8
-on-arrival: wtb_enactment_2_finish = time + 10; works_program += 1; budget -= 3; workers_spd += 5*(1-dissent); workers += 1 if works_program <= 4; unemployed_spd += 7*(1-dissent); workers_spd -= 2*(1-dissent) if schleicher_spd; unemployed_spd -= 3*(1-dissent) if schleicher_spd; reichswehr_strength += 35 if schleicher_spd; reichswehr_loyalty += 0.1 if reichswehr_spd; reichswehr_militancy += 0.5 if reichswehr_spd; workers_nsdap -= 3; wtb_implemented += 1; kpd_coalition_dissent += 1; kpd_relation -= 5 if in_popular_front or in_left_front; inflation += 2; inflation -= 1 if schleicher_spd; dvp_left += 1; ddp_left += 3; ddp_cohesion += 1; lvp_left += 2; pro_republic += 3; economic_plan_goal_spd += 1; wtb_rally -= 1
+on-arrival: wtb_enactment_2_finish = time + 10; works_program += 1; budget -= 3; workers_spd += 5*(1-dissent); workers += 1 if works_program <= 4; unemployed_spd += 7*(1-dissent); new_middle_spd += 2*(1-dissent) if new_middle_conscious == 1; workers_spd -= 2*(1-dissent) if schleicher_spd; unemployed_spd -= 3*(1-dissent) if schleicher_spd; new_middle_spd -= 2*(1-dissent) if schleicher_spd and new_middle_conscious == 1; reichswehr_strength += 35 if schleicher_spd; reichswehr_loyalty += 0.1 if reichswehr_spd; reichswehr_militancy += 0.5 if reichswehr_spd; workers_nsdap -= 3; wtb_implemented += 1; kpd_coalition_dissent += 1; kpd_relation -= 5 if in_popular_front or in_left_front; inflation += 2; inflation -= 1 if schleicher_spd; dvp_left += 1; ddp_left += 3; ddp_cohesion += 1; lvp_left += 2; pro_republic += 3; economic_plan_goal_spd += 1; wtb_rally -= 1
 
 [? if works_program == 4 : Мы начали вторую фазу плана ВТБ. ?][? if works_program > 4 : Мы продолжили внедрение плана ВТБ. ?] Помимо общественных работ, мы теперь сосредоточены на восстановлении нашей промышленности.
-
 
 
 @wtb_2_deficit
@@ -126,11 +121,10 @@ on-arrival: works_program += 1; budget -= 3; workers_spd += 4*(1-dissent); unemp
 Мы продолжили реализацию ВТБ-плана, несмотря на продолжающиеся дефицитные расходы. Помимо общественных работ, теперь мы сосредоточились на восстановлении нашей промышленности.
 
 
-
 @wtb_continuation
 title: Оценим достигнутые результаты и продолжим нашу работу…
 view-if: wtb_implemented >= 1 and wtb_implemented <= 2
-on-arrival: wtb_enactment_continuation_finish = time + 6 if wtb_implemented == 1; wtb_enactment_continuation_finish = wtb_enactment_continuation_finish + 6 if wtb_implemented == 2 and wtb_enactment_continuation_finish > time; wtb_enactment_continuation_finish = time + 6 if wtb_implemented == 2 and wtb_enactment_continuation_finish < time; budget += 1 if works_program <= 2; workers_spd += 5*(1-dissent); workers += 2 if works_program <= 2 else workers += 1; unemployed_spd += 8*(1-dissent); workers_spd -= 2.5*(1-dissent) if schleicher_spd; unemployed_spd -= 4*(1-dissent) if schleicher_spd; reichswehr_strength += 20 if schleicher_spd; reichswehr_loyalty += 0.05 if reichswehr_spd; reichswehr_militancy += 0.25 if reichswehr_spd; workers_nsdap -= 2; works_program += 1; z_relation += 3; dvp_relation += 3; lvp_relation += 3; coalition_dissent -= 1 if coalition_dissent >= 1; wtb_implemented += 1; capital_strike_progress -= 1 if capital_strike_progress >= 3; dvp_left += 1; ddp_relation += 5; ddp_left += 3; ddp_cohesion += 2; lvp_left += 2; pro_republic += 5; economic_plan_goal_spd += 1; wtb_rally -= 1
+on-arrival: wtb_enactment_continuation_finish = time + 6 if wtb_implemented == 1; wtb_enactment_continuation_finish = wtb_enactment_continuation_finish + 6 if wtb_implemented == 2 and wtb_enactment_continuation_finish > time; wtb_enactment_continuation_finish = time + 6 if wtb_implemented == 2 and wtb_enactment_continuation_finish < time; budget += 1 if works_program <= 2; workers_spd += 5*(1-dissent); workers += 2 if works_program <= 2 else workers += 1; unemployed_spd += 8*(1-dissent); new_middle_spd += 4*(1-dissent) if new_middle_conscious == 1; workers_spd -= 2.5*(1-dissent) if schleicher_spd; unemployed_spd -= 4*(1-dissent) if schleicher_spd; new_middle_spd -=4*(1-dissent) if schleicher_spd and new_middle_conscious == 1; reichswehr_strength += 20 if schleicher_spd; reichswehr_loyalty += 0.05 if reichswehr_spd; reichswehr_militancy += 0.25 if reichswehr_spd; workers_nsdap -= 2; works_program += 1; z_relation += 3; dvp_relation += 3; lvp_relation += 3; coalition_dissent -= 1 if coalition_dissent >= 1; wtb_implemented += 1; capital_strike_progress -= 1 if capital_strike_progress >= 3; dvp_left += 1; ddp_relation += 5; ddp_left += 3; ddp_cohesion += 2; lvp_left += 2; pro_republic += 5; economic_plan_goal_spd += 1; wtb_rally -= 1
 
 Расходы на общественные работы снизили потребность в пособиях по безработице и соцобеспечении, а эффект мультипликатора увеличил налоговые поступления, поскольку новые деньги в экономике частично окупили наши затраты. Мы продолжаем вкладывать большую часть новых доходов в программу.
 
@@ -138,6 +132,7 @@ on-arrival: wtb_enactment_continuation_finish = time + 6 if wtb_implemented == 1
 
 [? if in_popular_front or in_left_front: Но <span style="color: #700000;">**КПГ**</span>, однако, по-прежнему выступает против нашей политики «спасения» капитализма. ?]
 
+[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> however, still opposes our policy of "rescuing" capitalism. ?]
 
 @implement_wtb_no_deficit
 title: Реализовать план ВТБ.
@@ -145,13 +140,14 @@ subtitle: -[+ wtb_budget +] Бюджет.[? if wtb_budget == 3 : Наша пол
 unavailable-subtitle: [? if unemployed < 8: Безработица достаточно низка, так что время для плана ВТБ прошло. ?] [? if in_grand_coalition and (finance_minister_party == "ННП" or economic_minister_party == "ННП" and dvp_ideology != "Левые") and not lvp_formed: <span style="color: #C0A054;">**ННП**</span> будет мешать нам, используя свои позиции в [? if finance_minister_party == "ННП": Министерстве финансов ?][? if economic_minister_party == "ННП" and finance_minister_party == "ННП": &nbsp;и ?][? if economic_minister_party == "ННП": Министерстве экономики ?]. ?][? if (in_weimar_coalition or in_grand_coalition) and (finance_minister_party == "ЛНП" or economic_minister_party == "ЛНП" and lvp_ideology != "Левые") and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> будет мешать нам, используя свои позиции в [? if finance_minister_party == "ЛНП": Министерстве финансов ?][? if economic_minister_party == "ЛНП" and finance_minister_party == "ЛНП": &nbsp;и ?][? if economic_minister_party == "ЛНП": Министерстве экономики ?]. ?] [? if in_grand_coalition and dvp_ideology == "Правые" and not lvp_formed: <span style="color: #C0A054;">**ННП**</span> инициирует превентивный вотум недоверия. ?][? if in_weimar_coalition or in_grand_coalition and lvp_ideology == "Правые" and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> инициирует превентивный вотум недоверия. ?]
 view-if: budget >= wtb_budget and wtb_implemented == 0 and wtb_adopted == 1
 choose-if: unemployed > 8 and ((((economic_minister_party != "ННП" and finance_minister_party != "ННП") or dvp_ideology == "Левые") and (dvp_ideology != "Правые" and in_grand_coalition) or not in_grand_coalition) and not lvp_formed) or ((((economic_minister_party != "ЛНП" and finance_minister_party != "ЛНП") or lvp_ideology == "Левые") and (lvp_ideology != "Правые" and (in_grand_coalition or in_weimar_coalition)) or (not in_grand_coalition and not in_weimar_coalition)) and lvp_formed)
-on-arrival: budget -= wtb_budget; coalition_dissent += 1 if (in_grand_coalition or in_minority_government); works_program += 1; unemployed -= 4; workers_spd += 8*(1-dissent); unemployed_spd += 8*(1-dissent); workers_spd -= 4*(1-dissent) if schleicher_spd; unemployed_spd -= 4*(1-dissent) if schleicher_spd; reichswehr_strength += 20 if schleicher_spd; reichswehr_loyalty += 0.05 if reichswehr_spd; reichswehr_militancy += 0.5 if reichswehr_spd; wtb_implemented += 1; kpd_coalition_dissent += 1; kpd_relation -= 5 if in_popular_front or in_left_front; inflation += 2; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 1; lvp_right += 1; pro_republic += 3*(1-dissent); economic_growth += 2.8; economic_growth -= 0.8 if schleicher_spd; economic_plan_goal_spd += 1; wtb_rally = 0
+on-arrival: budget -= wtb_budget; coalition_dissent += 1 if (in_grand_coalition or in_minority_government); works_program += 1; unemployed -= 4; workers_spd += 8*(1-dissent); unemployed_spd += 8*(1-dissent); new_middle_spd += 4*(1-dissent) if new_middle_conscious == 1; workers_spd -= 4*(1-dissent) if schleicher_spd; unemployed_spd -= 4*(1-dissent) if schleicher_spd; new_middle_spd -= 4*(1-dissent) if schleicher_spd and new_middle_conscious == 1; reichswehr_strength += 20 if schleicher_spd; reichswehr_loyalty += 0.05 if reichswehr_spd; reichswehr_militancy += 0.5 if reichswehr_spd; wtb_implemented += 1; kpd_coalition_dissent += 1; kpd_relation -= 5 if in_popular_front or in_left_front; inflation += 2; dvp_right += 1; ddp_left += 1; ddp_cohesion -= 1; lvp_right += 1; pro_republic += 3*(1-dissent); economic_growth += 2.8; economic_growth -= 0.8 if schleicher_spd; economic_plan_goal_spd += 1; wtb_rally = 0
 achievement: wirtschaftspolitik
 
 Мы начали реализацию плана ВТБ. Деньги поступают в экономику через инвестиции в масштабные общественные работы. Буржуазные партии выражают обеспокоенность инфляцией и расходами, предпочитая для борьбы с экономическим кризисом снижение налогов. Однако они неохотно принимают наш план, успокоенные созданным нами профицитом.
 
 [? if in_popular_front or in_left_front: <span style="color: #700000;">**КПГ**</span> выступает против плана ВТБ, видя в нём спасение капитализма, а не шаг к настоящему <span style="color: #9b0000;">социализму</span>. ?]
 
+[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> opposes the WTB plan, seeing it as a rescue of capitalism rather than a step towards real <span style="color: #9b0000;">socialism</span>. ?]
 
 @implement_wtb_deficit
 title: Реализовать план ВТБ.
@@ -159,29 +155,29 @@ subtitle: -[+ wtb_budget +] бюджет — мы перейдём к дефиц
 unavailable-subtitle: [? if unemployed < 8: Уровень безработицы достаточно низок, и время для плана ВТБ уже прошло. ?] [? if in_grand_coalition and (finance_minister_party == "ННП" or economic_minister_party == "ННП") and not lvp_formed: <span style="color: #C0A054;">**ННП**</span> будет мешать нам, используя своё положение в [? if finance_minister_party == "ННП": Министерстве финансов ?][? if economic_minister_party == "ННП" and finance_minister_party == "ННП": &nbsp;и ?][? if economic_minister_party == "ННП": Министерстве экономики ?]. ?][? if (in_grand_coalition or in_weimar_coalition) and (finance_minister_party == "ЛНП" or economic_minister_party == "ЛНП") and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> будет мешать нам, используя своё положение в [? if finance_minister_party == "ЛНП": Министерстве финансов ?][? if economic_minister_party == "ЛНП" and finance_minister_party == "ЛНП": &nbsp;и ?][? if economic_minister_party == "ЛНП": Министерстве экономики ?]. ?] [? if in_grand_coalition and dvp_ideology != "Левые" and not lvp_formed: <span style="color: #C0A054;">**ННП**</span> инициирует упреждающий вотум недоверия. ?][? if (in_grand_coalition or in_weimar_coalition) and lvp_ideology != "Левые" and lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> инициирует упреждающий вотум недоверия. ?]
 view-if: budget < wtb_budget and wtb_implemented == 0 and wtb_adopted == 1
 choose-if: unemployed > 8 and (((economic_minister_party != "ННП" and finance_minister_party != "ННП" and (dvp_ideology == "Левые" and in_grand_coalition) or not in_grand_coalition) and not lvp_formed) or ((economic_minister_party != "ЛНП" and finance_minister_party != "ЛНП" and (lvp_ideology == "Левые" and (in_grand_coalition or in_weimar_coalition)) or (not in_grand_coalition and not in_weimar_coalition)) and lvp_formed))
-on-arrival: coalition_dissent += 2; coalition_dissent += 1 if in_minority_government; coalition_dissent += 1 if chancellor == "Брюнинг"; coalition_dissent -= 1 if z_leader == "Кайзер"; works_program += 1; budget -= wtb_budget; unemployed -= 4; workers += 2; workers_spd += 8*(1-dissent); unemployed_spd += 8*(1-dissent); workers_spd -= 4*(1-dissent) if schleicher_spd; unemployed_spd -= 4*(1-dissent) if schleicher_spd; reichswehr_strength += 20 if schleicher_spd; reichswehr_loyalty += 0.05 if reichswehr_spd; reichswehr_militancy += 0.5 if reichswehr_spd; capital_strike_progress += 1; wtb_implemented += 1; kpd_coalition_dissent += 1; kpd_relation -= 5 if in_popular_front or in_left_front; inflation += 3; dvp_right += 3; ddp_right += 1; ddp_cohesion -= 1; dvp_relation -= 10; ddp_relation -= 5; z_relation -= 5; lvp_relation -= 8; lvp_right += 2; pro_republic += 3*(1-dissent); economic_growth += 3; economic_growth -= 1 if schleicher_spd; economic_plan_goal_spd += 1; wtb_rally = 0
+on-arrival: coalition_dissent += 2; coalition_dissent += 1 if in_minority_government; coalition_dissent += 1 if chancellor == "Брюнинг"; coalition_dissent -= 1 if z_leader == "Кайзер"; works_program += 1; budget -= wtb_budget; unemployed -= 4; workers += 2; workers_spd += 8*(1-dissent); unemployed_spd += 8*(1-dissent); new_middle_spd += 4*(1-dissent) if new_middle_conscious == 1; workers_spd -= 4*(1-dissent) if schleicher_spd; unemployed_spd -= 4*(1-dissent) if schleicher_spd; reichswehr_strength += 20 if schleicher_spd; new_middle_spd -= 4*(1-dissent) if schleicher_spd and new_middle_conscious == 1; reichswehr_loyalty += 0.05 if reichswehr_spd; reichswehr_militancy += 0.5 if reichswehr_spd; capital_strike_progress += 1; wtb_implemented += 1; kpd_coalition_dissent += 1; kpd_relation -= 5 if in_popular_front or in_left_front; inflation += 3; dvp_right += 3; ddp_right += 1; ddp_cohesion -= 1; dvp_relation -= 10; ddp_relation -= 5; z_relation -= 5; lvp_relation -= 8; lvp_right += 2; pro_republic += 3*(1-dissent); economic_growth += 3; economic_growth -= 1 if schleicher_spd; economic_plan_goal_spd += 1; wtb_rally = 0
 achievement: wirtschaftspolitik
 
 Мы перешли к дефицитному финансированию. Наши партнёры по коалиции возмущены, но план работ всё равно принят. Деньги начинают поступать в экономику благодаря инвестициям в масштабные общественные работы.
 
 [? if in_popular_front or in_left_front: <span style="color: #700000;">**КПГ**</span> выступает против плана ВТБ, видя в нём спасение капитализма, а не шаг к настоящему <span style="color: #9b0000;">социализму</span>. ?]
 
+[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> opposes the WTB plan, seeing it as a rescue of capitalism rather than a step towards real <span style="color: #9b0000;">socialism</span>. ?]
+
 
 ####################### left economic policies (socializations)
-
 
 @nationalize_1
 title: Реализовать план левых по преобразованию экономики.
 subtitle: -[+ nationalize_budget +] бюджет.[? if works_councils >= 3 : Наши рабочие советы сократили бюджет, необходимый для этой программы.  ?] [? if socializations >= 2: Наша текущая политика социализации сократила бюджет, необходимый для этой программы. ?]
 unavailable-subtitle: Наше коалиционное соглашение не допускает социализации.
 choose-if: not cvp_economy_accepted
-view-if: nationalization_adopted == 1 and nationalization_progress == 0 and not schleicher_spd
+view-if: nationalization_adopted == 1 and not schleicher_spd
 go-to: nationalize_deficit if budget < nationalize_budget; nationalize_no_deficit if budget >= nationalize_budget
 
 
-
 @nationalize_no_deficit
-on-arrival: nationalization_progress += 1; capital_strike_progress += 2; unemployed -= 3.5 if unemployed >= 6; unemployed -= 1.2 if works_councils >= 3; workers += 2 if nationalization_progress < 2; budget -= nationalize_budget; works_program += 1; workers_spd += 8*(1-dissent); unemployed_spd += 5*(1-dissent); coalition_dissent += 1; dvp_relation -= 4; lvp_relation -= 4; left_dissent -= 5; new_middle_spd -= 2; old_middle_spd -= 3; economy_goal_completed += 1; economic_plan_goal_spd += 1; inflation += 2; dvp_right += 2; ddp_relation -= 4; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 2; goal_spd_cancel_peoples += 1; economic_growth += 1.7 if economic_growth < 5;
+on-arrival: nationalization_progress += 1; capital_strike_progress += 2; unemployed -= 3.5 if unemployed >= 6; unemployed -= 1.2 if works_councils >= 3; workers += 2 if nationalization_progress < 2; budget -= nationalize_budget; works_program += 1; workers_spd += 8*(1-dissent); unemployed_spd += 5*(1-dissent); new_middle_spd += 4*(1-dissent) if new_middle_conscious == 1; coalition_dissent += 1; dvp_relation -= 4; lvp_relation -= 4; left_dissent -= 5; new_middle_spd -= 2 if new_middle_conscious == 0; old_middle_spd -= 3; economy_goal_completed += 1; economic_plan_goal_spd += 1; inflation += 2; dvp_right += 2; ddp_relation -= 4; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 2; goal_spd_cancel_peoples += 1; economic_growth += 1.7 if economic_growth < 5;
 achievement: wirtschaftspolitik
 
 [? if nationalization_progress == 1 : Мы начали скупать у капиталистов простаивающие предприятия[? if works_councils >= 1: , чтобы управлять ими совместно с получившими новые полномочия рабочими советами  ?]. Поддерживая производство, мы сможем сдержать рост безработицы.  ?]
@@ -189,7 +185,6 @@ achievement: wirtschaftspolitik
 [? if nationalization_progress == 1 : Левые утверждают, что это лишь первый шаг на пути <span style="color: #c00000;">социалистической</span> трансформации экономики. В конечном счёте значительная часть экономики должна перейти под народный контроль.  ?]
 
 [? if nationalization_progress > 1 : Мы скупаем новые неэффективно используемые предприятия и управляем ими совместно с рабочими советами на скоординированных <span style="color: #c00000;">социалистических</span> началах, нанимая ранее уволенных рабочих. Теперь значительная часть экономики находится под общественным контролем. ?]
-
 
 @nationalize_deficit
 
@@ -201,13 +196,12 @@ achievement: wirtschaftspolitik
 - @return: Нет, нам не следует этого делать.
 
 
-
 @nationalize_deficit_1
 title: Пойти на дефицит бюджета для финансирования программы национализации.
 choose-if: left_strength > reformist_strength + center_strength or woytinsky_advisor == 1
 subtitle: [? if woytinsky_advisor: Войтинский может убедить нас поддержать дефицит бюджета. ?]
 unavailable-subtitle: [? if left_strength <= reformist_strength + center_strength: Партия пока не поддерживает бюджетный дефицит для этой цели. ?] [? if not woytinsky_advisor : Возможно, привлечение советника поможет сделать эту меру более приемлемой? ?]
-on-arrival: nationalization_progress += 1; capital_strike_progress += 3; unemployed -= 3 if unemployed >= 6; unemployed -= 1.2 if works_councils >= 3; budget -= nationalize_budget; works_program += 1; workers_spd += 8*(1-dissent); unemployed_spd += 5*(1-dissent); coalition_dissent += 2; coalition_dissent -= 1 if z_leader == "Кайзер"; dvp_relation -= 6; lvp_relation -= 6; z_relation -= 4; new_middle_spd -= 3; old_middle_spd -= 3; economy_goal_completed += 1; economic_plan_goal_spd += 1; inflation += 3; dvp_right += 4; ddp_relation -= 6; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 4; goal_spd_cancel_peoples += 1; economic_growth += 2 if economic_growth < 5;
+on-arrival: nationalization_progress += 1; capital_strike_progress += 3; unemployed -= 3 if unemployed >= 6; unemployed -= 1.2 if works_councils >= 3; budget -= nationalize_budget; works_program += 1; workers_spd += 8*(1-dissent); unemployed_spd += 5*(1-dissent); new_middle_spd += 3*(1-dissent) if new_middle_conscious == 1; coalition_dissent += 2; coalition_dissent -= 1 if z_leader == "Кайзер"; dvp_relation -= 6; lvp_relation -= 6; z_relation -= 4; new_middle_spd -= 3 if new_middle_conscious == 0; old_middle_spd -= 3; economy_goal_completed += 1; economic_plan_goal_spd += 1; inflation += 3; dvp_right += 4; ddp_relation -= 6; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 4; goal_spd_cancel_peoples += 1; economic_growth += 2 if economic_growth < 5;
 achievement: wirtschaftspolitik
 
 [? if woytinsky_advisor: Большинство в партии, даже в левом крыле, выступает против дефицитного бюджета в любых его проявлениях, за исключением Владимира Войтинского. Хотя изначально он не поддерживал «преобразовательный» план левых, он изменил своё мнение и убедил партию и министерство финансов поддержать ограниченный дефицитный бюджет, чтобы выйти из экономической депрессии.  ?]
@@ -218,13 +212,12 @@ achievement: wirtschaftspolitik
 
 [? if nationalization_progress > 1 : Мы скупаем другие нерентабельные предприятия и управляем ими совместно с производственными советами на скоординированной <span style="color: #c00000;">социалистической</span> основе, нанимая ранее уволенных рабочих. Значительная часть экономики теперь находится под общественным контролем. ?]
 
-
 @nationalize_without_compensation
 title: Национализация без компенсации.
 subtitle: У нас есть все основания просто забрать простаивающие заводы. Это, скорее всего, приведёт к столкновению с капиталистами.
 unavailable-subtitle: [? if left_strength <= reformist_strength + center_strength: Большинство членов партии не поддерживает эту квазизаконную меру. ?] [? if judicial_reform < 3 : Судебная власть выступит против этой меры. ?]
 choose-if: left_strength > reformist_strength + center_strength and judicial_reform >= 3
-on-arrival: nationalization_progress += 1; capital_strike_progress += 7; coup_progress += 3; unemployed -= 2.5 if unemployed >= 6; unemployed -= 1.2 if works_councils >= 3 and unemployed >= 3; works_program += 1; workers_spd += 8*(1-dissent); unemployed_spd += 6*(1-dissent); coalition_dissent += 2; coalition_dissent -= 1 if z_leader == "Кайзер"; dvp_relation -= 10; z_relation -= 8; ddp_relation -= 8; lvp_relation -= 10; left_strength += 15; reformist_dissent += 10; left_dissent -= 10; new_middle_spd -= 5; old_middle_spd -= 8; economy_goal_completed += 1; economic_plan_goal_spd += 1; kpd_relation += 5*(1-dissent); inflation += 4; dvp_right += 5; ddp_right += 5; ddp_cohesion -= 2.5; lvp_right += 5; goal_spd_cancel_peoples += 1; economic_growth += 1 if economic_growth < 4;
+on-arrival: nationalization_progress += 1; capital_strike_progress += 7; coup_progress += 3; unemployed -= 2.5 if unemployed >= 6; unemployed -= 1.2 if works_councils >= 3 and unemployed >= 3; works_program += 1; workers_spd += 8*(1-dissent); unemployed_spd += 6*(1-dissent); new_middle_spd += 3*(1-dissent) if new_middle_conscious == 1; coalition_dissent += 2; coalition_dissent -= 1 if z_leader == "Кайзер"; dvp_relation -= 10; z_relation -= 8; ddp_relation -= 8; lvp_relation -= 10; left_strength += 15; reformist_dissent += 10; left_dissent -= 10; new_middle_spd -= 5 if new_middle_conscious == 0; old_middle_spd -= 8; economy_goal_completed += 1; economic_plan_goal_spd += 1; kpd_relation += 5*(1-dissent); inflation += 4; dvp_right += 5; ddp_right += 5; ddp_cohesion -= 2.5; lvp_right += 5; goal_spd_cancel_peoples += 1; economic_growth += 1 if economic_growth < 4; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 achievement: wirtschaftspolitik
 
 Капиталисты, что неудивительно, в ярости от нашей политики национализации без компенсации. Они называют это незаконной экспроприацией, и так оно и есть. Тем не менее очевидно, что они потерпели крах, оставив свои заводы простаивать, и мы должны пойти на радикальные меры.
@@ -233,19 +226,17 @@ achievement: wirtschaftspolitik
 
 [? if nationalization_progress > 1 : Мы приобрели ещё больше неэффективно используемых предприятий и управляем ими совместно с рабочими советами в едином <span style="color: #c00000;">социалистическом</span> ключе, нанимая ранее уволенных рабочих. Значительная часть экономики теперь находится под общественным контролем. ?]
 
-
 @empower_workers
 title: Наделить рабочих правом захватывать фабрики.
 subtitle: Мы можем пообещать узаконить захваты фабрик, передав их в руки рабочих союзов. Это крайне конфронтационная мера, которая, скорее всего, вызовет ответную реакцию со стороны как правых боевиков, так и капиталистов.
 unavailable-subtitle: [? if left_strength <= reformist_strength + neorevisionist_strength : Большинство партии не поддерживает эту радикальную меру. ?] [? if judicial_reform < 3 : Судебная власть выступит против этой меры. ?] [? if rb_militancy < 0.25 : Если бы мы усилили наши военизированные формирования, возможно, мы бы смогли это сделать.  ?] [? if works_councils < 1 : Сначала нам нужна поддержка производственных советов. ?]
 choose-if: left_strength > reformist_strength + neorevisionist_strength and (judicial_reform >= 3 or rb_militancy >= 0.25) and works_councils >= 1
-on-arrival: nationalization_progress += 1; capital_strike_progress += 6; coup_progress += 5; unemployed -= 3 if unemployed >= 6; unemployed -= 1.5 if works_councils >= 3 and unemployed > 4; works_program += 1; workers_spd += 10*(1-dissent); unemployed_spd += 10*(1-dissent); coalition_dissent += 2; coalition_dissent -= 1 if z_leader == "Кайзер"; dvp_relation -= 10; z_relation -= 8; ddp_relation -= 8; lvp_relation -= 10; workers_nsdap -= 5*(1-dissent); unemployed_nsdap -= 5*(1-dissent); left_strength += 15; reformist_dissent += 10; left_dissent -= 10; new_middle_spd -= 5; old_middle_spd -= 10; factory_takeovers += 1; economy_goal_completed += 1; economic_plan_goal_spd += 1; kpd_relation += 5*(1-dissent); inflation += 3; dvp_right += 10; ddp_right += 7.5; ddp_cohesion -= 3; lvp_right += 10; goal_spd_cancel_peoples += 1; economic_growth += 1 if economic_growth < 3;
+on-arrival: nationalization_progress += 1; capital_strike_progress += 6; coup_progress += 5; unemployed -= 3 if unemployed >= 6; unemployed -= 1.5 if works_councils >= 3 and unemployed > 4; works_program += 1; workers_spd += 10*(1-dissent); unemployed_spd += 10*(1-dissent); new_middle_spd += 4*(1-dissent) if new_middle_conscious == 1; coalition_dissent += 2; coalition_dissent -= 1 if z_leader == "Кайзер"; dvp_relation -= 10; z_relation -= 8; ddp_relation -= 8; lvp_relation -= 10; workers_nsdap -= 5*(1-dissent); unemployed_nsdap -= 5*(1-dissent); left_strength += 15; reformist_dissent += 10; left_dissent -= 10; new_middle_spd -= 5; old_middle_spd -= 10; factory_takeovers += 1; economy_goal_completed += 1; economic_plan_goal_spd += 1; kpd_relation += 5*(1-dissent); inflation += 3; dvp_right += 10; ddp_right += 7.5; ddp_cohesion -= 3; lvp_right += 10; goal_spd_cancel_peoples += 1; economic_growth += 1 if economic_growth < 3; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 achievement: wirtschaftspolitik
 
 Капиталисты, что предсказуемо, в ярости из-за нашей политики по узакониванию захватов фабрик. Они называют это незаконной экспроприацией, и так оно и есть. Тем не менее очевидно, что они потерпели крах, и мы должны пойти на радикальные меры.
 
 <span style="color: #7A3C00;">Фашисты</span> предпринимают всё более жестокие вылазки в районе захваченных фабрик, называя нас ворами и мародёрами. Однако часть сторонников <span style="color: #7A3C00;">фашистов</span> из рабочего класса удалось отколоть — по крайней мере тех, у кого есть чувство классовой солидарности.
-
 
 
 @nationalize_2
@@ -258,7 +249,6 @@ go-to: nationalize_deficit if budget < nationalize_budget; nationalize_no_defici
 
 #######################################
 # Moderate economic plan
-
 
 @moderate_plan
 title: Реализовать план реформистов по созданию рабочих мест.
@@ -279,6 +269,7 @@ achievement: wirtschaftspolitik
 
 [? if in_popular_front or in_left_front: <span style="color: #700000;">**КПГ**</span> выступает против этого экономического плана, видя в нём спасение капитализма, а не шаг к настоящему <span style="color: #9b0000;">социализму</span>. ?]
 
+[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> opposes the economic plan, seeing it as a rescue of capitalism rather than a step towards real <span style="color: #9b0000;">socialism</span>. ?]
 
 @moderate_plan_limited_budget
 title: Частично реализовать план реформистов по созданию рабочих мест с меньшими затратами.
@@ -286,7 +277,7 @@ subtitle: -1 к бюджету.
 unavailable-subtitle: -1 к бюджету.[? if budget < 1 :  У нас нет необходимого бюджета. ?] [? if unemployed < 8 :  Уровень безработицы достаточно низок, поэтому в создании рабочих мест нет необходимости. ?]
 view-if: moderate_plan_adopted == 1
 choose-if: budget >= 1 and unemployed >= 8
-on-arrival: budget -= 1; works_program += 1; reformist_plan_time = time + 3 if time >= reformist_plan_time; reformist_plan_time += 3 if reformist_plan_time >= time; unemployed -= 1 if unemployed >= 8; unemployed -= 2 if unemployed >= 30; inflation += 1; workers_spd += 2*(1-dissent); unemployed_spd += 2*(1-dissent); new_middle_spd += 1.5*(1-dissent); old_middle_spd += 1*(1-dissent); rural_spd += 1*(1-dissent); moderate_plan_progress += 1; kpd_coalition_dissent += 1; inflation += 1 if unemployed < 10; kpd_relation -= 5 if in_popular_front or in_left_front; dvp_left += 1; ddp_left += 0.5; ddp_cohesion += 0.25; lvp_left += 1; economic_plan_goal_spd += 1; economy_goal_spd_peoples += 1; economic_growth += 0.7;
+on-arrival: budget -= 1; works_program += 1; reformist_plan_time = time + 3 if time >= reformist_plan_time; reformist_plan_time += 3 if reformist_plan_time >= time; unemployed -= 1 if unemployed >= 8; unemployed -= 2 if unemployed >= 30; inflation += 1; workers_spd += 2*(1-dissent); unemployed_spd += 2*(1-dissent); new_middle_spd += 2*(1-dissent) if new_middle_conscious == 1; new_middle_spd += 1.5*(1-dissent) if new_middle_conscious == 0; old_middle_spd += 1*(1-dissent); rural_spd += 1*(1-dissent); moderate_plan_progress += 1; kpd_coalition_dissent += 1; inflation += 1 if unemployed < 10; kpd_relation -= 5 if in_popular_front or in_left_front; dvp_left += 1; ddp_left += 0.5; ddp_cohesion += 0.25; lvp_left += 1; economic_plan_goal_spd += 1; economy_goal_spd_peoples += 1; economic_growth += 0.7;
 achievement: wirtschaftspolitik
 
 [? if moderate_plan_progress == 1 : Мы начали реализацию плана по созданию рабочих мест! Средства направляются на проекты общественных работ по всей Германии, что сокращает безработицу.  ?]
@@ -298,3 +289,5 @@ achievement: wirtschaftspolitik
 [? if unemployed < 10 : Уровень безработицы достаточно низок, поэтому план, похоже, не даёт желаемого эффекта.  ?]
 
 [? if in_popular_front or in_left_front: <span style="color: #700000;">**КПГ**</span> выступает против экономического плана, видя в нём спасение капитализма, а не шаг к настоящему <span style="color: #9b0000;">социализму</span>. ?]
+
+[? if sapd_toleration: The <span style="color: #9B0000;">**СРПГ**</span> opposes the economic plan, seeing it as a rescue of capitalism rather than a step towards real <span style="color: #9b0000;">socialism</span>. ?]

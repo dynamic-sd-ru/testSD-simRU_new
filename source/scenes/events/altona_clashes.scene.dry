@@ -13,36 +13,31 @@ max-visits: 1
 - @allow_police: Разрешить марш при усиленном присутствии полиции.
 - @allow_no_police: Разрешить марш без присутствия полиции.
 
-
 @ban_march
 choose-if: judicial_reform >= 2
 unavailable-subtitle: Реакционные судебные органы не позволят нам запретить акцию протеста, ссылаясь на свободу слова.
-on-arrival: sa_strength -= 10; altona_good = 1
+on-arrival: sa_strength -= 10; altona_good = 1; kpd_nazi_urgency += 2;
 
 Мы запретили запланированную акцию протеста. <span style="color: #7A3C00;">Нацисты</span> обжалуют этот запрет в суде во имя свободы слова. К счастью, судебные органы соглашаются с нами в том, что довод <span style="color: #7A3C00;">нацистов</span> несостоятелен. Суд видит в этом марше провокацию, нацеленную на подстрекательство насилия.
-
 
 
 @allow_police
 go-to: allow_police_violence if prussian_police_loyalty <= 0.75; allow_police_no_violence if prussian_police_loyalty > 0.75 
 
-
 @allow_police_violence
-on-arrival: strife += 1; sa_strength += 50; kpd_relation -= 8; communist_coalition -= 1
+on-arrival: strife += 1; sa_strength += 50; kpd_relation -= 8; communist_coalition -= 1; kpd_nazi_urgency += 2;
 
 Когда марш прибывает в Альтону, его тут же встречает разъяренная толпа <span style="color: #700000;">коммунистов</span> и <span style="color: #c00000;">социалистов</span>, которые забрасывают <span style="color: #7A3C00;">нацистов</span> различными предметами. Полиция пытается разделить две группы, но безуспешно. Слышны выстрелы, как сообщается, от снайперов на крышах (которых полиция считает <span style="color: #700000;">коммунистами</span>). В ответ полиция открывает огонь по близлежащим зданиям. Убиты десятки людей. Все они оказываются мирными жителями, а заявленных снайперов так и не находят.
 
 В прессе этот инцидент назвали «Альтонским кровавым воскресеньем». <span style="color: #700000;">Коммунисты</span> резко критикуют некомпетентность полиции, которая якобы находится в нашем подчинении.
 
-
 @allow_police_no_violence
-on-arrival: altona_good = 1; sa_strength += 10
+on-arrival: altona_good = 1; sa_strength += 10; kpd_nazi_urgency += 1;
 
 Когда марш прибывает в Альтону, его тут же встречает разъяренная толпа <span style="color: #700000;">коммунистов</span> и <span style="color: #c00000;">социалистов</span>, которые забрасывают <span style="color: #7A3C00;">нацистов</span> различными предметами. Полиция пытается разделить две группы, но безуспешно. Слышны выстрелы, как сообщается, от снайперов на крышах. Полиции удается сохранить хладнокровие, выстрелы прекращаются, и марш расходится без дальнейшего насилия.
 
 
-
 @allow_no_police
-on-arrival: sa_strength += 80; rfb_strength += 50; strife += 1; kpd_relation -= 8; communist_coalition -= 1
+on-arrival: sa_strength += 80; rfb_strength += 50; strife += 1; kpd_relation -= 8; communist_coalition -= 1; kpd_nazi_urgency -= 1;
 
 Когда марш прибывает в Альтону, его тут же встречает разъяренная толпа <span style="color: #700000;">коммунистов</span> и <span style="color: #c00000;">социалистов</span>, которые забрасывают <span style="color: #7A3C00;">нацистов</span> различными предметами. Слышны выстрелы, как сообщается, от снайперов на крышах. В ответ <span style="color: #7A3C00;">**СА**</span> вступают в столкновение с толпой и открывают огонь по окружающим зданиям. Убиты десятки человек, в основном мирные жители. <span style="color: #7A3C00;">Нацисты</span> используют своих павших мучеников для вербовки новых сторонников.

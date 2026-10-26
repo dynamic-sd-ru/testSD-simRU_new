@@ -25,7 +25,6 @@ on-display: {!
 - @hitler
 - @hitler_2
 
-
 @hitler
 title: Партия[? if z_party_name != "ХНП": <span style="color: #000000;">центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]голосует за.
 view-if: (z_in_gov_mini and pro_republic < 30) or far_right_coalition >= 50
@@ -39,14 +38,12 @@ view-if: (z_in_gov_mini and pro_republic < 30) or far_right_coalition >= 50
 - @fight: Мы будем сражаться на улицах, чтобы не дать Гитлеру прийти к власти.
 - @give_up: Мы проголосуем против <span style="color: #7A3C00;">нацистов</span> в Рейхстаге.
 
-
 @fight
 
 Мы осознаём, что это означает гражданскую войну против всей мощи государства?
 
 - @civil_war: Да.
 - @give_up: Мы не готовы к войне. Вместо этого мы проголосуем против <span style="color: #7A3C00;">нацистов</span> в рейхстаге.
-
 
 @give_up
 
@@ -57,7 +54,6 @@ view-if: (z_in_gov_mini and pro_republic < 30) or far_right_coalition >= 50
 Германия потеряна.
 
 - @game_over: Игра окончена.
-
 
 @hitler_2
 title: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] голосует против!
@@ -70,7 +66,6 @@ on-arrival: rubicon_mini = 0; rubicon_mini_leave = 1;
 
 - @hitler_3
 
-
 @hitler_3
 title: [+ chancellor +] отказывается уходить в отставку!
 
@@ -81,12 +76,10 @@ title: [+ chancellor +] отказывается уходить в отстав�
 - @fight: Мы будем сражаться на улицах, чтобы не дать Гитлеру удержать власть.
 - @give_up_2: Мы положимся на способности президента.
 
-
 @give_up_2
 go-to: give_up_3 if sa_force < 50; give_up_4 if sa_force >= 50
 
 Президент, может, и на нашей стороне, но <span style="color: #7A3C00;">**СА**</span> могут попросту обойти его волю с помощью запугивания.
-
 
 @give_up_3
 on-arrival: {!
@@ -142,7 +135,6 @@ Q.z_in_gov_mini = 0;
 Рейхсвер выказал больше доверия [+ president +]у, чем канцлеру [+ old_chancellor +]у. Под влиянием этого [+ old_chancellor +] вынужден признать своё поражение. Его отстранение, а также замена многих <span style="color: #7A3C00;">нацистских</span> министров, остановили сползание Германии к диктатуре.
 
 Генрих Брюнинг из [? if z_party_name != "ХНП": <span style="color: #000000;">партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран исполняющим обязанности канцлера. Следующие выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @give_up_4
 

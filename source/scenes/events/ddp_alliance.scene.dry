@@ -15,7 +15,6 @@ new-page: true
 - @ddp_alliance_yay: Предложить помощь <span style="color: #D3C24D;">**[+ ddp_name +]**</span>.
 - @ddp_alliance_reject: Мы не станем спасать партию буржуазии.
 
-
 @ddp_alliance_yay
 on-arrival: {!
 Q.ddp_alliance_points = 0;
@@ -65,7 +64,6 @@ if (Q.reformist_strength >= Q.left_strength) {
 !}
 go-to: ddp_alliance_yay_2 if ddp_alliance_points >= 5; ddp_alliance_nay_2 if ddp_alliance_points < 5
 
-
 @ddp_alliance_yay_2
 on-arrival: ddp_alliance = 1; ddp_alliance_glaze = 1 if ddp_ideology == "Левые" and ddp_leader == "Леммер"; liberal_cooperation -= 10; bourgeois_cooperation -= 3; ddp_relation += 20; pro_republic += ddp_votes; ddp_left += 6; ddp_cohesion -= 4; rural_ddp *= 0.5; old_middle_ddp *= 0.6; new_middle_ddp *= 0.8; workers_ddp += 3 if ddp_alliance_glaze; new_middle_ddp += 2 if ddp_alliance_glaze; old_middle_ddp -= 1 if ddp_alliance_glaze; rural_ddp -= 1 if ddp_alliance_glaze; pro_republic += 3 if ddp_alliance_glaze
 go-to: liberale_blocpartei if ddp_ideology == "Левые" and ddp_leader == "Леммер"
@@ -74,16 +72,13 @@ go-to: liberale_blocpartei if ddp_ideology == "Левые" and ddp_leader == "Л
 
 [? if ddp_ideology == "Левые" and ddp_leader == "Леммер": Леммер решил пойти ещё дальше и ещё больше укрепил предвыборное сотрудничество между нашими партиями. Возможно, этот союз просуществует дольше, чем одни выборы? ?]
 
-
 @liberale_blocpartei
 achievement: liberale_blocpartei
-
 
 @ddp_alliance_nay_2
 on-arrival: ddp_relation -= 3; ddp_right += 3; ddp_cohesion -= 3
 
 К сожалению, несмотря на наше предложение о помощи, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> в ходе внутреннего голосования отклонила предложение об объединении списков. Даже в их нынешнем состоянии они по-прежнему категорически против любых ассоциаций с <span style="color: #c00000;">социализмом</span>. Может быть, они передумают, когда появятся результаты выборов.
-
 
 @ddp_alliance_reject
 on-arrival: ddp_relation -= 5; ddp_right += 5

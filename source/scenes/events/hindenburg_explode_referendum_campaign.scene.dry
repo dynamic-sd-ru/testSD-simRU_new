@@ -26,7 +26,6 @@ max-visits: 1
 - @do_campaign: Давайте рассмотрим наши варианты ведения кампании.
 - @no_campaign: Нам не стоит выделять на это ресурсы.
 
-
 @do_campaign
 
 У нас есть несколько вариантов на выбор.
@@ -36,7 +35,6 @@ max-visits: 1
 - @reichsbanner
 - @hope: Мы уже сделали достаточно.
 - @no_campaign_2: Не стоит выделять на это ресурсы.
-
 
 @bourgeois
 title: Создать межпартийный предвыборный комитет совместно с <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рской</span> коалицией.
@@ -50,7 +48,6 @@ max-visits: 1
 
 <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рская</span> коалиция воссоединилась, чтобы защитить ту самую конституцию, которую мы создали вместе, — в знак единства её участники проводят совместные митинги и согласовывают свои заявления. Это помогает разрушить нарратив правых о том, что референдум — это попытка <span style="color: #c00000;">социалистов</span> захватить власть.
 
-
 @prussia
 title: Мы воспользуемся правительством Пруссии для тайного финансирования кампании.
 choose-if: spd_prussia and (prussia_leader == "Розенфельд" or prussia_leader == "Браун")
@@ -61,7 +58,6 @@ go-to: do_campaign
 max-visits: 1
 
 Нам удаётся перенаправлять государственные средства в казну Рейхсбаннера и различных дружественных <span style="color: #000000;">респ</span><span style="color: #DD0000;">убл</span><span style="color: #FFCC00;">иканских</span> партий и организаций, но всё же это меркнет в сравнении с горами серебра и золота, которые текут к Гинденбургу от рейхсвера.
-
 
 @reichsbanner
 title: Пришло время Рейхсбаннеру стать немного <i>активнее</i>.
@@ -76,19 +72,16 @@ max-visits: 1
 
 <span style="color: #3E88B3;">**Стальной Шлем**</span> и <span style="color: #7A3C00;">**СА**</span> слишком долго донимали нас — пора нанести ответный удар. Буржуазные партии критикуют нас за то, что мы превращаем Рейхсбаннер в <span style="color: #c00000;">социалистическое</span> ополчение.
 
-
 @hope
 view-if: bourgeois_campaign_hindenburg or prussia_campaign_hindenburg or bourgeois_campaign_hindenburg
 
 Нам остаётся лишь надеяться на лучшее.
-
 
 @no_campaign_2
 view-if: not bourgeois_campaign_hindenburg and not prussia_campaign_hindenburg and not bourgeois_campaign_hindenburg
 on-arrival: workers_spd -= 3; old_middle_spd -= 3; new_middle_spd -= 3; workers_nsdap += 3; new_middle_nsdap += 3; old_middle_nsdap += 3; pro_republic -= 5; catholics_spd -= 2; catholics_nsdap += 2; workers_kpd += 3; unemployed_spd -= 5; unemployed_nsdap += 5; unemployed_kpd += 3
 
 Проведём мы активную кампанию или нет, мы верим, что волны поддержки, которую мы получили после свержения режима Шлейхера, будет достаточно для победы на референдуме. Правые остаются слишком разобщёнными, чтобы в полной мере воспользоваться нашим относительным отсутствием на политической арене, хотя мы и начали замечать тревожный всплеск активности оппозиции, чьи расходы покрываются из неизвестного источника.
-
 
 @no_campaign
 on-arrival: workers_spd -= 3; old_middle_spd -= 3; new_middle_spd -= 3; workers_nsdap += 3; new_middle_nsdap += 3; old_middle_nsdap += 3; pro_republic -= 5; catholics_spd -= 2; catholics_nsdap += 2; workers_kpd += 3; unemployed_spd -= 5; unemployed_nsdap += 5; unemployed_kpd += 3

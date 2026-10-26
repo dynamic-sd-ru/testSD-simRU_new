@@ -12,7 +12,6 @@ max-visits: 1
 
 - @schleicher_2: <span style="color: #BFC8CC;">Фронт Национального Единства Германии</span> приветствует нового члена.
 
-
 @schleicher_2
 on-arrival: {!
 Q.z_dnef = 1;
@@ -24,6 +23,7 @@ Q.z_relation = (Q.dnef_relation - 10);
 Q.dnef_r += Q.z_r;
 Q.z_r = 0;
 Q.bvp_r = 0;
+Q.kpd_nazi_urgency += 1;
 !}
 
 Текущий состав <span style="color: #BFC8CC;">Фронта Национального Единства Германии.</span>:

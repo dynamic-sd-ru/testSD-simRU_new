@@ -1,7 +1,7 @@
 title: Кризис страхования по безработице
 subtitle: <span style="color: #FFCC00;">**ЛНП**</span> выдвигает ультиматум.
 new-page: true
-view-if: spd_in_government = 1 and (year = 1929 and month >= 10) and (in_grand_coalition or in_weimar_coalition) and lvp_formed and not ui0_seen and not constructive_vonc
+view-if: spd_in_government = 1 and (year = 1929 and month >= 10) and (in_grand_coalition or in_weimar_coalition) and lvp_formed and not ui0_seen and not constructive_vonc and not in_social_catholic_coalition
 on-arrival: budget -= 1 if budget >= 1; lvp_relation -= 3; ui1_seen = 1
 tags: event
 priority: 2
@@ -18,7 +18,6 @@ face-image: img/Kollwitz_Arbeitslosigkeit.jpg
 - @accept: К сожалению, мы должны принять требования <span style="color: #FFCC00;">**ЛНП**</span> ради сохранения стабильности.
 - @compromise: Неужели нельзя найти компромисс?
 
-
 @destroy
 on-arrival: spd_in_government = 0; grand_coalition_collapsed = 1 if in_grand_coalition; in_grand_coalition = 0; in_weimar_coalition = 0; chancellor = "Брюнинг"; chancellor_party = "Центр"; next_election_time = time + 3 if next_election_time > time+3; next_election_month = month + 3 if next_election_time >= time+3; next_election_year = year if next_election_time >= time+3; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; spd_toleration = 0; spd_toleration_right = 0; left_strength += 8; pro_republic -= 5; new_middle_spd -= 3; rural_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3; reformist_dissent += 5; lvp_right += 3; grand_coalition_collapsed = 1; economic_growth -= 0.3
 
@@ -28,16 +27,14 @@ on-arrival: spd_in_government = 0; grand_coalition_collapsed = 1 if in_grand_coa
 
 Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @accept
 unavailable-subtitle: [? if reformist_strength + center_strength + labor_strength / 2 < left_strength + labor_strength / 2: Партия этого не допустит. ?]
 choose-if: reformist_strength + center_strength + labor_strength / 2 >= left_strength + labor_strength / 2
-on-arrival: workers_spd -= 0.1*workers_spd; unemployed_spd -= 0.2*unemployed_spd; workers_kpd += 3; workers_nsdap += 3; unemployed_kpd += 5; unemployed_nsdap += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; welfare -= 1; budget += 1; pro_republic -= 3; kpd_relation -= 5; inflation -= 1; unemployment_insurance_threshold = unemployed; lvp_left += 2; coalition_dissent -= 1; goal_spd_cancel += 1; economic_growth -= 0.3
+on-arrival: workers_spd -= 0.1*workers_spd; unemployed_spd -= 0.2*unemployed_spd; new_middle_spd -= 0.1*new_middle_spd if new_middle_conscious == 1; workers_kpd += 3; workers_nsdap += 3; unemployed_kpd += 5; unemployed_nsdap += 5; left_dissent += 15; center_dissent += 10; labor_dissent += 15; welfare -= 1; budget += 1; pro_republic -= 3; kpd_relation -= 5; inflation -= 1; unemployment_insurance_threshold = unemployed; lvp_left += 2; coalition_dissent -= 1; goal_spd_cancel += 1; economic_growth -= 0.3
 
 К сожалению, мы должны согласиться на это, если хотим сохранить эту коалицию. <span style="color: #7A3C00;">Нацисты</span> и <span style="color: #700000;">**коммунисты**</span> ждут своего часа, готовые воспользоваться нестабильностью, которая возникнет в результате распада правящей коалиции.
 
 Рабочие в ярости от нашего предательства, как и значительная часть членов нашей партии из всех фракций. Мы проигрываем, а <span style="color: #700000;">**КПГ**</span> выигрывает, и даже <span style="color: #7A3C00;">**НСДАП**</span>, эти цепные псы буржуазии, тоже начали критиковать нас за политику жёсткой экономии.
-
 
 @compromise
 unavailable-subtitle: [? if lvp_relation < 25: У нас недостаточно хорошие отношения с правыми партиями. ?] [? if lvp_right - lvp_left > 8: Промышленники из <span style="color: #FFCC00;">**ЛНП**</span> обладают огромным влиянием в своей партии. ?]
@@ -49,12 +46,10 @@ choose-if: lvp_relation >= 25 and (lvp_right - lvp_left < 8)
 - @accept_compromise_good: Возможно ли повысить размер взносов?
 - @destroy: Отклонить компромисс и разорвать коалицию.
 
-
 @accept_compromise_worse
-on-arrival: workers_spd -= 2; unemployed_spd -= 2; unemployed_kpd += 2; unemployed_nsdap += 2; workers_nsdap += 2; left_dissent += 8; labor_dissent += 5; center_dissent += 3; welfare -= 1; kpd_relation -= 4; unemployment_insurance_threshold = unemployed; lvp_left += 1; goal_spd_cancel += 1; economic_growth -= 0.2
+on-arrival: workers_spd -= 2; unemployed_spd -= 2; new_middle_spd -= 2 if new_middle_conscious == 1; unemployed_kpd += 2; unemployed_nsdap += 2; workers_nsdap += 2; left_dissent += 8; labor_dissent += 5; center_dissent += 3; welfare -= 1; kpd_relation -= 4; unemployment_insurance_threshold = unemployed; lvp_left += 1; goal_spd_cancel += 1; economic_growth -= 0.2
 
 Мы приняли компромисс, предложенный буржуазией. Многие рабочие и безработные видят в этом предательство, поскольку мы урезали социальные выплаты, не увеличив взносы работодателей. Мы же представляем это как успешное предотвращение куда худшей альтернативы.
-
 
 @accept_compromise_good
 choose-if: lvp_ideology == "Левые" and lvp_relation >= 45

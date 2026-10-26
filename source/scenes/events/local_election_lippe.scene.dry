@@ -25,7 +25,6 @@ on-display: {!
 
 - @lippe: Сделаем всё возможное…
 
-
 @lippe
 on-arrival: {!
 
@@ -493,6 +492,10 @@ go-to: lippe_coalition_menu
 
 **Результаты выборов в Липпе:**
 
+{!<svg id="lippe_landtag" style="width: 500px; height: 250px;"> </svg>!}
+Vote % changes are compared to the last *Reichstag* election. <br> Seat % changes are compared to the last *Landtag* election.
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Изм., %{!</td><td>!}Места в ландтаге{!</td><td>!}Изм., %{!</td></tr>!} {!
 {!<svg id="lippe_landtag" style="width: 500px; height: 250px;"> </svg>!}Изменение доли голосов в % по сравнению с последними*выборами в рейхстаг*. <br> Изменение доли мест в % по сравнению с последними*выборами в ландтаг*.{!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Изм., %{!</td><td>!}Места в ландтаге{!</td><td>!}Изм., %{!</td></tr>!} {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_lippe_elections_vote +]%** {!</td><td>!} **[+ str_votes_change_spd_lippe +]** {!</td><td>!} **[+ spd_r_lippe +]%** {!</td><td>!} **[+ str_change_spd_lippe +]** {!</td></tr>!}
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#9B0000'> </div> !}СРПГ:{!</td><td>!} [+ sapd_lippe_elections_vote +]%{!</td><td>!} [+ str_votes_change_sapd_lippe +] {!</td><td>!} [+ sapd_r_lippe +]%{!</td><td>!} [+ str_change_sapd_lippe +]  ?]
@@ -519,10 +522,14 @@ go-to: lippe_coalition_menu
 
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_lippe_elections_vote +]%{!</td><td>!} [+ str_votes_change_dnf_lippe +] {!</td><td>!} [+ dnf_r_lippe +]%{!</td><td>!} [+ str_change_dnf_lippe +]{! </td></tr>!}  ?]
 
+{!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_lippe_elections_vote +]%{!</td><td>!} [+ str_votes_change_nsdap_lippe +] {!</td><td>!} [+ nsdap_r_lippe +]%{!</td><td>!} [+ str_change_nsdap_lippe +]{! </td></tr>!} {!
+{!</table>!}
+<hr id="read-marker">
 {!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_lippe_elections_vote +]%{!</td><td>!} [+ str_votes_change_nsdap_lippe +] {!</td><td>!} [+ nsdap_r_lippe +]%{!</td><td>!} [+ str_change_nsdap_lippe +]{! </td></tr>!} {!</table>!} <hr id="read-marker"> Последние четыре года Липпе управляла коалиция из <span style="color: #c00000;">**СДПГ**</span>, [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?], а <span style="color: #0075EB;">**ПНС**</span>, а местное отделение <span style="color: #c00000;">**СДПГ**</span> придерживается умеренного имиджа. <hr id="read-marker"> Но главный вопрос не в будущем Липпе. Что эти выборы говорят о всей стране? Победа <span style="color: #7A3C00;">нацистов</span> может доказать: партия всё ещё жива. Но поражение, особенно после мобилизации всех сил на кампанию, станет сокрушительным. Так как до осени местных выборов не предвидится, у <span style="color: #7A3C00;">нацистов</span> не будет другой возможности, чтобы вновь мотивировать свою партию.
+<hr id="read-marker">
+But the real question isn’t the future of Lippe—it’s what the election says about the nation. A <span style="color: #7A3C00;">Nazi</span> victory could prove the party still has life. But a defeat, even after throwing everything into their campaign, would be a crushing blow. With no local elections until the fall, the <span style="color: #7A3C00;">Nazis</span> won’t get another moment like this to remotivate their party.
 
 Да какая разница, какая коалиция здесь сформируется?
-
 
 @lippe_coalition_menu
 
@@ -532,21 +539,19 @@ go-to: lippe_coalition_menu
 - @nsdap_joever
 - @nsdap_explode
 
-
 @nsdap_big_win
 title: <span style="color: #7A3C00;">**НСДАП**</span> одерживает сокрушительную победу.
 view-if: change_nsdap_votes_lippe >= 6
-on-arrival: lippe_big_win = 1; hindenburg_hitler_r += 2; hindenburg_schleicher_r -= 2; workers_nsdap += 2; unemployed_nsdap += 2; new_middle_nsdap += 4; old_middle_nsdap += 4; rural_nsdap += 4; nazi_funds += 1; lippe_good = 1
+on-arrival: lippe_big_win = 1; hindenburg_hitler_r += 2; hindenburg_schleicher_r -= 2; workers_nsdap += 2; unemployed_nsdap += 2; new_middle_nsdap += 4; old_middle_nsdap += 4; rural_nsdap += 4; nazi_funds += 1; lippe_good = 1; kpd_nazi_urgency += 2;
 
 Неожиданно <span style="color: #7A3C00;">**НСДАП**</span> повторила свой лучший результат на выборах — доказательство, что движение не умирает, а растёт.
 
 Это крупная пропагандистская победа для <span style="color: #7A3C00;">**НСДАП**</span>, которая, несомненно, воодушевит партию и укрепит веру: стратегия  [+ nsdap_leader +]а «всё или ничего» приносит свои плоды. Это лишь вопрос времени, когда Гинденбург признает подъём <span style="color: #7A3C00;">нацистов</span>.
 
-
 @nsdap_moderate_win
 title: <span style="color: #7A3C00;">**НСДАП**</span> одерживает сомнительный триумф.
 view-if: change_nsdap_votes_lippe >= 3 and change_nsdap_votes_lippe < 6
-on-arrival: hindenburg_hitler_r += 1; hindenburg_schleicher_r -= 1; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; lippe_good = 1
+on-arrival: hindenburg_hitler_r += 1; hindenburg_schleicher_r -= 1; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; lippe_good = 1; kpd_nazi_urgency += 1;
 
 <span style="color: #7A3C00;">Нацисты</span> не смогли достичь своих пиковых результатов, но всё же набрали больше голосов по сравнению с прошлыми выборами. Неискушённому наблюдателю может показаться: <span style="color: #7A3C00;">**НСДАП**</span> снова на подъёме. Они ухватились за этот результат, чтобы с помощью дешёвой пропаганды воодушевить своих разочарованных сторонников.
 
@@ -555,7 +560,6 @@ on-arrival: hindenburg_hitler_r += 1; hindenburg_schleicher_r -= 1; new_middle_n
 И всё же давление с целью ввести [+ nsdap_chancellor +]а в состав правительства снова растёт.
 
 - @hitler_good
-
 
 @nothing_ever_happens
 title: <span style="color: #7A3C00;">**НСДАП**</span> не удался прорыв.
@@ -568,11 +572,10 @@ on-arrival: new_middle_nsdap -= 2; old_middle_nsdap -= 2; rural_nsdap -= 2; lipp
 
 - @hitler_eh
 
-
 @nsdap_joever
 title: <span style="color: #7A3C00;">**НСДАП**</span> терпит сокрушительное поражение!
 view-if: change_nsdap_votes_lippe < 0 and change_nsdap_votes_lippe > -4
-on-arrival: hindenburg_hitler_r -= 1; workers_nsdap -= 2; unemployed_nsdap -= 2; new_middle_nsdap -= 4; old_middle_nsdap -= 4; rural_nsdap -= 4; catholics_nsdap -= 2; nazi_funds -= 1
+on-arrival: hindenburg_hitler_r -= 1; workers_nsdap -= 2; unemployed_nsdap -= 2; new_middle_nsdap -= 4; old_middle_nsdap -= 4; rural_nsdap -= 4; catholics_nsdap -= 2; nazi_funds -= 1; kpd_nazi_urgency -= 1;
 
 <span style="color: #7A3C00;">**НСДАП**</span> потерпела сокрушительное поражение! Несмотря на все усилия, вложенные в эту кампанию, доля полученных партией голосов даже снизилась. Это явное свидетельство: движение стремительно распадается, а новые выборы станут катастрофой для <span style="color: #7A3C00;">нацистов</span>.
 
@@ -580,18 +583,16 @@ on-arrival: hindenburg_hitler_r -= 1; workers_nsdap -= 2; unemployed_nsdap -= 2;
 
 - @hitler_bad
 
-
 @nsdap_explode
 title: <span style="color: #7A3C00;">**НСДАП**</span> стремительно разваливается!
 view-if: change_nsdap_votes_lippe <= -4
-on-arrival: hindenburg_hitler_r -= 2; workers_nsdap -= 4; unemployed_nsdap -= 4; new_middle_nsdap -= 8; old_middle_nsdap -= 8; rural_nsdap -= 6; catholics_nsdap -= 4; nazi_funds -= 2
+on-arrival: hindenburg_hitler_r -= 2; workers_nsdap -= 4; unemployed_nsdap -= 4; new_middle_nsdap -= 8; old_middle_nsdap -= 8; rural_nsdap -= 6; catholics_nsdap -= 4; nazi_funds -= 2; kpd_nazi_urgency -= 2;
 
 <span style="color: #7A3C00;">**НСДАП**</span> в свободном падении! Хоть они и бросили все силы на эту кампанию, доля их голосов даже сократилась — это унизительный удар, подтверждающий стремительный распад движения.
 
 Спонсоры отворачиваются от них, число перебежчиков растёт, а местные отделения разваливаются. Даже фанатики в высших эшелонах партии начинают терять веру. Угроза, которую они когда-то представляли, быстро сходит на нет, и, поскольку давление на Шлейхера ослабевает, худшее, возможно, наконец-то позади.
 
 - @hitler_explode
-
 
 @hitler_good
 title: Как это повлияет на [+ nsdap_leader +]а и его партию?
@@ -601,7 +602,6 @@ title: Как это повлияет на [+ nsdap_leader +]а и его пар
 Он обрушил на Штрассера всю свою ярость: назвал его предателем, хотя именно ему он обязан своим возвышением. Также он обвинил его в куче проступков многолетней давности. [+ nsdap_leader +] дал понять: любой, кто усомнится в его стратегии «всё или ничего», — пособник опального Штрассера. Это, по-видимому, заставило несогласных среди гауляйтеров замолчать.
 
 Его нападки на бывшего союзника не попали в прессу — умышленно, по решению [+ nsdap_leader +]а, чтобы оградить партию от политических последствий из-за слухов о расколе в её рядах. Однако дурные вести в конце концов доходят до канцлера фон Шлейхера, ведь единственный человек в партии, готовый с ним сотрудничать, по сути, политический труп.
-
 
 @hitler_eh
 title: Как это повлияет на [+ nsdap_leader +]а и его партию?
@@ -613,7 +613,6 @@ on-arrival: nazi_explode += 1
 
 Его нападки на бывшего союзника не попали в прессу — по намеренному решению [+ nsdap_leader +]а, чтобы оградить партию от политических последствий, вызванных слухами о расколе в её рядах. Однако дурные вести в конце концов доходят до канцлера фон Шлейхера, ведь единственный человек в партии, готовый с ним сотрудничать, по сути, «кончен».
 
-
 @hitler_bad
 title: Как это повлияет на [+ nsdap_leader +]а и его партию?
 on-arrival: nazi_explode += 2
@@ -623,7 +622,6 @@ on-arrival: nazi_explode += 2
 В попытке подавить инакомыслие, [+ nsdap_leader +] обрушил на Штрассера всю ярость своего гнева, назвав предателем человека, который помог ему возвыситься, и обвинив его в многолетней подрывной деятельности. Он предупредил, что любой, кто поставит под сомнение его стратегию, примкнёт к опальному Штрассеру. Но многие из присутствующих по-прежнему сочувствовали доводам Штрассера, и эта тирада лишь усугубила их разочарование в человеке, которого они когда-то считали пророком.
 
 Весть об этом обвинении — и об очевидном расколе в руководстве <span style="color: #7A3C00;">нацистов</span> — быстро просочилась в прессу. Вскоре она дошла до канцлера фон Шлейхера, который в восторге от их краха и надеется, что это наконец заставит [+ nsdap_leader +]а действовать более рационально.
-
 
 @hitler_explode
 title: Как это повлияет на [+ nsdap_leader +]а и его партию?

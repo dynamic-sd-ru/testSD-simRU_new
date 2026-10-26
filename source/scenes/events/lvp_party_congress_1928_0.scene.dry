@@ -14,7 +14,6 @@ new-page: true
 
 - @luther: Партия голосует…
 
-
 @luther
 call: lvp_formed
 on-arrival: lvp_relation += 5; lvp_left += 3; new_middle_dnvp += 2; old_middle_dnvp += 2
@@ -26,7 +25,6 @@ face-image: img/portraits/luther.jpg
 
 - @lvp_weimar
 - @lvp_groko
-
 
 @lvp_weimar
 title: Пересмотр правящей коалиции.
@@ -51,16 +49,14 @@ Q.agriculture_minister_party = 'Центр';
 
 - @election_1928.ministries: Перестановки в кабинете.
 
-
 @lvp_groko
 title: Пересмотреть состав правящей коалиции.
 view-if: in_grand_coalition and spd_in_government
 
-Поскольку леволиберальная <span style="color: #D3C24D;">**[+ ddp_name +]**</span> и консервативно-либеральная <span style="color: #C0A054;">**ННП**</span> объединились, мы можем исключить из правительства небольшую <span style="color: #A2D8E0;">**БНП**</span>. Тем самым мы получим большинство в <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арс</span>кой коалиции.
+Поскольку леволиберальная <span style="color: #D3C24D;">**[+ ddp_name +]**</span> и консервативно-либеральная <span style="color: #C0A054;">**ННП**</span> объединились, мы можем исключить из правительства небольшую <span style="color: #A2D8E0;">**БНП**</span>. Тем самым мы получим большинство в <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арс</span> кой коалиции.
 
 - @weimar: Сформировать <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арс</span>кую коалицию.
 - @groko: Сохранить Большую коалицию.
-
 
 @weimar
 on-arrival: lvp_relation -= 3; z_relation -= 3; lvp_right += 1; in_weimar_coalition = 1; in_grand_coalition = 0; coalition_dissent += 1
@@ -68,13 +64,11 @@ go-to: cabinet_reformation
 
 Ожидаемо, но буржуазные партии недовольны исключением <span style="color: #A2D8E0;">**БНП**</span> из правящей коалиции.
 
-
 @groko
 on-arrival: lvp_relation += 3; z_relation += 3; lvp_left += 1
 go-to: cabinet_reformation
 
 Буржуазные партии довольны и несколько удивлены этим шагом.
-
 
 @cabinet_reformation
 on-arrival: {!

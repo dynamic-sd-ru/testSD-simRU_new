@@ -11,13 +11,11 @@ tags: event
 - @ok: ОК
 - @no: нет
 
-
 @ok
 on-arrival: secret_trigger = 0
 go-to: lvp_formed
 
 ОК
-
 
 @no
 on-arrival: secret_trigger = 0

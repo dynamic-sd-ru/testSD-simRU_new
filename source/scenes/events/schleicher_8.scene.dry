@@ -18,9 +18,8 @@ audio: music/1930_1933/Ugly_American.mp3
 
 - @schleicher_2: <i>Deutschnationale Einheitsfront</i> (<span style="color: #BFC8CC;">Фронт Национального Единства Германии</span>, <span style="color: #BFC8CC;">**ФНЕГ**</span>) сформирован!
 
-
 @schleicher_2
-on-arrival: dnef_formed = 1; chancellor_party = "ФНЕГ"
+on-arrival: dnef_formed = 1; chancellor_party = "ФНЕГ"; kpd_nazi_urgency += 1;
 audio: shuffle music/1930_1933/Backroom_Deal.ogg music/1930_1933/Ugly_American.mp3
 go-to: dnef_formed
 

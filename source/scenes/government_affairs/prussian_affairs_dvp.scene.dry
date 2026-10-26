@@ -29,7 +29,6 @@ card-image: img/braun.jpg
 - @easy_discard
 - @cancel_advisor_action
 
-
 @police_loyalty
 view-if: prussian_police_loyalty < 1
 on-arrival: prussian_police_loyalty += 0.08
@@ -40,12 +39,10 @@ on-arrival: prussian_police_loyalty += 0.08
 
 Текущая верность полиции: [+ prussian_police_loyalty : loyalty +].
 
-
 @police_strength
 on-arrival: prussian_police_strength += 15
 
 Мы увеличили численность прусской полиции.
-
 
 @bureaucracy
 on-arrival: prussia_purge += 1; prussian_police_loyalty += 0.03; nationalism -= 2; pacifism += 1; democratization += 1; pro_republic += 2*(1-dissent); new_middle_spd += 2*(1-dissent) if democratization >= 4; new_middle_z += 0.5; new_middle_ddp += 1; new_middle_dvp += 1; new_middle_lvp += 2; coup_progress += 0.5; ddp_left += 0.25; dvp_left += 0.5; lvp_left += 0.5
@@ -53,7 +50,6 @@ on-arrival: prussia_purge += 1; prussian_police_loyalty += 0.03; nationalism -= 
 Бюрократия глубоко <span style="color: #808080;">реакционна</span>, и многие злоупотребляют своей властью в пользу <span style="color: #3E88B3;">правых сил</span>. Устранив <span style="color: #3E88B3;">промонархические</span> и <span style="color: #7A3C00;">продиктаторские</span> элементы, мы сможем демократизировать ее. Некоторые из наших оппонентов утверждают, что мы посягаем на свободы личности, но, возможно, этого требует безопасность республики.
 
 <span style="color: #C0A054;">**ННП**</span> наполняет бюрократический аппарат своими сторонниками-монархистами и промышленниками.
-
 
 @ban_sa
 view-if: nazi_urgency >= 3 and sa_banned == 0
@@ -65,20 +61,17 @@ on-arrival: sa_strength *= 0.92; sa_strength *= 0.8 if prussian_police_loyalty >
 
 [? if coup_progress >= 6: Поступают сообщения о готовящемся перевороте со стороны <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>. Нам удалось сорвать некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
-
 @prosecute_sa
 view-if: nazi_urgency >= 3 and not sa_banned and (chancellor == "Папен" or chancellor == "Шлейхер")
 on-arrival: sa_strength *= 0.97; sa_militancy -= 0.02; prussian_police_loyalty -= 0.02; sa_strength *= 0.98 if prussian_police_loyalty >= 0.75
 
 Хотя полный запрет <span style="color: #7A3C00;">**СА**</span>, может, и недостижим, мы можем максимально осложнить жизнь <span style="color: #7A3C00;">штурмовикам</span>. Самых безрассудных из них можно привлечь к ответственности по обвинению в убийствах и сопутствующих преступлениях, а также обеспечить защиту законных публичных демонстраций и собраний от их незаконного вмешательства.
 
-
 @unban_sa
 view-if: sa_banned = 1
 on-arrival: sa_banned = 0; sa_strength += 100; sa_militancy += 0.05; coup_progress += 2 if sa_coup_progress >= 6
 
 <span style="color: #7A3C00;">**СА**</span> больше не под запретом. Они немедленно начинают массовую вербовку.
-
 
 @ban_sh
 subtitle: <span style="color: #C0A054;">**ННП**</span> это не понравится.
@@ -87,7 +80,6 @@ view-if: sh_banned == 0
 
 [? if president == "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ослабляет наши отношения с президентом Гинденбургом, а также с политическими <span style="color: #3E88B3;">правыми</span> и полицией.  ?][? if president != "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ослабляет наши отношения с политическими <span style="color: #3E88B3;">правыми</span> и полицией.  ?] [? if spd_in_government = 1 and in_grand_coalition = 1 and president = "Гинденбург" : Это также ослабляет нашу коалицию из-за влияния Гинденбурга на <span style="color: #C0A054;">правое</span> крыло нашей коалиции.  ?] Кроме того, <span style="color: #3E88B3;">**Стальной Шлем**</span> продолжает действовать скрытно.
 
-
 @unban_sh
 view-if: sh_banned = 1
 on-arrival: sh_banned = 0; sh_strength += 100; coup_progress += 2 if sh_coup_progress >= 6; hindenburg_angry -= 5
@@ -95,20 +87,17 @@ on-arrival: sh_banned = 0; sh_strength += 100; coup_progress += 2 if sh_coup_pro
 <span style="color: #3E88B3;">**Стальной Шлем**</span> больше не запрещён.
 
 
-
 @ban_rfb
 view-if: communist_coalition < 3 and rfb_banned = 0
-on-arrival: kpd_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; dvp_relation += 5; prussian_police_loyalty += 0.1; dvp_left += 1; ddp_left += 0.5; hindenburg_angry -= 8
+on-arrival: kpd_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; dvp_relation += 5; prussian_police_loyalty += 0.1; dvp_left += 1; ddp_left += 0.5; hindenburg_angry -= 8; kpd_nazi_urgency -= 1;
 
 Полиция с энтузиазмом исполняет запрет, возможно, даже со слишком большим энтузиазмом. Для <span style="color: #700000;">коммунистов</span> это становится еще одним доказательством того, что <span style="color: #c00000;">социалисты</span> — предатели <span style="color: #9B0000;">левого</span> движения. Однако <span style="color: #000000;">умеренные</span> и <span style="color: #C0A054;">правоцентристские</span> партии одобряют это, как и сама полиция.
 
-
 @unban_rfb
 view-if: rfb_banned = 1
-on-arrival: rfb_banned = 0; rfb_strength += 50; prussian_police_loyalty -= 0.1; hindenburg_angry += 8
+on-arrival: rfb_banned = 0; rfb_strength += 50; prussian_police_loyalty -= 0.1; hindenburg_angry += 8; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 <span style="color: #700000;">Коммунистический</span> <span style="color: #700000;">**СКФ**</span> больше не под запретом.
-
 
 @negotiate_concordat
 subtitle: Это не понравится <span style="color: #C0A054;">**ННП**</span>.
@@ -116,7 +105,6 @@ view-if: (prussian_concordat_progress < 2 and z_leader != "Каас") or (prussi
 on-arrival: prussian_concordat_progress += 1; z_relation += 2*(1-dissent); dvp_relation -= 2; ddp_relation -= 1
 
 Мы продвигаемся в переговорах о заключении конкордата между Пруссией и католической церковью.[? if z_leader = "Каас": Людвиг Каас из[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] использует свои связи, чтобы ускорить переговоры. ?]
-
 
 @sign_concordat
 subtitle: <span style="color: #C0A054;">**ННП**</span> это не понравится.

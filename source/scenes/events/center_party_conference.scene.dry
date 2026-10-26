@@ -18,16 +18,14 @@ new-page: true
 - @joos_campaign: Мы должны провести кампанию в поддержку кандидатуры Йозефа Йооса на пост председателя партии.
 - @stegerwald: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избирает Адама Штегервальда председателем партии.
 
-
 @kaas
 view-if: not prussia_leader == "Штегервальд"
 on-arrival: z_leader = "Каас"; z_relation -= 5; prussian_concordat_progress += 1; z_ideology = "Правые"
 face-image: img/portraits/Ludwig_Kaas.jpg
 
-Людвиг Каас избран председателем [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]. Похоже, он знаменует собой правый поворот по сравнению с Марксом и возглавит [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span>,  ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП, **</span> ?]менее склонную к компромиссам с левыми.
+Людвиг Каас избран председателем [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]. Похоже, он знаменует собой правый поворот по сравнению с Марксом и возглавит [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span>,  ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП, **</span> ?] менее склонную к компромиссам с левыми.
 
 Однако Каас — приверженец существующего конституционного порядка и республики. Он поддерживает тесную дружбу с Эудженио Пачелли, папским нунцием в Германии, что может оказаться полезным в ходе переговоров о конкордате.
-
 
 @joos
 unavailable-subtitle: Наши отношения недостаточно хороши.
@@ -39,7 +37,6 @@ face-image: img/portraits/Joseph_Joos.jpg
 
 Благодаря нашим связям на местах мы смогли повлиять на[? if z_party_name != "ХНП": делегатов <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] , чтобы они поддержали Йозефа Йооса в качестве нового [? if z_party_name != "ХНП": председателя <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] . Он давний друг <span style="color: #c00000;">**СДПГ**</span> и будет более склонен к сотрудничеству с нами, в отличие от Кааса. Кроме того, он повышает привлекательность [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] для рабочего класса, хотя и ценой углубления социальных и экономических противоречий, которые прежде сдерживались религией.
 
-
 @joos_campaign
 choose-if: z_relation >= 60 and resources >= 1 
 view-if: z_relation < 70 and not prussia_leader == "Штегервальд"
@@ -49,7 +46,6 @@ on-arrival: resources -= 1; z_leader = "Йоос"; z_ideology = "Левые"; ca
 face-image: img/portraits/Joseph_Joos.jpg
 
 Благодаря нашим связям на местах, а также профессионально проведённой кампании, нам удалось повлиять на делегатов [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], чтобы они поддержали Йозефа Йооса на пост нового председателя [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]. Он давний друг <span style="color: #c00000;">**СДПГ**</span> и будет более склонен к сотрудничеству с нами, чем Каас. Кроме того, он повышает привлекательность [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] для рабочего класса, хотя это и происходит ценой углубления социальных и экономических разногласий, которые прежде скрепляла религия.
-
 
 @stegerwald
 choose-if: prussia_leader == "Штегервальд"

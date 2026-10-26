@@ -10,7 +10,6 @@ go-to: weltbuhne_dropped if judicial_reform >= 3; weltbuhne_convicted if judicia
 
 = Процесс «Вельтбюне»: завершение
 
-
 @weltbuhne_convicted
 on-arrival: west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1; nationalism += 5; pacifism -= 1; ddp_right += 0.5; lvp_right += 1
 
@@ -19,7 +18,6 @@ on-arrival: west_relation -= 1; east_relation -= 1; reparations_negotiation -= 1
 - @drop_case: Постойте! Может, мы сможем помиловать журналистов?
 - @root: Принять решение суда.
 
-
 @drop_case
 choose-if: justice_minister_party = "СДПГ"
 view-if: spd_in_government
@@ -27,7 +25,6 @@ unavailable-subtitle: Мы не контролируем Министерств�
 on-arrival: west_relation += 1; east_relation += 1; reparations_negotiation += 1; pacifism += 1; ddp_left += 0.5; hindenburg_angry += 5
 
 Контроль над Министерством юстиции позволяет нам помиловать фон Осецкого и Крайзера. Это частично восстанавливает нашу репутацию в глазах пацифистов и международного сообщества.
-
 
 
 @weltbuhne_dropped

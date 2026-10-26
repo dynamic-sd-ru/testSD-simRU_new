@@ -33,7 +33,6 @@ priority: 2
 
 - @prussia_election
 
-
 @prussia_election
 title: Шлейхер требует от [+ prussia_leader +]а двойного роспуска.
 view-if: prussia_leader != "Гёрделер" and prussia_leader != "Штрассер"
@@ -41,7 +40,6 @@ view-if: prussia_leader != "Гёрделер" and prussia_leader != "Штрас�
 Шлейхер сообщает, [+ prussia_leader +] что двойной роспуск палат Рейха и Пруссии необходим для того, чтобы состав Рейхстага соответствовал изменившемуся общественному мнению. Также сохраняется угроза вмешательства со стороны центра.
 
 - @prussia_election_2
-
 
 @prussia_election_2
 title: [+ prussia_leader +] уступает давлению.

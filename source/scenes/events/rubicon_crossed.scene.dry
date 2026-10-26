@@ -123,11 +123,9 @@ go-to: rubicon_crossing
 
 Время замедляется. Мы вступаем в борьбу неделя за неделей.
 
-
 @rubicon_crossing
 audio: shuffle music/1930_1933/Nation_building.mp3 music/1930_1933/Ugly_American.mp3 music/1930_1933/Exhausted.ogg
 go-to: rubicon_crossing_2
-
 
 @rubicon_crossing_2
 on-arrival: {!

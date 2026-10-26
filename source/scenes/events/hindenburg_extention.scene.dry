@@ -19,7 +19,6 @@ max-visits: 1
 - @support_resolution: Мы проголосуем за резолюцию, аргументируя это тем, что Гинденбург — меньшее из зол.
 - @oppose_resolution: Мы проголосуем против резолюции, настаивая на проведении выборов в соответствии с конституцией.
 
-
 @support_resolution
 choose-if: (reformist_strength >= left_strength) or schleicher_spd
 unavailable-subtitle: Мы не пользуемся полной поддержкой нашей делегации в Рейхстаге.
@@ -28,7 +27,6 @@ on-arrival: hindenburg_term_extended = 1; left_dissent += 30; center_dissent += 
 В ходе бурного голосования, под выкрики <span style="color: #7A3C00;">ультра</span>-[? if dnvp_ideology == "Умеренные": <span style="color: #003755;">правых</span>, ?][? if dnvp_ideology == "Радикалы": <span style="color: #3E88B3;">правых</span> ?] и <span style="color: #700000;">левых</span>, резолюция принята.
 
 Мы вынуждены ввести партийную дисциплину, что вызывает сильное недовольство левого и центристского крыла нашей партии, которые до сих пор не согласились поддержать Гинденбурга. Кроме того, как и ожидалось, мы уступили значительную часть поддержки <span style="color: #700000;">**коммунистам**</span>, которые воспользовались этим, чтобы провозгласить себя единственной истинно левой партией.
-
 
 @oppose_resolution
 choose-if: not schleicher_spd

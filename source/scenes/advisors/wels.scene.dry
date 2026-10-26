@@ -17,7 +17,6 @@ new-page: true
 - @snap_election
 - @root: Вернуться к главному
 
-
 @clear_agenda
 title: Очистить повестку дня
 subtitle: Убирает все карты с руки.
@@ -34,7 +33,6 @@ if (Q.difficulty >= 0) {
 
 Все пункты нашей повестки дня убраны.
 
-
 @party_discipline
 title: Партийная дисциплина
 subtitle: Уменьшить разногласия в партии.
@@ -43,7 +41,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; left_dissent -= 5; labor_dissent -= 10; center_dissent -= 10; reformist_dissent -= 10; neorevisionist_dissent -= 5
 
 Мы укрепили партийную дисциплину, чтобы уменьшить недовольство во всех фракциях.
-
 
 @emergency_fundraising
 title: Экстренный сбор средств
@@ -57,7 +54,6 @@ on-arrival: advisor_action_timer = 6; emergency_used += 1; resources += 2; worke
 
 Мы получили +2 ед. ресурсов.
 
-
 @money_printer
 title: Напечатать СДПГ-иллион долларов.
 view-if: achievement_moly and ((difficulty == -1 and not dynamic_mode) or difficulty == 0)
@@ -67,7 +63,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 and not rubicon : [+ adviso
 on-arrival: advisor_action_timer = 6; resources += 10; inflation += 1; data_miner_detected = 1; ip_grabber = 1
 
 Мы получили +10 ресурсов.
-
 
 @stimulation
 title: Переключить стимуляцию.
@@ -81,7 +76,6 @@ if (Q.stimulation) {
 !}
 
 Ок.
-
 
 @snap_election
 title: Досрочные выборы

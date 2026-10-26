@@ -14,7 +14,6 @@ max-visits: 1
 - @pro_plan: Агитировать в поддержку плана Юнга и против референдума.
 - @no_plan: Не вести никакой агитации по поводу плана Юнга.
 
-
 @pro_plan
 subtitle: [? if spd_in_government: -1 ресурсы ?][? if not spd_in_government: -2 ресурса ?]
 choose-if: (resources >= 1 and spd_in_government = 1) or (resources >= 2 and spd_in_government = 0)
@@ -26,13 +25,11 @@ on-arrival: resources -= 1 if spd_in_government; resources -= 2 if not spd_in_go
 - @internationalism: В рамках более широкой кампании в поддержку интернационализма и пацифизма.
 - @rational: План Юнга — это просто самый рациональный выбор для Германии.
 
-
 @internationalism
 on-arrival: pro_republic -= 3 if pacifism < 3; workers_spd += 2 if radio >= 2; nationalism -= 5*(1-dissent) if pacifism >= 2 else nationalism += 3; pacifism += 1; workers_spd += 5*(1-dissent) if pacifism >= 3 and nationalism <= 50; workers_spd += 1; workers_nsdap += 4 if pacifism < 3; rural_nsdap += 5; catholics_spd -= 3 if pacifism < 3; rural_dvp -= 4
 go-to: recalculate
 
 Мы яростно выступаем против национализма и за пацифизм и принадлежность к международному сообществу наций.[? if radio >= 2: Наша радиосеть помогла нам распространить наши идеи.&nbsp; ?][? if pacifism >= 3 and nationalism <= 50 : Мы сплотили рабочих вокруг идей интернационализма. ?] Хотя буржуазия не слишком довольна тем, что мы монополизировали кампанию в поддержку плана Юнга.
-
 
 
 @rational
@@ -42,13 +39,11 @@ go-to: recalculate
 
 Мы утверждаем, что план Юнга — это попросту самый рациональный выбор для Германии. Хотя он и не способствует достижению каких-либо более широких политических целей, большинство людей может поддержать экономическую стабильность и восстановление. [? if (z_relation >= 50 and (dvp_relation >= 40 and ddp_relation >= 40 and dvp_ideology != "Правые" and not lvp_formed) or (lvp_relation >= 40 and lvp_ideology != "Правые" and lvp_formed)): Буржуазные партии объединились с нами для кампании против референдума и в поддержку плана Юнга.&nbsp; ?][? if radio >= 2: Наша радиосеть помогла нам распространить наши идеи.&nbsp; ?]
 
-
 @no_plan
 on-arrival: nationalism += 5; workers_spd -= 3; old_middle_spd -= 3; new_middle_spd -= 3; pacifism -= 1; workers_nsdap += 5; rural_nsdap += 5; catholics_spd -= 5; rural_dvp -= 5; pro_republic -= 6
 go-to: recalculate
 
 Референдум несомненно провалится, будем мы участвовать в кампании или нет. Однако националистические настроения накалены, и правые партии используют наше молчание по поводу Плана как молчаливое признание его недостатков. Наше молчание лишь придало смелости правым, особенно <span style="color: #7A3C00;">**НСДАП**</span>.
-
 
 
 @recalculate

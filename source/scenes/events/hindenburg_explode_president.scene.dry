@@ -23,7 +23,6 @@ tags: event
 
 - @candidates: Кто на данный момент в списке кандидатов?
 
-
 @candidates
 go-to: candidate_menu
 
@@ -43,7 +42,6 @@ go-to: candidate_menu
 
 В качестве альтернативы мы могли бы выдвинуть Отто Вельса, председателя нашей партии и лидера центристской фракции. Его кандидатура приемлема для буржуазных партий и <span style="color: #700000;">коммунистов</span>, которые могут нехотя смириться с его кандидатурой.
 
-
 @candidate_menu
 
 - @eckener_r1: Поддержать Гуго Эккенера в качестве единого кандидата от <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рской</span> коалиции.
@@ -51,7 +49,6 @@ go-to: candidate_menu
 - @gessler_r1: Поддержать Отто Гесслера от [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?].
 - @grzesinski_r1: Поддержать Альберта Гжезинского.
 - @wels_r1: Поддержать Отто Вельса.
-
 
 @eckener_r1
 subtitle: -−1 ресурс — после его выдвижения нам ещё предстоит убедить другие партии поддержать его.
@@ -62,7 +59,6 @@ go-to: r1_menu
 
 Мы убедили Гуго Эккенера выдвинуть свою кандидатуру от <span style="color: #c00000;">**СДПГ**</span>, и, надеемся, остальных участников <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арской</span> коалиции.
 
-
 @adenauer_r1
 on-arrival: spd_candidate = "Аденауэр"; z_relation += 4; Adenauer_bonus -= 2.5 if not impeachment_bvp; Seeckt_bonus += 2.5 if not impeachment_bvp; is_unity_candidate = 1
 go-to: r1_menu
@@ -71,7 +67,6 @@ go-to: r1_menu
 
 [? if not impeachment_bvp: Из-за нашей поддержки Аденауэра некоторые наиболее консервативные круги <span style="color: #A2D8E0;">Баварской народной партии</span> откололись от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и поддержали <span style="color: #808080;">реакционера</span> Секта. Надеюсь, это не приведёт к повторению президентских выборов 1925 года. ?]
 
-
 @gessler_r1
 on-arrival: spd_candidate = "Гесслер"; ddp_relation += 4; dvp_candidate = "Зект" if not impeachment_dvp; is_unity_candidate = 1
 go-to: r1_menu
@@ -79,7 +74,6 @@ go-to: r1_menu
 Мы поддержали Отто Гесслера, независимого кандидата, ранее состоявшего в <span style="color: #D3C24D;">**[+ ddp_name +]**</span>.
 
 [? if impeachment_dvp and dvp_exist and not lvp_formed: Из-за нашей поддержки Гесслера его сторонники в <span style="color: #C0A054;">**ННП**</span> откололись и теперь поддерживают Секта. ?]
-
 
 @grzesinski_r1
 subtitle: -2 ресурса.
@@ -90,7 +84,6 @@ go-to: r1_menu
 
 Мы убедили Альберта Гржезинского баллотироваться в президенты.
 
-
 @wels_r1
 subtitle: -2 ресурса.
 unavailable-subtitle: [? if resources < 2 : -2 ресурса — Недостаточно ресурсов. ?]
@@ -99,7 +92,6 @@ on-arrival: spd_candidate = "Вельс"; resources -= 2; is_unity_candidate = 0
 go-to: r1_menu
 
 Мы выдвинули Отто Вельса кандидатом в президенты.
-
 
 @r1_menu
 view-if: round = 0
@@ -116,7 +108,6 @@ view-if: round = 0
 
 
 # convincing Z to support a unity candidate
-
 @convince_z_unity
 title: Убедить [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]: им нужен [+ spd_candidate +].
 view-if: (spd_candidate = "Эккенер" or spd_candidate = "Гесслер") and z_candidate != spd_candidate
@@ -134,7 +125,6 @@ max-visits: 1
 go-to: z_failed if z_support_grzesinski = 0; z_success if z_support_grzesinski = 1; z_partial if z_support_grzesinski = 2
 
 Мы призываем[? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]: [+ spd_candidate +] нужен как единый кандидат против <span style="color: #7A3C00;">фашизма</span>. Вместе <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рская</span> коалиция сможет одолеть <span style="color: #7A3C00;">нацистов</span> и вернуть Германию на демократический путь. [? if z_relation >= 50 :  Мы также напоминаем им об истории сотрудничества между нашими партиями, которая началась ещё в 1918 году. ?]
-
 
 @convince_z_spd
 title: Убедить [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]: им нужен [+ spd_candidate +].
@@ -157,12 +147,10 @@ go-to: z_failed if z_support_grzesinski = 0; z_success if z_support_grzesinski =
 
 Мы просим [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]: им нужен [+ spd_candidate +]. Мы пытаемся убедить их в необходимости единства перед лицом <span style="color: #7A3C00;">фашизма</span>: если мы расколемся, то падём под натиском <span style="color: #7A3C00;">нацистов</span> во главе с Сектом. [? if z_relation >= 50 :  Мы также напоминаем им об истории сотрудничества между нашими партиями, которая берёт начало в 1918 году. ?]
 
-
 @z_failed
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 К сожалению, [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] убедить не удалось.
-
 
 @z_success
 on-arrival: z_candidate = spd_candidate; Seeckt_bonus += 2.5 if not impeachment_bvp
@@ -170,8 +158,7 @@ go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 Что ж, [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] убеждена! [+ spd_candidate +] теперь и их кандидат.
 
-[? if not impeachment_bvp : К сожалению, <span style="color: #A2D8E0;">**БНП**</span> разрывает отношения с[? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]на этих выборах и вместо этого поддерживает фон Секта. ?]
-
+[? if not impeachment_bvp : К сожалению, <span style="color: #A2D8E0;">**БНП**</span> разрывает отношения с[? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] на этих выборах и вместо этого поддерживает фон Секта. ?]
 
 @z_partial
 
@@ -181,17 +168,15 @@ go-to: r1_menu if round = 0; r2_campaigning if round > 0
 - @r1_menu: Забыть о [? if z_party_name != "ХНП": <span style="color: #000000;">Центре</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 - @r2_campaigning: Забыть о [? if z_party_name != "ХНП": <span style="color: #000000;">Центре</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 
-
 @pay_z
 choose-if: resources >= 2
 subtitle: -2 ресурса
 on-arrival: resources -= 2; z_candidate = spd_candidate; Seeckt_bonus += 2.5 if not impeachment_bvp
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
-Благодаря нашим ресурсам[? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]соглашается: [+ spd_candidate +] теперь и их кандидат. Конрад Аденауэр выйдет из предвыборной гонки.
+Благодаря нашим ресурсам[? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] соглашается: [+ spd_candidate +] теперь и их кандидат. Конрад Аденауэр выйдет из предвыборной гонки.
 
 [? if not impeachment_bvp: К сожалению, <span style="color: #A2D8E0;">**БНП**</span> разрывает отношения с[? if z_party_name != "ХНП": <span style="color: #000000;">Центром</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] на этих выборах, поддерживая вместо этого Секта. ?]
-
 
 
 @convince_ddp_unity
@@ -201,8 +186,8 @@ on-arrival: ddp_candidate = spd_candidate if ddp_relation >= 40
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
+[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] 
 [? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if ddp_candidate != spd_candidate: К сожалению, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> не нужен [+ spd_candidate +]. Похоже, <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ская</span> коалиция распадается. ?]
-
 
 
 @convince_ddp_spd
@@ -212,8 +197,8 @@ on-arrival: ddp_candidate = spd_candidate if ddp_relation >= 60
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
+[? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] 
 [? if ddp_candidate = spd_candidate: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if ddp_candidate != spd_candidate: К сожалению, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> не нужен [+ spd_candidate +]. ?]
-
 
 @convince_lvp_unity
 title: Убедить <span style="color: #FFCC00;">**ЛНП**</span>: им нужен [+ spd_candidate +].
@@ -222,8 +207,8 @@ on-arrival: lvp_candidate = spd_candidate if lvp_relation >= 50
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
+[? if lvp_candidate = spd_candidate: The <span style="color: #FFCC00;">**ЛНП**</span> is easily persuaded to support [+ spd_candidate +]! ?]
 [? if lvp_candidate = spd_candidate: <span style="color: #FFCC00;">**ЛНП**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if lvp_candidate != spd_candidate: К сожалению, <span style="color: #FFCC00;">**ЛНП**</span>, похоже, не нужен [+ spd_candidate +]. <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ская</span> коалиция, похоже, раскалывается. ?]
-
 
 
 @convince_lvp_spd
@@ -233,8 +218,8 @@ on-arrival: lvp_candidate = spd_candidate if lvp_relation >= 65
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 max-visits: 1
 
+[? if lvp_candidate = spd_candidate: The <span style="color: #FFCC00;">**ЛНП**</span> is easily persuaded to support [+ spd_candidate +]! ?]
 [? if lvp_candidate = spd_candidate: <span style="color: #FFCC00;">**ЛНП**</span> легко соглашается: [+ spd_candidate +] теперь и их кандидат! ?] [? if lvp_candidate != spd_candidate: К сожалению, <span style="color: #FFCC00;">**ЛНП**</span> не нужен [+ spd_candidate +]. ?]
-
 
 @convince_kpd_spd
 title: Убедить <span style="color: #700000;">**КПГ**</span>: им нужен [+ spd_candidate +].
@@ -250,7 +235,6 @@ max-visits: 1
 - @r1_menu: Забыть о <span style="color: #700000;">**КПГ**</span>.
 - @r2_campaigning: Забыть о <span style="color: #700000;">**КПГ**</span>.
 
-
 @kpd_resources
 view-if: kpd_relation >= 40 
 choose-if: resources >= 2
@@ -261,7 +245,6 @@ go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 Теперь кандидат <span style="color: #700000;">**КПГ**</span> на президентских выборах: [+ spd_candidate +]! Мы просим их не афишировать свою поддержку, чтобы не оттолкнуть избирателей из буржуазии.
 
-
 @kpd_relations
 view-if: kpd_relation >= 50 or (kpd_leader == "Примиренцы" and kpd_relation >= 35)
 unavailable-subtitle: Наши отношения недостаточно хороши.
@@ -269,7 +252,6 @@ on-arrival: kpd_candidate = spd_candidate; sapd_candidate = spd_candidate;
 go-to: r1_menu if round = 0; r2_campaigning if round > 0
 
 Теперь кандидат <span style="color: #700000;">**КПГ**</span> на президентских выборах: [+ spd_candidate +]! Мы просим их не афишировать свою поддержку, чтобы не оттолкнуть буржуазных избирателей.
-
 
 @convince_dvp_unity
 title: Убедить <span style="color: #C0A054;">**ННП**</span>: им нужен [+ spd_candidate +].
@@ -283,25 +265,25 @@ max-visits: 1
 [? if dvp_candidate = spd_candidate: Благодаря нашим хорошим отношениям и тому, что наш кандидат — беспартийная кандидатура, не связанная с <span style="color: #c00000;">**СДПГ**</span>, <span style="color: #C0A054;">**ННП**</span> соглашается: [+ spd_candidate +] теперь и их кандидат. ?]
 
 
-
 @round_1
 go-to: election_algorithm
 set-jump: post_election
 
 
-
 @post_election
 on-arrival: {!
+var cand_ascii = {"Эккенер": "Eckener", "Аденауэр": "Adenauer", "Гесслер": "Gessler", "СДПГ": "SPD", "Браун": "Braun", "Брайтшайд": "Breitscheid", "Розенфельд": "Rosenfeld", "Радикалы": "Radical", "Левые": "Left", "Центр": "Center", "Труд": "Labor", "Реформисты": "Reformists", "Неоревизионисты": "Neorevisionists", "Хаммерштейн": "Hammerstein", "Гергт": "Hergt", "Осецкий": "Ossietzky", "Манн": "Mann", "Примиренцы": "Conciliators", "Гитлер": "Hitler", "Правые": "Right", "Зельдте": "Seldte", "Гинденбург": "Hindenburg", "Папен": "Papen", "КПГ": "KPD", "Гёрделер": "Goerdeler", "Вирт": "Wirth", "Умеренные": "Moderate", "Дитрих": "Dietrich", "Дингельдей": "Dingeldey", "Тревиранус": "Treviranus", "Ламбах": "Lambach", "Шиле": "Schiele", "Вестарп": "Westarp", "ННП": "DVP", "Вельс": "Wels", "Маркс": "Marx", "Штегервальд": "Stegerwald", "Каас": "Kaas", "Йоос": "Joos", "ХНП": "CVP", "Шольц": "Scholz", "НННП": "DNVP", "Гереке": "Gereke", "Лежён-Юнг": "Lejeune-Jung", "Леттов_Форбек": "Lettow-Vorbeck", "Леммер": "Lemmer", "Хойс": "Heuss", "Майер": "Maier", "Штольпер": "Stolper", "НДП": "NPD", "НГП": "DStP", "Франц Зельдте": "Franz Seldte", "Теодор Хойс": "Theodor Heuss", "Пауль фон Леттов_Форбек": "Paul von Lettow_Vorbeck", "Гугенберг": "Hugenberg", "Оскар Гергт": "Oskar Hergt", "Шумахер": "Schumacher", "Брахт": "Bracht", "Отто Штрассер": "Otto Strasser", "Фрик": "Frick", "Штрассер": "Strasser", "Бойкот": "Boycott", "Штреземан": "Stresemann", "Курциус": "Curtius", "Шлейхер": "Schleicher", "Глацель": "Glatzel", "Раумер": "Raumer", "Хуго": "Hugo", "Патерналистский консерватизм": "Paternalistic Conservatism", "фон Раумер": "von-Raumer", "Либеральный консерватизм": "Liberal Conservatism", "Национал-консерватизм": "National Conservatism", "Триумвират": "Triumvirate", "Койдель": "Keudell", "Лютер": "Luther", "Тиль": "Thiel", "Кардорф": "Kardorff", "цу Дона-Шлодин": "zu Dohna-Schlodien", "ЛНП": "LVP", "ФНЕГ": "DNEF", "НСС": "DSU", "НСДАП": "NSDAP", "Лебер": "Leber", "Виссель": "Wissell", "Зеверинг": "Severing", "Гильфердинг": "Hilferding", "Мольденхауэр": "Moldenhauer", "Райнхольд": "Reinhold", "Шмидт": "Schmidt", "Тренделенбург": "Trendelenburg", "Радбрух": "Radbruch", "Кох-Везер": "Koch-Weser", "Притвиц": "Prittwitz", "Бааде": "Baade", "Гермес": "Hermes", "Грёнер": "Groener", "Гржезинский": "Grzesinski", "Юхач": "Juchacz", "Геринг": "Goring", "Кайзер": "Kaiser", "Зект": "Seeckt", "Хельдт": "Heldt", "Дикман": "Dieckmann", "Остер": "Oster", "Выступать за назначение Папена канцлером": "Advocate for a Papen chancellorship", "Добиваться собственного переназначения": "Push for his own reappointment", "Примирить Шлейхера и Гинденбурга": "Reconcile Schleicher and Hindenburg", "Выступать за назначение Гитлера канцлером": "Advocate for a Hitler chancellorship", "Геббельс": "Goebbels", "Поддерживать общественный порядок": "Maintain public order", "Отложить выборы на неопределенный срок": "Postpone elections indefinitely", "Пауль фон Гинденбург": "Paul von Hindenburg", "Дюстерберг": "Duesterberg", "Признать поражение": "Concede defeat", "Эйнштейн": "Einstein", "антидемократические партии": "anti-democratic parties", "крайне правых": "far right", "буржуазные партии": "bourgeois parties", "левую": "left", "центристскую": "centrist", "тред-юнионистскую": "labor", "Адольф Гитлер": "Adolf Hitler", "Вильгельм Фрик": "Wilhelm Frick", "Альфред Гугенберг": "Alfred Hugenberg", "Теодор Дюстерберг": "Theodor Duesterberg", "Отто Браун": "Otto Braun", "Курт Розенфельд": "Kurt Rosenfeld", "Гуго Эккенер": "Hugo Eckener", "Конрад Аденауэр": "Konrad Adenauer", "Отто Гесслер": "Otto Gessler", "Юлиус Курциус": "Julius Curtius", "Герман Дитрих": "Hermann Dietrich", "Эдуард Дингельдей": "Eduard Dingeldey", "Пауль фон Леттов-Форбек": "Paul von Lettow-Vorbeck", "Карл Яррес": "Karl Jarres", "Ганс Лютер": "Hans Luther", "Адам Штегервальд": "Adam Stegerwald", "Куно фон Вестарп": "Kuno von Westarp", "Немецкая демократическая партия": "German Democratic Party", "Бредов": "Bredow", "Гогенцоллерн": "Hohenzollern", "Носке": "Noske", "Больц": "Bolz", "Мараун": "Mahraun", "Хельпах": "Hellpach", "Боймер": "Baumer", "Яррес": "Jarres", "Тельман": "Thalmann", "Мюнценберг": "Munzenberg", "Брюнинг": "Bruning", "Лаутенбах": "Lautenbach", "Пусто": "Empty", "Познакомиться с новым канцлером": "Become acquainted with the new chancellor", "Убедить Гинденбурга продолжать поддерживать Папена": "Convince Hindenburg to continue supporting Papen", "Дружить со Шлейхером": "Be buddies with Schleicher", "Плести интриги против Шлейхера": "Scheme against Schleicher", "Поддерживать нового канцлера": "Support the new chancellor", "Сокрушаться о потерянном": "Cry over spilt milk", "Заручиться поддержкой нацистов для своего кабинета": "Nazi backing for his cabinet", "Править в президентском правительстве": "Rule in a presidential government", "Укрепить власть": "Consolidate power", "Контролировать Папена со стороны": "Control Papen from the sidelines", "Вернуть доверие общества": "Regain public confidence", "Искать поддержку в рейхстаге": "Scavenge for parliamentary backing", "гуманитарная": "humanist", "демократическая": "democratic", "научная": "scientific", "профессиональная": "vocational", "традиционная": "traditional", "Либерал": "Liberal", "Консерватор": "Conservative", "Центрист": "Centrist"};
+function candkey(n) { return cand_ascii[n] || n; }
 var candidate_descs = {
 Seeckt: "Hans von Seeckt, an independent formerly of the <span style='color: #C0A054; font-weight: bold;'>DVP</span>",
-Eckener: "the independent <span style='color: #000000;'>rep</span><span style='color: #DD0000;'>ubl</span><span style='color: #FFCC00;'>ican</span> candidate Hugo Eckener",
-Adenauer: "Konrad Adenauer of the <span style='color: #000000; font-weight: bold;'>Center Party</span>",
-Gessler: "Otto Gessler, independent formerly of the <span style='color: #D3C24D; font-weight: bold;'>DDP</span>",
+Эккенер: "независимый <span style='color: #000000;'>респ</span><span style='color: #DD0000;'>ублик</span><span style='color: #FFCC00;'>анский</span> кандидат Гуго Эккенер",
+Аденауэр: "Konrad Adenauer of the <span style='color: #000000; font-weight: bold;'>Center Party</span>",
+Гесслер: "Отто Гесслер, независимый кандидат, ранее от <span style='color: #D3C24D; font-weight: bold;'>НДП</span>",
 Wels: "Otto Wels of the <span style='color: #c00000; font-weight: bold;'>SPD</span>",
 Grzesinski: "Albert Grzesinski of the <span style='color: #c00000; font-weight: bold;'>SPD</span>"
 }
 for (var k in candidate_descs) {
-    Q[k + '_running'] = 0;
+    Q[candkey(k) + '_running'] = 0;
 }
 var candidate_votes = {};
 for (var i = 0; i < Q.parties.length; i++) {
@@ -309,7 +291,7 @@ for (var i = 0; i < Q.parties.length; i++) {
     var supported_candidate = Q[party + '_candidate'];
     //console.log(party, supported_candidate);
     supported_candidate = supported_candidate.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    Q[supported_candidate + '_running'] = 1;
+    Q[candkey(supported_candidate) + '_running'] = 1;
     if (supported_candidate in candidate_votes) {
         candidate_votes[supported_candidate] += Q[party+'_normalized'];
     } else {
@@ -321,8 +303,8 @@ Q.winner = "";
 Q.winner_votes = 0;
 Q.has_majority = 0;
 for (var k in candidate_votes) {
-    if (Q[k + '_bonus']) {
-        candidate_votes[k] += Q[k + '_bonus']/100;
+    if (Q[candkey(k) + '_bonus']) {
+        candidate_votes[k] += Q[candkey(k) + '_bonus']/100;
     }
     total_votes += candidate_votes[k];
     if (candidate_votes[k] > Q.winner_votes) {
@@ -334,8 +316,8 @@ for (var k in candidate_votes) {
     }
 }
 for (var k in candidate_votes) {
-    Q[k + '_votes'] = Math.round(1000*candidate_votes[k]/total_votes)/10;
-    Q[k + '_votes_disp'] = Q[k + '_votes'].toFixed(1);
+    Q[candkey(k) + '_votes'] = Math.round(1000*candidate_votes[k]/total_votes)/10;
+    Q[candkey(k) + '_votes_disp'] = Q[candkey(k) + '_votes'].toFixed(1);
 }
 Q.winner_votes = Math.round(1000*Q.winner_votes/total_votes)/10;
 Q.winner_votes_disp = Q.winner_votes.toFixed(1);
@@ -362,9 +344,9 @@ go-to: r2_start if round = 1 and not has_majority; election_end if round > 1; r1
 [? if Eckener_running : <span style="color: #000000;">**Эк**</span><span style="color: #DD0000;">**кен**</span><span style="color: #FFCC00;">**ер**</span> -[+ Eckener_votes_disp +]% ?]
 
 [? if Grzesinski_running : <span style="color: #c00000;">**Гржезинский**</span> -[+ Grzesinski_votes_disp +]% ?] [? if Wels_running : <span style="color: #c00000;">**Вельс**</span> -[+ Wels_votes_disp +]% ?]
+ [? if Wels_running : <span style="color: #c00000;">**Вельс**</span> -[+ Wels_votes_disp +]% ?]
 
 [? if sapd_candidate == "Бойкот" or kpd_candidate == "Бойкот" : Испорченные бюллетени —[+ boycott_votes +]% ?]
-
 
 @r2_start
 on-arrival: {!
@@ -397,8 +379,8 @@ go-to: r2_menu
 
 [? if gessler_drops_out : Кандидат от <span style="color: #FFCC00;">либералов</span> Отто Гесслер снял свою кандидатуру в пользу кандидата от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] Конрада Аденауэра. Это консолидирует голоса умеренного буржуазного блока. ?] [? if adenauer_drops_out : Кандидат от[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] Конрад Аденауэр снял свою кандидатуру в пользу Отто Гесслера. Это консолидирует голоса умеренного буржуазного блока. ?]
 
-Что нам делать?
 
+Что нам делать?
 
 @r2_menu
 
@@ -407,7 +389,6 @@ go-to: r2_menu
 - @r2_endorse_eckener
 - @r2_campaigning: Сможем ли мы убедить какую-либо из партий пересмотреть свою поддержку?
 - @r2_vote: Пусть начнётся голосование.
-
 
 @r2_endorse_adenauer
 title: Поддержать Конрада Аденауэра из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
@@ -421,7 +402,6 @@ go-to: r2_campaigning
 
 [? if kpd_candidate = spd_candidate: Теперь <span style="color: #700000;">**КПГ**</span> выходит из нашей прежней коалиции и больше никого не поддерживает. ?]
 
-
 @r2_endorse_gessler
 title: Поддержать Отто Гесслера.
 view-if: ddp_candidate = "Гесслер" and spd_candidate != ddp_candidate
@@ -434,7 +414,6 @@ go-to: r2_campaigning
 
 [? if kpd_candidate = spd_candidate: <span style="color: #700000;">**КПГ**</span> теперь выходит из нашей коалиции и никого не поддерживает. ?]
 
-
 @r2_endorse_eckener
 title: Убедить партии <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции объединиться в поддержку Гуго Эккенера.
 subtitle: -2 ресурса
@@ -444,10 +423,9 @@ view-if: z_candidate = "Аденауэр" and ((ddp_candidate = "Гесслер"
 on-departure: kpd_candidate = "Бойкот" if kpd_candidate == spd_candidate; sapd_candidate = kpd_candidate; spd_candidate = "Эккенер"; z_candidate = "Эккенер"; ddp_candidate = "Эккенер"; lvp_candidate = "Эккенер"; resources -= 2; is_unity_candidate = 1
 go-to: r2_campaigning
 
-Мы успешно объединили все партии <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции в поддержку Гуго Эккенера!
+Мы успешно объединили все партии <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской коалиции в поддержку Гуго Эккенера!
 
 [? if kpd_candidate = spd_candidate: <span style="color: #700000;">**КПГ**</span> теперь выходит из нашей коалиции и никого не поддерживает. ?]
-
 
 @r2_campaigning
 view-if: round = 1
@@ -464,17 +442,14 @@ view-if: round = 1
 
 
 
-
 @r2_vote
 go-to: election_algorithm
 set-jump: post_election
 
 
 
-
 @r1_winner
 go-to: election_end
-
 
 @seeckt_victory
 on-arrival: chancellor = "Фрик"; chancellor_party = "НСС"
@@ -483,20 +458,18 @@ on-arrival: chancellor = "Фрик"; chancellor_party = "НСС"
 
 - @fight: Неужели всё это было зря? В бой!
 
-
 @fight
 
 Мы понимаем, что это означает гражданскую войну против всей мощи государства?
 
 - @civil_war: Да.
 
-
 @election_end
 go-to: eckener_win if winner = "Эккенер"; bundesrepublik_win if winner = "Аденауэр"; seeckt_victory if winner = "Зект"; nazis_lose if winner = "Гржезинский" or winner == "Вельс" or winner = "Гесслер"
 on-arrival: {!
 Q.president = Q.winner;
-if (Q.president == "Thalmann") Q.president = "Тельман";
-if (Q.president == "Munzenberg") Q.president = "Мюнценберг";
+if (Q.president == "Тельман") Q.president = "Тельман";
+if (Q.president == "Мюнценберг") Q.president = "Мюнценберг";
 if (Q.president == "Геринг") Q.president = "Геринг";
 
 if (Q.president == "Тельман" || Q.president == "Мюнценберг" || Q.president == "Шумахер" || Q.president == "Вельс" || Q.president == "Гржезинский" || Q.president == "Юхач" || Q.president == "Браун" || Q.president == "Осецкий" || Q.president == "Манн" || Q.president == "Эйнштейн") {
@@ -510,20 +483,16 @@ if (Q.president == "Тельман" || Q.president == "Мюнценберг" || 
 
 На выборах победил [+ winner_desc +].
 
-
 @eckener_win
 achievement: zeppelin_kapitan
 go-to: nazis_lose
 
-
 @bundesrepublik_win
 go-to: bundesrepublik_achieve if presidential_powers; nazis_lose if not presidential_powers
-
 
 @bundesrepublik_achieve
 achievement: bundesrepublik
 go-to: nazis_lose
-
 
 @nazis_lose
 

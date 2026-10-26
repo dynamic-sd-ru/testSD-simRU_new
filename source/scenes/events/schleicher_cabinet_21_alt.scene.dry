@@ -17,7 +17,6 @@ tags: event
 - @reichstag_yay
 - @reichstag_nay
 
-
 @reichstag_yay
 title: Голосовать за вотум недоверия и тем самым добиться назначения новых выборов.
 subtitle: Опять новые выборы?
@@ -45,7 +44,6 @@ if (Q.next_election_month > 12) {
 Как и ожидалось, Тревиранус не в состоянии сколотить большинство без <span style="color: #c00000;">**СДПГ**</span> или <span style="color: #6A1E1E;">**НСС**</span>. Его правительство пока что остаётся временно исполняющим обязанности.
 
 Новые выборы в Рейхстаг назначены на [+ next_election_month : month +] [+ next_election_year +], неделя [+ next_election_week +].
-
 
 @reichstag_nay
 title: Проголосовать против вотума недоверия и «терпеть» работу кабинета.

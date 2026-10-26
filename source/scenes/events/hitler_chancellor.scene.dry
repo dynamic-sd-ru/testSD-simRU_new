@@ -1,7 +1,7 @@
 title: Гитлер назначен канцлером!
 subtitle: Начало конца…
 view-if: year >= 1933 and president = "Гинденбург" and (chancellor = "Папен" or chancellor = "Шлейхер") and schleicher_chancellor_timer == 1 and in_grand_coalition = 0 and spd_in_government = 0 and largest_party = "НСДАП" and hitler_deported = 0 and not presidential_powers and not schleichers_scheme_success
-on-departure: chancellor = "Гитлер"; chancellor_party = "НСДАП"
+on-departure: chancellor = "Гитлер"; chancellor_party = "НСДАП"; kpd_nazi_urgency += 1;
 #tags: event
 new-page: true
 
@@ -17,7 +17,6 @@ new-page: true
 - @give_up: Мы проголосуем против <span style="color: #7A3C00;">нацистов</span> в рейхстаге.
 
 
-
 @fight
 
 Мы осознаём, что это означает гражданскую войну, войну со всей мощью государства?
@@ -25,9 +24,8 @@ new-page: true
 - @civil_war: Да.
 - @give_up: Мы не готовы к войне. Вместо этого мы проголосуем против нацистов в Рейхстаге.
 
-
 @give_up
-on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; prussia_leader = "Папен"
+on-arrival: in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; prussia_leader = "Папен"
 
 Произносятся речи. Проходят голосования. На улицах свистят пули. Некоторых <span style="color: #c00000;">социалистов</span> убивают или сажают в тюрьмы. Другие бегут из страны. Что вообще могут решить голоса на этом этапе?
 

@@ -148,7 +148,6 @@ new-page: true
 - @luther: Партия голосует…
 - @luther_fail: Партия голосует…
 
-
 @luther
 view-if: luther_points >= opposition_points
 on-arrival: lvp_relation += 3; lvp_left += 2
@@ -156,33 +155,32 @@ face-image: img/portraits/luther.jpg
 
 Ганс Лютер ожидаемо переизбран лидером <span style="color: #FFCC00;">**ЛНП**</span>. Он проведёт партию через экономическую депрессию и, будем надеяться, постарается сохранить поддержку буржуазии для <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рской</span> системы, но его возможности ограничены.
 
-
 @luther_fail
 view-if: opposition_points > luther_points
 on-arrival: {!
 Q.luther_endorsed_candidate = "None"
 
 if (Q.lvp_ideology == "Правые") {
-    Q.luther_endorsed_candidate = "Eduard Dingeldey"
+    Q.luther_endorsed_candidate = "Эдуард Дингельдей"
 } else if (Q.lvp_ideology == "Умеренные") {
-    Q.luther_endorsed_candidate = "Julius Curtius"
+    Q.luther_endorsed_candidate = "Юлиус Курциус"
 } else if (Q.lvp_ideology == "Левые") {
-    Q.luther_endorsed_candidate = "Hermann Dietrich"
+    Q.luther_endorsed_candidate = "Герман Дитрих"
 }
 
 if (Q.lvp_relation >= 65) {
     Q.luther_endorsed_candidate = "Теодор Хойс"
 }
 
-if (((Q.curtius_resign_lvp) || (Q.curtius_banking_crisis && Q.banking_crisis_seen)) && Q.luther_endorsed_candidate == "Julius Curtius") {
-    Q.luther_endorsed_candidate = "Hermann Dietrich";
+if (((Q.curtius_resign_lvp) || (Q.curtius_banking_crisis && Q.banking_crisis_seen)) && Q.luther_endorsed_candidate == "Юлиус Курциус") {
+    Q.luther_endorsed_candidate = "Герман Дитрих";
 }
 
-if (Q.luther_endorsed_candidate == "Eduard Dingeldey") {
+if (Q.luther_endorsed_candidate == "Эдуард Дингельдей") {
     Q.dingeldey_points += 0.5;
-} else if (Q.luther_endorsed_candidate == "Julius Curtius") {
+} else if (Q.luther_endorsed_candidate == "Юлиус Курциус") {
     Q.curtius_points += 0.5;
-} else if (Q.luther_endorsed_candidate == "Hermann Dietrich") {
+} else if (Q.luther_endorsed_candidate == "Герман Дитрих") {
     Q.dietrich_points += 0.5;
 } else if (Q.luther_endorsed_candidate == "Теодор Хойс") {
     Q.heuss_points += 0.5;
@@ -228,7 +226,6 @@ if (!Q.dietrich_lead && !Q.heuss_lead && !Q.dingeldey_lead && !Q.curtius_lead) {
 - @dingeldey
 - @deadlock
 
-
 @heuss
 title: Теодор Хойс избран!
 subtitle: Хойс — <span style="color: #c00000;">социал-</span><span style="color: #000000;">респуб</span><span style="color: #DD0000;">ликан</span><span style="color: #FFCC00;">ец</span>, член бывшей <span style="color: #D3C24D;">**[+ ddp_name +]**</span>.
@@ -241,7 +238,6 @@ face-image: img/portraits/heuss.jpg
 
 Победа Хойса усиливает «<span style="color: #c00000;">социал</span>-<span style="color: #000000;">респ</span><span style="color: #DD0000;">убл</span><span style="color: #FFCC00;">иканское</span>» крыло, укрепляя наше сотрудничество. Несмотря на его личные правые взгляды, Хойс остаётся одним из самых убеждённых и искренних сторонников <span style="color: #FFCC00;">либеральной</span> <span style="color: #586593;">демократии</span> в <span style="color: #FFCC00;">**ЛНП**</span>.
 
-
 @dietrich
 title: Герман Дитрих избран!
 subtitle: Дитрих — бывший лидер <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, делового крыла партии, и он несколько скептически относится к сотрудничеству с нами.
@@ -253,7 +249,6 @@ face-image: img/portraits/dietrich.jpg
 Герман Дитрих, ранее связанный с деловым крылом <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, избран председателем <span style="color: #FFCC00;">**ЛНП**</span>. Дитриха в основном поддерживают мелкие предприниматели и сельские жители, и [? if chancellor == "Брюнинг" and not spd_in_government: он известен тем, что разрабатывал чрезвычайные указы Брюнинга, когда занимал пост министра финансов. ?][? if not (chancellor == "Брюнинг" and not spd_in_government): он известен своим бюджетным консерватизмом. ?]
 
 Несмотря на это, Дитрих не так радикален, как промышленники из правого крыла партии, и готов сотрудничать с нами, если другого большинства не будет. Однако его лидерские качества, мягко говоря, не впечатляют. [? if agriculture_minister_party == "ЛНП" or economic_minister_party == "ЛНП": Обязанности в министерстве не позволяют ему заниматься повседневным руководством партией, которое теперь передано группе его соратников из делового крыла. ?]
-
 
 @curtius
 title: Юлиус Курциус избран!
@@ -268,7 +263,6 @@ face-image: img/portraits/curtius.jpg
 
 Как бывший член <span style="color: #C0A054;">**ННП**</span>, её левого крыла, он выступает за более тесное сотрудничество с нами. Однако его лидерство, мягко говоря, весьма невдохновляюще. [? if foreign_minister_party == "ЛНП": Обязанности в министерстве иностранных дел не позволяют ему заниматься повседневным управлением партией, которое теперь поручено группе его соратников из „Прагматического центра“. ?]
 
-
 @dingeldey
 title: Эдуард Дингельдей избран.
 subtitle: Дингельдей, член бывшей <span style="color: #C0A054;">**ННП**</span>: обычно ассоциировался с её промышленно-правым крылом.
@@ -281,7 +275,6 @@ face-image: img/portraits/dingeldey.jpg
 
 Однако до сих пор Дингельдей проявлял себя как неэффективный лидер, часто уступая правому крылу <span style="color: #FFCC00;">**ЛНП**</span>. В последнее время мы наблюдаем ухудшение отношений с его партией наряду с заметным сдвигом вправо в <span style="color: #FFCC00;">**ЛНП**</span> во внутрипартийной борьбе.
 
-
 @deadlock
 title: Голосование зашло в тупик!
 subtitle: Ни одному из кандидатов не удаётся набрать достаточного количества голосов.
@@ -292,10 +285,8 @@ view-if: lvp_deadlock
 - @dietrich_compromise: Герман Дитрих.
 - @curtius_compromise: Юлиус Курциус.
 
-
 @dietrich_compromise
 go-to: dietrich
-
 
 @curtius_compromise
 view-if: not curtius_resign_lvp and not (curtius_banking_crisis and banking_crisis_seen)

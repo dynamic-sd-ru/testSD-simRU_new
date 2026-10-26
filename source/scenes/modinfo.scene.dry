@@ -1,7 +1,6 @@
 title: Информация о моде
 go-to: flavors
 
-
 @flavors
 new-page: true
 
@@ -17,7 +16,6 @@ new-page: true
 - @source: Литература и источники (дополнительная информация)
 - @root.start: Начать игру
 - @root: Назад
-
 
 @infotext
 
@@ -36,7 +34,6 @@ new-page: true
 Ваша главная цель — спасти германскую <span style="color: #000000;">дем</span><span style="color: #DD0000;">окр</span><span style="color: #FFCC00;">атию</span>, а спасение <span style="color: #c00000;">социал-демократии</span> — второстепенная задача. Если вы не очень понимаете механику игры, зайдите в «часто задаваемые вопросы».
 
 - @flavors: Назад
-
 
 @faq
 
@@ -72,7 +69,7 @@ new-page: true
 
 **Как привести в руководство КПГ примиренцев?**
 
-Примиренцы в <span style="color: #700000;">**КПГ**</span> сторонники «Народного фронта» с СДПГ, с которыми легче договариваться. Путь получения: в начале игры поставьте советником Пауля Леви, до конца 1928 года внедрите шпиона в Коминтерн по карточке международное социалистическое «движение». При достаточных отношениях с КПГ выпадет событие на дело Витторфа: предотвратите утечку. После в МИД улучшите отношения с СССР до второй половины 1929 года и расскажите советскому послу о деле Витторфа. Примерно к июну 1929 Коминтерн соберет конференцию. Если отношения с КПГ хотя бы нейтральные + в СДПГ минимум один советник из фракции левых + фракция левых сильнее фракции реформистов — Коминтерн одобрит приход примиренцев в КПГ. Они там останутся до конца игры. КПГ не будет пытаться их снять, даже если ваши отношения с коммунистами существенно ухудшатся. Примиренцы будут давать пассивный бонус на отношения с КПГ. Также единоразовый бонус на отношения к КПГ вы получаете, когда на любых выборах — будь то в региональные или национальные — марксистские партии (КПГ+СДПГ+СРПГ) получают 50% и более мест. Тогда низовые активисты КПГ и СДПГ лоббируют сотрудничество между партиями. Но будьте внимательные: вы и коммунисты изначально боритесь за один электорат — рабочих. Чтобы создать единое с коммунистами правительство без центристских буржуазных партий вам будет необходимо «уйти вправо», чтобы получить украсть у центристов избирателей, но не настолько, чтоб полностью разойтись с коммунистами. При этом дюбые попытки примириться с КПГ воспринимаются центристскими буржуазными партиями с отторжением. Лавирование на этом пути одно из самых сложных и не рекомендуется новичкам. 
+Примиренцы в <span style="color: #700000;">**КПГ**</span> сторонники «Народного фронта» с СДПГ, с которыми легче договариваться. Путь получения: в начале игры поставьте советником Пауля Леви, до конца 1928 года внедрите шпиона в Коминтерн по карточке международное социалистическое «движение». При достаточных отношениях с КПГ выпадет событие на дело Витторфа: предотвратите утечку. После в МИД улучшите отношения с СССР до второй половины 1929 года и расскажите советскому послу о деле Витторфа. Примерно к июну 1929 Коминтерн соберет конференцию. Если отношения с КПГ хотя бы нейтральные + в СДПГ минимум один советник из фракции левых + фракция левых сильнее фракции реформистов — Коминтерн одобрит приход примиренцев в КПГ. Они там останутся до конца игры. КПГ не будет пытаться их снять, даже если ваши отношения с коммунистами существенно ухудшатся. Примиренцы будут давать пассивный бонус на отношения с КПГ. Также единоразовый бонус на отношения к КПГ вы получаете, когда на любых выборах — будь то в региональные или национальные — марксистские партии (КПГ+СДПГ+СРПГ) получают 50% и более мест. Тогда низовые активисты КПГ и СДПГ лоббируют сотрудничество между партиями. Но будьте внимательные: вы и коммунисты изначально боритесь за один электорат — рабочих. Чтобы создать единое с коммунистами правительство без центристских буржуазных партий вам будет необходимо «уйти вправо», чтобы получить украсть у центристов избирателей, но не настолько, чтоб полностью разойтись с коммунистами. При этом дюбые попытки примириться с КПГ воспринимаются центристскими буржуазными партиями с отторжением. Лавирование на этом пути одно из самых сложных и не рекомендуется новичкам.
 
 # for the angry redditors....
 
@@ -81,7 +78,6 @@ new-page: true
 1. В игре большое число карточек не тратит ход, если вы в карточке нажимаете вариант с «бездействием» (сбросом). Например, из партийных карточек только «агитация» тратит ход, если вы решили её сбросить. А, например, партийные карточки «сбор средств», «партийные организации», «Рейхсбаннер», «международное социалистическое движение», «межпартийные отношения» — не тратят ход, если вы в них выбираете вариант, который вам ничего не стоит и ничего не дает. С большой частью правительственных карточек так же. Например, карточки «перестановки в кабинете», «права женщин», «демократия в экономике» тоже не тратят ход, если вы решили их сбросить. Поэтому порой стоит сбросить ненужные вам карточки, если они не тратят ход — чтобы попытаться счастье и вытянуть нужные. Тем не менее, не все карточки можно сбросить — это сделано намеренно. К слову, большинство способностей советников так же не тратят ход. 2. Как поднять поддержку республики: чистка бюрократии в Пруссии, контроль республиканцев над улицами, митинги за демократию, судебные реформы, победы продемократических и менее правых на партийных съездах партий (особенно НННП и ННП), вход СДПГ в правительства Ландтагов или хотя исключение из них нацистов, расследование деятельности ультраправых в МВД, разоблачение легенды об ударе в спину, снижение безработицы. 3. Что уменьшает гнев старика к СДПГ: Канцлер — Брюнинг, хорошие отношения с ННП, низкая безработица, преследование коммунистов в карточке МВД, контроль республиканцев за улицами, приостановка или решение вопроса репараций, откол от партии фракции левых и/или центристов (также улучшает отношения с правыми партиями), высокая лояльность вам Рейхсвера, принятие концепции Народной Партии и т.д. Что повышает гнев старика к СДПГ: борьба со Стальным Шлемом, низкая лояльность Рейхсвера, Земельная реформа, сокращение финансирования армии, улучшение отношений с коммунистами, высокие результаты НСДАП на выборах и в опросах, низкая поддержка республики, средства в бюджете меньше 0, уровень разногласий в коалиции (чем выше уровень разногласий, тем больше пассивно растёт злоба Гинденбурга), Канцлер от СДПГ после ратификации плана Юнга.
 
 - @flavors: Назад
-
 
 @paths
 on-arrival: {!
@@ -215,7 +211,12 @@ on-arrival: {!
     "achievement_mr_breitscheid",
     "achievement_alt_aber_gold",
     "achievement_kleber_der_partei",
-    "achievement_grosse_sauberung"
+    "achievement_grosse_sauberung",
+    "achievement_die_rote_justiz",
+    "achievement_bruning_der_rotfrontkampfer",
+    "achievement_merz_und_scholz",
+    "achievement_lindner_moribund",
+    "achievement_tausendjahrige_libreich"
   ];
 
   Q.unlockedCount = achievements.filter(key => Q[key] === 1).length;
@@ -247,7 +248,6 @@ on-arrival: {!
 - @back: Назад
 - @back2: Назад
 
-
 @back
 view-if: not game_over
 on-arrival: {!
@@ -261,7 +261,6 @@ elements.forEach(el => {
 });
 !}
 go-to: flavors
-
 
 @back2
 view-if: game_over
@@ -277,13 +276,11 @@ elements.forEach(el => {
 !}
 go-to: game_over.eg_menu
 
-
 @ddp_paths
 
 <div><iframe frameborder="0" style="width:100%;height:1500px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=ddp.drawio&dark=auto#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22avKUMwk6zr42jBCfiFQ4%22%3E7V1bc5s4FP4t%2B%2BCZ9sEeSdhcHhM7abebXibpTJq%2B7BAj22wwcgHn0l%2B%2FEkg2AuzgmItoQiYTIySBdc75dM6nI9LTxsvHD4G9WnwmDvZ6CDiPPW3SQwhphkH%2FsJKnpAQia5SUzAPX4WXbgiv3N%2BaFgJeuXQeHUsWIEC9yV3LhlPg%2BnkZSmR0E5EGuNiOefNeVPce5gqup7eVLr10nWvBSCADYXvmI3flC3BtsLi1tUZ8XhAvbIQ%2BpIu2sp40DQqLk0%2FJxjD02gGJoknbnO65uni3AflSmwZ3x4fLm%2BlIH35%2FWt%2FPTr%2F3F5UUfalwiYfQkvjV26CDwUxJECzInvu2dbUtPA7L2Hcz6BfRsW%2BeCkBUthLTwPxxFT1yi9joitGgRLT1%2BFT%2B60Y%2FU5xveFfs8eUyfPIkTPwqeNk3YSdxmMBKn22bxmWiXHyU%2BcOxbpgr4mH3AZIlpe1ohwJ4dufeyKthco%2BaberzpSRDYT6kKK%2BL6UZjq%2BRsroBW4degAoAHaHlrSv7AUC%2BgDPXUYsmiznRmoqc6QYcqdjdKd0Q%2FJQJT70nrmOZHUtWHJYx6SdTDFvEvpnim5bYti9T%2FEFEbDNk2BqzI3BljOGFL6fyOp%2F4HGkAztvsEZ8sGJ7GCOo73DqFVtYJKkDxcrR7h721vze52s57SA6ptVKPEL%2B5bOZJKUbM%2Bd%2B%2FTzlI4cDmjBPQ4il84UJ%2FzC0nWcRCFw6P62b%2BP%2B2JhzIKCdj057o0mhFPbrI7sVfiya8PhtpAlFGmLeqg8GyBwi2dqSs8NQLmfRfSijQ6YDMpuFuB5rFQqZEmsP6R4d0dMZiR9xK1X915qIC%2F0wtsQTpgDm6jGWh7hOP83Z38nkG718RXU9imsm3d4G4voFnrEbXLi3OKCaES7zVd79Q6aL%2FjUOcfBeXKVfNHm0pEpO92QseVi4Eb5a2bFdPlAPS9bImet5Y%2BKRIG6rTbQxGk74dxTlHvNM%2Bo4d3L2jVWbx0UN0wKm6aBCxn%2Fe0SRgF5A6nOjs%2Fj%2F2YPYCR08mdumcZIziAspqY3CV6SDlVOi9bpNwpUa8GUDBaxfq027PBfWWwXiB4CazXFcP6YkBvw5t9RqzNiMdUTDza8Zg93IHZVxFZeXRqRuBbQOaBXYDJ9MKKhFTSZfF4QZa36%2FB5LJY1aDeclvci2HOd20vXY%2FryEXv3mNXjF7giQvQyuN81c1QD9tpAQ5Y4TNk7sKh%2Fb%2BShf2QMDLNJ9NdbDXoV9%2FQFpj8PL3rlnn6xk2mZGpAUyQDWwEodptxj8uQ1Bop6fa5nAYyBE4esIuz8pbofWQWAjCzGEEjSHhoMNsDmgG07j%2FobUfC8z9EGfBwp1rxZn6zn6zCKuQIBQWpyBXplXAEYGMjgI%2FFS3G4g%2FBdq1hQGn9uuFyqPwPVG8haQp2H1gPk1hH966fBPVyz8M2Cb4lGcdCkvVgOoJVa9xqg%2BYWIv8YwES%2FpdiP8Wu9cbu8urfQZQJGI3zdeA7KVdZ9NQCwJMaycEOO791kizjFzKmqV66jraQhGrcLQ1PbMucuSaXANutwVzgv467UKAVKXcoCb0vTNy02sMlyZXEZukz%2BkU3QGSquYQCckhkrmD8m42LhLxvPqE1RGzp3CLSzjQihFPFsgZ5xdy3wFQFXpVTYaKAbuGqkZecJWh6hc8J5Ebxzwh55%2BUx9YqELRgAUANEDWLTfHPCkGM8iyEpRaImug1zHGlxWNWnuZ8pHjadUHU5v4OEOtILbEaFXB%2FGp8Bqc8QzzasMJjfvgPJDCP%2BvN9DEF5g28FBuHBX9GRM%2B8ds1a5BptDBM3sd3%2B7P5wlHVo4nhFARohABhZaAjLJAI8HMy7e0lAAaqyTQIFA50MRND90mY1mmHFBDzdy%2FfSXfQkdGRq9Se1ReEAuE5Md3NPntDH%2F9%2FfnGvrmDq39DkQfflveBmnE%2FKvf5did8DYba0DCRDkzdyuwTMoYZ%2BKg74cvYTW8fHed9xMHS9n1aZeLS53SnC9WjvJq3C1hZg0cKRH8ItLoA9bKcr8amFRFstDGtHBmW5NczKrPs7wtMHGojCHzE6zBU3ayrcQ1z5I0q9tvuhh%2FF7XfUWfvNb%2B7cs%2FB8tEmfBX6cDnqBl0uWILjDokstanfZzjUlJ2loaa0a%2BQtMvDGKSWSMPE8xWcNmnHwIwFDaxmFmVEor5%2BUfGlLS%2BxoZ7YXG%2FpiyoIlWcVC5A25bVWhYWqGbUEwEUC2Kebj%2BoKG5V3%2FqUYbNSFXBteZoVDecMto07sZl0Wi0wCwmjXM73lIu66FSKa5kySoIVSFSu5esXdWrgZ4HLTFHdm%2BZVDx5jYlg1Fg8exXiV79dRkknGYFXkAy28RU6F9FunrxGA%2F1sU4eG%2FnYgW7OSSRbq28lTMVvcTV9wYU8347gVppZst8vLV7QNV7ZfhaJ8op5vuPUFv5ydpxUmuUuO86hNj07Px%2BZ4nNGjGLTZUZWyIC2vLCOzWWUpXGFs950VL%2FHH6mA3CoemAOwL61W%2Ba2bH8uUIZmZ%2B0yrHZVS1Gt1qEkR5HuxoidcuSd0EA2BtfjK4YOn1UFTsthkFAiCjJ3XkMHSEbVIXYGDlennUlAE74%2BorLNLW4oPix1Eov62rbgBs7b0I%2Bx67lu3zm5QicIlDd%2B4fwMm8pcUeRvcUbJ%2FfZqo1ROU6%2FU%2B2FznXPy9%2FavO7y%2BC7dn3Tb3dRtIJJANaGGOXXnhRJhx3BzOvYh1rmrf%2B51SoNmnub1ONL7l6rqiMv47MduIyiOPPYzkYcMcC76I213umY7Qt4vYkaQy0PSmbDbEYhKHX%2BFXr1gZIgD7qDStlwVVlUEkP7lu5ZCbromRfCbQmR1nCl5Tf7GkoDSwcWxfY%2BeB1m%2B2EdRjZ72cJVRLzVnqTOP8hus28padZu98cjPvFxfeTDc8a1K3yVpT1dB%2FebkyPssSDtuiFa8aWZkxnARyJ%2Fqd5Z%2B9lV0iNWOrHteGR6N6DHGzXSHDWCgArUSOf58RqdhbIvI1TOWajxVWeX2PUX7L9Ixkk0r8JZgABmvfyaCQR6uv2vmMkcsv3%2FotrZ%2Fw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe></div>
 
 - @paths: Назад
-
 
 @dvp_paths
 
@@ -291,27 +288,29 @@ go-to: game_over.eg_menu
 
 - @paths: Назад
 
-
 @lvp_paths
 
+<div class="container" style="position: sticky">
 <div class="container" style="position: sticky"> <iframe frameborder="0" style="width:100%;height:800px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=lvp.drawio&transparent=1&dark=auto#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22avKUMwk6zr42jBCfiFQ4%22%3E7V1Zd6M4Fv4t8%2BAzXQ%2F2EavgMXYqqamlu05qm%2Bo3YhSbCUZujLPUrx8JEAaxGGOxJEX6dBkEAiF9uvfqbpooi83TtW9t15%2BwjdyJDOyniXI5kWVJlXXyQ0ueoxIIYVSw8h07vulQ8MX5heJCEJfuHRvtMjcGGLuBs80WLrHnoWWQKbN8Hz9mb7vDbvatW2uFcgVflpabL%2F3h2ME6LpUAAIcr75CzWrN3g%2BTSxmL3xwW7tWXjx1SR8naiLHyMg%2Bho87RALu0%2F1jVRvauSq0nbfOQFdSrEY7ELntnnIZt8bXzqYY%2F8zNfBxiVnEjlET07wX3IMZlp89jN15ZIOMmAnz%2BzEC%2FznVCV6%2BjN97VAtPGP18t8Sf94O7%2F1l3Nx7eH3z88eNDr4%2B729X87%2Bm65uPUzmGheWvUFB1HxsG%2BtGpV8R9dY3wBpEWkRt85FqB85CFgBUjaZXcd%2BhpchB3dnHHV7X7wXL37E2mbJCSj98%2Fk3%2BvsE8A5GCPHH%2FHAcqNnb%2FGm9s9adX8ce0E6MvWCrvpkUzE7DD6eO%2FZyI47ehf4%2BB4tsIt9UmKjO2vvkm6bW66z8kjJkgwAIpfmD8gPHDITLuILG8e26bvnd9gLrqyN49Kxe4fcB0Tviy%2FEU1iS43P2IpdOkalt%2Bfd%2FTGTlLvybyKTnyKAokkz%2Fe0OrOK7LqpALV1eLBQBxOQPqDru0Y%2Bcr37IddHhFDGBWfOn4hCLQDlQukbULqkBGvxU9VYIivgo1GcwAkJO%2F6AExeZMUc2aa%2BuEvpnaPKdqhxzBcp6iGAc4HmdZwdkupuX2Y6cdmd2ZuH6a6%2BNkt6S91frOWZ2e4Oc7wgc9wGYLMpFYkfdblRJaM18mn2fxMz%2BRvH%2F75Nv36qD4YfwLn%2BoPy68PVp6msDmsis4anJvJE1sM5RSdAZqj0f%2FaYXZjuwqlyQW6QjO1T2HvsOjla0d8DKUD2v9hTSTOjB0f3sGLbeeCL2PuZ4Mwer%2BTf9M7ydpT27IM1mf3VbyLFmZfxhClDb44Qp6KJ%2FTJJVE8Ch8qRI7mYHMkF5EgXQI7UptSoiVwhdSZXyPClyhWs5Rm5QgFs7u62lldIkm6t5f0qnLrTZYRgSpkCn9AF1oPzcCmdXEvNF391%2B4esadFsSR%2B8iY7odcq4FiGxY79v3hQSPfJrbSiZ8G532wwRzMpDCTGKvqmMGo1iUh90Cepar2KSPX1vuYH94%2B%2Bbv5XV%2FY3%2FVfnxc6pUEivsB2u8wp7lvj2UcrA43PMR422MnP%2BhIHiOR9TaB7g9%2BSshgKdSPHHUKax64fvWc%2BqGLXa8YJd68mdacICDYepKBg6yCjltFFfDhLpRWYMcRK0orQ9nMPsICQICQt1M%2FvTsZ0bEPn4QB7Wkq5qjr5pVjuhrDX2mpIDfCX2FyyZFfinwqyW2VS4Nj64hFeHArMuXipsD%2BxybU1R8XYyNPqyxqda3dDk2%2FalszhzR3jQ2xc0xhzKiPSrhzhxRbVAjqoE%2BRxS8hhFVjWGNaL%2FCchPl1ADH1BzUmLJ2n6MoV0sU5V%2FQEnv2hBnPFthb%2BWi3K1Vkj0qiISiJNDmrJNIYIU9riLSWNETFdKdX2aBXE91RcqIJZxHFi2eog%2Bxy3VTNGUj9ydknRgQzt3A%2BVUuQe60EoMkBKrXmF7Uu1%2FPmQ2aEA29dMusQJWufCTVzbBR%2FIQ%2FPj9YtcrOQqk%2BC6JN%2FWbfh8yhA4n4iD9fmE%2B2yEDKVcydHABIHvPgtk7SDWxFhmIKZpJtZ2jCNH3UmuKTMQzkVDL6726F2tC9SbpRr2G0b241Ha%2B7rsOYaZgFDbM2UW8376tly22FaWRAu9%2F5DctJcjlYK5GgVtsLjTuZFJs8CtQr1szAiJUBAL6NI7%2Feus6c0abEns3xfXzIfyU935MeEWZ7bKfkxqq2zgl1JTjRttUOAtDwBgsMwmUHdyELBlLsgQFp7BOitvbd8KkpfOt4KuTZ6HknQAEkQVHokQcVatOrAmAEZ51LETe5IF6kU%2BN93ZANq5ogCQBZfUAUzRT4Y5cWu%2BM1qw4QIkbodziTcBlvCZpJQvgObqVL1lPhInMzdDF7QOeIPAhONY9MK3fDPfEyJMP5JiLzt4uU9smez2ahXH7Re3eCYKAQFTLQtz8tCZMJ%2B9eoCVgjt8VBmej3KQ%2BFAlBMJW2uJtjFXtQwZa8ZGTzCoVDDS4gCExu6Q4hAh3sJbMuQqr4%2BCHKUQZYRROM5sHmW0WnHL6lfoQrXGRrQNzvx1jbCNqb3oHdqfYPMel7XdcWRF6nFZqzRdhTRcfPavWWN0MU1A5XZo5encU%2B9Bs8Y6pA368w75G8vzQtUaaaazXI8kaIAkCBhD06zpvbq9D9vZRu9KA6ODrEuEBCDnFVEi2okiTbCaO%2F3G7tgtOVydbgtiHvMMIpKSUZPWqqFX14AM8CU1jgRckTcasyx9k4BWD8g1GqPIchK92lG8FqzO2PMb%2B7QPZVpoXEzrcZCr6nkgJ28UB%2FJcY9oF%2BRENoPBFiNz%2FKkSrq8YRH07TkNBDHl3GEWUKH%2BbP1zh7NWM0XbtmdL51QQNfEGjER%2Bw0A40KeAgINqJWdlMbwSSJ%2F%2FUN2pHl4q4889Jo7hqCuYsPI0kc9%2FuLI4HVFoshLmq6chnpbGULlQFI8YOJY6yNA%2FjacKDC%2FnGgd%2BCZMfplDJ9R8es%2FlgSmN0alt2gYuEGOt6Y51WXwyXIqApFGs0CPDrcgRx2VTjNIFvNNpT1Yvsdry%2FMQDUa5dNDyPjJejdAcHDQVo2dodpvd9ETDeRmSWtFKwIJ8qF16JJ2slZDUlhVTHWfUH4BTRW0MDEWdqXCp2iWgHlNnmjxqVMGoabrLym%2BAmmFEiJyOGgMoLaPGqNYm1URNJWbqeL%2BCmULWsWlAzWg252pQhWefke%2BQ76WCTWeMqKtsJbzHqgQkTvQQFbWi6Dwy9Q5cx2A%2BofjJorhe6joWOqyCKyJC01%2BL%2FP%2F9rz8Xo8Z92IqMJOt9gkSlQ417%2BdqwjVwqc4sqMMJUPNi3aDsINbuj2eg9gjUZhJ7XPtoiK0rVg9yoxymeHeoVGW3cdU4Oll5y%2FJSh4uRsPlDl4kVUM9wHS9Y1DUq6qijKqURX4myOU5nhT2gqn3LKV7qNQhmqQPH%2BChUbJxSmuQuwuw1Nk599TOb4hhxd2HgbIo%2FWvAzT3zkUezfoLtw3JrrwHxuRt66ciMz6KMX4XDpWO4fQMsuPbrbCVHoheK%2F96GSBCdqi7Rfq7btAQBM0hWsRLc8ScDFEDHLeNGpBnJzMFpJpKmYKoGKSPDR0zSliUDj%2BKToWVXLu6Fsw6ZWw24M0kBLsRJBxIqg9M9q4th5QzNsp3%2FVWIfasXbiVR4DJP3uPjPfs9SCLQKtXZOV1%2Bmn2dYmWruMlG6jc%2BqynsZ8vW6wtb4XY0NKRf%2F73LjPIr4tXyZzO0TRpQLpKOY6sK5JePjrFnIrb9qIFJnUkQXnd4MjaPlJitoRIL%2FRYZE56TacIj3WtnQat22ipdG8eM7afq6Ap6uhBa%2FBy2WAEx0qpTRUrjRT8bWxfVjSkam%2B7W8h5ziNMV3AILhv98l6GlkDi1n3QyAtB7SkJypMZnrgH3olS9MmAl8oyltWV2cBxIe2Y9uGFC9wSF9Nv6AXitlKANFUE0gQoSEcXmhfspyBz2ii9iM61FtzfcVyNIScWn6gmPCbHNLcAFS4MettMSG3sDTKUnbeZYJgRFpXe%2BrM8J%2FroE%2Fu7CIm6qfYoJKotuhlekz7w95RzzycLZXKh7jcj%2Fx4i%2F9ZNrcfMGFqnaa9PSmB2rrpJ7dlX43R1E2%2FWlqQjiQ74Gkezj6mcRsus2le2gUZL69bBLCsKCtFoFaFGE66PrDs9YXWOGhHxx%2FVcr04LTRY7P1tSBxf5Xxbn5hOfAJgPGZXAkYmbqyHayU9t0c8q2XSDqU5HoXjIQjEBGxf50GlEM3vu8FWnZRH8F3uCQCds6oIc4g2F%2Fjcv9GYAV%2FvNrUv9Yl65UhSaKgeiAic9WVLzIBKhFT2yg2uecXbKBlvnZLkZzETJ0xP1SHwqea2THPn9C8M1ukK09CzGl6JHFR%2BTlDPSc2%2B%2BFLrcsD%2BbZLDopC%2FZkr%2BHvuxW0d%2FCyq4Qm8LjBWuv7IT4%2BTToTSFrt0Js9ub3wVozqvJ%2F41WLAWSZEzg7XbW0aIa%2F8i3vntxwTebNL%2BSOWvzhafENwPwwGPrkol1vWlPjt5hH5YuDVne%2BE0YXPYRL2A%2BWb2OfDsoIxMEBkd%2FTTAJGARlsC4gF%2B8mPJs0Rg50SQyaItoLB%2FS6wHsgdSSzcCL%2FBw8%2Fs0iPOaGoCFeDUf2Rpd65Fne0O%2FWIs6ryGj6kIhWXGEGKePTLWokatdaWzxKUuMfhoQlG6YY17ETesNSroRyrwnwIFp7owmmp629ZMdkYi%2BnOkNaWGfV%2Ffp6LVmKuiLjb602MKELbK7KiXjrdCro1ow8ccLS9KGwd1TgYrjEpoSxln5BXCYwh6zRB03ZCyrG%2FwIeim3IEU1pSkn8tQGWVvNzpdkHgtCZaSWtRqjnadl8JJeJTpSnuchJz6mOLkgFgyuutP2Kbk%2FO3%2FAQ%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E" allowtransparency="true"></iframe> </div>
+</div>
 
 - @paths: Назад
-
 
 @zentrum_paths
 
+<div class="container" style="position: sticky">
 <div class="container" style="position: sticky"> <iframe frameborder="0" style="width:100%;height:1200px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=z.drawio&dark=auto#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22avKUMwk6zr42jBCfiFQ4%22%3E7V1Zd9u2Ev4tffC5yYN0AIKbHi3bSZvrpD52mtR9uYeWIIm1RLok5aW%2F%2FgJcJK7gIpIAZbmnsUVxATHbN4OZwRm62Lx%2Bdoyn1Vd7jtdnEpi%2FnqHLM0mSANLIL3rkLTgCIQTBkaVjzsNj%2BwN35r84PBidtjXn2E2c6Nn22jOfkgdntmXhmZc4ZjiO%2FZI8bWGvk099MpY4c%2BBuZqyzR3%2Bac28VvQYAYP%2FNr9hcrqJng91XGyM6Pzzgroy5%2FRI7hK7O0IVj217w1%2Bb1Aq%2FpBEZTE1z3qeDb3dgcbHlVLvgXuIb732%2Bvm8v7X1frS%2Fg%2F5KARCsfmvUXvjOdkCsKPtuOt7KVtGeur%2FdGpY2%2BtOaZ3BeTT%2Fpxr234iByE5%2BDf2vLeQnsbWs8mhlbdZh9%2FiV9P7k14%2BVsJP97FvLl%2FDO%2Fsf3qIPlue8xS6iH%2B%2Fj3%2B0v8z9F12VnKZw41946M8yYmvA8Oh%2BxC8O5%2FYztDSbPISc4eG145nOSZYyQ85a783aX3tgmGYoEQjFRJWksxX7k4AahyEiaOlbjPyh5f89wltgLb7knPvkjNsb9IZ8l8tlDmsr%2FXIzUPxZ%2FfUFXP64uv779NhpBjSd%2FwBh37HlFMP4IKMCYQ6VtPkoQmUFR1qifjfU2fNKZpK7J%2BKcL22fLPanVf7Z29MXI9Yl1Tk6A%2BtOrP3FE7a5tJzjoLB8%2BSAp5VTIqEP%2Fjo39qdCvy15L%2B%2FosSYbshp9yR%2BfP8ewSjcJ8MK3cUD8bscemz1ij2XM8xLDeiXs6DyG9jQ7huaj24T8HndXD8U%2FCk3WnR4WAakofn5nOFQ4UT2GSegBtZw%2BgYyr7dBXlt7PhWkfwTfBrdUnP04avhvH4seS1yOOc10kdT8p%2BU7peV6eG7J8OXlBcCA5KSvDDX64vg7cm1CPg%2F4VTFjn%2Fyfyj1Pcd%2BxIlvwisK5fQZOx5%2BZUpW%2BK0iJzWtlNC0UElpWjX4%2BiVm%2BNXQlK9iJl8HHUmqkiOpaV1szc8pzCGfZmvDdc1ZcvqTtGqiVgunvVSdxeZNyZm26NiB1lMDLOuJINt6Bjo%2BYz0zT4FAYrGOmjbSlWw0oZzxFjvtiZ7gFr9qySAK3nXPgcHzmsKDfPSonOBj0dyoWXiQP4eyUPgA6VxJ2gTxwQRB9%2FTlR1JNKJLKQBiSDlVGWydoIwug6CwDIKUBTMIAZG5GHM%2FkzVCNu3VjTtQM4rnEM%2BpxTCQ9QqcPTgb83hAPgk7jhW0tMGECQvIMaF3Zm4et2w5gXVMUM5obzuOHPXalOB5dXdL%2FPvIFskUhA25AFp6CTIVzM6mogaAklEmZZCS1RScYFAUc0u7vnYeX2Hkx1vP6%2Fns0TqaX3ZIvv3tyeCTXbXd8SYxfVcd179NJb0GDTZgarMCf6kOBzX683L%2Fe6H%2F%2Bo6t%2FLJw%2FH%2BW3L%2FcjCGWeGqxRGLQmKA7sVbTIIeVZMAAuLtgWrIm2K5jwnoLvUFPYMSE5yYla8gFdR9%2B5utdJtpNEc8Ygt%2Fh7s%2BiNygTvEzVP5RXGo9g3Q%2Bmb9YDdYYOFBUEhQR%2FjPIGBGDdDjSkaMjc0kM%2FpwwMD%2Fa2JSlX9mdYN%2FGE05brOXSfq2QdtVLFoM%2BFKmybhg%2F5A0FBpKhWiha4X1rM4ASyIMXQZmQLV1877GbxJMQJhZnKO%2FfRku6Zn2taBGKHvAGkLuIEdRNAmYsGGaHgDUmP9wYaqCzGVsw%2F6UWPRmklMjVFgA74SYVgRjQKuDR%2Fb59D92njA6yStDCI3Fvl7FngEaEpFwZwZ6%2FPwi405nwdsgYmLYTz496MzHzqf5ObK9Ey5zKUFkykzQrfLqQ2fchbPWc0TxhEYQygrCREM79Q0RhOdYi8WLj40wMLkO85O638N06VsMrwY9ugaL7yk75r1WvdLdsftx2rsCA8SzB6pw3Nj%2B4LVUk5sMf9EsZJ7peG5Sr1hjOo01YWiKYJcaXokcto6TRstAmjMDE6Cn%2FJWm4oWAUpuhlg362YNYGcy%2B%2FLqMwhLLkBY%2B3oDF%2BNHN0Qs3Tr8%2FaEye%2BvSJ1aCkUcYB2DjLghB7houx2wCrpGAPhYQ%2BskmiMAXj3SCw2BaXmlH%2F0rxfI4tY3uI49nHKDtdKRVIiUdZrKbr86FlbPB8964%2Fbo7bdS5ZAuapw5l4krMEHxo44iG%2FNUNG71osSpANEkwqZK6ZEWKHH6Iyr1JXVUZCYRVVoBzErjIj2i%2FBK0jbY1s5RVPHkqYgVUJQ12VQrYy0tVpOuVeTphaaNMMVw6AVjbBTQNqngeJYo6QIthii8K16FdtyaRUtlyJGlWRJYaPMTI5u924dVd1r9TV1Bz1cvtg2H01ds0lKBQck6JnCXLlWYjHkEfnfv4lyKbB6b8MtT%2FsfqRph0SpNZXHWtCsq8YQK73ClLPIqSpX4RCjvQ%2BazoN12Hm%2B509fN%2BmR%2BBwE4gZquyWiiAi0hz5rfQiZwPhRtoqVuX7VbDoLSGKIi6KdP1LEu7XWGUsnLqQsCULquD%2BW8aRp%2Fdmq1FWFWfUQDmJV1k9JNVWhd3mIX32npxhk9sBbfNkxHwVrdhIDqspacDhAh3rwlZ1OceTgbQVgI3GLXXFruL4WwOw2wB5jOwI6cqIKVNcgNVsIEc0ZFc1Cr%2BaYFb%2Flekq0zofSkpuTYQoQJXThXGkydrWVay%2BZhm1O7HB7MroIhVRZEWIozr3%2FeYsdw5ideHxavowlTsYvG7CrX9Hyxy2iUqitHgvXAjeLYAtC0IkX78qcrU7T1MHJBRkVJY%2B781jFtxxrT1jm1RJi%2FSsLoNY4Yr9Tu3fJhcrfBKpFWL4O0Qlo%2FgedHHVQoWckTLR8jGsAhTCIfziS32Jyt3EfberSduUEfe2curWNnlZIsNcFYReMKwLim7nDoslVgZSRmG81m%2B2PUfkruml7Z6mVbZk3js7zXNqYvZSmt9UZSBcSW035gUgu1xFIIlWbkov1DtK5YKrdxqUDZ9Gw%2FpLk%2F0Rs3KYTOciGmBvl5TH21%2BZXaAzuZPmcrwgPkhO%2FmBpNf5wuPUS%2BUw229tyliScLhXYrAmAh8kvjhp0MZLGmKkpd318BIa4CTO1lWMGZ%2BhHJIkVaD6Ma1OTvzNw5xsfNM6O9u3kuYFcpMMMUR5eeXcO920RXAGnLMcmHXt1eohOeW38keOedo0HdnS82jX1AKPtnOpo6PL7qkS%2BwqUhlNxpNJBuRyFPXTfkHlAlwu6hGd%2Bxf1R%2B3z7f3PWxV8f9s%2BLKe%2Fj1a312Q8g1kpa5k8%2BdMhnCZusKdTByHXQAXHtnRbEi%2BiOLWrjXhrMq4aquRUXJVHHLZEb6tANL0tTBpyhwLevlYtcCghe7fqiZykvpx8QHshi%2FxpQOIskXdP63Jbi7jZWvbIY8r8%2B4oi3FtMZsKg%2FeLpwuclfjC8lnbLHKgW1XTBtCjiuxWJ2OhXysk%2FKZhGbilFeSE5BkEt28IpqSJS8snYmGs6Yb%2Fi9TOm4dXwi5CCUGriNLY5wfza5LJHfgB%2BlVrAr3cexat4Y1gm1axHEkIA6S4IlcAIRyXKF4oKrkR18ZUoe%2BScZfzGMZYbulpQvOQxNAEvQUniCTjXTg%2BCC3jkjQxPwKORcxbwb76HZKyPScIVZg2ReBIus2HzO5fwnG6SBdPIrfV1wXgG009SbLJy6xLKHjnn1YMgyPWV8IYzW73FIlyn5YOUwiffC6bwlVOGB0O%2BKvtsUcssYTSDGA0ibvHT9mFtzgwrSPI6DlDHjstI0kQwGUd8Nyg7FuuPemoXBzPdT1M2JJ%2B%2Famfhy0zfRAIa8zHtpeEXGKb3W2FUzrSRfzE8wxSNnLNh%2BkYbPdyUbeI9NMNUAj6FM0x8uzOKLuM5XfQGIuNidK%2BjBQae6W2DqOLeQz0mKMqOL4on8RGrco5YXM1sy974ZSg3tBzl7RSryDKPrAjGPOpp%2BYlhSyubC1WwKKYihrm4s2dmYCaI4NHCQRBoieq6QXRjURK3UIWLTfKtxeYZt%2BCc6FzEC%2FWbR5SYGHYoo%2BsYg8qXwQQ3KOpgDUoLfYxaMChf7Tl26qyDiW4%2FSoRZPPvxfvcX69x%2BIBWOtWJeUFATxV77Mc3MVHv245TwypgcMFT7EY2cs%2F04pw0SHdM7HgekJFolnAEZYpvhoRgQme2ANPMMclpQNcIsvRmQFkIfLYRDf%2FMbnkfl3%2BeLhWE6p%2BrvHHZJ1y1y11DaqW6RIV2Vy%2BomSm%2BwWRpDWdIVzf9XnST4C0EIxgCpSJ5IgP7bWUs89oRxBj6%2FP2HrLNyM4e7m8mjgT0n8dSLcegtf%2F%2Fmo4U9J%2FLWAF9qOv%2Bps%2BNN1%2FFV7vwGacuulVfafe7VexdyEIOAKpjVB3PalYVqud2S2q0SRCGe73nGDet6xX13tJfbbzES2p234JtULbrsqJ6OcbFdiwnjnwHiObS3X%2Fj5MR2nGSiLQ4pkxrhkK7zoC3cw3qh2B7s2MsSOF2YZYB%2FnhMMECpTuj8Gy%2BFVmgUltFSNk2Z1ZVDmw%2FmUG7MURJIVYFJSAdxQ12TDI1dHuLQwFIDaJy66jGBpAsoiKgJoiqS93o5uFStX0jUpWqkO14ssjaPaQfhp6NTCQH4kkNiQdPpAtIJ1h%2FymjkMb8q6HV%2BjY05dtyV%2BUQ%2BXK3xLCgETfszx7W2DccA7HEoTABRJAF1jCRxfB%2FisvP0fYhVVeQkdJLVTiSbH%2FRpXc8WeVqSPlbQnvNQivO0JOdVcrQaeECQ7Uy34wJx1NM7gpaTXm59C8DKJpadM1vNxFYPRgzGD61BPKV1ua1MPHYF5rsFt3Ukj59n0jQC1ATcHqPc8euzABsHgOqTbjihuzqkE6vEQMrZffaSeCRre%2FY4Ho%2BP2w9RZcDyQ1RN4%2BWHlOylJAhAbGofk67RbOs87z4cIoOV3Q2lr6Xe3balEUtpOmGparm0545jvMVOC3dPLnzYJP0sSd49q2hJKHONjEqvgUBp4yJlUn4RjCLTxReRP4KJanUVfMdLMa14YxCnOGgKnrNrMPhw5%2BEldl6M9fxjVmsKvho9UZiKMBWQ4b1H0g6ExGNpK4cSxrB8yjhPthNt5%2BynCzw4UabAh2tj82DMVkdHJIQ0oYi0e8HYHmS2EzRl3tgzx9j3OopR57uDn03HsMytOzwKQb9qophEsiyWHClZOfID0GSK6ebvhCrgxsGuOcehaTrlmLFWiVoEHiFDgbGqRjHKelikLnqASE0ZaF1R6xvo7EVJA72%2FRTQwe7FwcSepbDu6FJgJlho6JyxvbLEzQB1E9MWQdFDOnk7nS8dwIlMegaznfGv%2BGTv4EQ%2BQTDLbmvMjk9R4baKJloZ1dPTBDqvrOfYjjr6Z44Wx9RmqG4e0cm%2FkrhzS2kZAS%2FuDE62Cl6aVXtSRl5bTwjnauqmK7vhhOw949jhA5VESuNJVsVyBnDa8dej02cbOHK8HaY1lmFxwTlFKmwhGqWzDsqRnXUKqqb3%2Bd5BUqhMI5k4lZXi9FmrZ%2BUNs7mRoNneS9qEq2dx0v4b%2BbG62b3YdXf4Tu4Q0TwPUEbqsjzV9ryNUsTV5lJrRkE7X%2BG%2B8tfDoy9ZaHh%2BxRFPo0dMGVFxVc3H%2BAJWuVF3X66qEs65Kl0C0j23IbzKApSo9cxGS5KqxtPAWxHuLo5goyyYahAzymL5uFdlESRaRyclBI5C7Zt5T9eqOV%2BLVq8o0nmh9ppCD4Ba75tJyf8lqtmPKbwApLZiCtRNuWlCayv9cjAjh%2FvqCrn5cXX59%2B200yiFdWeFxqr44mHQQ%2FQqmERRVJ6dLjv%2BiGmtL13L%2FJvzpUo3jbyd6%2Be3q0y991B1PP13oFxedxx2Z1eeSOlbjP6g%2FpnjUPt%2Fe%2F7xVwfe37cNy%2BvtodXs9gtEA32Hrp7hpzJ8cWNXb2U1j%2F2ln7JFz7jd56VuGpLwTa1Fd3I%2FJXMiIFQWBGkzWh%2FdpL%2Bozy4Mxe1z6emBUyUpU56GMQZELDEqwj4vfw%2BLGsZcOdl0qWBR9LGxn4wb39ZfZ12S09O9F4JvNbGdueLHrqvIjIbWXZDyDcI9F%2Fp5hyy%2FqmVKGMGfG%2Bjz8YmPO577SzOPgpCLtLsO2BpcSPztltGQAsqyIclhRaYEVG7RHEYAVb7cP5qz6%2FpLvgI0ASq5aKUqPTNQA6orAROEe2v%2BhtvLO9LZGUKoK7jzjYV15d5HjZy5F0ndZviF7qRRY51hMXRtHvSfbZrImqqoqKzDSxKoxAcWh18YDXjflBPrAf322C%2BgeBmXIzZUp9fHrEJJKi2WRNwrvR44BtvZAfvYGQohQStPUaEPupGet0I47CgJ6CyhaalrvlgzulbTn4FlCI1fd5YljyagkRlvqMIX5jMYmqAPTfWgCXen6FHVskjWVFa6C6d3m%2B%2FQ%2FsklqPOh%2Bjw2qbMlHY0PpFdCZPhTACYJHwwgKMzeOKyO0ELZogRGiLPktRWI0q%2F4Sb45MG5C3F1UboGzaWV0mQGrEBPm4PhnyWfg%2FAU88G86H0WiJ%2FS%2FDS%2FwvyHlQov99zPcAct2EzIYHt%2B8EwFGEpig6IFCdsJICkgAOSn6CHRVAHU0kVVZb4JoGQawOVMdFQBg6P9OdyiA6hGCulX%2FcpB7dZ5vMsbXxAX0I8Q06PYEB8j9vbKeXDSV7UTYEpicsTnJVk6uyEaQfL229C0zX%2Bo8X8cj5t3v%2FlkTkwzjAi%2BlRUBqG0UNGex8cAjhyiFzIIe6Tn7ZZnUPSZK%2B7AttEEd36Xprtr8Bc%2FH59GSmYtf3C4J%2Fd4eAdj5StEEiux%2FbJVq0FKfsCM%2BlAplzM1dP3AnNkqpb2MCeZNUpLN6rCnPxsoH3%2FkCjOmbpFK%2BV9qEHY5cSKYrGiJCMpjrjT7twwOLFkI%2B%2BWe5eDsdZv3zFGHVxQOvczNDzSWbqYzs9kuLgAlTNaIg4oz12JGhnzztSXQZLDqJeY4qfDMu6VvMDCIYimqN6xus44mKXioCoUjyQrQSbH1IkaplZhIIhUQAwuTWAOXEKtrOnmhQaPnXhyS7TTVDiWUuSDupIhn4z0sSZlKQhhCxTM3W39RMGKjoycXPCGIId8UFd3ZE4IYNRvqQb5yEfHplhqr2wJAVZf7TlFSFf%2FBw%3D%3D%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe> </div>
+</div>
 
 - @paths: Назад
-
 
 @dnvp_paths
 
+<div class="container" style="position: sticky">
 <div class="container" style="position: sticky"> <iframe frameborder="0" style="width:100%;height:450px;" src="https://viewer.diagrams.net/?tags=%7B%7D&lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=dnvp.drawio&dark=auto#R%3Cmxfile%3E%3Cdiagram%20name%3D%22Page-1%22%20id%3D%22avKUMwk6zr42jBCfiFQ4%22%3E7V1bc6M6Ev4t8%2BCq5MEuCXF9TJzkzM6ZmU2dzM6Z2TdsKzZnbJMBnMv%2B%2BhUX2VyEAhiQSOxUxUaAAHXr64u6mxGabp7%2F8OyH1Rd3gdcjBSyeR%2BhqpCgKQAb5Clte4hYIIYhblp6zSNoODXfO%2F3DSSA%2FbOQvsZw4MXHcdOA%2FZxrm73eJ5kGmzPc99yh52766zV32wl7jQcDe318XWv51FsKKPAQA47PmIneWKXhvsd21senzS4K%2FshfuUakLXIzT1XDeIf22ep3gdDiAdmvi8m5K9%2B3vz8DaocsL8%2B9PP51vzx29T%2F8%2B99%2BOX%2BvLp5xgl9xa80GfGCzIEyabrBSt36W7t9fWh9dJzd9sFDnsFZOtwzGfXfSCNkDT%2Bg4PgJaGnvQtc0rQKNutkL352gh%2Fh6RMt2fqZ2nP1nPQcbbwkG8WnTQbAd3feHHMekTKO7S1xwDlOiY8Lnz91gWQs%2F8DuBgfeCznAw2s7cB6zLGInnLbcH3egBPmREKMGYdS430d7vUuuNFL0Nbn%2Fy3uXjECaZPrvnUt3jP1o0C%2FIAVB9eI4Gju4nv5bh97%2Fn4fnQUkzaJbnDuNf4ACZPfLZnZHpn6GivneWW%2FJ4TmmCPNDxiL3DI9LlIdmycxSJmGUzuy55F%2FYXUfHCdbRANmXY50q6Y9OXxa3gh%2FMzCgOQimTmWIV9y1hhMoAESgErwibJAZQonvd%2BGT5M6xL2%2F9wmr5VlgfxPNuQIezxV6whVkwNauFzd6y9mZomkjhdwVSP84ZzLQ1dfvt2T%2FHZlSQdRBfAszjx7wlQxfiAgxWXzsPZIGf0M2z%2F7GPjnt4bwq62XB5mnlBPjuwY4m%2FBOROlmGvHfW62n8WORchK5N8xIlY5Bqv4k%2BpN0PPPcXzuyJAJwDNwXOK%2BUwBC00MQxl%2F1EzzAZ1faJnPvHup5Sg0RPRsUqJGBN0hDimSFFAf%2F%2FMiAW2KCAk8V5%2BpDdSZ4Wbh9OireNFiFJRhBhSiRCqRckv3A8UPRDxZ4aGoiiqy0VRsepakzkKZZujWtsUjU698Dz7JXVAouAUdQRqHJmGMlFSn4xsQDAnG1BWs2%2BxM%2FIjvvdW9RSloKckOsMtURnCcZq62yVRCv2ivF%2B5m9nOryfr16F4HC9s79dZKPaxac5QrMOQTbwI%2F85zakD2lEQjCE9B11fh37lg9UAxmFQTpx7sJ%2BJJmpRhyusmptoJ%2BBQBAWk8QFDYrEX7jx8j6bJ9G0YpggN5QPCFTM4V%2Bf5sh7akvBZo6UyvbYKCCTIVlCHNsRYopX%2B2U6hmO%2BjOPlXEGBG9KxuVJ3zrFkEJwRWdN%2BHzpmZuwsePW5jwjKtYEsOKVYCVr%2B4j3sxCNAm9XZbMoGK2Byr5yd8KokA902vu%2FO4ARSsQtbHDK%2B%2FFerWj5g6ylP9ruvd%2FPYYOsLyn7Owj9pZBuTcsf7wUbrMWtF9FNzlQIp3yq%2Bon5bdsbPSKslBt3fI%2BjqTG8dBStsJSEDxDW2ah%2FN7OOgsw9eOEUPdyRj%2BeGczjF1aYciNeN%2FnmObvNo%2BMR60iOtZMWhMArLhAN5aSAYCGgKyKFgNwrJEZFIaBDqYQAVSxOQoDD720YJWBvfw1mrb2BflAd%2BUGZ9Mhz0cWOIIbnkInl2FuGXPi4W%2BIt4bKlHFKhW5e5bgzLZV4exLNwHjuwQwtcVWb7Xn29IbtvXG%2FjpwI4SqxP0iz4duWaBAAgQ9NE2seqJhmnI6EL02nVSDbrWKmqGSGlbc2ozInLXRtSG7mKay9%2Fa5B3E3nFv4cVa3Ty8LTAw90EVzB4mMs%2BzZY7WuMkQygnvQk%2Ban2d%2FDg9rkVX4fFht8UQmooqj0SRNW1oSBANaQXB0E7y5TXV5%2FX4WrlwwSh6jTNOH8QOwJXDu0MZshUXP0jWr%2BX15lAeE5w60Xhl%2BA0uAas8AJfN%2BW%2Byw0dO%2BJ1S14aG31YxnWo4%2BE0ZshX8RmYuwEd%2B9zwqd672CejTlef4QeyWvHPnDuGEA5qXOFTreFM7uOWzz%2FZmZs9XdWQL2xM8MIkDTZCVOJKLnHeQnC2Hx8jIp8hku%2B84ctUCQxZDbWZkazo9NxtnKrEUajFA9QhI%2F%2BZGI3mFN%2B7cs%2Bcvkgugbx4OQ5m2zs5%2Fd0KI77eSTQapYs2elASSL%2BNUrZoFoppSmT0aK%2BhJHJHrBLb1QCy5cvjVFuTLaemh5aWHV%2BJWDSAMw5VL9fd0TPjnv5%2FQ9ffrqy8v%2FxoLDs6QeUGSAnMaFJhDSNM0RVcN4EYFQS0XvGGkWYeRJMxTRPiddRODQckxHB89VWTr6bFD01i5XCcQ7djajURVb0AjvIO94p3YQgUWLxjNZLPWK26ZmhfR82nL2Yt0HCykFZcghlQMgU42mYshjLP0hrlosFZ8Q2yl4QREpXzDiARjjqGwdCHm3QgtkQfeAj1br6fWSI9GKq9gFluj6VTz1cojDAWnXvwZGf5hpghefCjquOnlz2xWRkFXTip%2F0j3%2BQ3RS8SFm9vzXMpo149TzBETL9ilrMu4znfkRdy3amQyAaVxNu1XNkQUGpJrrxYWuIqBuFxdh5e5Qj1nbvu%2FMs4OcpUjpEL5eBrCqny81WhpjsGjbkUoKMng6qpHPyqikoxYvoqk8RTifVFRJ224tAV9ofGyz5OreKmxUZWpdrvgqXWwmRAsxc91pTJVpKtnikV40WE8LEvJWGVVhFvKzFrZ8WRJii4zWkAJHzPyq0bKVVZR%2BjF9FsGNVaeDQyMUCQOW1aIBo6xZ7Dhmz0IfWAa378XM0sotVVeGghWr2n5ZLB1BwYSa5ChCIrcKhIpPDJLLZnMYAX2vRl11hVJVEhlxBMaZQSVS92kQPlDG7ERyMYIH6HtP6C3Xc0hRGXlnNXqStyhSIGyjOvIdOJaAl0TJS1%2BzeQxYAnJgqVHQr%2Fp97JRNgxrz0lgcgtgTJ0c4SCQSVJcnbXSDXLS8ARAYTxt0Hk8jlUTOKJs63FR6F2RwPoU%2FLcUOLY0WuS%2B7IXoQBHWTAF%2BGTRodFPrAJ%2BRRtDIm8XC0YHvzMiZIcLmFRtyXvG5DQ8DhiyvX1egt%2BqKquNxHb9YNvee%2FYsPLOEb6my%2B1r8IG8RgsFk06vbZAxFJhbs8NiL1OLS3yQKBRYNpWaOg4Gk%2FqAFB7IAbMWYvLht9XOho7llFF6qoPNgX17EwLgduaHXxdLr8wZfzdfOXiN33JGhsIL5BEIwyXvIR6MC6t%2FHLZQEYdLRlGuVydA0OG7E%2FaxouB6jedBZO3ehlkLCxxN24G9SWE%2FA9p5n45BF7UkrJLBVsRUoQBQwxaWAwCkVsS4vs26uhO%2Fs6HrTlY5RAouwVJu6oLy0P3X7N03XZmlbHFInHUrNlaul4VBi1G1Y8DgOHg8a1CNpANbsMNqVx3c7fuudgVybhtpTFU2jIhVVBtZqhk1tcNyV9bAiqVAC%2FJYDxqof%2FxsUOCkA0TqumZtFyD6fmvWIkkBtMTTITSISe6XpO5deBWcfXK9LBuCwafydefBqUNWuRI093cuOJvv4O79C%2FvOcut%2FKAX1PHy%2FpxAnqEC5XBDKYFDhmNldNYdLEr1X4ZY6H7wPYk%2BPoTtV%2F8S7BXne9%2B1UVYFkiCa2xFNPiDY0r6rWHIQGgWjlblXBZnc9RPuM%2F8G7LR5%2F2m05ibBvA9ZUXqqadIpauZr%2FZsqLHUrx0p2nCmMtMDq%2FwpgqsIAIr74gg9FLuaGsXACbVT8RaRJm4sS5N1dfr28%2BlPJFi6S%2BvJma065JjawhkZreX3vV5Fp3HbVWDrOfInQqbFD%2Bo34VOpNnn2qNXsVVu9AJ%2F0nzTnXEfyCDF41btzNuaVJ%2BZ0erp1wjoIsSLCDWG%2BgXt9YXH3k7i%2BfuA3n5hQ%2BgbgnTJlnyVKB9PGqwvNPF%2B6B4SragGshFJLFAHlpziZGVEVunOcplPbVXGQEen27CBBXAVvqzfv376BOf92h7Z%2BPxEkc7k1PoGgEMLTzlvMTWKVMg%2F9rNnHmYzF0NtAh2BKOGkessiKtYObeGvqjRN1cmbKGb1kQ3wP4DCzjFginUAkxBli544ho5uUbLco2K4ASkP8UYhs7YpkF1uRPbiGEbnRZUoDIIKKLA5vgo2BPX9MM1CgRZsIGGAicMBbozXjk%2B4u%2FEKz3xCgJZNwDc6zftMwrZ9NxwOA9qMnms1Rd3EaYrXv8f%3C%2Fdiagram%3E%3C%2Fmxfile%3E"></iframe> </div>
+</div>
 
 - @paths: Назад
-
 
 @full_paths
 view-if: achievement_holy
@@ -321,7 +320,6 @@ subtitle: Благодарность idk_pineapple с Discord*-сервера Re
 
 - @paths: Назад
 
-
 @discord
 
 = Discord* (запрещен в Российской Федерации)
@@ -330,9 +328,8 @@ subtitle: Благодарность idk_pineapple с Discord*-сервера Re
 
 <a href="https://discord.gg/8BbZZgmSpb">https://discord.gg/8BbZZgmSpb</a>
 
-
 @changelog
-on-arrival: {!
+on-arrival:{!
 const toolsWrapper = document.getElementById('tools_wrapper');
 if (toolsWrapper) {
   toolsWrapper.style.display = 'none';
@@ -369,11 +366,11 @@ elements.forEach(el => {
 
 **V1.04 - 2025/09/25**
 
-[? if not snoopy: - Новые достижения: «Eurokommunismus», «Kriegswirtschaft», «Sechs Sieben», «Er ist wieder da», «AbgrundlÃ¤ufer», «BrÃ¼ning Uber Alles», «Der Aufstieg Skywalkers» и «Kulturkampf».  ?]
+[? if not snoopy: - Новые достижения: «Eurokommunismus», «Kriegswirtschaft», «Sechs Sieben», «Er ist wieder da», «Abgrundläufer», «Brüning Uber Alles», «Der Aufstieg Skywalkers» и «Kulturkampf».  ?]
 
 [? if not snoopy: - Достижение «Anders als die Andern» перенесено из основной игры. ?]
 
-[? if not snoopy: - Достижения «Heuchelei» и «Neue GeschÃ¤ftsfÃ¼hrung» получили иконки. ?]
+[? if not snoopy: - Достижения «Heuchelei» и «Neue Geschäftsführung» получили иконки. ?]
 
 [? if not snoopy: - Упрощены требования для получения достижения «Catastrophepolitik». ?]
 
@@ -409,7 +406,43 @@ elements.forEach(el => {
 
 [? if not snoopy: - Исправлена ошибка, из-за которой не применялось замедление роста недовольства от центристов и внефракционных советников.  ?]
 
+[? if not snoopy: - Other bug fixes. ?]
+
+**V1.06 - 2026/5/24**
+
+[? if not snoopy: - New achievements: "Der Rote Justiz", "Brüning der Rotfrontkämpfer", "Merz und Scholz", "Lindner Moribund" and "Tausendjährige Libreich". ?]
+
+[? if not snoopy: - Added Saxony Landtag Election in 1933. ?]
+
+[? if not snoopy: - Disconnected the discombobulator. ?]
+
 [? if not snoopy: - Другие исправления ошибок. ?]
+
+**V1.07 - 2026/08/04**
+
+[? if not snoopy: - Added Class Consciousness of The New Middle Class and Class Consciousness of The Peasants And The Rural Working Class cards to the party affairs deck. ?]
+
+[? if not snoopy: - Reworked how failing primary and secondary burdens are affected if class consciousness is awakened. ?]
+
+[? if not snoopy: - Reworked choice effects in party cards such as media, rally, and campaigning to reflect class consciousness. If the new middle are conscious, doing a class struggle rally no longer reduces their support. ?]
+
+[? if not snoopy: - Reworked choice effects in government cards such as economic democracy, economic policy, fiscal policy, labour affairs, labour rights, and welfare to reflect class consciousness. ?]
+
+[? if not snoopy: - Reworked on-arrival effects in the capital strike scene to reflect class consciousness. Also reworked choices in some events cards to reflect class consciousness. ?]
+
+[? if not snoopy: - Reducing tariffs now increases new middle SPD support (irrespective of consciousness) whilst raising them reduces new middle SPD support. ?]
+
+[? if not snoopy: - Socialisations via the economic democracy card now generate +0.5 nationalization_progress and +0.5 nationalization_support. The 2nd and 3rd works councils expansion now generate +0.5 nationalization_support each. Socialisations increase labour strength. Works councils and socialisations decrease dissent for all factions. ?]
+
+[? if not snoopy: - Forming left front coalitions in the landtags no longer reduces your new middle support if the new middle class are conscious. If the rural demographic are conscious, forming left front coalitions in landtags also no longer reduces your rural support. ?]
+
+[? if not snoopy: - Convincing the KPD to increase their campaigning for you no longer reduces new middle SPD support if the new middle are conscious. ?]
+
+[? if not snoopy: - The socialism value can now be raised by commercialising media. ?]
+
+[? if not snoopy: - Added abilities to Aufhäuser and Baade for them to awaken the class consciousness of the new middle class and the peasantry & rural working class respectively. ?]
+
+[? if not snoopy: - Other bugfixes. ?]
 
 = Планы на будущее
 
@@ -417,9 +450,8 @@ elements.forEach(el => {
 
 - @back3: Назад
 
-
 @back3
-on-arrival: {!
+on-arrival:{!
 const toolsWrapper = document.getElementById('tools_wrapper');
 if (toolsWrapper) {
   toolsWrapper.style.display = 'block';
@@ -430,7 +462,6 @@ elements.forEach(el => {
 });
 !}
 go-to: flavors
-
 
 @source
 
@@ -459,6 +490,22 @@ u/originalperson0 — это автор мода Динамик (Dynamic)!
 «Немецкий либерализм и распад веймарской партийной системы» — Ларри Юджин Джонс
 
 «Штреземан и политика Веймарской республики» — Генри Эшби Тёрнер
+
+‘Engels on Agriculture’, Science & Society, Vol. 62, No. 1, Friedrich Engels: A Critical Centenary Appreciation (Spring 1998), pp. 145-162 - Theodor Bergmann
+
+‘The Discovery of The New Middle Class’, Theory and Society, Vol 15, No. 3, (May 1986), pp. 317-349 - Val Burris
+
+Germans on Welfare: From Weimar to Hitler (New York, 1998) - David F. Crew
+
+‘Collective Bargaining in German Agriculture under the Weimar Republic, 1918-1933, Journal of Farm Economics’, Vol. 25, No. 2 (May 1943), pp. 458-476 - Alexander Eckstein
+
+‘German Unemployment Insurance’, Current History, Vol. 18, No. 102 (February 1950), pp. 65-70 - Sidney B. Fay
+
+‘Marxism and the Agrarian Question’, Jacobin, 08 July 2024 (https://jacobin.com/2024/07/marxism-and-the-agrarian-question) - Daniel Finn
+
+‘A Medium of Modernity? Broadcasting in Weimar Germany, 1923–1932’, The Journal of Modern History, Vol. 69, No. 4 (December 1997), pp. 722-753 - Karl Christian Führer
+
+‘Agrarian Marxism’, The Journal of Peasant Studies, Vol. 45, Issues 5-6 (2018), pp. 853-883 - Michael Levien
 
 Различные статьи из JSTOR и немецкой Википедии
 

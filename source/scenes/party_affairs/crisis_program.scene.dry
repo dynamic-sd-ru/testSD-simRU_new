@@ -26,7 +26,6 @@ tags: party_affairs, govt_affairs
 - @support_moderate: Поддержать позицию реформистов.
 - @defer: Отложить принятие решения до получения дополнительной информации.
 
-
 @support_centrist
 subtitle: Пусть экономика сама выходит из кризиса.
 on-arrival: center_strength += 5; center_dissent -= 5; labor_dissent += 10; wtb_support -= 1; left_dissent += 10;
@@ -34,7 +33,6 @@ on-arrival: center_strength += 5; center_dissent -= 5; labor_dissent += 10; wtb_
 Войтинский и профсоюзы яростно критикуют центристов за их политику. Рабочие голодают; неужели мы хладнокровно бросим их и встанем на сторону буржуазной политики строгой экономии? С другой стороны, центристы критикуют Войтинского: он даёт рабочим ложную надежду. Центристы уверены: для смягчения экономической депрессии ничего сделать нельзя. Они также говорят об угрозе новой волны гиперинфляции, если мы поддержим бюджетные траты и дефицитный бюджет.
 
 Наш текущий политический курс: для смягчения экономической депрессии ничего сделать нельзя.
-
 
 @support_labor
 subtitle: Призвать общественным работам и стимулированию экономики.
@@ -47,14 +45,12 @@ on-arrival: center_dissent += 10; left_dissent += 5; labor_strength += 5; wtb_su
 
 Мы ещё не убедили партию официально принять этот план. Предстоит много работы.
 
-
 @support_labor_pre
 subtitle: Призвать к увеличению расходов на социальное обеспечение и экстренную помощь рабочим.
 view-if: not wtb_concept
 on-arrival: center_dissent += 5; left_dissent += 5; labor_strength += 5; labor_dissent -= 5; wtb_support += 1
 
 Профсоюзники пока не предложили конкретного плана по выходу из кризиса, но призвали к увеличению расходов на социальное обеспечение в свете роста безработицы. Возможно, поддержав их, они сформулируют амбициозный план спасения экономики Германии.
-
 
 @support_left
 subtitle: Призвать к массовым национализациям и трансформации экономики в социалистическую.
@@ -63,19 +59,16 @@ choose-if: left_strength >= labor_strength and left_strength >= center_strength 
 on-arrival: left_strength += 10; reformist_dissent += 5; labor_dissent += 5; nationalization_support += 2
 go-to: support_left_progress if nationalization_support < 5; adopt_left if nationalization_support >= 5
 
-
 @support_left_progress
 
 Мы пытаемся убедить партию поддержать программу массовых национализаций в ответ на экономический кризис. Фракция левыхх утверждает: эта политика соответствует нашей <span style="color: #c00000;">социалистической</span> платформе, тогда как реформисты и некоторые профсоюзники считают план нереалистичным. Они призывают сосредоточиться на более насущных проблемах, вроде улучшения жизни рабочих.
 
 Мы ещё не приняли этот план официально. Предстоит много работы.
 
-
 @adopt_left
-on-arrival: left_strength += 15; left_dissent -= 10; reformist_dissent += 10; neorevisionist_dissent += 8; labor_dissent += 6; nationalization_adopted = 1; coup_progress += 1; economic_plan = 3; kpd_relation += 5*(1-dissent)
+on-arrival: left_strength += 15; left_dissent -= 10; reformist_dissent += 10; neorevisionist_dissent += 8; labor_dissent += 6; nationalization_adopted = 1; coup_progress += 1; economic_plan = 3; kpd_relation += 5*(1-dissent); kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 Благодаря нашим стараниям мы убедили большинство в партии принять <span style="color: #c00000;">социалистический</span> экономический план! [? if spd_in_government == 1 : Мы можем начать реализацию плана, если министерства экономики или финансов будут в наших руках.  ?] Сопротивление буржуазии, скорее всего, будет ожесточённым. [? if spd_in_government == 0 : Учитывая текущие условия, реализовать этот план может быть непросто. ?]
-
 
 @support_moderate
 subtitle: Предложить ограниченную программу создания рабочих мест без дефицитного бюджета, чтобы избежать инфляции.
@@ -84,19 +77,16 @@ choose-if: reformist_strength >= left_strength and reformist_strength >= center_
 on-arrival: moderate_plan_support += 1; reformist_strength += 8; reformist_dissent -= 5; left_dissent += 6; labor_dissent += 5
 go-to: adopt_moderate if moderate_plan_support >= 3; support_moderate_progress if moderate_plan_support < 3
 
-
 @support_moderate_progress
 
 Мы пытаемся убедить партию поддержать умеренную программу создания рабочих мест без дефицитного финансирования. Сторонники умеренного плана утверждают: он, скорее всего, получит поддержку буржуазных партий — а также наиболее практичный и реализуемый в краткосрочной перспективе. Противники из левых и профсоюзников критикуют план за мелочность.
 
 Мы ещё не приняли этот план. Требуется его доработка.
 
-
 @adopt_moderate
 on-arrival: reformist_strength += 10; reformist_dissent -= 10; left_dissent += 8; labor_dissent += 6; moderate_plan_adopted = 1; economic_plan = 2; coalition_dissent -= 1 if unemployed > 15; z_relation += 5;
 
 Благодаря нашим усердным стараниям мы убедили большинство в партии принять умеренный план по созданию рабочих мест![? if spd_in_government == 1 :  Мы можем начать реализацию этого плана, если у нас будут министерства экономики или финансов. ?]
-
 
 @defer
 

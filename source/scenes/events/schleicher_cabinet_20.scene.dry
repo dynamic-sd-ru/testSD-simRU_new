@@ -1,6 +1,6 @@
 title: Недовольство в <span style="color: #BFC8CC;">**ФНЕГ**</span>
 subtitle: Испытание для карточного домика.
-view-if: (chancellor == "Bredow" and bredow_time >= 2) or (chancellor == "Гёрделер" and goerdeler_time >= 2) and dnef_formed
+view-if: (chancellor == "Бредов" and bredow_time >= 2) or (chancellor == "Гёрделер" and goerdeler_time >= 2) and dnef_formed
 on-arrival: {!
 Q.dnef_collapse_points = 0;
 Q.weimar_gang_points = 0;
@@ -103,13 +103,13 @@ tags: event
 - @dnef_discontent
 - @dnef_live
 
-
 @dnef_collapse
 title: Карточный домик рушится!
 subtitle: Ситуация гораздо более нестабильна, чем Шлейхер когда-либо признал бы публично.
 unavailable-subtitle: В <span style="color: #BFC8CC;">**ФНЕГ**</span> достаточно стабилен, чтобы Шлейхер мог предотвратить полный крах.
 choose-if: dnef_collapse_points >= 30
 on-arrival: {!
+Q.kpd_nazi_urgency += 1;
 Q.dnef_collapse = 1;
 Q.dnef_formed = 0;
 
@@ -300,18 +300,18 @@ for (var party of Q.parties) {
 
         if (Q.dsu_exist && !Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (!Q.dsu_exist && Q.nvf_exist) {
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
             Q.nvf_support += Q.new_middle_nsdap*Q.new_middle;
         } else if (Q.dsu_exist && Q.nvf_exist) {
             Q.dsu_support = Q.workers_nsdap*Q.workers*((120 - Q.sa_force) / 100);
-            Q.dsu_support += Q.unemployed_nsdap*Q.unemployed*((80 - Q.sa_force) / 100);
+            Q.dsu_support += Q.unemployed_nsdap*Q.effective_unemployed*((80 - Q.sa_force) / 100);
             Q.dsu_support += Q.new_middle_nsdap*Q.new_middle;
 
-            Q.nvf_support = Q.unemployed_nsdap*Q.unemployed*((120 - Q.sa_force) / 100);
+            Q.nvf_support = Q.unemployed_nsdap*Q.effective_unemployed*((120 - Q.sa_force) / 100);
             Q.nvf_support += Q.workers_nsdap*Q.workers*((Q.sa_force - 80) / 100);
         } else {
             Q.nsdap_hitler_support += Q.workers_nsdap*Q.workers;
@@ -403,6 +403,8 @@ if (Q.dnvp_ideology === "Умеренные") {
 }
 
 Q.left_coalition = parseFloat((Q.spd_r + Q.kpd_r + Q.sapd_r).toFixed(1));
+
+Q.socialist_front = parseFloat((Q.spd_r + Q.sapd_r).toFixed(1));
 
 if (Q.lvp_formed) {
     Q.popular_front_coalition = parseFloat((Q.spd_r + Q.kpd_r + Q.z_r - Q.bvp_r + Q.sapd_r).toFixed(1));
@@ -549,8 +551,11 @@ if (Q.dnef_formed) {
     Q.schleicher_left_coalition_prussia = parseFloat((Q.dnef_r_prussia + Q.spd_r_prussia + Q.lvp_r_prussia + Q.ddp_r_prussia + Q.z_r_prussia).toFixed(1));
 }
 
-if (Q.kpd_relation >= 30 && Q.sapd_formed == 1) {
+if (Q.kpd_relation >= 30 && Q.sapd_formed == 1 && Q.weimar_coalition_prussia < 50) {
     Q.weimar_coalition_prussia += Q.sapd_r_prussia;
+    Q.sapd_weimar_prussia = 1;
+} else {
+    Q.sapd_weimar_prussia = 0;
 }
 
 Q.old_chancellor = Q.chancellor;
@@ -569,7 +574,6 @@ if (Q.chancellor === "Bredow") {
 Blocparteis вернутся к своему независимому статусу, и в первую очередь [? if dnvp_ideology == "Умеренные": <span style="color: #3E88B3;">**НННП**</span> ?][? if dnvp_ideology == "Радикалы": <span style="color: #0087DC;">**КНП**</span> ?] поглотят правое крыло. Тем временем левое крыло сформировало новую национальную партию — <span style="color: #fe9e00;">Старую социал-демократическую партию</span> <span style="color: #fe9e00;">**СДПГ(с)**</span> — основанную на классовом сотрудничестве, национализме и лейборизме. Они продвигают нечто, что называют «народный социализм» — что бы это ни значило.
 
 - @dnef_collapse_2
-
 
 @dnef_collapse_2
 title: Что теперь?
@@ -607,7 +611,6 @@ on-display: {!
 После распада <span style="color: #BFC8CC;">**ФНЕГ**</span> немедленно выносится вотум недоверия [+ chancellor +]у, который принимается.
 
 - @dnef_collapse_3
-
 
 @dnef_collapse_3
 title: Куно фон Вестарп —[? if dnvp_ideology == "Радикалы": &nbsp;бывший лидер ?] <span style="color: #3E88B3;">**НННП**</span>
@@ -657,7 +660,6 @@ if (Q.next_reichstag_month > 12) {
 
 Тревиранус попытается сформировать рабочее большинство в парламенте. Заседание рейхстага состоится [+ next_reichstag_month : month +] [+ next_reichstag_year +], неделя [+ next_reichstag_week +].
 
-
 @dnef_discontent
 title: В <span style="color: #BFC8CC;">**ФНЕГ**</span> происходит раскол.
 choose-if: dnef_collapse_points >= 20 and dnef_collapse_points < 30
@@ -691,7 +693,6 @@ go-to: reichstag_view
 [? if left_dnef: Это незадачливое меньшинство — левое крыло <span style="color: #BFC8CC;">**ФНЕГ**</span>, которое надеялось направить партию на борьбу с социальным неравенством и защиту благосостояния немецкого рабочего. Споры о монархизме и роли труда в новом корпоративистском порядке оказались для Шлейхера неразрешимыми, что привело к их выходу из партии и основанию <span style="color: #B86558;">«ФНЕГ-Социальный блок»</span> (<span style="color: #B86558;">**ФНЕГ-СБ**</span>). ?]
 
 Однако самое интересное то, что обе фракции теперь утверждают, что они — «истинная» <span style="color: #BFC8CC;">**ФНЕГ**</span>. Канцлер [+ chancellor +] пока избегает принимать чью-либо сторону, надеясь предотвратить дальнейший раскол и без того хрупкого альянса. Возможно, здесь сказывается влияние Шлейхера — политическое перемирие между двумя совершенно нормальными, просто «несогласными» фракциями.
-
 
 @reichstag_view
 on-arrival: {!
@@ -1021,7 +1022,9 @@ if (d3 && window) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!}
 {!<table>!} [? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **СДПГ:** {!</td><td>!} **[+ spd_r +]%** {!</td></tr>!}  ?] [? if dnef_formed: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r +]%** {!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if not lvp_formed and dstp_dnef: {!<tr><td><div class="box2" style='background-color:#A79A3F'> </div>{!</td><td>!}!} [+ ddp_name +]:{!</td><td>!} [+ ddp_r +]%{!</td></tr>!}  ?]
 
@@ -1071,14 +1074,16 @@ if (d3 && window) {
 
 [? if dsu_exist: <tr><td><div class="box" style='background-color:#6A1E1E'> </div>{!</td><td>!}НСС:{!</td><td>!} [+ dsu_r +]%{!</td></tr>!}  ?]
 
-[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] 
+ [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if nvf_exist and not nvf_dnef: {!<tr><td><div class="box" style='background-color:#142e20'> </div>{!</td><td>!}!}ННФ:{!</td><td>!} [+ nvf_r +]%{!</td></tr>!}  ?] {!</table>!}
-
+{!</table>!}
 
 @dnef_live
 title: <span style="color: #BFC8CC;">**ФНЕГ**</span> выдерживает бурю.
 unavailable-subtitle: Ситуация гораздо более нестабильна, чем Шлейхер когда-либо признает публично.
+on-arrival: kpd_nazi_urgency += 1;
 choose-if: dnef_collapse_points < 20
 
 Две фракции внутри <span style="color: #BFC8CC;">**ФНЕГ**</span> примирены — не кем иным, как самим Шлейхером. Несмотря на ослабевшее из-за болезни здоровье, ему удалось дёргать за ниточки за кулисами, остановив внутреннее противостояние в партии. На данный момент идеология «шлейхеризма» вновь объединила движение, и, похоже, что [+ chancellor +] унаследует большую часть власти, которой когда-то обладал Шлейхер.

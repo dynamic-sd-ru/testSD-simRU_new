@@ -21,7 +21,6 @@ card-image: img/portraits/SeveringCarl.jpg
 - @easy_discard
 - @cancel_advisor_action
 
-
 @loyalty
 on-arrival: interior_police_loyalty += 0.1
 
@@ -30,10 +29,8 @@ on-arrival: interior_police_loyalty += 0.1
 Текущая верность полиции: [+ interior_police_loyalty : loyalty +]
 
 
-
 @investigate_corruption
 go-to: investigate_corruption_success if interior_police_loyalty >= 0.5; investigate_corruption_failure if interior_police_loyalty < 0.5
-
 
 @investigate_corruption_success
 on-arrival: investigate_corruption += 1; workers_spd += 5*(1-dissent); inflation -= 0.1 if inflation > 3; inflation -= 0.2 if inflation >= 8; dvp_relation -= 3; dvp_right += 1; ddp_relation -= 1; ddp_left += 0.5; ddp_cohesion -= 0.5; lvp_relation -= 2; lvp_right += 1
@@ -41,23 +38,22 @@ on-arrival: investigate_corruption += 1; workers_spd += 5*(1-dissent); inflation
 Коррупция в крупном бизнесе, конечно, процветает. Мы раскрыли несколько скандалов, и их огласка привлекает новое внимание к работе министра внутренних дел [+ interior_minister +], повышая его популярность в народе и популярность <span style="color: #c00000;">**СДПГ**</span>.
 
 
-
 @investigate_corruption_failure
 
 К сожалению, наши расследования не принесли результатов. Ходят слухи, что объекты расследования предупреждены агентурой в рядах полиции.
 
-
 @investigate_far_right
 go-to: investigate_far_right_success if interior_police_loyalty >= 0.55; investigate_far_right_failure if interior_police_loyalty < 0.55
 
-
 @investigate_far_right_success
-on-arrival: investigate_far_right += 1; sa_strength *= 0.96; sa_strength *= 0.96 if investigate_far_right == 2; workers_nsdap -= 1; new_middle_nsdap -= 2; nazi_urgency += 1 if investigate_far_right == 2; nazi_urgency += 2 if investigate_far_right == 3; workers_nsdap -= 2 if investigate_far_right == 3; new_middle_nsdap -= 3 if investigate_far_right == 3; old_middle_nsdap -= 3 if investigate_far_right == 3; unemployed_spd += 3 if investigate_far_right == 3; coup_progress -= 1 if coup_progress >= 6
+on-arrival: investigate_far_right += 1; sa_strength *= 0.96; sa_strength *= 0.96 if investigate_far_right == 2; workers_nsdap -= 1; new_middle_nsdap -= 2; nazi_urgency += 1 if investigate_far_right == 2; kpd_nazi_urgency += 1 if investigate_far_right == 2; nazi_urgency += 2 if investigate_far_right == 3; workers_nsdap -= 2 if investigate_far_right == 3; new_middle_nsdap -= 3 if investigate_far_right == 3; old_middle_nsdap -= 3 if investigate_far_right == 3; unemployed_spd += 3 if investigate_far_right == 3; coup_progress -= 1 if coup_progress >= 6
 
+[? if investigate_far_right == 1 : Мы раскрыли сговор между Ялмаром Шахтом, президентом Рейхсбанка, и <span style="color: #7A3C00;">нацистами</span>. Это очень ценные сведения.  ?] 
+ [? if investigate_far_right == 2 : Мы вскрыли факты контрабанды оружия со стороны <span style="color: #7A3C00;">**СА**</span>, военизированного формирования <span style="color: #7A3C00;">нацистов</span>.  ?] 
 [? if investigate_far_right == 1 : Мы раскрыли сговор между Ялмаром Шахтом, президентом Рейхсбанка, и <span style="color: #7A3C00;">нацистами</span>. Это очень ценные сведения.  ?] [? if investigate_far_right == 2 : Мы вскрыли факты контрабанды оружия со стороны <span style="color: #7A3C00;">**СА**</span>, военизированного формирования <span style="color: #7A3C00;">нацистов</span>.  ?] [? if investigate_far_right == 3 : Мы обнаружили тайник с документами <span style="color: #7A3C00;">**НСДАП**</span>, в которых подробно изложен их план насильственного захвата власти в стране в случае их прихода к власти. Это антиконституционный заговор, который будет предан огласке и преследоваться по закону.  ?] [? if investigate_far_right > 3 : Конечно, <span style="color: #7A3C00;">нацисты</span> совершают преступления, это всем известно. Но теперь у нас наконец-то есть доказательства.  ?]
 
-[? if coup_progress >= 6: Поступают сообщения о готовящемся перевороте со стороны <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>. Мы попытались сорвать некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
+[? if coup_progress >= 6: Поступают сообщения о готовящемся перевороте со стороны <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>. Мы попытались сорвать некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
 @investigate_far_right_failure
 

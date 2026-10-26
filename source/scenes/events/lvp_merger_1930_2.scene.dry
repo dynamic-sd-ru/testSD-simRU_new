@@ -45,7 +45,6 @@ new-page: true
 - @ddp_success: Партия голосует…
 - @ddp_fail: Партия голосует…
 
-
 @ddp_success
 view-if: lvp_formation_points >= 3
 on-arrival: ddp_relation -= 5; ddp_right += 2; lvp_trigger_2_time = time + 1
@@ -54,7 +53,6 @@ face-image: img/weimar_coalition_3.jpg
 К некоторому удивлению, <span style="color: #D3C24D;">**[+ ddp_name +]**</span> последовала примеру <span style="color: #C0A054;">**ННП**</span> и подтвердила свою поддержку создания единой <span style="color: #FFCC00;">Либеральной народной партии</span>. Похоже, левое крыло <span style="color: #D3C24D;">**[+ ddp_name +]**</span> наконец-то проиграло битву за сохранение позиций '<span style="color: #c00000;">социальной</span> и <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканской</span>' партии в <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ской</span> партийной системе.
 
 Однако левое крыло <span style="color: #D3C24D;">**[+ ddp_name +]**</span> будет иметь мало влияния в объединённой партии, которая будет состоять из вдвое большего числа членов <span style="color: #C0A054;">**ННП**</span>, чем членов <span style="color: #D3C24D;">**[+ ddp_name +]**</span>.
-
 
 @ddp_fail
 view-if: lvp_formation_points < 3

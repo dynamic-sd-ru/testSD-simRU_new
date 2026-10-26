@@ -15,7 +15,6 @@ face-image: img/portraits/schleicher_pro.jpg
 - @yay
 - @nay
 
-
 @yay
 title: Может быть, его ещё можно переубедить?
 unavailable-subtitle: Шлейхер твёрдо придерживается своей стратегии «приручения».
@@ -24,9 +23,8 @@ on-arrival: schleicher_would_never_do_this_he_is_literally_hitler = 1
 
 # TODO
 
-
 @nay
 title: Как мы и думали.
-on-arrival: schleicher_spd_support += 1; schleicher_spd_support += 1 if reformist_strength >= center_strength
+on-arrival: schleicher_spd_support += 1; schleicher_spd_support += 1 if reformist_strength >= center_strength; kpd_nazi_urgency -= 1;
 
 В итоге встреча закончилась ничем. Однако Браун стал первым крупным политическим деятелем не из профсоюзов, кто открыто изъявил готовность заключить сделку с канцлером.

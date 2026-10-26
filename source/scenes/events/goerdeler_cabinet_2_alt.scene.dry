@@ -15,7 +15,6 @@ face-image: img/portraits/AlfredHugenberg.jpg
 
 - @goerdeler
 
-
 @goerdeler
 title: Партия[? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]отказывается работать с Гугенбергом!
 face-image: img/portraits/BrüningHeinrich.jpg
@@ -24,10 +23,9 @@ face-image: img/portraits/BrüningHeinrich.jpg
 
 Даже Брюнинг, фактический лидер [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] уверена: запланированные ими меры жёсткой экономии зашли слишком далеко.
 
-Однако Гугенберг и Гёрделер отказываются принять[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]требования о гарантиях в экономической политике. И вновь ситуация зашла в тупик.
+Однако Гугенберг и Гёрделер отказываются принять[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] требования о гарантиях в экономической политике. И вновь ситуация зашла в тупик.
 
 - @goerdeler_2
-
 
 @goerdeler_2
 title: Рейхстаг распущен.

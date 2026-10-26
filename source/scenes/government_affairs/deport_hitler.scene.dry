@@ -9,10 +9,8 @@ choose-if: judicial_reform >= 2 and not hitler_citizen and spd_prussia == 1
 - @deport: Депортировать его!
 - @no_deport: Нет, мы не должны этого делать.
 
-
 @deport
 go-to: deport_violence if sa_strength >= 200; deport_success if sa_strength < 200
-
 
 @deport_violence
 
@@ -20,7 +18,6 @@ go-to: deport_violence if sa_strength >= 200; deport_success if sa_strength < 20
 
 - @force_approach: Применить силу!
 - @no_deport: Отменить депортацию.
-
 
 @force_approach
 on-arrival: {!
@@ -37,30 +34,26 @@ if (total_allied_strength > enemy_strength) {
 !}
 go-to: force_fail if deportation_success == 0; force_success if deportation_success = 1
 
-
 @force_fail
 on-arrival: sa_strength += 50; workers_nsdap += 5; unemployed_nsdap += 5; new_middle_nsdap += 5; old_middle_nsdap += 5; rural_nsdap += 5; coup_progress += 3; pro_republic -= 5
 
 К сожалению, нашим силам не удалось выбить <span style="color: #7A3C00;">**СА**</span> с их защитной позиции вокруг Гитлера. Его считают сильным и властным лидером и в то же время жертвой, что ещё больше укрепляет его образ. В итоге <span style="color: #7A3C00;">нацисты</span> стали сильны как никогда.
 
-
 @force_success
-on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsdap *= 0.7; new_middle_nsdap *= 0.7; old_middle_nsdap *= 0.7; rural_nsdap *= 0.7; unemployed_nsdap *= 0.7; interior_goal_prussia -= 1 if not sa_banned; sa_banned = 1; coup_progress -= 2; nsdap_leader = "Геббельс"; nsdap_chancellor = "Геринг"; pro_republic += 10
+on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsdap *= 0.7; new_middle_nsdap *= 0.7; old_middle_nsdap *= 0.7; rural_nsdap *= 0.7; unemployed_nsdap *= 0.7; interior_goal_prussia -= 1 if not sa_banned; sa_banned = 1; coup_progress -= 2; nsdap_leader = "Геббельс"; nsdap_chancellor = "Геринг"; pro_republic += 10; kpd_nazi_urgency -= 1;
 achievement: deport_hitler
 
 Противостояние заканчивается победой полиции и Рейхсбаннера, которые захватывают Гитлера для депортации! Это признак слабости, а его физическое отсутствие осложняет организационную работу и мешает <span style="color: #7A3C00;">нацистам</span> завоёвывать голоса избирателей.
 
 В отсутствие Гитлера временным лидером <span style="color: #7A3C00;">нацистской</span> партии стал Йозеф Геббельс. При этом на него оказывает значительное влияние Герман Геринг.
 
-
 @deport_success
-on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsdap *= 0.7; new_middle_nsdap *= 0.7; old_middle_nsdap *= 0.7; rural_nsdap *= 0.7; unemployed_nsdap *= 0.7; interior_goal_prussia -= 1 if not sa_banned; sa_banned = 1; coup_progress -= 2; nsdap_leader = "Геббельс"; nsdap_chancellor = "Геринг"; pro_republic += 10
+on-arrival: hitler_deported = 1; sa_strength = sa_strength/2; workers_nsdap *= 0.7; new_middle_nsdap *= 0.7; old_middle_nsdap *= 0.7; rural_nsdap *= 0.7; unemployed_nsdap *= 0.7; interior_goal_prussia -= 1 if not sa_banned; sa_banned = 1; coup_progress -= 2; nsdap_leader = "Геббельс"; nsdap_chancellor = "Геринг"; pro_republic += 10; kpd_nazi_urgency -= 1;
 achievement: deport_hitler
 
 Каким-то образом план сработал! Депортация Гитлера почти не встретила сопротивления. Это признак слабости, а его физическое отсутствие осложняет организационную работу, что мешает <span style="color: #7A3C00;">нацистам</span> привлекать больше голосов.
 
 В отсутствие Гитлера временным лидером <span style="color: #7A3C00;">нацистской</span> партии стал Йозеф Геббельс при значительном влиянии Германа Геринга.
-
 
 @no_deport
 go-to: root

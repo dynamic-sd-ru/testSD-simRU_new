@@ -12,7 +12,6 @@ max-visits: 1
 
 - @joever: Хуже этого года уже и быть не могло…
 
-
 @joever
 
 [? if in_grand_coalition or (in_weimar_coalition and lvp_formed): [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] может вновь поднять вопрос о страхованиях по безработице. ?][? if in_popular_front or in_left_front or (in_weimar_coalition and not lvp_formed): Ближний круг Гинденбурга твёрдо намерен заставить его исключить нас из правительства[? if in_popular_front or in_left_front: , особенно на фоне нашего сотрудничества с <span style="color: #700000;">**коммунистами**</span> ?]. ?]

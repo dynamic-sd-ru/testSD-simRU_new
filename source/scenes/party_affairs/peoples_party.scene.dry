@@ -22,13 +22,11 @@ max-visits: 4
 - @easy_discard
 - @cancel_advisor_action
 
-
 @build_support
 view-if: (neorevisionist_strength + reformist_strength < left_strength + center_strength) or peoples_party_support < 5
 on-arrival: peoples_party_support += 1; neorevisionist_strength += 5; left_strength -= 5; left_dissent += 5
 
 Внутри нашей партии мы продвигаем предложения о создании Народной Партии, несмотря на протесты из фракции левых и центра.
-
 
 
 @support_peoples_party
@@ -49,7 +47,6 @@ achievement: volkspartei
 
 
 
-
 @support_peoples_party_hard
 subtitle: Это усилит разногласия.
 view-if: (neorevisionist_strength + reformist_strength < left_strength + center_strength) or (peoples_party_support < 4)
@@ -67,20 +64,17 @@ achievement: volkspartei
 - @campaign_women
 - @campaign_catholics
 
-
 @campaign_workers
 title: Провести агитацию среди рабочих, чтобы развеять их сомнения по поводу наших перемен.
 on-arrival: workers_spd += 6*(1-dissent);
 
 Рабочие по-прежнему остаются ключевой частью нашего электората, и мы не должны отталкивать их от себя в процессе преобразования нашей партии.
 
-
 @campaign_middle
 title: Провести агитацию среди среднего класса.
 on-arrival: old_middle_spd += 5*(1-dissent); new_middle_spd += 6*(1-dissent)
 
 Как Народная партия, мы представляем интересы служащих и мелких предпринимателей из среднего класса, и они становятся всё более восприимчивы к нашим идеям.
-
 
 @campaign_rural
 title: Вести агитацию в сельской местности.
@@ -90,13 +84,11 @@ on-arrival: rural_spd += 7*(1-dissent)
 
 Как Народная Партия, мы также представляем интересы фермеров и сельских рабочих, и они становятся всё более восприимчивы к нашим идеям.
 
-
 @campaign_unemployed
 title: Агитация среди безработных.
 on-arrival: unemployed_spd += 6*(1-dissent);
 
 Поскольку мы Народная Партия, городская беднота по-прежнему составляет ключевую часть нашего электората.
-
 
 @campaign_women
 title: Вести агитацию среди женщин всех классов.
@@ -104,13 +96,11 @@ on-arrival: workers_spd += 3*(1-dissent); new_middle_spd += 3*(1-dissent); old_m
 
 Как Народная Партия, мы представляем интересы женщин всех классов.
 
-
 @campaign_catholics
 title: Провести кампанию среди политически активных католиков.
 on-arrival: catholics_spd += 7*(1-dissent);
 
 Католики исторически связаны с[? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], но нет причин, почему наша партия не может привлечь их на свою сторону. В частности, Прусский конкордат — знак нашей дружбы с католицизмом.
-
 
 
 @no_new_ideas

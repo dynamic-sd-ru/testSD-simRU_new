@@ -8,7 +8,7 @@ tags: party_affairs
 
 = Координация республиканцев
 
-Благодаря нашим исторически крепким связям с партиями <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции они вновь сплотились на защиту республики, которую мы помогли основать. *Deutscher Republikanischer Reichsbund* (Германский республиканский союз Рейха), некогда надпартийный альянс представителей всех трёх партий, теперь реорганизован в действующую политическую организацию, призванную дополнить усилия Рейхсбаннера.
+Благодаря нашим исторически крепким связям с партиями <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской коалиции они вновь сплотились на защиту республики, которую мы помогли основать. *Deutscher Republikanischer Reichsbund* (Германский республиканский союз Рейха), некогда надпартийный альянс представителей всех трёх партий, теперь реорганизован в действующую политическую организацию, призванную дополнить усилия Рейхсбаннера.
 
 Численность организации резко возросла, а от всех трёх коалиционных партий поступило новое финансирование. Как мы распорядимся контролем над этой новой организацией?
 
@@ -18,24 +18,20 @@ tags: party_affairs
 - @relation: Укрепить связи с партиями <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции.
 - @easy_discard
 
-
 @nazi
 on-arrival: workers_nsdap -= 2; new_middle_nsdap -= 2; old_middle_nsdap -= 2; catholics_nsdap -= 2
 
 Основная задача организации — отвратить людей от соблазнительной пропаганды <span style="color: #7A3C00;">нацистов</span> и разоблачить противоречия и демагогию, присущие их политике.
-
 
 @rally
 on-arrival: workers_spd += (pro_republic / 15); new_middle_spd += (pro_republic / 15); old_middle_spd += (pro_republic / 20); rural_spd += (pro_republic / 20); workers_ddp += (pro_republic / 40); new_middle_ddp += (pro_republic / 20); old_middle_ddp += (pro_republic / 20); rural_ddp += (pro_republic / 30); workers_lvp += (pro_republic / 30); new_middle_lvp += (pro_republic / 15); old_middle_lvp += (pro_republic / 15); rural_lvp += (pro_republic / 25); workers_z += (pro_republic / 50); new_middle_z += (pro_republic / 40); old_middle_z += (pro_republic / 40); rural_z += (pro_republic / 40); catholics_z += (pro_republic / 15); peoples_party_support += 1; neorevisionist_strength += 5; left_dissent += 3; kpd_relation -= 5
 
 Мы объединяемся с политиками из <span style="color: #000000;">Партии Центра</span> и [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?], объединённые общей приверженностью Республике.
 
-
 @republic
 on-arrival: pro_republic += 6
 
 <span style="color: #7A3C00;">Нацистская</span> и <span style="color: #700000;">коммунистическая</span> пропагандистские машины отравили отношение общественности к Республике. Наша цель — противопоставить их нарративам собственную пропаганду.
-
 
 @relation
 on-arrival: z_relation += 5*(1-dissent); ddp_relation += 5*(1-dissent); lvp_relation += 5*(1-dissent); ddp_left += 1; lvp_left += 1

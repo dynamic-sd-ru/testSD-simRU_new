@@ -475,12 +475,6 @@
    "The Western powers and all countries that feel threatened by German militarism are pleased that we have turned a chapter in our history."
   ],
   [
-   "scenes/events/z_right_party_congress.scene.dry",
-   34,
-   "unavailable-subtitle",
-   "[? if not (in_weimar_coalition or in_grand_coalition or in_popular_front or (spd_prussia and not in_left_front_prussia and not sapd_toleration_prussia and not in_spd_majority_prussia)): We are not in any government with the [? if z_party_name != \"CVP\": <span style=\"color: #000000;\">Center Party</span>?][? if z_party_name == \"CVP\": <span style=\"color: #000000;\">**CVP**</span>?], leaving them free to do what they want. ?] [? if z_relation < 40 : Our relations are too low for them to care about what we think. ?]"
-  ],
-  [
    "scenes/government_affairs/economic_policy.scene.dry",
    36,
    "prose",
@@ -1128,6 +1122,11 @@
    "scenes/events/z_right_party_congress.scene.dry",
    32,
    "directive subtitle"
+  ],
+  [
+   "scenes/events/z_right_party_congress.scene.dry",
+   34,
+   "directive unavailable-subtitle"
   ],
   [
    "scenes/government_affairs/prussian_affairs.scene.dry",

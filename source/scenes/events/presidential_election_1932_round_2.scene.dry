@@ -10,7 +10,6 @@ go-to: election_algorithm
 set-jump: pres_election
 face-image: img/hindenburg_election.jpg
 
-
 @pres_election
 
 Первый тур выборов завершился, и ни один из кандидатов не получил абсолютного большинства голосов. [+ nsdap_candidate_1932 +] — его результаты разочаровали и его лично, и партию, [? if not hitler_support_hindenburg: но он решил остаться кандидатом ?][? if hitler_support_hindenburg: в результате чего он снял свою кандидатуру и поддержал Гинденбурга ?]. [? if spd_support_thalmann == 0 and kpd_support_spd == 0: Тельман также остался в предвыборной гонке, отказавшись поддержать того, кого они считают меньшим злом. ?]
@@ -19,11 +18,9 @@ face-image: img/hindenburg_election.jpg
 
 - @final_election: Результаты второго тура…
 
-
 @final_election
 go-to: election_algorithm
 set-jump: post_election
-
 
 
 @post_election
@@ -132,12 +129,12 @@ if (Q.hindenburg_run) {
         Q.nsdap_presidential_votes += Q.dnf_normalized;
     }
 } else if (Q.dnvp_ideology == "Радикалы") {
-    if (Q.reactionary_candidate_1932_ideology == "Conservative" && Q.reactionary_candidate_1932) Q.reactionary_candidate_1_votes += Q.dnvp_normalized_remaining;
-    if (Q.secondary_reactionary_candidate_1932_ideology == "Conservative" && Q.secondary_reactionary_candidate_1932) Q.reactionary_candidate_2_votes += Q.dnvp_normalized_remaining;
-    if (Q.reactionary_candidate_1932_ideology == "Liberal" && Q.reactionary_candidate_1932) Q.reactionary_candidate_1_votes += Q.dnvp_normalized_remaining;
-    if (Q.secondary_reactionary_candidate_1932_ideology == "Liberal" && Q.secondary_reactionary_candidate_1932) Q.reactionary_candidate_2_votes += Q.dnvp_normalized_remaining;
-    if (Q.reactionary_candidate_1932_ideology == "Centrist" && Q.reactionary_candidate_1932) Q.reactionary_candidate_1_votes += Q.dnvp_normalized_remaining;
-    if (Q.secondary_reactionary_candidate_1932_ideology == "Centrist" && Q.secondary_reactionary_candidate_1932) Q.reactionary_candidate_2_votes += Q.dnvp_normalized_remaining;
+    if (Q.reactionary_candidate_1932_ideology == "Консерватор" && Q.reactionary_candidate_1932) Q.reactionary_candidate_1_votes += Q.dnvp_normalized_remaining;
+    if (Q.secondary_reactionary_candidate_1932_ideology == "Консерватор" && Q.secondary_reactionary_candidate_1932) Q.reactionary_candidate_2_votes += Q.dnvp_normalized_remaining;
+    if (Q.reactionary_candidate_1932_ideology == "Либерал" && Q.reactionary_candidate_1932) Q.reactionary_candidate_1_votes += Q.dnvp_normalized_remaining;
+    if (Q.secondary_reactionary_candidate_1932_ideology == "Либерал" && Q.secondary_reactionary_candidate_1932) Q.reactionary_candidate_2_votes += Q.dnvp_normalized_remaining;
+    if (Q.reactionary_candidate_1932_ideology == "Центрист" && Q.reactionary_candidate_1932) Q.reactionary_candidate_1_votes += Q.dnvp_normalized_remaining;
+    if (Q.secondary_reactionary_candidate_1932_ideology == "Центрист" && Q.secondary_reactionary_candidate_1932) Q.reactionary_candidate_2_votes += Q.dnvp_normalized_remaining;
 }
 
 Q.ddp_president_crossover = 0;
@@ -156,13 +153,13 @@ if (Q.spd_campaign) {
             Q.spd_president_votes -= (Q.old_middle_spd_normalized / 2500);
         }
         if (!Q.party_rosenfeld_seen) {
-            Q.spd_president_votes -= (Q.new_middle_spd_normalized / 2000);
-            Q.spd_president_votes -= (Q.old_middle_spd_normalized / 2000);
-            Q.spd_president_votes -= (Q.rural_spd_normalized / 2000);
-        } else if (Q.party_rosenfeld_seen) {
             Q.spd_president_votes -= (Q.new_middle_spd_normalized / 1500);
             Q.spd_president_votes -= (Q.old_middle_spd_normalized / 1500);
             Q.spd_president_votes -= (Q.rural_spd_normalized / 1500);
+        } else if (Q.party_rosenfeld_seen) {
+            Q.spd_president_votes -= (Q.new_middle_spd_normalized / 2000);
+            Q.spd_president_votes -= (Q.old_middle_spd_normalized / 2000);
+            Q.spd_president_votes -= (Q.rural_spd_normalized / 2000);
         }
     }
     if (Q.ddp_support_spd) {
@@ -448,74 +445,74 @@ if (!Q.hindenburg_run) {
     }
 
     if (Q.z_choice == Q.spd_candidate_1932 && Q.center_president_crossover) {
-        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Liberal" && Q.center_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Либерал" && Q.center_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.center_president_crossover;
             Q.center_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Liberal" && Q.center_president_crossover != 0) {
+        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Либерал" && Q.center_president_crossover != 0) {
             Q.reactionary_candidate_2_votes += Q.center_president_crossover;
             Q.center_president_crossover = 0;
         }
-        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Conservative" && Q.center_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Консерватор" && Q.center_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.center_president_crossover;
             Q.center_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Conservative" && Q.center_president_crossover != 0) {
+        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Консерватор" && Q.center_president_crossover != 0) {
             Q.reactionary_candidate_2_votes += Q.center_president_crossover;
             Q.center_president_crossover = 0;
         }
     }
 
     if (Q.ddp_choice == Q.spd_candidate_1932 && Q.ddp_president_crossover) {
-        if (Q.reactionary_candidate_1932 && (Q.reactionary_candidate_1932_ideology == "Centrist" || Q.reactionary_candidate_1932_ideology == "Liberal") && Q.ddp_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && (Q.reactionary_candidate_1932_ideology == "Центрист" || Q.reactionary_candidate_1932_ideology == "Либерал") && Q.ddp_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.ddp_president_crossover;
             Q.ddp_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && (Q.secondary_reactionary_candidate_1932_ideology == "Centrist" || Q.secondary_reactionary_candidate_1932_ideology == "Liberal") && Q.ddp_president_crossover) {
+        } else if (Q.secondary_reactionary_candidate_1932 && (Q.secondary_reactionary_candidate_1932_ideology == "Центрист" || Q.secondary_reactionary_candidate_1932_ideology == "Либерал") && Q.ddp_president_crossover) {
             Q.reactionary_candidate_2_votes += Q.ddp_president_crossover;
             Q.ddp_president_crossover = 0;
         }
-        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Conservative" && Q.ddp_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Консерватор" && Q.ddp_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.ddp_president_crossover;
             Q.ddp_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Conservative" && Q.ddp_president_crossover) {
+        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Консерватор" && Q.ddp_president_crossover) {
             Q.reactionary_candidate_2_votes += Q.ddp_president_crossover;
             Q.ddp_president_crossover = 0;
         }
     }
 
     if (Q.dvp_choice == Q.spd_candidate_1932 && Q.dvp_president_crossover) {
-        if (Q.reactionary_candidate_1932 && (Q.reactionary_candidate_1932_ideology == "Centrist" || Q.reactionary_candidate_1932_ideology == "Liberal") && Q.dvp_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && (Q.reactionary_candidate_1932_ideology == "Центрист" || Q.reactionary_candidate_1932_ideology == "Либерал") && Q.dvp_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.dvp_president_crossover;
             Q.dvp_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && (Q.secondary_reactionary_candidate_1932_ideology == "Centrist" || Q.secondary_reactionary_candidate_1932_ideology == "Liberal") && Q.dvp_president_crossover != 0) {
+        } else if (Q.secondary_reactionary_candidate_1932 && (Q.secondary_reactionary_candidate_1932_ideology == "Центрист" || Q.secondary_reactionary_candidate_1932_ideology == "Либерал") && Q.dvp_president_crossover != 0) {
             Q.reactionary_candidate_2_votes += Q.dvp_president_crossover;
             Q.dvp_president_crossover = 0;
         }
-        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Conservative" && Q.dvp_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Консерватор" && Q.dvp_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.dvp_president_crossover;
             Q.dvp_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Conservative" && Q.dvp_president_crossover != 0) {
+        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Консерватор" && Q.dvp_president_crossover != 0) {
             Q.reactionary_candidate_2_votes += Q.dvp_president_crossover;
             Q.dvp_president_crossover = 0;
         }
     }
 
     if (Q.lvp_choice == Q.spd_candidate_1932 && Q.lvp_president_crossover) {
-        if (Q.reactionary_candidate_1932 && (Q.reactionary_candidate_1932_ideology == "Centrist" || Q.reactionary_candidate_1932_ideology == "Liberal") && Q.lvp_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && (Q.reactionary_candidate_1932_ideology == "Центрист" || Q.reactionary_candidate_1932_ideology == "Либерал") && Q.lvp_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.lvp_president_crossover;
             Q.lvp_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && (Q.secondary_reactionary_candidate_1932_ideology == "Centrist" || Q.secondary_reactionary_candidate_1932_ideology == "Liberal") && Q.lvp_president_crossover) {
+        } else if (Q.secondary_reactionary_candidate_1932 && (Q.secondary_reactionary_candidate_1932_ideology == "Центрист" || Q.secondary_reactionary_candidate_1932_ideology == "Либерал") && Q.lvp_president_crossover) {
             Q.reactionary_candidate_2_votes += Q.lvp_president_crossover;
             Q.lvp_president_crossover = 0;
         }
-        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Conservative" && Q.lvp_president_crossover != 0) {
+        if (Q.reactionary_candidate_1932 && Q.reactionary_candidate_1932_ideology == "Консерватор" && Q.lvp_president_crossover != 0) {
             Q.reactionary_candidate_1_votes += Q.lvp_president_crossover;
             Q.lvp_president_crossover = 0;
-        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Conservative" && Q.lvp_president_crossover) {
+        } else if (Q.secondary_reactionary_candidate_1932 && Q.secondary_reactionary_candidate_1932_ideology == "Консерватор" && Q.lvp_president_crossover) {
             Q.reactionary_candidate_2_votes += Q.lvp_president_crossover;
             Q.lvp_president_crossover = 0;
         }
     }
 
-    if ((Q.reactionary_candidate_1932_ideology == "Liberal" && Q.secondary_reactionary_candidate_1932_ideology == "Centrist" || Q.reactionary_candidate_1932_ideology == "Centrist" && Q.secondary_reactionary_candidate_1932_ideology == "Liberal" || Q.reactionary_candidate_1932_ideology == "Centrist" && Q.secondary_reactionary_candidate_1932_ideology == "Centrist" || Q.reactionary_candidate_1932_ideology == "Liberal" && Q.secondary_reactionary_candidate_1932_ideology == "Liberal") && Q.spd_abstain_1932) {
+    if ((Q.reactionary_candidate_1932_ideology == "Либерал" && Q.secondary_reactionary_candidate_1932_ideology == "Центрист" || Q.reactionary_candidate_1932_ideology == "Центрист" && Q.secondary_reactionary_candidate_1932_ideology == "Либерал" || Q.reactionary_candidate_1932_ideology == "Центрист" && Q.secondary_reactionary_candidate_1932_ideology == "Центрист" || Q.reactionary_candidate_1932_ideology == "Либерал" && Q.secondary_reactionary_candidate_1932_ideology == "Либерал") && Q.spd_abstain_1932) {
         Q.reactionary_candidate_1_votes += Q.reactionary_votes*0.5;
         Q.reactionary_candidate_2_votes += Q.reactionary_votes*0.5;
     }
@@ -627,11 +624,9 @@ Q.dnvp_presidential_votes_disp = Q.dnvp_presidential_votes.toFixed(1);
 !}
 go-to: braun_koalition if braun_campaign and z_support_spd == 1 and kpd_support_spd == 1 and ((ddp_support_spd == 1 and not lvp_formed) or (lvp_support_spd and lvp_formed)); calculation if not (braun_campaign and z_support_spd == 1 and kpd_support_spd == 1 and ((ddp_support_spd == 1 and not lvp_formed) or (lvp_support_spd and lvp_formed)))
 
-
-@braun_koalition
+@braun_koalition 
 achievement: braun_koalition
 go-to: calculation
-
 
 @calculation
 go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_plurality == 1; hitler_wins if nsdap_president_plurality == 1; braun_wins if spd_plurality == 1 and spd_candidate_1932 == "Браун"; rosenfeld_wins if spd_plurality == 1 and spd_candidate_1932 == "Розенфельд"; eckener_wins if spd_plurality == 1 and spd_candidate_1932 == "Эккенер"; reactionary_candidate_majority if (reactionary_candidate_1_plurality or reactionary_candidate_2_plurality)
@@ -652,7 +647,6 @@ go-to: hindenburg_wins if hindenburg_plurality == 1; thalmann_wins if thalmann_p
 
 [? if hindenburg_run and not hitler_support_hindenburg: Как видно, [+ nsdap_candidate_1932 +] выиграл от снятия кандидатуры [+ dnvp_candidate_1932 +]а, а не [+ reactionary_candidate_1932 +], получив 60% голосов его бывших избирателей. Даже если [+ nsdap_candidate_1932 +] не победит, уничтожение партий между <span style="color: #7A3C00;">**НСДАП**</span> и [? if z_party_name != "ХНП": <span style="color: #000000;">Центром</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] повлечёт за собой тяжёлые последствия для германской демократии. ?]
 
-
 @hindenburg_wins
 on-arrival: president = "Гинденбург"; hindenburg_angry_bruning += 15 if not spd_campaign and spd_support_reactionary
 
@@ -662,7 +656,6 @@ on-arrival: president = "Гинденбург"; hindenburg_angry_bruning += 15 i
 
 [? if spd_support_reactionary and bruning_time: Тот факт, что [+ reactionary_candidate_1932 +] своим переизбранием обязан партиям, выступавшим против него в 1925 году, а не тем, с кем ощущал естественную близость — это стало источником глубоких душевных страданий для престарелого президента и серьёзно осложнило его отношения с Брюнингом и консерваторами, организовавшими его предвыборную кампанию. ?]
 
-
 @thalmann_wins
 on-arrival: president = "Тельман"; kpd_relation = 80;
 
@@ -670,21 +663,19 @@ on-arrival: president = "Тельман"; kpd_relation = 80;
 
 - @civil_war: Это гражданская война.
 
-
 @hitler_wins
 on-arrival: president = nsdap_candidate_1932; chancellor = "Гитлер"; chancellor_party = "НСДАП"
 
+[? if nsdap_candidate_1932 == "Гитлер" : Adolf Hitler of the <span style="color: #7A3C00;">**НСДАП**</span> has won the presidency. He wastes no time in consolidating power. ?]
 [? if nsdap_candidate_1932 == "Гитлер" : Адольф Гитлер из <span style="color: #7A3C00;">**НСДАП**</span> победил на президентских выборах. Он без промедления приступает к консолидации власти. ?] [? if nsdap_candidate_1932 != "Гитлер" : Кандидат от <span style="color: #7A3C00;">**НСДАП**</span>[+ president +] победил. Первым делом президент [+ president +] возвращает Гитлера в Германию и назначает его канцлером. <span style="color: #7A3C00;">Нацисты</span> без промедления приступают к консолидации власти. ?]
 
 - @hitler_takes_power: Что нам теперь делать?
-
 
 @braun_wins
 on-arrival: president = "Браун"; president_ideology = "Левые"; reformist_dissent -= 15; center_dissent -= 15; labor_dissent -= 15; left_dissent -= 5; workers_spd += 6*(1-dissent); old_middle_spd += 4*(1-dissent); new_middle_spd += 4*(1-dissent); rural_spd += 4*(1-dissent); unemployed_spd += 4*(1-dissent);
 go-to: achievement_check_1
 
 Отто Браун из <span style="color: #c00000;">**СДПГ**</span> победил на президентских выборах! Это праздник для нашей партии, и его победа укрепит нашу поддержку.
-
 
 @rosenfeld_wins
 on-arrival: president = "Розенфельд"; president_ideology = "Левые"; center_dissent -= 5; labor_dissent -= 5; left_dissent -= 15; left_strength += 20; workers_spd += 9*(1-dissent); unemployed_spd += 6*(1-dissent); coup_progress += 4; capital_strike_progress += 4
@@ -694,7 +685,6 @@ go-to: achievement_check_1
 
 Однако его левые взгляды породили слухи о готовящемся «Марше на Берлин» со стороны <span style="color: #7A3C00;">**СА**</span> и <span style="color: #3E88B3;">**Стального Шлема**</span>, которые рассматривают его избрание как равносильное избранию <span style="color: #700000;">**коммуниста**</span>. Столь же недовольные промышленники могут прибегнуть к собственным методам протеста.
 
-
 @eckener_wins
 on-arrival: president = "Эккенер"; president_ideology = "Умеренные"; reformist_dissent -= 20; center_dissent -= 5; labor_dissent -= 5; reformist_strength += 20; workers_spd += 4*(1-dissent); unemployed_spd += 2*(1-dissent); old_middle_spd += 2*(1-dissent); new_middle_spd += 2*(1-dissent); rural_spd += 2*(1-dissent)
 achievement: zeppelin_kapitan
@@ -702,26 +692,21 @@ go-to: achievement_check_1
 
 Известный на всю страну пилот дирижаблей и независимый кандидат Гуго Эккенер победил на президентских выборах! Это праздничный день для нашей партии, ведь его победа поможет сдержать <span style="color: #7A3C00;">нацистов</span>.
 
-
 @duesterburg_wins
 on-arrival: president = "Браун"; president_ideology = "Левые"; reformist_dissent -= 15; center_dissent -= 15; labor_dissent -= 15; left_dissent -= 5; workers_spd += 8*(1-dissent); old_middle_spd += 5*(1-dissent); new_middle_spd += 5*(1-dissent); rural_spd += 5*(1-dissent); unemployed_spd += 5*(1-dissent);
 go-to: achievement_check_1
 
 Дюстербергу слишком стыдно, чтобы принять пост президента, и по доброте душевной он уступил его Отто Брауну.
 
-
 @achievement_check_1
 on-arrival: neue_geschaftsfuhrung = 1 if chancellor == "Брюнинг" and spd_toleration
 go-to: neue_geschaftsfuhrung if neue_geschaftsfuhrung
 
-
 @neue_geschaftsfuhrung
 achievement: neue_geschaftsfuhrung
 
-
 @reactionary_candidate_majority
 go-to: jarres_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Яррес") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Яррес"); gessler_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Гесслер") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Гесслер"); luther_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Лютер") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Лютер"); adenauer_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Аденауэр") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Аденауэр"); bruning_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Брюнинг") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Брюнинг"); stegerwald_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Штегервальд") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Штегервальд"); vorbeck_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Леттов_Форбек") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Леттов_Форбек"); westarp_win if (reactionary_candidate_1_plurality and reactionary_candidate_1932 == "Вестарп") or (reactionary_candidate_2_plurality and secondary_reactionary_candidate_1932 == "Вестарп")
-
 
 @jarres_win
 on-arrival: president = "Яррес"; president_ideology = "Правые"; new_middle_dvp += 4; old_middle_dvp += 4; rural_dvp += 4; new_middle_lvp += 4; old_middle_lvp += 4; rural_lvp += 4
@@ -729,18 +714,15 @@ achievement: aller_guten_dinge_sind_zwei
 
 Как это ни удивительно, Карл Яррес неожиданно вернулся в политику и победил на президентских выборах. Мы надеемся, что его правление будет лучше, чем у Гинденбурга, и что он и впредь не допустит <span style="color: #7A3C00;">нацистов</span> к власти.
 
-
 @gessler_win
 on-arrival: president = "Гесслер"; president_ideology = "Умеренные"; new_middle_ddp += 2; old_middle_ddp += 2; rural_ddp += 2; new_middle_dvp += 2; old_middle_dvp += 2; rural_dvp += 2; new_middle_lvp += 4; old_middle_lvp += 4; rural_lvp += 4
 
 Отто Гесслер вернулся в политику и победил на президентских выборах. Несмотря на его[? if lvp_formed: &nbsp;бывшую ?] принадлежность к <span style="color: #D3C24D;">**НДП**</span>, он не так дружелюбен, как его коллеги. Тем не менее он гораздо лучше Гинденбурга. Будем надеяться, что он и впредь не допустит <span style="color: #7A3C00;">нацистов</span> к власти.
 
-
 @luther_win
 on-arrival: president = "Лютер"; president_ideology = "Умеренные"; new_middle_dvp += 4; old_middle_dvp += 4; rural_dvp += 4; new_middle_lvp += 4; old_middle_lvp += 4; rural_lvp += 4
 
 Бывший канцлер Ганс Лютер стал президентом. Известный своими технократическими убеждениями, он вряд ли будет раскачивать лодку ни в одну из политических сторон. Будем надеяться, что он и дальше не допустит <span style="color: #7A3C00;">нацистов</span> к власти.
-
 
 @adenauer_win
 on-arrival: president = "Аденауэр"; president_ideology = "Умеренные"; workers_z += 4; new_middle_z += 6; old_middle_z += 6; rural_z += 4; catholics_z += 4
@@ -748,10 +730,8 @@ go-to: bundesrepublik if presidential_powers
 
 Конрад Аденауэр, ставший из мэра президентом, как ожидается, будет проводить более дружелюбную политику по отношению к <span style="color: #c00000;">**СДПГ**</span>, чем Гинденбург. И всё же будем надеяться, что он проявит твёрдость и не допустит <span style="color: #7A3C00;">нацистов</span> к власти.
 
-
 @bundesrepublik
 achievement: bundesrepublik
-
 
 
 @bruning_win
@@ -759,18 +739,15 @@ on-arrival: president = "Брюнинг"; president_ideology = "Умеренны
 
 Генрих Брюнинг, может, и сторонник жёсткой экономии, но на посту президента он определённо лучше Гинденбурга — и в своих <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканских</span> убеждениях, и в своём отношении к <span style="color: #c00000;">**СДПГ**</span>. Будем надеяться, что он проявит твёрдость и не допустит <span style="color: #7A3C00;">нацистов</span> к власти.
 
-
 @stegerwald_win
 on-arrival: president = "Штегервальд"; president_ideology = "Умеренные"; workers_z += 8; new_middle_z += 6; old_middle_z += 6; rural_z += 4; catholics_z += 4
 
 Адам Штегервальд прошёл путь от председателя профсоюза до президента Германии. Ожидается, что он будет проводить более дружелюбную политику по отношению к <span style="color: #c00000;">**СДПГ**</span>, чем Гинденбург, и станет голосом трудящихся Германии. Будем надеяться, что он твёрдо не допустит <span style="color: #7A3C00;">нацистов</span> к власти.
 
-
 @vorbeck_win
 on-arrival: president = "Леттов_Форбек"; president_ideology = "Правые"; vorbeck_party = "НННП"; vorbeck_party = "KVP" if kvp_formed; vorbeck_party = "Other" if dnvp_ideology == "Радикалы" and not kvp_formed; workers_dnvp += 4 if vorbeck_party == "НННП"; new_middle_dnvp += 4 if vorbeck_party == "НННП"; old_middle_dnvp += 6 if vorbeck_party == "НННП"; rural_dnvp += 6 if vorbeck_party == "НННП"; catholics_dnvp += 4 if vorbeck_party == "НННП"; workers_kvp += 4 if vorbeck_party == "KVP"; new_middle_kvp += 4 if vorbeck_party == "KVP"; old_middle_kvp += 6 if vorbeck_party == "KVP"; rural_kvp += 6 if vorbeck_party == "KVP"; catholics_kvp += 4 if vorbeck_party == "KVP"; workers_other += 4 if vorbeck_party == "Other"; new_middle_other += 4 if vorbeck_party == "Other"; old_middle_other += 6 if vorbeck_party == "Other"; rural_other += 6 if vorbeck_party == "Other"; catholics_other += 4 if vorbeck_party == "Other"; 
 
 К сожалению, президентом избран Пауль фон Леттов_Форбек, <span style="color: #3E88B3;">националист</span>, мало чем отличающийся от Гинденбурга. Возвращение к власти под его руководством — его камарилья этого точно не допустит. Будем надеяться, что он сможет противостоять <span style="color: #7A3C00;">нацистам</span> и откажется от опасной стратегии «приручения».
-
 
 @westarp_win
 on-arrival: president = "Вестарп"; president_ideology = "Правые"; westarp_party = "НННП"; westarp_party = "KVP" if kvp_formed; westarp_party = "Other" if dnvp_ideology == "Радикалы" and not kvp_formed; workers_dnvp += 2 if westarp_party == "НННП"; new_middle_dnvp += 4 if westarp_party == "НННП"; old_middle_dnvp += 6 if westarp_party == "НННП"; rural_dnvp += 6 if westarp_party == "НННП"; catholics_dnvp += 2 if westarp_party == "НННП"; workers_kvp += 2 if westarp_party == "KVP"; new_middle_kvp += 4 if westarp_party == "KVP"; old_middle_kvp += 6 if westarp_party == "KVP"; rural_kvp += 6 if westarp_party == "KVP"; catholics_kvp += 2 if westarp_party == "KVP"; workers_other += 2 if westarp_party == "Other"; new_middle_other += 4 if westarp_party == "Other"; old_middle_other += 6 if westarp_party == "Other"; rural_other += 6 if westarp_party == "Other"; catholics_other += 2 if westarp_party == "Other"; 

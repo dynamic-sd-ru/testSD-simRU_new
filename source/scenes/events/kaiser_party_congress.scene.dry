@@ -17,7 +17,6 @@ face-image: img/zentrum_3.jpg
 - @kaiser: Повлиять на [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], чтобы избрать Якоба Кайзера председателем партии.
 - @kaiser_campaign: Мы проведём кампанию в поддержку Якоба Кайзера на пост председателя партии.
 
-
 @adenauer
 subtitle: Бургомистр Кёльна и убеждённый сторонник политики «выхода из башни». Представляет правое крыло партии.
 on-arrival: z_relation -= 15; z_ideology = "Правые"; z_leader = "Аденауэр"; workers_z -= 6; workers_spd += 6; unemployed_z -= 6; unemployed_spd += 6; rural_z += 6; old_middle_z += 10; rural_dnvp -= 4 if dnvp_ideology == "Умеренные"; old_middle_dnvp -= 8 if dnvp_ideology == "Умеренные"; catholics_dnvp -= 4 if dnvp_ideology == "Умеренные"; rural_kvp -= 4 if kvp_formed; old_middle_kvp -= 8 if kvp_formed; catholics_kvp -= 4 if kvp_formed; rural_other -= 4 if not kvp_formed and dnvp_ideology == "Радикалы"; old_middle_other -= 8 if not kvp_formed and dnvp_ideology == "Радикалы"; catholics_other -= 4 if not kvp_formed and dnvp_ideology == "Радикалы"; z_party_name = "ХНП"; stegerwald_skibidi_time = time + 11
@@ -31,7 +30,6 @@ face-image: img/portraits/adenauer.jpg
 
 [? if dnvp_ideology == "Умеренные": Разговоры о слиянии с <span style='color: #3E88B3;'>**НННП**</span> звучат все чаще, но поддерживают его лишь <span style='color: #0087DC;'>Народные консерваторы</span> и <span style='color: #6D5298;'>Христианско-социальное движение</span>, не столь значимые в НННП. Время для слияния ещё не пришло. Наша задача — не допустить их коалиции с <span style='color: #000000;'>Партией Центра</span>.  ?]
 
-
 @kaiser
 choose-if: z_relation >= 80 and pro_republic >= 80 and (in_weimar_coalition or in_popular_front) and (in_weimar_coalition_prussia or in_grand_coalition_prussia or in_popular_front_prussia)
 unavailable-subtitle: [? if z_relation < 80 : Уровень наших отношений недостаточно высок. ?] [? if pro_republic < 80 : Левые республиканцы в партии слишком слабы — у Кайзера нет шансов.  ?] [? if not in_weimar_coalition and not in_popular_front : Наше сотрудничество необходимо и дальше укреплять в рамках федеральной <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">ской</span> коалиции или коалиции Народного фронта.  ?] [? if not in_weimar_coalition_prussia and not in_grand_coalition_prussia and not in_popular_front_prussia: Пруссия — половина Германии. Без нашего вмешательства прусская ячейка не признает Кайзера. ?]
@@ -44,7 +42,6 @@ achievement: fur_gott_und_kaiser
 В качестве компромисса Кайзер согласился переименовать партию в <i>Christliche Volkspartei</i> (<span style="color: #000000;">Христианская народная партия</span>). Помимо этого косметического изменения — учитывая историческую связь католиков с названием «<span style="color: #000000;">Центр</span>» — программа партии осталась практически без изменений.
 
 Тем не менее, такой исход привёл в ярость правое крыло партии. Многие из её консерваторов-протестантов в знак протеста сожгли партийные билеты и публично вышли из партии.
-
 
 @kaiser_campaign
 view-if: z_relation < 80

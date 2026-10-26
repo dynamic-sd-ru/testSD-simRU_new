@@ -71,7 +71,7 @@ if (Q.kpd_relation >= 30 && Q.sapd_formed) {
 }
 
 
-Q.total_power += (2 - Q.labor_dissent/100)*Q.normalized_workers_total*(2 - Q.unemployed/100)*2.5;
+Q.total_power += (2 - Q.labor_dissent/100)*Q.normalized_workers_total*(2 - Q.effective_unemployed/100)*2.5;
 console.log("Supporter strength:", Q.total_power);
 
 // our enemies
@@ -114,7 +114,6 @@ go-to: war_menu
 
 # note: many scenarios lead to civil war. This calculates the array of forces, and the possible outcomes.
 
-
 @war_menu
 
 - @rw_help: Призвать рейхсвер к невмешательству.
@@ -123,14 +122,12 @@ go-to: war_menu
 - @loyal_police: Созвать верные нам полицейские силы.
 - @war_outcome: А теперь… битва…
 
-
 @rw_help
 max-visits: 1
 go-to: war_menu
 on-arrival: war_choices += 1
 
 Мы призвали рейхсвер не вмешиваться, чтобы не проливать кровь соотечественников. [? if reichswehr_loyalty < 0.2 : К сожалению, мало кто внял нашим призывам; рейхсвер нас ненавидит.  ?][? if reichswehr_loyalty >= 0.2 and reichswehr_loyalty < 0.4 : Некоторые офицеры и солдаты вняли нашим призывам не сражаться против нас. Некоторые даже присоединяются к нам. ?][? if reichswehr_loyalty >= 0.4 and reichswehr_loyalty < 0.6 : Рейхсвер расколот. Многие сохраняют нейтралитет или переходят на нашу сторону. ?][? if reichswehr_loyalty >= 0.6 : Удивительно, но большая часть рейхсвера на нашей стороне! Наши приготовления сработали. ?]
-
 
 @kpd_help
 max-visits: 1
@@ -142,14 +139,12 @@ on-arrival: war_choices += 1
 
 [? if kpd_relation >= 60 : <span style="color: #700000;">**КПГ**</span> полностью на нашей стороне благодаря нашим хорошим отношениям. ?][? if kpd_relation < 60 and kpd_relation >= 45 : Большая часть <span style="color: #700000;">**КПГ**</span> на нашей стороне благодаря хорошим отношениям с нами. ?][? if kpd_relation < 45 : <span style="color: #700000;">**КПГ**</span> не поддерживает нас. ?]
 
-
 @general_strike
 max-visits: 1
 go-to: war_menu
 on-arrival: war_choices += 1
 
 Всеобщая забастовка остановила Капповский путч в 1920 году, и сегодня она может остановить <span style="color: #7A3C00;">фашизм</span>. [? if normalized_workers_total > 70 : Рабочие в большинстве своём с нами. ?][? if normalized_workers_total >= 50 and normalized_workers_total <= 70 : В рабочей среде есть некоторые разногласия, но большинство рабочих поддерживает всеобщую забастовку.  ?][? if normalized_workers_total > 30 and normalized_workers_total < 50 : Однако в рабочей среде существуют серьёзные разногласия, и всеобщую забастовку поддерживает меньше половины.  ?][? if normalized_workers_total <= 30 : Однако рабочее движение глубоко расколото, и большинство рабочих не откликнулось на призыв к забастовке. ?]
-
 
 
 @loyal_police
@@ -163,7 +158,6 @@ view-if: spd_prussia = 1
 
 
 
-
 @foreign_intervention
 max-visits: 1
 go-to: war_menu
@@ -172,11 +166,9 @@ on-arrival: war_choices += 1;
 # note: the Prussian coup should not trigger foreign intervention...
 
 
-
 @war_outcome
 view-if: war_choices >= 2
 go-to: defeat if total_defeat = 1; long_war if long_war = 1; republic_victory if republic_victory = 1
-
 
 @defeat
 
@@ -188,7 +180,6 @@ go-to: defeat if total_defeat = 1; long_war if long_war = 1; republic_victory if
 
 - @game_over: Игра окончена.
 
-
 @long_war
 go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup == 1
 
@@ -198,7 +189,6 @@ go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup 
 
 Фронт стабилизировался. Это будет не быстрый переворот, а долгая гражданская война. Страна уничтожит сама себя, прежде чем сможет возродиться.
 
-
 @game_over_menu
 
 Хотя мы и могли бы обратиться за помощью к другим странам, иностранные державы рассматривают «Прусский переворот» как сугубо внутреннее дело.
@@ -207,14 +197,12 @@ go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup 
 
 # no war
 
-
 @long_war_intervention
 
 - @west_aid: Возможно, мы сможем получить помощь от западных держав — <span style="color: #002654;">Франции</span> и <span style="color: #C8102E;">Британии</span>.
 - @soviet_aid: Возможно, мы сможем получить помощь от <span style="color: #750e0e;">Советского Союза</span>.
 - @east_aid: Возможно, наши восточные соседи — <span style="color: #DC143C;">Поль</span><span style="color: #FFFFFF;">ша</span> и <span style="color: #11457E;">Чехо</span><span style="color: #FFFFFF;">сло</span><span style="color: #D7141A;">вакия</span> — смогут нам помочь. Уж кто-кто, а они точно не хотят прихода к власти <span style="color: #7A3C00;">фашистов</span> в Германии.
 - @game_over: Игра окончена.
-
 
 @west_aid
 choose-if: west_relation >= 2
@@ -225,7 +213,6 @@ go-to: long_war_intervention
 
 Мы обратились за помощью к Западу, но их правительства не могут решить, поддерживать нас или нет. Нам придётся выживать в одиночку, пока они не примут решение.
 
-
 @soviet_aid
 choose-if: (soviet_relation >= 1 and kpd_relation >= 50) or (kpd_relation >= 75)
 on-arrival: soviet_aid += 1
@@ -235,7 +222,6 @@ go-to: long_war_intervention
 
 Мы взываем о помощи к <span style="color: #750e0e;">Советскому Союзу</span>. <span style="color: #700000;">**КПГ**</span> получает основную часть помощи, в то время как Рейхсбаннер и верные нам воинские части остаются без поддержки. Если мы победим, это не сулит ничего хорошего нашему будущему.
 
-
 @east_aid
 choose-if: east_relation >= 2
 on-arrival: east_aid += 1
@@ -244,7 +230,6 @@ max-visits: 1
 go-to: long_war_intervention
 
 <span style="color: #DC143C;">Поль</span><span style="color: #FFFFFF;">ша</span> и <span style="color: #11457E;">Чехо</span><span style="color: #FFFFFF;">сло</span><span style="color: #D7141A;">вакия</span> в значительной степени слишком поглощены своими собственными проблемами, чтобы оказать существенную помощь, но через те участки границ, которые мы контролируем, к нам просачивается оружие и добровольцы.
-
 
 @republic_victory
 

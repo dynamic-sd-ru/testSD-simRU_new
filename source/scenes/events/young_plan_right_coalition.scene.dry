@@ -12,12 +12,12 @@ max-visits: 1
 
 Хотя это и кажется позитивным событием для страны, <span style="color: #3E88B3;">**НННП**</span>, несмотря на свою умеренность, выступает против этого плана, заявляя, что любые репарации — это форма национального рабства. Они призвали к вотуму недоверия правительству при поддержке <span style="color: #7A3C00;">**НСДАП**</span>, <span style="color: #003755;">**НФГ**</span> и <span style="color: #700000;">**КПГ**</span>, и к проведению референдума по плану Юнга.
 
+
 Мы можем либо проголосовать за отставку правительства и проведение новых выборов, либо «воздержаться от вотума недоверия» правительству, возглавляемому оставшимися буржуазными партиями.
 
 - @vonc_yes
 - @vonc_no
 - @no_matter
-
 
 @vonc_yes
 title: Поддержать вотум недоверия, проголосовав против правительства.
@@ -29,7 +29,6 @@ go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_co
 
 <span style="color: #000000;">Буржуазно</span>-<span style="color: #3E88B3;">правая</span> коалиция пала. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @vonc_no
 title: Поддержать, хоть и в урезанном виде, возглавляемое Партией [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span>  ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]правительство, проголосовав за него.
 subtitle: По сути, мы будем «терпеть» буржуазное правительство.
@@ -38,7 +37,6 @@ on-arrival: spd_toleration = 1; in_right_coalition = 0; in_center_right_coalitio
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 Поддержав правительство, мы, по сути, заключили соглашение о «терпимости» с [+ chancellor +] правительством. У нас нет голоса в правительстве, но мы несём ответственность за его дальнейшую стабильность. Левое крыло нашей партии выступает против этого плана и предпочло бы, чтобы мы провели новые выборы.
-
 
 @no_matter
 title: Наши действия не имеют значения.
@@ -49,7 +47,6 @@ on-arrival: time_to_election = 3; spd_in_government = 0; in_right_coalition = 0;
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 <span style="color: #000000;">Буржуазно</span> <span style="color: #3E88B3;">-правая</span> коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @new_prussia_election
 on-arrival: prussia_coalition_trigger = 1

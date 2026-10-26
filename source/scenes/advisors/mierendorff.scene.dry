@@ -15,7 +15,6 @@ new-page: true
 - @nazi_urgency
 - @root: Вернуться на главный экран
 
-
 @iron_front_buildup
 title: Укрепить <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span>
 subtitle: Усилить пропаганду для вербовки новых людей в Рейхсбаннер.
@@ -26,14 +25,12 @@ on-arrival: advisor_action_timer = 6; rb_strength += 200*(workers_spd_normalized
 Мы привлекли больше людей в Рейхсбаннер.
 
 
-
 @form_iron_front
 title: Создание <span style="color: #c00000;">Железного</span> <span style="color: #1A1A1A;">фронта</span>
 choose-if: advisor_action_timer == 0 and iron_front_formed == 0 and nazi_urgency >= 2
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?][? if iron_front_formed : <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span> уже создан.  ?][? if nazi_urgency < 2 : Партия ещё не осознаёт угрозы <span style="color: #7A3C00;">нацистов</span>. ?]
 on-arrival: advisor_action_timer = 6; rb_strength += 50; nazi_urgency += 1
 go-to: confronting_nazis.iron_front 
-
 
 
 @nazi_urgency

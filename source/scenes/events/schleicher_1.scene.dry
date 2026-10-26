@@ -26,15 +26,13 @@ on-display: {!
 
 - @schleicher
 
-
 @schleicher
 title: Беспокойно.
-on-arrival: schleicher_spd_r -= 1; schleicher_spd_support -= 1; nazi_urgency += 1; 
+on-arrival: schleicher_spd_r -= 1; schleicher_spd_support -= 1; nazi_urgency += 1; kpd_nazi_urgency += 1;
 
 Это практически подтверждает наши подозрения, что генерал Шлейхер состоит в сговоре с <span style="color: #7A3C00;">нацистами</span> против <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканских</span> сил. Наши отношения с «красным генералом» ухудшились.
 
 - @schleicher_2
-
 
 @schleicher_2
 title: Фон Шлейхер предлагает встретиться с профсоюзами и развеять их опасения.

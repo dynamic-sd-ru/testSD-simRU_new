@@ -32,10 +32,8 @@ max-visits: 1
 
 - @results: Страна голосует…
 
-
 @results
 go-to: hindenburg_ref_win if hindenburg_ref_votes >= 50; hindenburg_ref_lose if hindenburg_ref_votes < 50
-
 
 
 @hindenburg_ref_win
@@ -78,7 +76,6 @@ if (Q.aspd_other) {
 
 Президентские выборы назначены на [+ rubicon_president_week +] от [+ rubicon_president_month : month +], [+ rubicon_president_year +].
 
-
 @hindenburg_ref_lose
 
 К сожалению, референдум провалился, набрав [+ hindenburg_ref_votes +]% голосов. Столько усилий впустую.
@@ -87,11 +84,10 @@ if (Q.aspd_other) {
 
 - @schizo
 
-
 @schizo
 title: Кронпринц Вильгельм?..
 on-arrival: {!
-Q.chancellor = "Hohenzollern";
+Q.chancellor = "Гогенцоллерн";
 Q.vice_chancellor = "Папен";
 
 const contentElement = document.getElementById('content');

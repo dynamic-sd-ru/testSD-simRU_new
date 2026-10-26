@@ -26,7 +26,6 @@ on-display: {!
 - @papen
 - @papen_2
 
-
 @papen
 title: Мы ждём окончательного вердикта.
 view-if: (judicial_reform < 4 and not altona_good) or (judicial_reform < 2 and altona_good)
@@ -36,11 +35,10 @@ on-arrival: pro_republic -= 3
 
 Кроме того, суд объявил: роспуск прусского правительства был незаконным и представительство Пруссии в Рейхсрате должно быть восстановлено. Хотя суд и признал, что прусское правительство юридически продолжает существовать, <span style="color: #808080;">реакционный</span> характер судебной системы привёл к тому, что никаких практических изменений не последовало. Постановление суда не содержало прямого требования восстановить прусское правительство в правах, и  правительство [+ chancellor +]а проигнорировало это решение. Привлечение правительства к ответственности за это нарушение потребовало бы обвинить президента Гинденбурга в нарушении закона при подписании указа — шаг, который консервативные судьи сочли политически неприемлемым.
 
-
 @papen_2
 title: Мы ждём окончательного вердикта.
 view-if: (judicial_reform >= 4 and not altona_good) or (judicial_reform >= 2 and altona_good)
-on-arrival: prussia_returned = 1; prussia_leader = older_prussia_leader; in_weimar_coalition_prussia = 1 if pre_in_weimar_coalition_prussia; in_grand_coalition_prussia = 1 if pre_in_grand_coalition_prussia; in_minority_weimar_coalition_prussia = 1 if in_weimar_coalition_prussia and weimar_coalition_prussia < 50; in_minority_grand_coalition_prussia = 1 if in_grand_coalition_prussia and grand_coalition_prussia < 50; pro_republic += 8; workers_spd += 5; new_middle_spd += 5; unemployed_spd += 3; new_middle_ddp += 3; labor_dissent -= 15; reformist_dissent -= 15; left_dissent -= 15; prussian_police_loyalty += 0.3; rb_strength *= 1.1; rb_militancy *= 1.1; papen_strength -= 1; hindenburg_papen_r -= 1
+on-arrival: prussia_returned = 1; prussia_legal_returned = 1; prussia_leader = older_prussia_leader; in_weimar_coalition_prussia = 1 if pre_in_weimar_coalition_prussia; in_grand_coalition_prussia = 1 if pre_in_grand_coalition_prussia; in_minority_weimar_coalition_prussia = 1 if in_weimar_coalition_prussia and weimar_coalition_prussia < 50; in_minority_grand_coalition_prussia = 1 if in_grand_coalition_prussia and grand_coalition_prussia < 50; pro_republic += 8; workers_spd += 5; new_middle_spd += 5; unemployed_spd += 3; new_middle_ddp += 3; labor_dissent -= 15; reformist_dissent -= 15; left_dissent -= 15; prussian_police_loyalty += 0.3; rb_strength *= 1.1; rb_militancy *= 1.1; papen_strength -= 1; hindenburg_papen_r -= 1
 
 Государственный суд постановил, что правительство Пруссии не нарушило своих обязанностей, объявив незаконным применение силы против правительства земли, соблюдающего конституцию, и необоснованным применение <i>Reichsexekution (Имперская экзекуция)</i>. Суд обязал федеральное правительство отказаться от контроля над министерствами Пруссии и восстановить её представительство в рейхсрате.
 

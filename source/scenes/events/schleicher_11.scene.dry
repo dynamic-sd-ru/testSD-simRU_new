@@ -15,7 +15,6 @@ face-image: img/portraits/schleicher.jpg
 
 - @schleicher_2: <span style="color: #BFC8CC;">Фронт Национального Единства Германии</span> приветствует нового члена.
 
-
 @schleicher_2
 on-arrival: {!
 Q.kvp_dnef = 1;
@@ -28,6 +27,7 @@ Q.dnef_r += Q.kvp_r;
 Q.kvp_r = 0;
 
 Q.kvp_leader = "Тревиранус";
+Q.kpd_nazi_urgency += 1;
 !}
 
 Тревиранус с тех пор назначен лидером теперь уже связанной с <i>Blocpartei</i> <span style="color: #0087DC;">**КНП**</span>.

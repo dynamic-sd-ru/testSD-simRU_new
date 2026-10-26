@@ -15,7 +15,6 @@ new-page: true
 
 - @resultsdvp: Партия голосует…
 
-
 @resultsdvp
 on-arrival: {!
 if (Q.dvp_right > (Q.dvp_left*1.5) || (Q.dvp_right > (Q.dvp_left + 4))) {
@@ -28,7 +27,6 @@ if (Q.dvp_right > (Q.dvp_left*1.5) || (Q.dvp_right > (Q.dvp_left + 4))) {
 !}
 go-to: curtius if dvp_leader == "Курциус" and dvp_ideology != "Правые"; luther if dvp_leader == "Лютер" and dvp_ideology != "Правые"; dingeldey if dvp_ideology == "Правые"
 
-
 @curtius
 on-arrival: dvp_leader = "Курциус"; liberal_cooperation += 2; bourgeois_cooperation -= 1; dvp_left += 5; dvp_relation += 3; new_middle_dvp += 4; new_middle_nsdap -= 4; new_middle_other -= 4; catholics_dvp += 3; catholics_other -= 3; old_middle_dvp -= 2; old_middle_dnvp += 2; old_middle_kvp += 2 if kvp_formed; rural_dvp += 2; rural_dnvp += 2; rural_dnvp += 2 if dnvp_ideology == "Умеренные"; rural_kvp += 2 if kvp_formed; pro_republic += (dvp_votes * 2); ddp_right += 3 if ddp_ideology != "Правые"; ddp_relation += 5;
 face-image: img/portraits/curtius.jpg
@@ -37,7 +35,6 @@ face-image: img/portraits/curtius.jpg
 
 Это великолепная новость для нас и наших отношений с <span style="color: #C0A054;">**ННП**</span>, что вызвало резонанс во всей партийной системе. В ответ на своё поражение промышленники перенаправили свои пожертвования <span style="color: #3E88B3;">**НННП**</span> и даже <span style="color: #7A3C00;">**НСДАП**</span>, в надежде обрести новый политический дом для своего лобби.
 
-
 @luther
 on-arrival: dvp_leader = "Лютер"; dvp_left += 3 if in_grand_coalition; liberal_cooperation += 3; bourgeois_cooperation += 5; dvp_relation += 3 if in_grand_coalition; new_middle_dvp += 3; catholics_dvp += 5; catholics_other -= 3; catholics_z -= 2; rural_dvp += 3; pro_republic += dvp_votes; ddp_right += 5 if ddp_ideology != "Правые"
 face-image: img/portraits/luther.jpg
@@ -45,7 +42,6 @@ face-image: img/portraits/luther.jpg
 Ганс Лютер ожидаемо победил на выборах в <span style="color: #C0A054;">**ННП**</span>. Несмотря на подмоченную репутацию в правом крыле, его широкой поддержки хватило для решительной победы над вотумом недоверия. Его планы по созданию объединённой либеральной и даже буржуазной партии, чтобы противостоять влиянию <span style="color: #c00000;">социалистов</span>, успокоили большинство промышленников, хотя некоторые из них начали финансировать <span style="color: #3E88B3;">**НННП**</span>.
 
 Это отличная новость для демократии, а также для нашего конструктивного сотрудничества с <span style="color: #C0A054;">**ННП**</span>. Правые силы вновь потерпели поражение: партия, вероятно, останется на демократическом пути в обозримом будущем.
-
 
 @dingeldey
 on-arrival: old_dvp_leader = dvp_leader; dvp_leader = "Дингельдей"; dvp_right += 6; dvp_relation -= 15; old_middle_dvp -= 3; new_middle_dvp -= 6; rural_dvp -= 4; pro_republic -= 5; ddp_left += 3 if ddp_ideology == "Правые"; ddp_cohesion -= 1; liberal_cooperation -= 3; bourgeois_cooperation -= 3

@@ -28,7 +28,6 @@ on-display: {!
 
 - @reichstag
 
-
 @reichstag
 title: Рейхстаг собирается на заседание.
 on-arrival: {!
@@ -53,7 +52,6 @@ header.style.color = '#ffffff';
 - @reichstag_2
 - @reichstag_3
 
-
 @reichstag_2
 title: Мы знаем о намерениях Папена и не должны позволить ему укрепить свою власть! Мы должны выйти на баррикады, чтобы не дать Папену покончить с демократией.
 
@@ -61,7 +59,6 @@ title: Мы знаем о намерениях Папена и не должны
 
 - @papen_civil_war: Да.
 - @reichstag_3: Мы не готовы к войне. Мы должны выждать.
-
 
 @reichstag_3
 title: Ждём своего часа.
@@ -72,12 +69,10 @@ on-arrival: workers_spd -= 5; new_middle_spd -= 5; unemployed_spd -= 5; pro_repu
 - @reichstag_4
 - @papen_civil_war_2
 
-
 @papen_civil_war_2
 title: Правительство не может подавить волнения, гражданская война неизбежна.
 subtitle: Будем мы сражаться или нет — не нам решать.
 go-to: papen_civil_war
-
 
 @reichstag_4
 title: Объявлено военное положение. Рейхсвер подавляет очаги беспорядков.

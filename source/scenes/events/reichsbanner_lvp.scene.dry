@@ -25,7 +25,6 @@ max-visits: 1
 - @lower_militancy: Мы должны снизить воинственность Рейхсбаннера.
 - @keep_them: Сможем ли мы убедить их, что воинственный Рейхсбаннер необходим для защиты республики?
 
-
 @let_go
 on-arrival: rb_strength *= 0.95; z_relation -= 3; lvp_relation -= 5; lvp_right += 3; pro_republic -= 3; lvp_leave_reichsbanner = 1
 
@@ -34,12 +33,10 @@ on-arrival: rb_strength *= 0.95; z_relation -= 3; lvp_relation -= 5; lvp_right +
 # TODO: this should make it harder to form Weimar coalitions
 
 
-
 @lower_militancy
 on-arrival: rb_militancy *= 0.5
 
 Уступая <span style="color: #FFCC00;">**ЛНП**</span> и их требованиям, мы сокращаем военную подготовку в «Рейхсбаннере», тем самым побуждая их остаться.
-
 
 
 @keep_them

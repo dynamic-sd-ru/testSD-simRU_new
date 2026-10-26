@@ -7,14 +7,13 @@ new-page: true
 
 = Магнус Хиршфельд
 
-Магнус Хиршфельд — основатель Institut für Sexualwissenschaft и защитник прав сексуальных меньшинств.[? if homosexual_rights: В настоящее время он пользуется значительной поддержкой среди партийных фракций благодаря достижениям <span style="color: #c00000;">**СДПГ**</span> в области прав <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">сек</span><span style="color: green;">су</span><span style="color: blue;">а</span><span style="color: purple;">ло</span>в <i>(ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России)</i>. ?]
+Магнус Хиршфельд — основатель Institut für Sexualwissenschaft и защитник прав сексуальных меньшинств.[? if homosexual_rights: В настоящее время он пользуется значительной поддержкой среди партийных фракций благодаря достижениям <span style="color: #c00000;">**СДПГ**</span> в области прав <span style="color: red;">го</span><span style="color: orange;">мо</span><span style="color: yellow;">сек</span><span style="color: green;">су</span><span style="color: blue;">а</span><span style="color: purple;">ло</span> в <i>(ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России)</i>. ?]
 
 
 - @homosexual_rights_
 - @womens_rights_
 - @science_funding
 - @root: Назад
-
 
 
 @homosexual_rights_
@@ -26,7 +25,6 @@ on-arrival: advisor_action_timer = 6; homosexual_rights_timer -= 11; last_adviso
 go-to: homosexual_rights
 
 
-
 @womens_rights_
 title: Права женщин
 subtitle: Проводить политику в области прав женщин.
@@ -34,7 +32,6 @@ choose-if: advisor_action_timer = 0 and spd_in_government and not cvp_women_acce
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] мес. до следующего действия советника. ?][? if not spd_in_government : <span style="color: #c00000;">СДПГ</span> в данный момент не входит в правительство.  ?] [? if cvp_women_accepted : Наше коалиционное соглашение препятствует принятию мер в защиту прав женщин. ?]
 on-arrival: advisor_action_timer = 6; womens_rights_timer -= 10; last_advisor_action = 1
 go-to: womens_rights
-
 
 @science_funding
 title: Финансирование науки

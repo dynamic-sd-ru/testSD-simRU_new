@@ -12,8 +12,8 @@ new-page: true
 - @emergency_fundraising
 - @welfare
 - @organizing_women
+- @bdf
 - @root: Вернуться к основному
-
 
 @emergency_fundraising
 title: Экстренный сбор средств
@@ -27,7 +27,6 @@ on-arrival: advisor_action_timer = 6; emergency_used += 1; resources += 2; worke
 
 Мы получили +2 ресурса.
 
-
 @welfare
 title: Поддержать «Рабочую благотворительность», нашу организацию взаимопомощи.
 subtitle: -1 ресурс
@@ -36,7 +35,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: resources -= 1; workers_aid += 1; unemployed_spd += 5*(1 - dissent); workers_spd += 3*(1-dissent); workers_spd += 2*(1-dissent) if black_thursday_seen; advisor_action_timer = 6;
 
 Мы увеличили финансирование «Рабочей благотворительности».[? if black_thursday_seen > 0 :  В эпоху экономического кризиса это поможет нам укрепить свои позиции среди безработных. ?]
-
 
 @organizing_women
 title: Организация женщин
@@ -48,3 +46,12 @@ on-arrival: womens_rights += 1; workers_spd += 4*(1-dissent); rural_spd += 3*(1-
 Стратегии Юхач по организации женщин нацелены на домохозяек из рабочего класса и признают традиционную роль женщины в семье. Мы утверждаем, что наши социальные программы улучшат жизнь женщин и их семей.
 
 [? if spd_r < 50 : К сожалению, женщины по-прежнему непропорционально часто поддерживают буржуазные партии. ?]
+
+@bdf
+title: Feminism beyond suffrage?
+subtitle: Can we bring liberal and leftist women's rights organizations together?
+view-if: womens_work >= 3 and family_law >= 2 and bdf_cooperation = 0
+choose-if: (womens_rights >= 8 or abortion_rights) and nationalism <= 40 and advisor_action_timer = 0
+unavailable-subtitle: [? if nationalism > 40: The environment is too polarized: we must push against <span style="color: #3E88B3;">nationalist</span> propaganda. ?][? if womens_rights <= 7 or abortion_rights = 0: More work needs to be done. ?][? if advisor_action_timer > 0 : [+ advisor_action_timer +] months before next advisor action. ?]
+on-arrival: advisor_action_timer = 6; last_advisor_action = 1
+go-to: bdf_cooperation

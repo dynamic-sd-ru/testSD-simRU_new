@@ -47,11 +47,9 @@ go-to: candidate_selection
 
 [? if spd_support_reactionary: Из-за нашей поддержки [+ spd_choice +], мы исключены из их предвыборных комитетов. Наша поддержка нежелательна для [+ spd_choice +] него самого, и он будет пытаться как можно сильнее дистанцироваться от нас, чтобы заручиться поддержкой умеренно правых и промышленных кругов. В результате наша роль в этой кампании будет заключаться в том, чтобы сплотить немецких левых, которые по-прежнему не хотят голосовать за такого консерватора, как он.  ?][? if braun_campaign: Мы выдвигаем кандидатуру Отто Брауна, одного из наших самых известных и уважаемых государственных деятелей. Его реформистская позиция даёт нам шанс привлечь на свою сторону часть электората буржуазных партий. Однако многие за пределами нашей партии скорее умрут, чем поддержат <span style="color: #c00000;">социалиста</span>. Единственный реальный способ увеличить нашу долю голосов — это вернуть разочарованных <span style="color: #700000;">**коммунистов**</span> и мобилизовать энтузиазм рабочих. ?][? if spd_support_thalmann: Наше спорное решение поддержать [+ communist_candidate_1932_disp +] в качестве единого кандидата от левых сил глубоко поляризовало германскую политику, подготовив почву для решающей схватки между <span style="color: #9B0000;">марксизмом</span> и капитализмом. Не исключена даже гражданская война, и неважно, кто из кандидатов одержит победу. Поскольку все левые силы Германии объединились вокруг [+ communist_candidate_1932 +], нашей электоральной базе почти некуда расти — нам остаётся лишь надеяться, что рабочие в полном составе явятся на избирательные участки.  ?][? if rosenfeld_campaign: Мы выдвигаем кандидатуру Курта Розенфельда, менее известного деятеля нашего левого крыла. Его левые взгляды дают нам шанс заручиться поддержкой <span style="color: #700000;">**коммунистов**</span>, но полностью закрывают для нас возможность поддержки со стороны буржуазных партий. Единственный реальный способ увеличить нашу долю голосов — это вернуть разочарованных рабочих, мобилизовать их энтузиазм и убедить наших более реформистски настроенных сторонников из среднего класса и сельской местности не отступать от намеченного плана.  ?][? if eckener_campaign: Мы выдвигаем кандидатуру Гуго Эккенера, знаменитого беспартийного капитана дирижаблей и консерватора по личным убеждениям. Его правые взгляды ставят нас перед выбором: либо саму <span style="color: #c00000;">**СДПГ**</span> уязвимы перед оттоком к <span style="color: #700000;">**коммунистов**</span>, но зато полностью открыли дверь для единой поддержки со стороны буржуазных партий. Мы можем либо укрепить поддержку Эккенера внутри <span style="color: #c00000;">**СДПГ**</span>, либо сосредоточиться на максимальном привлечении сторонников других партий и укреплении сотрудничества с нашими буржуазными союзниками. ?]
 
-
 @candidate_selection
 
 - @view_candidates: Посмотреть список кандидатов.
-
 
 @view_candidates
 
@@ -137,7 +135,6 @@ go-to: candidate_selection
 - @campaigning_reactionary: Пора на выборы!
 - @campaigning_thalmann: Пора на выборы!
 
-
 @campaigning_braun
 view-if: braun_campaign
 
@@ -150,7 +147,6 @@ view-if: braun_campaign
 - @campaigning
 - @hope: Будем надеяться, что Германия сделает правильный выбор.
 
-
 @iron_front
 title: Мобилизовать все силы <span style="color: #c00000;">**Железного**</span> <span style="color: #1A1A1A;">**фронта**</span> для поддержки Брауна.
 view-if: iron_front_formed
@@ -160,7 +156,6 @@ face-image: img/iron_front_poster.png
 go-to: campaigning_braun
 
 <span style="color: #c00000;">**Железный**</span> <span style="color: #1A1A1A;">**фронт**</span> немедленно приступает к работе, сплачиваясь вокруг своего лозунга борьбы с <span style="color: #7A3C00;">фашизмом</span>, <span style="color:rgb(90, 0, 0);">сталинизмом</span> и <span style="color: #808080;">монархизмом</span>, что особенно актуально на этих выборах.
-
 
 @media
 title: Использовать наши радиостанции для вещания в поддержку Брауна.
@@ -174,7 +169,6 @@ go-to: campaigning_braun
 
 Мы можем транслировать по радио обращения с призывом голосовать за Брауна, донося наши идеи до среднего класса в надежде преодолеть их неприязнь к <span style="color: #c00000;">социализму</span>.
 
-
 @center_glaze
 title: Мы убеждаем [? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] принять более активное участие в нашей кампании.
 subtitle: [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] недостаточно выкладывается. −1 ресурс
@@ -187,13 +181,12 @@ go-to: campaigning_braun
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] не самая ярая сторонница Брауна. Однако, используя наши связи с её левым крылом и профсоюзами, мы можем подтолкнуть её к более активному участию в кампании. Это должно помочь Брауну получить больше голосов от её электората.
 
-
 @communist_glaze
 title: Мы убеждаем <span style="color: #700000;">**коммунистов**</span> принять более активное участие в нашей кампании.
 subtitle: Это оттолкнёт избирателей из буржуазии! -2 ресурса
 choose-if: kpd_support_spd == 1 and (kpd_relation >= 70 or (kpd_relation >= 55 and kpd_leader == "Примиренцы")) and resources >= 2
 unavailable-subtitle: [? if kpd_support_spd != 1: <span style="color: #700000;">КПГ</span> не поддерживает Брауна.  ?][? if (kpd_relation < 70 or (kpd_relation < 55 and kpd_leader == "Примиренцы")): Наши отношения недостаточно хороши. ?] [? if resources < 2: Недостаточно ресурсов (требуется 2). ?]
-on-arrival: resources -= 2; kpd_glaze_spd = 1; workers_spd += 3; workers_kpd += 5; workers_nsdap -= 3; unemployed_kpd += 3; unemployed_nsdap -= 3; z_relation -= 10; ddp_relation -= 10; dvp_relation -= 10; lvp_relation -= 10; dvp_right += 5; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 5; z_support_spd = 0 if (z_relation < 60 and z_ideology == "Правые") or (z_relation < 50 and z_ideology == "Левые"); new_middle_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3
+on-arrival: resources -= 2; kpd_glaze_spd = 1; workers_spd += 3; workers_kpd += 5; workers_nsdap -= 3; unemployed_kpd += 3; unemployed_nsdap -= 3; z_relation -= 10; ddp_relation -= 10; dvp_relation -= 10; lvp_relation -= 10; dvp_right += 5; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 5; z_support_spd = 0 if (z_relation < 60 and z_ideology == "Правые") or (z_relation < 50 and z_ideology == "Левые"); new_middle_spd -= 3 if new_middle_conscious == 0; old_middle_spd -= 3; catholics_spd -= 3
 face-image: img/kpd_poster.jpg
 max-visits: 1
 go-to: campaigning_braun
@@ -201,7 +194,6 @@ go-to: campaigning_braun
 Хоть ранее мы и настаивали на негласном характере поддержки со стороны <span style="color: #700000;">**коммунистов**</span>, теперь мы решили: их полная поддержка на предстоящих выборах стоит риска оттолкнуть буржуазных <span style="color: #000000;">респу</span><span style="color: #DD0000;">бли</span><span style="color: #FFCC00;">канцев</span>. В результате мы теперь открыто участвуем в совместных митингах в поддержку Брауна.
 
 [? if (z_relation < 60 and z_ideology == "Правые") or (z_relation < 50 and z_ideology == "Левые"): [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] отозвала свою поддержку Брауна, если её оказывала. ?]
-
 
 @campaigning
 title: Активизировать кампанию в целом.
@@ -212,7 +204,6 @@ unavailable-subtitle: Недостаточно ресурсов.
 on-arrival: resources -= 1; campaigning_seen = 1; campaigning_count = 0
 max-visits: 1
 go-to: campaign_menu
-
 
 
 @campaign_menu
@@ -227,12 +218,10 @@ go-to: campaign_menu
 - @catholics: Добавить «Католиков» в корзину.
 - @checkout
 
-
 @workers
 view-if: campaigning_count < 2
 on-arrival: workers_spd += 3*(1 - dissent); campaigning_count += 1
 go-to: campaign_menu
-
 
 
 @middle_class
@@ -241,12 +230,10 @@ on-arrival: new_middle_spd += 3*(1 - dissent); old_middle_spd += 3*(1 - dissent)
 go-to: campaign_menu
 
 
-
 @rural
 view-if: campaigning_count < 2
 on-arrival: rural_spd += 3*(1 - dissent); rural_spd += 3*(1 - dissent) if peoples_party; campaigning_count += 1
 go-to: campaign_menu
-
 
 
 @unemployed
@@ -255,12 +242,10 @@ on-arrival: unemployed_spd += 3*(1 - dissent); campaigning_count += 1
 go-to: campaign_menu
 
 
-
 @catholics
 view-if: campaigning_count < 2 and peoples_party
 on-arrival: catholics_spd += 3*(1 - dissent); campaigning_count += 1
 go-to: campaign_menu
-
 
 
 @checkout
@@ -268,11 +253,9 @@ title: Оформить заказ.
 go-to: campaigning_braun if braun_campaign; campaigning_eckener if eckener_campaign; campaigning_rosenfeld if rosenfeld_campaign; campaigning_thalmann if spd_support_thalmann; campaigning_reactionary if spd_support_reactionary
 
 
-
 @hope
 
 И куда привела нас надежда за последние несколько лет?
-
 
 @campaigning_rosenfeld
 view-if: rosenfeld_campaign
@@ -286,7 +269,6 @@ view-if: rosenfeld_campaign
 - @campaigning
 - @hope: Будем надеяться, что Германия сделает правильный выбор.
 
-
 @iron_front_rosenfeld
 title: Мобилизовать все силы <span style="color: #c00000;">**Железного**</span> <span style="color: #1A1A1A;">**фронта**</span> на поддержку Розенфельда.
 view-if: iron_front_formed
@@ -296,7 +278,6 @@ face-image: img/iron_front_poster.png
 go-to: campaigning_rosenfeld
 
 <span style="color: #c00000;">**Железный**</span> <span style="color: #1A1A1A;">**фронт**</span> немедленно приступает к работе, объединившись вокруг своего лозунга противостояния <span style="color: #7A3C00;">фашизму</span> и <span style="color: #808080;">монархизму</span>, что особенно актуально на этих выборах. Это поможет нам укрепить поддержку среди сомневающихся рабочих.
-
 
 @media_rosenfeld
 title: Использовать наши радиостанции для агитации за Розенфельда.
@@ -310,7 +291,6 @@ go-to: campaigning_rosenfeld
 
 Мы можем транслировать по радио обращения с призывом голосовать за Розенфельда, донося наши идеи до среднего класса в надежде преодолеть его неприязнь к <span style="color: #c00000;">социализму</span> и особенно к Розенфельду.
 
-
 @party_discipline_rosenfeld
 title: Укрепить партийную дисциплину.
 subtitle: Некоторые реформистские местные организации недорабатывают.
@@ -323,19 +303,17 @@ go-to: campaigning_rosenfeld
 
 Нам нужен единый фронт, чтобы победить на этих выборах, — фракционная борьба в партии должна отойти на второй план.
 
-
 @communist_glaze_rosenfeld
 title: Убедить <span style="color: #700000;">**коммунистов**</span> принять более активное участие в нашей агитационной работе.
 subtitle: Это оттолкнёт буржуазные партии! -1 ресурс
 choose-if: kpd_support_spd == 1 and (kpd_relation >= 60 or (kpd_relation >= 40 and kpd_leader == "Примиренцы")) and resources >= 1
 unavailable-subtitle: [? if kpd_support_spd != 1: <span style="color: #700000;">КПГ</span> не поддерживает Розенфельда.  ?][? if (kpd_relation < 60 or (kpd_relation < 40 and kpd_leader == "Примиренцы")): Наши отношения недостаточно хороши. ?] [? if resources < 1: Недостаточно ресурсов. ?]
-on-arrival: resources -= 1; kpd_glaze_spd = 1; workers_spd += 3; workers_kpd += 5; workers_nsdap -= 3; unemployed_kpd += 3; unemployed_nsdap -= 3; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5; lvp_relation -= 5; dvp_right += 3; ddp_right += 1; ddp_cohesion -= 1; lvp_right += 3; new_middle_spd -= 3; old_middle_spd -= 3; catholics_spd -= 3
+on-arrival: resources -= 1; kpd_glaze_spd = 1; workers_spd += 3; workers_kpd += 5; workers_nsdap -= 3; unemployed_kpd += 3; unemployed_nsdap -= 3; z_relation -= 5; ddp_relation -= 5; dvp_relation -= 5; lvp_relation -= 5; dvp_right += 3; ddp_right += 1; ddp_cohesion -= 1; lvp_right += 3; new_middle_spd -= 3 if new_middle_conscious == 0; old_middle_spd -= 3; catholics_spd -= 3
 face-image: img/kpd_poster.jpg
 max-visits: 1
 go-to: campaigning_rosenfeld
 
 В результате мы теперь открыто участвуем в совместных митингах в поддержку Розенфельда. Эта демонстрация <span style="color: #9B0000;">марксистского</span> единства закономерно тревожит буржуазные партии, но может привести и к обратному эффекту — подтолкнуть ещё больше избирателей к их кандидату.
-
 
 @campaigning_eckener
 view-if: eckener_campaign
@@ -349,7 +327,6 @@ view-if: eckener_campaign
 - @campaigning
 - @hope: Будем надеяться, что Германия сделает правильный выбор.
 
-
 @media_eckener
 title: Использовать наши радиостанции для агитации за Эккенера.
 subtitle: -–1 ресурс
@@ -362,19 +339,17 @@ go-to: campaigning_eckener
 
 Мы можем транслировать радиообращения, призывающие голосовать за Эккенера, и донести наши идеи до среднего класса в надежде побороть его радикализацию, вызванную экономическим кризисом.
 
-
 @against_communists_eckener
 title: Сосредоточить нашу кампанию против <span style="color: #700000;">**коммунистов**</span>[+ communist_candidate_1932 +].
 subtitle: Он получил значительную поддержку, позиционируя себя как «единственного левого кандидата». -1 ресурс
 choose-if: resources >= 1
 unavailable-subtitle: Недостаточно ресурсов.
-on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 2; workers_kpd -= 2; kpd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10
+on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 2; workers_kpd -= 2; kpd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10; kpd_nazi_urgency -= 1;
 face-image: img/social_fascist.jpg
 max-visits: 1
 go-to: campaigning_eckener
 
 Мы уступили тревожно большое число избирателей <span style="color: #700000;">**коммунистам**</span> из-за нашей поддержки буржуазного Эккенера. Чтобы Эккенер получил большинство голосов демократов, мы должны предотвратить дальнейшее перебежчичество.
-
 
 @party_discipline_eckener
 title: Обеспечьте партийную дисциплину.
@@ -388,7 +363,6 @@ go-to: campaigning_eckener
 
 Нам нужен единый фронт для победы на этих выборах — фракционную борьбу внутри партии необходимо прекратить.
 
-
 @bourgeois_glaze_eckener
 title: Убедить буржуазные партии включить нас в свои предвыборные комитеты.
 subtitle: Это позволит действовать более согласованно.
@@ -400,7 +374,6 @@ max-visits: 1
 go-to: campaigning_eckener
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и <span style="color: #FFCC00;">либералы</span> исключали нас из своих местных предвыборных комитетов. Однако, используя наши связи с их левым крылом и аффилированными профсоюзами, нам удаётся заставить их допустить к участию некоторых <span style="color: #c00000;">социалистов</span>.
-
 
 @campaigning_reactionary
 view-if: spd_support_reactionary
@@ -445,7 +418,6 @@ Q.industrial_reactionary = 1;
 - @campaigning
 - @hope: Будем надеяться, что Германия сделает правильный выбор.
 
-
 @party_discipline_reactionary
 title: Укрепить партийную дисциплину.
 subtitle: Некоторые левые местные организации не прилагают должных усилий.
@@ -457,7 +429,6 @@ max-visits: 1
 go-to: campaigning_reactionary
 
 Поскольку мы поддерживаем буржуазное правительство [+ spd_choice +], многие наши левые ячейки на местах — например, в Саксонии — стали менее активны в президентской кампании. Мы должны исправить эту ситуацию.
-
 
 @media_reactionary
 title: Использовать наши радиостанции для агитации. [+ spd_choice +] — наш кандидат!
@@ -471,7 +442,6 @@ go-to: campaigning_reactionary
 
 Мы можем транслировать по радио обращения с призывами голосовать за [+ spd_choice +], донося наши идеи до среднего класса в надежде побороть его радикализацию, вызванную экономическим кризисом.
 
-
 @for_democracy
 title: Выступить в поддержку демократии и <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">р</span>ской республики.
 subtitle: Это может помочь снять опасения по поводу поддержки [+ spd_choice +]а.
@@ -484,19 +454,17 @@ go-to: campaigning_reactionary
 
 Мы убеждаем наших сторонников, что хоть [+ spd_choice +] и имеет консервативные убеждения, он — главная надежда на сохранение германской демократии в долгосрочной перспективе. Это помогает немного ослабить внутренние разногласия и может побудить [+ spd_choice +]а занять более конструктивную позицию.
 
-
 @against_communists
 title: Сконцентрировать кампанию против <span style="color: #700000;">**коммунистов**</span>: [+ communist_candidate_1932 +] — это кандидат-спойлер.
 subtitle: Он заручился значительной поддержкой, позиционируя себя как «единственного левого кандидата». -1 ресурс
 choose-if: resources >= 1
 unavailable-subtitle: Недостаточно ресурсов.
-on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 3; workers_kpd -= 3; kpd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10
+on-arrival: resources -= 1; left_dissent -= 10; workers_spd += 3; workers_kpd -= 3; kpd_relation -= 10; hindenburg_angry -= 10; hindenburg_angry_bruning -= 10;
 face-image: img/social_fascist.jpg
 max-visits: 1
 go-to: campaigning_reactionary
 
 Мы уступили тревожно большое число избирателей <span style="color: #700000;">**коммунистам**</span> из-за нашей поддержки консервативного [+ spd_choice +]а. Чтобы [+ spd_choice +] восторжествовал над ещё более <span style="color: #808080;">реакционными</span> силами, мы должны действовать быстро, чтобы предотвратить дальнейший отток сторонников.
-
 
 @campaigning_thalmann
 view-if: spd_support_thalmann
@@ -509,17 +477,15 @@ view-if: spd_support_thalmann
 - @campaigning
 - @hope: Будем надеяться, Германия сделает правильный выбор.
 
-
 @paramilitary
 title: Объединиться с <span style="color: #700000;">коммунистическим</span> <span style="color: #700000;">**СКФ**</span> на улицах, чтобы бороться против <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>.
 subtitle: Это навсегда оттолкнёт от нас буржуазные партии!
-on-arrival: kpd_truce = 1; kpd_relation += 5; rfb_strength += 100; rb_strength += 100; rfb_militancy += 0.1; rb_militancy += 0.04; neorevisionist_dissent += 10; reformist_dissent += 10; hindenburg_angry += 150; z_relation -= 20; ddp_relation -= 20; dvp_relation -= 20; lvp_relation -= 20; ddp_cohesion -= 5; ddp_right += 6; dvp_right += 10; lvp_right += 10
+on-arrival: kpd_truce = 1; kpd_relation += 5; rfb_strength += 100; rb_strength += 100; rfb_militancy += 0.1; rb_militancy += 0.04; neorevisionist_dissent += 10; reformist_dissent += 10; hindenburg_angry += 150; z_relation -= 20; ddp_relation -= 20; dvp_relation -= 20; lvp_relation -= 20; ddp_cohesion -= 5; ddp_right += 6; dvp_right += 10; lvp_right += 10; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 face-image: img/reichsbanner_2.jpg
 max-visits: 1
 go-to: campaigning_thalmann
 
 Устанавливаются более тесные связи между Рейхсбаннером и <span style="color: #700000;">**СКФ**</span>, что обеспечивает защиту местных партийных функционеров от политического насилия.
-
 
 @media_communist
 title: Использовать наши радиостанции для агитации. [+ communist_candidate_1932 +] — наш кандидат!
@@ -532,7 +498,6 @@ max-visits: 1
 go-to: campaigning_thalmann
 
 Будем откровенны, средний класс никогда не поддержит такого, как [+ communist_candidate_1932 +], сколько бы мы ни старались. Однако нам удаётся убедить некоторых наших сторонников в <span style="color: #c00000;">социалистических</span> профсоюзах «белых воротничков» изменить своё мнение.
-
 
 @united_left
 title: Мы убеждаем <span style="color: #700000;">**коммунистов**</span> позволить нам играть более активную роль в их предвыборной кампании.

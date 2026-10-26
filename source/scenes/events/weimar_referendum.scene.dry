@@ -13,7 +13,6 @@ max-visits: 1
 
 - @results: Страна голосует…
 
-
 @results
 on-arrival: rural_dnvp += 5 if weimar_ref_votes >= 40; rural_dvp += 3 if weimar_ref_votes >= 40; rural_lvp -= 3 if weimar_ref_votes >= 40; old_middle_dnvp += 3 if weimar_ref_votes >= 40; old_middle_dvp += 3 if weimar_ref_votes >= 40; old_middle_lvp -= 3 if weimar_ref_votes >= 40; new_middle_dnvp += 2 if weimar_ref_votes >= 40; new_middle_dvp += 2 if weimar_ref_votes >= 40; new_middle_dvp -= 2 if weimar_ref_votes >= 40; pro_republic -= 5 if weimar_ref_votes >= 40; dvp_relation -= 5; lvp_relation -= 3; z_relation -= 3; rural_dvp -= 3 if weimar_ref_votes < 30; rural_ddp += 3 if weimar_ref_votes < 30; old_middle_dvp -= 2 if weimar_ref_votes < 30; old_middle_ddp += 3 if weimar_ref_votes < 30; old_middle_lvp += 3 if weimar_ref_votes < 30; new_middle_dvp -= 2 if weimar_ref_votes < 30; new_middle_ddp += 2 if weimar_ref_votes < 30; new_middle_lvp += 2 if weimar_ref_votes < 30; rural_dnvp -= 2 if weimar_ref_votes < 30; new_middle_dnvp -= 2 if weimar_ref_votes < 30; old_middle_dnvp -= 2 if weimar_ref_votes < 30; rural_dnf += 2 if weimar_ref_votes < 30; new_middle_dnf += 2 if weimar_ref_votes < 30; old_middle_dnf += 2 if weimar_ref_votes < 30
 

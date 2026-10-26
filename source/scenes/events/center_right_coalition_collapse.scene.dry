@@ -1,6 +1,6 @@
 title: <span style="color: #000000;">Буржуазно</span>-<span style="color: #3E88B3;">правое</span> правительство пало!
 new-page: true
-subtitle: Назначены новые выборы 
+subtitle: Назначены новые выборы
 tags: event
 view-if: total_bruning_time >= 6 and (in_right_coalition or in_center_right_coalition) and bruning_coalition_dissent >= 4 and bruning_time and not cvp_formed
 on-arrival: pro_republic -= 3
@@ -8,10 +8,9 @@ max-visits: 1
 
 = <span style="color: #000000;">Буржуазно</span>-<span style="color: #3E88B3;">правое</span> правительство пало!
 
-Разногласия между канцлером [+ chancellor +]ом и поддерживающими его партиями стали неразрешимыми, и [? if dvp_exist: <span style="color: #C0A054;">**ННП**</span> ?][? if not dvp_exist: <span style="color: #3E88B3;">**НННП**</span> ?] вынесли вотум недоверия его правительству, который, как ожидается, поддержат [? if dvp_exist: и <span style="color: #3E88B3;">**НННП**</span>, и  ?]целый ряд нишевых партий.
+Разногласия между канцлером [+ chancellor +]ом и поддерживающими его партиями стали неразрешимыми, и [? if dvp_exist: <span style="color: #C0A054;">**ННП**</span> ?][? if not dvp_exist: <span style="color: #3E88B3;">**НННП**</span> ?] вынесли вотум недоверия его правительству, который, как ожидается, поддержат [? if dvp_exist: и <span style="color: #3E88B3;">**НННП**</span>, и  ?] целый ряд нишевых партий.
 
 - @great
-
 
 @great
 title: Поддержать вотум недоверия, проголосовав против правительства.

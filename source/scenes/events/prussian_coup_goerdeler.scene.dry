@@ -14,7 +14,6 @@ face-image: img/portraits/goerdeler.jpg
 
 - @surrender: До чего же наглый этот Папен?!
 
-
 @surrender
 on-arrival: prussia_leader = "Папен"; workers_spd -= 2; unemployed_spd -= 2; rb_militancy *= 0.95; rb_strength -= 100; prussian_police_loyalty -= 0.1; next_election_time_prussia = time + 48; next_election_year_prussia = year + 4; papen_strength += 1
 go-to: root

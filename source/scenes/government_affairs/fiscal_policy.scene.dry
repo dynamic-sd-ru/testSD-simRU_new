@@ -13,7 +13,6 @@ go-to: fiscal_menu
 Фискальная политика включает в себя вопросы налогообложения и бюджета.
 
 
-
 @fiscal_menu
 
 Налоговые ставки для высоких доходов:[+ upper_tax_rates : taxation +]
@@ -33,23 +32,20 @@ go-to: fiscal_menu
 - @easy_discard
 - @cancel_advisor_action
 
-
 @raise_progressive
 subtitle: Это не влияет на общие доходы.[? if lower_tax_rates < -5 : Налоговые ставки для низших слоёв и так слишком низки для дальнейшего снижения. ?] [? if upper_tax_rates > 5 : Налоговые ставки для высших слоёв и так слишком высоки для дальнейшего повышения. ?]
 choose-if: lower_tax_rates >= -5 and upper_tax_rates <= 5
-on-arrival: workers_spd += 6*(1-dissent); old_middle_spd -= 3; new_middle_spd -= 3; new_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); old_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp -= 1 if in_weimar_coalition; old_middle_ddp -= 1 if in_weimar_coalition; new_middle_dvp -= 2 if in_grand_coalition; old_middle_dvp -= 2 if in_grand_coalition; new_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); old_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); new_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); old_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); coalition_dissent += 1 if (in_grand_coalition or (in_weimar_coalition and lvp_formed)); dvp_relation -= 4; lvp_relation -= 3; ddp_relation -= 2 if ddp_ideology != "Левые"; finance_goal_completed += 1; upper_tax_rates += 1; lower_tax_rates -= 1; capital_strike_progress += 1; capital_strike_progress += 1 if upper_tax_rates > 1; capital_strike_progress += 1 if upper_tax_rates > 3; new_middle_spd -= 2 if upper_tax_rates > 1; old_middle_spd -= 2 if upper_tax_rates > 1; dvp_right += 1; ddp_left += 0.5; ddp_cohesion -= 0.5; lvp_right += 1; finance_goal_spd += 1; goal_spd_cancel_peoples += 1
+on-arrival: workers_spd += 6*(1-dissent); old_middle_spd -= 3; new_middle_spd -= 3 if new_middle_conscious == 0; new_middle_spd -= 2 if new_middle_conscious == 1; new_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); old_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp -= 1 if in_weimar_coalition; old_middle_ddp -= 1 if in_weimar_coalition; new_middle_dvp -= 2 if in_grand_coalition; old_middle_dvp -= 2 if in_grand_coalition; new_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); old_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); new_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); old_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); coalition_dissent += 1 if (in_grand_coalition or (in_weimar_coalition and lvp_formed)); dvp_relation -= 4; lvp_relation -= 3; ddp_relation -= 2 if ddp_ideology != "Левые"; finance_goal_completed += 1; upper_tax_rates += 1; lower_tax_rates -= 1; capital_strike_progress += 1; capital_strike_progress += 1 if upper_tax_rates > 1; capital_strike_progress += 1 if upper_tax_rates > 3; new_middle_spd -= 2 if upper_tax_rates > 1; old_middle_spd -= 2 if upper_tax_rates > 1; dvp_right += 1; ddp_left += 0.5; ddp_cohesion -= 0.5; lvp_right += 1; finance_goal_spd += 1; goal_spd_cancel_peoples += 1
 
 Повышение прогрессивности налоговой системы популярно среди нашего электората, но вызывает недовольство наших буржуазных партнёров по коалиции, а также нашего немногочисленного буржуазного электората. [? if in_grand_coalition or in_weimar_coalition: Кроме того, либералы в нашей правящей коалиции также столкнутся с негативной реакцией своего электората за участие в правительстве, которое повышает их же налоги. ?]
-
 
 @raise_rich
 subtitle: +2 к бюджету
 unavailable-subtitle: Налоговые ставки и так слишком высоки.
 choose-if: upper_tax_rates <= 5
-on-arrival: upper_tax_rates += 1; capital_strike_progress += 1; capital_strike_progress += 1 if upper_tax_rates > 1; capital_strike_progress += 1 if upper_tax_rates > 3; workers_spd += 4*(1-dissent); old_middle_spd -= 4; new_middle_spd -= 4; new_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp -= 1 if in_weimar_coalition; old_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); old_middle_ddp -= 1 if in_weimar_coalition; new_middle_dvp -= 2 if in_grand_coalition; old_middle_dvp -= 2 if in_grand_coalition; new_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); old_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); new_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); old_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); coalition_dissent += 1 if (in_grand_coalition or (in_weimar_coalition and lvp_formed)); coalition_dissent += 1 if capital_strike_progress >= 5; budget += 2; dvp_relation -= 4; unemployed += 1; finance_goal_completed += 1; inflation -= 0.6; dvp_right += 1; lvp_right += 1; ddp_relation -= 4; ddp_right += 1; ddp_cohesion -= 0.5; lvp_relation -= 4; finance_goal_spd += 1; goal_spd_cancel_peoples += 1; economic_growth -= 0.4; new_middle_spd -= 2 if upper_tax_rates > 1; old_middle_spd -= 2 if upper_tax_rates > 1; left_dissent -= 3; labor_dissent -= 3
+on-arrival: upper_tax_rates += 1; capital_strike_progress += 1; capital_strike_progress += 1 if upper_tax_rates > 1; capital_strike_progress += 1 if upper_tax_rates > 3; workers_spd += 4*(1-dissent); old_middle_spd -= 4; new_middle_spd -= 4 if new_middle_conscious == 0; new_middle_spd -= 2 if new_middle_conscious == 1; new_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp -= 1 if in_weimar_coalition; old_middle_ddp -= 1 if (in_grand_coalition or in_weimar_coalition); old_middle_ddp -= 1 if in_weimar_coalition; new_middle_dvp -= 2 if in_grand_coalition; old_middle_dvp -= 2 if in_grand_coalition; new_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); old_middle_lvp -= 4 if (in_grand_coalition or in_weimar_coalition); new_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); old_middle_other += 3 if (in_grand_coalition or in_weimar_coalition); coalition_dissent += 1 if (in_grand_coalition or (in_weimar_coalition and lvp_formed)); coalition_dissent += 1 if capital_strike_progress >= 5; budget += 2; dvp_relation -= 4; unemployed += 1; finance_goal_completed += 1; inflation -= 0.6; dvp_right += 1; lvp_right += 1; ddp_relation -= 4; ddp_right += 1; ddp_cohesion -= 0.5; lvp_relation -= 4; finance_goal_spd += 1; goal_spd_cancel_peoples += 1; economic_growth -= 0.4; new_middle_spd -= 2 if upper_tax_rates > 1; old_middle_spd -= 2 if upper_tax_rates > 1; left_dissent -= 3; labor_dissent -= 3
 
 Повышение налогов для богатых популярно среди наших сторонников, но отталкивает буржуазию. Увеличение налогов также снижает экономический спрос, что может привести к росту безработицы. [? if in_grand_coalition or in_weimar_coalition: Кроме того, либералы в нашей правящей коалиции также столкнутся с недовольством своих сторонников за участие в правительстве, которое повышает налоги и для них. ?]
-
 
 
 @raise_poor
@@ -62,7 +58,6 @@ on-arrival: budget += 2; workers_spd -= 4; unemployed_spd -= 4; goal_spd_cancel 
 Мы повысили налоги для бедняков и рабочего класса. Это подрывает нашу поддержку среди рабочих.
 
 
-
 @cut_overall
 subtitle: -3 бюджет
 unavailable-subtitle: -3 бюджет –[? if upper_tax_rates < -5 or lower_tax_rates < -5 : Налоговые ставки и так слишком низкие. ?]
@@ -70,7 +65,6 @@ choose-if: budget >= 3 and upper_tax_rates >= -5 and lower_tax_rates >= -5
 on-arrival: budget -= 3; upper_tax_rates -= 1; lower_tax_rates -= 1; new_middle_spd += 5*(1-dissent); old_middle_spd += 4*(1-dissent); workers_spd += 3*(1-dissent); new_middle_ddp += 2 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp += 2 if in_weimar_coalition; new_middle_dvp -= 2 if in_weimar_coalition; old_middle_ddp += 2 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp += 2 if in_weimar_coalition; new_middle_dvp -= 2 if in_weimar_coalition; new_middle_dvp += 4 if in_grand_coalition; old_middle_dvp += 4 if in_grand_coalition; new_middle_lvp += 6 if (in_grand_coalition or in_weimar_coalition); old_middle_lvp += 6 if (in_grand_coalition or in_weimar_coalition); new_middle_other -= 4 if (in_grand_coalition or in_weimar_coalition); old_middle_other -= 4 if (in_grand_coalition or in_weimar_coalition); dvp_relation += 5*(1-dissent); z_relation += 5*(1-dissent); ddp_relation += 5*(1-dissent); lvp_relation += 5*(1-dissent); unemployed -= 1.5 if unemployed >= 5; capital_strike_progress -= 1 if upper_tax_rates < 0; inflation += 1; dvp_left += 2; ddp_cohesion += 1; lvp_left += 1; finance_goal_spd += 1; finance_goal_spd_peoples += 1; economic_growth += 0.6;
 
 Снижение налогов выгодно прежде всего богатым и среднему классу, которые платят больше налогов, чем рабочий класс. Наши партнёры по коалиции довольны нашим ортодоксальным экономическим курсом. [? if in_grand_coalition or in_weimar_coalition: Более того, либералы в нашей правящей коалиции выиграют от своего участия в правительстве. Это поможет развеять представление о том, что, находясь у власти, они не в состоянии должным образом представлять интересы среднего класса. ?]
-
 
 @cut_poor
 title: Снизить налоги на потребление для бедных.
@@ -80,7 +74,6 @@ choose-if: budget >= 2 and lower_tax_rates >= -5
 on-arrival: budget -= 2; lower_tax_rates -= 1; workers_spd += 5*(1-dissent); unemployed -= 0.7 if unemployed >= 5; inflation += 0.6; economic_growth += 0.4; finance_goal_completed += 1; finance_goal_spd += 1; labor_dissent -= 5; left_dissent -= 5
 
 От нашего снижения налогов в большей степени выигрывают бедные и рабочий класс.
-
 
 
 @cut_rich
@@ -93,7 +86,6 @@ on-arrival: budget -= 2; upper_tax_rates -= 1; new_middle_spd += 5*(1-dissent); 
 Мы снизили подоходный и имущественный налоги для богатых и среднего класса. Буржуазные партии одобряют этот ортодоксальный экономический курс.[? if in_grand_coalition or in_weimar_coalition: Кроме того, либералы из нашей правящей коалиции извлекут выгоду из своего участия в правительстве. Это поможет развеять представление о том, что, находясь у власти, они не в состоянии должным образом представлять интересы среднего класса. ?]
 
 
-
 @raise_overall
 subtitle: +3 к бюджету
 unavailable-subtitle: Налоговые ставки и так слишком высоки.
@@ -102,7 +94,6 @@ on-arrival: budget += 3; new_middle_spd -= 4; old_middle_spd -= 4; workers_spd -
 
 Повышение налогов ударит по нашей поддержке среди всех налогоплательщиков.[? if in_grand_coalition or in_weimar_coalition : Однако наши партнёры по коалиции скорее поддержат идею «общих жертв», чем простое повышение налогов для богатых.  ?] Повышение налогов также снижает экономический спрос, что может привести к росту безработицы. [? if in_grand_coalition or in_weimar_coalition: Либералы в нашей правящей коалиции также столкнутся с негативной реакцией своей электоральной базы за участие в правительстве, которое повышает их же налоги. ?]
 
-
 @regressive
 title: Снизить налоги для богатых и одновременно повысить потребительские налоги (которые сильнее всего бьют по рабочему классу).
 subtitle: Это не изменит общие доходы бюджета.[? if upper_tax_rates < -5 : Налоговые ставки для богатых и так слишком низки, чтобы их снижать ещё больше.  ?] [? if lower_tax_rates > 5 : Налоговые ставки для бедных слоёв населения и так слишком высоки, чтобы их повышать. ?]
@@ -110,7 +101,6 @@ choose-if: lower_tax_rates <= 5 and upper_tax_rates >= -5
 on-arrival: workers_spd -= 6; new_middle_spd += 5*(1-dissent); old_middle_spd += 5*(1-dissent); new_middle_ddp += 2 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp += 2 if in_weimar_coalition; new_middle_dvp -= 2 if in_weimar_coalition; old_middle_ddp += 2 if (in_grand_coalition or in_weimar_coalition); new_middle_ddp += 2 if in_weimar_coalition; new_middle_dvp -= 2 if in_weimar_coalition; new_middle_dvp += 4 if in_grand_coalition; old_middle_dvp += 4 if in_grand_coalition; new_middle_lvp += 6 if (in_grand_coalition or in_weimar_coalition); old_middle_lvp += 6 if (in_grand_coalition or in_weimar_coalition); new_middle_other -= 4 if (in_grand_coalition or in_weimar_coalition); old_middle_other -= 4 if (in_grand_coalition or in_weimar_coalition); dvp_relation += 5; lvp_relation += 5; z_relation += 4; coalition_dissent -= 1 if ((in_grand_coalition or (in_weimar_coalition and lvp_formed)) and coalition_dissent > 0); kpd_coalition_dissent += 1; upper_tax_rates -= 1; lower_tax_rates += 1; workers_spd -= 5 if lower_tax_rates >= 2; capital_strike_progress -= 1 if upper_tax_rates < 0; dvp_left += 3; ddp_cohesion -= 1; ddp_right += 2; lvp_left += 2; workers_nsdap += 2; goal_spd_cancel += 1; finance_goal_spd_peoples += 1; labor_dissent += 10; left_dissent += 10
 
 Наша регрессивная налоговая политика выгодна богатым, но бьёт по бедным и рабочему классу. Наши буржуазные партнёры по коалиции одобряют этот ортодоксальный экономический курс. [? if in_grand_coalition or in_weimar_coalition: Более того, либералы в нашей правящей коалиции только выиграют от участия в правительстве. Это поможет развеять мнение, будто у власти они не могут в полной мере представлять интересы среднего класса. ?]
-
 
 
 @tariffs
@@ -128,23 +118,21 @@ title: Вместо этого изменить тарифы.
 - @root: Не менять тарифы или налоги.
 - @easy_discard
 
-
 @raise_tariffs
 title: Повысить пошлины на импорт.
 subtitle: +2 к бюджету. Другие страны примут ответные меры и также повысят пошлины.[? if tariffs > 5 : Дальнейшее повышение пошлин не увеличит доходы, поскольку мы уже почти достигли экономической автаркии. ?]
 choose-if: tariffs <= 5
-on-arrival: tariffs += 1; inflation += 1 if inflation > 0; inflation += 0.5 if inflation <= 0; unemployed += 1.5; budget += 2; workers_spd -= 7; unemployed_spd -= 7; rural_spd += 4*(1-dissent); old_middle_spd += 3*(1-dissent); ddp_relation -= 4; dvp_relation -= 2; lvp_relation -= 3; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 2; eu_progress -= 1 if eu_progress > 0; peoples_party_support += 1; ddp_cohesion -= 1; rural_ddp -= 2 if in_grand_coalition or in_weimar_coalition or (in_popular_front and liberal_parliament = 0); tariff_goal_spd_peoples += 1; economic_growth -= 0.4;
+on-arrival: tariffs += 1; inflation += 1 if inflation > 0; inflation += 0.5 if inflation <= 0; unemployed += 1.5; budget += 2; workers_spd -= 7; unemployed_spd -= 7; new_middle_spd -= 5*(1-dissent); rural_spd += 4*(1-dissent); old_middle_spd += 3*(1-dissent); ddp_relation -= 4; dvp_relation -= 2; lvp_relation -= 3; west_relation -= 1; east_relation -= 1; reparations_negotiation -= 2; eu_progress -= 1 if eu_progress > 0; peoples_party_support += 1; ddp_cohesion -= 1; rural_ddp -= 2 if in_grand_coalition or in_weimar_coalition or (in_popular_front and liberal_parliament = 0); tariff_goal_spd_peoples += 1; economic_growth -= 0.4;
 
 Повышение пошлин приводит к росту цен на товары первой необходимости, усиливая инфляцию и снижая потребление среди рабочего класса. Ответные пошлины снижают конкурентоспособность германского экспорта, что ведёт к росту безработицы. Кроме того, всё это создаёт атмосферу международного недоверия и ослабляет наши позиции на переговорах с другими странами.
 
 С другой стороны, производители сельхозпродукции и некоторые малые предприятия выигрывают от высоких пошлин, поскольку фермеры могут запрашивать более высокие цены на зерно, а неконкурентоспособные ранее компании получают возможность работать.
 
-
 @lower_tariffs
 title: Снизить импортные пошлины.
 choose-if: budget >= 2 and tariffs > -5
 subtitle: -2 к бюджету.[? if tariffs <= -5 : Снижать пошлины больше некуда. ?]
-on-arrival: tariffs -= 1; budget -= 2; inflation -= 0.5; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); rural_spd -= 5; old_middle_spd -= 3; rural_dnvp += 4 if not kvp_formed; old_middle_dnvp += 2 if not kvp_formed; rural_kvp += 4 if kvp_formed; old_middle_kvp += 2 if kvp_formed; west_relation += 1; east_relation += 1; eu_progress += 1 if eu_progress > 0; goal_spd_cancel_peoples += 1; economic_growth += 0.4;
+on-arrival: tariffs -= 1; budget -= 2; inflation -= 0.5; workers_spd += 6*(1-dissent); unemployed_spd += 6*(1-dissent); new_middle_spd += 5*(1-dissent); rural_spd -= 5; old_middle_spd -= 3; rural_dnvp += 4 if not kvp_formed; old_middle_dnvp += 2 if not kvp_formed; rural_kvp += 4 if kvp_formed; old_middle_kvp += 2 if kvp_formed; west_relation += 1; east_relation += 1; eu_progress += 1 if eu_progress > 0; goal_spd_cancel_peoples += 1; economic_growth += 0.4;
 
 Снижение пошлин помогает рабочим и городской бедноте за счёт снижения цен на товары первой необходимости. Кроме того, другие страны приветствуют снижение пошлин и охотнее идут на переговоры по многим вопросам.
 

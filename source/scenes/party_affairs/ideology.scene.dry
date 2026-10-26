@@ -21,18 +21,18 @@ max-visits: 3
 - @socpat: Стремиться к слиянию <span style='color: #c00000;'>социализма</span> и патриотизма.
 - @easy_discard
 
-
 @class_struggle
 on-arrival: {!
 if (Q.ideology && Q.ideology != "левую") {
     Q.changed = 1;
 }
+if (Q.kpd_nazi_urgency < 0)
+    Q.kpd_nazi_urgency += 1;
 !}
 go-to: changed if changed = 1
 on-departure: ideology = "левую"; left_strength += 8; communist_coalition += 1; left_dissent -= 5; reformist_dissent += 5; z_relation -= 3; dvp_relation -= 5; ddp_relation -= 3; lvp_relation -= 3; ddp_cohesion -= 0.5; nationalization_support += 1; kpd_relation += 3; ddp_right += 1; dvp_right += 1.5; lvp_right += 1
 
 Радикально левое крыло партии поддерживает курс на классовую борьбу и потенциальное примирение с <span style="color: #700000;">**коммунистами**</span>.
-
 
 @centrist
 on-arrival: {!
@@ -45,7 +45,6 @@ on-departure: ideology = "центристскую"; center_strength += 8; cente
 
 Центристы-марксисты, представленные Каутским и Гильфердингом, выступают за срединный курс: подготовку к революции при одновременном повышении сознательности рабочего класса.
 
-
 @labor
 on-arrival: {!
 if (Q.ideology && Q.ideology != "тред-юнионистскую") {
@@ -56,7 +55,6 @@ go-to: changed if changed = 1
 on-departure: ideology = "тред-юнионистскую"; labor_strength += 8; center_dissent += 5; wtb_support += 1; labor_dissent -= 5; kpd_relation -= 3
 
 Профсоюзники в партии выступают за продолжение участия в работе правительства, чтобы добиваться социальных благ для рабочих и программ общественных работ для снижения безработицы.
-
 
 @reform
 on-arrival: {!
@@ -69,19 +67,18 @@ on-departure: ideology = "reformist"; reformist_strength += 8; democratization +
 
 Реформистское крыло партии стремится сохранить республику и демократическую систему правления и больше всего поддерживает коалиции с другими продемократическими партиями.
 
-
 @socpat
 view-if: social_patriot
 on-arrival: {!
 if (Q.ideology && Q.ideology != "socpat") {
     Q.changed = 1;
 }
+Q.kpd_nazi_urgency -= 1;
 !}
 go-to: changed if changed = 1
 on-departure: ideology = "socpat"; social_patriot_strength += 10; left_dissent += 10; center_dissent += 10; reformist_dissent += 5; z_relation += 6; dvp_relation += 6; ddp_relation += 6; lvp_relation += 6; kpd_relation -= 15; dvp_left += 1; ddp_left += 0.5; ddp_cohesion += 0.5; lvp_left += 1
 
 Социал-патриотическое крыло партии, которое многие считают марионетками Шлейхера, активнее всего выступает за то, чтобы <span style='color: #c00000;'>**СДПГ**</span> и АДГБ заняли более националистическую позицию.
-
 
 @changed
 on-arrival: left_dissent += 5; center_dissent += 5; labor_dissent += 5; reformist_dissent += 5

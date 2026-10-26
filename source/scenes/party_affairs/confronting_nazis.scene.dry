@@ -18,26 +18,22 @@ tags: party_affairs; antifascism
 - @iron_front
 
 
-
 @not_a_big_deal
-on-arrival: nazi_urgency -= 1; left_dissent += 5; neorevisionist_dissent += 15
+on-arrival: nazi_urgency -= 1; left_dissent += 5; neorevisionist_dissent += 15; kpd_nazi_urgency -= 1;
 view-if: mierendorff_advisor = 0 and leber_advisor = 0 and schumacher_advisor = 0
 
 <span style="color: #7A3C00;">Нацисты</span> — всего лишь очередное <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правое</span> поветрие, которое рано или поздно погибнет от собственных противоречий; нам не нужно разрабатывать особую политику для борьбы с ними.
-
 
 @economic_crisis
 title: Мы должны в первую очередь заняться экономическим кризисом.
 view-if: economic_plan == 0 and black_thursday_seen == 1
 go-to: crisis_program
 
-
 @major_crisis
 view-if: nazi_urgency < 5
-on-arrival: nazi_urgency += 1; neorevisionist_dissent -= 5; neorevisionist_strength += 5
+on-arrival: nazi_urgency += 1; neorevisionist_dissent -= 5; neorevisionist_strength += 5; kpd_nazi_urgency += 1;
 
 <span style="color: #7A3C00;">Нацисты</span> — одна из главных угроз для германской республики. Однако мы всё ещё разрабатываем стратегию борьбы с ними и пытаемся достичь консенсуса внутри партии для активных действий. Возвращайтесь к этому вопросу позже.
-
 
 @iron_front
 title: Сформировать <span style="color: #c00000;">Железный</span> <span style="color: #1A1A1A;">фронт</span>!
@@ -68,27 +64,30 @@ achievement: eiserne_front
 - @wtb: Войтинский, Тарнов и Бааде (план ВТБ)
 - @all: Все вышеперечисленное.
 
-
 @unity
+on-arrival: left_dissent -= 5; labor_dissent -= 5; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5
 go-to: if_end
-
 
 @anti
+on-arrival: z_relation += 3 if z_ideology == "Левые"; z_relation -= 1 if z_ideology == "Правые"; ddp_relation += 4 if ddp_ideology == "Левые"; ddp_relation += 3 if ddp_ideology == "Умеренные"; dvp_relation += 2 if dvp_ideology == "Левые"; dvp_relation -= 1 if dvp_ideology == "Умеренные"; dvp_relation -= 4 if dvp_ideology == "Правые"; lvp_relation += 3 if lvp_ideology == "Левые"; lvp_relation -= 3 if lvp_ideology == "Правые"; kpd_relation -= 3; kpd_relation -= 2 if kpd_leader != "Примиренцы"; kpd_nazi_urgency -= 2;
 go-to: if_end
-
 
 @orgs
+on-arrival: rb_strength += 100; rb_militancy += 0.02
 go-to: if_end
 
-
 @wtb
+on-arrival: workers_spd += 3*(1-dissent)/2; unemployed_spd += 3*(1-dissent)/2; rural_spd += 1*(1-dissent)/2; new_middle_spd += 1*(1-dissent)/2; old_middle_spd += 1*(1-dissent)/2; workers_spd += 3*(1-dissent)/2 if wtb_implemented; unemployed_spd += 3*(1-dissent)/2 if wtb_implemented; rural_spd += 2*(1-dissent)/2 if wtb_implemented; new_middle_spd += 2*(1-dissent)/2 if wtb_implemented; old_middle_spd += 2*(1-dissent)/2 if wtb_implemented; wtb_rally += 1
 view-if: wtb_adopted == 1
 go-to: if_end
 
-
 @all
-go-to: if_end
+on-arrival: left_dissent -= 2; labor_dissent -= 2; center_dissent -= 2; reformist_dissent -= 2; neorevisionist_dissent -= 2; z_relation += 1 if z_ideology == "Левые"; ddp_relation += 2 if ddp_ideology == "Левые"; ddp_relation += 1 if ddp_ideology == "Умеренные"; dvp_relation += 1 if dvp_ideology == "Левые"; dvp_relation -= 1 if dvp_ideology == "Правые"; lvp_relation += 1 if lvp_ideology == "Левые"; lvp_relation -= 1 if lvp_ideology == "Правые"; kpd_relation -= 2; kpd_relation -= 1 if kpd_leader != "Примиренцы"; rb_strength += 50; rb_militancy += 0.01; kpd_nazi_urgency -= 1;
+go-to: if_end if not wtb_adopted; all_wtb if wtb_adopted
 
+@all_wtb
+on-arrival: workers_spd += 3*(1-dissent)/4; unemployed_spd += 3*(1-dissent)/4; rural_spd += 1*(1-dissent)/4; new_middle_spd += 1*(1-dissent)/4; old_middle_spd += 1*(1-dissent)/4; workers_spd += 3*(1-dissent)/4 if wtb_implemented; unemployed_spd += 3*(1-dissent)/4 if wtb_implemented; rural_spd += 2*(1-dissent)/4 if wtb_implemented; new_middle_spd += 2*(1-dissent)/4 if wtb_implemented; old_middle_spd += 2*(1-dissent)/4 if wtb_implemented
+go-to: if_end
 
 @if_end
 

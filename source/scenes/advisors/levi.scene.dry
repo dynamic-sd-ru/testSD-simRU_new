@@ -13,7 +13,6 @@ new-page: true
 - @kpd_cooperation
 - @root: Вернуться к основному
 
-
 @building_the_left
 title: Укрепление левого крыла
 subtitle: Сдвинуть <span style="color: #c00000;">**СДПГ**</span> влево.
@@ -22,7 +21,6 @@ choose-if: advisor_action_timer = 0
 on-arrival: advisor_action_timer = 6; left_strength += 10; left_dissent -= 8; reformist_dissent += 3
 
 Мы укрепили силу левого крыла в <span style="color: #c00000;">**СДПГ**</span>. Это вызвало беспокойство среди умеренных реформистов в партии.
-
 
 @kpd_cooperation
 title: Сотрудничество с <span style="color: #700000;">**КПГ**</span>

@@ -17,7 +17,6 @@ face-image: img/portraits/strasser.jpg
 
 - @schleicher_2: Без денег, без последователей, без удачи.
 
-
 @schleicher_2
 on-arrival: {!
 Q.dsu_explode = 1;
@@ -72,7 +71,6 @@ go-to: new_reichstag
 <span style="color: #6A1E1E;">**НСС**</span> с тех пор попал под контроль радикальной клики самопровозглашённых «<span style="color: #7A3C00;">национал-</span><span style="color: #700000;">большевиков</span>», сгруппировавшихся вокруг более радикального младшего брата Грегора Штрассера, а именно — Отто Штрассера.
 
 Однако в этой организации осталась лишь горстка фанатиков, в то время как «приручённые» <span style="color: #7A3C00;">нацисты</span> вливаются в ряды <span style="color: #BFC8CC;">**ФНЕГ**</span>, включая большую часть её парламентской делегации.
-
 
 @new_reichstag
 on-arrival: {!
@@ -293,7 +291,9 @@ if (d3 && window) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!}
 {!<table>!} [? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **СДПГ:** {!</td><td>!} **[+ spd_r +]%** {!</td></tr>!}  ?] [? if dnef_formed: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r +]%** {!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if not lvp_formed and dstp_dnef: {!<tr><td><div class="box2" style='background-color:#A79A3F'> </div>{!</td><td>!}!} [+ ddp_name +]:{!</td><td>!} [+ ddp_r +]%{!</td></tr>!}  ?]
 
@@ -341,8 +341,10 @@ if (d3 && window) {
 
 [? if dsu_exist: <tr><td><div class="box" style='background-color:#6A1E1E'> </div>{!</td><td>!}НСС:{!</td><td>!} [+ dsu_r +]%{!</td></tr>!}  ?]
 
-[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] 
+ [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if nvf_exist and not nvf_dnef: {!<tr><td><div class="box" style='background-color:#142e20'> </div>{!</td><td>!}!}ННФ:{!</td><td>!} [+ nvf_r +]%{!</td></tr>!}  ?] {!</table>!}
+{!</table>!}
 
 Министерство внутренних дел вновь возглавляет лояльный Шлейхеру Франц Брахт, а Яльмар Шахт сохраняет пост министра экономики. <span style="color: #7A3C00;">Нацисты</span>, решившие присоединиться к <span style="color: #BFC8CC;">**ФНЕГ**</span>, щедро вознаграждены правительственными должностями.

@@ -26,8 +26,7 @@ on-display: {!
 
 - @nazi_2
 
-
-@nazi_2
+@nazi_2  
 title: Будущий кабинет [+ nsdap_chancellor +]а встречается с президентом.
 
 Гугенберг прибывает в квартиру Папена в сопровождении лидеров <span style="color: #3E88B3;">**Стального Шлема**</span>. Их встречает взволнованный Папен, который подчёркивает крайнюю срочность ситуации.
@@ -38,8 +37,7 @@ title: Будущий кабинет [+ nsdap_chancellor +]а встречает
 
 - @nazi_3
 
-
-@nazi_3
+@nazi_3  
 title: Теодор Дюстерберг высказывает свои возражения.
 on-arrival: {!
 Q.hugenberg_hitler_r = 0;
@@ -66,7 +64,6 @@ if (Q.dnvp_r + Q.dvp_r >= 12 && Q.hugenberg_dvp) Q.hugenberg_hitler_r -= 1;
 - @nazi_4
 - @nazi_6
 
-
 @nazi_4
 title: Гитлер приведён к присяге.
 subtitle: Мы потерпели поражение.
@@ -81,6 +78,7 @@ if (Q.prussia_leader == "Шлейхер") {
     Q.in_minority_grand_coalition_prussia = 0;
     Q.in_popular_front_prussia = 0;
     Q.in_left_front_prussia = 0;
+    Q.sapd_toleration_prussia = 0;
     Q.in_spd_majority_prussia = 0;
     Q.in_center_right_coalition_prussia = 0;
     Q.in_minority_weimar_coalition_prussia = 0;
@@ -103,7 +101,6 @@ if (Q.prussia_leader == "Шлейхер") {
 Что нам делать?
 
 - @nazi_5
-
 
 @nazi_5
 title: Рассмотреть наши варианты.
@@ -131,7 +128,6 @@ on-display: {!
 - @bide_time
 - @civil_war_pre
 
-
 @bide_time
 title: Выжидаем. Надо дождаться, пока [+ nsdap_chancellor +] первым не пойдёт на антиконституционный шаг — тогда мы нанесем удар.
 
@@ -142,11 +138,9 @@ title: Выжидаем. Надо дождаться, пока [+ nsdap_chancell
 - @nothing_3
 - @nothing_4
 
-
 @nothing_1
 title: Папен и консерваторы будут контролировать [+ nsdap_chancellor +]а.
 go-to: something_1
-
 
 
 @nothing_2
@@ -154,17 +148,14 @@ title: Гинденбург будет держать [+ nsdap_chancellor +]а �
 go-to: something_1
 
 
-
 @nothing_3
 title: Организованное рабочее движение и <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">иканские</span> партии будут препятствовать ему в парламенте.
 go-to: something_1
 
 
-
 @nothing_4
 title: После [+ nsdap_chancellor +]а — наш черёд.
 go-to: something_1
-
 
 
 @something_1
@@ -175,7 +166,6 @@ on-arrival: month += 2; week -= 1; month -= 1 if week < 1; year += 1 if month > 
 Рейхстаг сожжён, якобы иностранным <span style="color: #700000;">коммунистом</span>. Вслед за этим <span style="color: #7A3C00;">нацисты</span> издают указы, дающие им неограниченную власть. Они, вместе с [? if dnvp_ideology == "Радикалы": <span style="color: #3E88B3;">**НННП**</span> ?][? if dnf_formed: <span style="color: #003755;">**НФГ**</span> ?], получат большинство на следующих выборах. [? if nsdap_chancellor != "Гитлер": Гитлера возвращают из Австрии и назначают канцлером. ?]
 
 - @enabling_act
-
 
 @enabling_act
 title: [+ nsdap_chancellor +] пытается принять закон о чрезвычайных полномочиях.
@@ -217,7 +207,6 @@ set-bg: img/reichstag_fire.jpg
 - @enabling_act_2: <span style="color: #000000;">Партия Центра</span> голосует за закон о чрезвычайных полномочиях!
 - @enabling_act_3: <span style="color: #000000;">Партия Центра</span> голосует против закона о чрезвычайных полномочиях!
 
-
 @enabling_act_2
 subtitle: В конце концов, это не имеет значения.
 
@@ -227,13 +216,11 @@ subtitle: В конце концов, это не имеет значения.
 
 - @game_over
 
-
 @enabling_act_3
 unavailable-subtitle: В конечном счёте это не имеет значения.
 choose-if: super_secret_mode
 
 Да.
-
 
 @civil_war_pre
 title: Мы не должны позволить [+ nsdap_chancellor +]у укрепиться! Мы будем сражаться на улицах, чтобы не дать [+ nsdap_chancellor +]у удержать власть.
@@ -244,7 +231,6 @@ title: Мы не должны позволить [+ nsdap_chancellor +]у укр
 
 - @civil_war: Да.
 - @bide_time: Мы не готовы к войне. Мы должны выждать.
-
 
 @nazi_6
 title: Гугенберг спасает демократию?
@@ -261,7 +247,6 @@ choose-if: hugenberg_hitler_r <= -2
 Даже когда вмешивается Мейснер, Гугенберг — единственное препятствие на пути [+ nsdap_chancellor +]а к восхождению — в ярости уходит, ведь [+ nsdap_leader +] продолжает упорно отвергать его требование. Когда лидер единственной подходящей для коалиции партии ушёл, иллюзии Гинденбурга о возможности <span style="color: #7A3C00;">**НСДАП**</span> сформировать парламентский кабинет — рухнули.
 
 - @nazi_7
-
 
 @nazi_7
 title: Кто теперь сменит Шлейхера?

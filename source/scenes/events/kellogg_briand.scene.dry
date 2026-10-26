@@ -17,7 +17,6 @@ tags: event
 - @step_forward
 - @not_enough
 
-
 @sign_treaty
 view-if: spd_in_government and foreign_minister_party = "СДПГ"
 on-arrival: kellogg_briand_signed = 1
@@ -29,13 +28,11 @@ on-arrival: kellogg_briand_signed = 1
 - @step_forward
 - @not_enough
 
-
 @step_forward
 view-if: kellogg_briand_signed
 title: Этот договор — шаг к миру.
 
 Несмотря на наши опасения по поводу этого договора, он всё же шаг вперёд в деле укрепления международного мира.
-
 
 @not_enough
 view-if: kellogg_briand_signed

@@ -31,7 +31,6 @@ tags: event
 - @brunswick_fail: Правительство Брауншвейга делает ещё одну попытку назначить Гитлера на государственную службу.
 - @nothing: Поскольку <span style="color: #7A3C00;">нацисты</span> не входят ни в одно земельное правительство, Гитлер по-прежнему не может получить гражданство.
 
-
 @brunswick
 view-if: brunswick_hitler and dvp_ideology == "Правые" and dvp_leader == "Дингельдей" and not lvp_formed and not cvp_formed
 on-arrival: hitler_citizen = 1; workers_nsdap += 3; new_middle_nsdap += 4; old_middle_nsdap += 4; rural_nsdap += 4; unemployed_nsdap += 3; catholics_nsdap += 2; pro_republic -= 3
@@ -40,7 +39,6 @@ on-arrival: hitler_citizen = 1; workers_nsdap += 3; new_middle_nsdap += 4; old_m
 
 После этого соглашения разгорелись жаркие споры о том, будет ли Гитлер в действительности выполнять свои обязанности, став государственным служащим. Однако после новых заверений Гитлер приведён к присяге и официально получил гражданство.
 
-
 @brunswick_fail
 view-if: brunswick_hitler and (((dvp_ideology != "Правые" or dvp_leader != "Дингельдей") or lvp_formed) or cvp_formed)
 on-arrival: hitler_citizen = 0; pro_republic += 3
@@ -48,7 +46,6 @@ on-arrival: hitler_citizen = 0; pro_republic += 3
 Для того чтобы <span style="color: #7A3C00;">**НСДАП**</span> быстро и незаметно предоставила Гитлеру гражданство, ей пришлось сотрудничать с [? if not lvp_formed and dvp_exist: <span style="color: #C0A054;">**ННП**</span> ?][? if not lvp_formed and not dvp_exist: [? if not cvp_formed: <span style="color: #3E88B3;">**НННП**</span> ?][? if cvp_formed: <span style="color: #000000;">**[+ z_party_name +]**</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?], чьё праворадикальное крыло поддержало этот шаг, но партия в целом выступила против. На встрече двух партий соглашение так и не достигнуто.
 
 В результате Гитлер останется апатридом, что нанесёт удар по его репутации фюрера немцев.
-
 
 @nothing
 choose-if: not brunswick_hitler

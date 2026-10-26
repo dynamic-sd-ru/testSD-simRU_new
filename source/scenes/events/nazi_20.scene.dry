@@ -25,9 +25,10 @@ on-display: {!
 
 - @nazi_2: Конец движения.
 
-
 @nazi_2
 on-arrival: nsdap_leader = "Геббельс"; nsdap_chancellor = "Геринг"; hitler_dead = 1; hindenburg_hitler_r -= 10; papen_strength -= 2; schleicher_strength += 1; nazi_funds -= 3
 achievement: hitler_tot
 
 Йозеф Геббельс сменяет Гитлера на посту лидера партии при сильном влиянии Германа Геринга. Движение серьёзно ослаблено и вряд ли когда-нибудь вернёт былое влияние.
+
+- @root: Only the mighty can bear defeat.

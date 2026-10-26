@@ -25,20 +25,17 @@ new-page: true
 
 - @resultsdnvp: Съезд начинает работу…
 
-
 @resultsdnvp
 go-to: hugenbergremoval if young_plan_signatures < 10 or (young_plan_signatures >= 10 and was_in_right_coalition == 1); completednvpsplit if young_plan_signatures >= 10 and not (young_plan_signatures >= 10 and was_in_right_coalition == 1) and not stegerwald_path; completednvpsplit_stegerwald if young_plan_signatures >= 10 and not (young_plan_signatures >= 10 and was_in_right_coalition == 1) and stegerwald_path
-
 
 @hugenbergremoval
 on-arrival: dnvp_leader = "Тревиранус"; dnvp_ideology = "Умеренные"; hugenberg_removed = 1; dnf_decay_timer += 12; rural_other -= 5; rural_dnvp += 5; old_middle_other -= 5; old_middle_dnvp += 5; new_middle_other -= 3; new_middle_dnvp += 3; workers_other -= 1; workers_dnvp += 1; pro_republic += 6; dvp_left += 1; ddp_left += 1; lvp_left += 1; z_relation -= 3; ddp_relation -= 2; dvp_relation -= 5
 go-to: dnf_formed_1929_2
 face-image: img/portraits/Treviranus.jpg
 
-[? if young_plan_signatures < 10: Провал инициативы референдума по плану Юнга, не достигшего 10% порога,  ?][? if young_plan_signatures < 10 and was_in_right_coalition: &nbsp;и  ?] [? if was_in_right_coalition: непопулярное решение Гугенберга выйти из правой коалиции,  ?]а также падение популярности <span style="color: #3E88B3;">**НННП**</span> убедили партию сместить Гугенберга. Его заменил лидер младоконсерваторов Готфрид Тревиранус. Младоконсерваторы за участие в правительстве республики и реализацию программы партии конституционным путем — в рамках правых коалиций. Однако национал-консерваторы сохраняют значительный контроль над партией: <span style="color: #3E88B3;">**НННП**</span> пока ещё не в полной мере привержена демократии.[? if stegerwald_path: Пока что <span style="color: #3E88B3;">**НННП**</span> становится более националистической и консервативной альтернативой [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]. ?]
+[? if young_plan_signatures < 10: Провал инициативы референдума по плану Юнга, не достигшего 10% порога,  ?][? if young_plan_signatures < 10 and was_in_right_coalition: &nbsp;и  ?] [? if was_in_right_coalition: непопулярное решение Гугенберга выйти из правой коалиции,  ?] а также падение популярности <span style="color: #3E88B3;">**НННП**</span> убедили партию сместить Гугенберга. Его заменил лидер младоконсерваторов Готфрид Тревиранус. Младоконсерваторы за участие в правительстве республики и реализацию программы партии конституционным путем — в рамках правых коалиций. Однако национал-консерваторы сохраняют значительный контроль над партией: <span style="color: #3E88B3;">**НННП**</span> пока ещё не в полной мере привержена демократии.[? if stegerwald_path: Пока что <span style="color: #3E88B3;">**НННП**</span> становится более националистической и консервативной альтернативой [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]. ?]
 
 В ответ Гугенберг угрожает отколоться и основать новую правую партию. Она вряд ли получит значительную поддержку: после смещения на съезде ему остались верны лишь его преданные последователи.
-
 
 @completednvpsplit
 on-arrival: dnvp_split = 1; complete_dnvp_split = 1; dnvp_leader = "Гугенберг"; hugenberg_reinstated = 1
@@ -48,7 +45,6 @@ face-image: img/KVP.jpg
 Умеренные <span style="color: #3E88B3;">**НННП**</span> во главе с Вестарпом не смогли смогли сместить Гугенберга на съезде. Его усилиями по консолидации власти в партийных ячейках окупились. <span style="color: #385A38;">Аграриям</span> окончательно осточертела стратегия Гугенберга «всё или ничего». Фактически он правил как диктатор партии и не считался даже с теми, кто изначально и помог ему избраться председателем.
 
 Все противники Гугенберга покинули партию и сформировали <i>Konservative Volkspartei</i> (Консервативную народную партию). Сколько просуществует эта партия — вопрос открытый, ведь многие предпочли бы примкнуть к мелким нишевым партиям. Гугенберг остался с ослабленной <span style="color: #3E88B3;">**НННП**</span>, которая стала меньше отколовшейся от неё фракции.
-
 
 @completednvpsplit_stegerwald
 on-arrival: dnvp_split = 1; complete_dnvp_split = 1; dnvp_leader = "Гугенберг"; hugenberg_reinstated = 1; dnvp_stegerwald = 1

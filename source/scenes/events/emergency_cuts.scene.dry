@@ -16,13 +16,11 @@ max-visits: 4
 - @vote_no
 - @vote_yes
 
-
 @nothing_to_do
 view-if: spd_toleration == 0
-on-arrival: welfare -= 1; unemployed += 1; unemployed_nsdap += 3; unemployed_kpd += 3; unemployed_spd += 3; pro_republic -= 4; budget += 1; inflation -= 2; economic_growth -= 0.5;
+on-arrival: welfare -= 1; unemployed += 1; unemployed_nsdap += 3*(effective_unemployed/unemployed); unemployed_kpd += 3*(effective_unemployed/unemployed); unemployed_spd += 3*(unemployed/effective_unemployed); pro_republic -= 4; budget += 1; inflation -= 2; economic_growth -= 0.5;
 
 Чрезвычайные меры вводятся в действие в обход парламента, так как рейхстаг распущен. <span style="color: #7A3C00;">Нацисты</span> используют это в своих агитационных целях, как, впрочем, и мы.
-
 
 
 @vote_no
@@ -36,9 +34,8 @@ go-to: new_prussia_election if in_social_catholic_coalition_prussia or in_weimar
 
 Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @new_prussia_election
-on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
+on-arrival: z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; kpd_relation += 5; dvp_right += 3; ddp_right += 2; lvp_right += 2; pro_republic -= 3; new_middle_spd -= 2; rural_spd -= 2; old_middle_spd -= 2; catholics_spd -= 2; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 2; catholics_nsdap += 2; in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0
 call: set_next_election_time_prussia
 
 [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] инициировала ответное голосование в Пруссии, что привело к роспуску ландтага и назначению новых выборов.
@@ -47,18 +44,16 @@ call: set_next_election_time_prussia
 
 Двойной роспуск поколебал веру народа в демократию, а <span style="color: #7A3C00;">нацисты</span> пользуются нестабильностью, заявляя: демократия неработоспособна, Германии нужен сильный лидер.
 
-
 @center_right_coalition_prussia
-on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
+on-arrival: in_center_right_coalition_prussia = 1; in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; prussia_coalition_trigger = 0; prussia_leader = "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; new_middle_spd -= 3; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 4; dvp_right += 3; ddp_right += 2; pro_republic -= 3; prussian_police_loyalty -= 0.06; prussian_police_strength -= 8; 
 
 Партия[? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] объявила ответный вотум недоверия в Пруссии, заменив наше правительство правоцентристской коалицией, состоящей из всех партий правее нас, за исключением <span style="color: #003755;">**НФГ**</span> и <span style="color: #7A3C00;">**НСДАП**</span>. Хотя это и неудача, это не худший из возможных исходов, ведь новые выборы могли бы привести к значительному усилению экстремистских партий.
 
-[? if z_leader != "Штегервальд": Адам Штегервальд  ?][? if z_leader == "Штегервальд": Генрих Брюнинг  ?]от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран на пост министра-президента Пруссии.
-
+[? if z_leader != "Штегервальд": Адам Штегервальд  ?][? if z_leader == "Штегервальд": Генрих Брюнинг  ?] от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран на пост министра-президента Пруссии.
 
 @vote_yes
 title: Проголосуйте за эту меру, чтобы продлить соглашение о воздержании от вотума недоверия.
 view-if: spd_toleration
-on-arrival: welfare -= 1; unemployed += 1; left_dissent += 10; labor_dissent += 10; workers_spd *= 0.92; unemployed_spd *= 0.92; unemployed_nsdap += 3; unemployed_kpd += 3; workers_nsdap += 3; workers_kpd += 3; workers_spd -= 3 if welfare < 0; unemployed_spd -= 4 if welfare < 0; pro_republic -= 3; kpd_relation -= 8; budget += 1; inflation -= 2; economic_growth -= 0.5
+on-arrival: welfare -= 1; unemployed += 1; left_dissent += 10; labor_dissent += 10; workers_spd *= 0.92*(effective_unemployed/unemployed); unemployed_spd *= 0.92*(effective_unemployed/unemployed); unemployed_nsdap += 3*(effective_unemployed/unemployed); unemployed_kpd += 3*(effective_unemployed/unemployed); workers_nsdap += 3*(effective_unemployed/unemployed); workers_kpd += 3*(effective_unemployed/unemployed); workers_spd -= 3*(effective_unemployed/unemployed) if welfare < 0; unemployed_spd -= 4*(effective_unemployed/unemployed) if welfare < 0; pro_republic -= 3; kpd_relation -= 8; budget += 1; inflation -= 2; economic_growth -= 0.5
 
 Мы пытаемся убедить рабочих, что эта политика необходима для поддержания стабильного парламентского правительства и борьбы с финансовыми последствиями депрессии. И все же эта политика служит отличной почвой для вербовки сторонников <span style="color: #7A3C00;">нацистами</span> и <span style="color: #700000;">**коммунистов**</span>.

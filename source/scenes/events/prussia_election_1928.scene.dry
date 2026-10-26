@@ -3,7 +3,7 @@ view-if: ((year = next_election_year_prussia and month >= next_election_month_pr
 new-page: true
 tags: event
 priority: 2
-on-arrival: was_in_social_catholic_coalition_prussia = 0; was_in_social_liberal_coalition_prussia = 0; was_in_weimar_coalition_prussia = 0; was_in_grand_coalition_prussia = 0; was_in_social_catholic_coalition_prussia = 1 if in_social_catholic_coalition_prussia == 1 or in_minority_social_catholic_coalition_prussia == 1; was_in_social_liberal_coalition_prussia = 1 if in_social_liberal_coalition_prussia == 1 or in_minority_social_liberal_coalition_prussia == 1; was_in_weimar_coalition_prussia = 1 if ((in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1) or (in_grand_coalition_prussia == 1 and lvp_formed)); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_social_liberal_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; in_minority_social_catholic_coalition_prussia = 0; in_minority_social_liberal_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0
+on-arrival: was_in_social_catholic_coalition_prussia = 0; was_in_social_liberal_coalition_prussia = 0; was_in_weimar_coalition_prussia = 0; was_in_grand_coalition_prussia = 0; was_in_social_catholic_coalition_prussia = 1 if in_social_catholic_coalition_prussia == 1 or in_minority_social_catholic_coalition_prussia == 1; was_in_social_liberal_coalition_prussia = 1 if in_social_liberal_coalition_prussia == 1 or in_minority_social_liberal_coalition_prussia == 1; was_in_weimar_coalition_prussia = 1 if ((in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1) or (in_grand_coalition_prussia == 1 and lvp_formed)); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_social_catholic_coalition_prussia = 0; in_social_liberal_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; in_minority_social_catholic_coalition_prussia = 0; in_minority_social_liberal_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; kpd_goals_seen_prussia = 0; spd_toleration_prussia = 0; kpd_demands_prussia = 0;
 on-departure: {! 
 Q.in_election_prussia = 0;
 Q.next_election_year_prussia = Q.next_election_year_prussia + 4; 
@@ -12,7 +12,7 @@ Q.next_election_time_prussia = Q.time + 48;
 if (Q.n_elections_prussia == 1) {
     Q.next_election_month_prussia -= 1;
 }
-if (Q.in_social_catholic_coalition_prussia || Q.in_social_liberal_coalition_prussia || Q.in_weimar_coalition_prussia == 1 || Q.in_grand_coalition_prussia == 1 || Q.in_popular_front_prussia == 1 || Q.in_left_front_prussia == 1 || Q.in_spd_majority_prussia == 1 || Q.in_minority_weimar_coalition_prussia == 1 || Q.in_minority_grand_coalition_prussia == 1) {
+if (Q.in_social_catholic_coalition_prussia || Q.in_social_liberal_coalition_prussia || Q.in_weimar_coalition_prussia == 1 || Q.in_grand_coalition_prussia == 1 || Q.in_popular_front_prussia == 1 || Q.in_left_front_prussia == 1 || Q.sapd_toleration_prussia == 1 || Q.in_spd_majority_prussia == 1 || Q.in_minority_weimar_coalition_prussia == 1 || Q.in_minority_grand_coalition_prussia == 1) {
     Q.spd_prussia = 1;
     Q.right_prussia = 0;
 } else if (Q.in_right_coalition_prussia == 1 || Q.in_center_right_coalition_prussia == 1 || Q.prussia_leader == "Папен" || Q.prussia_leader == "Геринг" || Q.in_far_right_coalition_prussia == 1) {
@@ -28,7 +28,6 @@ face-image: img/prussia.png
 Сейчас состоятся выборы в прусский ландтаг.
 
 - @new_elections: Сделаем всё возможное…
-
 
 @new_elections
 on-arrival: {!  
@@ -532,6 +531,8 @@ if (Q.dvp_leader == "Дингельдей" && Q.dvp_ideology == "Правые" &
 
 Q.left_coalition_prussia = parseFloat((Q.spd_r_prussia + Q.kpd_r_prussia + Q.sapd_r_prussia).toFixed(1));
 
+Q.socialist_front_prussia = parseFloat((Q.spd_r_prussia + Q.sapd_r_prussia).toFixed(1));
+
 if (Q.lvp_formed) {
     Q.popular_front_coalition_prussia = parseFloat((Q.spd_r_prussia + Q.kpd_r_prussia + Q.z_r_prussia + Q.sapd_r_prussia).toFixed(1));
 } else if (Q.liberal_parliament == 0) {
@@ -575,8 +576,11 @@ if (Q.dnef_formed) {
     Q.schleicher_left_coalition_prussia = parseFloat((Q.dnef_r_prussia + Q.spd_r_prussia + Q.lvp_r_prussia + Q.ddp_r_prussia + Q.z_r_prussia).toFixed(1));
 }
 
-if (Q.kpd_relation >= 30 && Q.sapd_formed == 1) {
+if (Q.kpd_relation >= 30 && Q.sapd_formed == 1 && Q.weimar_coalition_prussia < 50) {
     Q.weimar_coalition_prussia += Q.sapd_r_prussia;
+    Q.sapd_weimar_prussia = 1;
+} else {
+    Q.sapd_weimar_prussia = 0;
 }
 
 if ((Q.nsdap_votes_prussia + Q.dnf_votes_prussia >= 30 && Q.dnvp_ideology == "Умеренные" || Q.nsdap_votes_prussia + Q.dnvp_votes_prussia >= 30 && Q.dnvp_ideology == "Радикалы") && Q.weimar_coalition_prussia < 45 && Q.president == "Гинденбург" && !Q.rubicon) {
@@ -771,6 +775,9 @@ go-to: coalition_menu
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}% изм.{!</td><td>!}Мест в ландтаге{!</td><td>!}% изм.{!</td></tr>!} 
+[? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **SPD:** {!</td><td>!} **[+ spd_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_spd_prussia +]** {!</td><td>!} **[+ spd_r_prussia +]%** {!</td><td>!} **[+ str_change_spd_prussia +]** {!</td></tr>!} ?]
 {!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}% изм.{!</td><td>!}Мест в ландтаге{!</td><td>!}% изм.{!</td></tr>!} [? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_spd_prussia +]** {!</td><td>!} **[+ spd_r_prussia +]%** {!</td><td>!} **[+ str_change_spd_prussia +]** {!</td></tr>!}  ?] [? if dnef_formed: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div> !} **ФНЕГ:** {!</td><td>!} **[+ dnef_votes_prussia +]%** {!</td><td>!} **[+ str_votes_change_dnef_prussia +]** {!</td><td>!} **[+ dnef_r_prussia +]%** {!</td><td>!} **[+ str_change_dnef_prussia +]** {!</td></tr>!}  ?]
 
 [? if dnef_formed: {!<tr><td><div class="box2" style='background-color:#BFC8CC'> </div> !}ФНЕГ:{!</td><td>!} [+ schleicher_dnef_votes_prussia +]%{!</td><td>!} [+ str_votes_change_schleicher_dnef_prussia +] {!</td><td>!} [+ dnef_r_prussia +]%{!</td><td>!} [+ str_change_dnef_prussia +] {!</td></tr>!}  ?]
@@ -824,6 +831,7 @@ go-to: coalition_menu
 [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_hitler_votes_prussia +]%{!</td><td>!} [+ str_votes_change_nsdap_hitler_prussia +] {!</td><td>!} [+ nsdap_hitler_r_prussia +]%{!</td><td>!} [+ str_change_nsdap_hitler_prussia +] {!</td></tr>!}  ?]
 
 [? if nvf_exist and not nvf_dnef: {!<tr><td><div class="box" style='background-color:#142e20'> </div> !}ННФ:{!</td><td>!} [+ nvf_votes_prussia +]%{!</td><td>!} [+ str_votes_change_nvf_prussia +] {!</td><td>!} [+ nvf_r_prussia +]%{!</td><td>!} [+ str_change_nvf_prussia +] {!</td></tr>!}  ?] {!</table>!}
+{!</table>!}
 
 [? if nazi_urgency <= 1 and nsdap_r_prussia >= 15 : Стремительный рост <span style="color: #7A3C00;">**НСДАП**</span> вызывает крайнее беспокойство. Многие считали: партия <span style="color: #ff0000;">на последнем издыхании</span>, но теперь некоторые из нас видят в ней величайшую угрозу для демократии в Германии.  ?]
 
@@ -835,13 +843,13 @@ go-to: coalition_menu
 
 [? if left_coalition_prussia >= 50: <span style="color: #9B0000;">Марксистские</span> партии теперь составляют большинство в ландтаге! Это побудило рядовых членов обеих партий требовать более тесного сотрудничества. ?]
 
-
 @coalition_menu
 
 - @schleicher_majority_coalition_prussia
 - @schleicher_left_coalition_prussia
 - @schleicher_right_coalition_prussia
 - @spd_majority
+- @spd_minority
 - @weimar_coalition_prussia
 - @social_christian_coalition_prussia
 - @social_liberal_coalition_prussia
@@ -860,7 +868,6 @@ go-to: coalition_menu
 - @call_new_elections: Большинство собрать не удаётся.
 - @call_new_elections_rubicon: Большинство собрать не удаётся.
 
-
 @schleicher_majority_coalition_prussia
 title: Шлейхер формирует правительство большинства при поддержке лишь <span style="color: #BFC8CC;">**ФНЕГ**</span>.
 subtitle: <span style="color: #BFC8CC;">**ФНЕГ**</span> ([+ dnef_r_prussia +]%)
@@ -869,7 +876,6 @@ unavailable-subtitle: <span style="color: #BFC8CC;">ФНЕГ</span> ([+ dnef_r_p
 on-arrival: in_schleicher_majority_coalition_prussia = 1; prussia_leader = "Гёрделер"; workers_dnef += 3; new_middle_dnef += 3; old_middle_dnef += 3; rural_dnef += 3; unemployed_dnef += 3; catholics_dnef += 3; workers_kpd -= 3; workers_spd -= 3; rfb_banned = 1; rfb_strength -= 50; rb_strength -= 200; prussian_police_loyalty = 0; pro_republic -= 10
 
 Заручившись большинством и в Пруссии, Шлейхер укрепляет свою власть, прикрываясь ширмой демократии. Прусская полиция продолжает реформироваться в его интересах, а правительство теперь определяет образовательную политику. Внедряется новая учебная программа, в основе которой лежат дисциплина, национализм и неприязнь к <span style="color: #c00000;">социализму</span>.
-
 
 @schleicher_left_coalition_prussia
 title: Шлейхер формирует большинство с левыми.
@@ -880,7 +886,6 @@ choose-if: president != "Гинденбург" and super_secret_mode
 on-arrival: in_schleicher_left_coalition_prussia = 1; prussia_leader = "Гёрделер"; workers_dnef += 3; new_middle_dnef += 3; old_middle_dnef += 3; rural_dnef += 3; unemployed_dnef += 3; catholics_dnef += 3; workers_kpd -= 3; workers_spd -= 3; rfb_banned = 1; rfb_strength -= 50; rb_strength -= 200; prussian_police_loyalty = 0; pro_republic -= 10
 
 Заглушка
-
 
 @schleicher_right_coalition_prussia
 title: Шлейхер формирует большинство с правыми.
@@ -894,7 +899,6 @@ on-arrival: in_schleicher_right_coalition_prussia = 1; prussia_leader = "Гёр�
 
 [+ prussia_leader +] избран министром-президентом Пруссии.
 
-
 @spd_majority
 title: <span style="color: #c00000;">**СДПГ**</span> единоличное большинство
 subtitle: <span style="color: #c00000;">**СДПГ**</span>:[+ spd_r_prussia +]%
@@ -905,6 +909,15 @@ on-arrival: pro_republic += 5; reichswehr_loyalty -= 0.05 if chancellor == "Бр
 
 Браун избран министром-президентом Пруссии.
 
+@spd_minority
+title: <span style="color: #c00000;">**СДПГ**</span> minority
+subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #9B0000;">**СРПГ**</span> toleration: ([+ socialist_front_prussia +]%)
+view-if: socialist_front_prussia >= 50 and kpd_relation >= 50 and sapd_formed and spd_r_prussia < 50
+on-arrival: pro_republic += 5; reichswehr_loyalty -= 0.05 if chancellor == "Браун"; ddp_right += 2; dvp_right += 4; lvp_right += 3; liberal_cooperation += 5; bourgeois_cooperation += 5; prussia_leader = "Браун"; sapd_toleration_prussia = 1; prussian_police_loyalty += 0.1; prussian_police_strength += 50; democratization += 3; coup_progress += 1; capital_strike_progress += 2; ddp_relation -= 3; lvp_relation -= 3; z_relation -= 3; spd_prussia = 1
+
+We have managed to form a <span style="color: #c00000;">**СДПГ**</span> minority government, thanks to the toleration of the <span style="color: #9B0000;">SAPD</span>. We are no longer bound by the demands of our former coalition partners, though they are going to start drifting to the right.
+
+Braun is selected to be the Minister-President of Prussia.
 
 @social_christian_coalition_prussia
 title: Сможем ли мы сформировать <span style="color: #c00000;">социал</span>-<span style="color: #000000;">христианскую</span> коалицию?
@@ -918,7 +931,6 @@ on-arrival: in_social_catholic_coalition_prussia = 1; was_in_social_catholic_coa
 
 [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
 
-
 @social_liberal_coalition_prussia
 title: Мы можем сформировать <span style="color: #c00000;">социал</span>-[? if not lvp_formed: <span style="color: #D3C24D;">либеральную</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральную</span> ?]коалицию.
 subtitle: <span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]([+ social_liberal_coalition_prussia +]%)
@@ -930,7 +942,6 @@ on-arrival: in_social_liberal_coalition_prussia = 1; was_in_social_liberal_coali
 У нас достаточно голосов, чтобы сформировать «<span style="color: #c00000;">социал-</span>[? if not lvp_formed: <span style="color: #D3C24D;">-либерально-</span> ?][? if lvp_formed: <span style="color: #FFCC00;">-либеральное</span> ?] коалиционное» правительство, состоящее из <span style="color: #c00000;">**СДПГ**</span> и[? if ddp_name == "НДП" and not lvp_formed: <span style="color: #D3C24D;">**Демократической партии,**</span> ?][? if ddp_name == "НГП" and not lvp_formed: <span style="color: #D3C24D;">**Государственной партии,**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**Либеральной народной партии**</span> ?] [? if not lvp_formed: (<span style="color: #D3C24D;">**[+ ddp_name +]**</span>) ?][? if lvp_formed: (<span style="color: #FFCC00;">**ЛНП**</span>) ?]! Формирование правой <span style="color: #000000;">**[+ z_party_name +]**</span> сделало это возможным.[? if liberal_parliament == 1: В либеральной парламентской фракции возникла напряжённость из-за того, что <span style="color: #D3C24D;">**[+ ddp_name +]**</span> действует по своему усмотрению. ?]
 
 [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
-
 
 @minority_social_christian_coalition_prussia
 title: Можем ли мы сформировать <span style="color: #c00000;">социал</span>-<span style="color: #000000;">христианскую</span> коалицию меньшинства?
@@ -944,7 +955,6 @@ on-arrival: in_social_catholic_coalition_prussia = 1; in_minority_social_catholi
 
 [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
 
-
 @minority_social_liberal_coalition_prussia
 title: Мы можем сформировать миноритарную <span style="color: #c00000;">социал</span>-[? if not lvp_formed: <span style="color: #D3C24D;">либеральную</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральную</span> ?]коалицию.
 subtitle: <span style="color: #c00000;">**СДПГ**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]([+ social_liberal_coalition_prussia +]%)
@@ -956,7 +966,6 @@ on-arrival: in_social_liberal_coalition_prussia = 1; in_minority_social_liberal_
 [? if social_liberal_coalition_prussia >= 45: У нас достаточно голосов, чтобы сохранить правительство «<span style="color: #c00000;">социал</span>-[? if not lvp_formed: <span style="color: #D3C24D;">либеральной</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральной</span> ?] коалиции» между <span style="color: #c00000;">**СДПГ**</span> и[? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?]. ?][? if social_liberal_coalition_prussia < 45: Мы можем сохранить контроль над Пруссией, сохранив «<span style="color: #c00000;">Социал</span>-[? if not lvp_formed: <span style="color: #D3C24D;">либеральную</span> ?][? if lvp_formed: <span style="color: #FFCC00;">либеральную</span> ?] коалицию, которое пока у власти, несмотря на отсутствие большинства. Недавно введённый конструктивный вотум недоверия позволит нашему правительству сохранить полномочия, пока другая коалиция большинства не согласует единого кандидата в министры-президенты, что маловероятно.  ?][? if liberal_parliament == 1: Либеральная парламентская фракция оказалась под давлением со стороны <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, которая действует по своему усмотрению.  ?]
 
 [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
-
 
 @minority_weimar_coalition
 title: Мы можем сформировать <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>скую коалицию меньшинства.
@@ -975,7 +984,6 @@ go-to: prussia_minister_president if prussia_leader == "Браун"
 
 [? if prussia_leader != "Браун": [+ prussia_leader +] избран на пост министра-президента Пруссии. ?]
 
-
 @weimar_coalition_prussia
 title: Мы можем сформировать <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">скую</span> коалицию.
 subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #000000;">**[+ z_party_name +]**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if sapd_formed and kpd_relation >= 30 : &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> (воздержится от вотума недоверия) ?]([+ weimar_coalition_prussia +]%)
@@ -985,10 +993,9 @@ choose-if: weimar_coalition_prussia >= 50 and (((z_relation >= 30 and z_ideology
 on-arrival: in_weimar_coalition_prussia = 1; was_in_weimar_coalition_prussia = 1; liberal_cooperation -= 1 if liberal_parliament == 1; prussia_leader = "Браун"; prussia_leader = "Штегервальд" if (braun_resign and z_leader != "Штегервальд"); prussia_leader = "Брюнинг" if (braun_resign and z_leader == "Штегервальд"); pro_republic += 3 if year >= 1929; ddp_relation += 5; z_relation += 5; lvp_relation += 5; reformist_dissent -= 10; spd_prussia = 1
 go-to: prussia_minister_president if prussia_leader == "Браун"
 
-У нас достаточно голосов, чтобы сформировать правительство «<span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской коалиции» в составе <span style="color: #c00000;">**СДПГ**</span>, [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и [? if ddp_name == "НДП" and not lvp_formed: <span style="color: #D3C24D;">**Демократической партии**</span> ?][? if ddp_name == "НГП" and not lvp_formed: <span style="color: #D3C24D;">**Государственной партии**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**Либеральной народной партии**</span> ?] [? if not lvp_formed: (<span style="color: #D3C24D;">**[+ ddp_name +]**</span>) ?][? if lvp_formed: (<span style="color: #FFCC00;">**ЛНП**</span>) ?]! Эта правящая коалиция существует с 1919 года.[? if liberal_parliament == 1: Либеральная парламентская фракция испытывает трудности, так как <span style="color: #D3C24D;">**[+ ddp_name +]**</span> действует на своё усмотрение. ?]
+У нас достаточно голосов, чтобы сформировать правительство «<span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской коалиции» в составе <span style="color: #c00000;">**СДПГ**</span>, [? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и [? if ddp_name == "НДП" and not lvp_formed: <span style="color: #D3C24D;">**Демократической партии**</span> ?][? if ddp_name == "НГП" and not lvp_formed: <span style="color: #D3C24D;">**Государственной партии**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**Либеральной народной партии**</span> ?] [? if not lvp_formed: (<span style="color: #D3C24D;">**[+ ddp_name +]**</span>) ?][? if lvp_formed: (<span style="color: #FFCC00;">**ЛНП**</span>) ?]! Эта правящая коалиция существует с 1919 года.[? if liberal_parliament == 1: Либеральная парламентская фракция испытывает трудности, так как <span style="color: #D3C24D;">**[+ ddp_name +]**</span> действует на своё усмотрение. ?]
 
 [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
-
 
 @prussia_minister_president
 
@@ -997,11 +1004,9 @@ go-to: prussia_minister_president if prussia_leader == "Браун"
 - @braun: Отто Браун, как всегда.
 - @give_up_prussia
 
-
 @braun
 
 [+ prussia_leader +] вновь министр-президент Пруссии.
-
 
 @give_up_prussia
 title: Добровольно передать пост министра-президента [? if z_party_name != "ХНП": <span style="color: #000000;">Центру</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], чтобы укрепить добрые отношения между нашими партиями.
@@ -1011,7 +1016,6 @@ on-arrival: coalition_dissent = 0; prussia_leader = "Штегервальд"; pr
 Мы больше не контролируем правительство Пруссии. Надеюсь, этот шаг окупится благодаря более дружелюбному настрою [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], которая приятно удивлена нашим неожиданным решением.
 
 Пост министра-президента передан [? if z_party_name != "ХНП": <span style="color: #000000;">Центру</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и его представителю по имени [+ prussia_leader +].
-
 
 @grand_coalition_prussia
 title: Мы можем сформировать Большую коалицию.
@@ -1026,7 +1030,6 @@ go-to: prussia_minister_president if prussia_leader == "Браун"
 
 [? if next_election_time - time < 6: Ожидается, что это поможет нам добиться расположения <span style="color: #C0A054;">**ННП**</span> на предстоящих переговорах о создании федеральной коалиции. ?] [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
 
-
 @minority_grand_coalition_prussia
 title: Мы можем сформировать Большую коалицию меньшинства.
 view-if: grand_coalition_prussia < 50 and was_in_grand_coalition_prussia == 1 and not lvp_formed and dvp_exist and not cvp_formed
@@ -1036,10 +1039,9 @@ choose-if: far_right_coalition_prussia < 50 and (((z_relation >= 30 and z_ideolo
 on-arrival: in_grand_coalition_prussia = 1; in_minority_grand_coalition_prussia = 1; prussia_leader = "Браун"; prussia_leader = "Штегервальд" if (braun_resign and z_leader != "Штегервальд"); prussia_leader = "Брюнинг" if (braun_resign and z_leader == "Штегервальд"); dvp_relation += 3; left_dissent += 5; dvp_left += 1; liberal_cooperation += 0.5; spd_prussia = 1
 go-to: prussia_minister_president if prussia_leader == "Браун"
 
-Мы сформировали коалицию меньшинства с <span style="color: #c00000;">**СДПГ**</span>, [? if z_party_name != "ХНП": <span style="color: #000000;">Центром</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], [? if ddp_name == "НДП" and not lvp_formed: <span style="color: #D3C24D;">**Демократической**</span> ?][? if ddp_name == "НГП" and not lvp_formed: <span style="color: #D3C24D;">**Государственной**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**Либеральной народной**</span> ?] [? if not lvp_formed: (<span style="color: #D3C24D;">**[+ ddp_name +]**</span>) ?][? if lvp_formed: (<span style="color: #FFCC00;">**ЛНП**</span>) ?][? if not lvp_formed: , и <span style="color: #C0A054;">**Народной**</span> (<span style="color: #C0A054;">**ННП**</span>) ?]партиями.
+Мы сформировали коалицию меньшинства с <span style="color: #c00000;">**СДПГ**</span>, [? if z_party_name != "ХНП": <span style="color: #000000;">Центром</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?], [? if ddp_name == "НДП" and not lvp_formed: <span style="color: #D3C24D;">**Демократической**</span> ?][? if ddp_name == "НГП" and not lvp_formed: <span style="color: #D3C24D;">**Государственной**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**Либеральной народной**</span> ?] [? if not lvp_formed: (<span style="color: #D3C24D;">**[+ ddp_name +]**</span>) ?][? if lvp_formed: (<span style="color: #FFCC00;">**ЛНП**</span>) ?][? if not lvp_formed: , и <span style="color: #C0A054;">**Народной**</span> (<span style="color: #C0A054;">**ННП**</span>) ?] партиями.
 
 [? if grand_coalition_prussia >= 45: Хотя у нас и нет простого большинства в ландтаге, мы остаёмся у власти благодаря тому, что различные регионалистские партии воздерживаются от вотума недоверия.  ?][? if grand_coalition_prussia < 45: Мы пока остаёмся у власти, хотя и не пользуемся популярностью. Однако существует риск, что консервативный истеблишмент может потребовать применения <i>Имперской экзекуции</i> против нашего правительства. Партии Большой коалиции внесли поправки в регламент ландтага, согласно которым для избрания нового министра-президента требуется абсолютное большинство голосов, что позволяет [+ prussia_leader +] продолжать править бессрочно в качестве временного правительства. Попытка отменить это изменение неожиданно блокируется <span style="color: #700000;">**КПГ**</span>, что фактически делает её де-факто гарантом выживания [+ prussia_leader +].[? if far_right_coalition_prussia + z_r_prussia >= 50: Кроме того, <span style="color: #000000;">Партия Центра</span> начала вести деликатные переговоры с <span style="color: #7A3C00;">**НСДАП**</span> по поводу их возможного вхождения в правительство земли. Однако, несмотря на всю привлекательность этого предложения, они вряд ли согласятся, не добившись также участия в правительстве на федеральном уровне, а также контроля над постом министра-президента и прусской полицией. Это требования, которые <span style="color: #000000;">Центр</span> никогда не примет.  ?] ?] [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
-
 
 @far_right_coalition_prussia
 title: <span style="color: #7A3C00;">Ультра-</span>[? if not dnf_formed: <span style="color: #3E88B3;">Правая</span> ?][? if dnf_formed: <span style="color: #003755;">Правая</span> ?] Коалиция
@@ -1051,20 +1053,18 @@ on-arrival: in_far_right_coalition_prussia = 1; coup_progress += 5; rural_nsdap 
 
 Начинается волна террора и репрессий, направленных против <span style="color: #c00000;">социалистов</span> и <span style="color: #700000;">коммунистов</span>. На улицах вспыхивает насилие, свистят пули, левых убивают или бросают в тюрьмы.
 
-
 @left_coalition_prussia
 title: Возможна ли коалиция объединённых левых?
 subtitle: <span style="color: #c00000;">**СДПГ**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: + <span style="color: #9B0000;">**СРПГ**</span> ?]([+ left_coalition_prussia +]%)
 unavailable-subtitle: <span style="color: #c00000;">СДПГ</span> + <span style="color: #700000;">КПГ</span> [? if sapd_formed: + <span style="color: #9B0000;">СРПГ</span>  ?]([+ left_coalition_prussia +]%).[? if kpd_relation < 50 : У нас не налажены отношения с <span style="color: #700000;">КПГ</span>.  ?][? if communist_coalition < 3 : <span style="color: #700000;">Коммунисты</span> слишком привержены своим радикальным методам, чтобы участвовать в работе правительства.  ?] [? if (president_ideology == "Правые" or president == "Гинденбург") and not presidential_powers: [+ president +] осуществит <i>Имперскую экзекуцию</i> в отношении нашего правительства. ?] [? if reformist_strength >= left_strength: Наша прусская партия исключила эту возможность. ?]
 view-if: left_coalition_prussia >= 50
 choose-if: (kpd_relation >= 50 or (kpd_leader == "Примиренцы" and kpd_relation >= 40)) and communist_coalition >= 3 and ((president_ideology != "Правые" and president != "Гинденбург") or presidential_powers) and left_strength >= reformist_strength
-on-arrival: in_left_front_prussia = 1; prussia_leader = "Розенфельд"; reichswehr_loyalty -= 0.05; dvp_right += 5; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 3; liberal_cooperation += 5; bourgeois_cooperation += 10; kpd_relation += 10; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 8; dvp_relation -= 8; coup_progress += 2; coup_progress += 1 if in_left_front; capital_strike_progress += 2; capital_strike_progress += 1 if in_left_front; reformist_dissent += 25; reformist_strength -= 15; left_dissent -= 15; left_strength += 15; prussian_police_loyalty -= 0.1; rfb_strength += 50; rfb_militancy += 0.05; spd_prussia = 1
+on-arrival: in_left_front_prussia = 1; prussia_leader = "Розенфельд"; reichswehr_loyalty -= 0.05; dvp_right += 5; ddp_right += 3; ddp_cohesion -= 2; lvp_right += 3; liberal_cooperation += 5; bourgeois_cooperation += 10; kpd_relation += 10; z_relation -= 4; ddp_relation -= 4; lvp_relation -= 8; dvp_relation -= 8; coup_progress += 2; coup_progress += 1 if in_left_front; capital_strike_progress += 2; capital_strike_progress += 1 if in_left_front; reformist_dissent += 25; reformist_strength -= 15; left_dissent -= 15; left_strength += 15; prussian_police_loyalty -= 0.1; rfb_strength += 50; rfb_militancy += 0.05; spd_prussia = 1; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 go-to: kpd_goals_prussia
 
 Каким-то удивительным образом левую коалицию удаётся сформировать, не назначая <span style="color: #700000;">коммуниста</span> на пост министра-президента. Единым кандидатом на пост министра-президента, одобренным <span style="color: #c00000;">**СДПГ**</span>, <span style="color: #700000;">**КПГ**</span>, становится член [? if left_split == 1: &nbsp;<span style="color: #9B0000;">**СРПГ**</span>, ?] Курт Розенфельд, который [? if left_split == 0: принадлежит ?][? if left_split == 1: принадлежал ?] к левому крылу <span style="color: #c00000;">**СДПГ**</span>, и имел опыт защиты <span style="color: #700000;">**КПГ**</span> по роду своей деятельности.
 
-В ответ на вхождение <span style="color: #700000;">**КПГ**</span> в правительство правые пока заняли выжидательную позицию. Они ожидают, что наше правительство окажется нестабильным и некомпетентным и развалится само по себе, что в итоге позволит уничтожить <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>скую республику. [? if in_left_front: Правые будут активнее сопротивляться нашей власти, учитывая, что мы также правим вместе с <span style="color: #700000;">**КПГ**</span> и на федеральном уровне. ?]
-
+В ответ на вхождение <span style="color: #700000;">**КПГ**</span> в правительство правые пока заняли выжидательную позицию. Они ожидают, что наше правительство окажется нестабильным и некомпетентным и развалится само по себе, что в итоге позволит уничтожить <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> скую республику. [? if in_left_front: Правые будут активнее сопротивляться нашей власти, учитывая, что мы также правим вместе с <span style="color: #700000;">**КПГ**</span> и на федеральном уровне. ?]
 
 @popular_front_coalition_prussia
 title: Новый «Народный фронт»?
@@ -1080,11 +1080,10 @@ choose-if: (((kpd_relation >= 65 and kpd_leader == "Тельман") or (kpd_rel
 - @popular_front_2: Сформировать Народный фронт!
 - @great_popular_front: Сформировать Народный фронт!
 
-
 @popular_front_2
 view-if: z_ideology != "Левые" or kpd_leader != "Примиренцы"
 
-Каким-то образом и <span style="color: #700000;">**коммунисты**</span>, и [? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] по крайней мере готовы к переговорам. Конечно, <span style="color: #700000;">**КПГ**</span> радикалы и[? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] консерваторы почти сразу же срывают переговоры. <span style="color: #700000;">**КПГ**</span> требует возглавить коалицию, [? if spd_r_prussia > kpd_r_prussia : несмотря на то что мы набрали больше голосов,  ?]а[? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] возмущён перспективой помочь <span style="color: #700000;">**большевикам**</span> войти в правительство. Воспоминания о <i>Имперской экзекуции</i> против аналогичных правительств в Тюрингии и Саксонии ещё свежи и служат предостережением.
+Каким-то образом и <span style="color: #700000;">**коммунисты**</span>, и [? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] по крайней мере готовы к переговорам. Конечно, <span style="color: #700000;">**КПГ**</span> радикалы и[? if z_party_name != "ХНП": <span style="color: #000000;">Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] консерваторы почти сразу же срывают переговоры. <span style="color: #700000;">**КПГ**</span> требует возглавить коалицию, [? if spd_r_prussia > kpd_r_prussia : несмотря на то что мы набрали больше голосов,  ?] а[? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] возмущён перспективой помочь <span style="color: #700000;">**большевикам**</span> войти в правительство. Воспоминания о <i>Имперской экзекуции</i> против аналогичных правительств в Тюрингии и Саксонии ещё свежи и служат предостережением.
 
 *Что-то*необходимо предпринять для восстановления равновесия.
 
@@ -1092,7 +1091,6 @@ view-if: z_ideology != "Левые" or kpd_leader != "Примиренцы"
 - @popular_front_democracy
 - @popular_front_braun
 - @coalition_menu: Это невозможно. Попробуйте другой вариант правительства.
-
 
 @popular_front_resources
 title: Использовать наши ресурсы, чтобы всё уладить.
@@ -1102,7 +1100,6 @@ choose-if: resources >= 3
 on-arrival: resources -= 3
 go-to: popular_front_success
 
-
 @popular_front_democracy
 title: Убедить <span style="color: #700000;">**КПГ**</span> принять демократию.
 subtitle: [? if kpd_leader == "Примиренцы" : Примиренческое руководство <span style="color: #700000;">**КПГ**</span> по крайней мере заявляет о поддержке Народного фронта. ?]
@@ -1110,12 +1107,10 @@ unavailable-subtitle: Наши отношения с <span style="color: #700000
 choose-if: (kpd_relation >= 60 and communist_coalition >= 3) or kpd_leader == "Примиренцы"
 go-to: popular_front_success
 
-
 @popular_front_braun
 title: Использовать давление со стороны президента [+ president +]а, чтобы заставить партии сотрудничать.
 view-if: president_ideology == "Левые"
 go-to: popular_front_success
-
 
 @popular_front_success
 on-arrival: in_popular_front_prussia = 1; prussia_leader = "Розенфельд"; dvp_right += 3; ddp_right += 2; ddp_cohesion -= 1.5 if liberal_parliament = 0; lvp_right += 3; liberal_cooperation += 3 if liberal_parliament = 1; liberal_cooperation += 2 if (liberal_parliament = 1 and in_popular_front or in_left_front); bourgeois_cooperation += 3; bourgeois_cooperation += 2 if in_popular_front or in_left_front; dvp_relation -= 5; lvp_relation -= 5; kpd_relation += 8; ddp_relation -= 5 if liberal_parliament = 1; coup_progress += 1; coup_progress += 1 if in_popular_front; reformist_dissent += 20; reformist_strength -= 10; left_dissent -= 10; left_strength += 10; ddp_in_popular_front_prussia = 1 if liberal_parliament = 0; rfb_strength += 50; rfb_militancy += 0.05; prussian_police_loyalty -= 0.1; spd_prussia = 1
@@ -1125,17 +1120,15 @@ go-to: kpd_goals_prussia
 
 В ответ на вхождение <span style="color: #700000;">**КПГ**</span> в правительство, правые пока занимают выжидательную позицию. Они ожидают, что правительство Народного фронта окажется нестабильным и некомпетентным и развалится само по себе, дискредитировав левых и центристов и в конечном итоге позволив уничтожить <span style="color: #000000;">Вей</span><span style="color: #DD0000;">мар</span><span style="color: #FFCC00;">скую</span> республику. Наша задача — доказать, что они ошибаются. [? if in_left_front: Правые будут активнее сопротивляться нашему правлению, учитывая, что мы также правим вместе с <span style="color: #700000;">**КПГ**</span> и на федеральном уровне. ?]
 
-
 @great_popular_front
 view-if: z_ideology == "Левые" and kpd_leader == "Примиренцы"
-on-arrival: kpd_relation += 5; z_relation += 5; ddp_relation += 5 if (liberal_parliament == 0 and not lvp_formed)
+on-arrival: kpd_relation += 5; z_relation += 5; ddp_relation += 5 if (liberal_parliament == 0 and not lvp_formed); kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 go-to: popular_front_success
 
 Каким-то образом коалицию удалось успешно сформировать! Примирительная позиция руководства[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и <span style="color: #700000;">**КПГ**</span> помогла сделать переговоры возможными. Нам всё ещё нужен министр-президент; единственный приемлемый для всех партий кандидат — [? if left_split == 1: &nbsp;член <span style="color: #9B0000;">**СРПГ**</span>, ?] Курт Розенфельд, который [? if left_split == 0: принадлежит ?][? if left_split == 1: принадлежал ?] к левому крылу <span style="color: #c00000;">**СДПГ**</span>, и имел опыт защиты <span style="color: #700000;">**КПГ**</span>. По роду своей деятельности он близок к её членам. Его с большой неохотой принимает[? if z_party_name != "ХНП": <span style="color: #000000;">Центр</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и приветствует <span style="color: #700000;">**КПГ**</span>.
 
-
 @kpd_goals_prussia
-on-arrival: kpd_goals_seen_prussia = 1; interior_goal_prussia = 0; bureaucracy_goal_prussia = 1; bureaucracy_goal_seen_prussia = 1; free_kpd_goal_prussia = 1; free_kpd_goal_seen_prussia = 1; rfb_goal_prussia = 0; interior_goal_prussia = 1 if (sa_banned == 0 or sh_banned == 0); interior_goal_prussia = 2 if (sa_banned == 0 and sh_banned == 0); interior_goal_seen_prussia = 1 if (sa_banned == 0 or sh_banned == 0); rfb_goal_prussia = 1 if rfb_banned == 1; rfb_goal_seen_prussia = 1 if rfb_banned == 1; kpd_ultimatum_prussia_timer = 24
+on-arrival: kpd_goals_seen_prussia = 1; kpd_demands_prussia = 1; interior_goal_prussia = 0; bureaucracy_goal_prussia = 1; bureaucracy_goal_seen_prussia = 1; free_kpd_goal_prussia = 1; free_kpd_goal_seen_prussia = 1; rfb_goal_prussia = 0; interior_goal_prussia = 1 if (sa_banned == 0 or sh_banned == 0); interior_goal_prussia = 2 if (sa_banned == 0 and sh_banned == 0); interior_goal_seen_prussia = 1 if (sa_banned == 0 or sh_banned == 0); rfb_goal_prussia = 1 if rfb_banned == 1; rfb_goal_seen_prussia = 1 if rfb_banned == 1; kpd_ultimatum_prussia_timer = 24
 go-to: popular_front_success_federal if prussia_negotiations_kpd_trigger == 1; left_front_success_federal if prussia_negotiations_kpd_left_trigger == 1
 
 <span style="color: #700000;">**КПГ**</span> выдвигает нам список требований к прусской коалиции:
@@ -1150,18 +1143,15 @@ go-to: popular_front_success_federal if prussia_negotiations_kpd_trigger == 1; l
 
 Они заявляют, что ожидают выполнения этих целей в течение [+ kpd_ultimatum_prussia_timer +] месяцев. В противном случае они проголосуют за роспуск коалиции.
 
-
 @popular_front_success_federal
-on-arrival: prussia_negotiations_kpd_trigger = 0
+on-arrival: prussia_negotiations_kpd_trigger = 0; 
 
 - @election_1928.popular_front_success: Продолжить переговоры.
-
 
 @left_front_success_federal
 on-arrival: prussia_negotiations_kpd_left_trigger = 0
 
 - @election_1928.left_coalition_success: Продолжить переговоры.
-
 
 @right_coalition_prussia
 title: Отказаться от формирования правительства, чтобы дать возможность сформировать правую коалицию.
@@ -1175,7 +1165,6 @@ on-arrival: in_right_coalition_prussia = 1; hands_tied_prussia = 0; hands_tied_p
 
 [? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?] из [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран министром-президентом Пруссии.
 
-
 @center_right_coalition_prussia
 title: Отказаться от формирования правительства, чтобы могла быть сформирована правоцентристская коалиция.
 unavailable-subtitle: <span style="color: #000000;">[+ z_party_name +]</span> +[? if not lvp_formed: <span style="color: #D3C24D;">[+ ddp_name +]</span>[? if dvp_exist: &nbsp;+ <span style="color: #C0A054;">ННП</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">ЛНП</span> ?] + Остальные + <span style="color: #3E88B3;">НННП</span> ([+ center_right_coalition_prussia +]%)[? if (year = 1929 and month >= 7): <span style="color: #3E88B3;">НННП</span> не заинтересована в коалиции с [? if z_party_name != "ХНП": <span style="color: #000000;">Центром</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]. ?]
@@ -1188,9 +1177,8 @@ on-arrival: in_center_right_coalition_prussia = 1; hands_tied_prussia = 0; hands
 
 [? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?] от [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран министром-президентом Пруссии.
 
-
 @bourgeois_coalition_prussia
-title: Отказаться от формирования правительства, чтобы сформировался BÃ¼rgerblock.
+title: Отказаться от формирования правительства, чтобы сформировался Bürgerblock.
 unavailable-subtitle: <span style="color: #000000;">[+ z_party_name +]</span> +[? if not lvp_formed: <span style="color: #D3C24D;">[+ ddp_name +]</span>[? if dvp_exist: &nbsp;+ <span style="color: #C0A054;">ННП</span> ?] ?][? if lvp_formed: <span style="color: #FFCC00;">ЛНП</span> ?]+ Прочие ([+ center_right_coalition_prussia +]%)
 subtitle: <span style="color: #000000;">**[+ z_party_name +]**</span> + <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist: &nbsp;+ <span style="color: #C0A054;">**ННП**</span> ?]+**Прочие**([+ center_right_coalition_prussia +]%)
 view-if: cvp_formed and center_right_coalition_prussia >= 50
@@ -1198,8 +1186,7 @@ on-arrival: in_center_right_coalition_prussia = 1; hands_tied_prussia = 0; hands
 
 [? if not ((ddp_relation < 35 and not lvp_formed) or (lvp_relation < 40 and lvp_formed) or weimar_coalition_prussia < 45 or cvp_formed): Сдача оплота демократии правым крайне непопулярна среди всех членов партии и не даёт никаких видимых преимуществ. ?][? if ((ddp_relation < 35 and not lvp_formed) or (lvp_relation < 40 and lvp_formed) or weimar_coalition_prussia < 45 or cvp_formed): К сожалению, текущая политическая ситуация не оставляет нам иного выбора, кроме как отказаться от оплота демократии. Надеемся, что через несколько лет мы сможем восстановить контроль.  ?]
 
-[? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?]из[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран на пост министра-президента Пруссии.
-
+[? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?] из[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] избран на пост министра-президента Пруссии.
 
 @bourgeois_coalition_kvp_prussia
 title: Отказаться от формирования правительства, чтобы мог быть сформирован Буржуазный блок.
@@ -1210,14 +1197,12 @@ on-arrival: in_center_right_coalition_prussia = 1; hands_tied_prussia = 0; hands
 
 [? if not ((ddp_relation < 35 and not lvp_formed) or (lvp_relation < 40 and lvp_formed) or weimar_coalition_prussia < 45 or cvp_formed): Сдача оплота демократии правым крайне непопулярна среди всех членов партии и не даёт никаких видимых преимуществ. ?][? if ((ddp_relation < 35 and not lvp_formed) or (lvp_relation < 40 and lvp_formed) or weimar_coalition_prussia < 45 or cvp_formed): К сожалению, текущая политическая ситуация не оставляет нам иного выбора, кроме как отказаться от оплота демократии. Будем надеяться, что через несколько лет мы сможем восстановить контроль.  ?]
 
-[? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?]из[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?]назначается министром-президентом Пруссии.
-
+[? if z_leader != "Штегервальд": Адам Штегервальд ?][? if z_leader == "Штегервальд": Генрих Брюнинг ?] из[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] назначается министром-президентом Пруссии.
 
 @call_new_elections
 subtitle: Будут назначены новые выборы.
 view-if: (((grand_coalition_prussia < 50) or ((grand_coalition_prussia >= 50 and (((dvp_relation < 40 or dvp_ideology == "Правые") and not lvp_formed) or ((lvp_relation < 40 or lvp_ideology == "Правые") and lvp_formed) or z_relation < 35)))) and far_right_coalition_prussia < 50 and (center_right_coalition_prussia < 50 or ((center_right_coalition_prussia >= 50 and ((dnvp_ideology == "Радикалы" and not dnvp_westarp) or (year = 1929 and month >= 7)))) and (right_coalition_prussia < 50 or (right_coalition_prussia >= 50 and ((dnvp_ideology == "Радикалы" and not dnvp_westarp) or (year = 1929 and month >= 7)))))) and not rubicon
 go-to: call_new_elections_2 if no_majority_elections_prussia < 1 or (neo_weimar_coalition_prussia + kvp_r_prussia < 50 and dnvp_ideology == "Радикалы") or (neo_weimar_coalition_prussia + dnvp_r_prussia < 50 and dnvp_ideology == "Умеренные"); toleration_dilemma if no_majority_elections_prussia >= 1 and ((neo_weimar_coalition_prussia + kvp_r_prussia >= 50 and dnvp_ideology == "Радикалы") or (neo_weimar_coalition_prussia + dnvp_r_prussia >= 50 and dnvp_ideology == "Умеренные"))
-
 
 @toleration_dilemma
 
@@ -1227,7 +1212,6 @@ go-to: call_new_elections_2 if no_majority_elections_prussia < 1 or (neo_weimar_
 
 - @call_new_elections_2: Нас ждут новые выборы.
 - @tolerate_bourgeois_coalition: Мы «потерпим» буржуазное правительство меньшинства, чтобы избежать новых выборов.
-
 
 @call_new_elections_2
 on-arrival: pro_republic -= 5 if anti_democratic_coalition_prussia >= 30; workers_nsdap += 3 if anti_democratic_coalition_prussia >= 30; workers_kpd += 3 if anti_democratic_coalition_prussia >= 30; workers_spd -= 3 if anti_democratic_coalition_prussia >= 30; new_middle_nsdap += 2 if anti_democratic_coalition_prussia >= 30; old_middle_nsdap += 2 if anti_democratic_coalition_prussia >= 30; rural_nsdap += 2 if anti_democratic_coalition_prussia >= 30; new_middle_ddp -= 2 if anti_democratic_coalition_prussia >= 30; old_middle_ddp -= 2 if anti_democratic_coalition_prussia >= 30; rural_ddp -= 2 if anti_democratic_coalition_prussia >= 30; new_middle_dvp -= 2 if anti_democratic_coalition_prussia >= 30; old_middle_dvp -= 2 if anti_democratic_coalition_prussia >= 30; rural_dvp -= 2 if anti_democratic_coalition_prussia >= 30; new_middle_lvp -= 2 if anti_democratic_coalition_prussia >= 30; old_middle_lvp -= 2 if anti_democratic_coalition_prussia >= 30; rural_lvp -= 2 if anti_democratic_coalition_prussia >= 30; no_majority_elections_prussia += 1; next_election_week_prussia = next_election_week if rubicon and next_election_time - time < 3; next_election_week_prussia = week + 6 if rubicon and next_election_time - time >= 3; next_election_week_prussia -= 4 if rubicon and next_election_week_prussia > 4; next_election_week_prussia -= 4 if rubicon and next_election_week_prussia > 4
@@ -1239,7 +1223,6 @@ call: set_next_election_time_prussia
 
 [? if anti_democratic_coalition_prussia >= 30: Вера народа в демократию пошатнулась из-за этих испытаний. Разумеется, <span style="color: #7A3C00;">нацисты</span> пользуются нестабильностью, заявляя: демократия нежизнеспособна, Германии нужен сильный лидер. ?]
 
-
 @tolerate_bourgeois_coalition
 title: Мы должны проявить терпимость к буржуазной коалиции.
 on-arrival: prussia_leader = "Штегервальд" if z_leader != "Штегервальд"; prussia_leader = "Брюнинг" if z_leader == "Штегервальд"; prussia_leader = "Лютер" if (dvp_leader == "Лютер" or lvp_leader == "Лютер" and lvp_formed); spd_toleration_prussia = 1; new_middle_spd -= 4; ddp_right += 1; ddp_cohesion -= 1; dvp_right += 1; lvp_right += 1; center_dissent += 5; left_dissent += 10; prussian_police_loyalty -= 0.05; prussian_police_strength -= 10; pro_republic -= 3; right_prussia = 1
@@ -1248,13 +1231,11 @@ on-arrival: prussia_leader = "Штегервальд" if z_leader != "Штеге
 
 [? if prussia_leader != "Браун": [+ prussia_leader +] избран министром-президентом Пруссии. ?]
 
-
 @call_new_elections_rubicon
 subtitle: Будут назначены новые выборы.
 view-if: (((grand_coalition_prussia < 50) or ((grand_coalition_prussia >= 50 and (dvp_relation < 40 or (lvp_relation < 40 and lvp_formed) or z_relation < 35)))) and far_right_coalition_prussia < 50 and (center_right_coalition_prussia < 50 or ((center_right_coalition_prussia >= 50 and ((dnvp_ideology == "Радикалы" and not dnvp_westarp) or (year = 1929 and month >= 7)))) and (right_coalition_prussia < 50 or (right_coalition_prussia >= 50 and ((dnvp_ideology == "Радикалы" and not dnvp_westarp) or (year = 1929 and month >= 7)))))) and rubicon
 on-arrival: no_majority_elections_prussia_schleicher = 1
 go-to: call_new_elections_2_rubicon if prussia_leader != "Браун" and prussia_leader != "Штегервальд" and prussia_leader != "Лютер" and prussia_leader != "Брюнинг"; prussia_explode if prussia_leader == "Браун" or prussia_leader == "Штегервальд" or prussia_leader == "Лютер" or prussia_leader == "Брюнинг"
-
 
 @call_new_elections_2_rubicon
 view-if: dnef_r_prussia < 50 and (schleicher_right_coalition_prussia < 50 or dsu_leader == "Отто Штрассер")
@@ -1264,7 +1245,6 @@ call: set_next_election_time_prussia
 Возможно, в ходе новых выборов удастся сформировать более стабильное большинство.
 
 Новые выборы в Пруссии назначены на [+ next_election_month_prussia : month +] [+ next_election_year_prussia +], неделя [+ next_election_week +].
-
 
 @prussia_explode
 go-to: prussian_coup_schleicher

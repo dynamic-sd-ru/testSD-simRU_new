@@ -26,10 +26,9 @@ tags: govt_affairs, cabinet
 
 = Образование и наука
 
-Образование в Германии — это сфера совместной ответственности правительств земель и центрального правительства. Конституция <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span>ской республики гласит: школы находятся в ведении центрального правительства, но на практике многое оставлено на усмотрение земель, поскольку рейхстаг исторически так и не принял закон об образовании. Контролируя Пруссию и пост канцлера, мы можем определять политику для значительной части страны.
+Образование в Германии — это сфера совместной ответственности правительств земель и центрального правительства. Конституция <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">ар</span> ской республики гласит: школы находятся в ведении центрального правительства, но на практике многое оставлено на усмотрение земель, поскольку рейхстаг исторически так и не принял закон об образовании. Контролируя Пруссию и пост канцлера, мы можем определять политику для значительной части страны.
 
 [? if major_curriculum: Текущая учебная программа —[+ major_curriculum +], [+ minor_curriculum +] ?]
-
 
 @ed_menu
 view-if: not last_advisor_action
@@ -40,7 +39,6 @@ view-if: not last_advisor_action
 - @return: Пока не принимать никаких мер.
 - @easy_discard
 - @cancel_advisor_action
-
 
 
 @increase_science
@@ -57,7 +55,6 @@ unavailable-subtitle: Требуется Министерство экономи
 - @ed_menu: Не увеличивать финансирование исследований.
 - @cancel_advisor_action
 
-
 @kwg
 title: Финансировать Общество кайзера Вильгельма для проведения фундаментальных научных исследований.
 subtitle: -1 к бюджету
@@ -65,7 +62,6 @@ choose-if: budget >= 1
 on-arrival: budget -= 1; science += 1; kwg_research += 1; economic_growth += 0.3 if economic_growth <= 8; new_middle_spd += 5*(1-dissent); ddp_relation += 5*(1-dissent); lvp_relation += 3*(1-dissent); unemployed -= 0.2 if unemployed >= 4; west_relation += 1; science_funding += 1; ddp_left += 1; ddp_cohesion += 0.5; lvp_left += 0.5; education_goal_spd_peoples += 1
 
 Общество кайзера Вильгельма — один из самых уважаемых научно-исследовательских институтов в мире, а его самый известный сотрудник — физик Альберт Эйнштейн. Наша исследовательская программа предоставит Обществу дополнительные ресурсы для найма и обучения учёных, а также для проведения фундаментальных исследований, исходя из собственных интересов самих учёных.
-
 
 @applied
 title: Финансировать прикладные исследования в области экономически полезных технологий.
@@ -76,7 +72,6 @@ on-arrival: budget -= 1; science += 1; applied_research += 1; economic_growth +=
 Наша исследовательская программа нацелена на сотрудничество с промышленностью для разработки полезных технологий и на создание новых научно-исследовательских институтов в области прикладной науки. Это сотрудничество направлено на экономический рост и развитие.
 
 
-
 @medical
 title: Финансировать биомедицинские исследования в больницах и медицинских институтах.
 subtitle: -1 бюджет
@@ -84,7 +79,6 @@ choose-if: budget >= 1
 on-arrival: budget -= 1; science += 1; medical_research += 1; economic_growth += 0.4 if economic_growth <= 8; new_middle_spd += 5*(1-dissent); workers_spd += 3*(1-dissent); ddp_relation += 5*(1-dissent); lvp_relation += 3*(1-dissent); unemployed -= 0.2 if unemployed >= 4; science_funding += 1; education_goal_spd_peoples += 1
 
 Наша исследовательская программа сосредоточена на медицинских исследованиях, направленных на совершенствование методов лечения заболеваний и укрепление общественного здоровья. [? if change_sex: Среди наших внезапных медицинских открытий — новые методы проведения операций по смене пола и гормональная терапия для <span style="color: deepskyblue;">тран</span><span style="color: linen;">ссе</span><span style="color: lightpink;">ксуалов</span>. Возможно, в будущем от этого разовьётся что-то полезное уже для большей части населения. <i>(ЛГБТ — экстремистское международное движение, запрещенное Верховным Судом России)</i> ?]
-
 
 @cut_funding
 title: Сократить финансирование науки.
@@ -94,7 +88,6 @@ unavailable-subtitle: Мы не финансировали науку.
 on-arrival: budget += 1; science -= 1; science_funding -= 1; applied_research -= 0.33; kwg_research -= 0.33; medical_research -= 0.33; economic_growth -= 0.5; new_middle_spd -= 5; workers_spd -= 2; ddp_relation -= 4; lvp_relation -= 2; unemployed += 0.3; ddp_right += 1; lvp_right += 0.5; goal_spd_cancel_peoples += 1
 
 Мы сократили финансирование науки. Это отрицательно сказывается на нашем экономическом росте, а безработные учёные с меньшей вероятностью будут поддерживать <span style="color: #c00000;">**СДПГ**</span>.
-
 
 
 @structure
@@ -108,15 +101,13 @@ title: Изменить структуру и финансирование об�
 - @ed_menu: Не изменять финансирование или организацию школ.
 - @cancel_advisor_action
 
-
 @secularize
 title: Поддержать светские школы, чтобы покончить с доминированием религии в образовании.
 subtitle: -1 к бюджету
 unavailable-subtitle: -1 к бюджету. Требуется поддержка светских школ большинством партий.
 choose-if: budget >= 1 and ((progressive_coalition + dvp_r >= 50 and not lvp_formed) or (kpd_r + spd_r + lvp_r >= 50 and lvp_formed))
 view-if: secularized = 0
-go-to: secularize_menu if not in_social_liberal_coalition and not in_spd_majority and not in_left_front; secularize_2 if in_social_liberal_coalition or in_spd_majority or in_left_front
-
+go-to: secularize_menu if not in_social_liberal_coalition and not in_spd_majority and not in_left_front and not sapd_toleration; secularize_2 if in_social_liberal_coalition or in_spd_majority or in_left_front or sapd_toleration
 
 @secularize_menu
 
@@ -125,7 +116,6 @@ go-to: secularize_menu if not in_social_liberal_coalition and not in_spd_majorit
 - @secularize_2: Да, сделать это.
 - @ed_menu: Нет, не трогать религиозное образование.
 - @cancel_advisor_action
-
 
 @secularize_2
 on-arrival: secularized = 1; secularized_a = 1; budget -= 1; catholics_spd -= 15; catholics -= 5; z_relation -= 15; dvp_relation += 6*(1-dissent); ddp_relation += 6*(1-dissent); lvp_relation += 6*(1-dissent); kpd_relation += 6*(1-dissent); new_middle_spd += 3*(1-dissent); workers_spd += 3*(1-dissent); education_science += 0.5; new_middle_ddp += 4; new_middle_dvp += 4; new_middle_lvp += 8; dvp_left += 3; ddp_left += 3; ddp_cohesion += 2; lvp_left += 5; education_goal_spd += 1; coalition_dissent += 3 if constructive_vonc and ((in_weimar_coalition and not in_social_liberal_coalition) or in_grand_coalition or in_popular_front or in_emergency_government)
@@ -136,7 +126,6 @@ go-to: vote_of_no_confidence.vonc_menu if ((in_weimar_coalition and not in_socia
 <span style="color: #c00000;">**СДПГ**</span>, [? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span>, [? if not dvp_exist: бывшая ?]<span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?], и <span style="color: #700000;">**КПГ**</span> голосуют за светское образование, преодолевая сопротивление религиозно ориентированных [? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] и <span style="color: #3E88B3;">**НННП**</span>. Мы профинансировали создание светских общественных школ, которые заменят некоторые из прежних конфессиональных школ.
 
 [? if in_weimar_coalition or in_grand_coalition or in_popular_front or in_emergency_government: Конечно, [? if z_party_name != "ХНП": <span style="color: #000000;">Партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] бунтует против этого предложения[? if not constructive_vonc: , и призвали к вынесению вотума недоверия нашему правительству ?]. ?]
-
 
 
 
@@ -151,14 +140,12 @@ max-visits: 3
 Мы профинансировали открытие новых государственных средних школ, чтобы дети пролетариев могли получить то же образование, что и дети из среднего и высшего классов. Теперь больше детей бедных могут готовиться к поступлению в университеты.
 
 
-
 @school_boards
 title: Создать избираемые школьные советы, чтобы дать местным властям больше контроля над образованием.
 on-arrival: school_boards += 1; workers_spd += 3*(1-dissent); new_middle_spd += 3*(1-dissent); old_middle_spd += 2*(1-dissent); education_science += 0.2; education_goal_spd += 1
 view-if: school_boards = 0
 
 Мы создали выборные местные школьные советы и передали им часть полномочий по принятию решений для местных школ.
-
 
 
 @curriculum
@@ -180,52 +167,46 @@ unavailable-subtitle: [? if curriculum_timer > 0 : Ещё слишком ран�
 
 # note: education_science is a variable that affects how much education affects economic growth.
 
-
 @dem_major
 title: Демократическая учебная программа
 subtitle: Критическое мышление, демократическая гражданственность и сотрудничество
-on-arrival: curriculum_timer = 50; major_curriculum = "democratic"; pro_republic += 5*(1-dissent); workers_spd += 3*(1-dissent); democratization += 1; z_relation -= 3; ddp_relation += 3; lvp_relation += 3 if lvp_ideology != "Правые"; lvp_relation -= 3 if lvp_ideology == "Правые"; dvp_relation -= 5; ddp_left += 2; ddp_cohesion += 1; dvp_right += 2; lvp_left += 1; coalition_dissent += 1 if in_grand_coalition; pacifism += 1; education_science += 0.3
+on-arrival: curriculum_timer = 50; major_curriculum = "демократическая"; pro_republic += 5*(1-dissent); workers_spd += 3*(1-dissent); democratization += 1; z_relation -= 3; ddp_relation += 3; lvp_relation += 3 if lvp_ideology != "Правые"; lvp_relation -= 3 if lvp_ideology == "Правые"; dvp_relation -= 5; ddp_left += 2; ddp_cohesion += 1; dvp_right += 2; lvp_left += 1; coalition_dissent += 1 if in_grand_coalition; pacifism += 1; education_science += 0.3
 go-to: curriculum_minor
 
 Мы должны учить студентов тому, как быть гражданами демократической республики: обучать их критически оценивать политику и текущие события, пользоваться своими правами и уважать права других граждан. Традиционалисты всех мастей критикуют эту учебную программу.
 
-
 @science_major
 title: Научная учебная программа
 subtitle: Современная наука, математика и технические навыки
-on-arrival: curriculum_timer = 50; major_curriculum = "scientific"; education_science += 1; coalition_dissent += 1 if in_weimar_coalition; z_relation -= 5; ddp_relation += 4*(1-dissent); lvp_relation += 2*(1-dissent); kpd_relation += 3*(1-dissent); new_middle_spd += 3*(1-dissent); workers_spd += 2*(1-dissent); ddp_left += 1; ddp_cohesion += 0.5; lvp_left += 0.5
+on-arrival: curriculum_timer = 50; major_curriculum = "научная"; education_science += 1; coalition_dissent += 1 if in_weimar_coalition; z_relation -= 5; ddp_relation += 4*(1-dissent); lvp_relation += 2*(1-dissent); kpd_relation += 3*(1-dissent); new_middle_spd += 3*(1-dissent); workers_spd += 2*(1-dissent); ddp_left += 1; ddp_cohesion += 0.5; lvp_left += 0.5
 go-to: curriculum_minor
 
 Наша система образования должна отражать современность: мы должны преподавать естественные науки и рациональное мышление. Религиозные консерваторы, как правило, негативно на это реагируют.
 
-
 @human_major
 title: Гуманитарная учебная программа
 subtitle: Искусство, литература, история и философия
-on-arrival: curriculum_timer = 50; major_curriculum = "humanist"; ddp_relation += 3*(1-dissent); lvp_relation += 2*(1-dissent); new_middle_spd += 4*(1-dissent); education_science += 0.2; ddp_right += 1; ddp_cohesion -= 0.5
+on-arrival: curriculum_timer = 50; major_curriculum = "гуманитарная"; ddp_relation += 3*(1-dissent); lvp_relation += 2*(1-dissent); new_middle_spd += 4*(1-dissent); education_science += 0.2; ddp_right += 1; ddp_cohesion -= 0.5
 go-to: curriculum_minor
 
 Наша учебная программа должна быть сосредоточена на гуманитарных науках, включая искусство, литературу, историю и философию. Некоторые критикуют эту программу: в ней слишком много внимания уделяется «бесполезным» предметам, другие же обеспокоены: деятели искусства слишком тесно связаны с романтическим национализмом.
 
-
 @vocational_major
 title: Учебная программа профессионально-технического обучения
 subtitle: Полезные технические навыки для будущей карьеры
-on-arrival: curriculum_timer = 50; major_curriculum = "vocational"; dvp_relation += 3*(1-dissent); ddp_relation += 3*(1-dissent); lvp_relation += 3*(1-dissent); workers_spd += 4*(1-dissent); rural_spd += 2*(1-dissent); unemployed_spd += 3*(1-dissent); new_middle_spd -= 1; unemployed -= 0.1; education_science += 0.5; ddp_left += 0.5; dvp_left += 0.5; lvp_left += 0.5; education_goal_spd += 1
+on-arrival: curriculum_timer = 50; major_curriculum = "профессиональная"; dvp_relation += 3*(1-dissent); ddp_relation += 3*(1-dissent); lvp_relation += 3*(1-dissent); workers_spd += 4*(1-dissent); rural_spd += 2*(1-dissent); unemployed_spd += 3*(1-dissent); new_middle_spd -= 1; unemployed -= 0.1; education_science += 0.5; ddp_left += 0.5; dvp_left += 0.5; lvp_left += 0.5; education_goal_spd += 1
 go-to: curriculum_minor
 
 Образование должно быть в первую очередь практическим и давать ученикам навыки, наиболее полезные для их будущей жизни.
 
 
-
 @trad_major
 title: Традиционная учебная программа
 subtitle: Классика, дисциплина и национализм
-on-arrival: curriculum_timer = 50; major_curriculum = "traditional"; dvp_relation += 5*(1-dissent);  z_relation += 4*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); pacifism -= 1 if pacifism > 0; pro_republic -= 5; nationalism += 5; education_science += 0.2; lvp_relation += 3 if lvp_ideology != "Левые"; lvp_relation -= 3 if lvp_ideology == "Левые"; ddp_right += 2; dvp_right += 2; lvp_right += 2
+on-arrival: curriculum_timer = 50; major_curriculum = "традиционная"; dvp_relation += 5*(1-dissent);  z_relation += 4*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); pacifism -= 1 if pacifism > 0; pro_republic -= 5; nationalism += 5; education_science += 0.2; lvp_relation += 3 if lvp_ideology != "Левые"; lvp_relation -= 3 if lvp_ideology == "Левые"; ddp_right += 2; dvp_right += 2; lvp_right += 2
 go-to: curriculum_minor
 
 Традиционная учебная программа сосредоточена на древней истории и языках (в особенности латыни и древнегреческом), а также на строгой дисциплине и доле милитаризма.
-
 
 
 @curriculum_minor
@@ -238,49 +219,44 @@ go-to: curriculum_minor
 - @vocational_minor
 - @trad_minor
 
-
 @dem_minor
 title: Демократическая учебная программа
 subtitle: Критическое мышление, демократическая гражданственность и сотрудничество
-view-if: major_curriculum != "democratic"
-on-arrival: minor_curriculum = "democratic"; pro_republic += 3*(1-dissent); workers_spd += 2*(1-dissent); democratization += 1; z_relation -= 2; dvp_relation -= 3; ddp_relation += 2; lvp_relation += 3 if lvp_ideology != "Правые"; lvp_relation -= 3 if lvp_ideology == "Правые"; ddp_left += 1; ddp_cohesion += 0.5; lvp_left += 0.5
+view-if: major_curriculum != "демократическая"
+on-arrival: minor_curriculum = "демократическая"; pro_republic += 3*(1-dissent); workers_spd += 2*(1-dissent); democratization += 1; z_relation -= 2; dvp_relation -= 3; ddp_relation += 2; lvp_relation += 3 if lvp_ideology != "Правые"; lvp_relation -= 3 if lvp_ideology == "Правые"; ddp_left += 1; ddp_cohesion += 0.5; lvp_left += 0.5
 
 Мы должны учить школьников, как быть гражданами демократической республики: критически оценивать политику и текущие события, пользоваться своими правами и уважать права других граждан. Традиционалисты всех мастей критикуют эту учебную программу.
-
 
 @science_minor
 title: Научная учебная программа
 subtitle: Современная наука, математика и технические навыки
-view-if: major_curriculum != "scientific"
-on-arrival: minor_curriculum = "scientific"; education_science += 0.5; z_relation -= 3; ddp_relation += 3*(1-dissent); lvp_relation += 2*(1-dissent); kpd_relation += 2*(1-dissent); new_middle_spd += 2*(1-dissent); workers_spd += 2*(1-dissent); ddp_left += 0.5; ddp_cohesion += 0.5; lvp_left += 0.25
+view-if: major_curriculum != "научная"
+on-arrival: minor_curriculum = "научная"; education_science += 0.5; z_relation -= 3; ddp_relation += 3*(1-dissent); lvp_relation += 2*(1-dissent); kpd_relation += 2*(1-dissent); new_middle_spd += 2*(1-dissent); workers_spd += 2*(1-dissent); ddp_left += 0.5; ddp_cohesion += 0.5; lvp_left += 0.25
 
 Наша система образования должна соответствовать современности, мы должны преподавать науку и рациональное мышление, что обычно вызывает негативную реакцию у религиозных консерваторов.
-
 
 @human_minor
 title: Гуманитарная учебная программа
 subtitle: Искусство, литература, история и философия
-view-if: major_curriculum != "humanist"
-on-arrival: minor_curriculum = "humanist"; new_middle_spd += 3*(1-dissent); ddp_relation += 3*(1-dissent); lvp_relation += 2*(1-dissent); ddp_right += 1; ddp_cohesion -= 0.5
+view-if: major_curriculum != "гуманитарная"
+on-arrival: minor_curriculum = "гуманитарная"; new_middle_spd += 3*(1-dissent); ddp_relation += 3*(1-dissent); lvp_relation += 2*(1-dissent); ddp_right += 1; ddp_cohesion -= 0.5
 
 Наша образовательная программа должна быть сосредоточена на гуманитарных науках, включая искусство, литературу, историю и философию. Некоторые критикуют эту программу: она уделяет слишком много внимания «бесполезным» предметам, в то время как другие обеспокоены: деятели искусства слишком тесно связаны с романтическим национализмом.
-
 
 @vocational_minor
 title: Учебная программа профессионально-технического обучения
 subtitle: Полезные технические навыки для будущей карьеры
-view-if: major_curriculum != "vocational"
-on-arrival: minor_curriculum = "vocational"; education_science += 0.3; dvp_relation += 2*(1-dissent); ddp_relation += 2*(1-dissent); lvp_relation += 2*(1-dissent); workers_spd += 3*(1-dissent); unemployed_spd += 2*(1-dissent); ddp_left += 0.25; dvp_left += 0.25; lvp_left += 0.25
+view-if: major_curriculum != "профессиональная"
+on-arrival: minor_curriculum = "профессиональная"; education_science += 0.3; dvp_relation += 2*(1-dissent); ddp_relation += 2*(1-dissent); lvp_relation += 2*(1-dissent); workers_spd += 3*(1-dissent); unemployed_spd += 2*(1-dissent); ddp_left += 0.25; dvp_left += 0.25; lvp_left += 0.25
 
 Основное внимание в образовании следует уделить предоставлению полезного практического образования и обучению навыкам, которые будут наиболее полезны в дальнейшей жизни учащихся.
-
 
 
 @trad_minor
 title: Традиционная учебная программа
 subtitle: Классика, дисциплина и национализм
-view-if: major_curriculum != "traditional"
-on-arrival: minor_curriculum = "traditional"; dvp_relation += 2*(1-dissent); z_relation += 2*(1-dissent); old_middle_spd += 2*(1-dissent); rural_spd += 2*(1-dissent); pro_republic -= 3; nationalism += 3; lvp_relation += 2 if lvp_ideology != "Левые"; lvp_relation -= 2 if lvp_ideology == "Левые"; ddp_right += 1; dvp_right += 1; lvp_right += 1
+view-if: major_curriculum != "традиционная"
+on-arrival: minor_curriculum = "традиционная"; dvp_relation += 2*(1-dissent); z_relation += 2*(1-dissent); old_middle_spd += 2*(1-dissent); rural_spd += 2*(1-dissent); pro_republic -= 3; nationalism += 3; lvp_relation += 2 if lvp_ideology != "Левые"; lvp_relation -= 2 if lvp_ideology == "Левые"; ddp_right += 1; dvp_right += 1; lvp_right += 1
 
 Традиционная учебная программа сосредоточена на изучении античной истории и языков (в особенности латыни и греческого), а также на строгой дисциплине.
 

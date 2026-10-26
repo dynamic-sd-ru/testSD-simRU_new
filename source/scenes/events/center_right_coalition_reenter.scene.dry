@@ -12,7 +12,6 @@ max-visits: 1
 
 - @center_right_coalition
 
-
 @center_right_coalition
 title: Нас в правительстве заменяет <span style="color: #3E88B3;">**НННП**</span>.
 on-arrival: spd_toleration = 0; in_right_coalition = 0; in_center_right_coalition = 1

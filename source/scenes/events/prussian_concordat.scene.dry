@@ -11,7 +11,6 @@ new-page: true
 
 - @sign_concordat: Правительство Пруссии подпишет конкордат.
 
-
 @sign_concordat
 on-arrival: prussian_concordat = 1; z_relation += 4; catholics_spd += 3*(1-dissent); catholics_dnvp -= 2 if dnvp_ideology == "Радикалы"; ddp_relation -= 2; ddp_cohesion -= 0.5; lvp_relation -= 2
 

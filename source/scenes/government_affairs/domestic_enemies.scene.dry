@@ -23,7 +23,6 @@ view-if: spd_in_government = 1 and interior_minister_party = "СДПГ"
 - @persecute_rfb
 - @root: Пока не предпринимать никаких действий.
 
-
 @ban_sa
 view-if: nazi_urgency >= 3 and sa_banned == 0
 on-arrival: sa_strength *= 0.85; sa_strength *= 0.7 if interior_police_loyalty >= 0.7; sa_banned_pro = 1 if interior_police_loyalty >= 0.7; sa_banned_pro = 0 if interior_police_loyalty < 0.7; sa_banned = 1; dvp_relation -= 3; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; sa_militancy -= 0.05; sa_ban_timer = 6; sa_coup_progress = coup_progress; coup_progress -= 2 if coup_progress >= 6; interior_goal_prussia -= 1
@@ -32,13 +31,11 @@ on-arrival: sa_strength *= 0.85; sa_strength *= 0.7 if interior_police_loyalty >
 
 [? if coup_progress >= 6: Поступают сообщения о готовящемся путче со стороны <span style="color: #7A3C00;">крайне</span> <span style="color: #3E88B3;">правых</span>. Нам удалось сорвать некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
-
 @unban_sa
 view-if: sa_banned = 1 and in_popular_front_prussia == 0 and in_left_front_prussia == 0
 on-arrival: sa_banned = 0; sa_strength += 100; sa_militancy += 0.05; coup_progress += 2 if sa_coup_progress >= 6
 
 <span style="color: #7A3C00;">**СА**</span> более не под запретом. Они немедленно начинают массовую вербовку.
-
 
 @persecute_sa
 title: Продолжить преследование <span style="color: #7A3C00;">**СА**</span>.
@@ -51,20 +48,17 @@ on-arrival: sa_strength *= 0.7; sa_militancy -= 0.05; coup_progress -= 2 if coup
 
 [? if coup_progress >= 4: Поступают сообщения о готовящемся перевороте со стороны <span style="color: #7A3C00;">ультра</span>-<span style="color: #3E88B3;">правых</span>. Мы пресекли некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
-
 @ban_sh
 on-arrival: sh_strength *= 0.85; sh_strength *= 0.7 if interior_police_loyalty >= 0.7; sh_banned = 1; dvp_relation -= 5; prussian_police_loyalty -= 0.1; interior_police_loyalty -= 0.05; coalition_dissent += 1 if spd_in_government = 1 and in_grand_coalition = 1 and president = "Гинденбург"; coalition_dissent += 1 if in_social_catholic_coalition_prussia and cvp_formed; sh_ban_timer = 6; sh_coup_progress = coup_progress; coup_progress -= 1 if coup_progress >= 6; hindenburg_angry += 8; interior_goal_prussia -= 1
 view-if: sh_banned == 0
 
 [? if president == "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ослабляет наши отношения с президентом Гинденбургом, а также с правыми политическими кругами и полицией.  ?][? if president != "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ослабляет наши отношения с правыми политическими кругами и полицией. ?] [? if spd_in_government = 1 and in_grand_coalition = 1 and president = "Гинденбург" : Это также ослабляет нашу коалицию из-за влияния Гинденбурга на её правое крыло. ?] Кроме того, <span style="color: #3E88B3;">**Стальной Шлем**</span> всё ещё действует в подполье.
 
-
 @unban_sh
 view-if: sh_banned = 1 and in_popular_front_prussia == 0 and in_left_front_prussia == 0
 on-arrival: sh_banned = 0; sh_strength += 100; coup_progress += 2 if sh_coup_progress >= 6; hindenburg_angry -= 5
 
 <span style="color: #3E88B3;">**Стальной Шлем**</span> больше не запрещён.
-
 
 @persecute_sh
 title: Усилить преследование <span style="color: #3E88B3;">**Стального Шлема**</span>.
@@ -77,24 +71,21 @@ on-arrival: sh_strength *= 0.7; sh_militancy -= 0.05; dvp_relation -= 5; lvp_rel
 
 [? if coup_progress >= 4: Поступают сообщения о готовящемся перевороте со стороны <span style="color: #7A3C00;">крайне</span>-<span style="color: #3E88B3;">правых</span>. Нам удалось сорвать некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
-
 @ban_rfb
 view-if: communist_coalition < 3 and rfb_banned = 0 and in_popular_front_prussia == 0 and in_left_front_prussia == 0
-on-arrival: kpd_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; dvp_relation += 5; lvp_relation += 5; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; kpd_coalition_dissent += 2; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_banned = 0; n_rfb_banned += 1; hindenburg_angry -= 8
+on-arrival: kpd_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; dvp_relation += 5; lvp_relation += 5; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; kpd_coalition_dissent += 2; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_banned = 0; n_rfb_banned += 1; hindenburg_angry -= 8; kpd_nazi_urgency -= 1;
 
 Полиция с энтузиазмом исполняет запрет, возможно, даже со слишком большим энтузиазмом. Для <span style="color: #700000;">коммунистов</span> это становится еще одним доказательством того, что <span style="color: #c00000;">социалисты</span> — предатели левого движения. Однако <span style="color: #000000;">умеренные</span> и <span style="color: #C0A054;">правоцентристские</span> партии одобряют это, как и сама полиция.
 
-
 @unban_rfb
 view-if: rfb_banned = 1
-on-arrival: rfb_banned = 0; kpd_relation += 5; rfb_strength += 50; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; hindenburg_angry += 8; rfb_goal_prussia -= 1
+on-arrival: rfb_banned = 0; kpd_relation += 5; rfb_strength += 50; prussian_police_loyalty -= 0.05; interior_police_loyalty -= 0.05; hindenburg_angry += 8; rfb_goal_prussia -= 1; kpd_nazi_urgency -= 1 if kpd_nazi_urgency < 0;
 
 <span style="color: #700000;">Коммунистический</span> <span style="color: #8B0000;">**СКФ**</span> больше не запрещён.
-
 
 @persecute_rfb
 title: Продолжить преследование <span style="color: #8B0000;">**СКФ**</span>.
 view-if: rfb_banned = 1 and in_popular_front_prussia == 0 and in_left_front_prussia == 0
-on-arrival: rfb_strength *= 0.7; rfb_militancy -= 0.05; kpd_relation -= 10; kpd_coalition_dissent += 1; z_relation += 2; dvp_relation += 2; lvp_relation += 2; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_persecuted = 0; n_rfb_persecuted += 1; hindenburg_angry -= 5
+on-arrival: rfb_strength *= 0.7; rfb_militancy -= 0.05; kpd_relation -= 10; kpd_coalition_dissent += 1; z_relation += 2; dvp_relation += 2; lvp_relation += 2; prussian_police_loyalty += 0.1; interior_police_loyalty += 0.1; coalition_dissent -= 1 if coalition_dissent > 0 and n_rfb_persecuted = 0; n_rfb_persecuted += 1; hindenburg_angry -= 5; kpd_nazi_urgency -= 1;
 
 Мы арестовали ещё нескольких лидеров <span style="color: #8B0000;">**СКФ**</span> и конфисковали их оружие.

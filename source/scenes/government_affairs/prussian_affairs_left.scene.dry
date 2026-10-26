@@ -24,7 +24,6 @@ card-image: img/braun.jpg
 - @easy_discard
 - @cancel_advisor_action
 
-
 @police_loyalty
 view-if: prussian_police_loyalty < 1
 on-arrival: prussian_police_loyalty += 0.15; rfb_strength += 25; reichsexekution += 1
@@ -33,18 +32,15 @@ on-arrival: prussian_police_loyalty += 0.15; rfb_strength += 25; reichsexekution
 
 Текущая верность полиции: [+ prussian_police_loyalty : loyalty +].
 
-
 @police_strength
 on-arrival: prussian_police_strength += 30; rfb_strength += 50
 
 Мы увеличили численность прусской полиции.
 
-
 @bureaucracy
 on-arrival: prussia_purge += 1; prussian_police_loyalty += 0.08; nationalism -= 5; pacifism += 1; democratization += 2; pro_republic += 3*(1-dissent); new_middle_spd += 2*(1-dissent) if democratization >= 3; new_middle_spd += 2*(1-dissent) if democratization >= 4; coup_progress += 0.5; dvp_left += 2; ddp_left += 1; lvp_left += 1.5; reichsexekution += 1; bureaucracy_goal_prussia -= 1; new_middle_kpd += 2
 
 Бюрократия глубоко <span style="color: #808080;">реакционна</span>, и многие злоупотребляют своей властью в пользу <span style="color: #3E88B3;">правых сил</span>. Устранив <span style="color: #3E88B3;">промонархические</span> и <span style="color: #7A3C00;">продиктаторские</span> элементы, мы сможем демократизировать ее. <span style="color: #700000;">**КПГ**</span> также начала внедрять своих людей в государственный аппарат…
-
 
 @ban_sa
 view-if: sa_banned == 0
@@ -54,20 +50,17 @@ on-arrival: sa_strength *= 0.9; sa_strength *= 0.75 if prussian_police_loyalty >
 
 [? if coup_progress >= 6: Поступают сообщения о готовящемся перевороте со стороны <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>. Нам удалось сорвать некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
-
 @ban_sh
 on-arrival: sh_strength *= 0.85; sh_strength *= 0.7 if prussian_police_loyalty >= 0.75; sh_banned = 1; dvp_relation -= 5; lvp_relation -= 2; prussian_police_loyalty -= 0.1; coalition_dissent += 1 if spd_in_government = 1 and in_grand_coalition = 1 and president = "Гинденбург"; sh_ban_timer = 6; interior_goal_prussia -= 1; sh_coup_progress = coup_progress; coup_progress -= 1 if coup_progress >= 6; hindenburg_angry += 5
 view-if: sh_banned == 0
 
 [? if president == "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ослабит наши отношения с президентом Гинденбургом, а также с политическими <span style="color: #3E88B3;">правыми</span> и полицией.  ?][? if president != "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ослабит наши отношения с политическими <span style="color: #3E88B3;">правыми</span> и полицией.  ?] [? if spd_in_government = 1 and in_grand_coalition = 1 and president = "Гинденбург" : Это также ослабляет нашу коалицию из-за влияния Гинденбурга на <span style="color: #C0A054;">правое</span> крыло нашей коалиции.  ?] Кроме того, <span style="color: #3E88B3;">**Стальной Шлем**</span> всё ещё действует тайно.
 
-
 @unban_rfb
 view-if: rfb_banned = 1
 on-arrival: rfb_banned = 0; rfb_strength += 100; prussian_police_loyalty -= 0.1; rfb_goal_prussia -= 1; hindenburg_angry += 8
 
 <span style="color: #700000;">Коммунистический</span> <span style="color: #700000;">**СКФ**</span> больше не находится под запретом.
-
 
 @free_kpd
 view-if: rfb_banned = 0

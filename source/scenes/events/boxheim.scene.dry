@@ -2,7 +2,7 @@ title: Боксхаймские документы
 new-page: true
 subtitle: Обнаружен пакет документов, в которых подробно описывается план насильственного захвата власти <span style="color: #7A3C00;">нацистами</span>…
 view-if: year = 1931 and month == 11 and nsdap_votes >= 24 and investigate_far_right < 3
-on-arrival: boxheim_seen = 1; nazi_urgency += 1; investigate_far_right = 4; hindenburg_angry_bruning -= 10
+on-arrival: boxheim_seen = 1; nazi_urgency += 1; investigate_far_right = 4; hindenburg_angry_bruning -= 10; kpd_nazi_urgency += 1;
 max-visits: 1
 face-image: img/boxheim.jpg
 tags: event
@@ -18,7 +18,6 @@ tags: event
 - @pressure_drop: Мы ждём решения суда.
 - @nothing: Мы ждём решения суда.
 
-
 @pressure_drop
 view-if: judicial_reform >= 4
 on-arrival: boxheim_persecuted = 1; neorevisionist_dissent -= 20; neorevisionist_strength += 10; workers_nsdap -= 6; new_middle_nsdap -= 10; old_middle_nsdap -= 10; rural_nsdap -= 4; catholics_nsdap -= 3; workers_spd += 3; new_middle_spd += 3; pro_republic += 10; sa_militancy -= 0.1; hindenburg_angry_bruning -= 50; 
@@ -26,7 +25,6 @@ on-arrival: boxheim_persecuted = 1; neorevisionist_dissent -= 20; neorevisionist
 Благодаря проведённой нами тщательной реформе судебной системы <span style="color: #7A3C00;">нацисты</span>, стоящие за этими документами, теперь публично разоблачены и привлечены к ответственности за государственную измену. Это нанесло серьёзный удар по видимости конституционной законности <span style="color: #7A3C00;">**НСДАП**</span>, что вызвало глубокое недоверие между ними и буржуазным истеблишментом, включая самого президента Гинденбурга.
 
 Наше правительство в Гессене продолжит исполнять свои обязанности в качестве исполняющего обязанности в обозримом будущем после срыва переговоров между <span style="color: #7A3C00;">**НСДАП**</span> и[? if z_party_name != "ХНП": <span style="color: #000000;">Центром</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
-
 
 @nothing
 view-if: judicial_reform < 4

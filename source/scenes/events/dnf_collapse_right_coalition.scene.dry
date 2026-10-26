@@ -18,7 +18,6 @@ max-visits: 1
 - @vonc_no
 - @no_matter
 
-
 @center_right
 title: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> войдёт в правительство.
 subtitle: Коалиция продержится ещё немного.
@@ -27,7 +26,6 @@ on-arrival: spd_in_government = 0; in_center_right_coalition = 1; in_right_coali
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 Буржуазия выжила и без нашей поддержки, но вряд ли эта правящая коалиция продержится долго.
-
 
 @vonc_yes
 title: Поддержать вотум недоверия, проголосовав против правительства.
@@ -38,7 +36,6 @@ call: set_next_election_time
 go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_coalition_prussia)
 
 Правая коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
-
 
 @vonc_no
 title: Выступить против вотума недоверия, проголосовав за правительство.
@@ -51,7 +48,6 @@ go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_co
 
 Поддержав правительство, мы, по сути, заключили соглашение о «терпимости» с [+ chancellor +] правительством. Мы не представлены в правительстве, но несём ответственность за его стабильность. Эта мера крайне непопулярна в партии и среди наших сторонников, поскольку мы уже дважды позволили сформировать правое правительство.
 
-
 @no_matter
 title: Неважно, что мы сделаем.
 subtitle: У антиправительственных партий более 50% голосов, независимо от нашего выбора.
@@ -62,11 +58,10 @@ go-to: new_prussia_election if (in_center_right_coalition_prussia or in_right_co
 
 Правая коалиция распалась. Новые выборы назначены на [+ next_election_month : month +] [+ next_election_year +].
 
-
 @new_prussia_election
 on-arrival: prussia_coalition_trigger = 1 if center_right_coalition_prussia < 50
 
-Гугенберг также переманил на свою сторону некоторых депутатов от<span style="color: #3E88B3;">**НННП**</span> к <span style="color: #003755;">**НФГ**</span> в прусском ландтаге, [? if center_right_coalition_prussia < 50: даже если <span style="color: #D3C24D;">**[+ ddp_name +]**</span> присоединятся, им всё равно не хватит голосов для большинства.  ?][? if center_right_coalition_prussia >= 50: но если <span style="color: #D3C24D;">**[+ ddp_name +]**</span> войдут в неё, у них будет правящая коалиция.  ?]
+Гугенберг также переманил на свою сторону некоторых депутатов от <span style="color: #3E88B3;">**НННП**</span> к <span style="color: #003755;">**НФГ**</span> в прусском ландтаге, [? if center_right_coalition_prussia < 50: даже если <span style="color: #D3C24D;">**[+ ddp_name +]**</span> присоединятся, им всё равно не хватит голосов для большинства.  ?][? if center_right_coalition_prussia >= 50: но если <span style="color: #D3C24D;">**[+ ddp_name +]**</span> войдут в неё, у них будет правящая коалиция.  ?]
 
 У нас есть возможность изменить состав прусской коалиции.
 
@@ -75,7 +70,6 @@ on-arrival: prussia_coalition_trigger = 1 if center_right_coalition_prussia < 50
 - @new_prussia_election_oppo: Мы останемся в оппозиции.
 - @prussian_coalition_formation: Провести переговоры о новой прусской коалиции.
 - @new_prussia_election_called: Отказаться от формирования коалиции, чтобы спровоцировать новые выборы.
-
 
 @prussia_coalition
 title: Использовать наши ресурсы, чтобы убедить <span style="color: #D3C24D;">**[+ ddp_name +]**</span> пересмотреть своё решение.
@@ -89,17 +83,15 @@ on-arrival: resources -= 1; ddp_left += 2; ddp_cohesion -= 1; liberal_cooperatio
 
 - @prussian_coalition_formation: Провести переговоры о новой прусской коалиции.
 
-
 @new_prussia_election_oppo
 view-if: center_right_coalition_prussia >= 50
 on-arrival: in_right_coalition_prussia = 0; in_center_right_coalition_prussia = 1; right_prussia = 1; bourgeois_cooperation += 1; liberal_cooperation += 1
 
 А мы остаёмся.
 
-
 @new_prussia_election_called
 view-if: center_right_coalition_prussia < 50
-on-arrival: was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; spd_toleration_prussia = 0; kpd_goals_seen_prussia = 0
+on-arrival: was_in_weimar_coalition_prussia = 1 if (in_weimar_coalition_prussia == 1 or in_minority_weimar_coalition_prussia == 1); was_in_grand_coalition_prussia = 1 if (in_grand_coalition_prussia == 1 or in_minority_grand_coalition_prussia == 1); in_right_coalition_prussia = 0; in_weimar_coalition_prussia = 0; in_grand_coalition_prussia = 0; in_minority_grand_coalition_prussia = 0; in_popular_front_prussia = 0; in_left_front_prussia = 0; sapd_toleration_prussia = 0; in_spd_majority_prussia = 0; in_center_right_coalition_prussia = 0; in_far_right_coalition_prussia = 0; in_minority_weimar_coalition_prussia = 0; spd_prussia = 0; right_prussia = 0; ddp_in_popular_front_prussia = 0; spd_toleration_prussia = 0; kpd_goals_seen_prussia = 0
 call: set_next_election_time_prussia
 
 Новые выборы в Пруссии назначены на [+ next_election_month_prussia : month +] [+ next_election_year_prussia +].

@@ -1,6 +1,6 @@
 title: <span style="color: #700000;">**КПГ**</span> представляет свой список целей для коалиции.
 view-if: (in_popular_front = 1 or in_left_front = 1) and kpd_goals_seen = 0 and kpd_coalition_success = 1 and next_election_time - time > 12 and spd_in_government
-on-arrival: kpd_goals_seen = 1; agriculture_goal = 1; economy_goal = 1; labor_goal = 1; foreign_goal = 1; welfare_goal = 0; finance_goal = 0; kpd_ultimatum_timer = 16; kpd_ultimatum_timer = 20 if kpd_relation >= 60; kpd_ultimatum_timer = 24 if kpd_leader == "Примиренцы"; kpd_ultimatum_timer = next_election_time - time - 1 if next_election_time - time <= 12;
+on-arrival: kpd_demands_federal = 1; kpd_goals_seen = 1; agriculture_goal = 1 if land_reform < 4; economy_goal = 1 if socializations < 3 or works_councils < 3 or nationalization_progress < 3; labor_goal = 1; foreign_goal = 1 if soviet_relation < 3; welfare_goal = 0 if welfare < 3; finance_goal = 0 if lower_tax_rates >= -5 and upper_tax_rates < 6; kpd_ultimatum_timer = 16; kpd_ultimatum_timer = 20 if kpd_relation >= 60; kpd_ultimatum_timer = 24 if kpd_leader == "Примиренцы"; kpd_ultimatum_timer = next_election_time - time - 1 if next_election_time - time <= 12;
 new-page: true
 tags: event
 
@@ -22,4 +22,4 @@ tags: event
 
 #[? if interior_goal = 1 : - Ban the <span style="color: #7A3C00;">**SA**</span> and <span style="color: #3E88B3;">**Stahlhelm**</span>. ?]
 
-Они заявляют, что ожидают выполнения этих целей в течение [? if interior_goal = 1 : месяцев. В противном случае они проголосуют за роспуск коалиции.
+Они заявляют, что ожидают выполнения этих целей в течение [+ kpd_ultimatum_timer +] месяцев.

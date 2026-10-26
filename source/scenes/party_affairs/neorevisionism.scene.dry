@@ -17,7 +17,6 @@ max-visits: 1
 - @no_new_ideas: Нам не нужны новые идеи.
 - @easy_discard
 
-
 @support_neo
 on-arrival: neorevisionist_strength += 10; nazi_urgency += 1; neorevisionism = 1; peoples_party_support += 1
 
@@ -25,7 +24,6 @@ on-arrival: neorevisionist_strength += 10; nazi_urgency += 1; neorevisionism = 1
 
 - @shuffle_leadership: Мы должны использовать эту возможность, чтобы сменить руководство партии.
 - @root: Продолжить…
-
 
 
 @no_new_ideas

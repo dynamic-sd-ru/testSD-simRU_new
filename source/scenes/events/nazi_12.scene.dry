@@ -28,7 +28,6 @@ on-display: {!
 
 - @nazi_2
 
-
 @nazi_2
 title: Переговоры завершаются…
 on-arrival: meissner_goal = "Выступать за назначение Гитлера канцлером"; oskar_goal = "Выступать за назначение Папена канцлером"; papen_goal = "Выступать за назначение Гитлера канцлером"; schleicher_strength -= 1

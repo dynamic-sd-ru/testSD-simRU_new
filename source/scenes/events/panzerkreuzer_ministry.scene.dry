@@ -14,14 +14,12 @@ face-image: img/panzerkreuzer.jpg
 - @vote_yes: Построить броненосец
 - @vote_no: Не строить броненосец
 
-
 @vote_yes
-on-arrival: left_dissent += 10; labor_dissent += 10; center_dissent += 5; reformist_dissent += 5; neorevisionist_dissent += 5; workers_spd -= 4 if panzerkreuzer_campaign; unemployed_spd -= 2 if panzerkreuzer_campaign; reichswehr_loyalty += 0.1; panzerkreuzer_funded = 1; dvp_left += 1; ddp_right += 1; ddp_cohesion -= 1; lvp_left += 0.5; goal_spd_cancel += 1; hindenburg_angry -= 5
+on-arrival: left_dissent += 10; labor_dissent += 10; center_dissent += 5; reformist_dissent += 5; neorevisionist_dissent += 5; workers_spd -= 4 if panzerkreuzer_campaign; unemployed_spd -= 2 if panzerkreuzer_campaign; reichswehr_loyalty += 0.1; panzerkreuzer_funded = 1; dvp_left += 1; ddp_right += 1; ddp_cohesion -= 1; lvp_left += 0.5; goal_spd_cancel += 1; hindenburg_angry -= 5;
 
 Мы угодили военным, поддержав строительство военного корабля. Однако активисты партии шокированы нашей непреклонностью! Многие партийные ячейки агитируют против нашей делегации в рейхстаге.
 
 [? if panzerkreuzer_campaign: Наши сторонники из рабочего класса чувствуют себя преданными: мы ведь обещали заблокировать строительство корабля и вместо этого направить средства на еду для детей. ?]
-
 
 @vote_no
 on-arrival: coalition_dissent += 1; reichswehr_loyalty -= 0.05; left_dissent -= 10; labor_dissent -= 10; center_dissent -= 5; reformist_dissent -= 5; neorevisionist_dissent -= 5; nationalism -= 6; pacifism += 2; z_relation -= 5; dvp_relation -= 5; lvp_relation -= 3; kpd_relation += 5; workers_spd += 5*(1-dissent); ddp_left += 1; panzerkreuzer_failed = 1; dvp_right += 1; ddp_left += 2; ddp_cohesion += 1; lvp_right += 1; reichswehr_goal_spd += 1; hindenburg_angry += 10; coup_progress += 1

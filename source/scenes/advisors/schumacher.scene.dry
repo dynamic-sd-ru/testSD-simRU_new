@@ -14,7 +14,6 @@ new-page: true
 - @moderate_economic_plan
 - @root: Вернуться
 
-
 @emergency_fundraising
 title: Экстренный сбор средств
 subtitle: Экстренное вливание ресурсов.
@@ -26,7 +25,6 @@ on-arrival: advisor_action_timer = 6; emergency_used += 1; resources += 2; worke
 
 Мы получили +2 ресурса.
 
-
 @build_reichsbanner
 title: Рейхсбаннер
 subtitle: Шумахер поддерживает выделение дополнительных ресурсов для Рейхсбаннера.
@@ -34,7 +32,6 @@ choose-if: advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?]
 on-arrival: advisor_action_timer = 6; reichsbanner_timer -= 6; last_advisor_action = 1
 go-to: reichsbanner
-
 
 @moderate_economic_plan
 title: Поддержать реформистский экономический план

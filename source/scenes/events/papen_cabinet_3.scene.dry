@@ -25,9 +25,8 @@ on-display: {!
 
 - @papen
 
-
 @papen
 title: Указ подписан президентом Гинденбургом.
-on-arrival: sa_strength *= 2; sa_militancy += 0.1; coup_progress += 2; pro_republic -= 5; sa_ban_repealed = 1; sa_nationwide_ban = 0; sa_banned = 0
+on-arrival: sa_strength *= 2; sa_militancy += 0.1; coup_progress += 2; pro_republic -= 5; sa_ban_repealed = 1; sa_nationwide_ban = 0; sa_banned = 0; kpd_nazi_urgency += 1;
 
 <span style="color: #7A3C00;">**СА**</span> немедленно возвращается к массовой вербовке и вооружаются. Прусская полиция не в силах с этим справиться.

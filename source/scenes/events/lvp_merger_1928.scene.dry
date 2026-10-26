@@ -14,7 +14,6 @@ new-page: true
 
 - @lvp_formed: Партия голосует…
 
-
 @lvp_formed
 on-arrival: dvp_relation += 5; dvp_left += 3; lvp_trigger_time = time + 1
 face-image: img/weimar_coalition_3.jpg

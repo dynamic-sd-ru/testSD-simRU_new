@@ -19,18 +19,15 @@ max-visits: 1
 
 - @oppose_resolution: Мы проголосуем против этой резолюции, настаивая на проведении выборов в соответствии с конституцией.
 
-
 @oppose_resolution
 go-to: hindenburg_extended if goerdeler_right_coalition + nsdap_r >= 66.6; hindenburg_failed if goerdeler_right_coalition + nsdap_r < 66.6
 
 Конечно, мы выступим против этого недемократического акта — народ должен решать, получит ли Гинденбург ещё один срок или нет.
 
-
 @hindenburg_extended
 on-arrival: hindenburg_term_extended = 1
 
 Несмотря на сопротивление <span style="color: #c00000;">левых</span> партий, резолюция принимается при поддержке всех партий правее нашей[? if not lvp_formed: , за исключением <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if not z_in_gov_mini: и <span style="color: #000000;">Партии Центра</span> ?] ?][? if lvp_formed and not z_in_gov_mini: за исключением <span style="color: #000000;">Партии Центра</span> ?].
-
 
 @hindenburg_failed
 on-arrival: hindenburg_term_extended = 0

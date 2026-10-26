@@ -18,7 +18,6 @@ face-image: img/beauty_of_labor.jpg
 - @schleicher_2: Единый рабочий фронт сформирован!
 - @schleicher_3: Переговоры зашли в тупик.
 
-
 @schleicher_2
 unavailable-subtitle: [? if schleicher_spd_influence >= 6: Шлейхер использует своё влияние в АДГБ, чтобы заблокировать дальнейшие переговоры.  ?][? if labor_dissent >= 40 or unions_independent: Недовольство рабочих слишком велико. ?][? if z_relation < 40 or (z_relation < 60 and z_in_gov): У нас нет должных отношений с <span style="color: #000000;">партией Центра</span>. ?]
 choose-if: schleicher_spd_influence < 6 and (z_relation >= 40 or (z_relation >= 60 and z_in_gov)) and labor_dissent < 40 and not unions_independent
@@ -27,7 +26,6 @@ choose-if: schleicher_spd_influence < 6 and (z_relation >= 40 or (z_relation >= 
 
 - @schleicher_2_pro
 - @schleicher_3: Переговоры зашли в тупик.
-
 
 @schleicher_2_pro
 title: Согласиться с предложением <span style="color: #000000;">Центра</span>.
@@ -56,10 +54,13 @@ Q.workers_spd += 6;
 
 Q.unemployed_dnef -= 6;
 Q.unemployed_spd += 6;
+
+if (kpd_nazi_urgency < 0) {
+    kpd_nazi_urgency += 1;
+}
 !}
 
 Объединение профсоюзов осложнило попытки Шлейхера действовать по принципу «разделяй и властвуй», лишив его возможности использовать более умеренные профсоюзы против АДГБ. Мы также договорились координировать совместные действия в ответ на любые враждебные меры, которые его правительство может предпринять в ближайшие месяцы.
-
 
 @schleicher_3
 on-arrival: {!

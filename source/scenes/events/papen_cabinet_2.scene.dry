@@ -25,7 +25,6 @@ on-display: {!
 
 - @papen
 
-
 @papen
 title: Указ подписан президентом Гинденбургом.
 on-arrival: unemployed += 3.5; economic_growth -= 1; inflation -= 1; budget += 1; unemployed_kpd += 4; workers_kpd += 4; workers_spd += 2; unemployed_spd += 2; workers_dnvp -= 2; workers_dnf -= 2; workers_nsdap -= 2; unemployed_nsdap -= 2; new_middle_nsdap -= 2; new_middle_kpd += 2; pro_republic -= 5

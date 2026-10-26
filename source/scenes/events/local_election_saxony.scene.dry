@@ -25,7 +25,6 @@ on-display: {!
 
 - @saxony: Сделаем всё возможное…
 
-
 @saxony
 on-arrival: {!
 
@@ -471,6 +470,8 @@ go-to: saxony_achievement
 
 {!<svg id="saxony_landtag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!} 
+!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!
 {!<table>!}  <tr><td>Партия{!</td><td>!}Доля голосов{!</td><td>!}Мест в ландтаге{!</td></tr>!} {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div> !} **СДПГ:** {!</td><td>!} **[+ spd_saxony_elections_vote +]%** {!</td><td>!} [+ spd_r_saxony +]%{!</td></tr>!}
 
 [? if sapd_formed : {!<tr><td><div class="box" style='background-color:#9B0000'> </div> !}СРПГ:{!</td><td>!} [+ sapd_saxony_elections_vote +]%{!</td><td>!} [+ sapd_r_saxony +]%{!</td></tr>!}  ?]
@@ -502,9 +503,14 @@ go-to: saxony_achievement
 [? if dnf_formed : {!<tr><td><div class="box" style='background-color:#003755'> </div> !}НФГ:{!</td><td>!} [+ dnf_saxony_elections_vote +]%{!</td><td>!} [+ dnf_r_saxony +]%{!</td></tr>!}  ?]
 
 {!<tr><td><div class="box" style='background-color:#7A3C00'> </div> !}НСДАП:{!</td><td>!} [+ nsdap_saxony_elections_vote +]%{!</td><td>!} [+ nsdap_r_saxony +]%{!</td></tr>!} {!</table>!} <hr id="read-marker"> В настоящее время Саксонией управляет <span style="color: #fe9e00;">Старая социал-демократическая партия (ASPD), </span> <span style="color: #fe9e00;">**СДПГ(с)**</span> под руководством Макса Хельдта (бывшего члена <span style="color: #c00000;">**СДПГ**</span>). Он возглавляет коалицию большинства, в которую входят все партии, находящиеся между <span style="color: #c00000;">**СДПГ**</span> и <span style="color: #7A3C00;">**НСДАП**</span>, при участии <span style="color: #3E88B3;">**НННП**</span> и различных партий, отстаивающих <span style="color: #b8996f;">нишевые</span> <span style="color: #11DD11;">интересы</span>.
+{!</table>!}
+<hr id="read-marker">
+Saxony is currently governed by the <span style="color: #fe9e00;">Old Social Democratic Party</span> (<span style="color: #fe9e00;">**ASPD**</span>) under Max Heldt (formerly of the <span style="color: #c00000;">**СДПГ**</span>), leading a majority coalition that includes all parties positioned between the <span style="color: #c00000;">**СДПГ**</span> and the <span style="color: #7A3C00;">**НСДАП**</span>, including the <span style="color: #3E88B3;">**НННП**</span> and various <span style="color: #b8996f;">special</span> <span style="color: #11DD11;">interest</span> parties.
 
 Раскол партии в Саксонии произошел, когда саксонское отделение <span style="color: #c00000;">**СДПГ**</span> вступило в конфликт с парламентской фракцией партии, требуя от Хельдта распустить «Большую коалицию» и вступить в переговоры с <span style="color: #700000;">**КПГ**</span>— даже после имперской экзекуции (Reichsexekution) 1924 года. Этот конфликт привёл к тому, что реформисты и большая часть депутатов откололись от партии и образовали <span style="color: #fe9e00;">**СДПГ(с)**</span>, которая с тех пор превратилась в левонационалистический вариант <span style="color: #c00000;">**СДПГ**</span>. Несмотря на то, что после раскола к ним перешло большинство делегатов ландтага от нас, <span style="color: #fe9e00;">**СДПГ(с)**</span> так и не смогла добиться успеха на выборах, и теперь, похоже, обречена уйти в небытие.
 
+Notable members of the <span style="color: #fe9e00;">**ASPD**</span> include Max Heldt, August Winnig (a supporter of the Kapp Putsch), Ernst Niekisch (a "<span style="color: #7A3C00;">national</span> <span style="color: #700000;">bolshevik</span>"), and its party leader, former Minister-President Wilhelm Buck. The party was labeled "<span style="color: #c00000;">social</span> <span style="color: #7A3C00;">fascist</span>" by the <span style="color: #700000;">**Communists**</span>, marking the <span class="tooltip-text" title="это я! создатель мода!">origin</span> of the term.
+<hr id="read-marker">
 Среди известных членов <span style="color: #fe9e00;">**СДПГ(с)**</span> — Макс Хельдт, Август Винниг (сторонник капповского путча), Эрнст Никиш («<span style="color: #7A3C00;">национал</span>-<span style="color: #700000;">большевик</span>») и её лидер, бывший министр-президент Вильгельм Бук. Партия получила ярлык «<span style="color: #c00000;">социал</span>-<span style="color: #7A3C00;">фашистской</span>» от <span style="color: #700000;">**коммунистов**</span>, что и положило начало этому термину. <hr id="read-marker"> Объединенная Левая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #C43988;">**КПО**</span> + <span style="color: #700000;">**КПГ**</span>[? if sapd_formed: &nbsp;+ <span style="color: #9B0000;">**СРПГ**</span> ?]): [+ left_coalition_saxony +]%
 
 Большая коалиция (<span style="color: #c00000;">**СДПГ**</span> + <span style="color: #fe9e00;">**СДПГ(с)**</span> +[? if not lvp_formed: <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?][? if z_r_saxony: &nbsp;+&nbsp;<span style="color: #000000;">**[+ z_party_name +]**</span> ?][? if not lvp_formed: &nbsp;+&nbsp;<span style="color: #C0A054;">**ННП**</span> ?]): [+ spd_coalition_saxony +]%
@@ -515,15 +521,12 @@ go-to: saxony_achievement
 
 [? if nsdap_saxony_elections_vote >= 4: Взлёт <span style="color: #7A3C00;">**НСДАП**</span> стал полной неожиданностью: на прошлых выборах они набрали всего 1,6% голосов. ?]
 
-
 @saxony_achievement
 go-to: alt_aber_gold if aspd_saxony_elections_vote >= 5 and saxony_election_seen == 1; saxony_coalition_menu if aspd_saxony_elections_vote < 5 or saxony_election_seen != 1
-
 
 @alt_aber_gold
 achievement: alt_aber_gold
 go-to: saxony_coalition_menu
-
 
 @saxony_coalition_menu
 on-arrival: {!
@@ -565,6 +568,7 @@ if ((Q.dvp_relation < (dvp_toleration_threshold + 5) && !Q.lvp_formed) || (Q.lvp
 }
 !}
 
+<hr id="read-marker">
 <hr id="read-marker"> Буржуазные партии исторически враждебны к нам в земельной политике, особенно после пресловутого <span style="color: #c00000;">**СДПГ**</span>-<span style="color: #700000;">**КПГ**</span> правительство «Объединённых левых» шесть лет назад столкнулось с <i>Reichsexekution (Имперской экзекуцией)</i>. Раскол нашего реформистского крыла и его переход в <span style="color: #fe9e00;">**СДПГ(с)**</span> ещё больше сместил нашу земельную организацию влево.
 
 [? if aspd_saxony_elections_vote <= 3: С катастрофическим результатом <span style="color: #fe9e00;">**СДПГ(с)**</span>, составившим [+ aspd_saxony_elections_vote +]%, её жизнеспособность как политической силы в земле подходит к концу, а буржуазные партии ищут замену Максу Хельдту.  ?][? if aspd_saxony_elections_vote > 3: Партия <span style="color: #fe9e00;">**СДПГ(с)**</span> не понесла тех потерь, которых мы ожидали, получив [+ aspd_saxony_elections_vote +]% голосов. Останется ли Макс Хельдт, зависит от буржуазных партий.  ?] Несмотря на наше сотрудничество на местном уровне, общенациональная <span style="color: #700000;">**КПГ**</span> вряд ли когда-либо согласится на коалицию.
@@ -577,7 +581,6 @@ if ((Q.dvp_relation < (dvp_toleration_threshold + 5) && !Q.lvp_formed) || (Q.lvp
 - @spd_majority
 
 
-
 @toleration_saxony
 title: Мы заключим с действующим правительством соглашение о воздержании от вотума недоверия.
 choose-if: toleration_possible_saxony and left_strength < 30
@@ -588,7 +591,6 @@ on-arrival: saxony_toleration = 1; old_middle_nsdap -= 1; rural_nsdap -= 1; work
 
 Несмотря на неприглядные качества <span style="color: #fe9e00;">**старой СДПГ, также известной как СДПГ(с)**</span>, они все еще остаются марксистами на сегодняшний день. Левая часть саксонской парторганизации протестует против нашего вмешательства и многие намерены перейти в <span style="color: #700000;">**КПГ**</span>.
 
-
 @true_bourgeois_coalition_saxony
 title: Действующий кабинет Гельдта III продолжит свою работу.
 subtitle: Им удаётся сохранить большинство. Удивительно.
@@ -596,7 +598,6 @@ view-if: true_bourgeois_coalition_saxony >= 50
 on-arrival: saxony_right = 1; saxony_leader = "Хельдт"; pro_republic += 1; rural_nsdap -= 2; old_middle_nsdap -= 2; rural_other += 2 if dnvp_ideology == "Радикалы"; old_middle_other += 2 if dnvp_ideology == "Радикалы"; rural_dnvp += 2 if dnvp_ideology == "Умеренные"; old_middle_dnvp += 2 if dnvp_ideology == "Умеренные"
 
 Неожиданно хорошие результаты для действующей коалиции[? if aspd_saxony_elections_vote >= 4: &nbsp;и <span style="color: #fe9e00;">**СДПГ(с)**</span> ?] позволили им и Хельдту остаться у власти. <span style="color: #7A3C00;">**НСДАП**</span> обескуражена этим поражением, так как она надеялась использовать свои успехи для влияния на правительство.
-
 
 @bourgeois_coalition_saxony
 title: Сформирована буржуазная коалиция.
@@ -607,7 +608,6 @@ on-arrival: saxony_right = 1; saxony_leader = "Бюнгер"; saxony_irl = 1
 Действующая коалиция не смогла набрать большинство, и теперь ей необходимо, чтобы от вотума недоверия воздержалась <span style="color: #7A3C00;">**НСДАП**</span>. Они потребовали исключить из правительства <span style="color: #fe9e00;">**СДПГ(с)**</span>[? if not lvp_formed: &nbsp;и <span style="color: #D3C24D;">**[+ ddp_name +]**</span> ?] из состава кабинета, и у [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] нового министра-председателя Вильгельма Бюнгера, не было иного выбора, кроме как согласиться. Однако вскоре это решение отменили, и <span style="color: #fe9e00;">**СДПГ(с)**</span> получила министерство труда и социального обеспечения.
 
 Несмотря на исключение многих поддерживающих партий из состава кабинета в пользу беспартийных деятелей, они всё же решили воздержаться от вотума недоверия коалиции.
-
 
 @grand_coalition_saxony
 title: Сформирована [? if lvp_formed and stegerwald_path: <span style="color: #000000;">Вей</span><span style="color: #DD0000;">ма</span><span style="color: #FFCC00;">рская</span> ?][? if not lvp_formed or not stegerwald_path: Большая ?] Коалиция!
@@ -621,12 +621,11 @@ on-arrival: saxony_spd = 1; saxony_groko = 1; workers_nsdap -= 3; unemployed_nsd
 
 <span style="color: #fe9e00;">**СДПГ(с)**</span> (чье саксонское отделение заметно более вменяемо), теперь убежденные в нашем реформистском пути, вновь присоединились к саксонской <span style="color: #c00000;">**СДПГ**</span>!
 
-
 @united_left_saxony
 title: <span style="color: #c00000;">**СДПГ**</span> сформирует коалиционное правительство с <span style="color: #700000;">**КПГ**</span>.
 subtitle: История повторится.
 view-if: left_coalition_saxony >= 50 and (kpd_relation >= 35 and kpd_leader == "Примиренцы") or (kpd_relation >= 55 and kpd_leader != "Примиренцы")
-on-arrival: red_saxony = 1; z_relation -= 7; ddp_relation -= 7; dvp_relation -= 7; lvp_relation -= 7; coup_progress += 5; hindenburg_angry += 60; rfb_militancy += 0.08; rfb_strength += 150; sa_strength += 80; sh_strength += 80; strife += 1; workers_spd += 5; workers_kpd += 5; unemployed_spd += 5; new_middle_spd -= 5; old_middle_spd -= 5; rural_spd -= 5; communist_coalition += 3; kpd_relation += 15
+on-arrival: red_saxony = 1; z_relation -= 7; ddp_relation -= 7; dvp_relation -= 7; lvp_relation -= 7; coup_progress += 5; hindenburg_angry += 60; rfb_militancy += 0.08; rfb_strength += 150; sa_strength += 80; sh_strength += 80; strife += 1; workers_spd += 5; workers_kpd += 5; unemployed_spd += 5; new_middle_spd -= 5 if new_middle_conscious == 0; old_middle_spd -= 5; rural_spd -= 5 if rural_conscious == 0; communist_coalition += 3; kpd_relation += 15; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 on-display: {!  
     var cardEl = document.createElement('div');  
     cardEl.className = "face-figure2";  
@@ -643,7 +642,6 @@ on-display: {!
 Удивительно, но, несмотря на нежелание обеих сторон из-за опасений, что <span style="color: #808080;">реакционер</span> Гинденбург прикажет провести <i>Reichsexekution (Имперская экзекуция)</i> в случае формирования коалиции, <span style="color: #c00000;">Красная</span> Саксония восстановлена!
 
 Как одна из самых левых и промышленно развитых земель Германии, мы используем свои рычаги влияния, чтобы провести всеобъемлющие реформы и превратить Саксонию в оплот <span style="color: #c00000;">социализма</span>. Терпение Гинденбурга на исходе. Действуйте осторожно.
-
 
 @no_majority
 title: Большинство собрать не удаётся!
@@ -689,18 +687,16 @@ if ((Q.dvp_relation >= dvp_toleration_threshold && !Q.lvp_formed) || (Q.lvp_rela
 - @toleration_saxony
 - @no_majority_2
 
-
 @no_majority_2
 title: Большинства по-прежнему нет!
 subtitle: [? if not toleration_possible_saxony: Это уже просто смешно. ?][? if toleration_possible_saxony: Мы откажемся от политики воздержания от вотума недоверия к буржуазному правительству, что приведёт к новым выборам. ?]
 on-arrival: saxony_election_2_trigger_time = time + 3; saxony_no_majority = 1 if not saxony_no_majority; saxony_no_majority += 1 if saxony_no_majority; new_middle_nsdap += 2; old_middle_nsdap += 2; rural_nsdap += 1; unemployed_nsdap += 2; pro_republic -= 3; new_middle_spd -= 2 if toleration_possible_saxony; old_middle_spd -= 2 if toleration_possible_saxony; rural_spd -= 1 if toleration_possible_saxony
 
-Коалиция всех партий правее <span style="color: #c00000;">**СДПГ**</span> невозможна, а [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?]отказывается от любой формы Большой коалиции с нашим участием.
+Коалиция всех партий правее <span style="color: #c00000;">**СДПГ**</span> невозможна, а [? if not lvp_formed: <span style="color: #C0A054;">**ННП**</span> ?][? if lvp_formed: <span style="color: #FFCC00;">**ЛНП**</span> ?] отказывается от любой формы Большой коалиции с нашим участием.
 
 В отсутствие реальных альтернатив ландтагу грозит роспуск, что повлечёт за собой новые выборы — возможность, которой <span style="color: #7A3C00;">**НСДАП**</span> надеется воспользоваться, сыграв на политической нестабильности и кажущемся провале парламентской демократии.
 
 [? if saxony_no_majority > 1: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 2: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 3: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 4: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 5: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 6: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 7: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 8: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 9: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 10: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 11: Пожалуйста, остановитесь.  ?][? if saxony_no_majority > 12: Пожалуйста, остановитесь. ?]
-
 
 @spd_majority
 title: Сформировать правительство только из СДПГ!

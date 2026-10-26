@@ -16,16 +16,14 @@ tags: event
 - @conciliator_fail
 
 
-
 @conciliator_success
 title: «Примиренцы» — это новое руководство <span style="color: #700000;">**КПГ**</span>.
 choose-if: (levi_advisor or rosenfeld_advisor) and (left_strength >= reformist_strength) and (kpd_relation >= 50) 
 unavailable-subtitle: [?  if not levi_advisor and not rosenfeld_advisor: Наше партийное руководство недостаточно левое. ?] [? if left_strength < reformist_strength: <span style="color: #D50000;">Коминтерн</span> сомневается в нашей приверженности <span style="color: #c00000;">социализму</span>. ?]
-on-arrival: kpd_leader = "Примиренцы"; communist_coalition += 3; kpd_relation += 10*(1-dissent); left_strength += 5; left_dissent -= 8; pro_republic += (kpd_votes / 2)
+on-arrival: kpd_leader = "Примиренцы"; communist_coalition += 3; kpd_relation += 10*(1-dissent); left_strength += 5; left_dissent -= 8; pro_republic += (kpd_votes / 2); kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 achievement: versohnler
 
 С нашей поддержкой «примиренцы» победили в борьбе за руководство! Новое руководство состоит из группы «примиренцев», включая Артура Эверта, Гуго Эберлейна и Эрнста Мейера. Тельман остаётся, но, похоже, в основном в качестве номинального лидера. Мы надеемся, что новое руководство будет более расположено к сотрудничеству.
-
 
 
 @conciliator_fail

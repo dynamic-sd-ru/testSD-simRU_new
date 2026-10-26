@@ -13,7 +13,6 @@ tags: event
 
 Они требуют либо немедленных выборов под «наблюдением» националистических военизированных формирований, либо немедленной отставки правительства и назначения Адольфа Гитлера канцлером[? if hitler_deported : , а также отмены его депортации  ?]. Очевидно, что они угрожают развязать гражданскую войну, если их требования не будут выполнены.
 
-
 @non_govt_menu
 
 Похоже, президент [+ president +] благосклонно относится к предложениям <span style="color: #7A3C00;">фашистов</span>. Канцлер [+ chancellor +] объявил о намерении уйти в отставку.
@@ -21,17 +20,14 @@ tags: event
 - @fight
 - @accept
 
-
 @accept
 title: Мы ничего не можем поделать.
 go-to: accept_election if (nsdap_normalized + dnvp_normalized >= 0.5 and far_right_coalition < 50); accept_hitler if (nsdap_normalized + dnvp_normalized < 0.5 or far_right_coalition >= 50)
-
 
 @accept_election
 on-arrival: next_election_time = time + 1 if next_election_time > time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12; old_middle_nsdap += 10; new_middle_nsdap += 10; workers_nsdap += 10; rural_nsdap += 10; unemployed_nsdap += 8; workers_spd -= 10; workers_kpd -= 10; sa_strength += 100;
 
 Президент [+ president +] объявил о проведении досрочных выборов, которые состоятся в следующем месяце под руководством временного правительства. <span style="color: #7A3C00;">**СА**</span> получили разрешение действовать безнаказанно, запугивая избирателей и принуждая их поддерживать <span style="color: #7A3C00;">фашистов</span>.
-
 
 
 @accept_hitler
@@ -41,7 +37,6 @@ on-arrival: chancellor = "Гитлер"; chancellor_party = "НСДАП"; spd_in
 
 - @hitler_takes_power
 
-
 @ask_resign
 
 Президент [+ president +] попросил наше правительство уйти в отставку.
@@ -50,22 +45,19 @@ on-arrival: chancellor = "Гитлер"; chancellor_party = "НСДАП"; spd_in
 - @fight_constitution
 - @resign
 
-
 @govt_menu
 
 - @fight
 - @new_elections
 
-
 @fight
 title: Задействовать Рейхсбаннер и объявить всеобщую забастовку, чтобы дать отпор <span style="color: #7A3C00;">фашистам</span>!
-on-arrival: defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; defense_strength += workers_spd_normalized*(2 - dissent)*(2 - unemployed/100); defense_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy if president_ideology == "Левые" and spd_in_government; defense_strength += rfb_strength*rfb_militancy*(kpd_relation/100) if kpd_truce or in_popular_front or in_left_front or in_popular_front_prussia or in_left_front_prussia
+on-arrival: defense_strength = rb_strength*rb_militancy*(1-dissent/2); defense_strength += prussian_police_strength*prussian_police_militancy*prussian_police_loyalty if spd_prussia; enemy_strength = sa_strength*sa_militancy + sh_strength*sh_militancy; defense_strength += workers_spd_normalized*(2 - dissent)*(2 - effective_unemployed/100); defense_strength += reichswehr_strength*reichswehr_loyalty*reichswehr_militancy if president_ideology == "Левые" and spd_in_government; defense_strength += rfb_strength*rfb_militancy*(kpd_relation/100) if kpd_truce or in_popular_front or in_left_front or in_popular_front_prussia or in_left_front_prussia
 go-to: fight_2_win if defense_strength >= enemy_strength and march_on_berlin_seen <= 1; fight_2_win_2 if defense_strength >= enemy_strength and march_on_berlin_seen > 1; fight_2_pre_civil_war if defense_strength < enemy_strength
 
 Численность Рейхсбаннера составляет [+ rb_strength +] тысяч; многие из них — в Берлине, чтобы противостоять демонстрации <span style="color: #7A3C00;">фашистов</span>.
 
 [? if spd_prussia: Прусская полиция задействована против <span style="color: #7A3C00;">фашистов</span>.  ?] [? if spd_in_government and president == "Браун" : Лояльные части рейхсвера также задействованы. ?]
-
 
 
 @fight_2_win
@@ -77,7 +69,6 @@ achievement: drei_pfeile
 
 Демонстрация силы укрепила поддержку республики и <span style="color: #c00000;">**СДПГ**</span>, а также ослабила <span style="color: #7A3C00;">фашистов</span>.
 
-
 @fight_2_win_2
 on-arrival: coup_progress = 0; pro_republic += 5; workers_nsdap -= 2*(1-dissent); unemployed_nsdap -= 2*(1-dissent); new_middle_nsdap -= 2*(1-dissent); rb_strength *= 0.9; sa_strength *= 0.9; sh_strength *= 0.9
 go-to: left_outcome if march_on_berlin_left
@@ -87,13 +78,11 @@ go-to: left_outcome if march_on_berlin_left
 Эта демонстрация силы укрепила поддержку республики и <span style="color: #c00000;">**СДПГ**</span> и ослабила <span style="color: #7A3C00;">фашистов</span>.
 
 
-
 @fight_2_pre_civil_war
 
 Наши силы вступают в столкновение с <span style="color: #7A3C00;">фашистами</span> на улицах Берлина; начинаются вооружённые бои. Ни одной из сторон не удаётся выбить противника с его позиций.
 
 - @civil_war: Это гражданская война.
-
 
 
 @fight_constitution
@@ -107,17 +96,14 @@ unavailable-subtitle: Суд никогда с нами не согласитс�
 - @fight
 
 
-
 @new_elections
 title: Объявить новые досрочные выборы.
 subtitle: Мы не уйдём в отставку под дулом пистолета и попытаемся сохранить честность выборов.
 go-to: new_elections_braun if president_ideology == "Левые"; new_elections_hindenburg if ((president_ideology != "Левые" and president_ideology == "Правые") or president == "Гинденбург") and z_relation >= 40 and far_right_coalition < 50; new_elections_hindenburg_reject if ((president_ideology != "Левые" and president_ideology == "Правые") or president == "Гинденбург") and (z_relation < 40 or far_right_coalition >= 50); new_elections_moderate if president_ideology == "Умеренные"
 
 
-
 @new_elections_braun
 go-to: new_elections_braun_2 if nsdap_normalized + dnvp_normalized >= 0.5 and far_right_coalition < 50; new_elections_braun_reject if (nsdap_normalized + dnvp_normalized < 0.5 or far_right_coalition >= 50)
-
 
 
 @new_elections_braun_reject
@@ -128,12 +114,10 @@ go-to: new_elections_braun_2 if nsdap_normalized + dnvp_normalized >= 0.5 and fa
 - @rosenfeld_appoints_strasser
 - @fight
 
-
 @new_elections_braun_2
 go-to: new_elections_2
 
 <span style="color: #7A3C00;">Фашисты</span>, похоже, верят, что победят на выборах, если те состоятся сейчас, поэтому соглашаются на их проведение в следующем месяце.
-
 
 
 @new_elections_hindenburg
@@ -142,19 +126,16 @@ go-to: new_elections_2
 При посредничестве различных влиятельных лиц на следующий месяц назначаются новые выборы — без использования <span style="color: #7A3C00;">фашистских</span> «наблюдателей за выборами».
 
 
-
 @new_elections_2
 on-arrival: next_election_time = time + 1 if next_election_time > time+1; next_election_month = month + 1 if next_election_time >= time+1; next_election_year = year if next_election_time >= time+1; next_election_year += 1 if next_election_month > 12; next_election_month -= 12 if next_election_month > 12;
 
 
-
 @new_elections_hindenburg_reject
 
-[? if president == "Гинденбург": Под влиянием своего ближайшего окружения и <span style="color: #7A3C00;">фашистов</span> на улицах президент Гинденбург отвергает наше предложение о проведении новых свободных и честных выборов и вновь требует нашей отставки.  ?][? if president != "Гинденбург": Под влиянием <span style="color: #7A3C00;">фашистов</span> на улицах — а также собственных симпатий, поскольку <span style="color: #3E88B3;">**Стальной Шлем**</span> также принимает участие — президент [+ president +] отвергает наше предложение о проведении новых свободных и честных выборов и вновь требует нашей отставки. ?]Возражения не принимаются.
+[? if president == "Гинденбург": Под влиянием своего ближайшего окружения и <span style="color: #7A3C00;">фашистов</span> на улицах президент Гинденбург отвергает наше предложение о проведении новых свободных и честных выборов и вновь требует нашей отставки.  ?][? if president != "Гинденбург": Под влиянием <span style="color: #7A3C00;">фашистов</span> на улицах — а также собственных симпатий, поскольку <span style="color: #3E88B3;">**Стальной Шлем**</span> также принимает участие — президент [+ president +] отвергает наше предложение о проведении новых свободных и честных выборов и вновь требует нашей отставки. ?] Возражения не принимаются.
 
 - @resign
 - @fight
-
 
 @new_elections_moderate
 
@@ -165,7 +146,6 @@ on-arrival: next_election_time = time + 1 if next_election_time > time+1; next_e
 - @new_elections_moderate_2
 - @new_elections_moderate_2_alt
 
-
 @new_elections_moderate_2
 title: Значит, будут свободные и честные выборы!
 choose-if: far_right_coalition < 50 and nsdap_normalized + dnvp_normalized >= 0.5
@@ -173,7 +153,6 @@ unavailable-subtitle: <span style="color: #7A3C00;">Фашистам</span> ну
 go-to: new_elections_2
 
 <span style="color: #7A3C00;">Фашисты</span>, уверенные в своих шансах, соглашаются на выдвинутое [+ president +]ом предложение провести выборы в следующем месяце.
-
 
 @new_elections_moderate_2_alt
 title: Шансов на мирное разрешение больше нет.
@@ -184,7 +163,6 @@ unavailable-subtitle: <span style="color: #7A3C00;">Фашисты</span> уве
 
 - @fight
 
-
 @resign
 title: Покинуть наши посты в правительстве.
 choose-if: president != "Браун"
@@ -194,7 +172,6 @@ go-to: accept
 
 Мы покинули наши посты в правительстве. Нас сменил <span style="color: #808080;">реакционер</span> Гёрделер, который намерен привести в правительство <span style="color: #7A3C00;">национальную</span> <span style="color: #3E88B3;">оппозицию</span>.
 
-
 @braun_appoints_hitler
 title: Нам ничего не остаётся, кроме как назначить Гитлера канцлером.
 view-if: president_ideology == "Левые"
@@ -203,7 +180,6 @@ unavailable-subtitle: Ни за что президент [+ president +] не �
 on-arrival: chancellor = "Гитлер"; chancellor_party = "НСДАП"; spd_in_government = 0
 
 Под угрозой гражданской войны и не желая продолжать борьбу, президент [+ president +] отправляет в отставку действующее правительство и назначает Гитлера из <span style="color: #7A3C00;">**НСДАП**</span> канцлером.
-
 
 @rosenfeld_appoints_strasser
 title: Мы не можем сделать ничего, кроме как назначить Штрассера канцлером.
@@ -216,7 +192,6 @@ on-arrival: chancellor = "Штрассер"; chancellor_party = "НСДАП"; sp
 
 - @hitler_takes_power
 
-
 @presidential_glaze
 on-arrival: reichswehr_loyalty += 0.1; reichswehr_loyalty += 0.1 if president == "Гесслер"
 
@@ -225,11 +200,9 @@ on-arrival: reichswehr_loyalty += 0.1; reichswehr_loyalty += 0.1 if president ==
 - @fight
 - @new_elections
 
-
 @left_outcome
 on-arrival: march_on_berlin_left = 0
 go-to: left_front if in_left_front; pop_front if in_popular_front
-
 
 @left_front
 on-arrival: foreign_minister_party = "СДПГ"; interior_minister_party = "СДПГ"; justice_minister_party = "СДПГ"; labor_minister_party = "СДПГ"; reichswehr_minister_party = "СДПГ"; economic_minister_party = "СДПГ"; finance_minister_party = "СДПГ"; agriculture_minister_party = "СДПГ"; reichswehr_loyalty -= 0.05; dvp_right += 10; ddp_right += 5; ddp_cohesion -= 3; lvp_right += 8; liberal_cooperation += 5; bourgeois_cooperation += 10; liberal_cooperation += 3 if in_left_front_prussia or in_popular_front_prussia; bourgeois_cooperation += 5 if in_left_front_prussia or in_popular_front_prussia; reformist_dissent += 20; reformist_strength -= 10; left_dissent -= 30; left_strength += 20; hindenburg_angry += 10 if in_popular_front_prussia or in_left_front_prussia; catastrophepolitik = 1 if n_elections >= 5 and not catastrophepolitik_cancel
@@ -237,7 +210,6 @@ on-arrival: foreign_minister_party = "СДПГ"; interior_minister_party = "СД
 <span style="color: #700000;">**КПГ**</span> воздержалась от участия в формировании министерств. Они заявляют, что участвуют в рабочем правительстве в качестве «лояльной оппозиции», поддерживая нас извне, но в то же время ведя собственные пропагандистские кампании, чтобы переманить рабочих на свою сторону. Похоже, они ожидают, что мы неминуемо потерпим неудачу и что наш провал будет им на руку.
 
 Так или иначе, <span style="color: #c00000;">**СДПГ**</span> контролирует правительственные министерства.
-
 
 @pop_front
 on-arrival: kpd_goals_seen = 0; finance_minister_party = "Центр"; interior_minister_party = "Центр"; justice_minister_party = "Центр"; ddp_in_popular_front = 1 if (liberal_parliament = 0 and bourgeois_parliament_ddp == 0 and not lvp_formed); justice_minister_party = ddp_name if ddp_in_popular_front; economic_minister_party = "Центр"; economic_minister_party = ddp_name if ddp_in_popular_front; labor_minister_party = "Центр"; foreign_minister_party = "Центр"; agriculture_minister_party = "Центр"; reichswehr_minister = "I"; leverage += kpd_r; leverage += ddp_r if liberal_parliament = 1 or bourgeois_parliament_ddp == 1; dvp_right += 6; ddp_right += 3; lvp_right += 5; ddp_cohesion -= 2 if liberal_parliament = 0; liberal_cooperation += 5 if liberal_parliament = 1 or bourgeois_parliament_ddp == 1; bourgeois_cooperation += 5; liberal_cooperation += 3 if ((liberal_parliament = 1 or bourgeois_parliament_ddp == 1) and (in_popular_front_prussia or in_left_front_prussia)); bourgeois_cooperation += 3 if (in_popular_front_prussia or in_left_front_prussia); dvp_relation -= 5; ddp_relation -= 5 if liberal_parliament = 1 or bourgeois_parliament_ddp == 1; lvp_relation -= 5; reformist_dissent += 20; reformist_strength -= 10; left_dissent -= 20; left_strength += 15; leverage += spd_r if support_kpd_grand; leverage += kpd_r if support_kpd_grand; hindenburg_angry += 10 if (in_popular_front_prussia or in_left_front_prussia)

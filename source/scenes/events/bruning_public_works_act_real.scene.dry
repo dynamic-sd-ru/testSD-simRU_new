@@ -27,7 +27,6 @@ set-bg: img/map_2.jpg
 
 - @public_works
 
-
 @public_works
 title: Отличные новости!
 on-arrival: labor_dissent -= 5; hindenburg_angry_bruning -= 25; lautenbach_adopted = 1; lautenbach_plan_time = time + 12; public_works_name = "Дитрих"; dvp_left += 3; ddp_left += 2; lvp_left += 2; ddp_cohesion += 2; inflation += 2; budget -= 1; economic_growth += 2; workers_nsdap -= 3; workers_ddp += 1; workers_z += 1; workers_dnvp += 1; workers_lvp += 1; unemployed_nsdap -= 5; unemployed_z += 2; unemployed_ddp += 2; unemployed_dnvp += 2; unemployed_lvp += 2

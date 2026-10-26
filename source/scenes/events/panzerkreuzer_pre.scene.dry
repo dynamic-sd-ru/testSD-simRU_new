@@ -15,12 +15,10 @@ new-page: true
 - @anti_ship: Еду детям вместо броненосцев!
 - @pro_ship: Сохранять по этому поводу относительное молчание: мы не можем нарушить обещание, которого никогда не давали.
 
-
 @anti_ship
 on-arrival: workers_spd += 4*(1-dissent); unemployed_spd += 2*(1-dissent); panzerkreuzer_campaign = 1
 
 Наш броский лозунг помог сплотить голоса рабочих и ограничить отток сторонников к <span style="color: #700000;">**КПГ**</span>.
-
 
 @pro_ship
 on-arrival: workers_kpd += 2; unemployed_kpd += 2; labor_dissent += 5; left_dissent += 5; kpd_relation -= 6; panzerkreuzer_campaign = 0

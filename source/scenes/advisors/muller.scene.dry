@@ -15,7 +15,6 @@ view-if: muller_advisor = 1
 - @snap_election
 - @root: Назад
 
-
 @coalition
 title: Переговоры с коалицией
 subtitle: Мюллер может улучшить наши отношения с партнёрами по коалиции.
@@ -26,7 +25,6 @@ on-arrival: advisor_action_timer = 6; coalition_dissent -= 1 if spd_in_governmen
 Мы улучшили наши отношения с [? if z_party_name != "ХНП": <span style="color: #000000;">Партией Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**, ХНП**</span> ?][? if not lvp_formed: , <span style="color: #D3C24D;">**[+ ddp_name +]**</span>[? if dvp_exist: , и <span style="color: #C0A054;">**ННП**</span> ?] ?][? if lvp_formed: &nbsp;и <span style="color: #FFCC00;">**ЛНП**</span> ?], а также снизили напряжённость в коалиции.
 
 
-
 @toleration
 title: Поддержка тактики воздержания от вотума недоверия
 subtitle: Мюллер поддерживает соглашение с буржуазными партиями о поддержке их кабинета.
@@ -35,7 +33,6 @@ choose-if: spd_in_government = 0 and spd_toleration = 1 and advisor_action_timer
 on-arrival: advisor_action_timer = 6; left_dissent -= 8; neorevisionist_dissent -= 8; center_dissent -= 5;
 
 Мы уменьшили недовольство среди противников политики поддержки.
-
 
 @snap_election
 title: Досрочные выборы

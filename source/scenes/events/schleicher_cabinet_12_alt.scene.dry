@@ -1,7 +1,7 @@
 title: Рейхстаг горит!
 subtitle: Предполагаемый поджог, якобы совершённый иностранным <span style="color: #700000;">**коммунистом**</span>.
 view-if: chancellor == "Шлейхер" and (not dsu_in_gov or dsu_was_gov) and reichstag_joever_time >= 1 and not kpd_explode
-on-arrival: kpd_relation = 30 if kpd_relation < 40; reichstag_fire_decree_schleicher = 1
+on-arrival: kpd_relation = 30 if kpd_relation < 40; reichstag_fire_decree_schleicher = 1; kpd_nazi_urgency += 1;
 max-visits: 1
 new-page: true
 priority: -1
@@ -26,7 +26,6 @@ on-display: {!
 Тем не менее мы не можем полностью исключать, что поджог организовал сам Шлейхер, чтобы укрепить свою власть. Гинденбург, стремящийся одобрить любые меры, которые сочтут необходимыми для борьбы с <span style="color: #700000;">большевизмом</span>, готов санкционировать самые решительные действия — включая запрет <span style="color: #700000;">**КПГ**</span>.
 
 - @kpd_ban
-
 
 @kpd_ban
 title: «Декрет о поджоге Рейхстага» подписан Гинденбургом.
@@ -90,7 +89,7 @@ audio: music/1930_1933/Einheitsfrontlied.mp3
 
 На следующий день арестован Эрнст Тельман, а <span style="color: #700000;">**бойцов КПГ**</span>. Многие другие бегут в Москву; тех, кому повезло меньше, бросают в лагеря принудительного труда, приговаривая к изнурительным часам на общественных работах. <span style="color: #700000;">**и СКФ**</span> казнят по приговорам особых местных судов.
 
-Рейхсвер и <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правые</span> ополченцы с готовностью подавляют протесты и заменяют местных <span style="color: #700000;">**коммунистических**</span> мэров верными[? if dnef_formed: <span style="color: #BFC8CC;">**ФНЕГ**</span> ?][? if not dnef_formed: и Шлейхеру ?]лоялистами.
+Рейхсвер и <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правые</span> ополченцы с готовностью подавляют протесты и заменяют местных <span style="color: #700000;">**коммунистических**</span> мэров верными[? if dnef_formed: <span style="color: #BFC8CC;">**ФНЕГ**</span> ?][? if not dnef_formed: и Шлейхеру ?] лоялистами.
 
 [? if prussia_leader == "Гёрделер": Гёрделер, вопреки надеждам на его переход к демократическому правлению, игнорирует возражения <span style="color: #000000;">Партии Центра</span> и правит, пользуясь полным доверием Шлейхера.  ?][? if prussia_leader == "Браун" or prussia_leader == "Штегервальд" or prussia_leader == "Лютер" or prussia_leader == "Брюнинг": Прусское правительство отказывается встать на сторону Шлейхера и не исполняет его приказы. ?]
 
@@ -99,7 +98,6 @@ audio: music/1930_1933/Einheitsfrontlied.mp3
 - @do_nothing
 - @fight_mild
 - @fight
-
 
 @do_nothing
 title: Что ж, <span style="color: #700000;">**коммунисты**</span> сами напросились.
@@ -292,7 +290,9 @@ if (d3 && window) {
 
 {!<svg id="reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!}
 {!<table>!} [? if not dnef_formed: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **СДПГ:** {!</td><td>!} **[+ spd_r +]%** {!</td></tr>!}  ?] [? if dnef_formed: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r +]%** {!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if not lvp_formed and dstp_dnef: {!<tr><td><div class="box2" style='background-color:#A79A3F'> </div>{!</td><td>!}!} [+ ddp_name +]:{!</td><td>!} [+ ddp_r +]%{!</td></tr>!}  ?]
 
@@ -340,12 +340,13 @@ if (d3 && window) {
 
 [? if dsu_exist: <tr><td><div class="box" style='background-color:#6A1E1E'> </div>{!</td><td>!}НСС:{!</td><td>!} [+ dsu_r +]%{!</td></tr>!}  ?]
 
-[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
+[? if not nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_r +]%{!</td></tr>!}  ?] 
+ [? if nsdap_split: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r +]%{!</td></tr>!}  ?]
 
 [? if nvf_exist and not nvf_dnef: {!<tr><td><div class="box" style='background-color:#142e20'> </div>{!</td><td>!}!}ННФ:{!</td><td>!} [+ nvf_r +]%{!</td></tr>!}  ?] {!</table>!}
+{!</table>!}
 
 - @soviet_union_aid
-
 
 @soviet_union_aid
 title: Как отреагирует <span style="color: #750e0e;">Советский Союз</span>?
@@ -354,7 +355,6 @@ subtitle: Страна, по иронии судьбы финансирующа�
 Несмотря на то, что <span style="color: #750e0e;">Советский Союз</span>, возможно, и несёт косвенную ответственность за подготовку офицеров, сражающихся с их <span style="color: #700000;">**коммунистическими**</span> собратьями на улицах, многие <span style="color: #750e0e;">советские</span> политики втайне возмущены, поскольку беглые <span style="color: #700000;">**КПГ**</span>-шные политики распространяют вести о роспуске своей партии.
 
 Однако, несмотря на это, Сталин продолжает придерживаться своей политики тайной помощи Германии в перевооружении путём подготовки офицеров и поставок военных технологий. Таким образом, опасения Шлейхера пока утихли, поскольку Сталин практически полностью контролирует свою партию.
-
 
 @fight_mild
 title: Мы организуем мирные протесты и всеобщую забастовку. Шлейхер не сможет править без поддержки народа.
@@ -370,7 +370,6 @@ choose-if: schleicher_spd_influence < 6
 
 - @fight_mild_2
 - @do_nothing: Это не наша борьба.
-
 
 @fight_mild_2
 title: Рабочие остановили капповский путч в 1920 году.
@@ -390,7 +389,7 @@ if (Q.kpd_relation >= 40) {
 } else if (Q.kpd_relation < 40) {
     Q.normalized_workers_total += Q.workers_kpd_normalized*0.5;
 }
-Q.spd_points += ((1 - Q.labor_dissent/100)*Q.normalized_workers_total*(1 - Q.unemployed/100)*2.5) / 5;
+Q.spd_points += ((1 - Q.labor_dissent/100)*Q.normalized_workers_total*(1 - Q.effective_unemployed/100)*2.5) / 5;
 
 Q.rb_power = Q.rb_strength*Q.rb_militancy;
 if (Q.dissent > 0.15) {
@@ -462,7 +461,6 @@ Q.schleicher_fight = 1;
 - @spd_med
 - @spd_lose
 
-
 @spd_win
 title: Правительство парализовано!
 on-arrival: {!
@@ -512,7 +510,6 @@ view-if: spd_win
 
 - @z_break
 
-
 @spd_med
 title: Шлейхер пытается договориться с нами.
 on-arrival: {!
@@ -558,7 +555,6 @@ view-if: spd_med
 
 - @z_break
 
-
 @spd_lose
 title: Наши протесты неэффективны.
 view-if: spd_lose
@@ -572,25 +568,22 @@ on-arrival: hammerstein_win = 1
 
 - @game_over
 
-
 @z_break
 title: <span style="color: #000000;">Партия Центра</span> разрывает отношения со Шлейхером!
 subtitle: Карточный домик рушится.
 view-if: z_against_schleicher
 go-to: z_break_gov if z_in_gov; z_break_oppo if not z_in_gov
 
-
 @z_break_gov
 on-arrival: hindenburg_schleicher_r -= 2; republicans_schleicher_bonus -= 4; z_in_gov = 0; catholics_dnef -= 10; catholics_dnef_bonus -= 8; catholics_z -= 4; catholics_dnvp += 2 if not kvp_formed; catholics_kvp += 2; catholics_dvp += 2
 
 = <span style="color: #000000;">Партия Центра</span> выходит из состава кабинета
 
-<span style="color: #000000;">Партия Центра</span> и без того на грани разрыва с кабинетом Шлейхера после неконституционного перерыва в работе парламента. Этот недемократический акт убедил её лидеров:  лишь единый <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">икан</span>ский фронт сможет вернуть Германию к нормальной жизни.
+<span style="color: #000000;">Партия Центра</span> и без того на грани разрыва с кабинетом Шлейхера после неконституционного перерыва в работе парламента. Этот недемократический акт убедил её лидеров:  лишь единый <span style="color: #000000;">рес</span><span style="color: #DD0000;">публ</span><span style="color: #FFCC00;">икан</span> ский фронт сможет вернуть Германию к нормальной жизни.
 
 Президентский кабинет Шлейхера теперь полностью утратил легитимность и становится всё более непопулярным в глазах общественности, что фактически положило конец его надеждам манипулировать внутренней политикой партий или использовать их для сохранения хотя бы видимости парламентской демократии в будущем.
 
 - @schleicher_cabinet_13_pre
-
 
 @z_break_oppo
 on-arrival: hindenburg_schleicher_r -= 1; republicans_schleicher_bonus -= 2; catholics_dnef -= 6; catholics_dnef_bonus -= 4; catholics_z -= 2; catholics_dnvp += 2 if not kvp_formed; catholics_kvp += 2
@@ -602,12 +595,10 @@ on-arrival: hindenburg_schleicher_r -= 1; republicans_schleicher_bonus -= 2; cat
 - @schleicher_cabinet_13_pre
 
 
-
 @schleicher_cabinet_13_pre
 title: Ход Шлейхера
 subtitle: Устоит ли генерал?
 go-to: schleicher_cabinet_13
-
 
 
 @fight
@@ -621,6 +612,10 @@ choose-if: schleicher_spd_influence < 4
 
 Может, настало наше время нанести удар?
 
-- @civil_war: <span style="color: #c00000;">**СДПГ**</span> поддержит <span style="color: #700000;">**коммунистов**</span>.
+- @kpd_ban_civil_war: The <span style="color: #c00000;">**СДПГ**</span> stands with the <span style="color: #700000;">**Communists**</span>.
 - @fight_mild
 - @do_nothing: Это не наша борьба.
+
+@kpd_ban_civil_war
+on-arrival: kpd_relation = 80
+go-to: civil_war

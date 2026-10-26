@@ -1,6 +1,6 @@
 title: Партия <span style="color: #000000;">Центра</span> объединяется с <span style="color: #3E88B3;">**НННП**</span>!
 subtitle: Рождается гигант немецких правых сил…
-view-if: year >= 1931 and (100 - z_relation) >= spd_votes and z_ideology == "Правые" and (z_leader == "Штегервальд" or z_leader == "Аденауэр") and (((in_spd_majority or in_left_front) and (not spd_prussia or in_left_front_prussia or in_spd_majority_prussia)) or (spd_votes + pro_republic + left_strength >= 150)) and dnvp_leader == "Тревиранус" and stegerwald_transformation_timer == 0 and not cvp_formed and not dkp_merger_waiting
+view-if: year >= 1931 and (100 - z_relation) >= spd_votes and z_ideology == "Правые" and (z_leader == "Штегервальд" or z_leader == "Аденауэр") and (((in_spd_majority or in_left_front or sapd_toleration) and (not spd_prussia or in_left_front_prussia or in_spd_majority_prussia or sapd_toleration_prussia)) or (spd_votes + pro_republic + left_strength >= 150)) and dnvp_leader == "Тревиранус" and stegerwald_transformation_timer == 0 and not cvp_formed and not dkp_merger_waiting
 max-visits: 1
 tags: event
 priority: 3
@@ -27,7 +27,6 @@ new-page: true
 Однако сопротивление остаётся: <span style="color: #3E88B3;">**НННП**</span>, чья старая гвардия во главе с такими деятелями, как Вестарп и Шиле, по-прежнему глубоко скептически относится к слиянию, ссылаясь на фундаментальные разногласия по ключевым «национальным вопросам», таким как репарации.
 
 - @cvp_dnvp: Между двумя партиями начались переговоры.
-
 
 @cvp_dnvp
 on-arrival: {!
@@ -110,7 +109,6 @@ go-to: cvp_dnvp_menu
 
 Баланс сил:[+ cvp_dnvp_balance : cvp_dnvp_balance +]
 
-
 @cvp_dnvp_menu
 
 
@@ -120,7 +118,6 @@ go-to: cvp_dnvp_menu
 - @coalition
 - @congress
 
-
 @reparations
 title: «Национальные вопросы».
 subtitle: Споры об утраченных землях Германии, выплате репараций, перевооружении и многом другом.
@@ -129,7 +126,6 @@ on-arrival: cvp_reparations = 1
 go-to: reparations_right if cvp_dnvp_balance < 45; reparations_moderate if cvp_dnvp_balance >= 45 and cvp_dnvp_balance < 55; reparations_left if cvp_dnvp_balance >= 55
 
 Репарационный вопрос остаётся самым острым предметом разногласий между двумя партиями, чьи взгляды на то, как Германии следует выполнять свои финансовые обязательства, кардинально расходятся. <span style="color: #3E88B3;">**НННП**</span>, включая самого Тревирануса, решительно выступала против плана Юнга и в прошлом уже вступала в конфликт с <span style="color: #000000;">Центром</span> из-за таких внешнеполитических успехов, как Локарнские договоры.
-
 
 @reparations_right
 on-arrival: cvp_dnvp_balance += 10; cvp_right += 5; nationalism += 10; pro_republic -= 5; west_relation -= 1; east_relation -= 2; z_relation -= 5; old_middle_z += 4; old_middle_dnf -= 4; new_middle_z -= 4; new_middle_dvp += 4; new_middle_lvp += 4; rural_dnf -= 2; rural_z += 2
@@ -145,7 +141,6 @@ go-to: cvp_dnvp_menu
 
 Рейхсвер — продолжить тайное перевооружение и переоснащение армии.
 
-
 @reparations_moderate
 go-to: cvp_dnvp_menu
 
@@ -158,7 +153,6 @@ go-to: cvp_dnvp_menu
 Западная политика — более тесные связи между Австрией и рейхом, референдум по Эйпен-Мальмеди.
 
 Рейхсвер — продолжить тайное перевооружение и переоснащение армии.
-
 
 @reparations_left
 on-arrival: cvp_dnvp_balance -= 10; cvp_left += 5; nationalism -= 10; pro_republic += 5; west_relation += 1; east_relation += 1; z_relation += 5; old_middle_z -= 8; old_middle_dnf += 8; rural_z -= 4; rural_dnf += 4; new_middle_z += 6; new_middle_dvp -= 2; new_middle_ddp -= 2; new_middle_lvp -= 4; new_middle_spd -= 2
@@ -174,7 +168,6 @@ go-to: cvp_dnvp_menu
 
 Рейхсвер — продолжить тайное перевооружение, но сократить его масштабы.
 
-
 @monarchy
 title: Германская монархия
 subtitle: Споры о том, должна ли партия быть <span style="color: #000000;">респ</span><span style="color: #DD0000;">убл</span><span style="color: #FFCC00;">иканской</span> или <span style="color: #808080;">монархической</span>.
@@ -183,7 +176,6 @@ on-arrival: cvp_monarchy = 1
 go-to: monarchy_right if cvp_dnvp_balance < 45; monarchy_moderate if cvp_dnvp_balance >= 45 and cvp_dnvp_balance < 55; monarchy_left if cvp_dnvp_balance >= 55
 
 Вопрос о немецкой <span style="color: #808080;">монархии</span> остаётся крайне спорным, ведь обе стороны придерживаются кардинально разных взглядов. Несмотря на невозможность реставрации в текущем политическом климате, <span style="color: #3E88B3;">**НННП**</span> никогда не прекращала выступать за возвращение ко временам Кайзеррейх. <span style="color: #000000;">Партия Центра</span>, с другой стороны, неизменно убеждённая <span style="color: #000000;">респ</span><span style="color: #DD0000;">убл</span><span style="color: #FFCC00;">иканская</span> сила с самого рождения <span style="color: #000000;">Ве</span><span style="color: #DD0000;">йм</span><span style="color: #FFCC00;">арской</span> республики. Возможно, влияние <span style="color: #0087DC;">народных консерваторов</span> перевесит решительные возражения со стороны <span style="color: #3E88B3;">**НННП**</span>, её старой гвардии.
-
 
 @monarchy_right
 on-arrival: cvp_dnvp_balance -= 10; cvp_right += 4; z_relation -= 5; pro_republic -= 5; rural_z += 4; rural_dnf -= 2; rural_other -= 2; old_middle_z += 6; old_middle_dnf -= 4; old_middle_other -= 2; new_middle_z += 2; new_middle_dnf -= 2; workers_z -= 5; workers_spd += 3; workers_ddp += 3; workers_lvp += 3; unemployed_z -= 3; unemployed_spd += 3; unemployed_ddp += 2; unemployed_lvp += 2; catholics_z -= 4; catholics_spd += 4; catholics_ddp += 2; catholics_lvp += 2
@@ -195,7 +187,6 @@ go-to: cvp_dnvp_menu
 
 Демократия: за усиление президентской власти при сохранении продемократической позиции
 
-
 @monarchy_moderate
 on-arrival: cvp_right += 2; pro_republic -= 3; old_middle_dnf += 4; rural_dnf += 2; old_middle_z -= 4; rural_z -= 2; workers_z -= 2; workers_spd += 2; workers_ddp += 1; workers_lvp += 1
 go-to: cvp_dnvp_menu
@@ -205,7 +196,6 @@ go-to: cvp_dnvp_menu
 Монархия — У партии нет официальной позиции по вопросу монархизма.
 
 Демократия — Поддержка президентского правления, в остальном — сохранение статус-кво.
-
 
 @monarchy_left
 on-arrival: cvp_dnvp_balance += 10; cvp_left += 4; z_relation += 15; pro_republic += 15; rural_z -= 6; rural_dnf += 4; rural_other += 2; old_middle_z -= 6; old_middle_dnf += 4; old_middle_other += 2; new_middle_z -= 4; new_middle_dnf += 2; new_middle_other += 2; workers_z += 5; workers_spd -= 3; unemployed_z += 4; unemployed_spd -= 3
@@ -217,7 +207,6 @@ go-to: cvp_dnvp_menu
 
 Демократия — поддержка более парламентской системы, президентские указы — крайняя мера
 
-
 @economy
 title: Экономическая политика
 subtitle: Дебаты о сельском хозяйстве, социальном обеспечении и депрессии.
@@ -226,7 +215,6 @@ on-arrival: cvp_economy = 1
 go-to: economy_right if cvp_dnvp_balance < 30; economy_moderate if cvp_dnvp_balance >= 30 and cvp_dnvp_balance < 40; economy_left if cvp_dnvp_balance >= 40
 
 Потенциальная всеохватная <span style="color: #000000;">Христианская народная партия</span> сталкивается со сложной задачей удовлетворения разнообразных экономических интересов своей широкой электоральной базы. Эта база включает в себя фермеров, аристократов, землевладельцев, представителей крупного и малого бизнеса, государственных служащих, «белых воротничков», городских «синих воротничков» и многих других представителей всех слоёв общества.
-
 
 @economy_right
 on-arrival: cvp_dnvp_balance += 10; cvp_right += 5; rural_z += 2; rural_dnf -= 2; old_middle_z += 6; old_middle_dnf -= 2; old_middle_dvp -= 2; old_middle_lvp -= 2; new_middle_z += 4; new_middle_dnf -= 2; workers_z -= 3; workers_spd += 5; unemployed_z -= 3; unemployed_spd += 5
@@ -242,7 +230,6 @@ go-to: cvp_dnvp_menu
 
 Великая депрессия — придерживаться строгой бюджетной политики, однако необходимо поддерживать на плаву производственные отрасли и сельское хозяйство.
 
-
 @economy_moderate
 on-arrival: old_middle_z += 4; old_middle_dvp -= 2; old_middle_lvp -= 2; new_middle_z += 4; new_middle_dnf -= 2; workers_z -= 1.5; workers_spd += 3; unemployed_z -= 1.5; unemployed_spd += 3; cvp_economy_keynes = 1
 go-to: cvp_dnvp_menu
@@ -257,7 +244,6 @@ go-to: cvp_dnvp_menu
 
 Великая депрессия: экспериментировать с планом общественных работ в сочетании с увеличением денежной массы
 
-
 @economy_left
 on-arrival: cvp_dnvp_balance -= 10; cvp_left += 5; rural_z -= 4; rural_dnf += 2; rural_dvp += 2; rural_lvp += 2; old_middle_z -= 6; old_middle_dnf += 2; old_middle_dvp += 4; old_middle_lvp += 4; new_middle_z += 4; new_middle_dnf -= 2; new_middle_ddp -= 2; workers_z += 8; workers_spd -= 5; workers_kpd -= 3; unemployed_z += 8; unemployed_spd -= 5; unemployed_nsdap -= 3; cvp_economy_keynes = 1
 go-to: cvp_dnvp_menu
@@ -270,7 +256,6 @@ go-to: cvp_dnvp_menu
 
 Великая депрессия — необходима программа общественных работ, народ должен вернуться к труду.
 
-
 @coalition
 title: Межпартийные отношения
 subtitle: Ведутся споры о том, стоит ли рассматривать нас в качестве партнёра по коалиции.
@@ -279,7 +264,6 @@ on-arrival: cvp_coalition = 1
 go-to: coalition_right if cvp_dnvp_balance < 65; coalition_moderate if cvp_dnvp_balance >= 65 and cvp_dnvp_balance < 75; coalition_left if cvp_dnvp_balance >= 75
 
 Интеграция ярой анти-<span style="color: #9B0000;">марксистской</span> <span style="color: #3E88B3;">**НННП**</span> в состав <span style="color: #000000;">Партии Центра</span>, скорее всего, исключит любое дальнейшее сотрудничество с ними. Однако в рядах <span style="color: #000000;">«Центра»</span> всё ещё существует активное меньшинство прогрессистов, которое может выступить в нашу поддержку.
-
 
 @coalition_right
 on-arrival: cvp_dnvp_balance += 10; cvp_right += 5; z_relation -= 10; rural_z += 6; rural_dnf -= 2; rural_other -= 2; rural_nsdap -= 2; old_middle_z += 10; old_middle_dnf -= 4; old_middle_dvp -= 2; old_middle_lvp -= 2; old_middle_other -= 4; new_middle_z += 6; new_middle_dnf -= 2; new_middle_other -= 4; workers_z -= 3; workers_spd += 3; workers_ddp += 2; workers_lvp += 2; unemployed_z -= 3; unemployed_spd += 3; unemployed_ddp += 2; unemployed_lvp += 2; cvp_coalition_right = 1
@@ -295,7 +279,6 @@ go-to: cvp_dnvp_menu
 
 <span style="color: #7A3C00;">**НСДАП**</span> - Подозрительно двусмысленно
 
-
 @coalition_moderate
 on-arrival: z_relation -= 5; rural_z += 4; rural_other -= 2; rural_nsdap -= 2; old_middle_z += 6; old_middle_dvp -= 2; old_middle_lvp -= 2; old_middle_other -= 4; new_middle_z += 2; new_middle_other -= 2; cvp_coalition_moderate = 1
 go-to: cvp_dnvp_menu
@@ -309,7 +292,6 @@ go-to: cvp_dnvp_menu
 <span style="color: #003755;">**НФГ**</span> — категорически против коалиции
 
 <span style="color: #7A3C00;">**НСДАП**</span> — Подозрительно неоднозначно
-
 
 @coalition_left
 on-arrival: cvp_dnvp_balance -= 10; cvp_left += 5; z_relation += 15; rural_z -= 4; rural_dnf += 2; rural_other += 4; old_middle_z -= 6; old_middle_dnf += 2; old_middle_other += 4; new_middle_z -= 4; new_middle_other += 4; workers_z += 3; workers_spd += 3; unemployed_z += 3; unemployed_spd += 3; cvp_coalition_left = 1
@@ -326,14 +308,13 @@ go-to: cvp_dnvp_menu
 <span style="color: #7A3C00;">**НСДАП**</span> — Против коалиции
 
 
-
 @congress
 title: После разрешения всех разногласий <span style="color: #000000;">**ХНП**</span> сформирована!
 view-if: cvp_reparations and cvp_economy and cvp_coalition and cvp_monarchy
 on-arrival: {!
 Q.cvp_dvp_trigger = 0;
 if (Q.dvp_exist && Q.dvp_votes < 5 && !Q.lvp_formed && !Q.lvp_merger_2_timer && !Q.lvp_timer_2_trigger) Q.cvp_dvp_trigger = 1;
-if (Q.spd_prussia && !Q.in_spd_majority_prussia && !Q.in_left_front_prussia) Q.prussia_coalition_trigger = 1;
+if (Q.spd_prussia && !Q.in_spd_majority_prussia && !Q.in_left_front_prussia && !Q.sapd_toleration) Q.prussia_coalition_trigger = 1;
 if (Q.in_weimar_coalition && !Q.in_social_liberal_coalition || Q.in_grand_coalition || Q.in_popular_front) Q.federal_coalition_trigger = Q.time;
 !}
 face-image: img/cvp.jpg
@@ -347,13 +328,11 @@ achievement: christliche_volkspartei
 - @cvp_party_congress_go
 - @cvp_dvp_merger
 
-
 @cvp_party_congress_go
 title: Первый съезд <span style="color: #000000;">**[+ z_party_name +]**</span>
 subtitle: Здесь решится будущее этой новой партии.
 view-if: not cvp_dvp_trigger
 go-to: cvp_party_congress
-
 
 @cvp_dvp_merger
 title: Кроме того, <span style="color: #C0A054;">**ННП**</span> тоже хочет поучаствовать.

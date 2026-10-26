@@ -22,7 +22,6 @@ max-visits: 6
 - @easy_discard
 - @cancel_advisor_action
 
-
 @labor
 subtitle: Политика оплачиваемых декретных отпусков, равной оплаты труда и так далее.
 on-arrival: womens_work += 1; womens_rights += 1; workers_spd -= 4 if unemployed > 15; new_middle_spd += 4*(1-dissent); workers_spd += 4*(1 - dissent); women_goal_spd += 1; economic_growth += 0.1;
@@ -30,14 +29,12 @@ max-visits: 3
 
 Благодаря этой политике растёт популярность нашей партии среди «новых женщин», работающих вне дома. [? if unemployed > 15 : Однако многие рабочие-мужчины начинают враждебно относиться к женщинам на рабочем месте, особенно на фоне растущей безработицы. ?]
 
-
 @family
 subtitle: Изменить семейное и наследственное право, чтобы обеспечить большее равноправие для женщин.
 on-arrival: family_law += 1; womens_rights += 1; new_middle_spd += 2*(1-dissent); workers_spd += 3*(1-dissent); old_middle_spd -= 2; rural_spd -= 2; catholics_spd -= 4; coalition_dissent += 1; z_relation -= 4; ddp_left += 0.5; ddp_cohesion += 0.5; lvp_left += 0.5; women_goal_spd += 1
 max-visits: 2
 
 Эти меры призваны обеспечить женщинам равные права в браке, включая право на развод. Более консервативные слои общества считают наши реформы губительными для устоев общества.
-
 
 
 @welfare
@@ -48,18 +45,15 @@ on-arrival: welfare += 1; workers_spd += 5*(1-dissent); unemployed_spd += 5*(1-d
 Мы увеличили социальные расходы на женщин и детей.[? if welfare >= 1 and unemployed >= 15 : Некоторые из наших партнёров по коалиции считают возросшие социальные расходы расточительством в данный момент. ?]
 
 
-
 @liberalize
 max-visits: 1
 subtitle: [? if progressive_coalition < 50 : Это вряд ли увенчается успехом: у нас нет поддержки большинства. ?]
 go-to: liberalize_fail if progressive_coalition < 50; liberalize_success if progressive_coalition >= 50
 
-
 @liberalize_fail
 on-arrival: z_relation -= 5; coalition_dissent += 1; workers_spd += 3*(1-dissent); catholics_spd -= 5;
 
 К сожалению, наше предложение отклоняют в рейхстаге, причём католическая [? if z_party_name != "ХНП": <span style="color: #000000;">партия Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] (наши давние партнёры) выступает с особенно яростным протестом, а некоторые члены СДПГ нарушают партийную дисциплину. Деморализованные этой попыткой активисты решили выждать.
-
 
 @liberalize_success
 on-arrival: abortion_rights += 1; womens_rights += 1; coalition_dissent += 2; coalition_dissent += 3 if in_social_catholic_coalition; z_relation -= 8; catholics_spd -= 10; dvp_relation -= 5; ddp_relation += 4; lvp_relation -= 2; workers_spd += 3*(1-dissent); new_middle_spd += 3*(1-dissent); workers_z += 3; new_middle_z += 3; old_middle_z += 3; old_middle_dnvp += 3; rural_dnvp += 3; workers_nsdap -= 3; new_middle_nsdap -= 3; old_middle_nsdap -= 2; rural_nsdap -= 2; unemployed_nsdap -= 2; unemployed_z += 3; unemployed_spd += 3*(1-dissent); new_middle_ddp += 4; workers_ddp += 1; rural_ddp -= 2; ddp_left += 3; lvp_left += 1; rural_lvp -= 3; old_middle_lvp -= 3; new_middle_lvp += 3; workers_lvp += 2; women_goal_spd += 1

@@ -13,7 +13,6 @@ new-page: true
 - @union_unity
 - @root: Вернуться
 
-
 @labor_rights_
 title: Защита прав рабочих
 subtitle: Будучи министром труда, Виссель может помочь в регулировании условий труда.
@@ -21,7 +20,6 @@ choose-if: advisor_action_timer <= 0 and spd_in_government and labor_minister_pa
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?][? if labor_minister_party != "СДПГ" : СДПГ не контролирует Министерство труда. ?]
 on-arrival: advisor_action_timer = 6; labor_rights_timer -= 10; last_advisor_action = 1
 go-to: labor_rights
-
 
 
 @union_unity

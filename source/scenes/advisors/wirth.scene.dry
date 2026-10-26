@@ -16,7 +16,6 @@ new-page: true
 - @campaigning_peoples_party
 - @root: Вернуться назад
 
-
 @democratic_rally
 title: Митинг в защиту демократии
 subtitle: Мобилизовать нашу партию и немецкий народ на защиту демократии и свободы.
@@ -26,7 +25,6 @@ on-arrival: advisor_action_timer = 6; pro_republic += 8; democratization += 1; n
 
 Вирт помогает нам сплотить народ в защиту <span style="color: #000000;">респуб</span><span style="color: #DD0000;">ликан</span><span style="color: #FFCC00;">ского</span> строя.
 
-
 @catholics_rally
 title: Организация католиков
 subtitle: Будучи преданным католиком и бывшим членом партии <span style="color: #000000;">Центра</span>, он особенно эффективен в привлечении голосов от <span style="color: #000000;">**[+ z_party_name +]**</span>.
@@ -35,7 +33,6 @@ unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +
 on-arrival: advisor_action_timer = 6; pro_republic += 4; catholics_spd += 8*(1-dissent)
 
 Вирт помогает нам вернуть голоса католиков, перешедшие к консервативной <span style="color: #000000;">**[+ z_party_name +]**</span>.
-
 
 @support_peoples_party
 title: Поддержать идею Народной Партии
@@ -47,7 +44,6 @@ on-arrival: advisor_action_timer = 6; peoples_party_support += 1
 
 Мы наращиваем поддержку идее «Народной Партии».
 
-
 @build_peoples_party
 title: Создание народной партии
 subtitle: Сможем ли мы расширить нашу партию за пределы промышленного рабочего класса?
@@ -56,7 +52,6 @@ choose-if: peoples_party_support >= 3 and advisor_action_timer = 0
 unavailable-subtitle: [? if advisor_action_timer > 0 : [+ advisor_action_timer +] месяцев до следующего действия советника. ?][? if peoples_party_support < 3: Эта политика не находит достаточной поддержки в партии. ?]
 on-arrival: advisor_action_timer = 6; last_advisor_action = 1
 go-to: peoples_party
-
 
 @campaigning_peoples_party
 title: Агитировать как Народная партия

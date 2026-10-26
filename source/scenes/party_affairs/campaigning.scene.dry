@@ -2,7 +2,6 @@ title: Агитация
 new-page: true
 view-if: not rubicon or campaigning_timer <= 0
 on-arrival: month_actions += 1; campaigning_timer += 2 if rubicon
-max-visits: 36
 is-card: true
 card-image: img/flags.jpg
 frequency: 100
@@ -17,19 +16,18 @@ tags: party_affairs
 - @old_middle: «Старый средний класс»: малый бизнес, индивидуальные предприниматели и ремесленники.
 - @rural: Сельские рабочие и мелкие крестьяне, которые в прошлом чувствовали себя обделёнными нашим вниманием.
 - @unemployed: Безработные.
+- @bdf: We can sponsor *Bund Deutscher Frauenvereine* for an extensive campaign among women.
 - @catholics: Католики, которые обычно поддерживают [? if z_party_name != "ХНП": <span style="color: #000000;">Партию Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?].
 - @root: Мы либо не хотим, либо не можем сейчас вести агитацию.
 - @easy_discard
-
 
 @workers
 subtitle: -1 ресурс
 choose-if: resources >= 1
 unavailable-subtitle: Недостаточно ресурсов.
-on-arrival: workers_spd += 6*(1-dissent); workers_spd -= 1 if unemployed >= 20; workers_spd -= 1 if unemployed >= 30; workers_spd += 3*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_spd += 3*(1-dissent) if nationalization_progress >= 1;
+on-arrival: workers_spd += 6*(1-dissent); workers_spd -= 1 if effective_unemployed >= 20; workers_spd -= 1 if effective_unemployed >= 30; workers_spd += 3*(1-dissent) if wtb_adopted = 1; resources -= 1; workers_spd += 3*(1-dissent) if nationalization_progress >= 1;
 
 Мы усилили агитацию среди рабочих.[? if unemployed >= 15:  Высокий уровень безработицы осложняет нашу кампанию. ?][? if wtb_adopted = 1 :  Принятие плана ВТБ даёт нам новую идею для митингов, которая помогает привлечь больше рабочих. ?]
-
 
 @new_middle
 subtitle: -1 ресурс
@@ -39,7 +37,6 @@ on-arrival: new_middle_spd += 6*(1-dissent); new_middle_spd -= 4 if socialism <=
 
 Мы усилили агитацию среди нового среднего класса. [? if socialism <= 49 and peoples_party == 0: Народная неприязнь к <span style="color: #c00000;">социализму</span> в этой среде осложняет нашу агитацию.  ?] [? if peoples_party > 0: Как Народной Партии, нам стало проще находить поддержку среди среднего класса. ?]
 
-
 @old_middle
 subtitle: -1 ресурс
 choose-if: resources >= 1
@@ -48,12 +45,11 @@ on-arrival: old_middle_spd += 5*(1-dissent); resources -= 1; old_middle_spd -= 3
 
 Мы усилили нашу агитацию среди старого среднего класса. [? if nationalism >= 51 and peoples_party == 0: Высокий уровень национализма в этой группе затрудняет нашу кампанию. ?] [? if peoples_party > 0: Поскольку мы Народная Партия, теперь нам легче заручиться поддержкой среднего класса. ?]
 
-
 @rural
 subtitle: -1 ресурс
 choose-if: resources >= 1
 unavailable-subtitle: Недостаточно ресурсов.
-on-arrival: rural_spd += 5*(1-dissent); rural_spd -= 3*(1-dissent) if peoples_party == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*(1-dissent) if rural_policy >= 2
+on-arrival: rural_spd += 5*(1-dissent); rural_spd -= 3*(1-dissent) if peoples_party == 0 and rural_conscious == 0; resources -= 1; peoples_party_support += 1; rural_spd += 3*(1-dissent) if rural_policy >= 2 or rural_conscious == 1
 
 Мы усилили нашу агитацию среди крестьян. [? if peoples_party == 0: Исторически мы не вели активной агитации среди крестьян — они нам не доверяют.  ?][? if peoples_party > 0: Как народной партии, нам стало проще заручиться поддержкой крестьян, чем раньше.  ?][? if rural_policy >= 2 : Наша аграрная политика упростила нам задачу по завоеванию поддержки среди крестьян. ?]
 
@@ -62,10 +58,18 @@ on-arrival: rural_spd += 5*(1-dissent); rural_spd -= 3*(1-dissent) if peoples_pa
 subtitle: -1 ресурс
 choose-if: resources >= 1
 unavailable-subtitle: Недостаточно ресурсов.
-on-arrival: unemployed_spd += 6*(1-dissent); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd -= 2 if unemployed >= 30; unemployed_spd += 6*(1-dissent) if wtb_adopted = 1; unemployed_spd += 3*(1-dissent) if welfare >= 2;
+on-arrival: unemployed_spd += 6*(1-dissent); resources -= 1; unemployed_spd -= 3 if welfare < 0; unemployed_spd -= 2 if effective_unemployed >= 30; unemployed_spd += 6*(1-dissent) if wtb_adopted = 1; unemployed_spd += 3*(1-dissent) if welfare >= 2;
 
 Мы усилили нашу агитацию среди безработных.[? if welfare < 0: Сокращение социальных выплат и вызванная этим бедность осложняют нашу кампанию, поскольку нас ассоциируют с правительством, которое провело эти сокращения — наша агитация может даже иметь обратный эффект.  ?][? if wtb_adopted = 1 : Принятие плана ВТБ дало нам новую объединяющую идею, которая поможет привлечь на нашу сторону безработных. ?]
 
+@bdf
+view-if: bdf_cooperation
+subtitle: -1 resources.
+choose-if: resources >= 1
+unavailable-subtitle: Not enough resources.
+on-arrival: resources -= 1; workers_spd += 4*(1-dissent); new_middle_spd += 4*(1-dissent); old_middle_spd += 3*(1-dissent); rural_spd += 3*(1-dissent); unemployed_spd += 3*(1-dissent); catholics_spd += 1*(1-dissent);
+
+We have coordinated with BDF to campaign among women across all classes.
 
 @catholics
 subtitle: -1 ресурс

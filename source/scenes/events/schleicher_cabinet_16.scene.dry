@@ -27,7 +27,6 @@ on-display: {!
 - @fight
 - @rb_explode
 
-
 @fight
 title: Сражаться!
 
@@ -38,13 +37,13 @@ title: Сражаться!
 - @civil_war: Мы громко хлопнем дверью!
 - @rb_explode
 
-
 @rb_explode
 title: Распустить Рейхсбаннер.
 subtitle: +2 ресурса
 on-arrival: {!
 Q.rb_explode = 1;
 Q.pro_republic -= 5;
+Q.kpd_nazi_urgency -= 1;
 
 Q.resources += 2;
 

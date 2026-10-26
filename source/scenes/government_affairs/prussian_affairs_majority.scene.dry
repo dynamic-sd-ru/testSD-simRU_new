@@ -1,7 +1,7 @@
 title: Прусский оплот
 new-page: true
 is-card: true
-view-if: in_spd_majority_prussia and (prussian_affairs_timer <= 0 or (prussian_affairs_timer <= 3 and rubicon))
+view-if: (in_spd_majority_prussia or sapd_toleration_prussia) and (prussian_affairs_timer <= 0 or (prussian_affairs_timer <= 3 and rubicon))
 on-arrival: prussian_affairs_timer += 6; prussian_affairs_timer += 6 if prussia_leader != "Браун"; month_actions += 1
 tags: govt_affairs
 card-image: img/braun.jpg
@@ -31,7 +31,6 @@ card-image: img/braun.jpg
 - @easy_discard
 - @cancel_advisor_action
 
-
 @police_loyalty
 view-if: prussian_police_loyalty < 1
 on-arrival: prussian_police_loyalty += 0.15
@@ -40,18 +39,15 @@ on-arrival: prussian_police_loyalty += 0.15
 
 Текущая верность полиции: [+ prussian_police_loyalty : loyalty +].
 
-
 @police_strength
 on-arrival: prussian_police_strength += 35
 
 Мы увеличили численность прусской полиции.
 
-
 @bureaucracy
 on-arrival: prussia_purge += 1; prussian_police_loyalty += 0.08; nationalism -= 4; pacifism += 1; democratization += 1; pro_republic += 4*(1-dissent); new_middle_spd += 3*(1-dissent) if democratization >= 3
 
 Бюрократия глубоко <span style="color: #808080;">реакционна</span>, и многие злоупотребляют своей властью в пользу <span style="color: #3E88B3;">правых сил</span>. Устранив <span style="color: #3E88B3;">промонархические</span> и <span style="color: #7A3C00;">продиктаторские</span> элементы, мы сможем демократизировать ее. Некоторые из наших оппонентов утверждают, что мы посягаем на свободы личности, но, возможно, этого требует безопасность республики.
-
 
 @ban_sa
 view-if: nazi_urgency >= 3 and sa_banned == 0
@@ -63,13 +59,11 @@ on-arrival: sa_strength *= 0.85; sa_strength *= 0.75 if prussian_police_loyalty 
 
 [? if coup_progress >= 6: Поступают сообщения о готовящемся перевороте <span style="color: #7A3C00;">ультра</span><span style="color: #3E88B3;">правых</span>. Нам удалось сорвать некоторые из этих планов, но угроза всё ещё сохраняется. ?]
 
-
 @prosecute_sa
 view-if: nazi_urgency >= 3 and not sa_banned and (chancellor == "Папен" or chancellor == "Шлейхер")
 on-arrival: sa_strength *= 0.95; sa_militancy -= 0.02; prussian_police_loyalty -= 0.02; sa_strength *= 0.98 if prussian_police_loyalty >= 0.75
 
 Хотя полный запрет на <span style="color: #7A3C00;">**СА**</span> и может быть недостижим, мы можем максимально осложнить жизнь <span style="color: #7A3C00;">штурмовикам</span>. Наиболее безрассудных из них можно преследовать по обвинению в убийствах и связанных с ними преступлениях, а также обеспечить защиту законных демонстраций и собраний от их незаконного срыва.
-
 
 @unban_sa
 view-if: sa_banned = 1
@@ -77,13 +71,11 @@ on-arrival: sa_banned = 0; sa_strength += 100; sa_militancy += 0.05; coup_progre
 
 <span style="color: #7A3C00;">**СА**</span> больше не находятся под запретом. Они немедленно начинают массовый набор новобранцев.
 
-
 @ban_sh
 on-arrival: sh_strength *= 0.8; sh_strength *= 0.7 if prussian_police_loyalty >= 0.75; sh_banned = 1; dvp_relation -= 5; lvp_relation -= 2; prussian_police_loyalty -= 0.1; coalition_dissent += 1 if spd_in_government = 1 and in_grand_coalition = 1 and president = "Гинденбург"; coalition_dissent += 1 if in_social_catholic_coalition_prussia and cvp_formed; sh_ban_timer = 6; sh_coup_progress = coup_progress; coup_progress -= 1 if coup_progress >= 6; hindenburg_angry += 5
 view-if: sh_banned == 0 and not in_social_catholic_coalition_prussia
 
 [? if president == "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ухудшает наши отношения с президентом Гинденбургом, а также с политическими <span style="color: #3E88B3;">правыми</span> и полицией.  ?][? if president != "Гинденбург": Запрет <span style="color: #3E88B3;">**Стального Шлема**</span> ухудшает наши отношения с политическими <span style="color: #3E88B3;">правыми</span> и полицией.  ?] [? if spd_in_government = 1 and in_grand_coalition = 1 and president = "Гинденбург" : Это также ослабляет нашу коалицию из-за влияния Гинденбурга на <span style="color: #C0A054;">правое</span> крыло нашей коалиции.  ?] Кроме того, <span style="color: #3E88B3;">**Стальной Шлем**</span> продолжает действовать подпольно.
-
 
 @unban_sh
 view-if: sh_banned = 1
@@ -92,27 +84,23 @@ on-arrival: sh_banned = 0; sh_strength += 100; coup_progress += 2 if sh_coup_pro
 <span style="color: #3E88B3;">**Стальной Шлем**</span> больше не запрещён.
 
 
-
 @ban_rfb
 view-if: communist_coalition < 3 and rfb_banned = 0
-on-arrival: kpd_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; dvp_relation += 5; ddp_relation += 5; lvp_relation += 5; prussian_police_loyalty += 0.1; dvp_left += 1; ddp_left += 0.5; lvp_left += 1; hindenburg_angry -= 8
+on-arrival: kpd_relation -= 15; rfb_strength -= 50; rfb_banned = 1; communist_coalition -= 1; z_relation += 5; dvp_relation += 5; ddp_relation += 5; lvp_relation += 5; prussian_police_loyalty += 0.1; dvp_left += 1; ddp_left += 0.5; lvp_left += 1; hindenburg_angry -= 8; kpd_nazi_urgency -= 1;
 
 Полиция с энтузиазмом исполняет запрет, возможно, даже со слишком большим энтузиазмом. Для <span style="color: #700000;">коммунистов</span> это становится еще одним доказательством того, что <span style="color: #c00000;">социалисты</span> — предатели <span style="color: #9B0000;">левого</span> движения. Однако <span style="color: #000000;">умеренные</span> и <span style="color: #C0A054;">правоцентристские</span> партии одобряют это, как и сама полиция.
 
-
 @unban_rfb
 view-if: rfb_banned = 1 and not in_social_catholic_coalition_prussia
-on-arrival: rfb_banned = 0; rfb_strength += 50; prussian_police_loyalty -= 0.1; hindenburg_angry += 8
+on-arrival: rfb_banned = 0; rfb_strength += 50; prussian_police_loyalty -= 0.1; hindenburg_angry += 8; kpd_nazi_urgency += 1 if kpd_nazi_urgency < 0;
 
 <span style="color: #700000;">Коммунистический</span> <span style="color: #700000;">**СКФ**</span> больше не под запретом.
-
 
 @negotiate_concordat
 view-if: (prussian_concordat_progress < 2 and z_leader != "Каас") or (prussian_concordat_progress < 1 and z_leader = "Каас") and prussian_concordat = 0
 on-arrival: prussian_concordat_progress += 1; z_relation += 2*(1-dissent);
 
 Мы продвигаемся в переговорах о заключении конкордата между Пруссией и католической церковью.[? if z_leader = "Каас": Людвиг Каас из[? if z_party_name != "ХНП": <span style="color: #000000;">Партии Центра</span> ?][? if z_party_name == "ХНП": <span style="color: #000000;">**ХНП**</span> ?] использует его связи для ускорения переговоров. ?]
-
 
 @sign_concordat
 view-if: (prussian_concordat_progress >= 2 and not z_leader = "Каас") or (prussian_concordat_progress >= 1 and z_leader = "Каас") and prussian_concordat = 0

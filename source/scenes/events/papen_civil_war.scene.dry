@@ -59,7 +59,7 @@ if (Q.kpd_relation >= 60) {
 } else if (Q.kpd_relation >= 45) {
     Q.normalized_workers_total += Q.normalized_workers_kpd*0.5;
 }
-Q.total_power += (2 - Q.labor_dissent/100)*Q.normalized_workers_total*(2 - Q.unemployed/100)*2.5;
+Q.total_power += (2 - Q.labor_dissent/100)*Q.normalized_workers_total*(2 - Q.effective_unemployed/100)*2.5;
 console.log("Supporter strength:", Q.total_power);
 
 // our enemies
@@ -115,7 +115,6 @@ go-to: war_menu
 
 Что у нас есть ещё?
 
-
 @war_menu
 
 - @rw_help: Призвать рейхсвер не вмешиваться.
@@ -124,14 +123,12 @@ go-to: war_menu
 - @loyal_police: Призвать на нашу сторону верных конституции полицейских.
 - @war_outcome: Теперь… битва.
 
-
 @rw_help
 max-visits: 1
 go-to: war_menu
 on-arrival: war_choices += 1
 
 Мы призвали рейхсвер не вмешиваться, чтобы они не убивали своих соотечественников. [? if reichswehr_loyalty < 0.2 : К сожалению, мало кто внял нашим призывам; рейхсвер нас ненавидит.  ?][? if reichswehr_loyalty >= 0.2 and reichswehr_loyalty < 0.4 : Некоторые офицеры и солдаты вняли нашим призывам не сражаться против нас. Некоторые даже присоединяются к нам. ?][? if reichswehr_loyalty >= 0.4 and reichswehr_loyalty < 0.6 : Рейхсвер расколот. Многие стараются не принимать ничью сторону или переходят на нашу. ?][? if reichswehr_loyalty >= 0.6 : К нашему удивлению, большая часть рейхсвера на нашей стороне! Наши приготовления сработали. ?]
-
 
 @kpd_help
 max-visits: 1
@@ -143,14 +140,12 @@ on-arrival: war_choices += 1
 
 [? if kpd_relation >= 60 : <span style="color: #700000;">**КПГ**</span> полностью на нашей стороне благодаря нашим хорошим отношениям. ?][? if kpd_relation < 60 and kpd_relation >= 45 : Большая часть <span style="color: #700000;">**КПГ**</span> на нашей стороне благодаря хорошим отношениям с нами. ?][? if kpd_relation < 45 : Нас не поддерживает <span style="color: #700000;">**КПГ**</span>. ?]
 
-
 @general_strike
 max-visits: 1
 go-to: war_menu
 on-arrival: war_choices += 1
 
 В 1920 году всеобщая забастовка остановила капповский путч, и сегодня она может остановить <span style="color: #7A3C00;">фашизм</span>. [? if normalized_workers_total > 70 : Рабочие в основном с нами заодно. ?][? if normalized_workers_total >= 50 and normalized_workers_total <= 70 : В рабочих кругах есть некоторые разногласия, но большинство поддерживает всеобщую забастовку.  ?][? if normalized_workers_total > 30 and normalized_workers_total < 50 : Однако среди рабочих существуют значительные разногласия, и всеобщую забастовку поддерживает меньше половины.  ?][? if normalized_workers_total <= 30 : Однако рабочее движение глубоко расколото, и большинство рабочих не откликается на призыв к забастовке. ?]
-
 
 
 @loyal_police
@@ -164,7 +159,6 @@ view-if: spd_prussia = 1
 
 
 
-
 @foreign_intervention
 max-visits: 1
 go-to: war_menu
@@ -173,11 +167,9 @@ on-arrival: war_choices += 1;
 # note: the Prussian coup should not trigger foreign intervention...
 
 
-
 @war_outcome
 view-if: war_choices >= 2
 go-to: defeat if total_defeat = 1; long_war if long_war = 1; republic_victory if republic_victory = 1
-
 
 @defeat
 
@@ -185,12 +177,11 @@ go-to: defeat if total_defeat = 1; long_war if long_war = 1; republic_victory if
 
 Наши силы не могут тягаться с <span style="color: #808080;">реакционерами</span>. Бойцы Рейхсбаннера быстро подавлены силами <span style="color: #3E88B3;">«Стального шлема»</span>, <span style="color: #7A3C00;">**СА**</span> и рейхсвера. Многие убиты, прежде чем остальные сдаются. Оставшиеся наши лидеры либо бегут из страны, либо их ждет казнь, так как вскоре <span style="color: #808080;">реакционеры</span> и <span style="color: #7A3C00;">нацисты</span> обращают оружие друг против друга.
 
-[? if papen_win: После нашего поражения лучше оснащённый рейхсвер и <span style="color: #3E88B3;">**Стальной шлем**</span> выступают против ослабевших <span style="color: #7A3C00;">**СА**</span> и побеждают их после жестокой борьбы. [+ nsdap_leader +] поканчивает с собой, а многие высокопоставленные <span style="color: #7A3C00;">**НСДАП**</span> лидеры попадают в тюрьму. Папен победил — хотя 90% страны против него. ?][? if nsdap_win: После нашего поражения фанатичные отряды <span style="color: #7A3C00;">**СА**</span> одолевают менее многочисленный, но хорошо оснащённый рейхсвер и используют переход на свою сторону про<span style="color: #7A3C00;">нацистских</span> элементов из <span style="color: #3E88B3;">**«Стального шлема»**</span> в своих интересах. В итоге Папена, которого ненавидят 90% немцев, хватают и казнят вместе с президентом Гинденбургом. Эрнст Рём и <span style="color: #7A3C00;">**СА**</span> теперь имеют значительное влияние в новой Германии, обещая начать кампанию <span style="color: #7e0000;">**неописуемого**</span> <span style="color: #3f0000;">**террора**</span> против <span style="color: #005EB8;">евреев</span>, и бесконечные захватнические войны, которые разорят всю Европу.  ?]
+[? if papen_win: После нашего поражения лучше оснащённый рейхсвер и <span style="color: #3E88B3;">**Стальной шлем**</span> выступают против ослабевших <span style="color: #7A3C00;">**СА**</span> и побеждают их после жестокой борьбы. [+ nsdap_leader +] поканчивает с собой, а многие высокопоставленные <span style="color: #7A3C00;">**НСДАП**</span> лидеры попадают в тюрьму. Папен победил — хотя 90% страны против него. ?][? if nsdap_win: После нашего поражения фанатичные отряды <span style="color: #7A3C00;">**СА**</span> одолевают менее многочисленный, но хорошо оснащённый рейхсвер и используют переход на свою сторону про <span style="color: #7A3C00;">нацистских</span> элементов из <span style="color: #3E88B3;">**«Стального шлема»**</span> в своих интересах. В итоге Папена, которого ненавидят 90% немцев, хватают и казнят вместе с президентом Гинденбургом. Эрнст Рём и <span style="color: #7A3C00;">**СА**</span> теперь имеют значительное влияние в новой Германии, обещая начать кампанию <span style="color: #7e0000;">**неописуемого**</span> <span style="color: #3f0000;">**террора**</span> против <span style="color: #005EB8;">евреев</span>, и бесконечные захватнические войны, которые разорят всю Европу.  ?]
 
 Наше сопротивление войдёт в учебники истории, и в будущем наши имена будут чтить. Но сейчас всё потеряно.
 
 - @game_over: Игра окончена.
-
 
 @long_war
 go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup == 1
@@ -201,7 +192,6 @@ go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup 
 
 Боевые действия приобретают позиционный характер. Это будет не быстрый переворот, а долгая гражданская война. Нация уничтожит сама себя, прежде чем сможет возродиться.
 
-
 @game_over_menu
 
 И хотя мы могли бы воззвать к иностранной помощи, иностранные державы считают «прусский переворот» сугубо внутренним делом.
@@ -210,14 +200,12 @@ go-to: long_war_intervention if resist_coup == 0; game_over_menu if resist_coup 
 
 # no war
 
-
 @long_war_intervention
 
 - @west_aid: Возможно, мы сможем получить помощь от западных держав — <span style="color: #002654;">Франции</span> и <span style="color: #C8102E;">Британии</span>.
 - @soviet_aid: Возможно, мы сможем получить помощь от <span style="color: #750e0e;">Советского Союза</span>.
 - @east_aid: Возможно, наши восточные соседи — <span style="color: #DC143C;">Поль</span><span style="color: #FFFFFF;">ша</span> и <span style="color: #11457E;">Чехо</span><span style="color: #FFFFFF;">сло</span><span style="color: #D7141A;">вакия</span> — смогут нам помочь. Уж кто-кто, а они точно не хотят прихода к власти <span style="color: #7A3C00;">фашистов</span> в Германии.
 - @game_over: Игра окончена.
-
 
 @west_aid
 choose-if: west_relation >= 2
@@ -228,7 +216,6 @@ go-to: long_war_intervention
 
 Мы взываем о помощи к Западу, но их правительства колеблются, не зная, стоит ли нас поддерживать. Нам придётся выживать в одиночку, пока они не примут решение.
 
-
 @soviet_aid
 choose-if: (soviet_relation >= 1 and kpd_relation >= 50) or (kpd_relation >= 75)
 on-arrival: soviet_aid += 1
@@ -238,7 +225,6 @@ go-to: long_war_intervention
 
 Мы обращаемся за помощью к <span style="color: #750e0e;">Советскому Союзу</span>. <span style="color: #700000;">**КПГ**</span> получает львиную долю помощи, в то время как Рейхсбаннер и верные нам воинские части остаются в плачевном положении. Если мы победим, это не сулит ничего хорошего для нашего будущего.
 
-
 @east_aid
 choose-if: east_relation >= 2
 on-arrival: east_aid += 1
@@ -247,7 +233,6 @@ max-visits: 1
 go-to: long_war_intervention
 
 <span style="color: #DC143C;">Поль</span><span style="color: #FFFFFF;">ша</span> и <span style="color: #11457E;">Чехо</span><span style="color: #FFFFFF;">сло</span><span style="color: #D7141A;">вакия</span> в значительной степени слишком поглощены своими собственными проблемами, чтобы оказать существенную помощь, но через те участки границ, которые мы контролируем, к нам просачивается оружие и добровольцы.
-
 
 @republic_victory
 

@@ -142,7 +142,6 @@ new-page: true
 - @dingeldey
 - @deadlock
 
-
 @heuss
 title: Теодор Хойс избран!
 subtitle: Хойс — <span style="color: #c00000;">социальный</span> <span style="color: #000000;">респ</span><span style="color: #DD0000;">убл</span><span style="color: #FFCC00;">иканец</span> и бывший член <span style="color: #D3C24D;">**[+ ddp_name +]**</span>.
@@ -155,19 +154,17 @@ face-image: img/portraits/heuss.jpg
 
 Победа Хойса усиливает «<span style="color: #c00000;">социал-</span><span style="color: #000000;">респу</span><span style="color: #DD0000;">блик</span><span style="color: #FFCC00;">анское</span>» крыло, укрепляя наше сотрудничество. Несмотря на свои лично правые взгляды, Хойс остаётся одним из самых убеждённых и искренних сторонников <span style="color: #FFCC00;">либеральной</span> <span style="color: #586593;">демократии</span> в <span style="color: #FFCC00;">**ЛНП**</span>.
 
-
 @maier
 title: Рейнгольд Майер избран!
 subtitle: Крупная фигура в политике Вюртемберга и бывший член <span style="color: #D3C24D;">**[+ ddp_name +]**</span>.
 unavailable-subtitle: [? if not heuss_lead: Большинство в <span style="color: #FFCC00;">ЛНП</span> воспринимают его как слишком левого, несмотря на его прошлую принадлежность к <span style="color: #D3C24D;">[+ ddp_name +] </span>. ?] и деловому крылу его партии. [? if heuss_lead: Удивительно, но партия сочла Майера слишком консервативным. ?]
 choose-if: maier_lead
-on-arrival: lvp_leader = "Майер"; lvp_relation += 3; lvp_left += 1; pro_republic += 5; new_middle_lvp += 6; old_middle_lvp += 2; rural_lvp += 4; catholics_lvp += 8
+on-arrival:  lvp_leader = "Майер"; lvp_relation += 3; lvp_left += 1; pro_republic += 5; new_middle_lvp += 6; old_middle_lvp += 2; rural_lvp += 4; catholics_lvp += 8
 face-image: img/portraits/maier.jpg
 
 Рейнгольд Майер, крупная фигура в политике Вюртемберга и восходящая звезда в переживающей не лучшие времена партии, избран председателем <span style="color: #FFCC00;">**ЛНП**</span>. Молодой и энергичный, он не так скован догмами, как многие ветераны партии, что делает его отличным выбором для партии, страдающей от пораженчества и внутренних распрей.
 
-Его связь с бывшим <span style="color: #D3C24D;">**[+ ddp_name +]**</span>деловым крылом — не лучшая новость для будущего сотрудничества. И хотя это всё равно лучше, чем политика Лютера, улучшение это весьма незначительное.
-
+Его связь с бывшим <span style="color: #D3C24D;">**[+ ddp_name +]**</span> деловым крылом — не лучшая новость для будущего сотрудничества. И хотя это всё равно лучше, чем политика Лютера, улучшение это весьма незначительное.
 
 @dieckmann
 title: Йоханнес Дикман избран!
@@ -183,7 +180,6 @@ face-image: img/portraits/dieckmann.jpg
 
 Благодаря молодости и малоизвестности у него — в отличие от Курциуса — мало врагов, что сделало его приемлемой компромиссной фигурой. Хотя его политика и шаг вперёд по сравнению с курсом Лютера, этот шаг незначителен.
 
-
 @dingeldey
 title: Эдуард Дингельдей избран.
 subtitle: Дингельдей, член бывшей <span style="color: #C0A054;">**ННП**</span> и обычно ассоциировался с правопромышленным крылом партии.
@@ -196,7 +192,6 @@ face-image: img/portraits/dingeldey.jpg
 
 Однако до сих пор Дингельдей проявлял себя как неэффективный лидер, часто уступая правому крылу <span style="color: #FFCC00;">**ЛНП**</span>. В последнее время мы наблюдаем ухудшение отношений с его партией наряду с заметным сдвигом вправо в <span style="color: #FFCC00;">**ЛНП**</span> в вопросах внутрипартийной политики.
 
-
 @deadlock
 title: Голосование зашло в тупик!
 subtitle: Ни один из кандидатов не смог набрать достаточного количества голосов.
@@ -207,10 +202,8 @@ view-if: lvp_deadlock
 - @maier_compromise: Рейнхольд Майер.
 - @dieckmann_compromise: Йоханнес Дикман.
 
-
 @maier_compromise
 go-to: maier
-
 
 @dieckmann_compromise
 go-to: dieckmann

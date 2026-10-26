@@ -10,7 +10,6 @@ go-to: reichstag
 
 = Ход Шлейхера
 
-
 @reichstag
 on-arrival: {!
 Q.kpd_r_alt = 0;
@@ -59,7 +58,6 @@ go-to: reichstag_diagram
 Вопреки незаконной приостановке работы Рейхстага созвано альтернативное собрание парламента. Состав участвующих партий определяется их связями с нами и их ролью в продолжающихся демонстрациях.
 
 [? if kpd_r_alt: Поскольку большинство депутатов от <span style="color: #700000;">**КПГ**</span> брошены в тюрьмы, на их места назначили заместителей. ?]
-
 
 @reichstag_diagram
 on-display: {!
@@ -234,7 +232,9 @@ go-to: negotiation_menu_med if spd_med; negotiation_menu_win if spd_win
 
 {!<svg id="alt_reichstag" style="width: 500px; height: 250px;"> </svg>!}
 
+{!<table>!}
 {!<table>!} [? if not dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#E3000F; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **СДПГ:** {!</td><td>!} **[+ spd_r_alt +]%** {!</td></tr>!}  ?] [? if dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r_alt +]%** {!</td></tr>!}  ?]
+ [? if dnef_formed and dnef_r_alt: {!<tr><td><div class="box" style='background-color:#BFC8CC; outline: 2px; outline-style: solid;'> </div>{!</td><td>!}!} **ФНЕГ:** {!</td><td>!} **[+ dnef_r_alt +]%** {!</td></tr>!}  ?]
 
 [? if not lvp_formed and dstp_dnef and ddp_r_alt: {!<tr><td><div class="box2" style='background-color:#A79A3F'> </div>{!</td><td>!}!} [+ ddp_name +]:{!</td><td>!} [+ ddp_r_alt +]%{!</td></tr>!}  ?]
 
@@ -281,11 +281,11 @@ go-to: negotiation_menu_med if spd_med; negotiation_menu_win if spd_win
 [? if nsdap_split and nsdap_hitler_r_alt: {!<tr><td><div class="box" style='background-color:#7A3C00'> </div>{!</td><td>!}!}НСДАП:{!</td><td>!} [+ nsdap_hitler_r_alt +]%{!</td></tr>!}  ?]
 
 [? if nvf_exist and nvf_r_alt and not nvf_dnef: {!<tr><td><div class="box" style='background-color:#142e20'> </div>{!</td><td>!}!}ННФ:{!</td><td>!} [+ nvf_r_alt +]%{!</td></tr>!}  ?] {!</table>!}
+{!</table>!}
 
 Всего: [+ total_r_alt_2 +]% вовлечённых депутатов от первоначального состава Рейхстага.
 
 У нас есть рычаги влияния: мы должны использовать их, чтобы добиться уступок. Никто не хочет гражданской войны.
-
 
 @negotiation_menu_med
 
@@ -293,7 +293,6 @@ go-to: negotiation_menu_med if spd_med; negotiation_menu_win if spd_win
 - @rights
 - @schemes
 - @civil_war: К чёрту всё! Всё-таки гражданская война необходима.
-
 
 @negotiation_menu_win
 
@@ -303,13 +302,13 @@ go-to: negotiation_menu_med if spd_med; negotiation_menu_win if spd_win
 - @democracy
 - @civil_war: К чёрту всё! Похоже, без гражданской войны не обойтись.
 
-
 @reichstag_reconvene
 title: Потребовать созыва Рейхстага, на этот раз без грязных уловок.
 subtitle: [? if reichstag_fire_decree_schleicher: В другом здании, конечно. ?]
 on-arrival: {!
 Q.schleicher_post_protests = 1;
 Q.reichstag_break = 0;
+Q.kpd_nazi_urgency += 1;
 
 Q.workers_schleicher_bonus -= 1;
 Q.republicans_schleicher_bonus -= 1;
@@ -344,7 +343,6 @@ Q.pro_republic += 10;
 
 Рейхстаг соберётся [+ next_reichstag_month : month +] [+ next_reichstag_year +], неделя [+ next_reichstag_week +].
 
-
 @rights
 title: Требовать вышеперечисленное, а также [? if not reichstag_fire_decree_schleicher: гарантий демократических прав ?][? if reichstag_fire_decree_schleicher: отмены указа о поджоге Рейхстага ?].
 unavailable-subtitle: Недостаточно рычагов влияния.
@@ -353,6 +351,7 @@ on-arrival: {!
 Q.schleicher_post_protests = 1;
 Q.schleicher_rights = 1;
 Q.reichstag_break = 0;
+Q.kpd_nazi_urgency += 2;
 
 Q.reichswehr_strength -= 50;
 
@@ -414,7 +413,6 @@ Q.schleicher_strength -= 1;
 
 Рейхстаг соберётся [+ next_reichstag_month : month +] [+ next_reichstag_year +], неделя [+ next_reichstag_week +].
 
-
 @schemes
 title: Потребовать вышеперечисленное, а также гарантии сохранения независимости политических организаций.
 subtitle: Включая отмену запрета <span style="color: #700000;">**КПГ**</span>.
@@ -426,6 +424,7 @@ Q.schleicher_post_protests = 1;
 Q.schleicher_rights = 1;
 Q.schleicher_pause = 1;
 Q.reichstag_break = 0;
+Q.kpd_nazi_urgency += 3;
 
 Q.reichswehr_strength -= 100;
 
@@ -506,11 +505,10 @@ achievement: getrennt_marschieren_vereint_schlagen
 
 Рейхстаг соберётся [+ next_reichstag_month : month +] [+ next_reichstag_year +], неделя [+ next_reichstag_week +].
 
-
 @democracy
 title: Потребовать всего этого и отставки Шлейхера.
 unavailable-subtitle: Недостаточно рычагов влияния.
 choose-if: super_secret_mode
-on-arrival: dataminer_detected = 1; ip_grabber = 1
+on-arrival: dataminer_detected = 1; ip_grabber = 1; kpd_nazi_urgency += 5;
 
 Лол.
