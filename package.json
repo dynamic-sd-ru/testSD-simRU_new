@@ -10,7 +10,9 @@
     "check-html": "node scripts/check-html-assets.js",
     "postinstall": "node scripts/localize-engine.js",
     "build": "npm run localize && dendrynexus compile && npm run localize && npm run check-html",
-    "make-html": "npm run localize && dendrynexus make-html --pretty && npm run check-html"
+    "make-html": "npm run localize && dendrynexus make-html --pretty && npm run check-html",
+    "smoke": "node tools/smoke_play.js",
+    "smoke:build": "npm run build && npm run make-html && cp out/game.json out/html/game.json"
   },
   "repository": {
     "type": "git",
@@ -33,5 +35,8 @@
   "dependencies": {
     "dendrynexus": "github:originn0/dendrynexus#142d0d8586512387d9ee8c0da8bf05a25476f3d8",
     "parliament-svg": "^3.0.0"
+  },
+  "devDependencies": {
+    "jsdom": "^24.1.3"
   }
 }
